@@ -10,7 +10,7 @@ FTL: Faster Than Light の overhaul mod である [Multiverse 5.2.3](https://sub
     * [Multiverse 5.2.3](https://subsetgames.com/forum/viewtopic.php?f=11&t=35332)
     * [JPMod.ftl](https://www.axfc.net/u/3899086.zip)
       (Hyperspaceの導入により正式な日本語対応バージョン以前に戻すため、そのバージョンでの日本語パッチが必要です)
-* 本パッチ
+* [本パッチ](https://github.com/AyKo/ftl-multiverse-japanese-patch/raw/main/FTL-Multiverse_5.2.3_hotfix.jp-patch.zip)
 
 ## インストール
 当方の環境がWindows/Steamですので、その環境を前提に書いています。違う環境の場合は異なる部分があると思いますが、適時置き換えて読んでください。
@@ -46,8 +46,8 @@ FTL-Multiverse 5.2.3 hotfix.zip というファイルをダウンロードでき
 これを解凍し JPMod.ftl というファイルを、Slipstream Mod Manager の mod フォルダに保存して下さい。
 
 ### 7. 日本語パッチ（機械翻訳）の入手と格納
-本ページから 「Arsenal+ English Translation」の[日本語パッチ(機械翻訳)]() をダウンロードします。
-こちらも zip ファイルを解凍すると、いくつかの .ftl ファイルができますので同じく mods フォルダに格納します。
+本ページから [日本語パッチ(機械翻訳)](https://github.com/AyKo/ftl-multiverse-japanese-patch/raw/main/FTL-Multiverse_5.2.3_hotfix.jp-patch.zip) をダウンロードします。
+これを zip のまま Slipstream Mod Manager の mod フォルダに保存して下さい。
 
 ### 8. パッチの適用
 Slipstream Mod Manager を起動し、必要な初期設定をおこなったら、「ファイル」メニュー→「Preferences...」をクリックして設定画面を開いてください。開いたウィンドウの一番上のチェックボックス「allow_zip」にチェックをいれて、「Apply」ボタンを押してください。
@@ -59,7 +59,7 @@ Slipstream Mod Manager を起動し、必要な初期設定をおこなったら
 順番は：
 1. [FTL-Multiverse 5.2.3 hotfix]
 2. [JPMod]
-3. [FTL-Multiverse_5.2.3_hotfix.jp-patch.ftl]
+3. [FTL-Multiverse_5.2.3_hotfix.jp-patch]
 
 必要な項目にチェックをしたら Patch ボタンをクリックします。クリックするとパッチの適用が始まります。うまくいくと、今すぐ起動するか？と問い合わせが表示されます。ここまでくればOKです。
 
