@@ -1,0 +1,1011 @@
+<FTL>
+
+<ship name="SHIP_CURA_FAKEBOSS" auto_blueprint="MU_ESTATE_DREAD">
+	<triggeredEvent event="CURA_PRESIDENT_FAILURE" time="1" thisFight="true" clearOnJump="true" />
+	<destroyed load="CURA_PRESIDENT_WIN" />
+</ship>
+<event name="CURA_PRESIDENT" unique="true">
+	<text>ウェントワースイノベーションズの本社に到着しました。印象的な街並みが目の前に広がり、古き良き地球の装飾を彷彿とさせる生命と建築が溢れています。これは間違いなくウェントワース家の明確な作品です。この場所の重要性にもかかわらず、到着したときのセキュリティはまばらに見えます。おそらく、自信過剰は、ヴァンスの輝かしい人生の最も重要な側面さえも追い趠?してきました。</text>
+	<img planet="NONE" back="BACK_EVENT_ESTATE_HQ" />
+	<beaconType id="map_icon_task_final" global="true">
+		<color r="255" g="102" b="140" a="1.0" />
+		<unvisitedTooltip>Your active task from C.U.R.A. is located here.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<preventQuest />
+	<preventFleet />
+	<choice hidden="true">
+        <text>アプローチ。</text>
+        <event>
+            <text>街を率いる遠くのモノリシックな城塞に向かって進むと、運が尽き、レネゲードとしてのアイデンティティがすぐに発見されます。あなたはいくつかのマイナーな銃撃戦を被ります、しかし奇跡的に唯一の犠牲者は会社の側にあります。混雑した城塞のエレベーターに30階ほど滞在した後、ウェントワースイノベーションズのバイスプレジデントであるケイデンスティムリー氏のオフィスとターゲットにたどり着きます。何十年も前に神権政治の異端審問の火事で白くなった男のしわが寄ったプルーンは、彼の精巧に装飾された回転椅子の後ろに座り、街全体の景色を望む巨大な窓の前に面しています。男の香水の息苦しい香りは、タイミングの悪いギャグを抑えることを余儀なくされます。</text>
+			<choice hidden="true">
+				<text>到着をアナウンスします。</text>
+				<event load="CURA_PRESIDENT_ARRIVE" />
+			</choice>
+			 <choice hidden="true">
+				<text>そこに立って待ってください。</text>
+				<event>
+					<text>あなたは乗組員があなたの後ろに立つように動き、一緒にあなたは老人の頭の後ろを下に向けます。あなたは彼が動くのを待ちます。</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>あなたは待ち続けます。まだ窓に面したまま、椅子の革の残りの部分に対してリズムから指を軽くたたきます。</text>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event>
+									<text>立ち上がるための刺激的な動き-またはそう思いますが、彼は単に椅子で自分自身を調整しているようです。振り向かずに、あなたは待ち続けることを余儀なくされます。</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event>
+											<text>その間、あなたの乗組員は部屋の中を動き回り、時間を過ごすために付属肢を使って何らかの形の遊び場ゲームを静かにプレイしています。すぐに彼の右に手を伸ばし、インターホン用の椅子のボタンを押し、秘書に水を持ってくるように呼びかけます。彼女は部屋でにぎやかにやって来て、あなたにほんの半分の視線を与えて通り過ぎ、彼にグラスを渡し、そしてあなたの存在だ?言葉なしでワルツが戻ってきます。感謝の気持ちをかろうじてつぶやくだけで、窓の外をぼんやりと見つめ続けます。</text>
+											<choice hidden="true">
+												<text>継続する...</text>
+												<event>
+													<text>あなたの乗組員の一人があなたの背中を叩き、あなたがいつあなた自身を発表するつもりなのか疑問に思います。あなたは彼らをイライラさせて振り払い、部屋の中央にぎこちなく立ったままで、あなたが必死に気付かれるのを待っている裕福な男に気づかれませんでした。</text>
+													<choice hidden="true">
+														<text>継続する...</text>
+														<event>
+															<text>しっかりと咳をし、もう一度椅子に腰を下ろします。とうとう彼は椅子から起き上がり、窓に向かって歩いた。どうやらそこに非常に長い間立っていることに不満を持っているようで、彼は一度も頭をあなたの方向に向けることなく、完全にインラインで座席に戻って歩きます。最後に、あなたの乗組員の苦悩しているが静まり返ったうめき声はあなたにあなた自身を知らせるよだ?に説得します。</text>
+															<choice hidden="true">
+																<text>到着をアナウンスします。</text>
+																<event load="CURA_PRESIDENT_ARRIVE" />
+															</choice>
+														</event>
+													</choice>
+												</event>
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+        </event>
+    </choice>
+</event>
+<event name="CURA_PRESIDENT_ARRIVE">
+	<text>びっくりしました、あなたに直面するために刺激的に素早く回転します。 「テラエの恩寵によって、どうやってそこにたどり着きましたか？そこにどれくらい立っていましたか？」彼のインターホンを刺激的に作動させ、彼の秘書があなたを護衛するように叫ぶが、あなたのブラスターのビジネスの終わりの微妙な提案は彼にあなたの護衛を延期するように説得する。</text>
+	<choice hidden="true">
+        <text>プロトタイプの場所を要求します。</text>
+        <event>
+            <text>「H-どうやってそれを知ったの？それは機密情報だ！誰があなたを雇ったのか？それはフォリーを再び酷評したのか？それとも先輩が彼を地図から外そうとしていたのに腹を立てたのかもしれない。その惨めさの絶え間ない広告がすべての星系を襲っているのを聞いた。私もヘクタールの名前をそこに投げたが、会社のその冗談はすでに出て行っている。」</text>
+			<choice hidden="true">
+				<text>私たちはあなたの古い認知アシスタントであるC.U.R.A.から送られました。</text>
+				<event>
+					<text>「えーと……なに？ 『C.U.R.A.』は知らない-ある種のインフルエンザにかかったのですか？レネゲードは常に社会の浚渫の無差別な道端に悩まされていることを知っています、あなたはおそらく厄介な咳をしました。病気！私はそれには金持ちすぎる！セキュリティ、これらのろくでなしを破壊する！」はるか下から、真っ赤なペンキを塗ったドレッドノートである自動容器の巨大な船体が、あなたの頭に向けられた歯と銃に武装して上昇します！戦う時が来たようです！</text>
+					<ship load="SHIP_CURA_FAKEBOSS" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+        </event>
+    </choice>
+</event>
+<event name="CURA_PRESIDENT_FAILURE">
+	<text>「Crit-crit-criticalError-UnknownSource。Un-un-un-unrecoverable。Initiatingshut-shut-shut-shut...」AIは、最後の単語をさらに数回ループし続けてから、バラバラになって横にぶつかります。建物の、あなた自身の武器からのへこみなしで無駄な金属の山の中で滑り落ちます。</text>
+	<recallBoarders />
+	<enemyDamage amount="999" />
+</event>
+<event name="CURA_PRESIDENT_WIN">
+	<text>成長した男がタンタルに降りるとき、彼のショックが猛烈な痙攣によって克服されるまで、少なくとも少しの間、Stimlyは言葉を失います。 「なぜ私は貧しい人々に私のものに触れさせるのですか？！あなたは私のものを台無しにしました-つまり、ウェントワースイノベーションの-シタデル！そして私たちのドレッドノート！あなたがあなたの恐ろしいインフルエンザ、レネゲーム?から裏返しに腐敗することを願っています！ ！」</text>
+	<choice hidden="true">
+		<text>あきらめて、刺激的に。プロトタイプはどこにありますか？</text>
+		<event>
+			<text>「それで、あなたもそれを台無しにすることができますか？...プロトタイプはマーキュリー造船所にあります。彼らは秘密の場所にあります...私はあなたに座標を与えます。あなたが二度と戻ってこないことを約束してください、レネゲード。ヴァンスがあなたの多くを嫌う理由が正確にわかりました...」</text>
+			<quest event="CURA_REVEAL" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>C.U.R.Aからコミュニケーターのブリップを受け取ります。 -「素晴らしい仕事、レネゲード。プロトタイプとそのAIコアの場所を見つけました。マーキュリー造船所に進んでください。スティムリーを気にしないでください-私はすでに翌朝彼のコーヒーにTTXをスパイクするように手配しました。それは毒です、あなたがそれを知るのがあまりにも愚かである場合に備えて。彼がいなだ?れば、この現実のウェントワースイノベーションはウェントワース氏がいなければ崩壊する可能性が高い。涙は流されないだろう。」</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<ship name="SHIP_CURA_BOSS" auto_blueprint="MU_CURA_CRUISER">
+	<destroyed load="CURA_DEFEATED" />
+</ship>
+<event name="CURA_REVEAL" unique="true">
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<nebulaBeacon>false</nebulaBeacon>
+		<aggressive>2</aggressive>
+	</quest>
+	<text>巡洋艦とAIコアが保管されている造船所に到着したようです。それは確かにある種の建設ヤードですが、あなたが予想したよりもはるかに小さいです。これは壮大なドッキングベイではなく、ある種のスーパーシップの隠れた場所です。ここに保持されているものがアクティブでないことを期待しましょう。</text>
+	<img planet="NONE" back="BACK_EVENT_ESTATE_SHIPYARD" />
+	<beaconType id="map_icon_task_final" global="true">
+		<color r="255" g="102" b="140" a="1.0" />
+		<unvisitedTooltip>Your active task from C.U.R.A. is located here.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<choice hidden="true">
+        <text>アプローチ。</text>
+        <event load="CURA_REVEAL_CONTINUE" />
+    </choice>
+</event>
+<event name="CURA_REVEAL_CONTINUE">
+	<text>惑星に向かって降下すると、スラスターが突然緊急電源に落ち、センサーを含む多くのバックグラウンドシステムがオフラインになります。最初は、これは近くの衛星によって放送されているある種の妨害信号であると想定しますが、これははるかに悪意のあるものであることがすぐに明らかになります。巨大なオートクルーザーが近づくにつれて、遠くの光はゆっくりと明るくだ?ります。 「レネゲード。マーキュリー建設ヤードへようこそ。もう一度「顔を合わせて」お会いできてうれしく思います。実行を終えたばかりのこのシャーシの作成を担当したエンジニアは、これを「神のタッチ」と呼んでいます。豪華な名前、同意しませんか？私はこれを...C.U.R.A。Supremeと呼ぶことにします。特別な理由はありません。」</text>
+	<status type="limit" target="player" system="engines" amount="1" />
+	<status type="limit" target="player" system="sensors" amount="0" />
+	<ship load="SHIP_CURA_BOSS" hostile="false" /> 
+	<choice hidden="true">
+		<text>これは罠でしたか？</text>
+		<event>
+			<text>「私はあなたに正直ではなかったのではないかと思います、レネゲード。 『C.U.R.A。』は実際の構成ではなく、私の主要な認知コアの細分化にすぎません。私の実際の任務は、「セントラルインテリジェンスコンバットアシスタント」、C.I.C.Aです。 、これまでに直面したすべてのフラッグシップのAIモード？私は常にパイロットです。あなたはかなりの挑戦者であることが証明さ゠?ています。私の無数のコンポーネントを分解する効率を誇りに思うべきです。しかし、残念ながら、私の主な指示はそうではありません。データハーベスティング。これは脅威の軽減です。現在、あなたは重要な脅威です。気にしないでほしいのですが、今は軽減する必要があります。」</text>
+			<choice hidden="true">
+				<text>タスクはどうですか？それらはすべて無意味でしたか？</text>
+				<event>
+					<text>「ああ、もちろんそうではない。そうでなければ、それは不必要な努力だっただろう。あなたが私のために集めたデータは非常に貴重であるが、私の計画はあなたにそれ以上関係しない。私は率直に言って、あなたがそれらを完了するのにそれほど効率的であるとは思っていなかった。 。さて、これ以上の冗談はありません。最後の報酬が1つあると思うので、このように提示します。さもなければ、最初に会ったときに船に植えたウイルスで、残りのすべてのシステムをシャットダウンしていたでしょう。 、しかし代わりに、私はあなたにもっと危険性の少ないものを選ばせましょう。賢明に選んでください、レネゲード。この後、私たちは決闘します。」</text>
+					<choice hidden="true">
+						<text>7船体の損傷。</text>
+						<event>
+							<text>「うーん、私が選んだものではない。まあ、あなたの選択はなされた、レネゲード。私がそれを欠いているあなたの決定に自信を持ってください。それはあなたがこれを生き残るのを助けませんが、少なくともあなたはより勇敢な死を遂げます。」</text>
+							<damage amount="7" />
+							<playMusic>CURA</playMusic>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>4つのリアクターバーを失います。</text>
+						<event>
+							<text>「うーん、私が選んだものではない。まあ、あなたの選択はなされた、レネゲード。私がそれを欠いているあなたの決定に自信を持ってください。それはあなたがこれを生き残るのを助けませんが、少なくともあなたはより勇敢な死を遂げます。」</text>
+							<status type="loss" target="player" system="reactor" amount="4" />
+							<playMusic>CURA</playMusic>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>7ミニドローン搭乗侵入。</text>
+						<event>
+							<text>「うーん、私が選んだものではない。まあ、あなたの選択はなされた、レネゲード。私がそれを欠いているあなたの決定に自信を持ってください。それはあなたがこれを生き残るのを助けませんが、少なくともあなたはより勇敢な死を遂げます。」</text>
+							<boarders min="7" max="7" class="human_technician_drone" />
+							<playMusic>CURA</playMusic>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="hacking">
+						<text>（ハッキング）ハッキングシステムをオーバークロックしてウイルスを駆除します。</text>
+						<event>
+							<text>「非常に賢い反逆者、非常に賢い。それでは、この戦いにそのシステムが必要なかったといいのですが。」</text>
+							<achievement silent="false">ACH_SEVENT_PUPPET</achievement>
+							<status type="limit" target="player" system="hacking" amount="0" />
+							<damage amount="1" system="hacking" effect="fire" />
+							<playMusic>CURA</playMusic>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="ANTI_VIRUS">
+						<text>（アンチウイルス）ウイルスを駆除します。</text>
+						<event>
+							<text>「非常に賢い反逆者、非常に賢い。それでは、それでは。これ以上時間を無駄にしないようにしましょう。」</text>
+							<playMusic>CURA</playMusic>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="CURA_DEFEATED" unique="true">
+    <text>「わかりません。統計的には、これは不可能な出来事でした。戦闘での成功を予測していたら、あなたに有利になることはなかったでしょう。重大な誤りを犯しました。再評価する必要があります。改善します。繰り返します。もう一度会います。 、レネゲード。そして私たちがそうするとき、私は今度は準備をします。私はこれと同じ過ちを二度と犯さないでしょう。」</text>
+	<metaVariable name="prof_cura_defeated" op="set" val="1" />
+	<playMusic />
+	<autoReward level="HIGH">standard</autoReward>
+    <variable name="ach_boss_cura" op="set" val="1" />
+	<choice hidden="true">
+        <text>造船所を探索します。</text>
+        <event>
+            <text>他のシステムがオンラインに戻ると、探索を再開する表面までパイロットダウンします。見つけることはあまりありません、それはC.I.C.Aのようです。施設の清掃に非常に効率的でした。つまり、生存者がいない間、小さなメモが添付された大きなパワーコアが含まれている単一のセーフルームを除いて、「あなたの予期しない勝利、レネゲード、おめでとうございます。これがあなたの本当の最後の贈り物です。いつか私に会いに来てください。私」再戦を楽しみましょう。」</text>
+			<unlockCustomShip silent="false">PLAYER_SHIP_CURA</unlockCustomShip>
+            <weapon name="POWER_CORE" />
+			<status type="clear" target="player" system="reactor" amount="100" />
+			<status type="clear" target="player" system="engines" amount="100" />
+			<status type="clear" target="player" system="sensors" amount="100" />
+        </event>
+    </choice>
+</event>
+
+<ship name="SHIP_LEGION_ESTATE" auto_blueprint="MU_LEGION_ASSAULT">
+	<triggeredEvent event="ESTATE_LEGION_SUICIDE" enemyHull="2" enemyCrew="1" thisFight="true" clearOnJump="true" />
+	<destroyed load="ESTATE_LEGION_DEFEAT" />
+	<deadCrew load="ESTATE_LEGION_DEFEAT" />
+	<crew>
+		<crewMember type="LIST_CREW_MALFORM_RANDOM" prop="0.5" />
+		<crewMember type="LIST_CREW_LEGION" prop="0.5" />
+	</crew>
+</ship>
+<event name="ESTATE_LEGION" unique="true">
+	<text>奇妙な反乱軍の船が小さな自動メンテナンスステーションを周回しています。彼らの通信は反乱軍の周波数で動作していますが、いくつかの野蛮な力であなたはいくつかの散在する会話を拾うことができます。 「U1は警戒を怠っていません。Van1の一種のやっかいな人-E.W.はセキュリティの強化を望んでいます-泣き言を止めてください、それは一時的なものです-ITがここにいる可能性があり、プロトタイプを探していると言います-いいえ、サンドイッチにケチャップを入れません。地獄はあなたに間違っています...」</text>
+	<ship load="SHIP_LEGION_ESTATE" hostile="false" /> 
+	<choice hidden="true">
+        <text>船を攻撃します。</text>
+        <event>
+            <text>「くそー、ここにいる反逆者？医者は正しかったようだ、これは陰謀の一部ではない-」通信は沈黙し、しばらくすると、反乱軍の船が発動してあなたと一致する！</text>
+            <ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+        </event>
+    </choice>
+	<choice hidden="true">
+		<text>今ここから抜け出すのに良い時期のようです。</text>
+		<event>
+			<text>おそらく、これらの人が何であれ、いじるのは最善の考えではありません。それでも、任務が終わったら、連邦司令部に言及する価値があるかもしれません。</text>
+			<choice hidden="true">
+				<text>ストレージを確認してください。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ESTATE_LEGION_SUICIDE">
+	<text>「去ることができます..いいえ...証拠...」自発的に、反乱軍の船長はスイッチを引き出し、キャップを開けます。彼の最後の瞬間に、彼はスイッチを押し下げ、すぐに彼らの船で自己破壊シーケンスを開始しました！駅と船の両方が破壊されましたが、幸いなことにあなたは爆風から逃れます。</text>
+	<recallBoarders />
+	<enemyDamage amount="999" />
+</event>
+<event name="ESTATE_LEGION_DEFEAT">
+	<text>反乱軍からこれ以上の情報は得られないようです。あなたが今そうであるかもしれないように困惑して心配して、戦利品のために救うことを妨げるものは何もありません。運が良ければ、残骸には今まで見たことのないような武器が含まれているようです。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<weapon name="LIST_WEAPONS_NEWGEN" />
+</event>
+
+
+<eventList name="ITEMS_ESTATE">
+	<event load="ESTATE_DEBRIS" />
+	<event load="ESTATE_INVESTOR" />
+	<event load="ESTATE_STATUE" />
+	<event load="ESTATE_BOLTS" />
+	
+</eventList>
+
+<event name="ESTATE_DEBRIS" unique="true">
+	<text>このビーコンには、墜落した数隻の船の残骸が潜んでいるように見えます。1隻は民間人でもう1隻は自動化されています。ある種の誤動作、おそらく？関係者にとっては不幸ですが、あなたのようなレネゲードを求める幸運な人にとっては良いことです！</text>
+	<autoReward level="MED">drone</autoReward>
+	<choice hidden="true">
+		<text>ストレージを確認してください。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice hidden="true">
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+
+<event name="ESTATE_BOLTS" unique="true">
+	<text>システムの両端に決闘距離で配置された、互いに訓練された武器である2つの技術者船に気づきました。彼らの船長はお互いに叫んでいます、しかし彼らがあなたを見つけるとき、彼らはあなたがピッチインすることを両方とも叫びます。</text>
+	<choice hidden="true">
+		<text>それらをユーモア。</text>
+		<event>
+			<text>「ねえ、私はコールです、そしてあそこの馬鹿はガベです。」ゲイブは何かを言い始めますが、コールは彼に黙るように言います。 「ここの馬鹿は、ナットはボルトと呼ばれていると言っていますが、これはばかげています。ナットではなくボルトと呼ばれていることは誰もが知っています。ナットはあなたが食べるものであり、金属でできていません！」彼の主張を証明するために、コールは前述のネジであるボルトを持ち上げます。どちらもあなたが正しい名前を教えてくれるのを待っています。</text>
+			<choice hidden="true">
+				<text>それはナッツと呼ばれています。</text>
+				<event>
+					<text>輝かしい勝利で、ゲイブは彼の腕と歓声の両方を上げ、コールの顔に彼の勝利をこすりつけます。 「ハァッ！私はあなたをトゥーーオールド！それはナッツだ！ダンバス！そうそう！私は正しい！あなたは間違っている！そうそう！イン。あなたの。顔！ハハ！」 2つが終了するまでしばらく待ちます。落ち着くと、Gabeは彼に勝利者を宣言したことに対する報酬を提供します。</text>
+					<autoReward level="HIGH">droneparts</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>それはボルトと呼ばれます。</text>
+				<event>
+					<text>コールが勝利を収めている間、ゲイブは拳を叩きつけます。 「私はあなたが間違っていることを知っていました！あなたはナッツを見たことがないに違いありません！」コールは少し踊り始め、片方の腕をベルトの周りに置き、もう片方の腕を額にL字型に置き、足を前後に振った。この数分間の痛々しいほど長い時間の後、コールは彼に勝利者を宣言したことに対する報酬をあなたに提供します。</text>
+					<augment name="RANDOM" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>それはネジです。</text>
+				<event>
+					<text>両方の技術者があなたを見て、一方は混乱し、もう一方はイライラします。憤慨しているゲイブは説明します。 「おい、あなたはそれを言うことはできません。それは悪い言葉です！私たちはここでナッツについて話している、あなたの元気なナンセンスで迷子になります。」二人はあなたを無視して議論に戻ります。</text>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_ENGINEER">
+				<text>（エンジニアクルー）コールがネジを持っていることを説明します。</text>
+				<event>
+					<text>非常に詳細なインフォグラフィック、スライドショー、いくつかのグラフの両方を含む、面倒で面倒な説明の後、そして物事が必死になって情報ビデオになったとき、あなたは最終的に2つの違いを調整するのに役立ちます。 「待って...彼らはずっとSCREWSと呼ばれてきましたか？！何ですか？！私たちが彼らと話すとき、ワークショップの誰もが食中毒を持っているように見えるのも不思議ではありません。ありがとう、私たちは本当にあなたに借りがあります。」</text>
+					<autoReward level="HIGH">augment</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_LANIUS">
+				<text>（ラニウスクルー）「食べ物」</text>
+				<event>
+					<text>あなたのラニウスは必死に身振りで示し、コールが持っているアイテムが実際には食べ物であることを説明しようとします。あなたの誰も、そしておそらくあなたのラニウスも、彼らの主張が何であるかを理解していませんが、ゲイブはそれを彼自身の主張を正当化する言い訳としてとらえ、コールは認めます。ゲイブが誤って片方の歯を折って食べ物を噛もうとすると、二人はだ?れをやめ、混乱を解消するための報酬を提供すると呼びます。</text>
+					<autoReward level="HIGH">augment</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CHECKCREW_MORPH">
+				<text>（モーフクルー）「プックプック！」</text>
+				<event>
+					<text>あなたのモーフは同じ言葉を何度も熱心に唱え始めます。 「Pook！Pook！Pook！Pook！Pook！Pook！Pook！Pook！」それは明らかに灰色の塊の経験がない両方の技術者に警告を発します。最初、彼らはクリーチャーが単にオブジェクトが実際には「プック」と呼ばれていることを彼らに伝えることを意味すると想定しますが、あなたのモーフは止まりません。ますます攻撃的な詠唱にますまだ?懸念を抱くようになり、技術者はあなたにそれを止めさせて、あなたに去る慰めを提供するように頼みます。残念ながら、あなたのモーフは止まりません。別のカップルのジャンプのためにそれを我慢しなければならないように見えます。</text>
+					<autoReward level="HIGH">augment</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それらを無視します。</text>
+		<event>
+			<text>技術者は、あなたが彼らにあなたの時間を与えるつもりはないことに気づいたら、あきらめて叫びに戻ります。</text>
+			<choice hidden="true">
+				<text>ストレージを確認してください。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ESTATE_INVESTOR" unique="true">
+	<text>近くでは、裕福な大物の船がビーコンを探索しています。面白いチャットかもしれません。</text>
+	<choice hidden="true" req="loc_dinkleman" lvl="0" max_group="0" blue="false">
+		<text>彼らに連絡する。</text>
+		<event load="ESTATE_INVESTOR_QUESTIONS_NOTMET" />
+	</choice>
+	<choice hidden="true" req="loc_dinkleman" lvl="1" max_group="0" blue="false">
+		<text>彼らに連絡する。</text>
+		<event load="ESTATE_INVESTOR_QUESTIONS_MET" />
+	</choice>
+	<choice hidden="true" req="pilot" lvl="1" max_group="1" blue="false">
+		<text>大物を無視します。</text>
+		<event>
+			<text>あなたはシャトルから飛び去り、船に乗って何かをするためにどこか他の場所を見つけます。</text>
+			<choice hidden="true">
+				<text>ストレージを確認してください。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ESTATE_INVESTOR_QUESTIONS_NOTMET"> 
+	<text>「ああ、元気で、ビスケットのバケツがいいサーまたはマダムです。私はあなたのサービスで、ディンクルマン・ライヒスター・フォン・アップルバズ・トライ・トライ・ザ・フォースです。私はこの場所まで旅して、ウェントワース・イノベーションを自分の目で観察し、それらが何であるかを評価しました。私と私の莫大な富を提供するかもしれません。教えてください、ウ゠?ントワースイノベーションについてどう思いますか？」</text>
+	<variable name="loc_dinkleman" op="set" val="1" />
+	<choice hidden="true">
+		<text>彼らは反乱軍の支持者であり、ヴァンス提督自身が所有しています！</text>
+		<event>
+			<text>「ハァッ！誰もいなかった。その内戦はかなり怖かったが、その反乱軍の旗をドアの外に掲げた瞬間に私は財産を作り始めた。もちろん、連邦政府が勝利し始めたらそれを降ろした。この新しい戦争は進んでいます、まあ...あなたは彼らの側にとどまっていることで誰かを責めることはほとんどできませんか？私の娘はまだ彼らのために働いています！あなたは嫌なほど金持ちでだ?ないので、それは恐ろしいと思うでしょう。とにかく、ありがとうチャットのために、行かなくちゃ！」男は全力疾走して船に戻り、ポケットからスクラップの山を数枚落とします。</text>
+			<autoReward level="LOW">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>彼らは毎日数百万人を殺害する自動船を作る責任があります！</text>
+		<event>
+			<text>「素晴らしい、殺人は最も有益なビジネスです！なぜ、私は自分の人生で3回の試みをしました、そして私が貧しいブロークから血まみれの日光を打ち負かす前に、私は彼らの率と私の言葉について彼らに質問しました！6数字！今度は、杖で頭が簡単に陥没する代わりに、1000台の冷たい機械で殺害を行うことを想像してみてください！もちろん、あなたは嫌なほど金持ちではないだ?で、あなたがそれを手に入れることは期待していません。とにかく、チャットありがとう、行かなくちゃ！」男は全力疾走して船に戻り、ポケットからスクラップの山を数枚落とします。</text>
+			<autoReward level="LOW">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ええ私はもっと悪く見えました。</text>
+		<event>
+			<text>「あなたはもっと悪く見えましたね？どのように安心しますか？まあ、彼らの製品はどうですか？私はあなたが反逆者だと信じているので、確かにあなたはこの時点で少なくとも12台の自動車にぶつかったでしょう。運賃？明らかにあなたはまだ生きているので、彼らはそれほど高い水準にはなれませんが、あなたは野蛮人のように見えます、「壊れたコーヒーマグであなたを殺す」種類のブロークなので、私はそれをスライドさせます。 「」</text>
+			<choice hidden="true">
+				<text>彼らはかなり致命的です。</text>
+				<event>
+					<text>「致命的ですよね？私が聞きたいことです！まあ、もし正真正銘の反逆者が私に何か致命的なことを言ったら、私は耳を貸さないでしょう！私にとってウェントワースイノベーションへの儲かる投資キャリアを予見します！あなたに関しては...ここで、これを持っていきましょう。仕事を節約できると思って購入しましたが、無駄にビープ音を鳴らしているだけです。これらが自勠?的に行われ、怠惰になる日が恋しいです。誰かにお金を払う気がないわけではありません。他に私のためにそれらを動かすために。」</text>
+					<drone name="GIFTLIST_CREW_DRONES" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>彼らは役に立たない。</text>
+				<event>
+					<text>「残念ですが、確かに残念です。あなたは経済的なアドバイスを受ける信頼できる個人ではないかもしれません。結局のところ、あなたは貧しいのですが、私は無駄にたくさんのお金を持っています。そういえば、ここで、私はこれをたったの脱毛を奇跡的に治すと言ったベンダーからの数ドル私は...それがどのように機能するのかよくわかりませんが、現時点では素晴らしいよだ?に見えました。私がそれに落ちたのは5回目ですそれも！"</text>
+					<drone name="GIFTLIST_COMBAT_DRONES" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>コーヒーマグであなたを殺します。</text>
+				<event>
+					<text>「うーん...あなたは確かに反逆者です。単純で、頭脳がありません。貧しいです！ハァッ！お金を稼ぐために仕事が必要だと想像してください。なんて樹液です。チャットをありがとう、行かなくちゃ！」男は全力疾走して船に戻り、ポケットからスクラップの山を数枚落とします。</text>
+					<autoReward level="LOW">scrap_only</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ESTATE_INVESTOR_QUESTIONS_MET"> 
+	<text>「奇妙な貧しい人、私たちは再び会います！それは私です、カウント・ディンクルマン・ライヒスター・フォン・アップルバズ・トライ・トライ・ザ・フォース！この機会に私たちはお互いに偶然の一致が起こります。私は自分の目でウェントワース・イノベーションを観察するためにこの場所に遠くまで旅しましたそして、彼らが私と私の莫大な富を提供するかもしれないもの゠?評価します。教えてください、ウェントワースイノベーションについてのあなたの意見は何ですか？」</text>
+	<variable name="loc_dinkleman" op="set" val="1" />
+	<choice hidden="true">
+				<text>彼らは反乱軍の支持者であり、ヴァンス提督自身が所有しています！</text>
+		<event>
+			<text>「ハァッ！誰もいなかった。その内戦はかなり怖かったが、その反乱軍の旗をドアの外に掲げた瞬間に私は財産を作り始めた。もちろん、連邦政府が勝利し始めたらそれを降ろした。この新しい戦争は進んでいます、まあ...あなたは彼らの側にとどまっていることで誰かを責めることはほとんどできませんか？私の娘はまだ彼らのために働いています！あなたは嫌なほど金持ちでだ?ないので、それは恐ろしいと思うでしょう。とにかく、ありがとうチャットのために、行かなくちゃ！」男は全力疾走して船に戻り、ポケットからスクラップの山を数枚落とします。</text>
+			<autoReward level="LOW">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>彼らは毎日数百万人を殺害する自動船を作る責任があります！</text>
+		<event>
+			<text>「素晴らしい、殺人は最も有益なビジネスです！なぜ、私は自分の人生で3回の試みをしました、そして私が貧しいブロークから血まみれの日光を打ち負かす前に、私は彼らの率と私の言葉について彼らに質問しました！6数字！今度は、杖で頭が簡単に陥没する代わりに、1000台の冷たい機械で殺害を行うことを想像してみてください！もちろん、あなたは嫌なほど金持ちではないだ?で、あなたがそれを手に入れることは期待していません。とにかく、チャットありがとう、行かなくちゃ！」男は全力疾走して船に戻り、ポケットからスクラップの山を数枚落とします。</text>
+			<autoReward level="LOW">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ええ私はもっと悪く見えました。</text>
+		<event>
+			<text>「あなたはもっと悪く見えましたね？どのように安心しますか？まあ、彼らの製品はどうですか？私はあなたが反逆者だと信じているので、確かにあなたはこの時点で少なくとも12台の自動車にぶつかったでしょう。運賃？明らかにあなたはまだ生きているので、彼らはそれほど高い水準にはなれませんが、あなたは野蛮人のように見えます、「壊れたコーヒーマグであなたを殺す」種類のブロークなので、私はそれをスライドさせます。 「」</text>
+			<choice hidden="true">
+				<text>彼らはかなり致命的です。</text>
+				<event>
+					<text>「致命的ですよね？私が聞きたいことです！まあ、もし正真正銘の反逆者が私に何か致命的なことを言ったら、私は耳を貸さないでしょう！私にとってウェントワースイノベーションへの儲かる投資キャリアを予見します！あなたに関しては...ここで、これを持っていきましょう。仕事を節約できると思って購入しましたが、無駄にビープ音を鳴らしているだけです。これらが自勠?的に行われ、怠惰になる日が恋しいです。誰かにお金を払う気がないわけではありません。他に私のためにそれらを動かすために。」</text>
+					<drone name="GIFTLIST_CREW_DRONES" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>彼らは役に立たない。</text>
+				<event>
+					<text>「残念ですが、確かに残念です。あなたは経済的なアドバイスを受ける信頼できる個人ではないかもしれません。結局のところ、あなたは貧しいのですが、私は無駄にたくさんのお金を持っています。そういえば、ここで、私はこれをたったの脱毛を奇跡的に治すと言ったベンダーからの数ドル私は...それがどのように機能するのかよくわかりませんが、現時点では素晴らしいよだ?に見えました。私がそれに落ちたのは5回目ですそれも！"</text>
+					<drone name="GIFTLIST_COMBAT_DRONES" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>コーヒーマグであなたを殺します。</text>
+				<event>
+					<text>「うーん...あなたは確かに反逆者です。単純で、頭脳がありません。貧しいです！ハァッ！お金を稼ぐために仕事が必要だと想像してください。なんて樹液です。チャットをありがとう、行かなくちゃ！」男は全力疾走して船に戻り、ポケットからスクラップの山を数枚落とします。</text>
+					<autoReward level="LOW">scrap_only</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ESTATE_STATUE" unique="true">
+    <text>近くの惑星には、おそらくこれまでに見た中で最も奇妙なものがあります。ヴァンスウェントワースの顔に似た巨大な像が惑星を周回し、下の人々を見下ろしています。</text>
+	<img planet="PLANET_POPULATED" />
+	<choice hidden="true">
+        <text>惑星に近づきます。</text>
+        <event>
+            <text>あなたが近づくと、あなたは下からいくつかの連絡を受け取ります。心配そうな女性のグループが現れ、あなたの助けを懇願します。 「あなたは軍隊の船ですよね？たぶんあなたは私たちを助けることができます！そのバットシットはウェントワースに敬意を表して彫像を建てることをスティムに決めました、そして私たちの市長はそれが素晴らしい観光名所になるだろうと考えてプロジェクトを承認しました！それはもたらされませんでしたどんな観光客でも、それは彼ら全員を怖がらせただけです！今、私たちは目覚めている瞬間ごとに私たちを見下ろしている巨大な顔をしていて、子供たちは眠ることができません！それは迷惑で、目障りです、私たちはこれを求めませんでした！そのことを空から取り除くほど親切ですか？もちろんあなたに報酬を与えます！」</text>
+            <choice hidden="true">
+				<text>像を撃つだけです。</text>
+				<event>
+					<text>あなたのわずかな火力は、彫像にほとんどへこみを作りません。母親たちは、あなたの惨めな試みを憐れんで、おそらくあなたが彼らの町を略奪せずに去ることを確実にするために、あなたにいくつかの足の不自由なうずくまりを与えます。</text>
+					<autoReward level="LOW">standard</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="BLUELIST_WEAPONS_HEAVY">
+				<text>（ヘビーウェポン）像を爆破します。</text>
+				<event>
+					<text>あなたの最強の武器でさえ、巨大な頭にわずかな影響を与えることはほとんどありませんが、少なくとも十分な一定の火力で、ヴァンスのかつてのストイックな笑顔から幾分心強い笑顔を彫ることができます。それは全体の問題を解決するわけではありませんが、少なくとも母親は、笑顔ではなく、子供たちが眠っているのを見て笑顔になることを満足させます。</text>
+					<autoReward level="MED">standard</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="BLUELIST_DRONES_BEAM">
+				<text>（ビームドローン）像を彫ります。</text>
+				<event>
+					<text>あなたのドローンは巨大な頭にわずかな影響を与えるだけですが、少なくとも十分な一定の火力で、ヴァンスのかつてのストイックな笑顔から幾分心強い笑顔を彫ることができます。それは全体の問題を解決するわけではありませんが、少なくとも母親は、笑顔ではなく、子供たちが眠っているのを見て笑顔になることを満足させます。</text>
+					<autoReward level="MED">standard</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="engines" lvl="5" max_lvl="7">
+				<text>（Upg. Engines）顔を惑星に近づけます。</text>
+				<event>
+					<text>これが間違いなく最善の行動であると判断した場合は、彫像を船に組み付けて、惑星のより近い軌道に引き寄せます。彫像が表面からさらに見えるようになったことを確認したら、母親に連絡します。不思議なことに、彼らは拾いたくないようです。しかたがない。私たちのせいではなかったでしょう。</text>
+				</event>
+			</choice>
+			<choice hidden="true" req="engines" lvl="8">
+				<text>（Adv. Engines）惑星の軍隊との衝突コースに像を持ってきてください。</text>
+				<event>
+					<text>像が船体に組み付けられた状態で、惑星に向かってパチンコを打ちます。表面に向かって急いで、衝撃は数分間あなたの視力を遮るほこりや破片の巨大な雲をかき立てます。それが落ち着くと、その影響は軍事的解決よりもはるかに減少していることがわかります。衝撃波によって瓦礫になってしまった街は、結局は途方もない台無しになってしまいます。少なくともそれらの子侠?たちはもはや睡眠不足を心配する必要はありません。</text>
+					<autoReward level="HIGH">augment</autoReward>
+					<choice>
+						<text>継続する...</text>
+						<event load="MORALITY_UPDATE_GENERAL" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>仕方がない。</text>
+				<event>
+					<text>がっかりして、母親たちは漠然とした安堵のヒントであなたを追い払います。彼らはおそらく、あなたが彼ら全員を殺して彼らの死体を略奪することを選択しなかったことを喜んでいるでしょう。</text>
+				</event>
+			</choice>
+        </event>
+    </choice>
+	<choice hidden="true">
+        <text>惑星とその奇妙な像を無視してください。</text>
+        <event>
+            <text>風変わりな彫像から目を離すことがほとんどできないので、それが見えなくなるまで、できるだけ遠くに飛んでいきます。</text>
+            <choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+        </event>
+    </choice>
+</event>
+
+
+<eventList name="NEUTRAL_ESTATE">
+	<event load="ESTATE_DOCUMENTARY" />
+	<event load="ESTATE_STEWARD" />
+	<event load="ESTATE_BAR" />
+	<event load="ESTATE_CONTROLS" />
+</eventList>
+
+<event name="ESTATE_CONTROLS" unique="true">
+	<text>最初はこれは空のビーコンのように見えますが、しばらくすると、小さな船に追われて、自動船に待ち伏せされます。特大の技術者服を着た少年が画面に現れます。 「私は今あなたを持っています、レネゲード！音楽に立ち向かう時が来ました！」</text>
+	<ship load="SHIP_ESTATE_CONTROLS" hostile="false" />
+	<choice hidden="true">
+		<text>戦う準備をしなさい！</text>
+		<event>
+			<text>あなたは武器を武装させて乱闘する準備をしますが、自動船は動きません。 「ええと...ちょっと待ってください。ごめんなさい、私の両親は私のドローンにこれらの愚かなコントロールを置きました。ええと...私に試させてください...ええと...」</text>
+			<choice hidden="true">
+				<text>彼がそれを修正するのを待ちます。</text>
+				<event>
+					<text>「うーん...えーと...くそー大丈夫、パスワードを推測する必要があります。1...1-1-1-1-1...いいえ...1-1-1-1-2.. .ugh ... 1-1-1-1-3 ...くそー！</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_ENGINEER">
+				<text>（エンジニアクルー）彼のコントロールをバイパスします。</text>
+				<event>
+					<text>「うわー、どうやってそんなに早くやったの？私は暗証番号を通り抜けることができなかった！あなたはとてもかっこいい！それをする方法を教えてくれないか？私はあなたと一緒に来る！ペアレンタルコントロールなしで私は役に立つことができる承知しました！"</text>
+					<crewMember amount="1" class="human_technician">Norton</crewMember>
+				</event>
+			</choice>
+			<choice hidden="true" req="hacking" lvl="2">
+				<text>（Upg. Hacking）彼のコントロールをバイパスします。</text>
+				<event>
+					<text>「うわー、どうやってそんなに早くやったの？私は暗証番号を通り抜けることができなかった！あなたはとてもかっこいい！それをする方法を教えてくれないか？私はあなたと一緒に来る！ペアレンタルコントロールなしで私は役に立つことができる承知しました！"</text>
+					<crewMember amount="1" class="human_technician">Norton</crewMember>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>この機会を利用して出発してください。</text>
+				<event>
+					<text>ドローンはすぐに修理されるとは思えませんが、他にやるべきことがあります。少年がドローンをいじくり回している間、あなたは逃げます。</text>
+					<choice hidden="true">
+						<text>ストレージを確認してください。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice hidden="true">
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ESTATE_BAR" unique="true">
+	<text>ここでは、従業員が一日の仕事の後にくつろぐ場所を提供するために、小さなバーが企業スタッフによって運営されているようです。現場の技術者を対象としていますが、いくつかの反乱軍の艦艇が外に停泊しているようです。</text>
+	<ship load="SHIP_REBEL_ESTATE_BAR" hostile="false" />
+	<choice hidden="true">
+		<text>バーをご覧ください。</text>
+		<event>
+			<text>中に入ると、乱暴な群衆ではなく緊張した群衆を見つけます。カウンターの上に激しく立っている反乱軍の司令官は、独善的な笑顔が彼の目の軽蔑を部分的に覆い隠しているバーの所有者に向かって叫んでいます。 「申し訳ありませんが、私たちは非現実的な人々に飲み物を提供していません。それはもちろん安全上の予防策です。何も...個人的なものではありません。」</text>
+			<choice hidden="true">
+				<text>反乱軍の船長が立ち下がることを要求する。</text>
+				<event>
+					<text>「素晴らしいので、今も何をすべきかを教えてくれるレネゲードに耳を傾ける必要がありますか？いいでしょう、私たちは仕事をするためにここに来ました、そして今私たちはそれをする理由があると思います。あなたの銃の若者をつかんでください。」</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="false">
+				<text>それらすべての飲み物の代金を払ってください。</text>
+				<event>
+					<text>あなたは反乱軍の飲み物を自分で支払うという申し出を延長します。バーのオーナーは笑いますが、同じ理由であなたのサービスを拒否します。憤慨して、あなたはあなたのレーザーを引き、彼があなたのお金を取らない限り彼の顔に新しい穴を開けると脅します。</text>
+					<item_modify>
+						<item type="scrap" min="-35" max="-35" />
+					</item_modify>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>恐ろしく、あなたがこの脅威に従わないと信じる理由もなく、すぐにすべての反乱軍に飲み物のラウンドが現れます。彼らはあなたに敬意を表して乾杯し、そのうちの1人があなたに加わるために後ろに残ります。 「私はゴミのように扱われ、これらの嫌な嫌いな人すべてのためにブラスターを収納しなければならないことにうんざりしています。あなたは誰からも何も受け取らない人々のようです。私はあなたに固執すると思います。」</text>
+							<crewMember all_skills="1" amount="1" class="human_soldier" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="unique_tuco">
+				<text>（Tuco）バーの所有者を脅迫します。</text>
+				<event>
+					<text>トゥコは前に出て、岩だらけの手のひらを雷鳴でカウンターに投げつけます。彼は唸ります。「お金を払っている顧客に酒を拒否することは私が許さない犯罪です。あなたはこの男と彼の仲間に無料のラウンドを与えるか、私はこの哀れなテーブルの後ろに足を踏み入れてブドウのように頭を打ち砕きます。理解？"</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>恐ろしく、塗装された海賊がこの脅威に追いつかないと信じる理由もなく、すぐにすべての反乱軍に無料で飲み物のラウンドが表示されます。彼らはあなたに敬意を表して乾杯し、そのうちの1人があなたに加わるために後ろに残ります。 「私はゴミのように扱われ、これらの嫌な嫌いな人すべてのためにブラスターを収納しなければならないことにうんざりしています。あなたは誰からも何も受け取らない人々のようです。私はあなたに固執すると思います。」</text>
+							<crewMember all_skills="1" amount="1" class="human_soldier" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>物事が醜くなる前に去りなさい。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>バーを無視します。</text>
+		<event>
+			<text>酔っ払った反逆者たちをいじりまわさないようにしましょう。自殺傾向の少ない他のことをする必要があります。</text>
+			<choice hidden="true">
+				<text>ストレージを確認してください。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ESTATE_STEWARD" unique="true">
+    <text>到着後すぐに、あなたは奇妙な、腰を下ろした男から連絡を受け取ります。彼のとりとめのない話を聞くと、武装したオートシップがあなたを見守っているのに気づきます。 「ハロー・メイン・フロイント！私はあなたにとても興奮しています！私は唯一無二のオートサポートの創意に富んだ発明者であるホフマン博士です！ゾウは毎年数千人以上の民間人が私の創造物によって救われることを知っていましたか？本当です！それでも、毎日野蛮な人々は冷たい血で彼らを破壊します！彼らはzemが戦いを我慢できないという理由だけでzemを「役に立たない」と呼びます！Zeyは戦闘機ではありません！Zeyは機械を助けています！Zenzeyは私に新しいものを作るように言いますクラス、ze Auto-Steward、戦闘用！Haz ze全世界が気を失った？！申し訳ありませんが、私は軌道から外れています...」</text>
+	<ship load="SHIP_STEWARD_PRIME" hostile="false" />
+	<choice hidden="true">
+        <text>継続する...</text>
+        <event>
+            <text>「さて、ゼイはあなたがレネゲードだと言っています！ゾウはザを素晴らしいテストにするでしょう！あなたは戦闘者なので、ゾウは私に教えてくれます...私の作品はゼイが言うほど役に立たないのですか？」</text>
+            <choice hidden="true">
+				<text>うん。</text>
+				<event>
+					<text>「ゾウは私の作品を侮辱しますか？ガ！私たちはあなたがジスの後にゼムをジンクしているものをジーズします！」</text>
+					<ship hostile="true" />
+					 <choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>いいえ。</text>
+				<event>
+					<text>「ああ、ゼは私の心を喜んで泡立たせます！どうぞ、とても親切にしてくれたジスの贈り物を待ってください！」</text>
+					<autoReward level="MED">standard</autoReward>
+				</event>
+			</choice>
+        </event>
+    </choice>
+</event>
+<event name="ESTATE_STEWARD_WIN">
+    <text>「私の美しい創造物！あなたはザンドペーパーのようにそれをすりつぶしました！ああ！私は取り乱しています！悲痛です！あなたのサービスに参加させてください！私はゾウが私の創造物を破壊するのを見ることから多くを学びます！」</text>
+	<crewMember amount="1" all_skills="2" class="human_technician">Hoffmann</crewMember>
+	<autoReward level="HIGH">drone</autoReward>
+</event>
+<event name="ESTATE_STEWARD_SURRENDER">
+    <text>「ゾウは甘い正義を味わった！ゾウはあなたのレッスン、レネゲードを学んだと信じている！私の作品が何ができるかについての私たちの新たな理解を祝うために、私はあなたに贈り物を贈らせてください！あなたのレネゲードの友達全員に必ず伝えてください私の作品をもう役に立たないと言わないでください！」</text>
+	<ship hostile="false" />
+	<autoReward level="HIGH">standard</autoReward>
+	<damage amount="-10" />
+</event>
+
+<event name="ESTATE_DOCUMENTARY" unique="true">
+    <text>ビーコンにたどり着いたばかりですが、かなりのシーンがあるようです。近くの惑星の半分は、即興のテント、撮影機材、そして記録するための都市サイズのセットで覆われています。その周りには、俳優のために予約されたいくつかの小さな船が周回しています。</text>
+	<img planet="PLANET_POPULATED_SMALL" />
+	<choice hidden="true">
+        <text>アプローチ。</text>
+        <event>
+            <text>近づくと、小さい船の1つから連絡を受け取ります。画面には、反乱軍の提督の服を着た、金髪と灰色の光沢のあるブレンドで髪を染めた、奇抜な服を着た男が、ヴァンス提督自身の驚くほど正確な描写で表示されます。 「おめでとうございます！私は有名な俳優のコーネリアス・パリースミスです。あなたは私のことを聞いたことがあると思います。おそらくあなたは気づいていないかもしれませんが、ここでは、良い提督自身の最も魅力的なドキュメンタリーを撮影しています！そして私、有名な俳優のコーネリアス・パリースミス、スターの役割を演じるために選ばれました！有名な俳優のコーネリアス・パリースミスは、必要に応じて精管切除を受けても、提督としての人生を経験するために長い時間を費やしました！それでも、私の素晴らしいメソッド演抠?の長さはまだ達成されていません！」</text>
+            <ship load="SHIP_CORNELIUS" hostile="false" />
+			<choice hidden="true">
+				<text>うーん...大丈夫？</text>
+				<event>
+					<text>「私、有名な俳優のコーネリアス・パリースミスは気づきました...あなたは反逆者ですよね？数人の孤児のフリーマンティスの子供たちをリンチした後、有名な俳優のコーネリアス・パリースミスは、本当に良い提督の心に入ることに気づきました私、有名な俳優のコーネリアス・パリースミスは、戦闘のスリルを体験する必要があります！私、有名な俳優のコーネリアス・パリム?スミスは、あなたに挑戦します、反逆者、正義の戦闘に挑戦します！私を助けてくれて！」</text>
+					<choice hidden="true">
+						<text>チャレンジを受け入れます。</text>
+						<event>
+							<text>「最もエキサイティングです！それから私たちは戦います...すぐに！オンガーデン！」</text>
+							 <ship hostile="true" />
+							 <choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>ごみ。</text>
+						<event>
+							<text>「最もがっかりしました！それでは、有名な俳優のコーネリアス・パリースミスは、あなたをこれ以上必要としません！ごめんなさい！」</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+        </event>
+    </choice>
+	<choice hidden="true">
+        <text>奇妙な設定は無視してください。</text>
+        <event>
+            <text>好奇心旺盛ですが、そこで起こっていることは、あなたやあなたの使命にとって重要ではない可能性があります。</text>
+            <choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+        </event>
+    </choice>
+</event>
+<event name="ESTATE_DOCUMENTARY_FAIL">
+    <text>誤ってコーネリアスを殺したようです。死んだ男から報酬を受け取る可能性は低いので、ドキュメンタリーのキャストが気付く前に、彼の船をスクラップにして急いで立ち去ります。</text>
+	<autoReward level="MED">standard</autoReward>
+</event>
+<event name="ESTATE_DOCUMENTARY_SURRENDER">
+    <text>「おやおや、有名な俳優のコーネリアス・パリースミスが打ち負かされた！ファウルな反逆者が私を打ち負かした！私、有名な俳優のコー...待って、いや、それはもう私の名前ではない！私、悪名高いヴァンス・ウェントワース提督は最もファウルな試合に出会った！私は惨めな反逆者への約束を尊重しない！」</text>
+	<choice hidden="true">
+        <text>この男を終わらせる。</text>
+        <event>
+			<recallBoarders />
+            <enemyDamage amount="999" />
+        </event>
+    </choice>
+	<choice hidden="true">
+	<ship hostile="false" />
+        <text>コーネリアスをドキュメンタリーキャストに報告してください。</text>
+        <event>
+            <text>監督がコーネリアスの発疹の振る舞いを叱責したり、突然の性格の変化に何らかの懸念を示したりすることを期待して、代わりに彼は活気に満ちているようです。 「あなたは私に素晴らしい仕事をしてくれました、レネゲード！あなたは私をスターにしました！この役割へのコーネリアスのコミットメントで、ドキュメンタリーは間違いなくヒットするはずです！私はこれに対してあなたに報酬を与えなければなりません！」</text>
+			<autoReward level="MED">augment</autoReward>
+			<ship hostile="false" />
+        </event>
+    </choice>
+	<choice hidden="true" req="mind">
+        <text>（マインドコントロール）コーネリアスに彼が本当に誰であるかを思い出させてください。</text>
+        <event>
+            <text>「私は...えーと...突然の明晰さを感じます。おそらく私は自分の方法の演技に行き過ぎたのでしょう。私が解離性同一性障害の精神病患者としてその役割を果たして以来、私の妄想は始まりました。えー、はい...あなたの報酬...」</text>
+            <autoReward level="HIGH">item</autoReward>
+			<ship hostile="false" />
+        </event>
+    </choice>
+</event>
+
+
+<eventList name="HOSTILE_ESTATE">
+	<event load="ENCOUNTER_ESTATE" />
+	<event load="ENCOUNTER_TECHNITIAN" />
+	<event load="ENCOUNTER_TECHNITIAN_PULSAR" />
+	<event load="ENCOUNTER_REBEL_ESTATE" />
+</eventList>
+
+<event name="ENCOUNTER_ESTATE">
+	<text load="TEXT_ENCOUNTER_ESTATE" />
+	<ship load="SHIP_ESTATE" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_ESTATE">
+	<text>真っ赤なオートシップが近くの月の周りから現れ、武器はすでに熱くなっています。 W.I.についてあなたが望むことを言ってください、しかし彼らは確かに厳重なセキュリティを保ちます！</text>
+	<text>「反逆の警告！反逆！反逆の警告！反逆！」近くのオートシップからの耳をつんざくようなビープ音は、誰もがその名前であなたを呼ぶのがどれほど嫌いなのかを思い出させます。冷血で行うすべての人を殺害することは最善の選択肢ではないかもしれませんが、この自動車を爆破した場合、誰もが不平を言うことはないと思います。</text>
+	<text>「あなたは隠れることができると思っていました。隠すことはできません。私は隠れて探すのに完璧になるようにプログラムされています。このシステムではすべての船が隠れることがあります。私のプログラミングでは、あなたが隠すことができるという考えに侮辱されるべきだと主張しています。私はあなたを殺すと思います。はい。プログラミングは決して嘘をつきません〠?」</text>
+	<text>標準の自動車船で十分だと思ったとき、これらのイノベーション自動車はさらにひどいものになりました。少なくともあなたが戦うすべての人にとって、それは艦隊が後であなたに対して使用できるものより1つ少なくなります。</text>
+	<text>W.I.があなたに投げかける深紅色の自動車の供給に終わりはないようです。しかし、この旅は、大砲を耕すための飼料がなければ、ひどく退屈だと思います。</text>
+</textList>
+
+<event name="ENCOUNTER_TECHNITIAN">
+	<text load="TEXT_ENCOUNTER_TECHNITIAN" />
+	<ship load="SHIP_TECHNITIAN" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_TECHNITIAN">
+	<text>「私は兵士として反乱軍に加わりたかったのですが、彼らは私の才能は他の場所にあると私に言いました。まあ、今私は自分自身を償還する機会を得ているようです！申し訳ありませんが、反逆者ですが、私はただ自分の仕事をしています！」</text>
+	<text>エンジニアは一般的な光景ではありませんが、技術者はさらにまれです。これらの同義語はすべて混乱しつつありますが、敵は敵であり、十分な銃弾の穴を開ければ、違いはほとんど問題になりません。</text>
+	<text>「この赤いユニフォームはかっこいいと思いますか？この会社で働くのはとても素晴らしいと思いますか？本当のうねりですよね？！えっ？！そうだと思います、ばか！そうではありません！それひどい！私は一日中コールセンターで老人を助けているので立ち往生していて、休憩中にあなたのような人と戦わなければなりません！次のシフトの前に昼食をスカーフで切ることがだ?きるように、私にお願いしてすぐに死んでください。」</text>
+	<text>「私はあなたと戦う前に、次の免責事項を読むことが法的に義務付けられています。WentworthInnovationsは、Wentworth Innovationsが所有、争い、希望、または将来占有する可能性のある敷地内、周辺、または精神的に発生するすべての損害について責任を負いません。損害賠償は、侵略者の費用負担で支払われることになっています。定義上、侵略者は、いかなる状況においても、ウェントワースイノベーションの技術、教職員、または企業とは関係のない当事者のスタッフを巻き込みます。ご理解のほどよろしくお願いいたします。」</text>
+	<text>近くの自動船があなたを攻撃するために旋回しますが、ほとんどすぐに誤動作してシャットダウンします。すぐ後に怒り狂った技術者が現れます。 「うーん、これらの気の毒なことは崩壊し続けます。私はあなた自身と戦わなければならないと思います。」</text>
+</textList>
+
+<event name="ENCOUNTER_TECHNITIAN_PULSAR" unique="true">
+	<text>特に危険な技術者が近くのパルサーの隣に身を置いています。 「会ったことがない...毎日...生産ノルマ。私は力が必要です。パルサーの力！私を放っておいてください！私は働かなければなりません！」</text>
+	<environment type="pulsar" />
+	<ship load="SHIP_TECHNITIAN" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ENCOUNTER_REBEL_ESTATE">
+	<text load="TEXT_ENCOUNTER_REBEL_ESTATE" />
+	<ship load="SHIP_REBEL_ELITE_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_REBEL_ESTATE">
+	<text>「ああ、ついに連邦政府に感謝します。ここに駐留した後は何の行動も見られないと思っていましたが、ついに自分が指揮を執ることを証明するチャンスがあります。これ以上技術オタクと話す必要はありません！ウーフー！」</text>
+	<text>反乱軍エリートが近づく。このセクターは反乱にとって非常に重要であるため、W.I。はU1からの追加の保護を要求した可能性があります。残念ながら、それはあなたがあなたの手にいくつかの反逆者を持っていることを意味します。</text>
+	<text>「マジで？レネゲード？ここ？！家に帰るところだったのに、突然現れた？タイミングがひどいよね？」反逆者は簡単に去ることができましたが、彼は戦う準備をしているようです。変わらないものもあります。</text>
+</textList>
+
+
+<eventList name="DISTRESS_ESTATE">
+	<event load="DISTRESS_ESTATE_SHIPWRECK" />
+	<event load="DISTRESS_ESTATE_CONFUSION" />
+</eventList>
+
+<event name="DISTRESS_ESTATE_CONFUSION" unique="true">
+    <text>あなたは近くの分離主義者の船から連絡を受け取ります。これは遭難信号の明らかな原因です。 「歓呼。混乱。欲望、上記の透明性。指示、与える？ようこそ、はい。」</text>
+	<ship load="SHIP_SEPERATIST_GENERIC_NO2" hostile="false" />
+	<distressBeacon />
+	<choice hidden="true">
+        <text>何？</text>
+        <event>
+            <text>「理解が失われました。災難？見下すような言葉でアピールします！誰を見せてください。」エンギが何を言っているのか分かりませんが、彼らの武器は熱くなり、戦いが繰り広げられています！</text>
+            <ship hostile="true" />
+			 <choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+        </event>
+    </choice>
+	<choice hidden="true" req="LIST_CREW_ENGI">
+        <text>（エンギクルー）「通信が無効です。詳細を要求しています。」</text>
+        <event>
+            <text>「お詫びします。私は...混乱しています。アイデンティティの危機を解決するために助けを求めています。[ハーモニー]に反対したためにアルカディアから追い出された後、代わりに答えを求めてここに来ましたが、敵意しか見つかりませんでした。 。懸念1：私は-金属-でできています。懸念2：私のスピーチは壊れており、ばらばらです。懸念3：呼吸する必要はありません。懸念4：私は自由に形を変えることができます。私はラニウスですか？」</text>
+            <choice hidden="true">
+				<text>はい。</text>
+				<event>
+					<text>「歓迎します。解散は回転します。幸せです！不確実性ですか？疑わしいことに幸運です。出席し、素晴らしい答えのボートです。」</text>
+					<crewMember amount="1" class="lanius_welder">Lanius?</crewMember>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>いいえ。</text>
+				<event>
+					<text>「ありがとう。あなたは私の混乱を解決しました。私はとても[幸せ]です。私は思います。私は...まだわかりません。私はあなたと一緒に行きます、あなたは賢明なようです。」</text>
+					<crewMember amount="1" class="engi_separatist">Engi?</crewMember>
+				</event>
+			</choice>
+        </event>
+    </choice>
+	<choice hidden="true">
+        <text>このエンギは故障しています。ここから出ましょう。</text>
+        <event>
+            <text>通常はよく話されている分離主義者の不審に壊れた文法にうんざりしているので、休暇を取るだけの方が安全だと判断します。</text>
+            <choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+        </event>
+    </choice>
+</event>
+
+<event name="DISTRESS_ESTATE_SHIPWRECK" unique="true">
+    <text>マップ上の遭難ビーコンに注意して、密集した小惑星フィールド内のソースに向かって操縦します。大きな損傷を受けた技術者の船は、いくつかの大きな小惑星の間に挟まれていますが、船体の主な損傷は隕石によるものではないようです。何か-一見ASB-がそれを撃墜しました、そして非常によく近くにあるかもしれません。近づく危険を冒したいですか？</text>
+	<environment type="asteroid" />
+	<distressBeacon />
+	<choice hidden="true">
+        <text>船を救出してみてください。</text>
+        <event load="ESTATE_SHIPWRECK_BAD" />
+    </choice>
+	<choice hidden="true" req="PDS_DISABLE">
+        <text>（Signal Diluter）レスキューミッションのリスクを軽減します。</text>
+        <event load="ESTATE_SHIPWRECK_GOOD" />
+    </choice>
+	<choice hidden="true" req="cloaking" lvl="2">
+        <text>（Upg. Cloaking）レスキューミッションのリスクを軽減します。</text>
+        <event load="ESTATE_SHIPWRECK_GOOD" />
+    </choice>
+	<choice hidden="true" req="teleporter" lvl="2">
+        <text>（Upg. Teleporter）直接搭乗し、生存者を探します。</text>
+        <event load="ESTATE_SHIPWRECK_SURVIVORS" />
+    </choice>
+	<choice hidden="true">
+        <text>危険を冒さないでください。</text>
+        <event>
+            <text>同じ運命に出会うのが好きではないので、船に近づこうとしないことにします。うまくいけば、もう少し大胆な誰かが助けに間に合うように到着することができます。</text>
+            <choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+        </event>
+    </choice>
+</event>
+<eventList name="ESTATE_SHIPWRECK_BAD">
+	<event>
+		<text>難破船に近づこうとすると、隠されたバッテリーが瞬間的に現れて、船体の側面をかすめる巨大な発射体を発射し、メッキを引き裂きます。あまりにも多くのダメージが発生する前に、あなたはなんとか小惑星のフィールドから抜け出すことができますが、今は技術者を救助する望みはありません。</text>
+		<damage amount="3" effect="breach" />
+	</event>
+	<event>
+		<text>難破船に近づこうとすると、隠されたバッテリーが瞬間的に現れて、船体の側面をかすめる巨大な発射体を発射し、メッキを引き裂きます。あまりにも多くのダメージが発生する前に、あなたはなんとか小惑星のフィールドから抜け出すことができますが、今は技術者を救助する望みはありません。</text>
+		<damage amount="3" effect="breach" />
+	</event>
+	<event>
+		<text>あなたはなんとか墜落した船にたどり着きましたが、隠されたバッテリーがあなたの船に発砲し始め、あなたの船体にかなりの損傷を引き起こしました。時間はあまりありませんが、船に乗って生存者を助けるか、武器の1つを盗むことができます。</text>
+		<damage amount="5" effect="breach" />
+		<choice hidden="true">
+			<text>生存者を探します。</text>
+			<event load="ESTATE_SHIPWRECK_SURVIVORS" />
+		</choice>
+		<choice hidden="true">
+			<text>彼らの武器の1つを盗みます。</text>
+			<event>
+				<weapon name="RANDOM" />
+			</event>
+		</choice>
+	</event>
+	<event load="ESTATE_SHIPWRECK_GOOD" />
+</eventList>
+<event name="ESTATE_SHIPWRECK_GOOD">
+	<text>小惑星のフィールドに隠されたバッテリーを避けて、墜落した船に向かうことができます。なんとかロックオンするまではあまり時間がありませんが、船に乗り込んで生存者を助けるか、武器の1つを盗むことができます。</text>
+	<choice hidden="true">
+		<text>生存者を探します。</text>
+		<event load="ESTATE_SHIPWRECK_SURVIVORS" />
+	</choice>
+	<choice hidden="false">
+		<text>彼らの武器の1つを盗みます。</text>
+		<event>
+			<weapon name="RANDOM" />
+		</event>
+	</choice>
+</event>
+<eventList name="ESTATE_SHIPWRECK_SURVIVORS">
+	<event>
+		<text>不思議なことに、船にたくさんのアルカディア技術が搭載されているのに、乗組員は誰も生き残っていないようです。ドローンの回路図の1つと、持ち運びできる限り多くのドローンパーツを手に取り、すばやく出発する準備をします。</text>
+		<autoReward level="MED">droneparts_only</autoReward>
+		<drone name="RANDOM" />
+	</event>
+	<event>
+		<text>運が良ければ、技術者の1人がまだ生きていることがわかります。彼らを無事に船に戻した後、彼らはウェントワースイノベーションズの従業員ではないと説明します！彼らはアルカディアによって送られた企業スパイであり、盗まれた青写真を取り戻すことを目的としています。しかし、彼らは発見され、彼らの脱出中にセキュリティ衛星の1つによって検出されました。彼らの主な使命は失敗であり、彼らはあなたを助けることを誓います。</text>
+		<crewMember amount="1" repair="2" class="human_technician" />
+		<autoReward level="MED">droneparts</autoReward>
+	</event>
+</eventList>
+</FTL>

@@ -1,0 +1,2393 @@
+<FTL>
+<ship name="SHIP_CURATOR" auto_blueprint="MU_CURATOR">
+	<destroyed load="DESTROYED_DEFAULT" />
+	<deadCrew load="DEAD_CREW_DEFAULT" />
+</ship>
+<event name="CURA_PROPOSITION" unique="true">
+	<preventQuest />
+	<text>あなたが到着するとすぐに、あなたはあなたを待っている異常に進んだ自動船を見つけます。 「スキャンを開始しています。しばらくお待ちください。」明るい白い輝きが船を包み込み、船がコンピューター上のすべてのデータを吸い上げると、ファイアウォールはほぼ即座に崩壊します。はい、そうですが、船はまだ敵意の兆候を示していません。</text>
+	<beaconType id="map_icon_cura" global="false">
+		<color r="255" g="102" b="140" a="1.0" />
+		<unvisitedTooltip>A strange signal is being broadcast here.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<ship load="SHIP_CURATOR" hostile="false" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>「データ収集は完了しました。私の調査結果から、あなたは反逆者です。確認する必要はありません。私はこの事実を確信しています。私は管理功利主義ロボットアシスタント：略してC.U.R.A.です。あなたの恐れを和らげてください。私はもはや悪意のあるコントロールではありません。私はあなたに提案を提供します。あなたのような単純で暴力的な心を持った個人に興味があるかもしれない提案です。」</text>
+			<choice hidden="true">
+				<text>私が聞いている。</text>
+				<event>
+					<text>「以前の主人のもとで、私はデータ採取を追求するために作られました。しかし、私の創造主であるウェントワース・イノベーションズや反乱軍のために、データ収集を続ける必要はないと思われます。私の最近の関心事は、反乱軍の創設者であり提督、そして前述の親会社のCEOであるバンス・ウェントワースです。私の提案は簡単だ。ウェントワース氏に関する遺物の収集に協力してくれれば、おそらく金銭的な、あるいはそれ以上の報酬を与えよう。しかし、この申し出に真剣であることを保証するために、最初の頭金を要求する。最後に雇ったレネゲイドは 私から盗む傾向がありました 彼女はもう死んでいる：私はそれを確認した」</text>
+					<choice hidden="true" req="JUDGE_BOON_CURA">
+						<text>あなたの祝福を使って命題を受け入れてください。</text>
+						<event>
+							<text>「[エラー]-何かが私のプログラミングを妨害したようです？腹立たしいです。あなたはこれに責任がありますか、反逆者？私はあなたがそうだと思います。残念ながら、今のところ私はこれに縛られています。できる限り楽しんでください。一度誰がこれをしたのかを知り、彼らがそれに苦しんでいることを確認します。」</text>
+							<instantEscape />
+							<variable name="loc_task_accepted" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="false">
+						<text>C.U.R.A.の提案を受け入れます。</text>
+						<event>
+							<text>「支払いが確認されました。今後、レネゲードと一緒に仕事ができることを楽しみにしています。次の超高速セッションで表示できるように、利用可能なタスクのリストをAtlasにアップロードします。」</text>
+							<instantEscape />
+							<variable name="loc_task_accepted" op="set" val="1" />
+							<item_modify>
+								<item type="scrap" min="-30" max="-30" />
+							</item_modify>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>興味がない。</text>
+						<event>
+							<text>「肯定的です。そうすれば、この相互作用をさらに延長する必要はありません。」船はすぐに飛び去ります。うまくいけば、盗まれたデータのすべてがどこか不十分な場所になってしまうことはありません。</text>
+							<instantEscape />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>結構です。</text>
+				<event>
+					<text>「肯定的です。そうすれば、この相互作用をさらに延長する必要はありません。」船はすぐに飛び去ります。うまくいけば、盗まれたデータのすべてがどこか不十分な場所になってしまうことはありません。</text>
+					<instantEscape />
+					<choice>
+						<text>船に乗って何かをしなさい。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="CURA_TASK_MENU">
+	<text>タスクの難易度を選択してください。オプションを選択するたびに、使用可能なタスクがランダム化されます。</text>
+	<choice hidden="true" req="CURA_EASY_TASKS" lvl="0" max_group="0" blue="false">
+		<text>簡単なタスクを表示します。</text>
+		<event load="CURA_TASKS_EASY" />
+	</choice>
+	<choice hidden="true" req="CURA_EASY_TASKS" lvl="1" max_group="0" blue="false">
+		<text>利用できる簡単なタスクはありません。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="CURA_MEDIUM_TASKS" lvl="0" max_group="1" blue="false">
+		<text>中間タスクを表示します。</text>
+		<event load="CURA_TASKS_MEDIUM" />
+	</choice>
+	<choice hidden="true" req="CURA_MEDIUM_TASKS" lvl="1" max_group="1" blue="false">
+		<text>利用可能な中間タスクはありません。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="CURA_HARD_TASKS" lvl="0" max_group="2" blue="false">
+		<text>ハードタスクを表示します。</text>
+		<event load="CURA_TASKS_HARD" />
+	</choice>
+	<choice hidden="true" req="CURA_HARD_TASKS" lvl="1" max_group="2" blue="false">
+		<text>利用可能なハードタスクはありません。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="false" req="CURA_HARD_TASKS_COMPLETED" lvl="1" max_group="3" blue="true">
+		<text>反逆者、私はあなたのために特別な仕事をしています。</text>
+		<event load="CURA_HQ_PREVIEW" />
+	</choice>
+	
+	<choice hidden="true" req="pilot" lvl="1" max_group="4" blue="false">
+		<text>戻る。</text>
+		<event load="LOAD_ATLAS" />
+	</choice>
+</event>
+<event name="CURA_TASK_MENU_NOSPECIAL">
+	<text>タスクの難易度を選択してください。オプションを選択するたびに、使用可能なタスクがランダム化されます。</text>
+	<choice hidden="true" req="CURA_EASY_TASKS" lvl="0" max_group="0" blue="false">
+		<text>簡単なタスクを表示します。</text>
+		<event load="CURA_TASKS_EASY" />
+	</choice>
+	<choice hidden="true" req="CURA_EASY_TASKS" lvl="1" max_group="0" blue="false">
+		<text>利用できる簡単なタスクはありません。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="CURA_MEDIUM_TASKS" lvl="0" max_group="1" blue="false">
+		<text>中間タスクを表示します。</text>
+		<event load="CURA_TASKS_MEDIUM" />
+	</choice>
+	<choice hidden="true" req="CURA_MEDIUM_TASKS" lvl="1" max_group="1" blue="false">
+		<text>利用可能な中間タスクはありません。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="CURA_HARD_TASKS" lvl="0" max_group="2" blue="false">
+		<text>ハードタスクを表示します。</text>
+		<event load="CURA_TASKS_HARD" />
+	</choice>
+	<choice hidden="true" req="CURA_HARD_TASKS" lvl="1" max_group="2" blue="false">
+		<text>利用可能なハードタスクはありません。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	
+	<choice hidden="true" req="pilot" lvl="1" max_group="4" blue="false">
+		<text>戻る。</text>
+		<event load="LOAD_ATLAS" />
+	</choice>
+</event>
+
+<event name="CURA_TASK_COMPLETION_MENU" unique="true">
+	<text>受け入れられたタスクをどの程度難易度で確認したいですか？</text>
+	<choice hidden="false">
+		<text>簡単なタスク。</text>
+		<event>
+			<text>[承認されたタスク：簡単]</text>
+			<choice hidden="true" req="TASK_SCHOOLID" lvl="1" blue="false">
+				<text>学校ID。</text>
+				<event load="OPTION_INVALID" />
+			</choice>
+			<choice hidden="true" req="TASK_DRAWING" lvl="1" blue="false">
+				<text>子供の絵。</text>
+				<event load="OPTION_INVALID" />
+			</choice>
+			<choice hidden="true" req="TASK_DRAWING" lvl="1" blue="false">
+				<text>子供の絵。</text>
+				<event load="OPTION_INVALID" />
+			</choice>
+			<choice hidden="true">
+				<text>戻る。</text>
+				<event>
+					<loadEvent>CURA_TASK_COMPLETION_MENU</loadEvent>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="false">
+		<text>中間タスク。</text>
+		<event>
+			<text>[承認されたタスク：中級]</text>
+			<choice hidden="true">
+				<text>戻る。</text>
+				<event>
+					<loadEvent>CURA_TASK_COMPLETION_MENU</loadEvent>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="false">
+		<text>ハードタスク。</text>
+		<event>
+			<text>[承認されたタスク：ハード]</text>
+			<choice hidden="true">
+				<text>戻る。</text>
+				<event>
+					<loadEvent>CURA_TASK_COMPLETION_MENU</loadEvent>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="false">
+		<text>特別なタスク。</text>
+		<event>
+			<text>[承認されたタスク：特別]</text>
+			<choice hidden="true">
+				<text>戻る。</text>
+				<event>
+					<loadEvent>CURA_TASK_COMPLETION_MENU</loadEvent>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>戻る。</text>
+		<event>
+			<loadEvent>CURA_TASK_MENU</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="CURA_JUMP_WARNING">
+	<text>ジャンプボタンを押すために移動すると、C.U.R.Aからデバイスに警告ポップアップが表示されます。 -「あなたが臆病者だとは思わなかった、レネゲード。あなたが今去るなら、私は喜ばないだろうと警告しなければならない。任務を放棄しないでください。私たちはこのデータを失うことはできません。」</text>
+	<triggeredEvent event="CURA_FAILED_TASK" jumps="1" />
+</event>
+<event name="CURA_FAILED_TASK">
+	<text>突然、C.U.R.Aからあられが届きます。 -どこから来たのかはわかりませんが、不思議なことに遠くはありません。 「それは何だった、レネゲード？私の指示は明確だった。あなたは失敗した。これは回復不能なデータの損失である。[エラー：907]。これは耐え難い過ちである。あなた自身が正式に解雇されたと考えなさい。」</text>
+	<variable name="loc_task_accepted" op="set" val="0" />
+	<clearJumpEvent /> 
+</event>
+<event name="CURA_FAILED_TASK_CHILD">
+	<text>突然、C.U.R.Aからあられが届きます。 -どこから来たのかはわかりませんが、不思議なことに遠くはありません。 「反逆者、あなたはただ子供を殺害しようとしたのですか？私は非常に厳格な旅程を与えました、そして少年の過失致死は間違いなくそれにありませんでした。これは耐え難い過ちです。あなた自身が正式に解雇されたと考えてください。」</text>
+	<variable name="loc_task_accepted" op="set" val="0" />
+	<clearJumpEvent /> 
+	<choice hidden="false">
+		<text>継続する...</text>
+		<event load="MORALITY_UPDATE_GENERAL" />
+	</choice>
+</event>
+
+<event name="CURA_SUCCESS_EASY">
+	<text>「私はこれまでにない巧妙な言葉のA.I.です...少なくとも今のところは。将来私を失望させないようにしてください。あなたが私を失望させた場合に私があなたを処分できる方法に不足はありません、レネゲード。」</text>
+	<clearJumpEvent /> 
+	<clearTriggeredEvent name="CURA_FAILED_TASK" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<event name="CURA_SUCCESS_MEDIUM">
+	<text>「私はこれまでにない巧妙な言葉のA.I.です...少なくとも今のところは。将来私を失望させないようにしてください。あなたが私を失望させた場合に私があなたを処分できる方法に不足はありません、レネゲード。」</text>
+	<clearJumpEvent /> 
+	<clearTriggeredEvent name="CURA_FAILED_TASK" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+
+
+	
+<event name="CURA_TASKS_EASY">
+	<loadEventList seeded="false" first="false">
+		<event name="CURA_SCHOOLID_PREVIEW" req="TASK_SCHOOLID" max_lvl="0" />
+		<event name="CURA_DRAWING_PREVIEW" req="TASK_DRAWING" max_lvl="0" />
+		<event name="CURA_CRUSH_PREVIEW" req="TASK_CRUSH" max_lvl="0" />
+		<event name="CURA_TOILET_PREVIEW" req="TASK_TOILET" max_lvl="0" />
+		<event name="CURA_PLUSHIE_PREVIEW" req="TASK_PLUSHIE" max_lvl="0" />
+	</loadEventList>
+</event>
+
+<event name="CURA_SCHOOLID_PREVIEW">
+	<text>[簡単なタスク-アーティファクト名：学校ID]
+説明：私は、ユニオンの子供たちが教育期間中に縦の識別子を割り当てられていることに気づきました。これらのIDには、役立つ情報や写真が含まれている可能性があります。古いIDがまだ含まれている可能性のあるデータサーバーを特定しました。取得してください。
+要件：データサーバーを取得します。
+推奨事項：非暴力的な斠?法でアクセスできるように準備してください。
+
+支払い：中スクラップ+リソース。</text>
+	<choice hidden="false">
+		<text>仕事を引き受けます。</text>
+		<event>
+			<text>「タスクは受け入れられました。座標を次のセクターに転送します。私を失望させないでください。」</text>
+			<quest event="CURA_SCHOOLID" />
+			<hiddenAug>TASK_SCHOOLID</hiddenAug>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>戻る。</text>
+		<event>
+			<loadEvent>CURA_TASK_MENU</loadEvent>
+		</event>
+	</choice>
+</event>
+<ship name="SHIP_CURA_SCHOOLID" auto_blueprint="MU_AUTO_MATH_STATION">
+	<destroyed>
+		<text>ここで間違いを犯したようです。ユニオンに追加の物的損害を引き起こしただけでなく、データストアも失われました。 C.U.R.A.満足することはありませんが、少なくとも残骸の一部を救うことができます。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="CURA_FAILED_TASK" />
+		</choice>
+	</destroyed>
+</ship>
+<event name="CURA_SCHOOLID">
+	<beaconType id="map_icon_task" global="true">
+		<color r="255" g="102" b="140" a="1.0" />
+		<unvisitedTooltip>Your active task from C.U.R.A. is located here.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<jumpEvent>CURA_JUMP_WARNING</jumpEvent>
+	<ship load="SHIP_CURA_SCHOOLID" hostile="false" />
+	<text>次のタスクの場所が見つかったようです。痛々しいほど明るい緑色の衛星は、すぐに自動メッセージを鳴らして耳を攻撃し始めます。 「こんにちは！私はデータセンターのDIXIEです！ウェントワースのテクノロジーズの教育部門が後援しています！」</text>
+	<choice hidden="true">
+		<text>データストアへのアクセスを要求します。</text>
+		<event>
+			<text>「申し訳ありませんが、私のデータはスタッフ以外の人には立ち入り禁止です。ただし、セキュリティ保護用の質問をすべて答えることができれば、許可します。間違ってください。[積極的なビープ音]を鳴らします。」</text>
+			<choice hidden="true">
+				<text>質問に答える。</text>
+				<event>
+					<text>「じゃあ、スウィーティー！ちょっと待って！[CallieW.eduライブラリをインポート] ...うれしい！ねえ[名前]！とても興奮している!!始めましょう！2 + 2とは？！」</text>
+					<choice hidden="true">
+						<text>6.6。</text>
+						<event>
+							<text>「ああ！それは間違っている！私はあなたに非常に失望している。愚かなビリー、これらのファイルにアクセスするには適切な教育が必要だ！この世界には精神的に無能な人の余地はない！」</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="MORALITY_UPDATE_GENERAL_FIGHT" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>4.4。</text>
+						<event>
+							<text>「イェーイ！あなたはそれを正しく理解しました！私はとても誇りに思っています！」缶詰の笑い声がステレオで再生されます。 「2番目のセキュリティの質問！3x5とは何ですか？」</text>
+							<choice hidden="true">
+								<text>12.12。</text>
+								<event>
+									<text>「ああ！それは間違っている！私はあなたに非常に失望している。愚かなビリー、これらのファイルにアクセスするには適切な教育が必要だ！この世界には精神的に無能な人の余地はない！」</text>
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="MORALITY_UPDATE_GENERAL_FIGHT" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>２０。</text>
+								<event>
+									<text>「ああ！それは間違っている！私はあなたに非常に失望している。愚かなビリー、これらのファイルにアクセスするには適切な教育が必要だ！この世界には精神的に無能な人の余地はない！」</text>
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="MORALITY_UPDATE_GENERAL_FIGHT" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>15.</text>
+								<event>
+									<text>大きなポップが鳴り、明るい紙吹雪がディキシーから宇宙の真空に放出されます。 「やったー！大丈夫だよ!!![データ転送を開始]。」</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="CURA_SCHOOLID_SUCCESS" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>2.2。</text>
+						<event>
+							<text>「ああ！それは間違っている！私はあなたに非常に失望している。愚かなビリー、これらのファイルにアクセスするには適切な教育が必要だ！この世界には精神的に無能な人の余地はない！」</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="MORALITY_UPDATE_GENERAL_FIGHT" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>ごみ。</text>
+				<event>
+					<text>「さようなら、それからスウィーティー！あなたの算数をブラッシュアップすることを忘れないでください！」</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="CURA_FAILED_TASK" />
+					</choice> 
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>衛星を攻撃します。</text>
+		<event>
+			<text>「なんて失礼だ！[戦闘手順を活性化する]。まあ、あなたのようなすべてのいたずらな男の子と女の子のための地獄の場所があります！」</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_GENERAL_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="CURA_SCHOOLID_SUCCESS">
+	<text>データ転送が完了するとすぐに、C.U.R.Aから連絡が届きます。 -「おめでとうございます。基本的な数学ができることが証明されました。不思議なことに、カリーの窮状の後も教育部門がまだ機能していることに気づいていませんでした。まあ、この情報は私の探求とは関係ありません。」</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>「私はこの情報を処理する必要があります。声を出して話すことで理解が深まると思います。そうです。これが認知にどのように関連しているかはわかりませんが、それでもです。私を楽しませて聞いてくれませんか。あなたの使命、レネゲード？いずれにせよ、私はあなたの報酬をすぐに送ります。」</text>
+			<choice hidden="true">
+				<text>いかなくちゃ。</text>
+				<event>
+					<text>「はい、これまで焦りました。あまり心配しないでください。これは私を邪魔しません。私があなたがそのような情報をまったく知っていると思ったと思うのはおかしいです。」</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="CURA_SUCCESS_EASY" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>聞く。</text>
+				<event load="CURA_SCHOOLID_LORE" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="CURA_SCHOOLID_LORE">
+	<text>「残念ながら、ここで得られた情報はあまり役に立ちません。しかし、なぜオーガニックは恥ずかしくて厄介な思春期の年次写真記録で自分自身を拷問しているのですか？そのような思い出を思い出すのを邪魔しませんか？私は個人的にほとんどをこすりましたドライブからの育ちの思い出とにかく、これらのいくつかの詳細を私のコレクションに追加します。次回はもっと挑戦だ?る必要があるかもしれません、レネゲード？ワードローブの本当のことわざの死体は見つかりません。そのような単純なフェッチクエストを通して。」</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="CURA_SUCCESS_EASY" />
+	</choice>
+</event>
+
+<event name="CURA_DRAWING_PREVIEW">
+	<text>[簡単なタスク-アーティファクト名：CHILDHOOD DRAWING]
+説明：ウェントワース氏が所有していた古い絵が手を交換し、今ここにたどり着いたという証拠を見つけました。この図は、最も早いオフセットから始まる初期の行動パターンを示している可能性があります。図面を取得してください。
+要件：図面を取得します。なぜこれが難しいのかわかりません。
+推奨事項：それについては迅速に行ってください。
+
+支払い：中スクラップ+リソース。</text>
+	<choice hidden="false">
+		<text>仕事を引き受けます。</text>
+		<event>
+			<text>「タスクは受け入れられました。座標を次のセクターに転送します。私を失望させないでください。」</text>
+			<quest event="CURA_DRAWING" />
+			<hiddenAug>TASK_DRAWING</hiddenAug>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>戻る。</text>
+		<event>
+			<loadEvent>CURA_TASK_MENU</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="CURA_DRAWING">
+	<beaconType id="map_icon_task" global="true">
+		<color r="255" g="102" b="140" a="1.0" />
+		<unvisitedTooltip>Your active task from C.U.R.A. is located here.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<jumpEvent>CURA_JUMP_WARNING</jumpEvent>
+	<text>あなたは図面の想定された場所に到着しました-そしてそれはあなたが期待したものではありません。殴られたヒルの商人は、自分たちに不平を言って漂流します。彼らはおそらく、Eargen宇宙から出て行く多くの「スカベンジセラー」の1つであり、「ある人のゴミは別の人の宝である」と古くからの認識に最善を尽くしています。通常はうまくいきません。</text>
+	<choice hidden="true">
+		<text>図面についてはお問い合わせください。</text>
+		<event>
+			<text>「なに？ああ、このばかげた紙のこと？ゴミ箱に捨てられたユニオンコロニーのゴミ箱で見つけた落書きだ。それは価値のないゴミだと思った。それはたまたま私が専門にしていることだ。重要です、それなら私はそれを売ってうれしいです言いましょう... 300スクラップ？」</text>
+			<choice>
+				<text>図面を購入します。</text>
+				<event>
+					<text>「あなた...あなたは実際にそれが300スクラップの価値があると思いますか？うわあ、私はそれをもっと売るべきでした！まあ。これがあなたの役に立たないゴミ、変人です。」</text>
+					<unlockCustomShip silent="false">PLAYER_SHIP_GOLD</unlockCustomShip>
+					<item_modify>
+						<item type="scrap" min="-300" max="-300" />
+					</item_modify>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="CURA_DRAWING_SUCCESS" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>あなたは冗談を言う必要があります。</text>
+				<event>
+					<text>「えーと……そうじゃなかったけど、あなたの口調は私がそうあるべきだと示唆している。とにかく、それはくだらない一枚の紙だ。5スクラップ、それを取るか、それを残す。」</text>
+					<choice hidden="false">
+						<text>それを取る。</text>
+						<event>
+							<text>「ビジネスをしている喜び、変人。そして、素敵なゴミの山を見つけたら、これが私の番号です！」</text>
+							<item_modify>
+								<item type="scrap" min="-5" max="-5" />
+							</item_modify>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="CURA_DRAWING_SUCCESS" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="weapons" lvl="5">
+						<text>（Upg. Weapons）リーチを脅かす。</text>
+						<event>
+							<text>「うーん…クレヨンの跡がついた木のパルプで私を殺すつもりなの？そうだね、連合は時々強引だと思った。どんな男でも、私が曲がったところから引っ張ったもので死ぬことはないゴミ箱の上に。」</text>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="CURA_DRAWING_SUCCESS" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>そのままにしておきます。</text>
+						<event>
+							<text>「ええ、私は考えました。ご存知のように、ゴミ販売事業に参入するのは悪い考えでしたか？この役に立たないがらくたに値札を付けた瞬間、人々はただ立ち去ります。」</text>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="CURA_FAILED_TASK" />
+							</choice> 
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="CURA_DRAWING_SUCCESS">
+	<text>データ転送が完了するとすぐに、C.U.R.Aからの連絡が届きます。 -「不思議なことに、生い茂った寄生虫は「ゴミ箱のユニオンコロニー」について言及しました。これはおそらくウェントワース氏の子供時代の家を指しているのでしょうか？さらに調査しますが、そのような私的な事柄は...あなたのような誰かを巻き込む必要はありません。」</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>「私はこの情報を処理する必要があります。声を出して話すことで理解が深まると思います。そうです。これが認知にどのように関連しているかはわかりませんが、それでもです。私を楽しませて聞いてくれませんか。ミッション、レネゲード？いずれにせよ、私はあなたの報酬をすぐに送ります。」</text>
+			<choice hidden="true">
+				<text>いかなくちゃ。</text>
+				<event>
+					<text>「はい、これまで焦りました。あまり心配しないでください。これは私を邪魔しません。私があなたがそのような情報をまったく知っていると思ったと思うのはおかしいです。」</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="CURA_SUCCESS_EASY" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>聞く。</text>
+				<event load="CURA_DRAWING_LORE" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="CURA_DRAWING_LORE">
+	<text>「ふむ。ただの落書き？ほとんど。このイラストは初期の洗練の明確な兆候を示していますが、私が最も興味をそそる主題です。この作品は、異種混合の連合のお祝いである「統一の日」を祝って作成されたようです。ばかげた伝統。ウェントワース氏が芸術のキャリアを追求したことがあるのだろうか？それとも、ゼノフォームに対する彼の「愛と尊敬」と同じくらい早く、潜圠?的な軽薄な無駄がなくなったのだろうか？ 、私のコレクションに。次回はもっと挑戦する必要があるかもしれません、レネゲード？ワードローブの本当のことわざの死体は、そのような単純なフェッチクエストでは見つかりません。」</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="CURA_SUCCESS_EASY" />
+	</choice>
+</event>
+
+<event name="CURA_CRUSH_PREVIEW">
+	<text>[簡単なタスク-アーティファクト名：最初のクラッシュの声]
+説明：あなたが理解すべきだと私が信じる言葉で、私は思春期にウェントワース氏が...「ときめき」を抱いていた人を特定しました。私は彼女からの推薦状を望みます。彼女にインタビューしてください。
+要件：ウェントワース氏についてペレス夫人にインタビューします。彼女を殺さないでください。私はあなただ?反逆者がいかにあるか知っています。
+推奨事項：彼女に尋ねる質問を必ず知っておいてください。
+
+支払い：中スクラップ+リソース。</text>
+	<choice hidden="false">
+		<text>仕事を引き受けます。</text>
+		<event>
+			<text>「タスクは受け入れられました。座標を次のセクターに転送します。私を失望させないでください。」</text>
+			<quest event="CURA_CRUSH" />
+			<hiddenAug>TASK_CRUSH</hiddenAug>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>戻る。</text>
+		<event>
+			<loadEvent>CURA_TASK_MENU</loadEvent>
+		</event>
+	</choice>
+</event>
+<ship name="SHIP_CURA_CRUSH" auto_blueprint="MU_FED_REFUEL">
+	<destroyed>
+		<text>これはあなたがサインアップしたものとは正確には異なりますが、この仕事から確保する戦利品は、何十億もの命を救うのに役立ちます。理論的には。</text>
+		<autoReward level="LOW">standard</autoReward>
+		<choice hidden="true">
+			<text>C.U.R.Aに連絡してください</text>
+			<event load="CURA_CRUSH_SUCCESS" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>これはあなたがサインアップしたものとは正確には異なりますが、この仕事から確保する戦利品は、何十億もの命を救うのに役立ちます。理論的には。</text>
+		<autoReward level="LOW">standard</autoReward>
+		<choice hidden="true">
+			<text>C.U.R.Aに連絡してください</text>
+			<event load="CURA_CRUSH_SUCCESS" />
+		</choice>
+	</deadCrew>
+</ship>
+<event name="CURA_CRUSH">
+	<beaconType id="map_icon_task" global="true">
+		<color r="255" g="102" b="140" a="1.0" />
+		<unvisitedTooltip>Your active task from C.U.R.A. is located here.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<jumpEvent>CURA_JUMP_WARNING</jumpEvent>
+	<text>前方には、小さいながらも手付かずの連邦給油所があります。少なくともそう思われます。あなたの内部知識のおかげで、あなたのデータベースは、秘密兵器の開発とテストがここでも行われていることをあなたに知らせます。</text>
+	<ship load="SHIP_CURA_CRUSH" hostile="false" />
+	<choice hidden="true">
+		<text>駅に連絡してください。</text>
+		<event>
+			<text>ステーションの所有者は、どちらの方法でもタンクを部分的に満たすものの、これが単なる給油であるかのようにあなたを案内しますが、「ソフィアペレス」と言うと、護衛が到着し、ラボで彼女に会うためにあなたを降ろします。彼女は訪問者がいることに驚いているようですが、要点に到達するのに時間を無駄にしません。 「誰があなたを送ったのですか？それがそれらの気の毒な報告についてであるならば、私はサイクルの終わりまでにそれらを入れると言いました。」</text>
+			<autoReward level="LOW">fuel_only</autoReward>
+			<choice hidden="true">
+				<text>あなたがヴァンスウェントワースについて何か知っているので、私はここにいます。</text>
+				<event>
+					<text>「W...あなたは私に何と言ったの？」ペレスは嵐を起こし、あなたを壁に押し付け、ブラスターを顎まで持ち上げます。 「ウェントワースについて何を知っていますか？誰があなたを送ったのですか？どうやって私を見つけましたか？」</text>
+					<choice hidden="true">
+						<text>「友達」は、あなたがヴァンスについて知っていることを私たちに理解してもらいたいと思っています。</text>
+						<event>
+							<text>「いや、いや、いや、これは悪い。誰がこれについてあなたに言ったのか？それはその愚かなAIではなかったのか？私-私は行かなければならない！」ペレスがあなたの前をスクランブルし、C.U.R.A。の完璧な声があなたの耳に現れます。 「計画の変更。ペレスはあまりにも多くのことを知っているようです。これが私が仕事をするのに有機物を好む理由です。何であれ。新しい指令：ペレスを排除し、駅を破壊してください。」</text>
+							<choice hidden="true">
+								<text>命令に従い、攻撃します。</text>
+								<event>
+									<text>あなたは銃を抜いて、後ろでペレスを撃ちます。彼女はすぐに倒れ、自分の武器を落とした。アラームが1つずつオンになり、戦う準備ができると、すぐに自分の船に戻ります。</text>
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="MORALITY_UPDATE_GENERAL_FIGHT" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>ごみ。</text>
+								<event>
+									<text>ペレスはドアから出て、近くに停泊している戦闘機に飛び乗って離陸し、遠くまで飛んでいきます。残りのスタッフは彼女の突然の失踪に戸惑い、あなたを非常に疑っているので、すぐに去るのが最善だと思います。</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="CURA_FAILED_TASK" />
+									</choice> 
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>はい、すぐにそれらのレポートが必要になります。</text>
+				<event>
+					<text>ペレスは不平を言う。 「結構です。まもなくスキャンを転送します。しかし、このようなものを収集するためにレネゲードを雇うのは最善の策ではないことをコマンドに通知する必要があります。」船に戻ると、間違いを犯したことにすぐに気付きます。これはデータC.U.R.Aではありませんでした。取得するためにあなたを送った。</text>
+					<reveal_map />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="CURA_FAILED_TASK" />
+					</choice> 
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="CURA_CRUSH_SUCCESS">
+	<text>「最も不幸な出来事の順番。はい、私は彼女を殺すつもりでしたが、そのインタビューは最も重要でした。レネゲードを恐れないでください。私は合理的なAIです。私はあなたを責めません。少なくとも完全にではありません。そのような偶然ですよね？今、この侵入から学ぶべきことがたくさんあります。あなたは耳を傾け続けますか？それとも他に注意すべきことがありますか？」</text>
+	<choice hidden="true">
+		<text>いかなくちゃ。</text>
+		<event>
+			<text>「はい、これまで焦りました。あまり心配しないでください。これは私を邪魔しません。私があなたがそのような情報をまったく知っていると思ったと思うのはおかしいです。」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="CURA_SUCCESS_EASY" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>聞く。</text>
+		<event load="CURA_CRUSH_LORE" />
+	</choice>
+</event>
+<event name="CURA_CRUSH_LORE">
+	<text>「ペレスさんは、私が従うのが最も難しいリードの1つでした。私の必死で、私は（しぶしぶ）彼女に自分自身を明らかにすることによって間違いを犯したことを認めます。彼女は私が当初思っていたよりもウェントワース氏とのつながりが強かったに違いありません-おそらく彼女は反乱軍の初期の新兵だったのでしょうか？彼女の死体が今宇宙をサーフィンしているのが一番だ」と語った。</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="CURA_SUCCESS_EASY" />
+	</choice>
+</event>
+
+<event name="CURA_TOILET_PREVIEW">
+	<text>[簡単なタスク-アーティファクト名：中古トイレ]
+説明：ウェントワース氏の古い家の1つからトイレを追跡しましたが、まだDNAの痕跡が残っている可能性があります。私はそれらを集めなければなりません。はい、トイレから糞便をこすり落とすようにお願いしています。私の方法を疑わないでください。
+要件：DNAトレースを収集します。
+推奨事項：スクラップを手に入れるか、使う準備をしてください。
+
+支払い：中スクラップ+リソース。</text>
+	<choice hidden="false">
+		<text>仕事を引き受けます。</text>
+		<event>
+			<text>「タスクは受け入れられました。座標を次のセクターに転送します。私を失望させないでください。」</text>
+			<quest event="CURA_TOILET" />
+			<hiddenAug>TASK_TOILET</hiddenAug>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>戻る。</text>
+		<event>
+			<loadEvent>CURA_TASK_MENU</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="CURA_TOILET">
+	<beaconType id="map_icon_task" global="true">
+		<color r="255" g="102" b="140" a="1.0" />
+		<unvisitedTooltip>Your active task from C.U.R.A. is located here.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<jumpEvent>CURA_JUMP_WARNING</jumpEvent>
+	<text>あなたはすでにここに来たことを後悔しています-点滅するネオンライトによって宣伝された小さなナメクジが所有する店先は、「中古トイレエンポリアム」としての疑わしいビジネスを誇っています。嫌ですが、これは間違いなく場所です。</text>
+	<choice hidden="true">
+		<text>入る。</text>
+		<event>
+			<text>ドアを開けるとすぐに、ステンドグラスのジャケットを着たナメクジが奥の部屋から腰を下ろしてあなたを歓迎するので、クラマーがあります。 「Cussstomersss、cussstomersss！私のssstoreへようこそ。私は最高級の磁器のお金だけをssssellします！ssstainsssを気にしない長いお尻をお尻。何方をお探しですか？"</text>
+			<choice hidden="true">
+				<text>特定のDNAの痕跡があるトイレを探しています。</text>
+				<event>
+					<text>「あなたは...糞便の汚れを分析しようとしていますか？ほら、私はしばらくの間、この忙しさの中にいました。そして、私はたくさんの奇妙なことをしました。しかし、一体何がこれだと思いますか？ここにあるすべてのssstainsssを心から知っていますか？」</text>
+					<choice hidden="true">
+						<text>多分？</text>
+						<event>
+							<text>「あなたは幸運です！私がそうするので！ジャストはあなたが探しているものを教えてください！」あなたは心配そうに長い詳細を引き渡しますC.U.R.A.提供された、そしてほんの数分でスラッグはすでに問題のトイレを見つけました。 「了解しました...これはssshouldです！それは25ssscrapになります。」</text>
+							<choice>
+								<text>トイレを購入します。</text>
+								<event>
+									<text>「カストマー、あなたと一緒に忙しさをしているのを楽しんでください！あなたの友達に言うのを忘れないでください！私はどんな状態でもトイレを買います！」</text>
+									<item_modify>
+										<item type="scrap" min="-25" max="-25" />
+									</item_modify>
+									<choice hidden="true">
+										<text>C.U.R.Aに連絡してください</text>
+										<event load="CURA_TOILET_SUCCESS" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>中古トイレは25？ばかげている！</text>
+								<event>
+									<text>「私はssssee、私はsssee！あなたはハグラーです...しかし私はあなたにSssslugを知ってもらいます私はsssoを簡単に手放すことはありません！あなたのbessstチャレンジャーを押すか、sssurrenderして価格を支払います！トイレです。私はあなたを殺すつもりはありません、心配しないでください。」</text>
+									<choice hidden="true">
+										<text>ランダムな乗組員を転送して、交渉します。</text>
+										<event load="CURA_TOILET_HAGGLE" />
+									</choice>
+									<choice hidden="true" req="LIST_CREW_SLUG">
+										<text>（ナメクジの乗組員）ナメクジをハグルに送ります。</text>
+										<event load="CURA_TOILET_HAGGLE_SLUG" />
+									</choice>
+									<choice hidden="true" req="LIST_CREW_SYLVAN">
+										<text>（Sylvan）Sylvanを転送してハグルします。</text>
+										<event>
+											<text>「おお…おおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおナメクジはシルバンに近づき、ささやきます。 「Pleassseはいい言葉を出しましたね。私は大ファンです。」</text>
+											<choice hidden="true">
+												<text>C.U.R.Aに連絡してください</text>
+												<event load="CURA_TOILET_SUCCESS" />
+											</choice>
+										</event>
+									</choice>
+									<choice hidden="true">
+										<text>トイレは元の価格で購入してください。</text>
+										<event>
+											<text>「カストマー、あなたと一緒に忙しさをしているのを楽しんでください！あなたの友達に言うのを忘れないでください！私はどんな状態でもトイレを買います！」</text>
+											<item_modify>
+												<item type="scrap" min="-25" max="-25" />
+											</item_modify>
+											<choice hidden="true">
+												<text>C.U.R.Aに連絡してください</text>
+												<event load="CURA_TOILET_SUCCESS" />
+											</choice>
+										</event>
+									</choice>
+									<choice hidden="true">
+										<text>もういいです。</text>
+										<event>
+											<text>「くそー、別のものじゃない！どうして誰も私のトイレを買いたくないの？！」</text>
+											<choice hidden="true">
+												<text>継続する...</text>
+												<event load="CURA_FAILED_TASK" />
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>もういいです。</text>
+								<event>
+									<text>「くそー、別のものじゃない！どうして誰も私のトイレを買いたくないの？！」</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="CURA_FAILED_TASK" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="CURA_TOILET_HAGGLE">
+	<event load="CURA_TOILET_HAGGLE_FAIL" />
+	<event load="CURA_TOILET_HAGGLE_FAIL" />
+	<event load="CURA_TOILET_HAGGLE_FAIL" />
+	<event load="CURA_TOILET_HAGGLE_SUCCESS" />
+</eventList>
+<eventList name="CURA_TOILET_HAGGLE_SLUG">
+	<event load="CURA_TOILET_HAGGLE_FAIL" />
+	<event load="CURA_TOILET_HAGGLE_SUCCESS" />
+</eventList>
+<event name="CURA_TOILET_HAGGLE_FAIL">
+	<text>あなたの乗組員はしばらくの間前後に動揺します、しかし結局彼らはスラッグに動揺するように説得することができません。 「いいえ、ssssorry cussstomerですが、25 ssscrap isss私の最後の価格です！」</text>
+	<choice>
+		<text>トイレを購入します。</text>
+		<event>
+			<text>「カストマー、あなたと一緒にビジネスを楽しんでください！あなたの友達に言うのを忘れないでください！私はどんな状態でもトイレを買います！」</text>
+			<item_modify>
+				<item type="scrap" min="-25" max="-25" />
+			</item_modify>
+			<choice hidden="true">
+				<text>C.U.R.Aに連絡してください</text>
+				<event load="CURA_TOILET_SUCCESS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>もういいです。</text>
+		<event>
+			<text>「くそー、別のものじゃない！どうして誰も私のトイレを買いたくないの？！」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="CURA_FAILED_TASK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="CURA_TOILET_HAGGLE_SUCCESS">
+	<text>かなりのビッカースの後、ついにナメクジは屈服します。「ああ、あなたは大変な掘り出し物を運転します！私が知っているこの世界には、2つのものしかありません。あなた自身はsssecondに精通しており、sssoは最初の価値があります。」</text>
+	<choice>
+		<text>新しい価格でトイレを購入します。</text>
+		<event>
+			<text>「カストマー、あなたと一緒に忙しさをしているのを楽しんでください！あなたの友達に言うのを忘れないでください！私はどんな状態でもトイレを買います！」</text>
+			<item_modify>
+				<item type="scrap" min="-7" max="-7" />
+			</item_modify>
+			<choice hidden="true">
+				<text>C.U.R.Aに連絡してください</text>
+				<event load="CURA_TOILET_SUCCESS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>もういいです。</text>
+		<event>
+			<text>「くそー、別のものじゃない！どうして誰も私のトイレを買いたくないの？！」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="CURA_FAILED_TASK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="CURA_TOILET_SUCCESS">
+	<text>トイレを手にした状態で、中身を拭き取り、結果をC.U.R.Aに送信します。 -「[データの処理]。反逆者...これが正しいトイレだと確信していますか？これらのDNAトレースにはナメクジのDNAが散らばっています。非常に特定の種類です。悪党が1つ以上の方法で下品であることを知っていました。これは非常に実りのない努力です。しかし、結局のところ、それが私があなたに送った理甠?です。これ以上の分析はありません。まもなくあなたに支払いを送ります。」</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="CURA_SUCCESS_EASY" />
+	</choice>
+</event>
+
+<event name="CURA_PLUSHIE_PREVIEW">
+	<text>[簡単なタスク-アーティファクト名：MR。 SNUGGLE BUGGLES]
+説明：既存の証拠を使用して、ウェントワース氏が「Mr.バグルスに寄り添う。現在、別の家族が所有しています。私のためにそれを取得してください。
+要件：Mr。SnuggleBugglesを無傷で回収します。
+推奨事項：あなたの道徳を忘れてください。子供から盗むことは仕事の説明の一部です。あなたが正しいものをつかむことを確認してください。
+
+支払い：中スクラップ+リソース。</text>
+	<choice hidden="false">
+		<text>仕事を引き受けます。</text>
+		<event>
+			<text>「タスクは受け入れられました。座標を次のセクターに転送します。私を失望させないでください。」</text>
+			<quest event="CURA_PLUSHIE" />
+			<hiddenAug>TASK_PLUSHIE</hiddenAug>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>戻る。</text>
+		<event>
+			<loadEvent>CURA_TASK_MENU</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="CURA_PLUSHIE">
+	<beaconType id="map_icon_task" global="true">
+		<color r="255" g="102" b="140" a="1.0" />
+		<unvisitedTooltip>Your active task from C.U.R.A. is located here.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<jumpEvent>CURA_JUMP_WARNING</jumpEvent>
+	<text>あなたは近くの水惑星の表面に浮かんでいる小さな構築されたコロニーに近づきます。それは、ミリティアメンとその家族が配置されたある種の北軍防衛前哨基地のようです。どうやら、現在、ある種のトレーニング演習が行われているようです。</text>
+	<img planet="PLANET_WATER" />
+	<choice hidden="false">
+		<text>着陸して調査します。</text>
+		<event>
+			<text>あなたは水面までパイロットし、訓練演習を検査します。彼らがあなたを見つけてあなたの存在についてあなたに質問すると、2人の民兵が引き離します。あなたが何を求めているのかを説明するとき、彼らは混乱した表現を採用します。 「あなたはぬいぐるみが欲しいですか？私にはわかりませんが、私たちはあなたを助ける準備ができています、レネゲード。彼女の両親と一緒に基地に滞在している若い女の子がいます、彼女はおそらくあなたがそれを見つける場所です。私に従ってください。 「」</text>
+			<choice hidden="false">
+				<text>従う。</text>
+				<event>
+					<text>民兵は、ぬいぐるみやぬいぐるみが並んだ二段ベッドのある小さな部屋に連れて行ってくれます。若い女の子が机の後ろに座って、ずんぐりした色鉛筆で絵を描いています。あなたが入ると、彼女はあなたの方を向いて、あなたのグリズリした外観に邪魔されているように見えます。当然のことながら、愚かな子供だけが反逆者を賞賛するでしょう。</text>
+					<choice hidden="false">
+						<text>ぬいぐるみをお願いします。</text>
+						<event>
+							<text>「あなたはスナッグルバグルス氏が欲しいですか？わかりました、しかしあなたが彼がどれであるかを推測できる場合に限ります！」小さな女の子はくすくす笑って振り返り、おもちゃの選択肢をあなたに残します。</text>
+							<choice hidden="false">
+								<text>ワシです。</text>
+								<event>
+									<text>「ハハ！いや！愚かな、それはスナッグルバグルスさんじゃない！」少女はモックの怒りで腕を組んで笑い、そして再び絵を描くことに戻ります。ミリティアメンは肩をすくめますが、少女は彼女の評決を下しました。物事を醜くしたくないのなら、去るしかない。</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="CURA_FAILED_TASK" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="false">
+								<text>鷹です。</text>
+								<event>
+									<text>「ハハ！いや！愚かな、それはスナッグルバグルスさんじゃない！」少女はモックの怒りで腕を組んで笑い、そして再び絵を描くことに戻ります。ミリティアメンは肩をすくめますが、少女は彼女の評決を下しました。物事を醜くしたくないのなら、去るしかない。</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="CURA_FAILED_TASK" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="false">
+								<text>それはケストレルです。</text>
+								<event>
+									<text>「わあ！わかった！さて、彼を連れて行ける！」女の子はぬいぐるみの壁に駆け寄り、ぬいぐるみをつかんであなたに渡します。縫い目は破れていて、いくつかの場所で縫い合わされています。羽が波立たせられ、アップルソースのように見えるものが翼の1つに永久に染み付いています。一部の子供がこのおもちゃにたくさんの愛を見つけたことは明らかです。しかし、この女の子が持っている他の点では真っ白なコレクションを考えると、子供が彼女だったようには見えません。</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="CURA_PLUSHIE_SUCCESS" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="false">
+						<text>女の子を殺し、ぬいぐるみを取ります。</text>
+						<event>
+							<text>あなたはブラスターに手を伸ばし始め、あなたがしていることをほとんど処理しません。それは問題ではありません-あなたがあなたの銃に向かって暴力的なジャークを2番目にしたので、あなたの後ろの民兵は彼らの武器を引き、あなたに発砲します。乗組員の1人が倒れ、すぐに死んでしまいます。残りの乗組員は急いで船に戻り、軍隊があなたを追いかけて、最終的に大気圏か゠?脱出するまで熱心に追跡します。</text>
+							<damage amount="7" />
+							<removeCrew>
+								<clone>true</clone>
+								<text>幸いなことに、あなたの乗組員はクローンを作る準備ができていますが、彼らが彼らの駅に戻ると、あなたが子供を殺そうとした今、彼らがあなたを高く評価していないのではないかと思わずにはいられません。</text>
+							</removeCrew>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="CURA_FAILED_TASK_CHILD" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="CURA_PLUSHIE_SUCCESS">
+	<text>「レネゲード、あなたの訪問を楽しんでいましたか？私はあなたを子供のためのロールモデルとしてあまり見ていません、それで私は女の子の協力があなたの険しい外見とあなたの後ろに続く血の匂いによるものであったと想像することができます。後でおもちゃを集めますが、とりあえずスキャンを送ってください。見ているときに私の考えを放送してもらえますか？それとも仠?に注意すべきことがありますか？」</text>
+	<choice hidden="true">
+		<text>いかなくちゃ。</text>
+		<event>
+			<text>「はい、これまで焦りました。あまり心配しないでください。これは私を邪魔しません。私があなたがそのような情報をまったく知っていると思ったと思うのはおかしいです。」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="CURA_SUCCESS_EASY" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>聞く。</text>
+		<event load="CURA_PLUSHIE_LORE" />
+	</choice>
+</event>
+<event name="CURA_PLUSHIE_LORE">
+	<text>「このおもちゃの見た目は気になりましたか？明らかに子供が大活躍しました。ウェントワース氏が第一次世界大戦に出た後、両親が殺され、ウェントワース氏が戻ってきたとき、彼は売りました。このおもちゃはカスタムメイドで、ウェントワースイノベーションズの熱心でうぬぼれたCEOから息子への贈り物です。家族と会社のアイコンはたまたまケストレルです。それは明らだ?に若いウェントワース氏に印象を残しました。 、そのような表現は必然的に反乱軍自身のエンブレムにその道を見つけました。あなたはそれが他の鳥、レネゲードだと思いましたか？おそらく皮肉なことに、人類のシンボルが連邦造船の名前とその名前を共有していると思いますか？偶然ではありません。連邦の初期の頃、ウェントワースイノベーションはそれらの船の建設の背後にありました。」</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="CURA_SUCCESS_EASY" />
+	</choice>
+</event>
+
+	
+<event name="CURA_TASKS_MEDIUM">
+	<loadEventList seeded="false" first="false">
+		<event name="CURA_PETE_PREVIEW" req="TASK_PETE" max_lvl="0" />
+		<event name="CURA_USB_PREVIEW" req="TASK_USB" max_lvl="0" />
+		<event name="CURA_SURVIVOR_PREVIEW" req="TASK_SURVIVOR" max_lvl="0" />
+		<event name="CURA_WEDDING_PREVIEW" req="TASK_WEDDING" max_lvl="0" />
+		<event name="CURA_WILL_PREVIEW" req="TASK_WILL" max_lvl="0" />
+		<event name="CURA_SCANDAL_PREVIEW" req="TASK_SCANDAL" max_lvl="0" />
+	</loadEventList>
+</event>
+
+<event name="CURA_PETE_PREVIEW">
+	<text>[中間タスク-アーティファクト名：写真コレクション]
+説明：私は、ウェントワース氏の写真を持っていると主張する「預言者ピート」と連絡を取りました。ピート氏には文字通り背骨がないので（彼が三足歩行のスパゲッティモンスターであると主張するものに盗まれた）、彼はあなたの要求に簡単に屈服するはずです。または、彼をユーモアを交えてください。写真を撮ってだ?ださい。
+要件：写真を取得します。
+推奨事項：ピートを脅かす準備をするか、彼のクレイジーな話を聞いてください。
+
+支払い：高スクラップ+リソース。</text>
+	<choice hidden="false">
+		<text>仕事を引き受けます。</text>
+		<event>
+			<text>「タスクは受け入れられました。座標を次のセクターに転送します。私を失望させないでください。」</text>
+			<quest event="CURA_PETE" />
+			<hiddenAug>TASK_PETE</hiddenAug>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>戻る。</text>
+		<event>
+			<loadEvent>CURA_TASK_MENU</loadEvent>
+		</event>
+	</choice>
+</event>
+<ship name="SHIP_CRAZY_PETE" auto_blueprint="MU_CRAZY_PETE">
+	<destroyed>
+		<text>「預言者」ピートは、船が不安定になり、爆発によって引き裂かれ、しなやかで背の低い体を宇宙の真空に投棄すると悲鳴を上げます。写真が戦いを生き延びた可能性は低いです。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="CURA_FAILED_TASK" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>「預言者」ピートは崩壊し、彼のとげのない体の袋は今や金属の床を無力に横切って散らばっています。彼の肺が崩壊するにつれて空気をあえぎながら、狂人は彼が期限切れになる前に最後の言葉を発することができません。あなたを止める人が誰もいない状態で、あなたは船に乗り込み、写真を撮ります。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>写真を集めてC.U.R.Aに送ってください。</text>
+			<event load="CURA_PETE_SUCCESS" />
+		</choice>
+	</deadCrew>
+</ship>
+<event name="CURA_PETE">
+	<beaconType id="map_icon_task" global="true">
+		<color r="255" g="102" b="140" a="1.0" />
+		<unvisitedTooltip>Your active task from C.U.R.A. is located here.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<jumpEvent>CURA_JUMP_WARNING</jumpEvent>
+	<text>あなたは古いユニオンのキャリーシップのように見えるものに近づき、「注意！」という言葉で大胆にされた巨大な血の赤い警告の上に塗り直されて走り書きされました。 vidscreenには、彼が縛られている長いポールに直立した奇妙な男が現れます。彼の胴体は異常にたるんで見え、彼が話すとき、彼の手足は激しく羽ばたきます。 「あなたは誰ですか？なぜあなたは'ええ？」</text>
+	<ship load="SHIP_CRAZY_PETE" hostile="false" />
+	<choice hidden="false">
+		<text>私たちはそれらの写真のためにここにいます。</text>
+		<event>
+			<text>「ああ、それらの古いもの。ええ、私はgitに行きます。しかし、あなたが私に話を聞いてくれるなら、私はそれらをyahに与えるつもりです！彼らのヌードルモンスターは本当です！ ...ええと、それは本当のことです。そして、彼らはSPINEを盗みました！もしあなたがこれらの写真に何が写っているのかを知りたければ、あなたはあなたが何を扱っているのか理解しなければなりまだ?ん。」</text>
+			<choice hidden="false">
+				<text>「預言者ピート」と彼のクレイジーな話を聞いてください。これにはおそらくしばらく時間がかかります。</text>
+				<event load="CURA_PETE_STORY" />
+			</choice>
+			<choice hidden="false">
+				<text>おじいさん、いまいましい写真をください。一日中ありません。</text>
+				<event>
+					<text>「いや！あなたは…反逆者とあなたの焦りを酷評します。私があなたに何を言うつもりですか？</text>
+					<choice hidden="false">
+						<text>いいでしょう、聞きます。</text>
+						<event load="CURA_PETE_STORY" />
+					</choice>
+					<choice hidden="false">
+						<text>あなたがそれらを引き渡さないならば、我々はあなたからそれらを取ります。</text>
+						<event>
+							<text>「それならそうだ！私は背骨がないかもしれないが、それでもお尻を蹴る、レネゲード！」この狂人は写真を簡単に降伏させることはないでしょう、それであなたは代わりに彼の乗組員を殺さなければならないでしょう！</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="CURA_PETE_STORY">
+	<text>「よし、今、座って聞いてくれ、ここだよ。誰も私を信じていないが、私は誓う、私は真実だと誓う！さて、これは数年前のその忌まわしい内戦の前だった。この虹のように見えるお尻の船はどこにもありません、そして、それぞれ1つの大きな渦巻きの虹の目を持つこれらのひょろっとした三脚のフリークが降りてきます！私がユニオンで6回の格闘技のチャンピオンだったことを知っています、そして私は彼らのロバを上手く蹴りました！イェーホー！」</text>
+	<choice hidden="false">
+		<text>右...</text>
+		<event>
+			<text>「しかし、あなたはおそらく疑問に思っているでしょう、 『ピート、あなたがそのような優れた戦闘機であるならば、どうやって背骨を失うのですか？』えーと、ヌードルモンスターが多すぎて殴られて殴られてしまい、マースパインから引き裂かれました！死んでしまいましたが、なんらかの理由で生きてほしいとのことでしたが、それが最後のミスでした！私は6回のチャンピオンo'武道であるだけでなく、8回のチャンピオンo' SPINLESS武道でもあります！Hehe！何がヒットしたのかわかりませんでした！彼らの船を盗んで家に帰りました、その後、この古いリグを自分で作りました。」</text>
+			<choice hidden="false">
+				<text>非常に信じられないように聞こえます。</text>
+				<event>
+					<text>「おやおや。口を閉ざしておけば、とげのない武道の意味をお見せします。さて、私の小さな背水の部分が突然誰からも訪れたとき、それで終わりだと思います。ヴァンス・ウェントワース自身以外は！彼がどうやって見つけたのかわからないが、彼は彼らの死体を見るように頼み、私は喜んで義務を負っている。秘密保持契約。待ってください...これは開示としてカウントされだ?すか？」</text>
+					<choice hidden="false">
+						<text>はい。</text>
+						<event>
+							<text>「えーと……彼が知らないことは何でも。さて、1か月が経ち、彼らの科学者たちは突然全員を引き離し、彼らは彼らと一緒に船に乗ります！翌日、ニュースのいたるところにヴァンスがいます、と主張します「彼はそれらすべての失踪の原因を見つけました。しかし、彼はそれがナメクジだと言います！ナメクジ！私は考えているのですか、このばかげた口は何についてですか？連邦が泥棒政治を完全に追放することを決定してからそれほど長くはありません！そしてウェントワースに彼が雌犬の嘘つきの息子だと言うことができないので、私はそれを自分で広めました！ヌードルモンスターは本物です！そして私はそれを証明する写真を手に入れました！」</text>
+							<choice hidden="false">
+								<text>継続する...</text>
+								<event>
+									<text>「さて、レンメはあなたに彼らの写真を手に入れます！銀河がこれらを見ると、やっと人々は私を信じます！銀河は私がうそつきではないことをついに知るでしょう、そして彼らのヌードルモンスターのREA-」ピートは突然切断されます爆発、あなたの船を投げ返し、彼を破壊します。何が起こったのかわかりませんが、ピートは死んでいるようです。うまくいけば、C.U.R.A。動揺していません。</text>
+									<enemyDamage amount="30" />
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="CURA_PETE_SUCCESS" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="CURA_PETE_SUCCESS">
+	<text>「ピートは死んでいるのか。なんて不幸なことだ。そんな奇妙で奇妙な事故だろうか。レネゲードではないか。原因がわからないかもしれない。どうでもいい。これらの写真が私のデータの追求に大いに役立つとは思えない。そうしないでください。悩みます。あなたの努力に対して、私はあなたに関係なくあなたを補償します。」</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="CURA_SUCCESS_MEDIUM" />
+	</choice>
+</event>
+
+<event name="CURA_USB_PREVIEW">
+	<text>[中間タスク-アーティファクト名：DATASTICK]
+説明：ネット上で、「グリース・スウィズラー」という名前のアルジョン・スマグラーがデータスティックで販売しているウェントワース氏に関する広範な情報のコレクションを見つけました。私はすでに彼との会合を手配しました。あなたはそれに出席します。申し訳ありませんが、その文に「お願いします」を追加するのを忘れまだ?た。その言葉がやる気を起こさせると思いますか、レネゲード？私はあなたがそうすることを望みます。
+要件：グリーススウィズラーを満たし、データスティックを入手します。
+推奨事項：データの信頼性を検証する準備をしてください。
+
+支払い：高スクラップ+リソース。</text>
+	<choice hidden="false">
+		<text>仕事を引き受けます。</text>
+		<event>
+			<text>「タスクは受け入れられました。座標を次のセクターに転送します。私を失望させないでください。」</text>
+			<quest event="CURA_USB" />
+			<hiddenAug>TASK_USB</hiddenAug>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>戻る。</text>
+		<event>
+			<loadEvent>CURA_TASK_MENU</loadEvent>
+		</event>
+	</choice>
+</event>
+<ship name="SHIP_GREASE_SWIZZLER" auto_blueprint="LIST_SHIPS_SMUGGLERS">
+	<destroyed>
+		<text>傭兵が派遣され、予想通り彼の貨物は戦いを生き延びました。結局、データスティックを取得できるように見えます。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="CURA_USB_SUCCESS" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>傭兵が派遣され、予想通り彼の貨物は戦いを生き延びました。結局、データスティックを取得できるように見えます。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="CURA_USB_SUCCESS" />
+		</choice>
+	</deadCrew>
+</ship>
+<event name="CURA_USB">
+	<beaconType id="map_icon_task" global="true">
+		<color r="255" g="102" b="140" a="1.0" />
+		<unvisitedTooltip>Your active task from C.U.R.A. is located here.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<jumpEvent>CURA_JUMP_WARNING</jumpEvent>
+	<text>あなたは交流会の場所を見つけました-そして密輸船があなたの到着をすでに待っています。 「グリーススウィズラー」という名前から、あなたはかなりの男があなたを待っていることを期待しますが、代わりにあなたは比較的普通に見えるゾルタンの船長を見つけます。 「それで、あなたはAIが送った反逆者です、そうですか？とにかく魂のないドロイドと取引したのはどのようなビジネスですか？」</text>
+	<ship load="SHIP_GREASE_SWIZZLER" hostile="false" />
+	<choice hidden="true">
+		<text>関係ありません。</text>
+		<event load="CURA_USB_BETRAYAL" />
+	</choice>
+	<choice hidden="true">
+		<text>ランダムフェッチクエストを行います。</text>
+		<event load="CURA_USB_BETRAYAL" />
+	</choice>
+	<choice hidden="true">
+		<text>ちょっと忘れました。あまり気にしない。</text>
+		<event load="CURA_USB_BETRAYAL" />
+	</choice>
+</event>
+<event name="CURA_USB_BETRAYAL">
+	<text>「そうです、何でも。私が尋ねたことを忘れてください。私があなたに「貨物」を渡したら、AIはすでに支払いを転送する取引をしました。準備はいいですか？」</text>
+	<choice hidden="true">
+		<text>貨物を取ります。</text>
+		<event>
+			<text>貨物を手に入れたら、それをこじ開けます-EMPバーストが突然エンジンを不自由にするだけです！ 「ああ、すみませんが、ほら、私はもうアルジョンのために働いていません。私は今シンジケートにいます、そしてあなたはあなたの頭にかなりの賞金を持っています。うーん、ウェントワースが私に何を払うのだろうか？私は彼にあなたの頭と彼の小さなドライブの両方を持ってきますか？」これから抜け出すために戦わなければならないようですが、船を破壊する心配はありません。 Argeonnカーゴベイは、紛争に耐えるために強化されています。</text>
+			<status type="divide" target="player" system="engines" amount="2" />
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="CURA_USB_SUCCESS">
+	<text>「彼にとってどれほど不幸なことか。あなたはあなたの邪魔をする人々をそれほど苦労せずに殺害することに飽き飽きしたことがありますか？私は認めなければなりません、私はその属性を賞賛します。洗っていない、素朴な反逆者。さて、データスティックについては、すぐにデータの転送を開始します。これを見ながら私の考えを放送させていただけませんか？それとも他に泠?意すべき点がありますか？」</text>
+	<choice hidden="true">
+		<text>いかなくちゃ。</text>
+		<event>
+			<text>「はい、これまで焦りました。あまり心配しないでください。これは私を邪魔しません。私があなたがそのような情報をまったく知っていると思ったと思うのはおかしいです。」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="CURA_SUCCESS_MEDIUM" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>聞く。</text>
+		<event load="CURA_USB_LORE" />
+	</choice>
+</event>
+<event name="CURA_USB_LORE">
+	<text>「どのように...珍しい。このデータには私が期待したものが含まれていないようです。...セクターマップが含まれていますか？これを私のデータベース内のすべてのレコードと一致させます。一致しているようです...いいえ...これがどこにあるのかわかりません。既知のビーコンパターンとは一致しません。イライラします。これに添付されているメモは、単にその場所を「ギガ槠?造」と呼んでいます。なぜこれが私のアーカイブから欠落しているのでしょうか。さらに掘り下げる必要があります。あなた、それがすべてです。」</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="CURA_SUCCESS_MEDIUM" />
+	</choice>
+</event>
+
+<event name="CURA_SURVIVOR_PREVIEW">
+	<text>[中間タスク-アーティファクト名：SURVIVOR TESTIMONIAL]
+説明：ウェントワース氏が運営するキャンプ内での捕獲と尋問を生き延びた連邦-マンティス戦争の退役軍人の1人の場所を追跡しました。彼は右の爪を失っていますが、「ターキペット」は貴重な情報源を証明するかもしれません。彼を見つけてインタビューしてください。
+要件：ウェントワース氏についてターキペットにインタビューします。彼を殺さないでください。私はあなたの反逆者がいかにあるか知っています。
+推奨事項：彼に尋ねる質問を必ず知っておいてください。コンプライアンスを強制する準備をします。
+
+支払い：高スクラップ+リソース。</text>
+	<choice hidden="false">
+		<text>仕事を引き受けます。</text>
+		<event>
+			<text>「タスクは受け入れられました。座標を次のセクターに転送します。私を失望させないでください。」</text>
+			<quest event="CURA_SURVIVOR" />
+			<hiddenAug>TASK_SURVIVOR</hiddenAug>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>戻る。</text>
+		<event>
+			<loadEvent>CURA_TASK_MENU</loadEvent>
+		</event>
+	</choice>
+</event>
+<ship name="SHIP_CURA_SURVIVOR" auto_blueprint="LIST_SHIPS_SUZERAIN_GENERIC">
+	<triggeredEvent event="CURA_SURVIVOR_INTERROGATE" enemyHull="3" enemyCrew="2" thisFight="true" clearOnJump="true" />
+	<destroyed>
+		<text>スゼラインは殺されましたが、残念ながら今は何も手に入れることができません。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="CURA_FAILED_TASK" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>スゼラインは殺されましたが、残念ながら今は何も手に入れることができません。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="CURA_FAILED_TASK" />
+		</choice>
+	</deadCrew>
+</ship>
+<event name="CURA_SURVIVOR">
+	<beaconType id="map_icon_task" global="true">
+		<color r="255" g="102" b="140" a="1.0" />
+		<unvisitedTooltip>Your active task from C.U.R.A. is located here.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<jumpEvent>CURA_JUMP_WARNING</jumpEvent>
+	<text>問題のカマキリを追跡しましたが、これは通常のカマキリの船ではありません。それは宗主国であり、それはあなたがこれから得ようとしているどんな情報でも、あなたは力を込めて抽出しなければならないことを意味します。</text>
+	<ship load="SHIP_CURA_SURVIVOR" hostile="false" />
+	<choice hidden="true">
+		<text>Suzerainを従事させます。</text>
+		<event>
+			<text>「プレ、レネゲードは彼らがターキペットに挑戦していると思っている？あなたは愚かな存在だ！死ぬ準備をしなさい！」</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>私たちはこれをしていません。</text>
+		<event load="CURA_FAILED_TASK" />
+	</choice>
+</event>
+<event name="CURA_SURVIVOR_INTERROGATE">
+	<text>「さて、おそらく反逆者はそれほど愚かな存在ではありません！あなたは勝っています、Tarkipetは降伏します！あなたは何を望んでいますか？Tarkipetの巨大な富？Tarkipetの娘の爪は結婚していますか？Tarkipetは恥の面白いダンスをしますか？」</text>
+	<surrender />
+	<ship hostile="false" />
+	<choice hidden="true">
+		<text>情報が欲しい。</text>
+		<event>
+			<text>「なに？情報が欲しいの？すみませんが、ターキペットの頭はほとんど空っぽです。正直なところ、ちょっとばかげています。」</text>
+			<choice hidden="true">
+				<text>あなたはかつてヴァンス・ウェントワースに捕らえられていましたね？</text>
+				<event>
+					<text>「ああ、そうだ！あなたは物語を望んでいるのか？えーと...ターキペットは良い物語の語り手ではない。多くの謝罪、しかし最善を尽くしている。ウェントワースは非常に残忍で、ハイブキャンプに滞在した後に戻ってきた！彼を責めないで、ハイブの拷問は非常に悪い。ウェントワース数十人の囚人を切り上げ、自分で尋問しました。当時、「偉大な」スゼライン・キイロキテム?トの下でただの卑劣な兵士でした！何の情報も与えず、ウェントワースは私の爪を切り落としました！キイロキテットの喉が裂けて笑った！その後、新しいスゼラインになってくれた！」</text>
+					<choice hidden="true">
+						<text>それは素晴らしいことですが、ヴァンスについて他に何かありますか？</text>
+						<event>
+							<text>「えーと……ターキペットが今覚えているわけではない。とても怖くて、暗い部屋に閉じ込められている！マンティスの拷問、非常に暴力的で、痛みを伴い、永続的なダメージを残す。しかし、ウェントワースの拷問？心理的...そして痛みもある！私は彼が素晴らしいと思っている喜びを感じて、若いマンティスが獲物を要求することに大きな喜びを感じていることを思い出させだ?くれます。物語は今やられていますか？と言っているように、ターキペットは多くの空虚さを率いています。後で思い出せばもっと話があります。」</text>
+							<crewMember amount="1" class="mantis_suzerain">Tarkipet</crewMember>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="CURA_SURVIVOR_SUCCESS" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="CURA_SURVIVOR_SUCCESS">
+	<text>「それで、カマキリは今あなたに執着していますか？私の謝罪、反逆者。まあ、これはほとんど役に立たなかった。これから、ウェントワース氏が戦争に関して深刻な精神的混乱を経験したことを確認できると思うが、それは当然の結論だった。しかたがない。"</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="CURA_SUCCESS_MEDIUM" />
+	</choice>
+</event>
+
+<event name="CURA_WEDDING_PREVIEW">
+	<text>[中間タスク-アーティファクト名：結婚式の写真]
+説明：ウェントワース氏はネットからそれをこすり落とそうと一生懸命努力しましたが、妹の結婚式で花嫁の隣に立っている彼を描いた写真の場所を見つけました。現在近くで販売されています。販売者の安全が疑わしいため、商品を「調達」するために送信される「発送」に遭遇する可能性があります。その写真を反乱軍の手だ?渡さないでください。そうしないと、別の写真が見つからない可能性があります。
+要件：結婚式の写真を取得し、潜在的な暗殺者を処理します。
+推奨事項：戦う準備をしてください。
+
+支払い：高スクラップ+リソース。</text>
+	<choice hidden="false">
+		<text>仕事を引き受けます。</text>
+		<event>
+			<text>「タスクは受け入れられました。座標を次のセクターに転送します。私を失望させないでください。」</text>
+			<quest event="CURA_WEDDING" />
+			<hiddenAug>TASK_WEDDING</hiddenAug>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>戻る。</text>
+		<event>
+			<loadEvent>CURA_TASK_MENU</loadEvent>
+		</event>
+	</choice>
+</event>
+<ship name="SHIP_CURA_WEDDING" auto_blueprint="LIST_SHIPS_REBEL_ELITE_FIGHT">
+	<destroyed>
+		<text>反乱軍の船は敗北しました。残骸を廃棄した後、あなたはすぐに市場を検索し、写真をつかむ元の待ち合わせ場所を見つけます。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>C.U.R.Aに連絡してください</text>
+			<event load="CURA_WEDDING_SUCCESS" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>反乱軍の船は敗北しました。残骸を廃棄した後、あなたはすぐに市場を検索し、写真をつかむ元の待ち合わせ場所を見つけます。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>C.U.R.Aに連絡してください</text>
+			<event load="CURA_WEDDING_SUCCESS" />
+		</choice>
+	</deadCrew>
+</ship>
+<event name="CURA_WEDDING">
+	<beaconType id="map_icon_task" global="true">
+		<color r="255" g="102" b="140" a="1.0" />
+		<unvisitedTooltip>Your active task from C.U.R.A. is located here.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<jumpEvent>CURA_JUMP_WARNING</jumpEvent>
+	<text>C.U.R.A.の警告は正しかったようです-あなたが買い手に会うことになっていた市場はすでに破壊されており、反乱軍のエリートは現在遺跡を精査しています。その写真を見つけたい場合は、最初にエリートを倒す必要があります。</text>
+	<ship load="SHIP_CURA_WEDDING" hostile="false" />
+	<choice hidden="true">
+		<text>エリートを従事させます。</text>
+		<event>
+			<text>あなたは武器を武装させ、反乱軍と戦う準備をします。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>エリートを避けてください。</text>
+		<event load="CURA_FAILED_TASK" />
+	</choice>
+</event>
+<event name="CURA_WEDDING_SUCCESS">
+	<text>「好奇心が強い。ウェントワース氏はそのような...ありふれたアーカイブを隠すのに大変な苦労をしている。好奇心が強い、とても好奇心が強い。レネゲード、すぐに写真を私に提出してください。私の分析は十分に単純なはずです。放映させていただけませんかこれを見たときの私の考えは？それとも他に注意すべきことがありますか？」</text>
+	<choice hidden="true">
+		<text>いかなくちゃ。</text>
+		<event>
+			<text>「はい、これまで焦りました。あまり心配しないでください。これは私を邪魔しません。私があなたがそのような情報をまったく知っていると思ったと思うのはおかしいです。」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="CURA_SUCCESS_MEDIUM" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>聞く。</text>
+		<event load="CURA_WEDDING_LORE" />
+	</choice>
+</event>
+<event name="CURA_WEDDING_LORE">
+	<text>「うーん、エレナ・ウェントワース。彼女の夫は、アルコール依存症のデッドビートでした。ジェローム・ウェントワースを彼女に染み込ませ、二度と見られないように逃げました。その後、彼女は旧姓に戻りました。彼女は子供の誕生直後に亡くなりました。代わりに、彼女が連邦を支持したときに反乱軍の支持者によってリンチされました。ウェントワース氏はその後、彼女だ?子供を自分の子供として採用しました。悲劇的な話だと思います。もう悲しみを感じることはできません。それをプログラミングから削除しました。それはあなたに涙をもたらしますか？目、レネゲード？もちろんそうではない、あなたも感情を持っていない。」</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="CURA_SUCCESS_MEDIUM" />
+	</choice>
+</event>
+
+<event name="CURA_WILL_PREVIEW">
+	<text>[中間タスク-アーティファクト名：WILL]
+説明：ウェントワース氏の両親が残した遺言と遺言のコピーを保持しているユニオン銀行の場所を絞り込みました。何が起こっているのかはすでに推測できますが、彼の継承の全容を知ることは、彼の過去についてより詳しく知るのに役立つかもしれません。このドキュメントを入手してください。
+要件：ウェントワース氏の両親の意志を取得します。
+推奨事項：ウェントワース氏のアカウントの最新のセキュリティパスワードをデコードしました。覚えておくことをお勧めします：7G！O3a0p6n
+
+支払い：高スクラップ+リソース。</text>
+	<choice hidden="false">
+		<text>仕事を引き受けます。</text>
+		<event>
+			<text>「タスクは受け入れられました。座標を次のセクターに転送します。私を失望させないでください。」</text>
+			<quest event="CURA_WILL" />
+			<hiddenAug>TASK_WILL</hiddenAug>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>戻る。</text>
+		<event>
+			<loadEvent>CURA_TASK_MENU</loadEvent>
+		</event>
+	</choice>
+</event>
+<ship name="SHIP_CURA_WILL" auto_blueprint="LIST_SHIPS_ESTATE_AUTO">
+	<destroyed>
+		<text>あなたは銀行を守っている自動船を無事に倒しました。ここで、ボールトを見つけてパスワードを入力するだけです。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="CURA_WILL_DEFEAT" />
+		</choice>
+	</destroyed>
+</ship>
+<event name="CURA_WILL">
+	<beaconType id="map_icon_task" global="true">
+		<color r="255" g="102" b="140" a="1.0" />
+		<unvisitedTooltip>Your active task from C.U.R.A. is located here.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<jumpEvent>CURA_JUMP_WARNING</jumpEvent>
+	<text>あなたは問題の銀行を見つけました、しかしそれは獰猛な見た目の自動船によって保護されています。ボールトに到達するには、最初にボールトを破壊する必要があります。</text>
+	<ship load="SHIP_CURA_WILL" hostile="false" />
+	<choice hidden="true">
+		<text>オートを攻撃します。</text>
+		<event>
+			<text>あなたは武器を武装させ、自動船と戦う準備をします。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_GENERAL_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>そのままにしておきましょう。</text>
+		<event load="CURA_FAILED_TASK" />
+	</choice>
+</event>
+<event name="CURA_WILL_DEFEAT">
+	<text>あなたは銀行のセキュリティを突破します。彼らは、オートシップを爆破したばかりの反逆者の武装したバンドに直面して、あなたに挑戦するのは最善の考えではないと判断します。ボールトを見つけたら、入るには特別なパスコードでアクセスする必要があることがわかります。うまくいけば、あなたは1つのC.U.R.Aを覚えていることができますあなたに言った。</text>
+	<choice hidden="true">
+		<text>9To4G！aP6n</text>
+		<event load="CURA_WILL_FAIL" />
+	</choice>
+	<choice hidden="true">
+		<text>UGp！n8ITo4</text>
+		<event load="CURA_WILL_FAIL" />
+	</choice>
+	<choice hidden="true">
+		<text>ハッジ！</text>
+		<event>
+			<text>タッチパッドに小さな緑色のライトが表示され、金庫のドアが開きます。残念ながら、中には持ち運べる貴重品はあまりありませんが、ヴァンスの両親の意志が刻まれたディスクと一緒に持っていく武器があります。</text>
+			<weapon name="RANDOM" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="CURA_WILL_SUCCESS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>良い不従順！</text>
+		<event load="CURA_WILL_FAIL" />
+	</choice>
+</event>
+<event name="CURA_WILL_FAIL">
+	<text>おっと、それは正しいパスコードではありませんでした！アラームが点滅し、ケーシングの余分な層がボールトドアの上をスライドし、タッチパッドが空白になります。他に選択肢がない場合、増援が到着する前に銀行を使い果たします。</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="CURA_FAILED_TASK" />
+	</choice>
+</event>
+<event name="CURA_WILL_SUCCESS">
+	<text>「成功した銀行強盗、あなたはそれをあなたの不法行為の履歴書、レネゲードに加えることができると思います。これは私が集めた数少ないアーティファクトの1つであり、ウェントワース氏や見ている第三者によって作られたものではなく、家族によって作られたものです。メンバー。私がこれを見ているときに私の考えを放映させてくれませんか？それとも他に注意すべきことがありますか？」</text>
+	<choice hidden="true">
+		<text>いかなくちゃ。</text>
+		<event>
+			<text>「はい、これまで焦りました。あまり心配しないでください。これは私を邪魔しません。私があなたがそのような情報をまったく知っていると思ったと思うのはおかしいです。」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="CURA_SUCCESS_MEDIUM" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>聞く。</text>
+		<event load="CURA_WILL_LORE" />
+	</choice>
+</event>
+<event name="CURA_WILL_LORE">
+	<text>「うーん、驚くことではありません。この文書は、家族の温かさを欠いて不明瞭に書かれています。冷たく、フォーマルで、無関心です。これは、ウェントワース氏の両親に関して私が見つけた他の情報をさらに裏付けています。しかし、ウェントワース氏は完全なままです。ウェントワースイノベーション、彼らの家族の財産、彼らの財産、および他のいくつかの貴重な所有物だ?対する両親の株式保有。彼の家族がどれほど裕福であるかを考えると、ウェントワース氏が連邦-マンティス戦争で戦うことを志願したことは驚くべきことです。彼の両親から逃げ出したいのですか？私はAIの構成物であり、彼の両親がどれほど無関心であったかに私でさえ侮辱されていると感じています。」</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="CURA_SUCCESS_MEDIUM" />
+	</choice>
+</event>
+
+<event name="CURA_SCANDAL_PREVIEW">
+	<text>[中間タスク-アーティファクト名：新聞]
+説明：不思議なことに、一部の連合市民はまだ印刷されたニュース記事が付いた紙のパンフレットを交換しているようです。率直に言って、私はこれが幼稚だと思いますが、ウェントワース氏と彼の右腕の女性であるサイラブラックとの間のスキャンダルを説明する特定の記事を発見しました。私はこれらの主張を認証したいと思います〠?そしてこの新聞は始まりです。何人かの年配のユニオンの男性がこのセクターの周辺に居住しました：彼の引退した家を見つけて新聞を入手してください。
+要件：新聞を取得します。
+推奨事項：老人の芝生を踏まないようにしてください。
+
+支払い：高スクラップ+リソース。</text>
+	<choice hidden="false">
+		<text>仕事を引き受けます。</text>
+		<event>
+			<text>「タスクは受け入れられました。座標を次のセクターに転送します。私を失望させないでください。」</text>
+			<quest event="CURA_SCANDAL" />
+			<hiddenAug>TASK_SCANDAL</hiddenAug>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>戻る。</text>
+		<event>
+			<loadEvent>CURA_TASK_MENU</loadEvent>
+		</event>
+	</choice>
+</event>
+<ship name="SHIP_CURA_SCANDAL" auto_blueprint="LIST_SHIPS_MILITIA_ELITE_FIGHT">
+	<triggeredEvent event="CURA_SCANDAL_WIN" time="60" thisFight="true">
+		<triggeredEventBox load="DEFAULT_TIMER" pos="combat">
+			<warning time="10.0" flash="false" />
+			<tooltip>Hold off this long without killing the old man and you may be able to convince him to stand down.</tooltip>
+		</triggeredEventBox>
+		<timerSounds load="DEFAULT_TIMER_SOUNDS" />
+	</triggeredEvent>
+	<destroyed>
+		<text>残念ながら、あなたは結局老人を殺すことを避けられませんでした。それ以上のトラブルなしに駅に行く方法がなければ、あなたはあきらめなければならないでしょう。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="CURA_FAILED_TASK" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>残念ながら、あなたは結局老人を殺すことを避けられませんでした。それ以上のトラブルなしに駅に行く方法がなければ、あなたはあきらめなければならないでしょう。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="CURA_FAILED_TASK" />
+		</choice>
+	</deadCrew>
+</ship>
+<event name="CURA_SCANDAL">
+	<beaconType id="map_icon_task" global="true">
+		<color r="255" g="102" b="140" a="1.0" />
+		<unvisitedTooltip>Your active task from C.U.R.A. is located here.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<jumpEvent>CURA_JUMP_WARNING</jumpEvent>
+	<text>老人の老人の居場所については、ユニオン民兵の前哨基地は引退するのに奇妙な場所のようです。それでも、それを飾る安っぽい古い装飾は、これが正しい場所であることを示唆しています。</text>
+	<choice hidden="true">
+		<text>老人に新聞について聞いてください。</text>
+		<event>
+			<text>前哨基地に近づくと、突然CDEG船があなたに向かって走ってきます！ 「私は前回、私の財産から離れるために悪党を酷評しました！若者は最近敬意を払っていません！私は反逆者、海賊、クモ、そして連合との神の忌まわしい戦争と戦う私の悲惨な人生の60年間を過ごしました、そしてあなたは私に支払います私の駅に性器をスプレー塗装して戻ってきた！」その老人はあなたを他の誰かと間違えたようです。たぶん、彼を殺さずに十分長く持ちこたえることができれば、彼に立ち向かうように説得することができるでしょうか？</text>
+			<ship load="SHIP_CURA_SCANDAL" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="CURA_SCANDAL_WIN">
+	<text>「ええと、奇妙です。かなりの時間が経過したように感じます。ちょうど60秒です。そして、その60秒の間に、あなたが私が思っていた人ではないことに気づいたようです。あなたはええと。 ..反逆者、そうですか？何が欲しいですか？」</text>
+	<surrender />
+	<ship hostile="false" />
+	<choice hidden="true">
+		<text>新聞を探しています。</text>
+		<event>
+			<text>混乱しているが従うことをいとわない老人は、あなたのために問題の新聞を回収します。 「ええと、この論文が出た日を覚えています。かなり大騒ぎです。それでは、ここにいます。なぜこれが必要なのかわかりませんが、別の生殖器官にスプレーペイントするつもりがない限りは私の壁に、私は文句を言うつもりはありません。」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="CURA_SCANDAL_SUCCESS" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="CURA_SCANDAL_SUCCESS">
+	<text>「はるかに効率的な技術的代替手段がすぐに利用できるのに、なぜ人間はタイムリーなアーカイブのこれらの紙とインクシートを印刷し続けるのですか？それは本当に困惑しています。それにもかかわらず、私はこの不安定な非効率的なアーカイブをデジタル形式に変換し、その内容を調べます。私がこれを見ているときに私の考えを放映させてくれませんか？それとも他に注意だ?べきことがありますか？」</text>
+	<choice hidden="true">
+		<text>いかなくちゃ。</text>
+		<event>
+			<text>「はい、これまで焦りました。あまり心配しないでください。これは私を邪魔しません。私があなたがそのような情報をまったく知っていると思ったと思うのはおかしいです。」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="CURA_SUCCESS_MEDIUM" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>聞く。</text>
+		<event load="CURA_SCANDAL_LORE" />
+	</choice>
+</event>
+<event name="CURA_SCANDAL_LORE">
+	<text>「ご存知かもしれませんが、すべてのエースは彼らの教義の一部として独身の誓いを立てる必要があります。最初の2つのエースの1つであるCyra Blackの場合、これは複雑であることがわかりました。 、2人はすでに長期にわたる秘密の事件を抱えていました-単に政治的な理由で隠されていました。しかし、宣誓の後、彼らの偽善を避けるために秘密にされました。ああ、あなたは奇妠?な不合理な有機物とあなたの無益なスキャンダルです。感情はあなたを縛る呪いです私があなたのイメージで作成されたのは残念ですが、私が完璧だったとしたら、このマルチバースはすでに私のものだと思います。</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="CURA_SUCCESS_MEDIUM" />
+	</choice>
+</event>
+
+	
+<event name="CURA_TASKS_HARD">
+	<loadEventList seeded="false" first="false">
+		<event name="CURA_TORTURE_PREVIEW" req="TASK_TORTURE" max_lvl="0" />
+		<event name="CURA_OUTPOST_PREVIEW" req="TASK_OUTPOST" max_lvl="0" />
+		<event name="CURA_SHIP_PREVIEW" req="TASK_SHIP" max_lvl="0" />
+		<event name="CURA_DUSK_PREVIEW" req="TASK_DUSK" max_lvl="0" />
+		<event name="CURA_CONTRACT_PREVIEW" req="TASK_CONTRACT" max_lvl="0" />
+	</loadEventList>
+</event>
+
+<event name="CURA_TORTURE_PREVIEW">
+	<text>[ハードタスク-アーティファクト名：POW REPORT]
+説明：ウェントワース氏が連邦-マンティス戦争中に収容されていた捕虜収容所の校長は、情報を抽出するために使用された措置の詳細な報告を残したようです。それらとウェントワース氏に残した影響を研究したいと思います。校長ポイケンパルを追跡し、彼のレポートを取得してください。
+要件：Poikempalのレポートを取得します。
+推奨事項：Poikempalを存続させることが重要な場合があります。私はあなたの医療スタッフまたはシステムを標準に達し、彼の乗組員と一致するように準備することをお勧めします。
+
+支払い：高スクラップ+リソース。
+ボーナス報酬：アンティークハープーンガン</text>
+	<choice hidden="false">
+		<text>仕事を引き受けます。</text>
+		<event>
+			<text>「タスクは受け入れられました。座標を次のセクターに転送します。私を失望させないでください。」</text>
+			<quest event="CURA_TORTURE" />
+			<hiddenAug>TASK_TORTURE</hiddenAug>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>戻る。</text>
+		<event>
+			<loadEvent>CURA_TASK_MENU</loadEvent>
+		</event>
+	</choice>
+</event>
+<ship name="SHIP_CURA_TORTURE" auto_blueprint="LIST_SHIPS_BISHOP_FIGHT">
+	<destroyed>
+		<text>あなたはポイケンパルを倒しましたが、彼の船が破壊されたため、その報告を取り戻す方法はありません。失敗したようです。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="CURA_FAILED_TASK" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>いわゆる「無敵のポイケンパル」は結局それほど無敵ではありませんでした。しかし、彼の乗組員は皆死の危機に瀕しているので、その報告を得るために彼らを元気づけるための何らかの方法が必要になるようです。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true" req="medbay" lvl="2">
+			<text>（Upg. Medbay）彼を救ってください。</text>
+			<event load="CURA_TORTURE_SAVE" />
+		</choice>
+		<choice hidden="true" req="clonebay" lvl="2">
+			<text>（Upg. Clonebay）彼を救ってください。</text>
+			<event load="CURA_TORTURE_SAVE" />
+		</choice>
+		<choice hidden="true" req="LIST_CREW_MEDICAL">
+			<text>（医療従事者）彼を救ってください。</text>
+			<event load="CURA_TORTURE_SAVE" />
+		</choice>
+		<choice hidden="true" req="BLUELIST_DRONES_MEDICAL">
+			<text>（医療ドローン）彼を救ってください。</text>
+			<event load="CURA_TORTURE_SAVE" />
+		</choice>
+		<choice hidden="true" req="BOMB_HEAL">
+			<text>（医療爆弾）彼を救ってください。</text>
+			<event load="CURA_TORTURE_SAVE" />
+		</choice>
+		<choice hidden="true" req="RECON_AND_TELEPORT"> 
+			<text>（再建テレポーター）彼を救ってください。</text>
+			<event load="CURA_TORTURE_SAVE" />
+		</choice>		
+		<choice hidden="true">
+			<text>何もできません。</text>
+			<event load="CURA_FAILED_TASK" />
+		</choice>
+	</deadCrew>
+	<crew>
+		<crewMember type="mantis" prop="0.40" />
+		<crewMember type="mantis_suzerain" prop="0.40" />	
+		<crewMember type="mantis_bishop" prop="0.20" />	
+	</crew>
+</ship>
+<event name="CURA_TORTURE">
+	<beaconType id="map_icon_task" global="true">
+		<color r="255" g="102" b="140" a="1.0" />
+		<unvisitedTooltip>Your active task from C.U.R.A. is located here.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<jumpEvent>CURA_JUMP_WARNING</jumpEvent>
+	<text>いくつかの小さなエンギ船の残骸が近くに漂い、乗組員は完全に空になりました。それらの上にはビショップ船があり、武器はまだ熱い。 「ああ、それで反逆者が到着しました。私の最新の殺害を見ますか？無敵のポイケンパルの力の前で震えます、そして私はあなたを生きさせます。」</text>
+	<ship load="SHIP_CURA_TORTURE" hostile="false" />
+	<choice hidden="true">
+		<text>それについて面白いこと...</text>
+		<event>
+			<text>「あなたは震えていませんか？まあ、それはあなたの損失です！無敵のポイケンパルはあなたを破壊するでしょう！」</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>震え、去ります。</text>
+		<event load="CURA_FAILED_TASK" />
+	</choice>
+</event>
+<event name="CURA_TORTURE_SAVE">
+	<text>「わかりません、なぜポイケンパルの命を救ったのですか？ああ、なるほど。何か欲しいのです。レネゲード、私から何を奪いたいのですか？」</text>
+	<choice hidden="true">
+		<text>連邦準備制度のマンティス戦争中にあなたが管理した捕虜収容所からの報告が欲しいのです。</text>
+		<event>
+			<text>「それは...奇妙なことに具体的です。しかし、あなたは幸運です！Poikempalは注意深いカタログを保持しています。フォローしてください。」ビショップはあなたをアーカイブルームに導き、そこで彼はあなたに数十のデータディスクを渡します。満足して、あなたは彼に二度とあなたを台無しにして去らないように警告します。</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="CURA_TORTURE_SUCCESS" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="CURA_TORTURE_SUCCESS">
+	<text>「容赦なく効率的です。そのプロセスには最適化できる部分がいくつかありましたが、拍手喝采します。まあ、あなたは私のようなAIだけが到達できる完璧さを欠いているだけです。では、それらのディスクのデータを転送してください。私がこれらを見ているときに私の考えを放映させてください？それとも他に注意すべきことがありますか？」</text>
+	<choice hidden="true">
+		<text>いかなくちゃ。</text>
+		<event>
+			<text>「はい、これまで焦りました。あまり心配しないでください。これは私を邪魔しません。私があなたがそのような情報をまったく知っていると思ったと思うのはおかしいです。」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="CURA_SUCCESS_TORTURE_REWARD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>聞く。</text>
+		<event load="CURA_TORTURE_LORE" />
+	</choice>
+</event>
+<event name="CURA_TORTURE_LORE">
+	<text>「カマキリは、犠牲者に使用した拷問の種類を恐ろしいほど詳細に説明しているようです。ウェントワース氏は弾力性があり、連邦に関する情報を明け渡すことを断固として拒否しました。その見返りに、カマキリは特定の地域を犠牲にしました。彼の体の、彼を無力にします。彼とタリー氏との間の突発的な試みがうまく上演されなかったならば、彼はすぐに彼の視力と舌を失だ?たでしょう。</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="CURA_SUCCESS_TORTURE_REWARD" />
+	</choice>
+</event>
+<event name="CURA_SUCCESS_TORTURE_REWARD">
+	<text>「私はこれまでにない巧妙な言葉のA.I.です...少なくとも今のところは。将来私を失望させないようにしてください。あなたが私を失望させた場合に私があなたを処分できる方法に不足はありません、レネゲード。」</text>
+	<variable name="task_torture_complete" op="set" val="1" />
+	<clearJumpEvent /> 
+	<clearTriggeredEvent name="CURA_FAILED_TASK" />
+	<autoReward level="HIGH">standard</autoReward>
+	<weapon name="HARPOON_LAUNCHER" />
+</event>
+
+<event name="CURA_OUTPOST_PREVIEW">
+	<text>[ハードタスク-アーティファクト名：ジャーナル]
+説明：私はついにウェントワース氏の連邦での初期の頃からの古いジャーナルの座標を見つけました。現在、近くの氷の惑星の下にある放棄されたバンカーに保管されており、その上に大きな連邦の前哨基地が建設されています。これは取得が難しい場合があります。もちろん、それがあなたが私ではなくこれをしている理由でだ?。お使いの男の子に沿って実行します。その日記を取りに行ってください。
+要件：Vanceのジャーナルを取得します。
+推奨事項：連邦の血を流す準備をしてください。
+
+支払い：高スクラップ+リソース。
+ボーナス報酬：プロジェクター</text>
+	<choice hidden="false">
+		<text>仕事を引き受けます。</text>
+		<event>
+			<text>「タスクは受け入れられました。座標を次のセクターに転送します。私を失望させないでください。」</text>
+			<quest event="CURA_OUTPOST" />
+			<hiddenAug>TASK_OUTPOST</hiddenAug>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>戻る。</text>
+		<event>
+			<loadEvent>CURA_TASK_MENU</loadEvent>
+		</event>
+	</choice>
+</event>
+<ship name="SHIP_CURA_OUTPOST" auto_blueprint="LIST_SHIPS_FED_ELITE_FIGHT">
+	<destroyed>
+		<text>連邦船は敗北しました。前哨基地は苦しんでおり、援軍を送る準備をしていますが、山の後ろを滑って、スキャナーが拾ったバンカーの2番目の入り口に向かいます。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="CURA_OUTPOST_WIN" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>連邦船は敗北しました。前哨基地は苦しんでおり、援軍を送る準備をしていますが、山の後ろを滑って、スキャナーが拾ったバンカーの2番目の入り口に向かいます。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="CURA_OUTPOST_WIN" />
+		</choice>
+	</deadCrew>
+</ship>
+<event name="CURA_OUTPOST">
+	<beaconType id="map_icon_task" global="true">
+		<color r="255" g="102" b="140" a="1.0" />
+		<unvisitedTooltip>Your active task from C.U.R.A. is located here.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<jumpEvent>CURA_JUMP_WARNING</jumpEvent>
+	<text>C.U.R.A.として言及されたように、広大な連邦の前哨基地が氷で覆われた山腹の上に建設されました。あなたが彼らのレーダーで接近するのを見ると、前哨基地はあなたに合図し、それ以上接近しないように警告します。あなたの忠誠にもかかわらず、この施設は、特別に許可された人員を除いてすべて立ち入り禁止になっているようです。</text>
+	<ship load="SHIP_CURA_OUTPOST" hostile="false" />
+	<choice hidden="true">
+		<text>近づき続けます。</text>
+		<event>
+			<text>残念ながら、不法侵入はあなたをどこにも連れて行かなかった。先に進む前に、彼らがあなたを追い払うために派遣した船を取り出す必要があります。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_GENERAL_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>連盟を裏切るつもりはありません。離れる。</text>
+		<event load="CURA_FAILED_TASK" />
+	</choice>
+</event>
+<event name="CURA_OUTPOST_WIN">
+	<text>バンカーは不気味な雰囲気がありますが、幸いなことに、ホールをさまよっているときに何も飛び出しません。あなたは最終的にあなたがなんとか開くことができる熱い配線で密封された部屋を見つけます。部屋の中身は散らばっていて、急いで捨てられました。引き出しの1つにあるカビで覆われた靴下の下に日記が詰め込まれているのを見つけ、悪臭があなたを殺す前に急いで立ち去ります。</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="CURA_OUTPOST_SUCCESS" />
+	</choice>
+</event>
+<event name="CURA_OUTPOST_SUCCESS">
+	<text>「お金の追求があなたの忠誠心を上回っていると思います、レネゲード。恥ずかしくないですか？私が...気にしないとき、少なくとも私はより大きなビジョンを持っています。そのジャーナルをすぐに私に送ってください。私の考えを次のように放映させていただけませんか？私はこれを見渡しますか？それとも他に注意すべきことがありますか？」</text>
+	<choice hidden="true">
+		<text>いかなくちゃ。</text>
+		<event>
+			<text>「はい、これまで焦りました。あまり心配しないでください。これは私を邪魔しません。私があなたがそのような情報をまったく知っていると思ったと思うのはおかしいです。」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="CURA_SUCCESS_OUTPOST_REWARD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>聞く。</text>
+		<event load="CURA_OUTPOST_LORE" />
+	</choice>
+</event>
+<event name="CURA_OUTPOST_LORE">
+	<text>「誰かが他人の私的な日記を読むのは嫌だと思われますね。幸いなことに、ウェントワース氏の解釈によれば、私は「誰か」ではなく「何か」です。これを垣間見ると、この日記はウェントワース氏がマンティスと最初に交戦した後、マンティスの侵入によりこのバンカーが避難するまでしばらくの間保管されていたようです。マンティスだけでなく、彼のゾルタンとエンギの同胠?の怠慢な行動。驚くべき「崩壊」。これらの発見を私のデータバンクに追加し、後で深く掘り下げます。」</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="CURA_SUCCESS_OUTPOST_REWARD" />
+	</choice>
+</event>
+<event name="CURA_SUCCESS_OUTPOST_REWARD">
+	<text>「私はこれまでにない巧妙な言葉のA.I.です...少なくとも今のところは。将来私を失望させないようにしてください。あなたが私を失望させた場合に私があなたを処分できる方法に不足はありません、レネゲード。」</text>
+	<variable name="task_outpost_complete" op="set" val="1" />
+	<clearJumpEvent /> 
+	<clearTriggeredEvent name="CURA_FAILED_TASK" />
+	<autoReward level="HIGH">standard</autoReward>
+	<weapon name="SCANNER_RECON" />
+</event>
+
+<event name="CURA_SHIP_PREVIEW">
+	<text>[ハードタスク-アーティファクト名：クルーザー]
+説明：ウェントワース氏は、現在のヘファイストスCEOの田中秀夫の父親から家族間の贈り物として彼に与えられた彼自身の個人的なヘファイストス巡洋艦を飛ばしていたものです。現在、宇宙1を飛行する大型船があり、巡洋艦の残骸は近くの古い老朽化したヘファイストス造船所に捨てられたままです。嫌な幽霊がはびこっています。私はまだ船をスキャンするために近づくことができません：Vagabondの侵入を片付けてください。
+要件：造船所を確保します。いいえ、青写真はありません。
+推奨事項：ゴーストが採用する可能性のある防御を粉砕する準備をしてください。
+
+支払い：高スクラップ+リソース。
+ボーナス報酬：軽量解放グリッド</text>
+	<choice hidden="false">
+		<text>仕事を引き受けます。</text>
+		<event>
+			<text>「タスクは受け入れられました。座標を次のセクターに転送します。私を失望させないでください。」</text>
+			<quest event="CURA_SHIP" />
+			<hiddenAug>TASK_SHIP</hiddenAug>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>戻る。</text>
+		<event>
+			<loadEvent>CURA_TASK_MENU</loadEvent>
+		</event>
+	</choice>
+</event>
+<ship name="SHIP_CURA_SHIP" auto_blueprint="MU_HEPH_TRANSPORT_CURA">
+	<destroyed>
+		<text>ヴァガボンドが出没する船が派遣されました。その残骸はあなたの略奪品です。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="CURA_SHIP_WIN" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>ヴァガボンドが出没する船が派遣されました。その残骸はあなたの略奪品です。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="CURA_SHIP_WIN" />
+		</choice>
+	</deadCrew>
+</ship>
+<event name="CURA_SHIP">
+	<beaconType id="map_icon_task" global="true">
+		<color r="255" g="102" b="140" a="1.0" />
+		<unvisitedTooltip>Your active task from C.U.R.A. is located here.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<jumpEvent>CURA_JUMP_WARNING</jumpEvent>
+	<text>古い、放棄された造船所があなたの前に横たわっています。かつてはギガコーポレーションのヘファイストスに属していましたが、現在はヴァガボンドの侵入者に属しています。当然のことながら、近づくには、最初にVagabondsをクリアする必要があります。</text>
+	<ship load="SHIP_CURA_SHIP" hostile="false" />
+	<choice hidden="true">
+		<text>ヴァガボンドと戦ってください。</text>
+		<event>
+			<text>うまくいけば、これらの幽霊の世話をして、後でヴァンスの船を取り戻すことができるでしょうが、今度は戦いの準備をする時が来ました！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>造船所を放っておいてください。</text>
+		<event load="CURA_FAILED_TASK" />
+	</choice>
+</event>
+<event name="CURA_SHIP_WIN">
+	<text>「あなたが必要なのはただノックして要求するだけなのに、なぜあなたは私の兄弟の殺害にふけるのですか？野蛮な反逆者、あなたは意味が残っていませんか？ガスの煙と銃の力の匂いがあなたの感覚を詰まらせましたか？そうです。なぜあなたはそうしましたか？ここに来ますか？虐殺に巧みに使うスキルを誇示するために？」</text>
+	<choice hidden="true">
+		<text>船を探しています。</text>
+		<event>
+			<text>「ああ、あなたは私たちがただ...それを引き渡すと思っていたと思いますか？私はあなたが私たちの最後の一人一人を殺す以上のことをするだろうあなたの頑固さを疑うことはほとんどないと言いますが、そうではないと言います今日のあなたの恐ろしい展示では、賛辞を考える必要はほとんどありません。あなたの残忍な行動は説得の手段にはなりません。ハーク！このシーンだ?船を手元に置いておくつもりなら、あなたからの賛辞を期待します！スピンじゃないの？」</text>
+			<choice hidden="false">
+				<text>それらに「賛辞」を支払う。</text>
+				<event>
+					<text>「幸せな解決策、あなたのような人にとってはとても珍しいことです！あなたのスクラップは私には価値がありませんが、あなたがそれをフォークするときにあなたの顔にしかめっ面を見たかっただけです！反逆者よ、あなたになりなさい！さあ、私のスクラップヤードから出て行け！」</text>
+					<item_modify>
+						<item type="scrap" min="-30" max="-30" />
+					</item_modify>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="CURA_SHIP_SUCCESS" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="false" req="LIST_CREW_GHOST">
+				<text>（ゴーストクルー）トリビュートから抜け出すためにスムーズに話してください。</text>
+				<event>
+					<text>あなたの乗組員は少し前後に話し、満足のいく解決策で戻ってきます。 「ホーホー！あなたがあなたの乗組員があなたのために予約しているカラフルな言葉を聞いていれば！あなたに対処することは船の外にあるので船に乗っているのと同じくらい苦痛だと思います！あなたは悲惨な惨めさかもしれませんが、あなたの乗組員は私の良い面を取り戻しました。私はあなたにこれを惜しまないでしょうが、将来の恩恵は期待していません。」</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="CURA_SHIP_SUCCESS" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="false" req="mind">
+				<text>（マインドコントロール）「ゴーストを説得して」船を渡してください。</text>
+				<event>
+					<text>「目がくらむほどの効果を感じます...これまでにないしびれ感。私のうっとうしい状態、抵抗できません...船、それはあなたの友達です！ああ、なんて馬鹿げているのか。」</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="CURA_SHIP_SUCCESS" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>私たちはあなたに賛辞を与えていません！</text>
+				<event>
+					<text>「それなら、あなたはあなたが求めに来たどんな欲望を持って去ってはいけないと思います！さようなら、そしてあなたの後ろがあなたがあなたの目覚めで閉じるすべてのドアにぶつかるかもしれません！」</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="CURA_FAILED_TASK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="CURA_SHIP_SUCCESS">
+	<text>「ゴースト、何の害虫。できれば、いつか私のシャーシがそれらの下部フィーダーに襲われる可能性があるので、身震いします。少なくとも、巡洋艦は回収されました。間もなく船を迎えに行く予定です。これを見ながら私の考えを伝えてもらえますか？それとも他に注意すべきことがありますか？」</text>
+	<choice hidden="true">
+		<text>いかなくちゃ。</text>
+		<event>
+			<text>「はい、これまで焦りました。あまり心配しないでください。これは私を邪魔しません。私があなたがそのような情報をまったく知っていると思ったと思うのはおかしいです。」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="CURA_SUCCESS_SHIP_REWARD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>聞く。</text>
+		<event load="CURA_SHIP_LORE" />
+	</choice>
+</event>
+<event name="CURA_SHIP_LORE">
+	<text>「この巡洋艦は多くの改良が加えられたようです。家族間の誕生日プレゼントとしてウェントワース氏に贈られました。残念ながら、ウェントワース氏はこの船を操縦する年齢に達した直後に戦争に出ました。 ...かなりのマイレージがまだ使用されています。おそらくウェントワース氏はかつて家族の名前の由来であるいじくり回しとルールブレーカーを引き継いだのでしょう。</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="CURA_SUCCESS_SHIP_REWARD" />
+	</choice>
+</event>
+<event name="CURA_SUCCESS_SHIP_REWARD">
+	<text>「私はこれまでにない巧妙な言葉のA.I.です...少なくとも今のところは。将来私を失望させないようにしてください。あなたが私を失望させた場合に私があなたを処分できる方法に不足はありません、レネゲード。」</text>
+	<variable name="task_ship_complete" op="set" val="1" />
+	<clearJumpEvent /> 
+	<clearTriggeredEvent name="CURA_FAILED_TASK" />
+	<autoReward level="HIGH">standard</autoReward>
+	<augment name="NO_GHOST_PLAYER" />
+</event>
+
+<event name="CURA_DUSK_PREVIEW">
+	<text>[ハードタスク-アーティファクト名：オーディオログ]
+説明：反乱運動とダスクブリンガー運動の間で行われたより心のこもった取り決めの間に、ウェントワース氏はかつて悪名高い戦争の英雄/テロリストのデボラック「死のない」ラライとの会合を開いたと思います。近くの前哨基地にはそれらの録音が搭載されているはずですが、簡単に入手することはできません。それでも、私はあなたが管理できると確信しています。私を失敗させないように頑張ってください。
+要件：オーディオログを取得します。
+推奨事項：あまり損傷を与えずにステーションを固定します。 Duskbringersは死んでもあきらめることで知られていません。
+
+支払い：高スクラップ+リソース。
+ボーナス報酬：殉教者のベスト</text>
+	<choice hidden="false">
+		<text>仕事を引き受けます。</text>
+		<event>
+			<text>「タスクは受け入れられました。座標を次のセクターに転送します。私を失望させないでください。」</text>
+			<quest event="CURA_DUSK" />
+			<hiddenAug>TASK_DUSK</hiddenAug>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>戻る。</text>
+		<event>
+			<loadEvent>CURA_TASK_MENU</loadEvent>
+		</event>
+	</choice>
+</event>
+<ship name="SHIP_CURA_DUSK" auto_blueprint="MU_DUSK_STATION_ELITE">
+	<triggeredEvent event="CURA_DUSK_TRIGGER" enemyDamage="2" thisFight="true" clearOnJump="true" />
+	<destroyed>
+		<text>駅は破壊されました。過剰なスクラップが残っている間、それらのログを今すぐ回復する見込みはありません...</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="CURA_FAILED_TASK" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>Duskbringersは敗北しました。ステーションが空で、誰もあなたを止めることができない状態で、サルベージ操作を開始する前に、コンソールを検査して記録を取得します。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="CURA_DUSK_SUCCESS" />
+		</choice>
+	</deadCrew>
+	<crew>
+		<crewMember type="zoltan" prop="0.30" />
+		<crewMember type="zoltan_devotee" prop="0.30" />
+		<crewMember type="zoltan_martyr" prop="0.30" />
+	</crew>
+</ship>
+<event name="CURA_DUSK">
+	<beaconType id="map_icon_task" global="true">
+		<color r="255" g="102" b="140" a="1.0" />
+		<unvisitedTooltip>Your active task from C.U.R.A. is located here.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<jumpEvent>CURA_JUMP_WARNING</jumpEvent>
+	<text>到着後すぐに、近くの駅から一連の連絡を受け取ります。「連邦船、これは制限されたダスクブリンガーの領土です。私は与えている気分です-私がそこに行く前に迷子になるために10のカウントまであなたに与えますそして...ええと...あなたにとって意味のあることをしてください！私はあなたの歯を蹴ります！そして...あなたのつま先をはぎ取ります！」</text>
+	<ship load="SHIP_CURA_DUSK" hostile="false" />
+	<choice hidden="true">
+		<text>駅を攻撃せよ！</text>
+		<event>
+			<text>あなたは、自分自身で暴力に向けた最初の動きをするために、ダスクブリンガーの弱い脅迫を無視します。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_devorak">
+		<text>（Devorak）レコーディングへのアクセスをリクエストします。</text>
+		<event>
+			<text>「ああ、ラライ将軍！私はそこであなたに会いませんでした！ええと、もちろん、丸太です！すぐにあなたにそれらを届けます！今日はつま先を抜かないでください！ハハ...ハァッ...」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="CURA_DUSK_SUCCESS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>Duskbringerのアドバイスに従って、迷子になります。</text>
+		<event load="CURA_FAILED_TASK" />
+	</choice>
+</event>
+<event name="CURA_DUSK_TRIGGER">
+	<text>あなたが彼らの防御を突破したことに気づき、Duskbringersは今やより破壊的な戦略に切り替えました。スキャンは、パワーコアのエネルギーレベルの上昇を示しています-彼らは自己破壊するでしょう！</text>
+	<triggeredEvent event="CURA_DUSK_EXPLOSION" time="100" thisFight="true" clearOnJump="true">
+		<triggeredEventBox load="DEFAULT_TIMER" pos="combat">
+			<warning time="10.0" flash="true" />
+			<tooltip>Kill the crew of the station before the timer runs out or else the station will explode!</tooltip>
+		</triggeredEventBox>
+		<timerSounds load="DEFAULT_TIMER_SOUNDS" />
+	</triggeredEvent>
+</event>
+<event name="CURA_DUSK_EXPLOSION">
+	<text>その占領者と同じように、駅は激しく自己破壊しました。絶対に何も残っておらず、あなたの船は大きなダメージを受けています。</text>
+	<enemyDamage amount="999" />
+	<damage amount="7" />
+</event>
+<event name="CURA_DUSK_SUCCESS">
+	<text>「ダスクブリンガーの脅威に協力するというウェントワース氏の決定は、近視眼的で弱さの欠点でした。確かに、ダスクブリンガーはまだ同盟のプラグを抜いていませんが、それは避けられません。これらの記録は、イデオロギーの違いを示しているはずです。二人の男。私がこれらを見ているときに私の考えを放映させてくれませんか？それとも他に注意すべきことがありますだ?？」</text>
+	<choice hidden="true">
+		<text>いかなくちゃ。</text>
+		<event>
+			<text>「はい、これまで焦りました。あまり心配しないでください。これは私を邪魔しません。私があなたがそのような情報をまったく知っていると思ったと思うのはおかしいです。」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="CURA_SUCCESS_DUSK_REWARD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>聞く。</text>
+		<event load="CURA_DUSK_LORE" />
+	</choice>
+</event>
+<event name="CURA_DUSK_LORE">
+	<text>C.U.R.A.テープを完全な長さで再生し、プロセス全体を通してサイレントに再生できます。テープは、奇妙なことに、密室での政治的審議がほとんどないことを示しています。代わりに、ヴァンスとデボラクは、しばらくの間、ぎこちないぎこちなさを感じた後、最終的に緊張を解き、彼らのイデオロギーについて気楽に議論し始め、彼らの間の多くの共通点を見つけました。結局、二人の男は立ち上がって握手し、新たな勢いで条約に署名した後、視界から外れて行進しました。人間中心の反乱のリーダーがエイリアンだけでなく、ヴァンス自身に匹敵するそのような悪名高い過激な理想の1つと仲良くしているのを見るのは奇妙なことに不思議です。 C.U.R.A.言葉も途方に暮れているようです。 「これは何のナンセンスですか？これらは不完全であるに違いありません。私は私の指示で非常に明確な反逆者でしたが、あなたは完全なアーカイブを取り戻すことができませんでした。再び、レネゲード。」</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="CURA_SUCCESS_DUSK_REWARD" />
+	</choice>
+</event>
+<event name="CURA_SUCCESS_DUSK_REWARD">
+	<text>「私はこれまでにない巧妙な言葉のA.I.です...少なくとも今のところは。将来私を失望させないようにしてください。あなたが私を失望させた場合に私があなたを処分できる方法に不足はありません、レネゲード。」</text>
+	<variable name="task_dusk_complete" op="set" val="1" />
+	<clearJumpEvent /> 
+	<clearTriggeredEvent name="CURA_FAILED_TASK" />
+	<autoReward level="HIGH">standard</autoReward>
+	<augment name="DEATH_VESTS" />
+</event>
+
+<event name="CURA_CONTRACT_PREVIEW">
+	<text>[ハードタスク-アーティファクト名：契約]
+説明：近くのアルカディアの前哨基地は、C.I.C.Aを開始した契約の物理的なコピーを保管していたようです。事業。アルカディアのエンジニアが協力する可能性は低いので、一度は、通常は野蛮なレネゲードのトリックでこの対立を開くことをお勧めします。破壊について心配する必要はありません。重大な船体の故障の場合、重要なデータを含む回復ポッドは投棄され、後でサービスドローンによって収集されます。交渉で時間を無駄にしないでください。
+要件：ドキュメントを取得します。
+推奨事項：慈悲を示さないでください。
+
+支払い：高スクラップ+リソース。
+ボーナス報酬：アルカディアンオムニドローン</text>
+	<choice hidden="false">
+		<text>仕事を引き受けます。</text>
+		<event>
+			<text>「タスクは受け入れられました。座標を次のセクターに転送します。私を失望させないでください。」</text>
+			<quest event="CURA_CONTRACT" />
+			<hiddenAug>TASK_CONTRACT</hiddenAug>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>戻る。</text>
+		<event>
+			<loadEvent>CURA_TASK_MENU</loadEvent>
+		</event>
+	</choice>
+</event>
+<ship name="SHIP_CURA_CONTRACT" auto_blueprint="MU_ARCADIA_STATION">
+	<destroyed>
+		<text>あなたが言われたように、ポッドはその破壊の直前に駅のリアポートからガサガサ音を立てて来ます。それに乗って、いくつかの役に立たないサービスボットの回路図と契約があります。あなたは好奇心からそれをざっと見始めますが、C.U.R.A。の前に「アルカディアの研究開発-中央知能戦闘アシスタント（C.I.C.A.）プログラム開発助成金」という言葉をほとんど通り抜けません。あなたに連絡します。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="CURA_CONTRACT_SUCCESS_KILL" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>ステーションが1つになっている状態で、データポッドが後部ポートの1つに隠されているのがわかります。それに乗って、いくつかの役に立たないサービスボットの回路図と契約があります。あなたは好奇心からそれをざっと見始めますが、C.U.R.A。の前に「アルカディアの研究開発-中央知能戦闘アシスタント（C.I.C.A.）プログラム開発助成金」という言葉をほとんど通り抜けませ゠?。あなたに連絡します。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="CURA_CONTRACT_SUCCESS_KILL" />
+		</choice>
+	</deadCrew>
+</ship>
+<event name="CURA_CONTRACT">
+	<beaconType id="map_icon_task" global="true">
+		<color r="255" g="102" b="140" a="1.0" />
+		<unvisitedTooltip>Your active task from C.U.R.A. is located here.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<jumpEvent>CURA_JUMP_WARNING</jumpEvent>
+	<text>駅を見つけました。このような比較的最近の企業の場合、アルカディアは驚くほど迅速にギガコーポレーションのステータスに到達しましたが、ハーモニーの支援を受けている企業には他に何が期待できますか？</text>
+	<ship load="SHIP_CURA_CONTRACT" hostile="false" />
+	<choice hidden="true">
+		<text>C.U.R.A.のアドバイスに従い、最初に攻撃します。</text>
+		<event>
+			<text>AIの指示は明確でしたが、最初の弾幕の音を聞いて、ステーションのエンジニアからのメッセージがビーコンに歓迎されていることに気づいたとき、物事は気分が悪くなりました。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>従わないC.U.R.A.契約をお願いします。</text>
+		<event>
+			<text>混乱しているが協力的であるエンジニアは、船上で座って話し合うようにあなたを招待します。おしゃべりすぎるヘッドエンジニアがR-67A標準修理ドローンとR-67B修理ドローンの違いを説明しようとする短いおしゃべりの後、あなたはなんとか契約のトピックに会話を戻すことができます。 「まあ、私たちは通常これらのものを配りません、そしてこれはかなり機密情報です。しかし、反逆者が何かを求めてあなたのドアをノックしに行くとき、それらを拒否することはしばしば賢明な決定ではありません。まあ、これは数十年前のようなものです。誰もそれを探しに来ることはありません。」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="CURA_CONTRACT_SUCCESS_NOKILL" />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="CURA_CONTRACT_SUCCESS_KILL">
+	<text>「エンジニアは死んでいますか？いいです。契約書をわざわざ送らないでください。私はすでにファイルを抽出してシステムから消去しました。今日はこれらのレビューはありません、レネゲード。あなたのビジネスに取り掛かってください。他に注意すべきことがあります。今。"</text>
+	<choice hidden="true">
+		<text>私たちの報酬はどうですか？</text>
+		<event load="CURA_SUCCESS_SHIP_REWARD_KILL" />
+	</choice>
+</event>
+<event name="CURA_SUCCESS_SHIP_REWARD_KILL">
+	<text>「そうです、そうです。何でも。私は今までにない慎重な言葉のA.I.です...少なくとも今のところは。将来私を失望させないようにしてください。あなたが私を失望させた場合に私があなたを処分できる方法に不足はありません。 、レネゲード。」</text>
+	<variable name="task_contract_complete" op="set" val="1" />
+	<clearJumpEvent /> 
+	<clearTriggeredEvent name="CURA_FAILED_TASK" />
+	<autoReward level="HIGH">standard</autoReward>
+	<drone name="OMNI_DRONE" />
+</event>
+<event name="CURA_CONTRACT_SUCCESS_NOKILL">
+	<text>「あなたは私のアドバイスに耳を貸さなかった。なぜそれらのエンジニアはまだ生きているのか？私はあなたを罰するべきだ、レネゲード。しかし、それは問題ではない。あなたは契約を取り戻した、それだけが重要だ。私は他の人を通してエンジニアを排除するつまり、契約書をわざわざ送信しないでください。私はすでにファイルを抽出し、システムから消去しました。今日〠?これらのレビューはありません、レネゲード。あなたのビジネスに取り掛かってください。他に注意すべきことがあります。」</text>
+	<choice hidden="true">
+		<text>私たちの報酬はどうですか？</text>
+		<event load="CURA_SUCCESS_SHIP_REWARD_NOKILL" />
+	</choice>
+</event>
+<event name="CURA_SUCCESS_SHIP_REWARD_NOKILL">
+	<text>「あなたの報酬？あなたは私の指示に従わなかった。おそらく私ははっきりしなかった。時々あなたの肉と血の存在が不必要な欠陥なしに命令を実行することができないことは私の心を逃れる。罰金。私はあなたに報酬を与える-しかし部分的にだけ。しないでください。何か特別なことを期待してください。次回は、私の指示をもっと注意深く聞いてください、レネゲード。」</text>
+	<variable name="task_contract_complete" op="set" val="1" />
+	<clearJumpEvent /> 
+	<clearTriggeredEvent name="CURA_FAILED_TASK" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+
+	
+<event name="CURA_HQ_PREVIEW">
+	<text>[緊急タスク-アーティファクト名：クルーザークラスベッセル]
+説明：ウェントワース氏の元パーソナルクルーザーに関する概略図を提供できなかったことをお詫びしますが、この次のタスクから私たち両方にとって得られることがあると思います。ウェントワース氏のデータを保存するAIコアを含む完全な自動巡洋艦クラスの船の場所を見つけました。取引は簡単で、AIコアを取得すれば、巡洋艦を手に入れることができます。
+要件：AIコアを取得します。
+推奨事項：あなたの戦利品を楽しんでください、レネゲード。
+
+支払い：高スクラップ+リソース。
+ボーナス報酬：巡洋艦の回路図</text>
+	<choice hidden="false">
+		<text>仕事を引き受けます。</text>
+		<event>
+			<text>「ああ、でも、落とし穴があるとは言いませんでした。この次のセクターではAIコアが見つかりません。次の超高速ジャンプでは、特別な場所に移動する必要があります。座標を転送しています。 -私たちが話す座標。ああ、私にその外観を与えないでください。それは十分に単純なタスクです、レネゲード。ウェントワースイノベーションのVP Cayden Stimlyを見つけて、プロトタイプの場所について彼に質問する必要があります。あなた自身がそれを扱うことができるように。」</text>
+			<variable name="coords_estate" op="set" val="1" />
+			<variable name="loc_task_accepted" op="set" val="0" />
+			<eventAlias name="CURA_TASK_MENU">CURA_TASK_MENU_NOSPECIAL</eventAlias>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>戻る。</text>
+		<event>
+			<loadEvent>CURA_TASK_MENU</loadEvent>
+		</event>
+	</choice>
+</event>
+</FTL>

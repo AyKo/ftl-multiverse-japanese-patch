@@ -1,0 +1,1772 @@
+<FTL>
+	
+
+
+<eventList name="ITEMS_ORCHID">
+	<event load="ORCHID_FREE_KERNEL" />
+	<event load="ORCHID_FREE_ITEMS" />
+	<event load="ORCHID_FREE_CREW" />
+	<event load="ORCHID_SEEDS" />
+	<event load="ORCHID_UNARMED_TRADER" />
+</eventList>
+
+<event name="ORCHID_FREE_KERNEL" unique="true">
+	<text load="ORCHID_FREE_KERNEL" />
+	<weapon name="GIFTLIST_KERNEL" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="ORCHID_FREE_KERNEL">
+	<text>このビーコンに配置された、荒廃しているがまだ機能している連邦の前哨基地を見てショックを受けました。彼らは、オーキドゥの絵の具と偽の葉で船体をカモフラージュするために多大な努力を払ってきましたが、あなたを認識すると、彼らはネイティブのオーキドゥから与えられた武器を提供します。</text>
+	<text>あなたは近くのオーキドゥの集落から連絡を受け取り、人質の植物を乗り越えるように要求します。彼らがあなたが持ってきた小さな植物サンプルを参照していることに気付くまで、あなたはそれらが何を意味するのか混乱しています。あなたは苗木を譲り渡し、その見返りに彼らはあなたに真新しいカーネル武器を与えます！</text>
+	<text>このビーコンに飛び込むと、近くのオーキドゥの船が文字通り爆発します。理由はないようです。混乱にもかかわらず、カーネル兵器は生き残ったようです。</text>
+</textList>
+
+<event name="ORCHID_FREE_ITEMS" unique="true">
+	<text load="ORCHID_FREE_ITEMS" />
+	<autoReward level="MED">standard</autoReward>
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="ORCHID_FREE_ITEMS">
+	<text>ビーコンのフレンドリーなオーキッドステーションは、金属くずを無料で提供しています。 「私たちはそれを必要としません。私たちはチタンウッドを好みます。」</text>
+	<text back="BG_DARK" planet="NONE">ビーコンは空で、周りに船や星はありません。巨大な種に似た単一の容器が宇宙を漂っています。中にはいくつかの有用なスクラップとリソースがあります。</text>
+	<text back="BG_DARK" planet="NONE">ビーコンは、Orchidsが配置されているシステムから遠く離れた場所にあります。破壊された船の残骸が浮かんでいます。ずっと前の戦いの余波。あなたはできることを収穫します。</text>
+</textList>
+
+<event name="ORCHID_UNARMED_TRADER" unique="true">
+	<text>小さなオーキドゥの商船がビーコンであなたを待っています。あなたが連邦であることを知って、彼らは大義を助けるために彼らの物資のいくつかを提供します。</text>
+	<choice>
+		<text>彼らの申し出を受け入れる。</text>
+		<event>
+			<autoReward level="LOW">standard</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>追加のリソースを排除する：彼らは確かにもっと多くを持っています。</text>
+		<event load="ORCHID_UNARMED_TRADER_EXTORTION" />
+	</choice>
+</event>
+<eventList name="ORCHID_UNARMED_TRADER_EXTORTION">
+	<event>
+		<text>トレーダーは遭難信号を送信し、オーキドゥの軍艦がすぐに飛び込んで武器をオンラインで手伝います。</text>
+		<ship hostile="true" load="SHIP_ORCHID_UNARMED_TRADER_EXTORTION" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="MORALITY_UPDATE_ORCHID_FIGHT" />
+		</choice>
+	</event>
+	<event>
+		<text>オーキドゥの船は助けを求める遭難信号を送りました...しかし誰も来ませんでした。彼らは命を救うためにすべての商品をあきらめなければなりません。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="MORALITY_UPDATE_ORCHID" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="ORCHID_SEEDS" unique="true">
+	<text>大きな鞘が漂い、部分的に有機物でできており、明らかにオーキドゥのデザインでできています。その目的は何でしょうか？</text>
+	<choice hidden="true">
+		<text>それを開く。</text>
+		<event load="ORCHID_SEEDS_OPEN" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ORCHID">
+		<text>（オーキッドクルー）ポッドの目的をオーキッドに知らせてもらいます。</text>
+		<event>
+			<text>あなたのオーキドゥは、これが最強のチタンウッドから作られた苗のさやであると説明しています。オーキッドクルーからカーネルウェポンまで、さまざまなものを含めることができます。</text>
+			<choice hidden="true">
+				<text>それを開く。</text>
+				<event load="ORCHID_SEEDS_OPEN" />
+			</choice>
+			<choice hidden="true">
+				<text>中身を予測できない場合は、開けないでください。</text>
+				<event>
+					<text>これでポッドの目的はわかりましたが、それでポッドを開くリスクがなくなるわけではありません。</text>
+					<choice>
+						<text>船に乗って何かをしなさい。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="INFO_MACHINE">
+		<text>（アナライザー）ポッドの内容を判別します。</text>
+		<event load="ORCHID_SEEDS_SCAN" />
+	</choice>
+	<choice hidden="true" req="sensors" lvl="2">
+		<text>（センサーのアップグレード）ポッドの内容を確認します。</text>
+		<event load="ORCHID_SEEDS_SCAN" />
+	</choice>
+	<choice hidden="true">
+		<text>ポッドは無視してください。危険な場合があります。</text>
+		<event>
+			<text>あなたは奇妙なポッドを宇宙に漂わせます。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ORCHID_SEEDS_OPEN">
+	<event>
+		<text>ポッドを開くと、中にしっかりと詰め込まれた2つのオーキドゥが見つかります。彼らは脱落し、孤立から狂った後すぐに敵対的になります！</text>
+		<boarders min="2" max="2" class="orchid" />
+	</event>
+	<event>
+		<text>ポッドを開くと、中にオーキドゥが詰まっているのがわかります。自由になってよかった、彼らはあなたの船に乗って喜んで働いているようです。</text>
+		<crewMember amount="1" class="orchid" />
+	</event>
+	<event>
+		<text>ポッドを開くと、爆発によって投げ返されます。ポッド内の無効なカーネル武器からライブラウンドが発射されました！武器自体は壊れていますが、あなたはなんとかそれからいくつかの弾薬を回収し、それが引き起こしたダメージに取り組むことになります。</text>
+		<autoReward level="LOW">missiles_only</autoReward>
+		<damage amount="3" effect="breach" />
+	</event>
+	<event>
+		<text>ポッドを開いて、機能するカーネル武器を見つけます。</text>
+		<weapon name="GIFTLIST_KERNEL" />
+	</event>
+</eventList>
+<eventList name="ORCHID_SEEDS_SCAN">
+	<event>
+		<text>ポッドの内容はいくつかのオーキドゥのようですが、精神状態は疑わしいです。あなたはそれらを船に乗せるのは危険すぎると判断します。</text>
+	</event>
+	<event>
+		<text>ポッドを開くと、中にオーキドゥが詰まっているのがわかります。自由になってよかった、彼らはあなたの船に乗って喜んで働いているようです。</text>
+		<crewMember amount="1" class="orchid" />
+	</event>
+	<event>
+		<text>ポッドの内容はライブのカーネル武器であり、ポッドが開かれるとすぐに発進するように危険な武装をしているようです。これを知っていると、最初に慎重に銃を無効にします。武器自体は壊れていますが、あなたはなんとかそれから弾薬を回収することができます。</text>
+		<autoReward level="LOW">missiles_only</autoReward>
+	</event>
+	<event>
+		<text>ポッドを開いて、機能するカーネル武器を見つけます。</text>
+		<weapon name="GIFTLIST_KERNEL" />
+	</event>
+</eventList>
+
+<event name="ORCHID_FREE_CREW" unique="true">
+	<text>あなたは軍の護衛と一緒に巨大なオーキドゥの客船に遭遇します。乗客の一人がその場しのぎのコミュニケーターを使ってあなたに連絡します：「私を連れて行ってください。私は働くことができます。私はシャトルを盗みました。」</text>
+	<ship load="SHIP_ORCHID_FREE_CREW" hostile="false" />
+	<choice>
+		<text>彼らにあなたの船の位置を提供してください。</text>
+		<event>
+			<text>あなたの乗組員への新しい追加は、オーキドゥの若者であることが判明しました。彼らは戦闘ポーズを取り、他の乗組員を決意で満たす化学物質を排出します。</text>
+			<crewMember amount="1" class="orchid" />
+		</event>
+	</choice>
+	<choice>
+		<text>彼らの護衛と戦ってください。</text>
+		<event>
+			<text>あなたは武器をパワーアップし、エスコートに従事する準備をします。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_ORCHID_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>却下。</text>
+		<event>
+			<text>これ以上の乗組員は必要ありません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ORCHID_FREE_CREW_KILL">
+	<text>オーキッドの護衛は死んでおり、オーキッドの乗組員は保護されていません。彼らは降伏し、彼らの人生の見返りにあなたに見事に支払います。</text>
+	<autoReward level="MED">standard</autoReward>
+</event>
+
+
+<eventList name="HOSTILE_ORCHID">
+	<event load="ENCOUNTER_VAMPWEED" />
+	
+	<event load="ORCHID_PIRATE_FIGHT" />
+	<event load="ORCHID_ROCK_FIGHT" />
+	<event load="ORCHID_MANTIS_FIGHT" />
+	<event load="ORCHID_REBEL_FIGHT" />
+	<event load="ENCOUNTER_REBEL" />
+	
+	<event load="ORCHID_CAPTURED_REBEL_FIGHT" />
+	<event load="ORCHID_PIRATE_FRIENDLY_ASB" />
+</eventList>
+
+<event name="ENCOUNTER_ORCHID" unique="false">
+	<text load="TEXT_ENCOUNTER_ORCHID" />
+	<ship hostile="true" load="SHIP_ORCHID_FIGHT" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_ORCHID">
+	<text>敵対的なオーキドゥの船がビーコンであなたを待っています。理由は1つもありませんが、彼らは発砲します。それは通常友好的な植物の特徴ではありませんが、何もすることはありません。</text>
+	<text>ビーコンのオーキドゥは異常に攻撃的に振る舞います。船の1つは、オンラインで武器を持ってあなたの方向に移動します。スキャンは、乗組員が彼らを怒らせたある種のエイリアンの寄生虫によって消費されていることを示しています。</text>
+	<text>オーキドゥの軍艦があなたの船に近づき、スキャンします。あなたが平和になるにはほど遠いことに気づいたオーキドゥは、家を守るために武器を装備します。</text>
+	<text>ビーコンで異常に冗長なオーキドゥの船があなたにメッセージを送ります：「あなたのエイリアンが火でそれらを調理した後に知覚力のある植物を食べているという報告を受けました！その犯罪のためにあなたは罰せられるでしょう！」</text>
+	<text>オーキドゥの船がビーコンであなたを待っています。不吉なメッセージが通信画面に表示されます：「この世界では...それは殺されるか殺されるかです！」</text>
+</textList>
+
+<event name="ENCOUNTER_VAMPWEED">
+	<text load="TEXT_ENCOUNTER_VAMPWEED" />
+	<ship hostile="true" load="SHIP_VAMPWEED_FIGHT" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_VAMPWEED">
+	<text>民間船が必死に呼びかけようとしたが、目の前で破壊され、代わりにヴァンプウィードの猛獣が狩りに来た。</text>
+	<text>ヴァンプウィードとフローラルは常に対立してきましたが、カダヘリアンエク条約の中で、両者は決してお互いに戦争に参加することはできないということが合意されました。当然のことながら、ヴァンプウィードは、ギャザリングの同盟国を好きなだけ積極的に攻撃することによって、この条約を可能な限り乱用することにしました。残念ながら、連邦に雇われた反逆者として〠?あなたはこのカテゴリーに分類されます。</text>
+	<text>一見オーキドゥの船の真っ赤な船体がすべりますが、これはあなたの友達ではありません。これらは、通常は平和なフローラルによってギャザリングから追い出されたほど攻撃的なランの亜種であるヴァンプウィードです。そのような攻撃性は、理由もなく突然あなたを攻撃したときに観察できます！</text>
+	<text>叫んでいるヴァンプウィードが画面に表示されます。 「血の神のための血！AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH！」予想通り、彼らの武器は直後にオンラインになり、戦いは避けられません。</text>
+</textList>
+
+<event name="ENCOUNTER_ORCHID_STATION" unique="true">
+	<text>このビーコンを守っているオーキッドステーションがあなたを見つけます。彼らはあなたの船を軍隊として識別し、あなたの存在に脅かされていると感じます。あなたは敵意がないことを伝えようとしますが、あなたのメッセージは翻訳で失われ、ステーションは武器を充電し続けます。</text>
+	<ship hostile="true" load="SHIP_ORCHID_STATION" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ORCHID_PIRATE_FIGHT" unique="true">
+	<text load="ORCHID_PIRATE_FIGHT" />
+	<ship hostile="true" load="SHIP_PIRATE_ALL" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="ORCHID_PIRATE_FIGHT">
+	<text>オーキッドはホームワールドのセキュリティを維持するために多大な努力を払いましたが、海賊はそれでも防御をすり抜けることができました。戦いに備える！</text>
+	<text>オーキドゥのセクターは比較的安全であると考えられており、トレーダーや難民を魅了しています。それらは、順番に、海賊を引き付けます。</text>
+	<text>海賊のマークが付いた船がビーコンであなたを待っています。あなたは彼らの船での会話を耳にします：「それらは雑草ではありません！」 「とにかく、殺して」</text>
+	<text planet="PLANET_POPULATED">海賊がどこからともなく飛び込んだとき、あなたは草に覆われたオーキドゥの惑星を窓の外で見つめます。対立は避けられないようです。</text>
+</textList>
+
+<event name="ORCHID_ROCK_FIGHT" unique="true">
+	<text load="ORCHID_ROCK_FIGHT" />
+	<ship hostile="true" load="SHIP_ROCK_FIGHT" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="ORCHID_ROCK_FIGHT">
+	<text>オーキドゥのセクターでは、岩の船が時折発見されています。彼らの通常の外国人嫌いの性質とは対照的に、ロックスはオーキドゥがとても好きです。しかし、この特定の船はあなたに対して敵対的に行動しています。</text>
+	<text>岩は、火に耐える能力があるため、オーキドゥによってしばしば有用であると見なされます。ビーコンにいるロック船は、あなたを花の友達や攻撃への脅威と見なしています！</text>
+	<text>オーキドゥのセクターは、裕福なロック旅行者にとって一般的な目的地です。珍しい植物が生い茂った体を持つことは、ロックカルチャーではファッショナブルであると考えられています。ビーコンにいるロック船はあなたを脅威と見なし、報復します。</text>
+</textList>
+
+<event name="ORCHID_MANTIS_FIGHT" unique="true">
+	<text load="ORCHID_MANTIS_FIGHT" />
+	<ship hostile="true" load="SHIP_MANTIS_FIGHT" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="ORCHID_MANTIS_FIGHT">
+	<text>好戦的なカマキリは銀河のいたるところに船を送り、戦利品と栄光を求めて他の船を狩ります。オーキドゥのセクターも例外ではありません。</text>
+	<text>オーキドゥは侵入するマンティスを鎮圧し、彼らと友好関係を築くために多大な努力を払いましたが、一部のマンティスは決して戦士の道を離れることはありません。</text>
+	<text>一部のカマキリはオーキドゥの影響を強く受けているため、あらゆる種類の植物を崇拝し始め、神々を喜ばせると思う唯一のことを行います。所属していないすべての人を殺します。</text>
+</textList>
+
+<event name="ORCHID_REBEL_FIGHT" unique="true">
+	<text load="ORCHID_REBEL_FIGHT" />
+	<ship hostile="true" load="SHIP_REBEL_FIGHT" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="ORCHID_REBEL_FIGHT">
+	<text>反乱軍の戦闘機がビーコンであなたを待っています。コミュニケーション画面に人間の将校の画像が表示されます。「私たちは、あなたから始めて、このセクターをエイリアンや連邦の支持者から一掃するようになりました！」</text>
+	<text>攻撃的な反乱軍の船が、潜在的な到着を待つために、主要なオーキドゥの世界から遠く離れたビーコンを選択しました。それがあなたを見るとすぐに、それは武装した武器で近づきます。</text>
+	<text>このビーコンは、星図上で友好的なオーキドゥが生息しているとマークされていましたが、反乱軍の艦隊はすでにそれを捕獲し始めています。小さな反乱軍の船の攻撃の1つ。</text>
+</textList>
+
+<event name="ORCHID_CAPTURED_REBEL_FIGHT" unique="true">
+	<text load="ORCHID_CAPTURED_REBEL_FIGHT" />
+	<ship hostile="true" load="SHIP_ORCHID_CAPTURED_REBEL" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="REBEL_ID">
+		<text>（偽造ID）別の秘密の反乱軍の船であると主張します。</text>
+		<event>
+			<text>いくつかの確率で、捕獲された船はトリックに落ち、取引を申し出ます。</text>
+			<ship hostile="false" />
+			<store>STORE_ORCHID</store> 
+		</event>
+	</choice>
+</event>
+<textList name="ORCHID_CAPTURED_REBEL_FIGHT">
+	<text>オーキドゥの船の乗組員が人間の言葉で話しているのを聞いて驚いています。「降伏。近くの世界はすべて反乱軍によって支配されています。抵抗は無駄です。」反乱軍がこの船を支配しているようです！</text>
+	<text>オーキドゥの船は異常に攻撃的に振る舞います。スキャンは、それが反乱軍の制服を着た人間によって捕らえられていることを示しています。</text>
+	<text>ビーコンにあるオーキドゥの船は、不規則に前後に動きます。それを捕らえた反乱軍はまだそれを操縦する方法を完全には学んでいませんが、すでにあなたを攻撃しています。</text>
+</textList>
+
+<event name="ORCHID_PIRATE_FRIENDLY_ASB" unique="true">
+	<img back="BACKGROUND" planet="PLANET_POPULATED" />
+	<text>多くの戦いで疲れ果てた海賊船は、オーキドゥの惑星の後ろからあなたの方向に移動します。たぶん、有名なオーキドゥのセキュリティをテストする時が来ましたか？</text>
+	<ship hostile="true" load="SHIP_PIRATE_ALL" />
+	<choice hidden="true">
+		<text>海賊を一人で従事させます。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true">
+		<text>助けを求める。</text>
+		<event>
+			<text>あなたは遭難信号を送信し、惑星に駐屯しているオーキドゥ軍は即座に応答し、対艦バッテリーで海賊を標的にします。</text>
+			<environment target="enemy" type="PDS" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+<eventList name="NEUTRAL_ORCHID">
+	<event load="ORCHID_UNDER_ATTACK_PIRATE" />
+	
+	<event load="ORCHID_SLAVES" />
+	<event load="ORCHID_SLUG_TAUNT" />
+	<event load="ORCHID_FIELD" />
+	<event load="ORCHID_AUTO_THEFT" />
+	
+	
+	<event load="REFUGEE_NO_DISTRESS" />
+	<event load="SLAVER_BETRAYAL" />
+</eventList>
+
+<event name="ORCHID_UNDER_ATTACK_PIRATE" unique="true">
+	<text>武装していないオーキドゥの船が、後ろを追いかけている宇宙海賊の痕跡を残して船から逃げようとしています。</text>
+	<choice hidden="true">
+		<text>オーキドゥの船を助けてください。</text>
+		<event>
+			<text>あなたは警告ショットを発射し、海賊船はあなたに面するように方向を変えます。 「あの船はもっと大きい！代わりにこれを略奪しよう。」オーキドゥの船は戦闘を監視するために発砲距離をはるかに超えて停止します。</text>
+			<ship hostile="true" load="SHIP_ORCHID_UNDER_ATTACK_PIRATE" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>介入しないでください。</text>
+		<event />
+	</choice>
+</event>
+<eventList name="ORCHID_SAVED_LIST">
+	<event>
+		<text>あなたが助けに来る前に、オーキドゥの船は大きなダメージを受けました。生き残った唯一のオーキドゥはあなたの乗組員に加わることを申し出ます。</text>
+		<crewMember amount="1" class="orchid" />
+	</event>
+	<event>
+		<text>オーキッドシップは、それらを保存するための報酬としてあなたにいくつかのリソースを提供します。</text>
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+	<event>
+		<text>あなたが海賊と戦ったとき、オーキドゥの船はFTLドライブを充電し、飛び去りました。</text>
+	</event>
+</eventList>
+
+<event name="ORCHID_SLAVES" unique="true">
+	<text>不正な船がビーコンであなたを待っています。 「安価な労働者！酸素放出装置、大砲の飼料、部族長への贈り物、薪、または健康食品として使用できます！」</text>
+	<ship hostile="false" load="SHIP_ORCHID_SLAVES" />
+	<choice hidden="true">
+		<text>奴隷にされたオーキドゥを救え！</text>
+		<event>
+			<text>あなたは奴隷を攻撃します。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>Orchidスレーブを1つ購入します。</text>
+		<event>
+			<crewMember amount="1" class="orchid" />
+			<item_modify>
+				<item max="-20" min="-30" type="scrap" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>辞退して飛び去る。</text>
+		<event>
+			<text>あなたは奴隷に従事することを気にしないでください。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ORCHID_SLUG_TAUNT" unique="true">
+	<text>あなたは、主にオーキドゥが住んでいるシステムでナメクジの船を見つけて驚いています。 Slugsは、暗号化されたチャネルを使用して通信することを要求しています。</text>
+	<ship hostile="false" load="SHIP_SLUG_GENERIC" />
+	<choice hidden="true">
+		<text>スラッグと話すことに同意します。</text>
+		<event>
+			<text>「ご挨拶、二本足のミートサック。私たちは一世紀の間、そのような素晴らしいss標本を探していました。あなたは本当に銀河系で最も醜い人間であり、防腐処理されて博物館に展示されるに値します。あなたのお母さんはどのように見えるかだけだと思います。」</text>
+			<choice hidden="true">
+				<text>攻撃！</text>
+				<event>
+					<text>あなたはスラッグ船に向かって発砲し、彼らは即座に回避策で反応します。ナメクジの船長は、海賊に襲われたと主張する遭難信号を近くのオーキッド惑星に送信します。驚いたことに、オーキドゥは対艦バッテリーを船にロックすることで反応します。それはすべてスラグの計画の一部でした。</text>
+					<ship hostile="true" />
+					<environment target="player" type="PDS" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="PDS_DISABLE">
+				<text>（信号希釈器）スラッグが発する可能性のある遭難信号をブロックし、攻撃します！</text>
+				<event>
+					<text>あなたはスラッグ船に向かって発砲し、彼らは即座に回避策で反応します。ナメクジの船長は、海賊に襲われたと主張する遭難信号を近くのオーキドゥの惑星に送信しますが、通過できません。彼らの最初の計画は失敗しました、スラッグスは彼ら自身であなたと戦うしかないのです。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_SLUG">
+				<text>（ナメクジの乗組員）侮辱を返します。</text>
+				<event>
+					<text>あなたのナメクジは他の人の方を向いて、一組の色合いを身につけ、そして単に「私がベッドの最悪の夜に彼女を全滅させた後、あなたの母親よりもひどいことはできなかった」と述べています。ショックを受けて憤慨したスラッグキャプテンは、どのように対応するかわかりません。最終的に、彼は完全な屈辱の中で、譲歩し、降伏を申し出ます。</text>
+					<autoReward level="MED">standard</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>通信を閉じて、システムを終了します。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>却下。</text>
+		<event>
+			<text>あなたはナメクジを無視します。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ORCHID_FIELD" unique="true">
+	<text>広大で美しい花畑が近くの惑星にあります。何マイルにもわたって散らばる花の見事な眺め。</text>
+	<img planet="PLANET_POPULATED_GRASSY" />
+	<choice hidden="true">
+		<text>いくつかの花を選んでください、多分あなたはそれらを売ることができます。</text>
+		<event>
+			<text>あなたとあなたの乗組員が日当たりの良い畑から元気に花を摘み始めると、オーキドゥの船が空から降りてきて、乗組員は涙を流します。 「モンスター！あなたは私たちの子供たちを虐殺します！」あなたはこれらの花が若いオーキドゥであるとは知りませんでしたが、戻るには遅すぎます！</text>
+			<ship load="SHIP_ORCHID_FIGHT" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_ORCHID_FIGHT" />
+			</choice>
+			<augment name="ORCHID_KIDS" />
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ORCHID">
+		<text>（オーキッドクルー）あなたのオーキッドは必死にブドウの木を振って、そうしないように警告します。</text>
+		<event>
+			<text>あなたのオーキドゥは、フィールドがまだ移動性を発達させていない若いオーキドゥの子供たちでいっぱいであることをあなたに知らせます。あなたは、ジェノサイドを犯そうとしていて、それに反対することを決心しようとしていることに気づきます。</text>
+		</event>
+	</choice>
+	<choice hidden="true" req="NANO_MEDBAY">
+		<text>（メドボット）畑を肥やす。</text>
+		<event>
+			<text>伝統的な意味では肥料ではありませんが、ナノボットは花の成長を刺激します。この分野のオーキドゥの世話人はこれに気づいていて、あなたの寛大さに感謝しているようですが、彼らは将来他の人の子供たちに「一方的な成長刺激」を与えないようにあなたに忠告します。</text>
+			<autoReward level="MED">drone</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="COMMANDO_FIRE">
+		<text>（ロストサンクルー+ファイアウェポン）すべてを燃やす！</text>
+		<event>
+			<text>フィールドが炎上するにつれて、あなたの乗組員はマニアックな笑い声に沸き起こります。絶対に恐ろしい、フィールドを見守っているオーキドゥの首長はあなたの大量虐殺の行為を止めるために介入します！</text>
+			<ship load="SHIP_ORCHID_ELITE_FIGHT" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_ORCHID_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>やるべきことがもっとあります。</text>
+		<event>
+			<text>あなたは花を無視し、あなたの使命を続けます。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ORCHID_AUTO_THEFT" unique="true">
+	<text>苦しめられたオーキドゥのバンドがあなたを歓迎します。ほとんどが無言のライフスタイルを生きているように見えますが、1つのオーキドゥは声でコミュニケーションすることができます。 「助けてください！自動船が来て子供たちを盗みました！子供たちを助けてください！」</text>
+	<choice hidden="true">
+		<text>オーキドゥの子供たちを救うことに同意します。</text>
+		<event>
+			<text>Auto-shipを追跡しましたが、まだシステムから出ていないようです。 「GIVEMETHEPLANT」という1つのメッセージをループして、あなたを攻撃します！</text>
+			<ship load="SHIP_AUTO_ORCHID_THEFT" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+			<choice hidden="true" req="ORCHID_KIDS">
+				<text>（オーキドゥの子供たち）それに植物を与えます。</text>
+				<event>
+					<text>あなたは死体をオートシップに渡し、オートシップはスキャンして受け入れます。 「植物が与えられました。反乱軍の異種識別プロジェクトに貢献していただきありがとうございます。あなたの提供に対するこの金銭的補償を受け入れてください。」</text>
+					<autoReward level="HIGH">standard</autoReward>
+					<ship hostile="false" />
+					<remove name="ORCHID_KIDS" />
+				</event>
+			</choice>
+			<choice hidden="true" req="REBEL_ID">
+				<text>（偽造ID）自動車をだましてオーキドゥを解放させます。</text>
+				<event>
+					<text>船があなたの身分証明書をスキャンするとすぐに、船は武器の電源を切り、オーキドゥの子供たちの種を含む小さなポッドを排出します。あなたの要求に応じて、それはあなたがドローンパーツとスクラップに分解するあなた自身の船のためのいくつかの実験装置も提供します。</text>
+					<autoReward level="MED">droneparts</autoReward>
+					<ship hostile="false" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>「親切な見知らぬ人に感謝します！私たちの世代はこれらの機械の忌まわしさに失われることはありません。」彼らはいくつかのミサイルを転送し、感謝の気持ちでスクラップします。</text>
+							<autoReward level="MED">missiles</autoReward>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>仕方がない。</text>
+		<event>
+			<text>あなたはオーキドゥを謝罪し、ミュートします。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+<eventList name="QUESTS_ORCHID">
+	<event load="ORCHID_ZOLTAN_QUEST_START" />
+</eventList>
+
+<event name="ORCHID_ZOLTAN_QUEST_START" unique="true">
+	<text>武装していないゾルタン船があなたを迎えます。 「私たちの船はオーキドゥの世界への外交使節団にいます。私たちはあなたを雇って私たちの前に行き、私たちの到着を告げるために近くのオーキドゥのコロニーの1つに小さな贈り物を提供したいと思います。」</text>
+	<choice hidden="true">
+		<text>贈り物を届けることに同意します。</text>
+		<event>
+			<text>ゾルタンはオーキドゥへの贈り物が入った箱を届けます。パッケージには、光と熱を放射して急速に振動する珍しい形のゾルタン宇宙船のレプリカが含まれています。それは高品質の金属から作られ、見るのがとても楽しいです。</text>
+			<autoReward level="LOW">standard</autoReward>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>ギフトを受け取った後、Zoltansは目的地の座標を転送します。</text>
+					<quest event="ORCHID_ZOLTAN_QUEST_FINISH" />
+				</event>
+			</choice>
+			<choice hidden="true" req="INFO_MACHINE">
+				<text>（アナライザー）デバイスをスキャンします。</text>
+				<event>
+					<text>デバイスを調べると、それが実際にはDuskbringer製の変装爆弾であることがすぐにわかります。これは罠だった！爆弾は、それが反乱軍の策略であることを明らかにするメッセージを展開するように設定されているようです。これは、あなたの使命を妨害するための、ダスクブリンガーと反乱軍の間の複雑な協調努力だったに違いありません。</text>
+					<choice hidden="true">
+						<text>ゾルタンと対峙する。</text>
+						<event>
+							<text>武装していない船があなたが彼らの罠に倒れていないことに気付くとすぐに、ダスクブリンガーの護衛が現れて攻撃します！</text>
+							<ship load="SHIP_DUSK_FIGHT" hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice>
+						<text>爆弾を解体して去ります。</text>
+						<event>
+							<autoReward level="MED">missiles</autoReward>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_DUSK">
+				<text>（Duskbringer Crew）あなたのDuskbringerは、デバイスで何か奇妙なことを認識しています...</text>
+				<event>
+					<text>Duskbringerはデバイスを検査し、それが実際に変装した爆弾であることをすぐに発見します。これは罠だった！爆弾は、それが反乱軍の策略であることを明らかにするメッセージを展開するように設定されているようです。これは、あなたの使命を妨害するための、ダスクブリンガーと反乱軍の間の複雑な協調努力だったに違いありません。</text>
+					<choice hidden="true">
+						<text>ゾルタンと対峙する。</text>
+						<event>
+							<text>武装していない船があなたが彼らの罠に倒れていないことに気付くとすぐに、ダスクブリンガーの護衛が現れて攻撃します！</text>
+							<ship load="SHIP_DUSK_FIGHT" hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice>
+						<text>爆弾を解体して去ります。</text>
+						<event>
+							<autoReward level="MED">missiles</autoReward>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>却下。</text>
+		<event>
+			<text>あなたは外交使節団のための時間がありません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ORCHID_ZOLTAN_QUEST_FINISH">
+	<text>オーキッドの集落を見つけるために座標に到着します。彼らはであなたを歓迎します。</text>
+	<choice hidden="true">
+		<text>彫刻をお届けします。</text>
+		<event load="ORCHID_ZOLTAN_QUEST_FINISH_DELIVER" />
+	</choice>
+	<choice hidden="true">
+		<text>あなた自身のために彫刻を保管してください。</text>
+		<event>
+			<text>あなたはオーキドゥに彫刻について言及していません。あなたは彼らと「あごひげ」を振って去ります。この彫刻は、おそらく少しのスクラップで売れるでしょう。</text>
+			<autoReward level="LOW">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="ORCHID_KIDS">
+		<text>（オーキドゥの子供たち）彼らに死体を渡してください。</text>
+		<event>
+			<text>あなたはオーキドゥの足元で死んだ子供たちを怠惰に投げます。彼らはしばらくの間あなたを点滅させずに見つめ、それから叫び始めます。あなたは船に戻って、彼らの最強の船の1つが続きます。</text>
+			<remove name="ORCHID_KIDS" />
+			<ship load="SHIP_ORCHID_ELITE_FIGHT" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ORCHID_ZOLTAN_QUEST_FINISH_DELIVER">
+	<event>
+		<text>あなたはゾルタン船の彫刻を手渡します。オーキドゥはそれに魅了されて、ありがとう。贈り物はゾルタンからのものでしたが、オーキドゥはほとんどあなたを信用していて、スクラップと弾薬の大部分を提供しているようです。</text>
+		<autoReward level="HIGH">missiles</autoReward>
+	</event>
+	<event>
+		<text>彫像を手渡すと、より激しく振動し始めます。 「連邦、不潔な雑草フリークを味方につけたことを後悔するだろう！反乱に栄光を！」というメッセージが簡単に再生され、すぐに爆発します！オーキッドの集落は間引きされ、あなたの船はいくらかのダメージを受けますが、それは最悪ではありません。オーキドゥはあなたを攻撃のせいにし、残りの船の1つを送ってあなたを攻撃します！</text>
+		<damage amount="3" />
+		<ship load="SHIP_ORCHID_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>彫像を手渡すと、より激しく振動し始めます。 「不潔な雑草フリーク！これは反乱軍によって仕掛けられた罠だった！死ぬ準備をしなさい！」というメッセージが短時間再生され、すぐに爆発します！オーキッドの集落は間引きされ、あなたの船はいくらかのダメージを受けますが、それは最悪ではありません。オーキドゥはあなたを攻撃のせいにし、残りの船の1つを送ってあなたを攻撃します！</text>
+		<damage amount="3" />
+		<ship load="SHIP_ORCHID_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+
+<eventList name="DISTRESS_ORCHID">
+	<event load="ORCHID_DISTRESS_JUNGLE" />
+	<event load="ORCHID_DISTRESS_EMPTY_SHIP" />
+	<event load="ORCHID_DISTRESS_COLONY_FIRE" />
+	<event load="ORCHID_DISTRESS_WEEDS" />
+	<event load="ORCHID_DISTRESS_ROCK_CRASH" />
+	<event load="ORCHID_DISTRESS_NOTPIRATES" />
+</eventList>
+
+<event name="ORCHID_DISTRESS_NOTPIRATES" unique="true">
+	<distressBeacon />
+	<ship load="SHIP_ORCHID_NOTPIRATES" hostile="true" />
+	<text>飛び込んだら、ダメージを受けたオーキドゥがパニックになります。「海賊が戻ってきて私たちを破壊しましたか？前回のように平和に行くことはできません！」</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ORCHID_DISTRESS_WEEDS" unique="true">
+	<text>オーキドゥの船が必死にあなたを歓迎します。 「連邦、助けて！私たちの駅は大量の人食い雑草でいっぱいになりました！」</text>
+	<distressBeacon />
+	<choice hidden="true">
+		<text>チームを派遣して支援してください！大量の人食い雑草は笑い事ではありません。</text>
+		<event load="ORCHID_DISTRESS_WEEDS_BOARD" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_GOUL">
+		<text>（Goul Crew）雑草を一掃します。</text>
+		<event>
+			<text>植物と火はうまく混ざり合わない組み合わせです。オーキッドの職員が避難し、あなたのゴールが駅を燃え上がらせます。雑草が確実になくなると、ステーションがベントされ、オーキッドが創造的な問題解決のための新しいカーネル武器を提供します。</text>
+			<weapon name="GIFTLIST_KERNEL" />
+		</event>
+	</choice>
+	<choice hidden="true" req="CREW_FIREARMS">
+		<text>（改良された武器）雑草を一掃します。</text>
+		<event>
+			<text>あなたの乗組員はスーツを着て駅に乗り込み、雑草に発砲し、すぐにそれらを降ろします。雑草が確実になくなると、ステーションがベントされ、オーキッドはあなたの冷酷で効率的な問題解決のための真新しいカーネル武器を提供します。</text>
+			<weapon name="GIFTLIST_KERNEL" />
+		</event>
+	</choice>
+	<choice hidden="true" req="BLUELIST_WEAPONS_FIRE_NODAMAGE">
+		<text>（ダメージを与えない火の武器）雑草を一掃します。</text>
+		<event>
+			<text>植物と火はうまく混ざり合わない組み合わせです。オーキドゥの職員が避難し、あなたは駅を炎上させます。雑草が確実になくなると、ステーションがベントされ、オーキッドが創造的な問題解決のための新しいカーネル武器を提供します。</text>
+			<weapon name="GIFTLIST_KERNEL" />
+		</event>
+	</choice>
+	<choice hidden="true" req="BLUELIST_ANTIBIO_NODAMAGE">
+		<text>（非損傷生物兵器）雑草を一掃します。</text>
+		<event>
+			<text>あなたの武器がこれらの致命的な雑草に対して効果的でない理由はありません。オーキッドの職員が避難し、あなたは駅に向かって発砲します。雑草が確実になくなると、ステーションがベントされ、オーキッドが創造的な問題解決のための新しいカーネル武器を提供します。</text>
+			<weapon name="GIFTLIST_KERNEL" />
+		</event>
+	</choice>
+	<choice hidden="true" req="NANOBOT_DEFENSE_SYSTEM">
+		<text>（殺人ボット）雑草を一掃します。</text>
+		<event>
+			<text>殺人ボットはステーションから生きているものをすべて取り除きます。オーキドゥの職員が避難し、あなたは致命的なナノボットで駅を氾濫させます。雑草が確実になくなると、ナノボットがコールバックされ、オーキッドは創造的な問題解決のためのまったく新しいカーネル武器を提供します。</text>
+			<weapon name="GIFTLIST_KERNEL" />
+		</event>
+	</choice>
+	<choice hidden="true" req="BLUELIST_GAS">
+		<text>（有毒ガス）雑草を一掃します。</text>
+		<event>
+			<text>シェルの有毒ガスは、ほぼすべての有機物をすばやく殺すことができます。オーキドゥの職員が避難し、あなたは致命的なガスで駅を氾濫させます。雑草が確実になくなると、ステーションがベントされ、オーキッドが創造的な問題解決のための新しいカーネル武器を提供します。</text>
+			<weapon name="GIFTLIST_KERNEL" />
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_SHELL">
+		<text>（シェルクルー）シェルに雑草を処理させます。</text>
+		<event>
+			<text>あなたのシェルは、そのような硬い外面を持っているので、致命的な雑草の恐れはほとんどありません。雑草が取り除かれると、オーキッドの担当者は、状況を非常に迅速に処理するための新しいカーネル武器であなたに報酬を与えます。</text>
+			<weapon name="GIFTLIST_KERNEL" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>合格します。</text>
+		<event>
+			<text>あなたが見つけたすべてのステーションで致命的なエイリアンと戦う危険を冒すことはできません。あなたはジャンプする準備をします。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ORCHID_DISTRESS_WEEDS_BOARD">
+	<event>
+		<text>あなたの乗組員は駅に乗り込み、彼らをつかむために手を差し伸べている巨大な食虫植物を見つけます。幸いなことに、植物（および他のほとんどの生き物）はレーザーの火に対してうまくいきません。雑草が追い出されたら、オーキドゥはあなたに感謝します。</text>
+		<autoReward level="HIGH">stuff</autoReward>
+	</event>
+	<event>
+		<text>あなたの乗組員が廊下をさまよっているので、駅は不気味に静かです。突然、巨大な触手と歯のある花びらが、あなたの乗組員をひったくり、血まみれの混乱の中で彼らを引きずり出す通気口の1つから噴出します。恐ろしい、あなたの乗組員はすぐに避難します。</text>
+		<removeCrew>
+			<clone>true</clone>
+			<text>あなたはクローンベイへの希望に満ちた旅行をします、そしてあなたの安堵のためにクローンは失われた乗組員のためにすでに準備されています。</text>
+		</removeCrew>
+	</event>
+</eventList>
+
+<event name="ORCHID_DISTRESS_JUNGLE" unique="true">
+	<distressBeacon />
+	<img back="BACK_EVENT_ORCHIDFOREST" planet="NONE" />
+	<text>遭難信号は、それほど遠くないところに開発されたオーキドゥの前哨基地がある驚くほど美しい森の惑星から発信されています。苦痛を必要としている船は見当たりません。</text>
+	<choice hidden="true">
+		<text>調査。</text>
+		<event>
+			<text>前哨基地周辺のエリアをスコープアウトします。遭難ビーコンの本当の起源を見つけるのにそれほど時間はかかりません。損傷した遭難ビーコンは、1隻のオーキドゥともう1隻の反乱軍の2隻の船から数マイル離れたところにあります。</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>反乱軍は前哨基地に戻ろうとしていたオーキドゥの船を人質に取ったようです。オーキッド船のリレーシステムは修理不可能なほど損傷しており、反乱軍はオーキッドの銃殺隊スタイルを並べています。 「了解しました。最後の植物を手に入れました。今すぐ撮影しますか、それとも要塞に戻して大きな展示をしますか？」</text>
+					<choice hidden="true">
+						<text>私たちはこれを支持しません。</text>
+						<event>
+							<text>あなたは武器を武装させ、反乱軍の船に突撃します。将校たちは自分たちを守るために船に散らばっています。</text>
+							<ship load="SHIP_REBEL_ORCHID_JUNGLE" hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="weapons" lvl="5">
+						<text>（Upg. Weapons）反乱軍の船に直接ショットを発射します。</text>
+						<event>
+							<text>彼らのエンジンにまっすぐに一発で、反乱軍の船を無力化するのに必要なすべてです。今や無力な反乱軍は降伏し、森に散らばっています。</text>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="ORCHID_DISTRESS_JUNGLE_GIFT" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="mind">
+						<text>（マインドコントロール）反乱軍を互いに敵対させる。</text>
+						<event>
+							<text>反乱軍の司令官は、胸の中で他の兵士の1人をむち打ち、爆破します。混乱して、残りの反乱軍は、彼らの最後の一人一人がなんとかお互いを殺すことができるまで、お互いに銃撃戦に入ります。</text>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="ORCHID_DISTRESS_JUNGLE_GIFT" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>私たちにできることは何もありません。</text>
+						<event>
+							<text>いくつかのオーキドゥを救うというあなたの主な使命を危険にさらすことはできません。あなたは罪を感じますが、とにかくこの犯罪に関与していなかったことを知っています。</text>
+							<choice>
+								<text>船に乗って何かをしなさい。</text>
+								<event load="STORAGE_CHECK" />
+							</choice>
+							<choice>
+								<text>何もしない。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>まあ、行きましょう。</text>
+		<event>
+			<text>彼らが誰であろうと、彼らはおそらくすでに助けを得ています。固執する必要はありません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ORCHID_DISTRESS_JUNGLE_GIFT">
+	<event>
+		<text>オーキドゥはあなたの援助に感謝しています。ほとんどの人は前哨基地に降ろされることを申し出ますが、将来反乱軍から船を守ることができることを期待して、船の後ろに立ち往生します。</text>
+		<crewMember amount="1" class="orchid" />
+	</event>
+	<event>
+		<text>オーキッドは、ダメージを受けた船からカーネル武器の1つを提供しますが、安心して前哨基地に戻ることができるようになったため、カーネル武器は不要になりました。</text>
+		<weapon name="GIFTLIST_KERNEL" />
+	</event>
+</eventList>
+
+<event name="ORCHID_DISTRESS_ROCK_CRASH" unique="true">
+	<distressBeacon />
+	<img planet="PLANET_UNPOPULATED_TERRA" />
+	<text>近くの惑星には、大きな損傷を受けたロック船の墜落現場がありますが、彼らの遭難ビーコンはまだ機能しています。</text>
+	<choice hidden="true">
+		<text>生存者を救出してみてください。</text>
+		<event load="ORCHID_DISTRESS_ROCK_CRASH_SAVE" />
+	</choice>
+	<choice hidden="true">
+		<text>難破船は無視してください。</text>
+		<event>
+			<text>あなたはロックマンを助けることに興味がありません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ORCHID_DISTRESS_ROCK_CRASH_SAVE">
+	<event>
+		<text>驚いたことに、乗組員はロックの追放者です！彼らは、追放後にロックホームワールドから逃げ出し、オーキッドの領土に歓迎されることを期待していると説明しています...狂った、寄生虫に乗ったオーキッドのグループが彼らの船を攻撃し、ほとんど破壊するためだけです！</text>
+		<crewMember amount="1" class="rock_outcast" />
+	</event>
+	<event>
+		<text>あなたはロック船のドアをこじ開けて、苔むしたロックマンの屠殺された死体といくつかの怒り狂った寄生虫に乗った蘭を見つけるだけです！</text>
+		<boarders min="2" max="3" class="orchid" />
+	</event>
+</eventList>
+
+<event name="ORCHID_DISTRESS_EMPTY_SHIP" unique="true">
+	<distressBeacon />
+	<ship load="SHIP_ORCHID_GENERIC" hostile="false" />
+	<text>遭難信号は、一般的な星間ルートから遠く離れて漂流しているオーキドゥの船から来ています。あなたはコミュニケーションを試みますが、答えはありません。</text>
+	<choice hidden="true">
+		<text>船に乗る。</text>
+		<event load="ORCHID_DISTRESS_EMPTY_SHIP_LIST" />
+	</choice>
+	<choice hidden="true" req="INFO_MACHINE">
+		<text>（アナライザー）最初に船のセキュリティログを取得します。</text>
+		<event load="ORCHID_DISTRESS_EMPTY_SHIP_LIST_ANALYZER" />
+	</choice>
+	<choice hidden="true">
+		<text>それを無視します。</text>
+		<event>
+			<text>船と通信する必要はありません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ORCHID_DISTRESS_EMPTY_SHIP_LIST">
+	<event>
+		<text>あなたは船に乗り込み、爆発とその結果生じるインフェルノの余波を見つけます。あなたは事故の原因が何であったかを推測することしかできません。ほとんどの機器は焦げて焼けており、生きている人は誰もいませんが、それでもいくつかの有用なスクラップや資源を見つけることができます。</text>
+		<autoReward level="MED">standard</autoReward>
+	</event>
+	<event>
+		<text>船上で生きているのは、脱水されたオーキドゥだけです。船は水を使い果たし、生命維持システムは故障しました。灌漑後、弾力性のあるオーキドゥは若返り、完全な意識に回復します。</text>
+		<crewMember amount="1" class="orchid" />
+	</event>
+	<event>
+		<text>搭乗チームは生存者を探すために船に向かいます。しばらくすると、あなたの乗組員は手に負えないほどの怒りに陥ります。彼らはできるだけ早く船に戻されたが、乗組員の一人が非常に強い影響を受けたため、船に戻ったときに怒った。</text>
+		<choice hidden="true" req="LIST_CREW_ORCHID">
+			<text>（オーキッドクルー）オーキッドに狂人を落ち着かせましょう。</text>
+			<event>
+				<text>オーキドゥはなだめるような花粉を吹きかけます、そして、狂人は徐々に彼らの感覚になります。チーム全体が安堵のため息をついた。</text>
+			</event>
+		</choice>
+		<choice hidden="true" req="BLUELIST_PHEROMONES">
+			<text>（Mantis Pheromones）狂人をフェロモンで扱います。</text>
+			<event>
+				<text>フェロモンの新鮮な部分が乗組員の体に入るとすぐに、それらは良くなります。</text>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text id="continue" />
+			<event>
+				<text>かわいそうな仲間を殺すしかない。</text>
+				<crewMember amount="-1" class="traitor" />
+			</event>
+		</choice>
+	</event>
+</eventList>
+<eventList name="ORCHID_DISTRESS_EMPTY_SHIP_LIST_ANALYZER">
+	<event>
+		<text>セキュリティ映像は、爆発とその結果としてのインフェルノの余波を示しています。あなたは事故の原因が何であったかを推測することしかできません。ほとんどの機器は焦げて焼けており、生きている人は誰もいませんが、それでもいくつかの有用なスクラップや資源を見つけることができます。</text>
+		<autoReward level="MED">standard</autoReward>
+	</event>
+	<event>
+		<text>船上で生きているのは、脱水されたオーキドゥだけです。船は水を使い果たし、生命維持システムは故障しました。灌漑後、弾力性のあるオーキドゥは若返り、完全な意識に回復します。</text>
+		<crewMember amount="1" class="orchid" />
+	</event>
+</eventList>
+
+<event name="ORCHID_DISTRESS_COLONY_FIRE" unique="true">
+	<distressBeacon />
+	<text>遭難信号は、ビーコンの近くの惑星の表面から来ています。山火事は、それを消したり、時間内に避難したりするための資源が不足している小さなオーキドゥのコロニーに向かって広がっています。</text>
+	<choice hidden="true">
+		<text>できるだけ多くの民間人を避難させるのを手伝ってください。</text>
+		<event>
+			<text>オーキッドの惑星の生態系は非常に火に弱いので、乗組員全員でさえオーキッドのコロニーを時間内に救うのに十分ではありません。あなたはより丈夫な人を助けることに成功しましたが、オーキドゥの種と赤ちゃんのほとんどは火事で失われました。</text>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>この事件は私たちには関係ありません。</text>
+		<event>
+			<text>あなたにできることは何もありません。あなたの乗組員は動揺していますが、あなたはジャンプする準備をしています。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="FIRE_EXTINGUISHERS">
+		<text>（防火）植民地を救うために増強を使用してください。</text>
+		<event>
+			<text>消火システムはあなたの船からコロニーに配備されており、生きているすべてのランが避難している間、重要なポイントで山火事を抑えるのに非常に役立ちます。オーキドゥの1つはあなたのパフォーマンスにとても感銘を受けているので、彼らはあなたの乗組員に加わるように頼みます。</text>
+			<crewMember amount="1" class="orchid" />
+		</event>
+	</choice>
+	<choice hidden="true" req="BLUELIST_PHEROMONES">
+		<text>（カマキリフェロモン）避難をスピードアップするために増強を使用してください。</text>
+		<event>
+			<text>フェロモンの影響を受けて、あなたの乗組員とオーキドゥの民間人ははるかに速く動き、誰も置き去りにしません。コロニーが避難した後、オーキドゥの1つはあなたのパフォーマンスに非常に感銘を受け、彼らはあなたの乗組員に加わるように頼みます。</text>
+			<crewMember amount="1" class="orchid" />
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_CRYSTAL">
+		<text>（Crystal Crew）山火事の広がりをブロックして時間を購入します。</text>
+		<event>
+			<text>あなたの乗組員はほんの数秒で巨大な結晶壁を建て、数分以内に防火障壁が設置されて火災を制限します。炎は遅くなり、すべてのコロニーはなんとか安全に逃げることができます。オーキドゥの1つはあなたのパフォーマンスにとても感銘を受けているので、彼らはあなたの乗組員に加わるように頼みます。</text>
+			<crewMember amount="1" class="orchid" />
+		</event>
+	</choice>
+	<choice hidden="true" req="BOMB_LOCK">
+		<text>（封鎖爆弾）山火事の拡散を阻止して、しばらく勝ちましょう。</text>
+		<event>
+			<text>爆弾は、ほんの数秒で巨大な結晶壁を建てるために使用されます。炎は遅くなり、すべてのコロニーはなんとか安全に逃げることができます。オーキドゥの1つはあなたのパフォーマンスにとても感銘を受けているので、彼らはあなたの乗組員に加わるように頼みます。</text>
+			<crewMember amount="1" class="orchid" />
+			<item_modify>
+				<item max="-2" min="-2" type="missiles" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice hidden="true" req="DRONE_SPEED">
+		<text>（ドローンリアクターブースター）優れたドローンを配備して支援します。 [-2ドローン]</text>
+		<event>
+			<text>搭載されたドローンは再プログラムされ、ヘルプに使用されます。彼らは種、赤ちゃん、貴重品を運び、火を消し、最終的にその日を救います。オーキドゥの1つはあなたのパフォーマンスにとても感銘を受けているので、彼らはあなたの乗組員に加わるように頼みます。</text>
+			<crewMember amount="1" class="orchid" />
+			<item_modify>
+				<item max="-2" min="-2" type="drones" />
+			</item_modify>
+		</event>
+	</choice>
+</event>
+
+	
+
+
+<eventList name="ITEMS_GARDEN_SPECIAL">
+	<event load="GARDEN_MEGATREE" />
+	<event load="ORCHID_BOTANICAL_GALLERY" />
+</eventList>
+<eventList name="ITEMS_GARDEN_GENERIC">
+	<event load="ORCHID_FREE_KERNEL" />
+	<event load="ORCHID_FREE_ITEMS" />
+	<event load="ORCHID_FREE_CREW" />
+	<event load="ORCHID_SEEDS" />
+	<event load="ORCHID_UNARMED_TRADER" />
+</eventList>
+
+<event name="ORCHID_BOTANICAL_GALLERY" unique="true">
+	<text>ビーコンには巨大なオーキッドステーションがあります。星図で「拡張植物ギャラリー」としてマークされています。</text>
+	<ship load="SHIP_ORCHID_STATION" hostile="false" />
+	<choice hidden="true">
+		<text>駅をご覧ください。</text>
+		<event>
+			<text>ちょっとした好奇心と静けさの雰囲気がメインホールを埋め尽くしています。ギャラリーにはあらゆる種類の奇妙な展示品があります。あなたはどちらを訪れるべきか疑問に思います。</text>
+			<choice>
+				<text>「メイズバースト」への入場料をお支払いください。</text>
+				<event>
+					<text>展示品には、強化された金属コーティングで四方から保護された巨大な球体が含まれています。中には巨大な木が生えています。あなたは少しがっかりしています。</text>
+					<item_modify>
+						<item max="-9" min="-12" type="scrap" />
+					</item_modify>
+					<choice hidden="true">
+						<text id="continue" />
+						<event>
+							<text>突然、一連の爆発がステーションウィング全体を揺さぶった。木々が破裂し、巨大な穀粒が放出されています。保護球は、カーネルがステーションを破壊するのをほとんど阻止できません。サービスOrchidsは、カーネルを発射するために作成された武器を無料で提供します。</text>
+							<weapon name="KERNEL_1" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>「ハムパイ」への入場料をお支払いください。</text>
+				<event>
+					<text>展示品には...草のフィールドが含まれています。普通の花のある地球の草のように見えますが、奇妙に馴染みのある葉の模様があります。それは本当に価値がありましたか？</text>
+					<item_modify>
+						<item max="-9" min="-12" type="scrap" />
+					</item_modify>
+					<choice hidden="true">
+						<text id="continue" />
+						<event>
+							<text>牧草地で数分後、あなたはあなたの心配が消え、笑いたいという願望、そして近くのカマキリを抱きしめたいという魅力的な衝動を感じます。しばらくすると、あなたと別の訪問者であることが判明したカマキリは親友になり、彼らはあなたの乗組員に加わることに同意します。</text>
+							<crewMember amount="1" class="mantis" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>「クイックサップ」への入場料をお支払いください。</text>
+				<event>
+					<text>この展示品は、すべて植物から作られた巨大な機械です。樹液の細い白い樹皮の木をタップして、樹液を処理部分に移動し、高品質のFTL燃料として宣伝されている液体を出力します。</text>
+					<item_modify>
+						<item max="-9" min="-12" type="scrap" />
+					</item_modify>
+					<choice hidden="true">
+						<text id="continue" />
+						<event>
+							<text>すでに入場料を支払っているので、Orchidsは実験用燃料の一部を無料で提供しています。</text>
+							<item_modify>
+								<item max="7" min="5" type="fuel" />
+							</item_modify>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>何も訪問せずにギャラリーを離れます。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>FTLドライブを充電します。</text>
+		<event>
+			<text>あなたは駅に興味がありません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="GARDEN_MEGATREE" unique="true">
+	<text>遠くには、巨大でよく発達したオーキドゥの街があります。オーキドゥのコミュニティを間近で見ることはめったにありませんが、これはユニークなようです。街の中心部には、スタジアムを囲んだ巨大な木が建てられており、誰もが見ることができます。それはある種の観光名所のようです。</text>
+	<img back="BACK_EVENT_MEGATREE" planet="PLANET_INVISIBLE" />
+	<choice hidden="true">
+		<text>木を観察します。</text>
+		<event>
+			<text>画面に母国語を尋ねるポップアップが表示されます。非常に長い方言のリストから構成した後、あなたの言語の人々はしばしばそれを「メガツリー」と呼びますが、声はオーキドゥの方言でD'WretqAethと呼ばれるものにあなたを歓迎します。</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>バーチャルツアーガイドは、小額の料金で、木の完全なガイドとその起源の歴史を提供します。</text>
+					<choice>
+						<text>聞く。</text>
+						<event>
+							<text>その後、ツアーガイドは、ロックマンとのオーキドゥの外交使節団、2つのオーキドゥの一族間のいくつかのマイナーな内戦、新しいオーキドゥ政府の創設、銀河系間の農薬使用の増加、および菜食主義への懸念についての長くて信じられないほど退屈な物語を開始します。ある話はあなたの注意を引きます、しかし、海賊襲撃の間に木の下に埋められた強力なカーネル武器についての話。</text>
+							<item_modify>
+								<item type="scrap" min="-10" max="-10" />
+							</item_modify>
+							<choice hidden="true">
+								<text>武器を掘ります。</text>
+								<event>
+									<text>あなたは木の根元近くに着陸しようとしますが、オーキドゥの警備員があなたを止め、あなたがあえて木に危害を加えようとすることに激怒します。</text>
+									<ship load="SHIP_ORCHID_MEGATREE" hostile="true" />
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="MORALITY_UPDATE_ORCHID_FIGHT" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true" req="LIST_CREW_ORCHID">
+								<text>（オーキッドクルー）メガツリーの警備員に武器を持たせるように説得します。</text>
+								<event load="ORCHID_MEGATREE_TALK" />
+							</choice>
+							<choice hidden="true" req="FLARE_DISTRACTION">
+								<text>（フレア）フレアを発射して警備員の気をそらし、時間を稼ぎます。</text>
+								<event>
+									<text>ホログラフィックディスクの配列に困惑して、木の防御のほとんどは調査するために動きます。あなたの乗組員はすり抜けてすぐに武器を掘り起こし、いくつかの予備の弾薬は気づかれることなく滑り落ちます。</text>
+									<weapon name="GIFTLIST_KERNEL_ELITE" />
+									<autoReward level="MED">missiles</autoReward>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>私たちはそれを危険にさらすことはできません。ただ去ってください。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>支払わないでください。</text>
+						<event>
+							<text>声は二度とあなたに話しかけません。しばらくすると、退屈して去ります。</text>
+							<choice>
+								<text>船に乗って何かをしなさい。</text>
+								<event load="STORAGE_CHECK" />
+							</choice>
+							<choice>
+								<text>何もしない。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ツリーを無視します。</text>
+		<event>
+			<text>あなたの使命は、外国人の観光地で時間を過ごすにはあまりにも重要です。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ORCHID_MEGATREE_WIN" unique="false">
+	<text>警備員が木の根元に急降下し、それを炎上させると、民間人も観光客も同様に恐怖で逃げます。あなたは船から急いで出て、トランクに穴を開けました。それが中空であることに驚いています。あなたは煙の中を急いでカーネルの武器を手に取り、船に戻ります。</text>
+	<weapon name="GIFTLIST_KERNEL_ELITE" />
+	<autoReward level="MED">missiles</autoReward>
+</event>
+<eventList name="ORCHID_MEGATREE_TALK">
+	<event>
+		<text>あなたのオーキドゥは、あなたの使命の最も重要なことを警備員に納得させることができます。あなたが木にダメージを与えない限り、彼らはあなたに武器を掘るために乗組員を送るようにあなたを認可します。</text>
+		<weapon name="GIFTLIST_KERNEL_ELITE" />
+	</event>
+	<event>
+		<text>警備員はあなたに武器へのアクセスを許可することを拒否します。</text>
+		<choice hidden="true">
+			<text>それらを無視して、とにかくそれを掘り下げてください。</text>
+			<event>
+				<text>あなたは木の根元近くに着陸しようとしますが、オーキドゥの警備員があなたを止め、あなたがあえて木に危害を加えようとすることに激怒します。</text>
+				<ship load="SHIP_ORCHID_MEGATREE" hostile="true" />
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="MORALITY_UPDATE_ORCHID_FIGHT" />
+				</choice>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>まあ、去りましょう。</text>
+			<event />
+		</choice>
+	</event>
+</eventList>
+
+
+<eventList name="HOSTILE_GARDEN">
+	<event load="ORCHID_PIRATE_FIGHT" />
+	<event load="ORCHID_ROCK_FIGHT" />
+	<event load="ORCHID_REBEL_FIGHT" />
+	<event load="ENCOUNTER_REBEL" />
+	
+	<event load="ORCHID_CAPTURED_REBEL_FIGHT" />
+	<event load="ORCHID_PIRATE_FRIENDLY_ASB" />
+</eventList>
+
+
+
+<eventList name="NEUTRAL_GARDEN_SPECIAL">
+	<event load="GARDEN_SACRIFICE" />
+	<event load="GARDEN_DUEL" />
+	<event load="GARDEN_KERNEL_FOREST" />
+</eventList>
+<eventList name="NEUTRAL_GARDEN_GENERIC">
+	<event load="ORCHID_UNDER_ATTACK_PIRATE" />
+	
+	<event load="ORCHID_SLAVES" />
+	<event load="ORCHID_SLUG_TAUNT" />
+	<event load="ORCHID_FIELD" />
+	<event load="ORCHID_AUTO_THEFT" />
+</eventList>
+
+<event name="GARDEN_KERNEL_FOREST" unique="true">
+	<text>この惑星は、驚くほど多くのエイリアンの植物相を誇っています。それはかなりの光景です。</text>
+	<img back="BACK_EVENT_ORCHID_GARDEN" planet="PLANET_INVISIBLE" />
+	<choice hidden="true">
+		<text>さらに調査します。</text>
+		<event>
+			<text>森の中をさまよう孤独なオーキドゥを見つけます。1つのじょうろが手元にあります。あなたが近くに着陸して船を出るとき、彼はあなたに手を振る。 「私の庭へようこそ。楽しんでいただければ幸いです。」</text>
+			<choice hidden="true">
+				<text>これはあなたの庭ですか？</text>
+				<event>
+					<text>「はい、その通りです。私はこの惑星の首長です。これは、私たちがカーネル兵器の植物成分を育てる惑星の1つです。購入していただけませんか？」</text>
+					<choice>
+						<text>カーネルを購入します。</text>
+						<event load="GARDEN_KERNEL_FOREST_REGULAR" />
+					</choice>
+					<choice>
+						<text>エリートカーネルを購入します。</text>
+						<event load="GARDEN_KERNEL_FOREST_ELITE" />
+					</choice>
+					<choice hidden="true" req="LIST_CREW_ORCHID">
+						<text>（オーキッドクルー）チーフテンに参加してもらいます。</text>
+						<event>
+							<text>「ああ……できるかどうかわからない……これはとても重要な仕事だ……あまり外に出ないけど……帰るまでは庭は大丈夫だと思う」</text>
+							<crewMember amount="1" class="orchid_chieftain" />
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>武器の1つを盗もうとします。</text>
+						<event>
+							<text>オーキッドに武器を渡すよう説得するのにそれほど時間がかからないことを期待して、武器を武装させます。代わりに、オーキドゥの船がどこからともなく飛んで来て攻撃します！あなたは船に乗って庭から追い出されますが、彼らは戦いなしではあなたを行かせません。</text>
+							<ship load="SHIP_ORCHID_FIGHT" hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="MORALITY_UPDATE_ORCHID_FIGHT" />
+							</choice>
+						</event>
+					</choice>
+					<choice>
+						<text>私たちは何も買うことに興味がありません。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>はい、時間切れです。動きましょう。</text>
+		<event>
+			<text>あなたはすべての植物の生命を見つめる時間がありません、あなたはあなたの使命を急いでしなければなりません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="GARDEN_KERNEL_FOREST_REGULAR">
+	<event>
+		<text>「良い選択です。それがあなたの旅行であなたによく役立つように！」</text>
+		<weapon name="KERNEL_1" />
+		<item_modify>
+			<item type="scrap" min="-25" max="-25" />
+		</item_modify>
+	</event>
+	<event>
+		<text>「良い選択です。それがあなたの旅行であなたによく役立つように！」</text>
+		<weapon name="KERNEL_2" />
+		<item_modify>
+			<item type="scrap" min="-35" max="-35" />
+		</item_modify>
+	</event>
+	<event>
+		<text>「良い選択です。それがあなたの旅行であなたによく役立つように！」</text>
+		<weapon name="KERNEL_HEAVY" />
+		<item_modify>
+			<item type="scrap" min="-45" max="-45" />
+		</item_modify>
+	</event>
+	<event>
+		<text>「良い選択です。それがあなたの旅行であなたによく役立つように！」</text>
+		<weapon name="KERNEL_FIRE" />
+		<item_modify>
+			<item type="scrap" min="-45" max="-45" />
+		</item_modify>
+	</event>
+	<event>
+		<text>「良い選択です。それがあなたの旅行であなたによく役立つように！」</text>
+		<weapon name="KERNEL_CHAIN" />
+		<item_modify>
+			<item type="scrap" min="-45" max="-45" />
+		</item_modify>
+	</event>
+	<event>
+		<text>「良い選択です。それがあなたの旅行であなたによく役立つように！」</text>
+		<weapon name="KERNEL_CHARGE" />
+		<item_modify>
+			<item type="scrap" min="-35" max="-35" />
+		</item_modify>
+	</event>
+</eventList>
+<eventList name="GARDEN_KERNEL_FOREST_ELITE">
+	<event>
+		<text>「良い選択です。それがあなたの旅行であなたによく役立つように！」</text>
+		<weapon name="KERNEL_1_ELITE" />
+		<item_modify>
+			<item type="scrap" min="-35" max="-35" />
+		</item_modify>
+	</event>
+	<event>
+		<text>「良い選択です。それがあなたの旅行であなたによく役立つように！」</text>
+		<weapon name="KERNEL_2_ELITE" />
+		<item_modify>
+			<item type="scrap" min="-45" max="-45" />
+		</item_modify>
+	</event>
+	<event>
+		<text>「良い選択です。それがあなたの旅行であなたによく役立つように！」</text>
+		<weapon name="KERNEL_HEAVY_ELITE" />
+		<item_modify>
+			<item type="scrap" min="-55" max="-55" />
+		</item_modify>
+	</event>
+	<event>
+		<text>「良い選択です。それがあなたの旅行であなたによく役立つように！」</text>
+		<weapon name="KERNEL_CHAIN_ELITE" />
+		<item_modify>
+			<item type="scrap" min="-55" max="-55" />
+		</item_modify>
+	</event>
+	<event>
+		<text>「良い選択です。それがあなたの旅行であなたによく役立つように！」</text>
+		<weapon name="KERNEL_CHARGE_ELITE" />
+		<item_modify>
+			<item type="scrap" min="-45" max="-45" />
+		</item_modify>
+	</event>
+</eventList>
+
+<event name="GARDEN_SACRIFICE" unique="true">
+	<text>ロストサン船の小さな艦隊は、小さな無人の惑星を周回しています。あなたは2隻の船の間の通信を傍受し、彼らが死刑について何かを述べているのを聞きます。</text>
+	<img planet="PLANET_UNPOPULATED_TERRA" />
+	<choice hidden="true">
+		<text>アプローチ。</text>
+		<event>
+			<text>あなたは惑星の表面の近くで操縦します。大きなテントの中央には、オーキドゥの酋長が縛られた巨大な焚き火があります！大きな野蛮なロックマンが手を振って立って、仲間のロストサンズの歓声を上げる群衆に大声で話します。 「オーキドゥは彼らが自由の側に立っている場所を明らかにしました！彼らは連邦の同盟国であり平和の提供者であると主張します、それでも彼らは彼ら自身の専制政治に直面して長老たちとの礼儀正しい関係を築き続けます！今日ロストサンズがそのような憤慨をどのように扱っているかを例に挙げます！」</text>
+			<choice hidden="true">
+				<text>オーキドゥを救出せよ！</text>
+				<event>
+					<text>あなたは、失われた太陽が彼らを火の中に落とすことができる前に、急いでオーキドゥを切り倒すために乗組員のチームを送ります。あなたは怒っている岩の大群と熱心な追跡の攻撃船を持って船に急いで戻ります。</text>
+					<ship load="SHIP_LOSTSUN_FIGHT" hostile="true" />
+					<boarders min="2" max="2" class="rock_commando" />
+					<crewMember amount="1" class="orchid_chieftain" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_ORCHID">
+				<text>（オーキッドクルー）囚人がすぐに解放されるように要求する。</text>
+				<event>
+					<text>「ハハ！哀れな植物の生き物はその親族のために戦うことを望んでいます！あなたは連邦の傭兵船に乗って働きますが、あなたはすべてをしたがあなたの美徳を守る人々の行動を守ります！すぐにここから出てください！」ロストサンの船があなたを追い払うために派遣されているので、チーフテンを解放したり抗議したりする時間はありません！</text>
+					<ship load="SHIP_LOSTSUN_FIGHT" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="rock_commando">
+				<text>（ロストサンコマンドー）彼らとの理由。</text>
+				<event>
+					<text>あなたのコマンドーは他のロストサンズと話し、最終的には連邦の同盟国を虐殺することは良い考えではないことを理解するようになります。ロストサンズはオーキッドチーフテンを解き放ちます。オーキッドチーフテンはあなたに感謝し、あなたの船に乗って働くことを申し出ます。</text>
+					<crewMember amount="1" class="orchid_chieftain" />
+				</event>
+			</choice>
+			<choice hidden="true" req="unique_ariadne">
+				<text>（アリアドネ）彼らに忠告しなさい。</text>
+				<event>
+					<text>「ママ！私-私はs-とてもごめんなさい。私は失われた太陽の栄光のために私の義務を果たしていました！どうか、私を解雇しないでください。私はすぐにオーキドゥを解放します。 「」</text>
+					<autoReward level="HIGH">item</autoReward>
+					<crewMember amount="1" class="orchid_chieftain" />
+				</event>
+			</choice>
+			<choice hidden="true" req="ORCHID_KIDS">
+				<text>（オーキドゥの子供たち）彼らに死体を渡してください。</text>
+				<event>
+					<text>「何...これらは何ですか。あなたは私に死体を与えましたか？子供たちの？何...あなたの何が悪いのですか。私たちは子供虐殺ではなく、不正の例を作るためにここにいます。ここから地獄を取り除いてください！」</text>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>それらを残します。</text>
+				<event>
+					<text>ロストサンズで敵を作りに行くのに今ほど悪い時期はありません。あなたは惑星から引き離します。</text>
+					<choice>
+						<text>船に乗って何かをしなさい。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>船を避けてください。</text>
+		<event>
+			<text>ロストサンズがここで何らかの犠牲を払っているのなら、あなたはそれに参加したくありません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="GARDEN_DUEL" unique="true">
+	<text>このビーコンで1隻ではなく2隻のエリート船が戦っているのを見つけて驚いています！エリートラニウスとエリートオーキッドが決闘に参加しました。あなたはその真っ只中にいることに気づきます！</text>
+	<img planet="PLANET_UNPOPULATED_TERRA" />
+	<choice hidden="true">
+		<text>オーキドゥを守れ！</text>
+		<event>
+			<text>あなたはラニウス船を迎撃し、戦闘の準備をします。</text>
+			<ship load="SHIP_ORCHID_DUEL_LANIUS" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ラニウスを守れ！</text>
+		<event>
+			<text>あなたはオーキドゥの船を迎撃し、戦闘の準備をします。</text>
+			<ship load="SHIP_ORCHID_DUEL_ORCHID" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ここから地獄を飛ばせ！</text>
+		<event>
+			<text>エンジンを始動し、2隻の船から遠く離れて飛行します。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="GARDEN_DUEL_LANIUS_DEFEAT">
+	<text>あなたはラニウスのエリートを打ち負かしました、そして今彼らの船の恵みはあなたのものです。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>オーキドゥに連絡してください。</text>
+		<event>
+			<text>オーキッドは感謝の気持ちで静かにあなたにうなずき、支払いとして彼らの船からカーネル武器をあなたに与えます。</text>
+			<weapon name="GIFTLIST_KERNEL_ELITE" />
+		</event>
+	</choice>
+</event>
+<event name="GARDEN_DUEL_ORCHID_DEFEAT">
+	<text>あなたはオーキッドエリートを倒しました、そして今彼らの船の恵みはあなたのものです。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>Laniusに連絡してください。</text>
+		<event>
+			<text>「借金で、払っている」 Laniusはいくつかのランダムな資料を送信します。</text>
+			<autoReward level="HIGH">stuff</autoReward>
+		</event>
+	</choice>
+</event>
+
+
+<eventList name="DISTRESS_GARDEN">
+	<event load="ORCHID_DISTRESS_JUNGLE" />
+	<event load="ORCHID_DISTRESS_EMPTY_SHIP" />
+	<event load="ORCHID_DISTRESS_COLONY_FIRE" />
+	<event load="ORCHID_DISTRESS_WEEDS" />
+	<event load="ORCHID_DISTRESS_NOTPIRATES" />
+</eventList>
+
+
+<eventList name="QUESTS_GARDEN">
+	<event load="ORCHID_ZOLTAN_QUEST_START" />
+</eventList>
+
+
+<event name="GARDEN_CRUISER_QUEST_STORE" unique="true">
+	<preventQuest />
+	<beaconType id="map_icon_store_orchid" global="false">
+		<color r="215" g="255" b="200" a="1" />
+	</beaconType>
+	<text>驚いたことに、オーキドゥの船がこのビーコンで修理しています。彼らの船体は大きなダメージを受けており、乗組員は苦しんでいます。</text>
+	<ship load="SHIP_ORCHID_GENERIC" hostile="false" />
+	<choice hidden="true">
+		<text>オーキドゥに連絡してください。</text>
+		<event>
+			<text>オーキドゥの船のリーダーはすぐに反応し、彼の垂れ下がった葉は樹液で滴り落ちます。 「これまで沈黙の約束を破ったことはありませんが、これが最も重要です！Rt'lak Etの庭園は海賊に包囲されています！あなたは助けなければなりません！」</text>
+			<store>STORE_ORCHID</store>
+			<choice hidden="true">
+				<text>地獄はRt'lakEtですか？</text>
+				<event>
+					<text>オーキドゥはため息を吐き出し、植物から聞こえる奇妙な音を出します。 「Rt'laketはオーキッドレースの主要な庭園です。この惑星で私たちは最高の武器と船を育てて製造しています。今では海賊がそれを人質にしています！私たちは人生でかろうじて逃げましたが、戻って人々を救わなければなりません！私たちを助けてくれませんか？」</text>
+					<choice hidden="true">
+						<text>同意。</text>
+						<event>
+							<text>「ああ、最も素晴らしい！私はあなたにコーディネートを与え、あなたと一緒に来るでしょう！それらの海賊はあなたの巨大な船に匹敵しません。」</text>
+							<crewMember amount="1" class="orchid_chieftain">Mayeb</crewMember> 
+							<quest event="GARDEN_CRUISER_QUEST_GARDENS" />
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>却下。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>損傷した船舶は無視してください。</text>
+		<store>STORE_ORCHID</store>
+		<event>
+			<text>あなたはオーキドゥを放っておいて、船で何かをします。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="GARDEN_CRUISER_QUEST_GARDENS">
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<nebulaBeacon>false</nebulaBeacon>
+		<aggressive>2</aggressive>
+	</quest>
+	<beaconType id="map_icon_garden" global="true">
+		<color r="95" g="103" b="45" a="1.0" />
+	</beaconType>
+	<text>オーキッドガーデンの近くで操縦すると、海賊が攻撃を選択した理由がわかります。惑星はどんよりと曇っていて、暗い雲が空を遮っているため、霧の中で接近してくる船を見るのが難しくなっています。損傷したエイリアンのインフラストラクチャが敷設されていることに気づきました。</text>
+	<img back="BACK_EVENT_GARDENS" planet="NONE" />
+	<choice hidden="true">
+		<text>海賊を探してください。</text>
+		<event>
+			<text>混沌の中心を見つけるまで飛び回る。オーキッドクルーザーが自分の人々に発砲している間、巨大な植物が燃えます！庭を担当する首長があなたを歓迎します。 「あなたは助けになります、そうですか？私たちを救ってください、海賊は私たちの最強の巡洋艦を捕らえ、私たちの艦隊を破壊しました、私たちは無力です！これらの庭が私たちの種全体を焼き尽くすなら、私たちの種全体が運命づけられます！」</text>
+			<ship load="SHIP_ORCHID_STRAWBERRY" hostile="false" />
+			<choice hidden="true">
+				<text>オーキドゥを守れ！</text>
+				<event>
+					<text>あなたは彼らの種の生存を単一の場所に基づいているというオーキドゥの決定に疑問を呈しますが、あなたは彼らを可能な限り保護するつもりです。あなたはこの巡洋艦の重要性に注意します...オーキドゥはおそらく感謝し、どちらの方法でもあなたに報酬を与えるでしょうが、あなたが彼らの船を無傷のままにしておけば、おそらく彼らはそれをさらに感謝するでしょう。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>これを危険にさらすことはできません。</text>
+				<event>
+					<text>あなたはオーキドゥが元気になることを願っています、彼らは間違いなく他の艦隊がどこか別の場所で予備で待っています...そしてそうでなければ、少なくともそれはオーキドゥが死ぬ唯一の現実です...</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="GARDEN_CRUISER_QUEST_GARDENS_DESTROYED">
+	<text>強力なオーキッドクルーザーが落下し、爆発して粉々になります。近くの巨大な植物が燃えている間、森のかなりの部分が生き残っています。あなたは船をスクラップします。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>オーキドゥに連絡してください。</text>
+		<event>
+			<text>「船長に感謝します。特に最近では、連邦が彼らの言葉を忠実に守り、私たちの助けになることを期待していませんでした。私たちの巡洋艦は倒れましたが、私たちの庭は倒れませんでした！感謝の贈り物を受け取ってください。」</text>
+			<variable name="ach_boss_orchidcruiser" op="set" val="1" />
+			<weapon name="GIFTLIST_KERNEL_ELITE" />
+			<autoReward level="HIGH">missiles</autoReward>
+			<damage amount="-7" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_REMOVE_ORCHID" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="GARDEN_CRUISER_QUEST_GARDENS_DEADCREW">
+	<text>船の船体を無傷に保ちながら、海賊の乗組員を一掃しました。近くの巨大な植物が燃えている間、森のかなりの部分が生き残っています。オーキドゥは間違いなくそれを取り戻したいので、あなたは船をスクラップすることはできません。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>オーキドゥに連絡してください。</text>
+		<event>
+			<text>「キャプテンに感謝します。特に最近では、連盟が彼らの言葉を忠実に守り、私たちの助けになることを期待していませんでした。あなたは私たちの巡洋艦を私たちが望んでいた以上に一体にしたのです！私たちはあなたに多くの義務を負っていますどうもありがとうございました。この報酬があなたに返済するのに十分であることを願っています。」オーキッドからのたくさんだ?贈り物の中で、彼らはオーキッドクルーザーの青写真も送っています！</text>
+			<unlockCustomShip silent="false">PLAYER_SHIP_ORCHID</unlockCustomShip>
+			<variable name="ach_boss_orchidcruiser" op="set" val="1" />
+			<weapon name="GIFTLIST_KERNEL_ELITE" />
+			<autoReward level="HIGH">stuff</autoReward>
+			<damage amount="-12" />
+			<crewMember amount="1" all_skills="1" class="orchid" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_REMOVE_ORCHID" />
+			</choice>
+		</event>
+	</choice>
+</event>
+</FTL>

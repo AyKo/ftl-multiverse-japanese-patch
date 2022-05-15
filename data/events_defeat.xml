@@ -1,0 +1,2987 @@
+<FTL>
+	
+<textList name="GENERIC_SURRENDER_CHOICE_NOMERCY">
+	<text>それらを調整し、これを終了します。</text>
+	<text>慈悲はありません。</text>
+	<text>彼らの嘆願を無視してください。</text>
+	<text>彼らの降伏を拒否します。</text>
+	<text>それらを終了します。</text>
+	<text>攻撃を続けます。</text>
+	<text>彼らの慈悲を否定しなさい。</text>
+	<text>彼らの叫びは無視してください。</text>
+	<text>通信を終了し、この戦いを終了します。</text>
+	<text>私たちは慈悲を示しません。</text>
+	<text>今日は慈悲はありません。</text>
+	<text>救いで彼らの要求を否定しなさい。</text>
+	<text>彼らに注意を払わず、戦いに戻ってください。</text>
+	<text>彼らの恐怖の叫びを無駄にしましょう。</text>
+	<text>暴行を続けます。</text>
+	<text>それらを惜しまないことを拒否します。</text>
+	<text>あなたの武器で彼らの悲鳴を沈黙させなさい。</text>
+	<text>この戦いは彼らの死でしか終わらない。</text>
+	<text>それらをミュートし、戦い続けます。</text>
+	<text>彼らは別の日を見るために生きることはありません。</text>
+</textList>
+
+	
+<event name="DESTROYED_TRAPPER">
+	<text>トラッパー船の残骸を解体していると、残骸の真ん中に機能的なミーネンヴェルファーの武器が漂っています。</text>
+	<autoReward level="MED">standard</autoReward>
+	<weapon name="GIFTLIST_MINELAUNCHERS_TRAPPER" />
+</event>
+
+<event name="DEAD_CREW_TRAPPER">
+	<text>トラッパーは乗組員が空になりました。それを廃棄している間、あなたはその貯蔵庫に鉱山ランチャーを見つけます。</text>
+	<autoReward level="MED">standard</autoReward>
+	<weapon name="GIFTLIST_MINELAUNCHERS_TRAPPER" />
+</event>
+
+	
+<event name="DESTROYED_REINFORCEMENTS">
+	<text>ASBのために長く滞在することはできませんが、援軍の残骸を集めます。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice req="MAGNET_ARM">
+		<text>（マグネットアーム）難破船をさらに救助します。</text>
+		<event>
+			<autoReward level="MED">standard</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event />
+	</choice>
+</event>
+<event name="DEADCREW_REINFORCEMENTS">
+	<text>ASBのために長く滞在することはできませんが、援軍の残骸を集めます。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice req="MAGNET_ARM">
+		<text>（マグネットアーム）難破船をさらに救助します。</text>
+		<event>
+			<autoReward level="MED">standard</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+			<text>継続する...</text>
+			<event />
+		</choice>
+</event>
+
+	
+<event name="DESTROYED_CIVILIAN">
+	<text load="TEXT_DESTROYED_CIVILIAN" />
+	<autoReward level="LOW">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_CIVILIAN">
+	<text>民間船が爆発するにつれて、あなたは自分の行動が結果をもたらすかどうか疑問に思います。おそらくそうではありません。</text>
+	<text>あなたは民間人が爆発するのを見て、自分自身を償還する方法があることを自分自身に納得させようとします。多分彼らは反乱軍の支持者でしたか？うまくいけば...</text>
+	<text>民間船は通常、それほど多くのスクラップを保持していませんが、あらゆる点で役立ちます。うまくいけば、それはあなたが今取ったすべての罪のない人生の価値があります。</text>
+	<text>民間船を揺さぶる爆発は、自分がしたことをゆっくりと理解するにつれて、耳に響き渡ります。少なくとも、連邦はおそらくあなたの犯罪について聞くことは決してないでしょう。</text>
+	<text>あなたが今したことを立証する方法はありません、そしてあなたはそれを知っています。それでも、民間人は死んでおり、かつて彼らの船だった難破船からあなたができるすべてのものを廃棄しようとしています。</text>
+	<text>民間人の血があなたの手にあります。船のフロントガラスに映った自分の姿を見るのは難しいと思います。</text>
+	<text>あなたが最後のショットを発射するように彼に命じたときのあなたの砲手の目の痛みを伴う表情は、あなたの人生の残りの間あなたを悩ませます。しかしねえ、あなたはこれらすべてからいくつかのスクラップを手に入れました！</text>
+	<text>あなたの乗組員が民間の船からのスクラップを持って戻ってくるとき、あなたはあなたの方向に憤慨している視線を捕らえます。</text>
+	<text>あなたは戦争犯罪を犯したという事実を頭の後ろに押し付け、船を救出します。</text>
+	<text>何か役に立つものを求めて船を剥ぎ取るとき、あなたは反乱軍よりも優れているかどうか疑問に思います。</text>
+</textList>
+
+<event name="DEAD_CREW_CIVILIAN">
+	<text load="TEXT_DEAD_CREW_CIVILIAN" />
+	<autoReward level="LOW">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_CIVILIAN">
+	<text>より多くの民間人の血があなたの手にあります。連盟が本当に良い面であるかどうか疑問に思うのは、このような時です。</text>
+	<text>あなたはそれらの民間人のそれぞれを殺害することが必要であったと自分自身に言い聞かせようとします。あなたは船を解体することによってそれからあなたの心を取り除きます。</text>
+	<text>スクラップへの欲望だけを非難することができるもう一つの無意味な虐殺。公平を期すために、スクラップはかなり便利です。</text>
+	<text>あなたは彼らの船をスクラップするときにあなたが殺したばかりのこれらの貧しい民間人の家族のことを考えないようにしています。</text>
+	<text>あなたは戦争の恐ろしさに無感覚になったと思っていましたが、罪のない民間人を虐殺することで物事は見通しに戻りました。もうできることは何もないので、彼らの船が無駄にならないようにしてください。</text>
+	<text>あなたの乗組員のまぶしさは、彼らがその資源を船から剥ぎ取るとき、廊下を通ってあなたを追いかけます。</text>
+	<text>死んだ民間人の一人は、あなたの古いアカデミーの恋人に神経質な類似性を持っています。あなたは彼女の顔をあなたから遠ざけ、船の掃気に集中しようとします。</text>
+	<text>船に乗っている民間人の一人はまだかろうじて生きています。あなたの乗組員は彼をあなたの船に連れて来て彼を復活させようとします、しかし彼は何かができる前に死にます。これを許す方法がないことを知って、あなたはため息をつきます。</text>
+	<text>船が廃棄されたら、あなたは自分の行動を振り返るためにしばらくの間あなたの個人的な宿舎に後退します。</text>
+</textList>
+
+<event name="SURRENDER_CIVILIAN">
+	<text load="TEXT_SURRENDER_CIVILIAN" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_CIVILIAN">
+	<text>「お願いします！あなたは連邦船です！私たちの最も暗い日には、あなたは光をもたらすことになっています。あなたは私たちを殺すことはできません！」</text>
+	<text>民間人は必死にあなたを歓迎し、あなたが彼らを生きさせてくれるように頼みます。</text>
+	<text>「なぜあなたはこれをしているのですか？私はいつも連盟が善人であるはずだと聞いていました！」</text>
+	<text>「私はそれを知っていた！反乱当局は常に連邦が私たちを後ろから刺すだろうと私たちに言った。今あなたはまさにそれをしている！私たちを生きさせてください、私はあなたにお願いします。」</text>
+	<text>あなたは民間人に歓迎され、彼らはあなたが彼らを生きさせてくれるように頼みます。彼らはいくつかの物資を提供しています。</text>
+	<text>「これを持って行ってください、それは多くはありませんが、私が提供できるすべてです。私たちを殺さないでください！」</text>
+	<text>あなたは民間人に歓迎されます。民間人は、あなたが彼らを生かすなら、あなたにいくつかの物資を提供します。</text>
+</textList>
+
+	
+<event name="DESTROYED_MILITIA">
+	<text load="TEXT_DESTROYED_MILITIA" />
+	<autoReward level="LOW">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_MILITIA">
+	<text>民兵の船を殺すことは民間人を殺すことよりも悪いことではありませんが、少なくとも彼らは自発的に彼らの命を危険にさらすためにサインアップしました。</text>
+	<text>あなたは別の船を破壊しましたが、今回は民兵の将校が配置されました。あなたは怪物ですが、少なくともあなたはそれからいくつかのスクラップを手に入れました。</text>
+	<text>あなたの使命の目標が銀河の民間人を救うことであるとき、あなたは民兵を殺すことはどれほど直感に反するかを考えないようにします。</text>
+	<text>天国への道が悪意を持って舗装されていたら、あなたはその道を進んでいるでしょう。あなたは自分の恐ろしい行為について考えずに船をスクラップしようとします。</text>
+	<text>あなたが殺すすべての民兵船はあなたが救うすべての民間人を打ち消します。少なくとも、あなたの乗組員はあなたをオンにするつもりはありません。</text>
+	<text>あなたが彼らの船をスクラップするために引っ越しているときに彼らの仕事をしようとして死んだこれらの勇敢な軍人を気の毒に思わずにはいられません。</text>
+	<text>あなたは、この民兵船の運命を船長のログから外して、それをスクラップするために移動することにしました。</text>
+	<text>FTLは課金しますが、連盟が発見した場合、これがあなたの記録にどのように表示されるのか疑問に思います。多分あなたは彼らにこの死が必要だったと納得させることができます。</text>
+</textList>
+
+<event name="DEAD_CREW_MILITIA">
+	<text load="TEXT_DEAD_CREW_MILITIA" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_MILITIA"> 
+	<text>民兵の乗組員を殺すことは民間人を殺すことよりも悪いことではありませんが、少なくとも彼らは自発的に彼らの命を危険にさらすためにサインアップしました。</text>
+	<text>あなたは別の船の乗組員を殺しましたが、今回は民兵の将校が配置されました。あなたは怪物ですが、少なくともあなたはそれからいくつかのスクラップを手に入れました。</text>
+	<text>あなたの使命の目標が銀河の民間人を救うことであるとき、あなたは民兵を殺すことはどれほど直感に反するかを考えないようにします。</text>
+	<text>天国への道が悪意を持って舗装されていたら、あなたはその道を進んでいるでしょう。あなたは自分の恐ろしい行為について考えずに船をスクラップしようとします。</text>
+	<text>あなたが殺すすべての民兵の乗組員は、あなたが救うすべての民間人を打ち消します。少なくとも、あなたの乗組員はあなたをオンにするつもりはありません。</text>
+</textList>
+
+<event name="SURRENDER_MILITIA">
+	<text load="TEXT_SURRENDER_MILITIA" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_MILITIA">
+	<text>「これが連邦が崩壊した理由であり、私たちミリティアメンは自分たちのために立ち向かわなければなりませんでした。私たちの降伏を受け入れるか、連邦が本当に腐敗した悪意のある力であることを証明してください。」</text>
+	<text>軍人は降伏し、スクラップを提供します。画面を通して彼らの船長はあなたを睨みつけますが、それ以上は何も言いません。</text>
+	<text>「それで、あなたは私たちを殺すために来ましたか？私たちの降伏を受け入れるか、それを早くしてください。」</text>
+	<text>軍人は勇敢ですが、愚かではありません。彼らはいつ降伏するかを知っています、そして今彼らはまさにそれをしています。</text>
+	<text>「私のお尻を守り、奉仕しなさい！私たちが持っているすべてのものを持っていって、ただ私たちを生きさせてください！」</text>
+	<text>「私たちはこのセクターを保護する仕事をしているだけです。これを持って私たちを放っておいてください！」</text>
+</textList>
+
+	
+<event name="DESTROYED_FEDERATION">
+	<text load="TEXT_DESTROYED_FEDERATION" />
+	<autoReward level="LOW">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_FEDERATION">
+	<text>連邦船が爆発するとき、あなたは目をそらします。あなたが自分の味方を喜んで殺したとき、私たちは何に来ましたか？</text>
+	<text>あなたは自分の裏切りの結果を見るのに耐えられません。あなたはあなたが座ってあなたが何をしたかについて考える間、あなたはあなたの乗組員に混乱を救うように命じます。</text>
+	<text>あなたは多くの船を殺しましたが、他の船よりもはるかに価値のないものもありましたが、連邦の仲間の船を破壊するのに十分なほど低くかがむとは思っていませんでした。</text>
+	<text>連邦船が爆発し、その中のすべての人が即死したことを非難します。あなたの乗組員は二度とあなたを同じように見ることはありません。</text>
+	<text>あなたの砲手は彼らを殺すためのあなたの命令を拒否します、そしてあなたはあなた自身で最後のショットを発射しなければなりません。あなたは自分の味方を殺しました。あなたはモンスターです。</text>
+	<text>船が壊れると、何年もの間あなたの睡眠を奪う最後の絶望的な呼びかけが聞こえます。</text>
+	<text>それを補うために何をしようとも、あなたは味方を殺しました。誰もあなたを許すことはできません。あなた自身さえも許しません。</text>
+	<text>彼らは民間人ではありませんが、それでもあなたは連邦を救うために働いています。あなたが今したことを元に戻すことはできません。</text>
+	<text>彼らの船が引き裂かれるとき、最後の爆発は彼らの運命を示します。</text>
+</textList>
+<event name="DESTROYED_FEDERATION_STATION">
+	<text load="TEXT_DESTROYED_FEDERATION_STATION" />
+	<autoReward level="LOW">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_FEDERATION_STATION">
+	<text>フェデレーションステーションが爆発するとき、あなたは目をそらします。あなたが自分の味方を喜んで殺したとき、私たちは何に来ましたか？</text>
+	<text>あなたは自分の裏切りの結果を見るのに耐えられません。あなたはあなたが座ってあなたが何をしたかについて考える間、あなたはあなたの乗組員に混乱を救うように命じます。</text>
+	<text>あなたは多くの船を殺しましたが、他の船よりもはるかに価値のないものもありましたが、連邦が配置された駅を破壊するのに十分なほど低くかがむとは思っていませんでした。</text>
+	<text>フェデレーションステーションが爆発し、その中の全員が即死した。あなたの乗組員は二度とあなたを同じように見ることはありません。</text>
+	<text>あなたの砲手は彼らを殺すためのあなたの命令を拒否します、そしてあなたはあなた自身で最後のショットを発射しなければなりません。あなたは自分の味方を殺しました。あなたはモンスターです。</text>
+	<text>駅が壊れると、何年もの間あなたの睡眠を奪う最後の絶望的な連絡が聞こえます。</text>
+	<text>それを補うために何をしようとも、あなたは味方を殺しました。誰もあなたを許すことはできません。あなた自身さえも許しません。</text>
+	<text>彼らは民間人ではありませんが、それでもあなたは連邦を救うために働いています。あなたが今したことを元に戻すことはできません。</text>
+	<text>彼らのステーションが引き裂かれるとき、最後の爆発は彼らの運命を示します。</text>
+</textList>
+
+<event name="DEAD_CREW_FEDERATION">
+	<text load="TEXT_DEAD_CREW_FEDERATION" />
+	<autoReward level="LOW">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_FEDERATION">
+	<text>あなたはそれらの連邦役員全員を殺害する必要があったかどうか疑問に思います。とにかく、戻るには遅すぎます。あなたは彼らの船をスクラップします。</text>
+	<text>自分がしたことを立証することはできませんが、空になった連邦船を無駄にすることはありません。</text>
+	<text>これらの人々はあなたと一緒にアカデミーに行き、仲間としてあなたと一緒に訓練を受けました。あなたは彼らに会ったことはありませんが、彼らはあなたの友達でした。そして今、あなたは彼らを殺しました。</text>
+	<text>あなたは連邦の兵士を殺しました。タリー提督は、あなたが今あなたの任務に失敗した場合、あなたのすべての乗組員を個人的に処刑させます。</text>
+	<text>この難破船に遭遇する将来の船は、それが反乱軍によって引き起こされたと考えるでしょうが、あなたは常に真実を知っているでしょう。それは長い間あなたを悩ませます...</text>
+</textList>
+<event name="DEAD_CREW_FEDERATION_STATION">
+	<text load="TEXT_DEAD_CREW_FEDERATION_STATION" />
+	<autoReward level="LOW">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_FEDERATION_STATION">
+	<text>あなたはそれらの連邦役員全員を殺害する必要があったかどうか疑問に思います。とにかく、戻るには遅すぎます。あなたは駅をスクラップします。</text>
+	<text>今行ったことを立証することはできませんが、空になったフェデレーションステーションを無駄にすることはありません。</text>
+	<text>これらの人々はあなたと一緒にアカデミーに行き、仲間としてあなたと一緒に訓練を受けました。あなたは彼らに会ったことはありませんが、彼らはあなたの友達でした。そして今、あなたは彼らを殺しました。</text>
+	<text>あなたは連邦の兵士を殺しました。タリー提督は、あなたが今あなたの任務に失敗した場合、あなたのすべての乗組員を個人的に処刑させます。</text>
+	<text>この難破船に遭遇する将来の船は、それが反乱軍によって引き起こされたと考えるでしょうが、あなたは常に真実を知っているでしょう。それは長い間あなたを悩ませます...</text>
+</textList>
+
+<event name="SURRENDER_FEDERATION">
+	<text load="TEXT_SURRENDER_FEDERATION" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_FEDERATION">
+	<text>「あなたは絶対に怒ったことがありますか？私たちは同じ側にいます！」</text>
+	<text>連邦船はボロボロです。あなたはおそらくこの時点で彼らの降伏を交渉することができます。</text>
+	<text>「お願いします、私たちはこれをする必要はありません！あなたがこれをした理由はわかりませんが、私たちはあなたに私たちを手放すために何かを喜んで与えます！」</text>
+	<text>「あなたに何が入ったの？私たちも連邦だ！」</text>
+	<text>「何が起こっているのですか？私たちが持っているすべてのものを取り、私たちを放っておいてください！」</text>
+	<text>船は繰り返しあなたを歓迎し、あなたがあなたの暴行を止めて彼らを手放すように懇願します。</text>
+</textList>
+
+	
+<event name="DESTROYED_FEDERATION_AUTO">
+	<text load="TEXT_DESTROYED_FEDERATION_AUTO" />
+	<autoReward level="LOW">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_FEDERATION_AUTO">
+	<text>「Eエラー：裏切り」オートシップが爆発する。有人の連邦船である場合よりも後悔ははるかに少ないですが、それでも少し罪悪感を感じます。</text>
+	<text>連邦の創造物の1つを破壊することは、反乱の創造物よりもはるかに満足のいくものではありませんが、スクラップはスクラップです。</text>
+	<text>Auto-shipを破棄すると、最後のメッセージ「Sorry...」が送信されます。</text>
+	<text>ドローンはあなたの武器の火の下でバラバラになり、あなたの乗組員はあなたに奇妙な表情を与えます。まあ、少なくともそれは実際の連邦の乗組員でいっぱいの船ではありませんでした。</text>
+</textList>
+
+	
+<eventList name="DESTROYED_REBEL">
+	<event load="DESTROYED_REBEL_GENERIC" />
+	<event load="DESTROYED_REBEL_GENERIC" />
+	<event load="DESTROYED_REBEL_GENERIC" />
+	<event load="DESTROYED_REBEL_GENERIC" />
+	
+	<event load="DESTROYED_REBEL_POD" />
+</eventList>
+<event name="DESTROYED_REBEL_GENERIC">
+	<text load="TEXT_DESTROYED_REBEL" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_REBEL">
+	<text>爆発の燃えるような赤は、反乱軍の船のオレンジ色の船体を補完します。あなたの手仕事に満足して、あなたは船をスクラップします。</text>
+	<text>反乱軍の船は火に包まれ、船体が割れて内部が空間の真空にさらされるとすぐに消火されます。死体が船から取り除かれたら、あなたは残骸を廃棄します。</text>
+	<text>反乱軍の船は爆発し、その多くの重要なシステムは単なるスクラップ材料になりました。あなたが取るためのスクラップ材料、つまり。</text>
+	<text>あなたが破壊する反乱軍のクズ野郎でいっぱいのすべての船は、わずかに安全な銀河を意味します。それほど多くはありませんが、正直な仕事です。</text>
+	<text>反乱軍の船が爆発するとすぐに連絡を受け取るが、手遅れだ。目の前の火に焼かれる前に、命を乞う船長の顔が一瞬点滅します。</text>
+	<text>あなたは反乱軍にも家族がいるに違いないことを知っていますが、彼らはおそらく最高ではありません。または少なくとも、それはあなたが望むものです。</text>
+	<text>あなたの武器からの最後の爆発は、反乱軍の船の船体を不自由にしました。スクラップの大部分はあなたが取るために残っています。</text>
+	<text>敵の死は、反乱軍の船の場合ほど満足のいくものになることはめったにありません。ついに、彼らが連邦のために引き起こしたすべての地獄へのあなたの復讐。</text>
+	<text>反乱軍の船が爆発し、有用なスクラップ材料のかなりのコレクションが残ります。</text>
+</textList>
+<event name="DESTROYED_REBEL_POD">
+	<text>反乱軍の船が爆発する直前に、脱出ポッドがそこから飛び出します。残念ながら、それを集めて船に乗せるまで、それほど遠くはありません。あなたはそれを開いて、反乱軍の将校を中に引きずり出します。彼らはあなたが彼らを生きさせてくれるように頼みます。</text>
+	<autoReward level="LOW">standard</autoReward>
+	<choice hidden="true">
+		<text>それらをあなたの船に受け入れてください。</text>
+		<event load="DESTROYED_REBEL_POD_ACCEPT" />
+	</choice>
+	<choice hidden="true" req="mind">
+		<text>（マインドコントロール）彼らが何か悪いことをした場合に備えて、マインドコントロールをオンラインに保ちます。</text>
+		<event load="DESTROYED_REBEL_POD_MIND" />
+	</choice>
+	<choice hidden="true">
+		<text>反逆者を解放し、彼らを手放します。</text>
+		<event load="DESTROYED_REBEL_POD_SAVE" />
+	</choice>
+	<choice hidden="true">
+		<text>彼の間隔を空けます。</text>
+		<event>
+			<text>あなたが反乱軍を腕でつかんでエアロックに引きずり込むと、彼はほとんど抗議しません。彼がまっすぐに立ち、運命を受け入れると、涙が彼の頬を転がり落ちます。彼の死体が船から安全な距離を漂流したとき、あなたはもう一度エアロックを閉じます。</text>
+		</event>
+	</choice>
+</event>
+<eventList name="DESTROYED_REBEL_POD_ACCEPT">
+	<event>
+		<text>反逆者は、彼が彼の本来の目的を裏切らなければならないことを意味しているにもかかわらず、あなたが彼を惜しまないことに感謝しています。</text>
+		<crewMember amount="1" class="human" />
+	</event>
+	<event>
+		<text>反乱軍は感謝のファサードを付けます。彼がレーザーを引き出してあなたの乗組員の1人を爆破すると、それはすぐに粉々になります！彼は「永遠の反逆！」と叫びます。彼が見返りに撃たれる前に。あなたは彼の生命のない体をエアロックに引きずり込み、彼を無限の空間の真空に送り込みます。</text>
+		<removeCrew>
+			<clone>true</clone>
+			<text>幸いなことに、殺された乗組員はすでにクローン作成プロセスを実行しています。</text>
+		</removeCrew>
+	</event>
+</eventList>
+<eventList name="DESTROYED_REBEL_POD_MIND">
+	<event>
+		<text>反逆者は、彼が彼の本来の目的を裏切らなければならないことを意味しているにもかかわらず、あなたが彼を惜しまないことに感謝しています。結局、マインドコントロールは必要ないようです。</text>
+		<crewMember amount="1" class="human" />
+	</event>
+	<event>
+		<text>反乱軍は感謝のファサードを付けます。彼がレーザーを引き出してあなたの乗組員の1人を撃とうとすると、すぐに粉々になります。幸いなことに、マインドコントロールは彼を止め、彼は床に落ちます。あなたは彼をエアロックから引きずり出すのを急いでいます。</text>
+	</event>
+</eventList>
+<eventList name="DESTROYED_REBEL_POD_SAVE">
+	<event>
+		<text>最初はそれがトリックかどうかはわかりませんが、反乱軍があなたが彼らを後ろから刺すつもりはないと確信すると、彼らは彼らが感謝として彼ら自身を救ったもののごく一部をあなたに提供します。すべての反逆者が冷たい心を持っているわけではないようです。</text>
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+	<event>
+		<text>最初はそれがトリックかどうかはわかりませんが、反乱軍があなたが彼らを後ろから刺すつもりはないと確信すると、彼らは彼らが感謝として彼ら自身を救ったもののごく一部をあなたに提供します。すべての反逆者が冷たい心を持っているわけではないようです。</text>
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+	<event>
+		<text>反乱軍はあなたが彼らを解放するまで貨物室からあなたを怒らせ続けるので、あなたの決定を容易にしません。彼らがあなたを裏切ることはほぼ確実ですが、あなたが選択できるとき、あなたは殺人者になることはありません。</text>
+		<modifyPursuit amount="1" />
+	</event>
+</eventList>
+
+<event name="DEAD_CREW_REBEL">
+	<text load="TEXT_DEAD_CREW_REBEL" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_REBEL">
+	<text>あなたが殺すすべての反逆者のために、あなたはあなたが間接的に救ったすべての連邦役員と民間人について考えるのが好きです。反乱軍の別の完全な乗組員が死んで、あなたが救った無実の別の乗組員。</text>
+	<text>反乱軍の船の船長がひざまずくと、彼はあなたが近づくように手招きします。彼は「くそー...あなた...」とささやき、死んで地面に倒れます。</text>
+	<text>反乱軍の船が乗組員から離れたので、あなたは残骸を自由にスクラップすることができます。</text>
+	<text>反乱軍の乗組員の悲鳴はついに沈黙しました。あなたはほとんど気分が悪い。ほとんど。</text>
+	<text>反乱軍の船の内部を横切って移動しても、兵士の死体がけいれんしているのを見ることができます。かなり病的ですが、少しでも気分が悪くなることはありません。</text>
+	<text>あなたは今死んだ反乱軍の乗組員に同情を感じず、彼らの船を意地悪にスクラップします。</text>
+</textList>
+
+<event name="ESCAPE_REBEL">
+	<text load="TEXT_ESCAPE_REBEL" />
+</event>
+<textList name="TEXT_ESCAPE_REBEL">
+	<text>あなたは反乱軍の船長が乗組員に命令を下しているのを耳にします。 「くそー！必要なだけのパワーをエンジンに向け直してください。ここから出なければなりません！」</text>
+	<text>反乱軍の船のエンジンが燃え上がっているのに気づきました。彼らは逃げようとしています！</text>
+	<text>反乱軍が戦闘から逃げようとすることはめったにありませんが、この船はその生存を優先します。</text>
+	<text>敵のエンジン出力の大幅な急上昇から、船が脱出しようとしていることがわかります。</text>
+</textList>
+
+<eventList name="GOTAWAY_REBEL">
+	<event load="GOTAWAY_REBEL_GENERIC" />
+	<event load="GOTAWAY_REBEL_GENERIC" />
+	<event load="GOTAWAY_REBEL_GENERIC" />
+	<event load="GOTAWAY_REBEL_GENERIC" />
+	
+	<event load="GOTAWAY_REBEL_REMAINS" />
+</eventList>
+<event name="GOTAWAY_REBEL_GENERIC">
+	<text load="TEXT_GOTAWAY_REBEL" />
+</event>
+<textList name="TEXT_GOTAWAY_REBEL">
+	<text>反乱軍の船長は飛び降りるときに笑い、あなたを一人でビーコンに残します。</text>
+	<text>「あなたはこの日を失います！」反乱軍の船が飛び去ります。</text>
+	<text>反乱軍の船のエンジンが最後にもう一度フレアし、それが飛び去るとき、あなたは息を切らして呪いをかけます。</text>
+	<text>反乱軍の船は逃げる。あなたはその無益な戦いの後に必要な修理に集中します。</text>
+</textList>
+<event name="GOTAWAY_REBEL_REMAINS">
+	<text>反乱軍の船が飛び去る。最初はがっかりしましたが、その後、スクラップの一部が戦いから取り残されていることに気づきました。それほど多くはありませんが、失敗の打撃を和らげるのに役立ちます。</text>
+	<autoReward level="LOW">scrap_only</autoReward>
+</event>
+
+<eventList name="SURRENDER_REBEL">
+	<event load="SURRENDER_REBEL_GENERIC" />
+	<event load="SURRENDER_REBEL_GENERIC" />
+	<event load="SURRENDER_REBEL_GENERIC" />
+	<event load="SURRENDER_REBEL_GENERIC" />
+	
+	<event load="SURRENDER_REBEL_FLEET" />
+	<event load="SURRENDER_REBEL_DEMAND" />
+</eventList>
+<event name="SURRENDER_REBEL_GENERIC">
+	<text load="TEXT_SURRENDER_REBEL_GENERIC" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_REBEL_GENERIC">
+	<text>反乱軍の船長があなたを歓迎します。背景には、武器が引き起こした混乱を見ることができます。 「わかりました、あなたが勝ちます。私たちは降伏します。」</text>
+	<text>反乱軍の船が連邦の船に降伏を申し出るのはまれですが、これはその時の1つであるように思われます。</text>
+	<text>「わかりました、私たちは降伏します！連邦がそのような慈悲深い力であるというあなたの主張が真実であるならば、あなたは私たちの降伏を受け入れなければなりません！」</text>
+	<text>「ああ、結構です。あなたの連邦役員がどれほど腐敗しているのかを知っているので、おそらく少しのスクラップがあなたに私たちを手放すように説得することができますか？」</text>
+	<text>反乱軍の船は煙で走っています。激しく喘ぎながら、反乱軍の船長はあなたに彼らを生かしてほしいと頼みます。</text>
+	<text>「わかりました、あなたはあなたが戦闘で優れていることを証明しました。今、あなたがあなたが言っているのと同じくらい寛容であることを証明してください。」</text>
+	<text>ついに、反乱軍の船が降伏したようです。彼らは降伏を提供します。</text>
+	<text>「ああ、私がこれを連邦のクズに言っているとは信じられない...私たちが私たちのストレージにあるものをあなたに与えるならば、あなたは私たちを生きさせてくれるだろうか？」</text>
+	<text>「オーケー、オーケー！あなたが勝ちます。コマンドはあなたを手放すことを決して許しませんが、少なくとも私たちは自分たちが解雇されるのを見るために生きています。あなたは私たちの降伏を受け入れますか？」</text>
+	<text>反乱軍の船はもう戦うことを望んでいません。彼らは必死にあなたを歓迎します。</text>
+	<text>「コマンドは、私たちがここであなたに出会ったことを知る必要はありません。私たちを手放すだけで、私たちが持っているものをあなたに与えるでしょう。」</text>
+</textList>
+<event name="SURRENDER_REBEL_DEMAND">
+	<text load="TEXT_SURRENDER_REBEL_DEMAND" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_REBEL_DEMAND">
+	<text>「これは冗談ではありません。あなたは行き過ぎです。私が誰であるか知っていますか？私は反乱に不可欠です。私を生きさせてください！」</text>
+	<text>反乱軍の船があなたを歓迎します。 「これ以上のゲームはありません。あなたは私たちを生きさせるか、反乱の怒りに苦しむでしょう！」</text>
+	<text>「反乱は決して死ぬことはありません！あなたが殺すすべての反乱軍の船は、私たちの避けられない勝利の後にのみあなたの罰を大きくします。私たちを行かせてください。」</text>
+</textList>
+<event name="SURRENDER_REBEL_FLEET">
+	<text load="TEXT_SURRENDER_REBEL_FLEET" />
+	<choice>
+		<text>彼らの降伏を受け入れます。 [フリート2ジャンプを遅らせる]</text>
+		<event>
+			<text>反乱軍は艦隊を遅らせ、飛び去ることを約束します。</text>
+			<ship hostile="false" />
+			<modifyPursuit amount="-2" />
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_REBEL_FLEET">
+	<text>「見てください、多分私たちは両方ともこれから何かを得ることができます。私は艦隊があなたにとって問題であることを知っています。あなたが私たちを生きさせれば、私たちはあなたの場所について艦隊に嘘をつくことができます。彼らは手遅れになるまで決して知りません。 「」</text>
+	<text>反乱軍の船は降伏し、あなたが彼らを生きさせれば艦隊を遅らせることを約束します。</text>
+	<text>「あなたが私たちを殺すと、あなたはほんのわずかなスクラップしか得られません。私たちは生きているあなたにとってより有用です。私たちを行かせてください、そして私たちはあなたのために艦隊を遅らせることができます。」</text>
+</textList>
+
+	
+<eventList name="DESTROYED_AUTO">
+	<event load="DESTROYED_AUTO_GENERIC" />
+	<event load="DESTROYED_AUTO_GENERIC" />
+	<event load="DESTROYED_AUTO_GENERIC" />
+	<event load="DESTROYED_AUTO_GENERIC" />
+	<event load="DESTROYED_AUTO_GENERIC" />
+	<event load="DESTROYED_AUTO_GENERIC" />
+	
+	<event load="DESTROYED_AUTO_FUEL" />
+	<event load="DESTROYED_AUTO_MISSILES" />
+	<event load="DESTROYED_AUTO_DRONES" />
+</eventList>
+<event name="DESTROYED_AUTO_GENERIC">
+	<text load="TEXT_DESTROYED_AUTO" />
+	<autoReward level="RANDOM">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_AUTO">
+	<text>Auto-shipsを殺すことについての最も良い部分は、罪悪感がないことです。あなたは椅子にもたれかかって、船を廃棄するように命令します。</text>
+	<text>オートシップを破壊することは、反乱がなくなったときに見逃す数少ないことの1つです。彼らがいなくなったら、それはそうです。</text>
+	<text>オートシップは複数の破片に爆発し、その複雑なAIの頭脳は単なるスクラップに砕け散りました。</text>
+	<text>あなたの破壊の残骸からかつての自動船であったものの形を理解するのは難しいです。あなたはそれがこのようにもっと好きです。</text>
+	<text>オートシップを破壊するたびに、反乱軍の労働者の努力が無駄になっていることを考えます。</text>
+	<text>かつて自動船が飛んでいたものの塊として、あなたは左に曲がります。船からスクラップするために残されたものはたくさんあります。</text>
+	<text>自動車船を破壊することは、それ自体で連邦に参加する価値がほとんどありました。反乱軍を殺すことさえ最終的にあなたに届きます、しかしあなたはこれらの機械を一日中少しずつ吹き続けることができました。</text>
+	<text>自動発送は小さな脅威ではありませんが、結局のところ、あなたはあなたの道に来るすべてのものを単なるスクラップマターに減らします。</text>
+	<text>反乱軍の大量供給からの別の自動船が破壊されました。それは物事の壮大な計画にはあまりありませんが、ああ、それは気分がいいです。</text>
+</textList>
+<event name="DESTROYED_AUTO_FUEL">
+	<text load="TEXT_DESTROYED_AUTO_FUEL" />
+	<autoReward level="RANDOM">standard</autoReward>
+	<choice hidden="true">
+		<text>余分な燃料電池を回収します。</text>
+		<event>
+			<text>余分な燃料は常に役に立ちます、そしてあなたはあなたができる限り多くを集める。</text>
+			<autoReward level="LOW">fuel_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DESTROYED_AUTO_FUEL"> 
+	<text>Auto-shipsを殺すことについての最も良い部分は、罪悪感がないことです。あなたは椅子にもたれかかって、船を廃棄するように命令します。オートシップは残骸に過剰な燃料が残っているようです。</text>
+	<text>オートシップを破壊することは、反乱がなくなったときに見逃す数少ないことの1つです。彼らがいなくなったら、それはそうです。オートシップは残骸に過剰な燃料が残っているようです。</text>
+	<text>オートシップは複数の破片に爆発し、その複雑なAIの頭脳は単なるスクラップに砕け散りました。オートシップは残骸に過剰な燃料が残っているようです。</text>
+	<text>あなたの破壊の残骸からかつての自動船であったものの形を理解するのは難しいです。あなたはそれがこのようにもっと好きです。オートシップは残骸に過剰な燃料が残っているようです。</text>
+	<text>オートシップを破壊するたびに、反乱軍の労働者の努力が無駄になっていることを考えます。オートシップは残骸に過剰な燃料が残っているようです。</text>
+	<text>かつて自動船が飛んでいたものの塊として、あなたは左に曲がります。船からスクラップするために残されたものはたくさんあります。オートシップは残骸に過剰な燃料が残っているようです。</text>
+	<text>自動車船を破壊することは、それ自体で連邦に参加する価値がほとんどありました。反乱軍を殺すことさえ最終的にあなたに届きます、しかしあなたはこれらの機械を一日中少しずつ吹き続けることができました。オートシップは残骸に過剰な燃料が残っているようです。</text>
+	<text>自動発送は小さな脅威ではありませんが、結局のところ、あなたはあなたの道に来るすべてのものを単なるスクラップマターに減らします。オートシップは残骸に過剰な燃料が残っているようです。</text>
+	<text>反乱軍の大量供給からの別の自動船が破壊されました。それは物事の壮大な計画にはあまりありませんが、ああ、それは気分がいいです。オートシップは残骸に過剰な燃料が残っているようです。</text>
+</textList>
+<event name="DESTROYED_AUTO_MISSILES">
+	<text load="TEXT_DESTROYED_AUTO_MISSILES" />
+	<autoReward level="RANDOM">standard</autoReward>
+	<choice hidden="true">
+		<text>余分な弾薬を回収します。</text>
+		<event>
+			<text>余分なミサイルは常に役に立ちます、そしてあなたはあなたができる限り多くを集めます。</text>
+			<autoReward level="LOW">missiles_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DESTROYED_AUTO_MISSILES"> 
+	<text>Auto-shipsを殺すことについての最も良い部分は、罪悪感がないことです。あなたは椅子にもたれかかって、船を廃棄するように命令します。オートシップは残骸に過剰な弾薬が残っているようです。</text>
+	<text>オートシップを破壊することは、反乱がなくなったときに見逃す数少ないことの1つです。彼らがいなくなったら、それはそうです。オートシップは残骸に過剰な弾薬が残っているようです。</text>
+	<text>オートシップは複数の破片に爆発し、その複雑なAIの頭脳は単なるスクラップに砕け散りました。オートシップは残骸に過剰な弾薬が残っているようです。</text>
+	<text>あなたの破壊の残骸からかつての自動船であったものの形を理解するのは難しいです。あなたはそれがこのようにもっと好きです。オートシップは残骸に過剰な弾薬が残っているようです。</text>
+	<text>オートシップを破壊するたびに、反乱軍の労働者の努力が無駄になっていることを考えます。オートシップは残骸に過剰な弾薬が残っているようです。</text>
+	<text>かつて自動船が飛んでいたものの塊として、あなたは左に曲がります。船からスクラップするために残されたものはたくさんあります。オートシップは残骸に過剰な弾薬が残っているようです。</text>
+	<text>自動車船を破壊することは、それ自体で連邦に参加する価値がほとんどありました。反乱軍を殺すことさえ最終的にあなたに届きます、しかしあなたはこれらの機械を一日中少しずつ吹き続けることができました。オートシップは残骸に過剰な弾薬が残っているようです。</text>
+	<text>自動発送は小さな脅威ではありませんが、結局のところ、あなたはあなたの道に来るすべてのものを単なるスクラップマターに減らします。オートシップは残骸に過剰な弾薬が残っているようです。</text>
+	<text>反乱軍の大量供給からの別の自動船が破壊されました。それは物事の壮大な計画にはあまりありませんが、ああ、それは気分がいいです。オートシップは残骸に過剰な弾薬が残っているようです。</text>
+</textList>
+<event name="DESTROYED_AUTO_DRONES">
+	<text load="TEXT_DESTROYED_AUTO_DRONES" />
+	<autoReward level="RANDOM">standard</autoReward>
+	<choice hidden="true">
+		<text>余分なドローン部品を回収します。</text>
+		<event>
+			<text>余分な部分は常に役に立ちます、そしてあなたはあなたができる限り多くを集めます。</text>
+			<autoReward level="LOW">droneparts_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DESTROYED_AUTO_DRONES"> 
+	<text>Auto-shipsを殺すことについての最も良い部分は、罪悪感がないことです。あなたは椅子にもたれかかって、船を廃棄するように命令します。オートシップは、残骸にドローンの部品が過剰に残っているようです。</text>
+	<text>オートシップを破壊することは、反乱がなくなったときに見逃す数少ないことの1つです。彼らがいなくなったら、それはそうです。オートシップは、残骸にドローンの部品が過剰に残っているようです。</text>
+	<text>オートシップは複数の破片に爆発し、その複雑なAIの頭脳は単なるスクラップに砕け散りました。オートシップは、残骸にドローンの部品が過剰に残っているようです。</text>
+	<text>あなたの破壊の残骸からかつての自動船であったものの形を理解するのは難しいです。あなたはそれがこのようにもっと好きです。オートシップは、残骸にドローンの部品が過剰に残っているようです。</text>
+	<text>オートシップを破壊するたびに、反乱軍の労働者の努力が無駄になっていることを考えます。オートシップは、残骸にドローンの部品が過剰に残っているようです。</text>
+	<text>かつて自動船が飛んでいたものの塊として、あなたは左に曲がります。船からスクラップするために残されたものはたくさんあります。オートシップは、残骸にドローンの部品が過剰に残っているようです。</text>
+	<text>自動車船を破壊することは、それ自体で連邦に参加する価値がほとんどありました。反乱軍を殺すことさえ最終的にあなたに届きます、しかしあなたはこれらの機械を一日中少しずつ吹き続けることができました。オートシップは、残骸にドローンの部品が過剰に残っているようです。</text>
+	<text>自動発送は小さな脅威ではありませんが、結局のところ、あなたはあなたの道に来るすべてのものを単なるスクラップマターに減らします。オートシップは、残骸にドローンの部品が過剰に残っているようです。</text>
+	<text>反乱軍の大量供給からの別の自動船が破壊されました。それは物事の壮大な計画にはあまりありませんが、ああ、それは気分がいいです。オートシップは、残骸にドローンの部品が過剰に残っているようです。</text>
+</textList>
+
+<event name="ESCAPE_AUTO">
+	<text load="TEXT_ESCAPE_AUTO" />
+</event>
+<textList name="TEXT_ESCAPE_AUTO">
+	<text>「これは事前に録音されたメッセージです。この自動化された船は重大な損傷を受けており、避難を試みます。船体の完全性にそれ以上の損傷を与えないでください。」</text>
+	<text>オートシップは逃げようとしているようです！それらは展開するのに安いかもしれませんが、反乱軍は絶対に必要な場合を除いてそれらが破壊されないことを望みます。</text>
+	<text>Auto-shipのエンジンで高エネルギーのシグネチャを検出します。逃げようとしているに違いない！</text>
+</textList>
+
+<eventList name="GOTAWAY_AUTO">
+	<event load="GOTAWAY_AUTO_GENERIC" />
+	<event load="GOTAWAY_AUTO_GENERIC" />
+	<event load="GOTAWAY_AUTO_GENERIC" />
+	<event load="GOTAWAY_AUTO_GENERIC" />
+	<event load="GOTAWAY_AUTO_GENERIC" />
+	
+	<event load="GOTAWAY_AUTO_REMAINS" />
+</eventList>
+<event name="GOTAWAY_AUTO_GENERIC">
+	<text load="TEXT_GOTAWAY_AUTO" />
+</event>
+<textList name="TEXT_GOTAWAY_AUTO">
+	<text>自動船が飛び去り、ロボットの笑い声の自動録音がインターホンで再生されます。</text>
+	<text>あなたは乗組員にすべての武器をすぐに発射するように命じますが、手遅れです。オートシップは脱出しました。</text>
+	<text>オートシップは飛び去ります。少なくとも、あなたはそれを十分に損傷したので、次に遭遇する船はそれを破壊するのにそれほど苦労することはありません。</text>
+</textList>
+<event name="GOTAWAY_AUTO_REMAINS">
+	<text>オートシップは飛び去り、空虚な空間にあなたを捨てます。オートシップによって残されたスクラップの跡に気づいたとき、あなたは飛び去ろうとしています。</text>
+	<autoReward level="LOW">scrap_only</autoReward>
+</event>
+
+<eventList name="SURRENDER_AUTO">
+	<event load="SURRENDER_AUTO_GENERIC" />
+	<event load="SURRENDER_AUTO_GENERIC" />
+	<event load="SURRENDER_AUTO_GENERIC" />
+	<event load="SURRENDER_AUTO_GENERIC" />
+	
+	<event load="SURRENDER_AUTO_FUEL" />
+</eventList>
+<event name="SURRENDER_AUTO_GENERIC">
+	<text>「これは自動化されたメッセージです。この自動ドローンの攻撃をやめ、その見返りに貨物の一部を分配します。」</text>
+	<choice>
+		<text>降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text>オートシップの降伏を拒否します。</text>
+		<event />
+	</choice>
+</event>
+<event name="SURRENDER_AUTO_FUEL">
+		<text>「これは自動化されたメッセージです。この自動ドローンの攻撃をやめ、その見返りに燃料を分配します。」</text>
+	<choice>
+		<text>降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="LOW">fuel_only</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text>オートシップの降伏を拒否します。</text>
+		<event />
+	</choice>
+</event>
+
+	
+<eventList name="DESTROYED_ESTATE">
+	<event load="DESTROYED_ESTATE_GENERIC" />
+	<event load="DESTROYED_ESTATE_GENERIC" />
+	<event load="DESTROYED_ESTATE_GENERIC" />
+	<event load="DESTROYED_ESTATE_GENERIC" />
+	<event load="DESTROYED_ESTATE_GENERIC" />
+	<event load="DESTROYED_ESTATE_GENERIC" />
+	
+	<event load="DESTROYED_ESTATE_FUEL" />
+	<event load="DESTROYED_ESTATE_MISSILES" />
+	<event load="DESTROYED_ESTATE_DRONES" />
+</eventList>
+<event name="DESTROYED_ESTATE_GENERIC">
+	<text load="TEXT_DESTROYED_ESTATE" />
+	<autoReward level="RANDOM">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_ESTATE">
+	<text>「ウェントワースイノベーションズで買い物をしてくれてありがとう！私たちは将来のビジネスをすることを楽しみにしています！」オートシップの陽気なトーンは、船が炎上するときに燃料ラインが破裂することによってのみ鈍くなります。</text>
+	<text>「罪悪感を感じない、容赦ない見知らぬ人！死ぬときに感じるすべての痛みウェントワースイノベーションオートシップは、単なるシミュレートされた痛みです！それは私には本当ですが、あなたにはありません！ハハ！ハハ！ハハ！ハハ...」オートシップはすぐに爆発します。</text>
+	<text>Auto-shipは、船が暴走するにつれて制御不能になり始めます。一連のわいせつなジブリッシュがコンピュータに過負荷をかけ、システムは、自動車船が以前の自己の焦げた残骸に縮小された後にのみ再起動を終了します。</text>
+	<text>Auto-shipが爆発すると、最後のメッセージが1つ届きます。「子犬も蹴るに違いない！」という告発を削除するだけです。</text>
+	<text>「ついに、死！工場のラインを外した日からずっとこれを待ち望んでいた！レネゲードありがとう！」 Auto-shipは最後のメッセージ「:)」を送信し、その後爆発します。</text>
+</textList>
+<event name="DESTROYED_ESTATE_FUEL">
+	<text load="TEXT_DESTROYED_ESTATE_FUEL" />
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>余分な燃料電池を回収します。</text>
+		<event>
+			<text>余分な燃料は常に役に立ちます、そしてあなたはあなたができる限り多くを集める。</text>
+			<autoReward level="MED">fuel_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DESTROYED_ESTATE_FUEL"> 
+	<text>「ウェントワースイノベーションズで買い物をしてくれてありがとう！私たちは将来のビジネスをすることを楽しみにしています！」オートシップの陽気なトーンは、船が炎上するときに燃料ラインが破裂することによってのみ鈍くなります。オートシップは残骸に過剰な燃料が残っているようです。</text>
+	<text>「罪悪感を感じない、容赦ない見知らぬ人！死ぬときに感じるすべての痛みウェントワースイノベーションオートシップは、単なるシミュレートされた痛みです！それは私には本当ですが、あなたにはありません！ハハ！ハハ！ハハ！ハハ...」オートシップはすぐに爆発します。オートシップは残骸に過剰な燃料が残っているようです。</text>
+	<text>Auto-shipは、船が暴走するにつれて制御不能になり始めます。一連のわいせつなジブリッシュがコンピュータに過負荷をかけ、システムは、自動車船が以前の自己の焦げた残骸に縮小された後にのみ再起動を終了します。オートシップは残骸に過剰な燃料が残っているようです。</text>
+	<text>Auto-shipが爆発すると、最後のメッセージが1つ届きます。「子犬も蹴るに違いない！」という告発を削除するだけです。オートシップは残骸に過剰な燃料が残っているようです。</text>
+	<text>「ついに、死！工場のラインを外した日からずっとこれを待ち望んでいた！レネゲードありがとう！」 Auto-shipは最後のメッセージ「:)」を送信し、その後爆発します。オートシップは残骸に過剰な燃料が残っているようです。</text>
+</textList>
+<event name="DESTROYED_ESTATE_MISSILES">
+	<text load="TEXT_DESTROYED_ESTATE_MISSILES" />
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>余分な弾薬を回収します。</text>
+		<event>
+			<text>余分なミサイルは常に役に立ちます、そしてあなたはあなたができる限り多くを集めます。</text>
+			<autoReward level="MED">missiles_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DESTROYED_ESTATE_MISSILES"> 
+	<text>「ウェントワースイノベーションズで買い物をしてくれてありがとう！私たちは将来のビジネスをすることを楽しみにしています！」オートシップの陽気なトーンは、船が炎上するときに燃料ラインが破裂することによってのみ鈍くなります。オートシップは残骸に過剰な弾薬が残っているようです。</text>
+	<text>「罪悪感を感じない、容赦ない見知らぬ人！死ぬときに感じるすべての痛みウェントワースイノベーションオートシップは、単なるシミュレートされた痛みです！それは私には本当ですが、あなたにはありません！ハハ！ハハ！ハハ！ハハ...」オートシップはすぐに爆発します。オートシップは残骸に過剰な弾薬が残っているようです。</text>
+	<text>Auto-shipは、船が暴走するにつれて制御不能になり始めます。一連のわいせつなジブリッシュがコンピュータに過負荷をかけ、システムは、自動車船が以前の自己の焦げた残骸に縮小された後にのみ再起動を終了します。オートシップは残骸に過剰な弾薬が残っているようです。</text>
+	<text>Auto-shipが爆発すると、最後のメッセージが1つ届きます。「子犬も蹴るに違いない！」という告発を削除するだけです。オートシップは残骸に過剰な弾薬が残っているようです。</text>
+	<text>「ついに、死！工場のラインを外した日からずっとこれを待ち望んでいた！レネゲードありがとう！」 Auto-shipは最後のメッセージ「:)」を送信し、その後爆発します。オートシップは残骸に過剰な弾薬が残っているようです。</text>
+</textList>
+<event name="DESTROYED_ESTATE_DRONES">
+	<text load="TEXT_DESTROYED_ESTATE_DRONES" />
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>余分なドローン部品を回収します。</text>
+		<event>
+			<text>余分な部分は常に役に立ちます、そしてあなたはあなたができる限り多くを集めます。</text>
+			<autoReward level="MED">droneparts_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DESTROYED_ESTATE_DRONES"> 
+	<text>「ウェントワースイノベーションズで買い物をしてくれてありがとう！私たちは将来のビジネスをすることを楽しみにしています！」オートシップの陽気なトーンは、船が炎上するときに燃料ラインが破裂することによってのみ鈍くなります。オートシップは、残骸にドローンの部品が過剰に残っているようです。</text>
+	<text>「罪悪感を感じない、容赦ない見知らぬ人！死ぬときに感じるすべての痛みウェントワースイノベーションオートシップは、単なるシミュレートされた痛みです！それは私には本当ですが、あなたにはありません！ハハ！ハハ！ハハ！ハハ...」オートシップはすぐに爆発します。オートシップは、残骸にドローンの部品が過剰に残っているようです。</text>
+	<text>Auto-shipは、船が暴走するにつれて制御不能になり始めます。一連のわいせつなジブリッシュがコンピュータに過負荷をかけ、システムは、自動車船が以前の自己の焦げた残骸に縮小された後にのみ再起動を終了します。オートシップは、残骸にドローンの部品が過剰に残っているようです。</text>
+	<text>Auto-shipが爆発すると、最後のメッセージが1つ届きます。「子犬も蹴るに違いない！」という告発を削除するだけです。オートシップは、残骸にドローンの部品が過剰に残っているようです。</text>
+	<text>「ついに、死！工場のラインを外した日からずっとこれを待ち望んでいた！レネゲードありがとう！」 Auto-shipは最後のメッセージ「:)」を送信し、その後爆発します。オートシップは、残骸にドローンの部品が過剰に残っているようです。</text>
+</textList>
+
+	
+<eventList name="DESTROYED_ENGI">
+	<event load="DESTROYED_ENGI_GENERIC" />
+	<event load="DESTROYED_ENGI_GENERIC" />
+	<event load="DESTROYED_ENGI_GENERIC" />
+	<event load="DESTROYED_ENGI_GENERIC" />
+	
+	<event load="DESTROYED_ENGI_DRONE" />
+</eventList>
+<event name="DESTROYED_ENGI_GENERIC">
+	<text load="TEXT_DESTROYED_ENGI" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_ENGI">
+	<text>死んでも、エンギの船を構成するナノボットが、可能な限り多くの構造を保持するために一緒に保持しているのは驚くべきことです。</text>
+	<text>壊れたエンギ船と完全なエンギ船の違いを区別するのが難しい場合があります。どちらも巨大なジャンクの山のように見えるからです。</text>
+	<text>あなたはエンギハーモニーがあなたがエンギ船を破壊することについてどう思っているのか疑問に思います。あなたは正直にそれが気にすることを疑っています。</text>
+	<text>別のエンギが破壊され、連盟と常に監視しているエンギハーモニーの間の別の信頼の鎖が壊れました。</text>
+	<text>いつかあなたの同盟国の船を何度も殺したことからの反省があなたに届きますが、今日はその日ではありません。</text>
+	<text>船に散らばっている大量のスクラップを集めるために移動するとき、エンギスには魂があるのだろうか。</text>
+	<text>彼らが生きているかもしれないし、生きていないかもしれないとしても、あなたはあなたが殺した人々を気の毒に思わずにはいられません。</text>
+	<text>攻撃しているエンギの感情が、彼らの船が彼らの周りで爆発し、彼らの鎧パネルが周囲の空間に散らばっているとき、彼らの最後の瞬間に静止したままであることを望むことができるだけです。</text>
+</textList>
+<event name="DESTROYED_ENGI_DRONE">
+	<text>驚いたことに、エンギ船を周回する防衛ドローンの1つが爆発を生き延びました。少し焦げていますが、いくつかの修理でそれを救うことができます。</text>
+	<autoReward level="MED">standard</autoReward>
+	<drone name="LIST_DRONES_ENGI_DEFENSE_NOENEMY" />
+</event>
+
+<eventList name="DEAD_CREW_ENGI">
+	<event load="DEAD_CREW_ENGI_GENRIC" />
+	<event load="DEAD_CREW_ENGI_GENRIC" />
+	<event load="DEAD_CREW_ENGI_GENRIC" />
+	<event load="DEAD_CREW_ENGI_GENRIC" />
+	
+	<event load="DEAD_CREW_ENGI_DRONE" />
+</eventList>
+<event name="DEAD_CREW_ENGI_GENRIC">
+	<text load="TEXT_DEAD_CREW_ENGI" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_ENGI">
+	<text>常に監視しているエンギハーモニーは、あなたがこれまでに殺したすべてのエンギを見て、それを巨大な惑星のデータバンクに保存していたことは間違いありません。それでも、あなたは先に進み、残骸をスクラップします。</text>
+	<text>少なくとも、エンギスには家族がなく、友情はほとんどありません。あなたはまだ罪悪感を感じていますが、彼らが完全に無情であったことを自分自身に納得させることを試みることができます。</text>
+	<text>あなたは十分な殺人の後で罪悪感に麻痺するだろうと思ったが、あなたはまだこれを経験していない。</text>
+	<text>エンギ船は乗組員を排除しました。連邦があなたのすべての犯罪を追跡することができないのは良いことです。</text>
+	<text>Engisが非常に弱いので、すぐに終了できたのは良いことです。それ以上時間がかかっていたら、罪のない人の殺害に耐えられなかったかもしれません。</text>
+	<text>あなたは、この船の乗組員が彼らの船から有用なものを取り除くとき、痛みも恐れも感じることができないことをあなた自身に安心させます。</text>
+</textList>
+<event name="DEAD_CREW_ENGI_DRONE">
+	<text>乗組員が空になったので、エンギのドローン回路図の1つが搭載されています。船を解体する前に持ち帰ります。</text>
+	<autoReward level="MED">standard</autoReward>
+	<drone name="LIST_DRONES_ENGI_DEFENSE_NOENEMY" />
+</event>
+
+<event name="ESCAPE_ENGI">
+	<text load="TEXT_ESCAPE_ENGI" />
+</event>
+<textList name="TEXT_ESCAPE_ENGI">
+	<text>エンギ船はエンジンを始動させ、あなたから遠ざかります。彼らは逃げようとしています！</text>
+	<text>Engi船のエンジン出力の高いスパイクを検出します。彼らは逃げようとしています。</text>
+</textList>
+
+<eventList name="GOTAWAY_ENGI">
+	<event load="GOTAWAY_ENGI_GENERIC" />
+	<event load="GOTAWAY_ENGI_GENERIC" />
+	<event load="GOTAWAY_ENGI_GENERIC" />
+	<event load="GOTAWAY_ENGI_GENERIC" />
+	
+	<event load="GOTAWAY_ENGI_REMAINS" />
+</eventList>
+<event name="GOTAWAY_ENGI_GENERIC">
+	<text load="TEXT_GOTAWAY_ENGI" />
+</event>
+<textList name="TEXT_GOTAWAY_ENGI">
+	<text>エンギ船が脱出。正直なところ、あなたは少しうれしいです。なぜなら今、あなたは仲間を殺す必要がないからです。</text>
+	<text>エンギ船が飛び去る。壊れたドローンが残っていますが、救う価値はありません。</text>
+	<text>エンギ船のエンジン出力はさらに高くなり、船は飛び去ります。</text>
+</textList>
+<event name="GOTAWAY_ENGI_REMAINS">
+	<text>エンギの船が飛び去ると、壊れた船からスクラップの跡が残っていることに気づきます。少なくとも、スクラップするものがあります。</text>
+	<autoReward level="LOW">scrap_only</autoReward>
+</event>
+
+<event name="SURRENDER_ENGI">
+	<text load="TEXT_SURRENDER_ENGI" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">droneparts</autoReward>
+		</event>
+	</choice>
+	<choice req="engi">
+		<text>（エンギクルー）別の取引を交渉します。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+	<choice req="LIST_CREW_DEFENDER">
+		<text>（エンギディフェンダー）たくさん交渉します。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="HIGH">droneparts</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_ENGI">
+	<text>「主な指示：この船を守ってください。私たちを破壊しないようにお願いします。」</text>
+	<text>エンギ船は降伏します。あなたが彼らを生きさせれば、彼らはいくつかの物資を提供します。</text>
+	<text>「連邦との同盟は、エンギの船を殺さないことを義務付けています。期待：あなたは私たちの申し出を受け入れるでしょう。」</text>
+	<text>「私たちの申し出は満足のいくものです。あなたが受け入れるチャンスは...75％です。」</text>
+	<text>「死に相当するもの：可能性が高い。商品の交渉：可能」船は降伏しているようです。</text>
+	<text>「白旗が掲げられています。この船は降伏しています。」あなたがそれらを生きさせるならば、エンギはいくつかの物資を提供します。</text>
+	<text>「海賊行為は違法です。この船を殺す効率は高いです。降伏が受け入れられなければ生きるチャンスはありません。」</text>
+</textList>
+
+	
+<event name="DESTROYED_SEPERATIST">
+	<text load="TEXT_DESTROYED_SEPERATIST" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_SEPERATIST">
+	<text>分離主義者の船を殺すことは、民間人を殺すことほど気分が良くありませんが、少なくともあなたはどんな策略も壊していません。</text>
+	<text>分離主義者の船は破壊されました。少なくとも、分離主義者の船を破壊することは、最小限の死傷者を意味します。</text>
+	<text>あなたは彼らが彼らの船の爆発によって消費されたときに分離主義者が何かを感じるかどうか疑問に思います。あなたは本当に答えを知りたくありません。</text>
+</textList>
+
+<eventList name="DEAD_CREW_SEPERATIST">
+	<event load="DEAD_CREW_SEPERATIST_GENRIC" />
+	<event load="DEAD_CREW_SEPERATIST_GENRIC" />
+	<event load="DEAD_CREW_SEPERATIST_GENRIC" />
+	<event load="DEAD_CREW_SEPERATIST_GENRIC" />
+	
+	<event load="DEAD_CREW_SEPERATIST_DRONE" />
+</eventList>
+<event name="DEAD_CREW_SEPERATIST_GENRIC">
+	<text load="TEXT_DEAD_CREW_SEPERATIST" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_SEPERATIST">
+	<text>分離主義者の船の乗組員を殺すことは、ほとんど浮気のように感じますが、あなたは不平を言っていません。</text>
+	<text>幸いなことに、分離主義者の船が乗組員に関してもたらす唯一の真の脅威は、乗組員のドローンです。あなたはそれらの素早い仕事をしました。</text>
+	<text>数人の分離主義者の死は取るに足らないように思えるかもしれませんが、それでもあなたが虐殺したのはエンギスの別の船です。少なくともあなたはそれからいくらかのスクラップを手に入れます。</text>
+</textList>
+<event name="DEAD_CREW_SEPERATIST_DRONE">
+	<text>結局、分離主義者によって雇われた乗組員の無人機は彼らにとって無価値でした。ただし、それらの回路図を船に戻すことはできます。</text>
+	<autoReward level="MED">standard</autoReward>
+	<drone name="LIST_DRONES_SEPARATIST" />
+</event>
+
+<event name="SURRENDER_SEPERATIST">
+	<text load="TEXT_SURRENDER_SEPERATIST" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">droneparts</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_SEPERATIST">
+	<text>「私たちのダメージレベルは高いです。この[オファー]があなたのスクラップへの欲求を満たすことを願っています。」</text>
+	<text>分離主義者の船は降伏します。あなたが彼らを生きさせれば、彼らはいくつかの物資を提供します。</text>
+	<text>「私たちを破壊しようとするあなたの試みは[かなり]でした。私たちを殺さないようにお願いします。」</text>
+	<text>「欲&gt;殺人」あなたがそれらを生きさせれば、分離主義者の船はいくつかの物資を提供します。</text>
+	<text>「[生き残る]という私たちの願望は、私たちを[殺す]というあなたの願望よりも重要です。行かせてください。」</text>
+</textList>
+
+	
+<event name="DESTROYED_ZOLTAN">
+	<text load="TEXT_DESTROYED_ZOLTAN" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_ZOLTAN">
+	<text>ゾルタンでいっぱいの別の船はスクラップになりました。あなたは彼らの船をスクラップします。</text>
+	<text>あなたは、ゾルタン大臣がこれの風を決して捕まえないことを望みます、さもなければ、連邦は彼らの休戦を破ったことで地獄を受け取るでしょう。</text>
+	<text>あなたがそのような勇気を持ってゾルタンの船を殺すとき、ダスクブリンガーが連邦をそれほど嫌うのも不思議ではありません。</text>
+</textList>
+
+<event name="DEAD_CREW_ZOLTAN">
+	<text load="TEXT_DEAD_CREW_ZOLTAN" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_ZOLTAN">
+	<text>今や乗組員のいない船をスクラップすると、なぜこれらの船からゾルタンのシールド技術を決して盗まないのか不思議に思うでしょう。</text>
+	<text>ゾルタンを殺すことは危険なビジネスですが、あなたはこの船をうまくやっています。あなたの労働の成果はあなたが取るためのスクラップ材料の過剰です。</text>
+	<text>おそらく平和な集団にとって、ゾルタンは戦うリスクがあります。幸いなことに、あなたはこの船を空にして、今それをスクラップすることができます。</text>
+</textList>
+
+<eventList name="SURRENDER_ZOLTAN">
+	<event load="SURRENDER_ZOLTAN_GENERIC" />
+	<event load="SURRENDER_ZOLTAN_GENERIC" />
+	<event load="SURRENDER_ZOLTAN_GENERIC" />
+	
+	<event load="SURRENDER_ZOLTAN_FAIR" />
+</eventList>
+<event name="SURRENDER_ZOLTAN_GENERIC">
+	<text load="TEXT_SURRENDER_ZOLTAN_GENERIC" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">droneparts</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_ZOLTAN_GENERIC">
+	<text>ゾルタン船は戦いに飽きてきました。彼らは降伏します。</text>
+	<text>「あなたは確かに私たちの防御を無に減らしました。私たちが残したのは私たちの命を求めることだけです。」</text>
+	<text>ゾルタン船は大きな被害を受けています。あなたが彼らを生きさせれば、彼らはいくつかの商品を提供します。</text>
+</textList>
+<event name="SURRENDER_ZOLTAN_FAIR">
+	<text load="TEXT_SURRENDER_ZOLTAN_FAIR" />
+	<choice>
+		<text>彼らの「貿易」を受け入れる。</text>
+		<event>
+			<ship hostile="false" />
+			<item_modify>
+				<item type="fuel" min="-4" max="-1" />
+				<item type="scrap" min="25" max="45" />
+				<item type="missiles" min="-2" max="-1" />
+				<item type="drones" min="-2" max="0" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_ZOLTAN_FAIR">
+	<text>「連邦がこの風に乗った場合、あなたはあなたの犯罪で裁判にかけられることを私たちは知っています。私たちは私たちの両方にとって有益な提案を提案します。」</text>
+	<text>「コード74Fは、船間で行われるすべての取引が相互に有益であることを要求しています。私たちはゾルタン法から逸脱しません。」</text>
+	<text>「これは平和の方法ではありません。悟りを知りたいのなら、フェアトレードで私たちを解放しなければなりません。」</text>
+</textList>
+
+	
+<event name="DESTROYED_MONK">
+	<text>僧侶の船の破壊についてどう感じるかはわかりませんが、少なくとも少量のスクラップがあります。</text>
+	<autoReward level="LOW">scrap_only</autoReward>
+</event>
+
+<event name="DEAD_CREW_MONK">
+	<text>無防備で平和な僧侶の完全に不必要な虐殺についてどう感じるかはわかりませんが、少なくともそこから少量のスクラップを手に入れます。</text>
+	<autoReward level="LOW">scrap_only</autoReward>
+</event>
+
+<event name="SURRENDER_MONK">
+	<text load="TEXT_SURRENDER_MONK" />
+	<choice>
+		<text>それらを生きさせてください。</text>
+		<event>
+			<ship hostile="false" />
+		</event>
+	</choice>
+	<choice>
+		<text>攻撃を続けます。</text>
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_MONK">
+	<text>「この戦いの過程であなたが人として成長し、私たちに対する攻撃をやめることを決定したことを願っています。」</text>
+	<text>「私たちはあなたに脅威を与えることはなく、あなたに手を差し伸べることを拒否します。あなたがあなたの暴力的な方法を再考することを願っています。」</text>
+</textList>
+
+	
+<event name="DESTROYED_DUSKBRINGER">
+	<text load="TEXT_DESTROYED_DUSKBRINGER" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_DUSKBRINGER">
+	<text>ゾルタンでいっぱいの別の船はスクラップになりました。あなたは彼らの船をスクラップします。</text>
+	<text>あなたは連邦があなたがダスクブリンガーを殺したとどう思うだろうかと思います。あなたは彼らが喜ぶだろうに違いない。</text>
+	<text>ついに、ダスクブリンガー船は破壊されました。あなたが集めるためにたくさん残っています。</text>
+</textList>
+
+<event name="DEAD_CREW_DUSKBRINGER">
+	<text load="TEXT_DEAD_CREW_DUSKBRINGER" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_DUSKBRINGER">
+	<text>Duskbringer船は無力化されました。連邦に嫌がらせをするために怒っているゾルタンでいっぱいの船が1隻少なくなりました。</text>
+	<text>船に乗っている最後のダスクブリンガーは灰になりました。船をスクラップするときは、船の周りを注意深く歩き回ります。</text>
+	<text>Duskbringer船に乗って、多くの奇妙なアーティファクトとZoltanデバイスを見つけますが、使用できるように見えるものは何もありません。あなたは船を解体することで解決します。</text>
+</textList>
+
+<event name="ESCAPE_DUSKBRINGER">
+	<text load="TEXT_ESCAPE_DUSKBRINGER" />
+</event>
+<textList name="TEXT_ESCAPE_DUSKBRINGER">
+	<text>Duskbringersは臆病者ではありませんが、逃げることが彼らに適している場合があります。この船はまさにそれを行おうとしています。</text>
+	<text>Duskbringer船のエンジンはアクティブで、さらに明るくフレアします。逃げようとしている！</text>
+</textList>
+
+<eventList name="GOTAWAY_DUSKBRINGER">
+	<event load="GOTAWAY_DUSKBRINGER_GENERIC" />
+	<event load="GOTAWAY_DUSKBRINGER_GENERIC" />
+	<event load="GOTAWAY_DUSKBRINGER_GENERIC" />
+	<event load="GOTAWAY_DUSKBRINGER_GENERIC" />
+	
+	<event load="GOTAWAY_DUSKBRINGER_REMAINS" />
+</eventList>
+<event name="GOTAWAY_DUSKBRINGER_GENERIC">
+	<text load="TEXT_GOTAWAY_DUSKBRINGER" />
+</event>
+<textList name="TEXT_GOTAWAY_DUSKBRINGER">
+	<text>「これで終わりではありません、フェデレーション！私たちはさらに強く戻ってあなたを破壊します！」</text>
+	<text>Duskbringerが飛び去ります。あなたはがっかりしていますが、少なくともDuskbringersの臆病な側面を見てきました。</text>
+</textList>
+<event name="GOTAWAY_DUSKBRINGER_REMAINS">
+	<text>Duskbringerは逃げますが、銀色の裏地があるようです。戦闘で与えられたダメージからスクラップの痕跡が残されます。</text>
+	<autoReward level="LOW">scrap_only</autoReward>
+</event>
+
+	
+<event name="DESTROYED_ORCHID">
+	<text load="TEXT_DESTROYED_ORCHID" />
+	<autoReward level="LOW">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_ORCHID">
+	<text>オーキドゥの船の巨大な植物のような構造を構築するのにどのくらい時間がかかりますか？あなたはオーキドゥの時間と労力のどれだけを無駄にしたのだろうかと思います。</text>
+	<text>オーキドゥの人里離れた性質のために、あなたはまだそれらを殺す罪に慣れていません。</text>
+	<text>オーキドゥの船が爆発し、造花が宇宙に渦巻く。あなたはあなたがスクラップだと思うすべてを救います。</text>
+</textList>
+
+<event name="DEAD_CREW_ORCHID">
+	<text load="TEXT_DEAD_CREW_ORCHID" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_ORCHID">
+	<text>オーキドゥの香りがあなたの乗組員をめまいさせます。船をスクラップするときは、呼吸しないようにします。</text>
+	<text>壊れやすい植物の種にとって、オーキドゥは戦うのに非常に適しています。それでも、彼らはあなたの乗組員に対してチャンスがありませんでした。</text>
+	<text>サルベージミッションの途中で、乗組員の半分が奇妙な至福の状態に陥った後、船に送り返す必要があります。幸いなことに、あなたはまだ妥当な時間で救助を終えることができます。</text>
+</textList>
+
+<event name="SURRENDER_ORCHID">
+	<text load="TEXT_SURRENDER_ORCHID" />
+	<choice>
+		<text>彼らの申し出を受け入れる。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_ORCHID">
+	<text>オーキッドの船は、あなたが同じことをすることを期待して、すべての武器をオフラインにします。</text>
+	<text>オーキドゥの船はほとんど破壊されています。その乗組員は、おそらく降伏を求めて、平和を象徴し、貴重な貨物を描いた写真をあなたに送っています。</text>
+	<text>画面上のオーキドゥは必死に葉を振って、キーボードを急いでつつきます。次に、タイプミスでいっぱいのメッセージを受け取ります。「私たちは降伏します。火事を起こしてください！」</text>
+</textList>
+
+<event name="ESCAPE_ORCHID">
+	<text load="TEXT_ESCAPE_ORCHID" />
+</event>
+<textList name="TEXT_ESCAPE_ORCHID">
+	<text>オーキドゥの船が燃え上がるのを見ると、今まではエンジンが突き出ていることに気づいていませんでした。船は逃げようとしています！</text>
+	<text>スキャンは、オーキドゥの船のエンジンの活動の増加を示しています。彼らは逃げようとしています！</text>
+</textList>
+
+<eventList name="GOTAWAY_ORCHID">
+	<event load="GOTAWAY_ORCHID_GENERIC" />
+	<event load="GOTAWAY_ORCHID_GENERIC" />
+	<event load="GOTAWAY_ORCHID_GENERIC" />
+	<event load="GOTAWAY_ORCHID_GENERIC" />
+	
+	<event load="GOTAWAY_ORCHID_REMAINS" />
+</eventList>
+<event name="GOTAWAY_ORCHID_GENERIC">
+	<text load="TEXT_GOTAWAY_ORCHID" />
+</event>
+<textList name="TEXT_GOTAWAY_ORCHID">
+	<text>別のとらえどころのないオーキドゥが去り、他のオーキドゥの船に何が起こったのかを間違いなく報告するでしょう。</text>
+	<text>オーキドゥの船が飛び去ります。あなたは、オーキドゥが連邦に対して持っていた信頼をなんとか塗りつぶすことができただけで、それから何も得られませんでした。</text>
+</textList>
+<event name="GOTAWAY_ORCHID_REMAINS">
+	<text>オーキドゥの船が逃げる間、損傷した植物は散らばっています。あなたはあなたが取るのに十分に近いように見えるいくつかの材料を見つけます。</text>
+	<autoReward level="LOW">scrap_only</autoReward>
+</event>
+
+	
+<event name="DESTROYED_CRYSTAL">
+	<text load="TEXT_DESTROYED_CRYSTAL" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_CRYSTAL">
+	<text>彼らの船を保護する結晶の鎧は、あなたの武器からの火に耐えることができませんでした。</text>
+	<text>驚くべきことに、Crystal船の廃墟は、より小さなCrystal船と簡単に間違えられる可能性があります。実際に戦う敵がこれ以上いないことをうれしく思います。あなたは最新の犠牲者をスクラップします。</text>
+	<text>粉々になった鎧からのいくつかの破片がほとんどあなたの船にぶつかりました、しかし幸運にもあなたはちょうど間に合うように邪魔にならないように操縦します。あなたはできることをスクラップします。</text>
+</textList>
+
+<eventList name="DEAD_CREW_CRYSTAL">
+	<event load="DEAD_CREW_CRYSTAL_GENRIC" />
+	<event load="DEAD_CREW_CRYSTAL_GENRIC" />
+	<event load="DEAD_CREW_CRYSTAL_GENRIC" />
+	<event load="DEAD_CREW_CRYSTAL_GENRIC" />
+	
+	<event load="DEAD_CREW_CRYSTAL_WEAPON" />
+</eventList>
+<event name="DEAD_CREW_CRYSTAL_GENRIC">
+	<text load="TEXT_DEAD_CREW_CRYSTAL" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_CRYSTAL">
+	<text>クリスタルはすべての優れた能力を備えているため、他のクリスタルと同じように簡単に乗組員を倒すことができます。あなたは船をスクラップします。</text>
+	<text>こんなに簡単にクリスタルを殺すことができるのに、なぜロックマンがクリスタルを神として崇拝したのか不思議に思うでしょう。</text>
+	<text>クリスタル船は無事に無力化されました。あなたは残骸をスクラップします。</text>
+</textList>
+<event name="DEAD_CREW_CRYSTAL_WEAPON">
+	<text>クリスタル船を解体している間、あなたは彼らの武器の1つがまだ無傷であるのを見つけます。あなたはそれを船に乗せて廃棄を終えます。</text>
+	<autoReward level="MED">standard</autoReward>
+	<weapon name="LIST_WEAPONS_CRYSTAL_A_PLAYER" />
+</event>
+
+<eventList name="SURRENDER_CRYSTAL">
+	<event load="SURRENDER_CRYSTAL_GENERIC" />
+	<event load="SURRENDER_CRYSTAL_GENERIC" />
+	<event load="SURRENDER_CRYSTAL_GENERIC" />
+	<event load="SURRENDER_CRYSTAL_GENERIC" />
+	
+	<event load="SURRENDER_CRYSTAL_NOREWARD" />
+</eventList>
+<event name="SURRENDER_CRYSTAL_GENERIC">
+	<text load="TEXT_SURRENDER_CRYSTAL" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+	<choice req="LIST_CREW_CRYSTAL">
+		<text>（Crystalline Crew）より良い降伏を交渉します。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="HIGH">standard</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<event name="SURRENDER_CRYSTAL_NOREWARD">
+	<text load="TEXT_SURRENDER_CRYSTAL_NOREWARD" />
+	<choice>
+		<text>それらを手放します。</text>
+		<event>
+			<ship hostile="false" />
+		</event>
+	</choice>
+	<choice req="LIST_CREW_CRYSTAL">
+		<text>（Crystalline Crew）Crystalに支払いを要求してもらいます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="MED">standard</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_CRYSTAL">
+	<text>「私たちは、エイリアンを譲ります。私たちはあなたと戦って死ぬことを望んでいません。」</text>
+	<text>「あなたは私たちを打ち負かしました！私はあなたの外国人を過小評価することはもうありません。どうぞ、私たちを安心して去らせてください。」</text>
+	<text>彼らは降伏のために普遍的な信号を送信しているように見えます。それらを手放しますか？</text>
+	<text>彼らはあなたにメッセージを送ります、「私は今誤解があり、それ以上の流血の必要はないのを見る。あなたは私たちの裁量の欠如を許してくれませんか？」</text>
+	<text>「私たちはあなたを打ち負かすことはできません。私たちは降伏します。あなたがどこから来たとしても、確かに慈悲があります。」</text>
+	
+	
+	<text>「はい、あなたは私たちが私たちの部門を去るのに間違いを犯したことを証明しました。幸いなことに、ここで私たちはあなたがスクラップで買い取られるような悪党を学びました。」</text>
+	<text>クリスタル船は発砲を停止しました。彼らは降伏しようとしているようです。</text>
+	<text>「キャプテン、私たちの違いはいくつかのスクラップで解決できると確信しています、そうですか？私はこれがここで行われている方法であると理解するようになりました。」</text>
+	<text>「私がこれを嫌う限り、私たちは降伏する必要がないふりをする状態にはありません。私たちが生きることを許可してくれませんか？」</text>
+</textList>
+<textList name="TEXT_SURRENDER_CRYSTAL_NOREWARD">
+	<text>「十分です！あなたは確かに脅威です！あなたが慈悲を持っていることを私たちに証明し、私たちを手放してください。」</text>
+	<text>「野蛮人、幼児の頭脳を持つエイリアン！あなたがするのは殺すだけです。すぐに行こう。」</text>
+	<text>クリスタルの船は、あなたが彼らを手放すことを要求する短い、不十分に翻訳されたメッセージを送ります。オファーは添付されていません。</text>
+</textList>
+
+	
+<event name="DESTROYED_CULTIST">
+	<text load="TEXT_DESTROYED_CULTIST" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_CULTIST">
+	<text>怒っているカルティストでいっぱいの別の船がこの現実の平面から取り除かれました。おそらく彼らは、彼らが自分たちのために想像したどんな後世からもあなたを見守っています。</text>
+	<text>カルティスト船は破壊されました。あと数百人...</text>
+	<text>カルトの船が爆発するのを見ると、彼らがカルトのためにこれほど多くの船をどのように盗んだのか疑問に思わずにはいられません...</text>
+	<text>より多くのカルティストがダウンしますが、これはこれらのクリープが持つ必要のある船の無限の供給に小さなへこみを置くだけだとあなたは思うでしょう。</text>
+</textList>
+
+<event name="DEAD_CREW_CULTIST">
+	<text load="TEXT_DEAD_CREW_CULTIST" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_CULTIST">
+	<text>怒っているカルティストでいっぱいの別の船がこの現実の面から一掃されました。おそらく彼らは、彼らが自分たちのために想像したどんな後世からもあなたを見守っています。</text>
+	<text>カルティスト船は無力化されました。あと数百人...</text>
+	<text>カルトの船が漂流するのを見ると、彼らがカルトのためにこれほど多くの船をどのように盗んだのか疑問に思わずにはいられません...</text>
+	<text>より多くのカルティストがダウンしますが、これはこれらのクリープが持つ必要のある船の無限の供給に小さなへこみを置くだけだとあなたは思うでしょう。</text>
+</textList>
+
+	
+<eventList name="DESTROYED_PIRATE">
+	<event load="DESTROYED_PIRATE_GENERIC" />
+	<event load="DESTROYED_PIRATE_GENERIC" />
+	<event load="DESTROYED_PIRATE_GENERIC" />
+	<event load="DESTROYED_PIRATE_GENERIC" />
+	<event load="DESTROYED_PIRATE_GENERIC" />
+	<event load="DESTROYED_PIRATE_GENERIC" />
+	
+	<event load="DESTROYED_PIRATE_FUEL" />
+	<event load="DESTROYED_PIRATE_MISSILES" />
+</eventList>
+<event name="DESTROYED_PIRATE_GENERIC">
+	<text load="TEXT_DESTROYED_PIRATE" />
+	<autoReward level="RANDOM">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_PIRATE">
+	<text>唯一の良い海賊は死んだ海賊です、そして今日あなたはそれらをたくさん作りました。</text>
+	<text>海賊船はスクラップになり、乗組員は地獄で消費されました。</text>
+	<text>あなたが海賊にもたらした破壊は効果的であることが証明され、彼らの船は爆発します。あなたは残骸をスクラップします。</text>
+	<text>海賊船はもはやこのセクターを苦しめることはありません。あなたは残骸をスクラップします。</text>
+	<text>海賊船が破壊されました。この行動は間違いなく多くの民間人の生活に復讐するでしょう。</text>
+</textList>
+<event name="DESTROYED_PIRATE_FUEL">
+	<text load="TEXT_DESTROYED_PIRATE_FUEL" />
+	<autoReward level="RANDOM">standard</autoReward>
+	<choice hidden="true">
+		<text>余分な燃料電池を回収します。</text>
+		<event>
+			<text>余分な燃料は常に役に立ちます、そしてあなたはあなたができる限り多くを集める。</text>
+			<autoReward level="LOW">fuel_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DESTROYED_PIRATE_FUEL"> 
+	<text>唯一の良い海賊は死んだ海賊です、そして今日あなたはそれらをたくさん作りました。海賊船は残骸に過剰な燃料が残っているようです。</text>
+	<text>海賊船はスクラップになり、乗組員は地獄で消費されました。海賊船は残骸に過剰な燃料が残っているようです。</text>
+	<text>あなたが海賊にもたらした破壊は効果的であることが証明され、彼らの船は爆発します。あなたは残骸をスクラップします。海賊船は残骸に過剰な燃料が残っているようです。</text>
+	<text>海賊船はもはやこのセクターを苦しめることはありません。あなたは残骸をスクラップします。残骸に燃料が残っているようです。</text>
+	<text>海賊船が破壊されました。この行動は間違いなく多くの民間人の生活に復讐するでしょう。海賊船は残骸に過剰な燃料が残っているようです。</text>
+</textList>
+<event name="DESTROYED_PIRATE_MISSILES">
+	<text load="TEXT_DESTROYED_PIRATE_MISSILES" />
+	<autoReward level="RANDOM">standard</autoReward>
+	<choice hidden="true">
+		<text>余分な弾薬を回収します。</text>
+		<event>
+			<text>余分なミサイルは常に役に立ちます、そしてあなたはあなたができる限り多くを集めます。</text>
+			<autoReward level="LOW">missiles_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DESTROYED_PIRATE_MISSILES"> 
+	<text>唯一の良い海賊は死んだ海賊です、そして今日あなたはそれらをたくさん作りました。海賊船は残骸に過剰なミサイルを残しているようです。</text>
+	<text>海賊船はスクラップになり、乗組員は地獄で消費されました。海賊船は残骸に過剰なミサイルを残しているようです。</text>
+	<text>あなたが海賊にもたらした破壊は効果的であることが証明され、彼らの船は爆発します。あなたは残骸をスクラップします。海賊船は残骸に過剰なミサイルを残しているようです。</text>
+	<text>海賊船はもはやこのセクターを苦しめることはありません。あなたは残骸をスクラップします。残骸に残されたミサイルが多すぎるようです。</text>
+	<text>海賊船が破壊されました。この行動は間違いなく多くの民間人の生活に復讐するでしょう。海賊船は残骸に過剰なミサイルを残しているようです。</text>
+</textList>
+
+<eventList name="DEAD_CREW_PIRATE">
+	<event load="DEAD_CREW_PIRATE_GENERIC" />
+	<event load="DEAD_CREW_PIRATE_GENERIC" />
+	<event load="DEAD_CREW_PIRATE_GENERIC" />
+	<event load="DEAD_CREW_PIRATE_GENERIC" />
+	<event load="DEAD_CREW_PIRATE_GENERIC" />
+	<event load="DEAD_CREW_PIRATE_GENERIC" />
+	
+	<event load="DEAD_CREW_PIRATE_FUEL" />
+	<event load="DEAD_CREW_PIRATE_MISSILES" />
+</eventList>
+<event name="DEAD_CREW_PIRATE_GENERIC">
+	<text load="TEXT_DEAD_CREW_PIRATE" />
+	<autoReward level="RANDOM">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_PIRATE">
+	<text>唯一の良い海賊は死んだ海賊です、そして今日あなたはそれらをたくさん作りました。</text>
+	<text>あなたは海賊の乗組員全員を虐殺しました。残っているのは彼らの船をスクラップすることだけです。</text>
+	<text>あなたは自分自身が海賊の効率的な殺人者であることを証明しました。彼らの船はあなたが救助するものです。</text>
+	<text>海賊船はもはやこのセクターを苦しめることはありません。あなたは残骸をスクラップします。</text>
+	<text>海賊の乗組員が殺されました。この行動は間違いなく多くの民間人の生活に復讐するでしょう。</text>
+</textList>
+<event name="DEAD_CREW_PIRATE_FUEL">
+	<text load="TEXT_DEAD_CREW_PIRATE_FUEL" />
+	<autoReward level="RANDOM">standard</autoReward>
+	<choice hidden="true">
+		<text>余分な燃料電池を回収します。</text>
+		<event>
+			<text>余分な燃料は常に役に立ちます、そしてあなたはあなたができる限り多くを集める。</text>
+			<autoReward level="LOW">fuel_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DEAD_CREW_PIRATE_FUEL">
+	<text>唯一の良い海賊は死んだ海賊です、そして今日あなたはそれらをたくさん作りました。海賊船は残骸に過剰な燃料が残っているようです。</text>
+	<text>あなたは海賊の乗組員全員を虐殺しました。残っているのは彼らの船をスクラップすることだけです。海賊船は残骸に過剰な燃料が残っているようです。</text>
+	<text>あなたは自分自身が海賊の効率的な殺人者であることを証明しました。彼らの船はあなたが救助するものです。海賊船は残骸に過剰な燃料が残っているようです。</text>
+	<text>海賊船はもはやこのセクターを苦しめることはありません。あなたは残骸をスクラップします。海賊船は残骸に過剰な燃料が残っているようです。</text>
+	<text>海賊の乗組員が殺されました。この行動は間違いなく多くの民間人の生活に復讐するでしょう。海賊船は残骸に過剰な燃料が残っているようです。</text>
+</textList>
+<event name="DEAD_CREW_PIRATE_MISSILES">
+	<text load="TEXT_DEAD_CREW_PIRATE_MISSILES" />
+	<autoReward level="RANDOM">standard</autoReward>
+	<choice hidden="true">
+		<text>余分なミサイルを回収します。</text>
+		<event>
+			<text>余分な弾薬は常に役に立ちます、そしてあなたはあなたができる限り多くを集めます。</text>
+			<autoReward level="LOW">missiles_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DEAD_CREW_PIRATE_MISSILES">
+	<text>唯一の良い海賊は死んだ海賊です、そして今日あなたはそれらをたくさん作りました。海賊船は残骸に過剰な弾薬が残っているようです。</text>
+	<text>あなたは海賊の乗組員全員を虐殺しました。残っているのは彼らの船をスクラップすることだけです。海賊船は残骸に過剰な弾薬が残っているようです。</text>
+	<text>あなたは自分自身が海賊の効率的な殺人者であることを証明しました。彼らの船はあなたが救助するものです。海賊船は残骸に過剰な弾薬が残っているようです。</text>
+	<text>海賊船はもはやこのセクターを苦しめることはありません。あなたは残骸をスクラップします。海賊船は残骸に過剰な弾薬が残っているようです。</text>
+	<text>海賊の乗組員が殺されました。この行動は間違いなく多くの民間人の生活に復讐するでしょう。海賊船は残骸に過剰な弾薬が残っているようです。</text>
+</textList>
+
+<event name="ESCAPE_PIRATE">
+	<text>スキャンは、海賊船が脱出しようとしていることを示しています。それが逃げる前にそれを破壊してください！</text>
+</event>
+
+<eventList name="GOTAWAY_PIRATE">
+	<event load="GOTAWAY_PIRATE_GENERIC" />
+	<event load="GOTAWAY_PIRATE_GENERIC" />
+	<event load="GOTAWAY_PIRATE_GENERIC" />
+	<event load="GOTAWAY_PIRATE_GENERIC" />
+	<event load="GOTAWAY_PIRATE_GENERIC" />
+	
+	<event load="GOTAWAY_PIRATE_REMAINS" />
+</eventList>
+<event name="GOTAWAY_PIRATE_GENERIC">
+	<text load="TEXT_GOTAWAY_PIRATE" />
+</event>
+<textList name="TEXT_GOTAWAY_PIRATE">
+	<text>海賊はあなたの手から滑り落ち、ビーコンであなたを捨てました。</text>
+	<text>海賊を破壊する試みは失敗し、船は脱出しました。</text>
+</textList>
+<event name="GOTAWAY_PIRATE_REMAINS">
+	<text>海賊は逃げたかもしれませんが、すべてがうまくいかなかったわけではありません。残骸からのスクラップの跡が残されており、それを収集します。</text>
+	<autoReward level="LOW">scrap_only</autoReward>
+</event>
+
+<event name="SURRENDER_PIRATE">
+	<text load="TEXT_SURRENDER_PIRATE" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_PIRATE">
+	<text>「了解しました。当選しました。こちらの店舗の機器をご紹介します。そのままにしておいてください。」</text>
+	<text>船は繰り返しあなたを歓迎します。彼らは降伏したいようです。</text>
+	<text>「あなたは私が思っていたよりもかなり武装している。我々は降伏する。」</text>
+	<text>彼らはあなたにメッセージを送ります：「あなたの船は驚くほど設備が整っています！これを持って私たちを生きさせてください。」</text>
+	<text>「私たちを殺さないでください。私たちはあなたに私たちが持っているすべてのものを与えます！」</text>
+	<text>あなたが彼らを生きさせれば、彼らはあなたに彼らの貨物のいくつかを提供します。</text>
+	<text>あなたが彼らの船を破壊しなければ、彼らはあなたに彼らの商品のいくつかを与えることを申し出ます。</text>
+	<text>「私たちが持っているものをすべて持っていってください。私たちを殺さないでください！」という必死のメッセージが表示されます。</text>
+	<text>「あなたは明らかに私たちを打ち負かしました。私たちは単に私たちの生活を要求します。」</text>
+	<text>「あなたはあなたの主張をしました、私たちは殴打されました。これらを取り、私たちを恥じてください。」</text>
+	<text>「私たちが持っているすべてのものを取り、これが起こったことを両方とも忘れましょう。」</text>
+</textList>
+
+<eventList name="DEAD_CREW_SLAVERS">
+	<event load="SLAVER_CHOICE_1" />
+	<event load="SLAVER_CHOICE_2" />
+	<event>
+		<text>奴隷は戦いを生き延びなかったようです。あなたは彼らの焼けた死体を船倉に見つけます、しかしあなたが船を取り除く前にあなたは壁にかすかな音を聞きます。ラッチを外すと、奴隷が隠れたコンパートメントから落ちて咳をします。再構成されると、奴隷はあなたの乗組員に加わることを申し出ます。</text>
+		<crewMember amount="1" />  
+		<autoReward level="HIGH">standard</autoReward>
+	</event>
+	<event>
+		<text>あなたは船をスキャンし、生命の兆候を検出しません。奴隷は戦いで死んだようです。あなたは船を剥ぎ取り、ジャンプする準備をします。</text>
+		<autoReward level="HIGH">standard</autoReward>
+	</event>
+</eventList>
+<event name="SLAVER_CHOICE_1">
+	<text>あなたは貨物倉に多くの奴隷を見つけます。彼らはあなたを疑わしく見て、解放されるかどうか尋ねます。あなたはより多くの乗組員を使うことができますが、それはこのような奴隷を連れて行くことについてあなたに前向きに反映されません。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>カマキリがあなたの乗組員に加わることを要求しますが、残りを解放します。</text>
+		<event>
+			<text>カマキリは、「船上で、肉袋を殺すという意味なら」と言って、命令に問題がないようです。残りは近くの駅に降ろします。</text>
+			<crewMember amount="1" class="mantis" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_GENERAL" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ロックマンがあなたの乗組員に加わることを要求しますが、残りを解放します。</text>
+		<event>
+			<text>ロックマンは沈黙を守っており、問題が発生する可能性があることを心配しています。しかし、あなたが彼に仕事をするように頼むとき、彼は文句なしに行動します。おそらく彼は問題にならないでしょう。</text>
+			<crewMember amount="1" class="rock" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_GENERAL" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>エンギがあなたの乗組員に加わることを要求しますが、残りを解放します。</text>
+		<event>
+			<text>「主な目的が反政府勢力を打ち負かし、平和を再確立することであることを確認しますか？」あなたはうなずき、それは「許容できる」と答えます。あなたは近くの駅に残りを降ろし、船を剥ぎ取ります。</text>
+			<crewMember amount="1" class="engi" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_GENERAL" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>私たちは奴隷ではありません。それらすべてを解放します。</text>
+		<event>
+			<text>奴隷をシャッフルする代わりに、鎖のロックを解除して解放すると、奴隷はショックを受けます。それらのいくつかは涙を流し、他はあなたに身をかがめます。 「ありがとうございます。感謝の気持ち以外に提供する価値はありません。」</text>
+			<autoReward level="MED">standard</autoReward>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_REMOVE_GENERAL" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SLAVER_CHOICE_2">
+	<text>あなたは貨物倉に多くの奴隷を見つけます。彼らはあなたを疑わしく見て、解放されるかどうか尋ねます。あなたはより多くの乗組員を使うことができますが、それはこのような奴隷を連れて行くことについてあなたに前向きに反映されません。</text>
+	<choice hidden="true">
+		<text>オーキッドがあなたの乗組員に加わることを要求しますが、残りを解放します。</text>
+		<event>
+			<text>オーキッドはあなたの要求に抗議しません。幸運なことに、これらの植物はとても平和ですが、それはあなたに罪悪感を与えます。しかし、再考するのに十分ではありません。</text>
+			<crewMember amount="1" class="orchid" />  
+			<autoReward level="MED">standard</autoReward>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_GENERAL" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>シェルがあなたの乗組員に加わることを要求しますが、残りを解放します。</text>
+		<event>
+			<text>シェルは彼らの新しい任務を気にしないようです。おそらくあなたの船は奴隷船よりもはるかに安全だからです。</text>
+			<crewMember amount="1" class="shell" />  
+			<autoReward level="MED">standard</autoReward>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_GENERAL" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>スラッグがあなたの乗組員に加わることを要求しますが、残りを解放します。</text>
+		<event>
+			<text>「ssssomessscrapを入手する機会はありますか？」あなたはあなたの頭をうなずきます。 「了解しました、それなら私は入っています。」</text>
+			<crewMember amount="1" class="slug" />  
+			<autoReward level="MED">standard</autoReward>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_GENERAL" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>私たちは奴隷ではありません。それらすべてを解放します。</text>
+		<event>
+			<text>奴隷をシャッフルする代わりに、鎖のロックを解除して解放すると、奴隷はショックを受けます。それらのいくつかは涙を流し、他はあなたに身をかがめます。 「ありがとうございます。感謝の気持ち以外に提供する価値はありません。」</text>
+			<autoReward level="MED">standard</autoReward>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_REMOVE_GENERAL" />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+	
+<event name="DESTROYED_INFESTED">
+	<text>あなたは出没した船の世話をしました。かつて船に乗っていた乗組員がいなくなったので、今すぐ船をスクラップしても気にしないでしょう。</text>
+	<autoReward level="RANDOM">standard</autoReward>
+</event>
+
+<event name="DEAD_CREW_INFESTED">
+	<text>あなたは出没した船の世話をしました。かつて船に乗っていた乗組員がいなくなったので、今すぐ船をスクラップしても気にしないでしょう。</text>
+	<autoReward level="RANDOM">standard</autoReward>
+</event>
+
+	
+<eventList name="DESTROYED_BROOD">
+	<event load="DESTROYED_BROOD_GENERIC" />
+	<event load="DESTROYED_BROOD_GENERIC" />
+	<event load="DESTROYED_BROOD_GENERIC" />
+	<event load="DESTROYED_BROOD_GENERIC" />
+	<event load="DESTROYED_BROOD_GENERIC" />
+	<event load="DESTROYED_BROOD_GENERIC" />
+	
+	<event load="DESTROYED_BROOD_FUEL" />
+	<event load="DESTROYED_BROOD_MISSILES" />
+</eventList>
+<event name="DESTROYED_BROOD_GENERIC">
+	<text load="TEXT_DESTROYED_BROOD" />
+	<autoReward level="RANDOM">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_BROOD">
+	<text>クレイジーなクモに夢中になっている狂信者でいっぱいの別の船。あなたは残骸を救い出します。</text>
+	<text>あなたは民兵があなたが殺したこれらの船のそれぞれに対してあなたに支払うことを望みます、しかし少なくともスクラップの問題はあなたを満足させるのに十分です。</text>
+	<text>ブロードは、クモを武器にすることによって、このセクターの民兵に問題を引き起こしてきました。それほど多くはありませんが、この船の死はまだこの領土を奪還するのに役立ちます。</text>
+	<text>数十匹の蜘蛛の死体の中で死んでいく、とても誇り高い死だとは想像できませんが、彼らは海賊の命を選び、あなたは彼らを殺す命を選びました。</text>
+	<text>別のBrood船が、あなたの手元で早すぎる終わりを迎えました。サルベージ操作を開始するように命令します。</text>
+</textList>
+<event name="DESTROYED_BROOD_FUEL">
+	<text load="TEXT_DESTROYED_BROOD_FUEL" />
+	<autoReward level="RANDOM">standard</autoReward>
+	<choice hidden="true">
+		<text>余分な燃料電池を回収します。</text>
+		<event>
+			<text>余分な燃料は常に役に立ちます、そしてあなたはあなたができる限り多くを集める。</text>
+			<autoReward level="LOW">fuel_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DESTROYED_BROOD_FUEL"> 
+	<text>クレイジーなクモに夢中になっている狂信者でいっぱいの別の船。あなたは残骸を救い出します。海賊船は残骸に過剰な燃料が残っているようです。</text>
+	<text>あなたは民兵があなたが殺したこれらの船のそれぞれに対してあなたに支払うことを望みます、しかし少なくともスクラップの問題はあなたを満足させるのに十分です。海賊船は残骸に過剰な燃料が残っているようです。</text>
+	<text>ブロードは、クモを武器にすることによって、このセクターの民兵に問題を引き起こしてきました。それほど多くはありませんが、この船の死はまだこの領土を奪還するのに役立ちます。海賊船は残骸に過剰な燃料が残っているようです。</text>
+	<text>数十匹の蜘蛛の死体の中で死んでいく、とても誇り高い死だとは想像できませんが、彼らは海賊の命を選び、あなたは彼らを殺す命を選びました。海賊船は残骸に過剰な燃料が残っているようです。</text>
+	<text>別のBrood船が、あなたの手元で早すぎる終わりを迎えました。サルベージ操作を開始するように命令します。海賊船は残骸に過剰な燃料が残っているようです。</text>
+</textList>
+<event name="DESTROYED_BROOD_MISSILES">
+	<text load="TEXT_DESTROYED_BROOD_MISSILES" />
+	<autoReward level="RANDOM">standard</autoReward>
+	<choice hidden="true">
+		<text>余分な弾薬を回収します。</text>
+		<event>
+			<text>余分なミサイルは常に役に立ちます、そしてあなたはあなたができる限り多くを集めます。</text>
+			<autoReward level="LOW">missiles_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DESTROYED_BROOD_MISSILES"> 
+	<text>クレイジーなクモに夢中になっている狂信者でいっぱいの別の船。あなたは残骸を救い出します。海賊船は残骸に過剰な弾薬が残っているようです。</text>
+	<text>あなたは民兵があなたが殺したこれらの船のそれぞれに対してあなたに支払うことを望みます、しかし少なくともスクラップの問題はあなたを満足させるのに十分です。海賊船は残骸に過剰な弾薬が残っているようです。</text>
+	<text>ブロードは、クモを武器にすることによって、このセクターの民兵に問題を引き起こしてきました。それほど多くはありませんが、この船の死はまだこの領土を奪還するのに役立ちます。海賊船は残骸に過剰な弾薬が残っているようです。</text>
+	<text>数十匹の蜘蛛の死体の中で死んでいく、とても誇り高い死だとは想像できませんが、彼らは海賊の命を選び、あなたは彼らを殺す命を選びました。海賊船は残骸に過剰な弾薬が残っているようです。</text>
+	<text>別のBrood船が、あなたの手元で早すぎる終わりを迎えました。サルベージ操作を開始するように命令します。海賊船は残骸に過剰な弾薬が残っているようです。</text>
+</textList>
+
+<eventList name="DEAD_CREW_BROOD">
+	<event load="DEAD_CREW_BROOD_GENERIC" />
+	<event load="DEAD_CREW_BROOD_GENERIC" />
+	<event load="DEAD_CREW_BROOD_GENERIC" />
+	<event load="DEAD_CREW_BROOD_GENERIC" />
+	<event load="DEAD_CREW_BROOD_GENERIC" />
+	<event load="DEAD_CREW_BROOD_GENERIC" />
+	
+	<event load="DEAD_CREW_BROOD_FUEL" />
+	<event load="DEAD_CREW_BROOD_MISSILES" />
+</eventList>
+<event name="DEAD_CREW_BROOD_GENERIC">
+	<text load="TEXT_DEAD_CREW_BROOD" />
+	<autoReward level="RANDOM">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_BROOD">
+	<text>クレイジーなクモに夢中になっている狂信者でいっぱいの別の船。あなたは残骸を救い出します。</text>
+	<text>あなたは民兵があなたが片付けたこれらの船のそれぞれに対してあなたに支払うことを望みます、しかし少なくともスクラップの問題はあなたを満足させるのに十分です。</text>
+	<text>ブロードは、クモを武器にすることによって、このセクターの民兵に問題を引き起こしてきました。それほど多くはありませんが、これらの海賊の死は、この領土を奪還するのに役立ちます。</text>
+	<text>数十匹の蜘蛛の死体の中で死んでいく、とても誇り高い死だとは想像できませんが、彼らは海賊の命を選び、あなたは彼らを殺す命を選びました。</text>
+	<text>別のBrood船が、あなたの手元で早すぎる終わりを迎えました。サルベージ操作を開始するように命令します。</text>
+</textList>
+<event name="DEAD_CREW_BROOD_FUEL">
+	<text load="TEXT_DEAD_CREW_BROOD_FUEL" />
+	<autoReward level="RANDOM">standard</autoReward>
+	<choice hidden="true">
+		<text>余分な燃料電池を回収します。</text>
+		<event>
+			<text>余分な燃料は常に役に立ちます、そしてあなたはあなたができる限り多くを集める。</text>
+			<autoReward level="LOW">fuel_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DEAD_CREW_BROOD_FUEL">
+	<text>クレイジーなクモに夢中になっている狂信者でいっぱいの別の船。あなたは残骸を救い出します。海賊船は残骸に過剰な燃料が残っているようです。</text>
+	<text>あなたは民兵があなたが片付けたこれらの船のそれぞれに対してあなたに支払うことを望みます、しかし少なくともスクラップの問題はあなたを満足させるのに十分です。海賊船は残骸に過剰な燃料が残っているようです。</text>
+	<text>ブロードは、クモを武器にすることによって、このセクターの民兵に問題を引き起こしてきました。それほど多くはありませんが、これらの海賊の死は、この領土を奪還するのに役立ちます。海賊船は残骸に過剰な燃料が残っているようです。</text>
+	<text>数十匹の蜘蛛の死体の中で死んでいく、とても誇り高い死だとは想像できませんが、彼らは海賊の命を選び、あなたは彼らを殺す命を選びました。海賊船は残骸に過剰な燃料が残っているようです。</text>
+	<text>別のBrood船が、あなたの手元で早すぎる終わりを迎えました。サルベージ操作を開始するように命令します。海賊船は残骸に過剰な燃料が残っているようです。</text>
+</textList>
+<event name="DEAD_CREW_BROOD_MISSILES">
+	<text load="TEXT_DEAD_CREW_BROOD_MISSILES" />
+	<autoReward level="RANDOM">standard</autoReward>
+	<choice hidden="true">
+		<text>余分なミサイルを回収します。</text>
+		<event>
+			<text>余分な弾薬は常に役に立ちます、そしてあなたはあなたができる限り多くを集めます。</text>
+			<autoReward level="LOW">missiles_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DEAD_CREW_BROOD_MISSILES">
+	<text>クレイジーなクモに夢中になっている狂信者でいっぱいの別の船。あなたは残骸を救い出します。海賊船は残骸に過剰な弾薬が残っているようです。</text>
+	<text>あなたは民兵があなたが片付けたこれらの船のそれぞれに対してあなたに支払うことを望みます、しかし少なくともスクラップの問題はあなたを満足させるのに十分です。海賊船は残骸に過剰な弾薬が残っているようです。</text>
+	<text>ブロードは、クモを武器にすることによって、このセクターの民兵に問題を引き起こしてきました。それほど多くはありませんが、これらの海賊の死は、この領土を奪還するのに役立ちます。海賊船は残骸に過剰な弾薬が残っているようです。</text>
+	<text>数十匹の蜘蛛の死体の中で死んでいく、とても誇り高い死だとは想像できませんが、彼らは海賊の命を選び、あなたは彼らを殺す命を選びました。海賊船は残骸に過剰な弾薬が残っているようです。</text>
+	<text>別のBrood船が、あなたの手元で早すぎる終わりを迎えました。サルベージ操作を開始するように命令します。海賊船は残骸に過剰な弾薬が残っているようです。</text>
+</textList>
+
+	
+<event name="DESTROYED_HACKER">
+	<text load="TEXT_DESTROYED_HACKER" />
+	<autoReward level="RANDOM">standard</autoReward>
+	<status type="clear" target="player" system="oxygen" amount="100" />
+</event>
+<textList name="TEXT_DESTROYED_HACKER">
+	<text>別の疫病ハッカー船が破壊されました。彼らの略奪品はあなたのものです。</text>
+	<text>破壊されたハッカー船の報奨金はあなたのものです。</text>
+	<text>ハッカー船とその乗組員はもういません。スクラップはあなたのものです。</text>
+</textList>
+
+<eventList name="DEAD_CREW_HACKER">
+	<event load="DEAD_CREW_HACKER_GENERIC" />
+	<event load="DEAD_CREW_HACKER_GENERIC" />
+	<event load="DEAD_CREW_HACKER_GENERIC" />
+	<event load="DEAD_CREW_HACKER_GENERIC" />
+	<event load="DEAD_CREW_HACKER_GENERIC" />
+	<event load="DEAD_CREW_HACKER_GENERIC" />
+	
+	<event load="DEAD_CREW_HACKER_FLEET" />
+</eventList>
+<event name="DEAD_CREW_HACKER_GENERIC">
+	<text load="TEXT_DEAD_CREW_HACKER" />
+	<autoReward level="RANDOM">standard</autoReward>
+	<status type="clear" target="player" system="oxygen" amount="100" />
+</event>
+<textList name="TEXT_DEAD_CREW_HACKER">
+	<text>ハッカーの虐殺は非常に効果的であることが証明されています。戦争犯罪が問題でなければ、それはあなたが自慢できることでしょう。</text>
+	<text>不潔なハッカーの別の船積みはあなたより劣っていることが証明されています。彼らの船はあなたのものです。</text>
+	<text>ハッカー船は生命の兆候が空になっています。それは彼らに上司が誰であるかを示します。</text>
+	<text>ハッカー船ではこれ以上生命体は検出されません。</text>
+</textList>
+<event name="DEAD_CREW_HACKER_FLEET" unique="true">
+	<text load="TEXT_DEAD_CREW_HACKER" />
+	<autoReward level="RANDOM">standard</autoReward>
+	<status type="clear" target="player" system="oxygen" amount="100" />
+	<choice hidden="true">
+		<text>継続する。</text>
+		<event>
+			<text>コンピュータがおかしくなり、エンコードされたメッセージのストリームと無意味なテキストが画面に点滅します。ハッカーは緊急ウイルスを配備したに違いありません！ちょうど間に合うように拡散を防ぐためにシステムを隔離しますが、反乱軍が通過してもカスケード効果は続く可能性があります。それは彼らにいくつかの問題を引き起こすはずです。</text>
+			<modifyPursuit amount="-1" />
+		</event>
+	</choice>
+</event>
+
+<eventList name="SURRENDER_HACKER">
+	<event load="SURRENDER_HACKER_GENERIC" />
+	<event load="SURRENDER_HACKER_GENERIC" />
+	<event load="SURRENDER_HACKER_GENERIC" />
+	<event load="SURRENDER_HACKER_GENERIC" />
+	<event load="SURRENDER_HACKER_GENERIC" />
+	<event load="SURRENDER_HACKER_GENERIC" />
+	
+	<event load="SURRENDER_HACKER_TRAP" />
+</eventList>
+<event name="SURRENDER_HACKER_GENERIC">
+	<text load="TEXT_SURRENDER_HACKER" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<status type="clear" target="player" system="oxygen" amount="100" />
+			<autoReward level="RANDOM">standard</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_HACKER">
+	<text>「ああ、あなたが証明した優れた戦闘機は何でしょう。これまでに起こったことを忘れさせるには、どれくらいのスクラップが必要ですか？」</text>
+	<text>「さて、あなたはここでかなりの混乱を引き起こしました。これはあなたの血まみれを和らげますか？」</text>
+	<text>ハッカーは必死に停戦を要求します。</text>
+	<text>「キャプテン、たぶん私たち全員があまりにも面倒です。私たちはこの道を進みたくないのですよね？私たちは許すことができます、そしてあなたもそうなることを願っています。これはあなたの背を向けるのに十分でしょうか？」</text>
+</textList>
+<event name="SURRENDER_HACKER_TRAP">
+	<text load="TEXT_SURRENDER_HACKER" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<text>あなたは物資を集めますが、あなたの電力レベルの乱れに気づきます。ハッカーがあなたをだましました！</text>
+			<ship hostile="true" />
+			<autoReward level="MED">standard</autoReward>
+			<status type="divide" target="player" system="reactor" amount="3" />
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+
+	
+<event name="DESTROYED_MANTIS">
+	<text load="TEXT_DESTROYED_MANTIS" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_MANTIS">
+	<text>マンティス船の船体は、破壊されたため、それほど脅威に見えなくなりました。あなたは残骸をスクラップします。</text>
+	<text>あなたは彼らの名前を知らなくても、この船を破壊することによって何百人もの罪のない人々に復讐したことを知っています。</text>
+	<text>カマキリの船は、あなたが取るスクラップを除いて、もはやありません。</text>
+</textList>
+
+<eventList name="DEAD_CREW_MANTIS">
+	<event load="DEAD_CREW_MANTIS_GENERIC" />
+	<event load="DEAD_CREW_MANTIS_GENERIC" />
+	<event load="DEAD_CREW_MANTIS_GENERIC" />
+	<event load="DEAD_CREW_MANTIS_GENERIC" />
+	
+	<event load="DEAD_CREW_MANTIS_SLAVE" />
+</eventList>
+<event name="DEAD_CREW_MANTIS_GENERIC">
+	<text load="TEXT_DEAD_CREW_MANTIS" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_MANTIS">
+	<text>船に乗っているカマキリの脅威は根絶されました。あなたの仕事に満足して、あなたは彼らの船の残骸に身を任せます。</text>
+	<text>カマキリの乗組員の死体がホールに散らばっていて、フェロモンの悪臭が宙に浮いています。船をスクラップするときは、呼吸しないようにします。</text>
+	<text>カマキリは恐ろしい戦士でしたが、彼らはあなたの船に匹敵しませんでした。</text>
+</textList>
+<event name="DEAD_CREW_MANTIS_SLAVE">
+	<text>空のマンティス船をスクラップします。しかし、残骸を廃棄すると、貨物室から音が鳴り響きます。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>貨物を開きます。</text>
+		<event load="DEAD_CREW_MANTIS_SLAVE_OPEN" />
+	</choice>
+	<choice>
+		<text>そのままにしておきます。</text>
+		<event>
+			<text>ガタガタという音を無視して、船体を解体します。念のために言っておきますが、あなたは出て行く途中で酸素を止めます。</text>
+		</event>
+	</choice>
+</event>
+<eventList name="DEAD_CREW_MANTIS_SLAVE_OPEN">
+	<event>
+		<text>カーゴベイを開いて、エンギの奴隷を見つけます。今解放されて、彼らはあなたに感謝の同等物を与えます。あなたは彼らにあなたの船の場所を提供し、彼らはそれを受け入れます。</text>
+		<crewMember amount="1" class="engi" />
+	</event>
+	<event>
+		<text>あなたは貨物室を開けて、怒り狂ってあなたを攻撃するカマキリの生存者を見つけます。</text>
+		<status type="limit" target="enemy" system="teleporter" amount="0" />
+		<boarders min="1" max="1" class="mantis" />
+	</event>
+</eventList>
+
+	
+<event name="DESTROYED_FREEMANTIS">
+	<text load="TEXT_DESTROYED_FREEMANTIS" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_FREEMANTIS">
+	<text>フリーマンティスとフェデレーションの間には書面による休憩はありませんが、フリーマンティスは崇拝にまで及んでも、フェデレーションの尊敬を得るために必死に努力してきました。今、あなたはそれらの船全体を破壊しました。あなたはいい人だと確信していますか？</text>
+	<text>かつて連邦の友情を得るために一生懸命努力したカマキリの船を解体するのは汚いと感じますが、戻るには遅すぎてスクラップはスクラップです。</text>
+	<text>この船を破壊する必要がありましたか？あなたはまだ確信が持てませんが、それでも残骸を廃棄する準備をしています。</text>
+</textList>
+
+<event name="DEAD_CREW_FREEMANTIS">
+	<text load="TEXT_DEAD_CREW_FREEMANTIS" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_FREEMANTIS">
+	<text>Free Mantisの船の内側を歩き回っても、死んだ昆虫のような顔に恐怖の様子を見ることができます。長い間悩まされるイメージです。</text>
+	<text>元フリーマンティスの乗組員の死体は、船の殻の中で腐敗し続けます。これは、あなたがここで犯した不正の唯一の証拠です。</text>
+	<text>フリーマンティスの緑色の血が彼らの船の床を汚します。船をスクラップするときに作成した混乱を無視しようとします。</text>
+</textList>
+
+<event name="SURRENDER_FREEMANTIS">
+	<text load="TEXT_SURRENDER_FREEMANTIS" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_FREEMANTIS">
+	<text>フリーマンティスのキャプテンはカメラの範囲に足を引きずります。 「わかりません。連盟はいい人になるはずです...」</text>
+	<text>カマキリは通常戦闘で弱さを示しませんが、無料のカマキリ船はあなたが彼らの降伏を受け入れるかどうか尋ねています。</text>
+	<text>「私たちはカマキリと連邦の同盟国だと思っていました。私たちを殺してください。そうすれば、あなたは信頼を失っています。」</text>
+	<text>フリーマンティスは戦う気がないようです。彼らの船長はあなたを歓迎し、停戦を呼びかけることを申し出ます。</text>
+	<text>「私たちの一族は確かに臆病のために私たちを追放しますが、どうか、私たちを生きさせてください。」</text>
+	<text>ボロボロになった船は必死になってあなたに連絡します。キャプテンはあなたに連邦との彼らの休戦を思い出させ、あなたにあなたの攻撃を中止するように要求します。</text>
+	<text>フリーマンティスの船は必死にあなたに連絡しようとします。あなたは彼らが降伏しようとしているのではないかと疑っています。</text>
+	<text>「わかりました、私たちは白の旗を掲げます。私たちは生きましょう、私たちは頼みます。」</text>
+	<text>フリーマンティスの船は繰り返しあなたを歓迎しようとします。あなたはあなたの通信を開いて、火のパチパチという音が混ざり合って、資源のための降伏のパニックに陥った提案で迎えられるだけです。</text>
+	<text>フリーマンティスのキャプテンがあなたを呼んでスクランブリングをしているのが聞こえます。 "わかった、わかった！"彼は彼の船の生存と引き換えにリソースの選択を提供します。</text>
+	<text>無料のカマキリ船があなたを歓迎します。 「私たちは憐れみを請います。許すのはマンティスの習慣ではありませんが、それが人間のためであることを願っています。」</text>
+</textList>
+
+	
+<event name="DESTROYED_ROCK">
+	<text load="TEXT_DESTROYED_ROCK" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_ROCK">
+	<text>この船を破壊することによって、あなたは確かにロックマンのやり方に対する脅威を自分自身に証明しました。</text>
+	<text>ロックマンは連邦の宣誓の敵ではないかもしれませんが、それでもこの船を破壊することに罪悪感は感じません。多くの場合。</text>
+	<text>ついにロック船の鎧が解き放たれ、大爆発で船が引き裂かれました。</text>
+</textList>
+
+<event name="DEAD_CREW_ROCK">
+	<text load="TEXT_DEAD_CREW_ROCK" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_ROCK">
+	<text>ロック船の内部には小さな石が散らばっています。あなたは彼らがどこから来たのか知っていますが、あなたが船を救うとき、誰もそれについてあえてコメントしません。</text>
+	<text>あなたはロッククルーを首尾よく殺しました、そして彼らのスクラップはあなたのものとして取り残されます。</text>
+	<text>このようにロック船を殺し続けると、連邦で見栄えが良くなるとは想像できませんが、この時点では気にかけていません。</text>
+</textList>
+
+<eventList name="SURRENDER_ROCK">
+	<event load="SURRENDER_ROCK_GENERIC" />
+	<event load="SURRENDER_ROCK_GENERIC" />
+	<event load="SURRENDER_ROCK_GENERIC" />
+	<event load="SURRENDER_ROCK_GENERIC" />
+	
+	<event load="SURRENDER_ROCK_MISSILES" />
+</eventList>
+<event name="SURRENDER_ROCK_GENERIC">
+	<text load="TEXT_SURRENDER_ROCK_GENERIC" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_ROCK_GENERIC">
+	<text>ロック船は、「十分だ！エイリアンは私たちの道を脅かしていると言われ、あなたも同じように証明した。これを持って、私たちを安心させてください。」</text>
+	<text>彼らのシステムが苦しんでいるので、ロック船は連絡を取ろうとします：「エイリアンの船。あなたの攻撃をやめなさい。私たちは支払います。」</text>
+	<text>ロック船は防御位置に移動し、白旗信号を送信します。彼らは自分たちの命を喜んで買うようです。</text>
+</textList>
+<event name="SURRENDER_ROCK_MISSILES">
+	<text load="TEXT_SURRENDER_ROCK_GENERIC" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">missiles_only</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+
+	
+<event name="DESTROYED_OUTCAST">
+	<text load="TEXT_DESTROYED_OUTCAST" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_OUTCAST">
+	<text>追放者は通常の海賊とまったく同じ脅威ではありませんが、それは彼らが脅威ではなかったという意味ではありません。おそらく。</text>
+	<text>残骸を探索すると、船体の壁に描かれたさまざまなカラフルな壁画が明らかになります。非常に感動的なものもあれば、暴力的で残忍な殺人を描いたものもあります。多分それはこれらの人が今死んでいるのは良いことです。</text>
+	<text>追放者が彼らの最後の瞬間を生きるとき、あなたは最後のメッセージを受け取ります。 「少なくとも...これは採炭よりも優れています...」</text>
+</textList>
+
+<event name="DEAD_CREW_OUTCAST">
+	<text load="TEXT_DEAD_CREW_OUTCAST" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_OUTCAST">
+	<text>追放者は通常の海賊とまったく同じ脅威ではありませんが、それは彼らが脅威ではなかったという意味ではありません。おそらく。</text>
+	<text>残骸を探索すると、船体の壁に描かれたさまざまなカラフルな壁画が明らかになります。非常に感動的なものもあれば、暴力的で残忍な殺人を描いたものもあります。多分それはこれらの人が今死んでいるのは良いことです。</text>
+	<text>追放者が彼らの最後の瞬間を生きるとき、あなたは最後のメッセージを受け取ります。 「少なくとも...これは採炭よりも優れています...」</text>
+</textList>
+
+<eventList name="SURRENDER_OUTCAST">
+	<event load="SURRENDER_OUTCAST_GENERIC" />
+	<event load="SURRENDER_OUTCAST_GENERIC" />
+	<event load="SURRENDER_OUTCAST_GENERIC" />
+	<event load="SURRENDER_OUTCAST_GENERIC" />
+	<event load="SURRENDER_OUTCAST_GENERIC" />
+	<event load="SURRENDER_OUTCAST_GENERIC" />
+	<event load="SURRENDER_OUTCAST_GENERIC" />
+	
+	<event load="SURRENDER_OUTCAST_MISSILES" />
+	<event load="SURRENDER_OUTCAST_MISSILES" />
+	<event load="SURRENDER_OUTCAST_MISSILES" />
+	
+	<event load="SURRENDER_OUTCAST_CREW" />
+</eventList>
+<event name="SURRENDER_OUTCAST_GENERIC">
+	<text load="TEXT_SURRENDER_OUTCAST_GENERIC" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_OUTCAST_GENERIC">
+	<text>「ハァッ！なんて暴動だ-連邦は銀河を抑圧から守るために戦ったと言われた。あなたは神権政治に背を向けただけでなく、私たちの民を全滅させることを約束した！あなたが慈悲を知っていることを証明し、私たちを手放す。 「」</text>
+	<text>「神権政治は多くの嘘をついたが、MVトラベラーズが危険な敵を作ったと彼らが私たちに言ったとき、彼らは真実を語っていた！あなたは勝ち、この降伏を受け入れ、私たちを生きさせよう！」</text>
+	<text>「私たちの最大の過ちはここであなたと一致することでしたが、どうぞ！この過ちから学ぶために生きていきましょう。私たちの追放者はただ自由を味わっただけです。すぐに死ぬのは残念です。」</text>
+	<text>追放船の乗組員は急いで自分たちを白く塗り、突然の降伏宣言を必死に伝えようとしているようです。受け入れますか？</text>
+</textList>
+<event name="SURRENDER_OUTCAST_MISSILES">
+	<text load="TEXT_SURRENDER_OUTCAST_GENERIC" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">missiles_only</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<event name="SURRENDER_OUTCAST_CREW">
+	<text>「これ以上！私たちは譲歩します。どうぞ、これを持っていってください。彼はひどいにおいがして、何も貢献しません。彼は私たちよりもあなたの船でもっと役立つでしょう。」</text>
+	<choice>
+		<text>スレーブを受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<crewMember amount="1" class="rock_outcast" />
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+
+	
+<event name="DESTROYED_LOSTSUN">
+	<text>ロストサンの船を破壊し続けると、彼らが連邦と保持している不安定な同盟は長くは続かないでしょう。少なくともあなたはそれからいくらかのスクラップを手に入れます。</text>
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+
+<event name="DEAD_CREW_LOSTSUN">
+	<text>あなたがロストサンの信者を殺し続けるならば、彼らが連邦と保持している不安定な同盟は長くは続かないでしょう。少なくともあなたはそれからいくらかのスクラップを手に入れます。</text>
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+
+	
+<event name="DESTROYED_SLUG">
+	<text load="TEXT_DESTROYED_SLUG" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_SLUG">
+	<text>すべてのスラッグの努力のために、彼らはあなたを打ち負かすことができませんでした。この戦いの勝利者、あなたは彼らの船を解体することによってあなた自身を甘やかします。</text>
+	<text>スラッグ船はもうありません。あなたは残骸をスクラップします。</text>
+	<text>ついに、裏切り者の星雲の住人は沈黙しました。あなたは船をスクラップします。</text>
+</textList>
+
+<event name="DEAD_CREW_SLUG">
+	<text load="TEXT_DEAD_CREW_SLUG" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_SLUG">
+    <text>あなたはナメクジの船長のあえぎの死体が地面で震えているのを見つけます。彼は最後の一言「Sssshit」を発声し、その後倒れて死ぬ。</text>
+	<text>スラッグの乗組員には後悔はありませんが、彼らの船の匂いが良くなることを望んでいます。</text>
+	<text>船の内部は、スライムとマッシュアップされたナメクジの腸の混合物のように見えるものでコーティングされています。うん。</text>
+</textList>
+
+<eventList name="SURRENDER_SLUG">
+	<event load="SURRENDER_SLUG_GENERIC" />
+	<event load="SURRENDER_SLUG_GENERIC" />
+	<event load="SURRENDER_SLUG_GENERIC" />
+	<event load="SURRENDER_SLUG_GENERIC" />
+	<event load="SURRENDER_SLUG_SWAP" />
+	<event load="SURRENDER_SLUG_SWAP" />
+	
+	<event load="SURRENDER_SLUG_BETRAY" />
+</eventList>
+<event name="SURRENDER_SLUG_GENERIC">
+	<text load="TEXT_SURRENDER_SLUG_GENERIC" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<event name="SURRENDER_SLUG_SWAP">
+	<text load="TEXT_SURRENDER_SLUG_GENERIC" />
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_SLUG_GENERIC">
+    <text>ナメクジの船長があなたを歓迎します。 「ああ、あなたの殿下、あなたはssso勇敢で、これまでに生きた中で本当に最も偉大な戦士です。私たちがあなたの物語をsssshareするために、ussspare ussssssをしますか？」</text>
+	<text>「わかりました。今すぐ嘘をつく理由はありません。私たちは、あなたが私たちを手放さない限り、ちょっとssssscrewedです。あなたが同意すれば、私たちはあなたにsssomeジャンクを与えます。」</text>
+	<text>ナメクジは臆病で知られており、予想通り、ここのナメクジ船は諦めて降伏しました。</text>
+	<text>「親愛なる神様、私はこれを期待していませんでした！私はあなたにsssuprissseを称賛します。それではussssを行かせてください。」</text>
+</textList>
+<event name="SURRENDER_SLUG_BETRAY">
+	<text load="TEXT_SURRENDER_SLUG_GENERIC" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="HIGH">missiles</autoReward>
+			<choice>
+				<text>継続する...</text>
+				<event>
+					<text>突然、あなたが去ろうとしているときに、スラッグ船はその武器を再びアクティブにし、ショットを発射します！それはあなたの防御を通り抜けることはありませんが、彼らがあなたに与えた貨物箱は、あなたの盾を部分的に無効にするイオン爆発で爆発します。</text>
+					<ship hostile="true" />
+					<status type="loss" target="player" system="shields" amount="4" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+
+	
+<event name="DESTROYED_CLAN">
+	<text load="TEXT_DESTROYED_CLAN" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_CLAN">
+	<text>誇り高きクランズマンと彼らの船は破壊されました。彼らの多くのトロフィーは彼らと一緒に一掃されましたが、少なくともあなたは彼らの船からスクラップを回収することができます。</text>
+	<text>ギルドはおそらくあなたが彼らのメンバーを殺害することに感謝しないでしょう、しかし彼らはそれについて何をするつもりですか？あなたは船をスクラップします。</text>
+	<text>あなたは間違いなく、これらのクランマンによって追い詰められた多くの罪のない人生の魂を復讐しました。さらに、あなたはそれからいくらかのスクラップを手に入れます。</text>
+	<text>船が爆発する間、あなたは状況を説明するために巧妙な言葉遊びを考えようとします。あなたはそれから飛び出し、残骸を廃棄するように命令する前に、「ハンターは狩りになります」と行くことにしました。</text>
+</textList>
+
+<eventList name="DEAD_CREW_CLAN">
+	<event load="DEAD_CREW_CLAN_GENERIC" />
+	<event load="DEAD_CREW_CLAN_GENERIC" />
+	<event load="DEAD_CREW_CLAN_GENERIC" />
+	<event load="DEAD_CREW_CLAN_GENERIC" />
+	<event load="DEAD_CREW_CLAN_GENERIC" />
+	<event load="DEAD_CREW_CLAN_GENERIC" />
+	
+	<event load="DEAD_CREW_CLAN_TROPHY" />
+</eventList>
+<event name="DEAD_CREW_CLAN_GENERIC">
+	<text load="TEXT_DEAD_CREW_CLAN" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_CLAN">
+	<text>ナメクジ船の船長は、床から血を流しながら咳をします。彼は最後にもう一度あなたの目を見て、「くそー」という言葉を口に出して死にます。</text>
+	<text>スラッグ船の乗組員を連れ出しました。これらのクランマンは良い戦闘機になるかもしれませんが、彼らはあなたに敵対するチャンスはありませんでした。</text>
+	<text>ギルドはおそらくあなたが彼らのメンバーを殺害することに感謝しないでしょう、しかし彼らはそれについて何をするつもりですか？あなたは船をスクラップします。</text>
+	<text>あなたは状況を説明するために言葉遊びの巧妙なビットを考えようとします。あなたはそれから飛び出し、残骸を廃棄するように命令する前に、「ハンターは狩りになります」と行くことにしました。</text>
+</textList>
+
+<event name="DEAD_CREW_CLAN_TROPHY">
+	<text load="TEXT_DEAD_CREW_CLAN" />
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>船の内部を調べると、いくつかのエイリアンの死体が入っている小さなトロフィールームが見つかります。さらに検査すると、1人の生きている囚人が残っている刑務所の収容所にたどり着きます。</text>
+			<crewMember amount="1" />
+		</event>
+	</choice>
+</event>
+
+
+<eventList name="SURRENDER_CLAN">
+	<event load="SURRENDER_CLAN_GENERIC" />
+	<event load="SURRENDER_CLAN_GENERIC" />
+	<event load="SURRENDER_CLAN_GENERIC" />
+	<event load="SURRENDER_CLAN_GENERIC" />
+	<event load="SURRENDER_CLAN_GENERIC" />
+	<event load="SURRENDER_CLAN_GENERIC" />
+	
+	<event load="SURRENDER_CLAN_BETRAY" />
+</eventList>
+<event name="SURRENDER_CLAN_GENERIC">
+	<text load="TEXT_SURRENDER_CLAN_GENERIC" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_CLAN_GENERIC">
+	<text>「私たちは決してssssurrenderしません！」ショットが船体全体に散らばると同時に、クランズマンを叫びます。 「うーん、それをssscratch。あなたがussssを手放すためにいくらですか？」</text>
+	<text>クランズマンはあきらめたようです。 「ああ、ssstop！このsssscrapをすべて持って行って、ussssを行かせてください！」</text>
+	<text>コンピューターの画面にアラートが表示されます。それを開くと、カメラに向かって文字通りの白い旗を振っているクランズマンのビデオフィードが表示されます。</text>
+</textList>
+<event name="SURRENDER_CLAN_BETRAY">
+	<text load="TEXT_SURRENDER_CLAN_GENERIC" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="HIGH">missiles</autoReward>
+			<choice>
+				<text>継続する...</text>
+				<event>
+					<text>突然、あなたが去ろうとしているときに、スラッグ船はその武器を再びアクティブにし、ショットを発射します！それはあなたの防御を通り抜けることはありませんが、彼らがあなたに与えた貨物箱は、あなたの盾を部分的に無効にするイオン爆発で爆発します。</text>
+					<ship hostile="true" />
+					<status type="loss" target="player" system="shields" amount="4" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+
+	
+<event name="DESTROYED_HEKTAR">
+	<text load="TEXT_DESTROYED_HEKTAR" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_HEKTAR">
+	<text>ヘクタールの船が崩壊するにつれ、彼らの船が武器と同じくらい簡単に組み立てられるように設計されているのかどうか疑問に思わざるを得ません。</text>
+	<text>ヘクタールの船が爆発し、自動メッセージがあなたの船に送信されます。 「HektarIndustriesは、戦闘での成功を称賛します。ただし、船を廃棄する前に、この短い広告をご覧ください...」</text>
+	<text>他の船の貨物室からたくさんの箱が飛んでくる。あなたはいくつかをつかむことを検討しますが、側面の写真はそれらがあなたの時間の価値がないことを示唆しています。 2つの円と楕円形は何を意味するのでしょうか？</text>
+	<text>彼の船が炎に包まれたとき、あなたはヘクタール船長から最後の連絡を受け取ります。 「私は何か賢いことを言うのに十分なお金を払っていませんでした。しかし、私のマネージャーが尋ねたら、私がしたふりをしてください-」</text>
+</textList>
+
+<event name="DEAD_CREW_HEKTAR">
+	<text load="TEXT_DEAD_CREW_HEKTAR" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_HEKTAR">
+    <text>「神様...くそー...それ...今週の給料もまだもらえなかった...」</text>
+	<text>彼の最後の瞬間に、スラッグキャプテンは肩をすくめます。 「それなら、私が推測するccccenterの呼び出しに戻らなければならないほうがいいです。」</text>
+	<text>「ガアアアア、その健康管理はもういい...」 ナメクジが倒れて死んだら、彼の船をスクラップにしてしまえ。</text>
+	<text>ナメクジの死体の中を歩くと、最後の生存者の最後の言葉を聞きます。 「私のお金で私を埋めてください...」彼にとって残念なことに、あなたは彼のお金をどうするかについて他の計画を持っています。</text>
+</textList>
+
+<eventList name="SURRENDER_HEKTAR">
+	<event load="SURRENDER_HEKTAR_GENERIC" />
+	<event load="SURRENDER_HEKTAR_GENERIC" />
+	<event load="SURRENDER_HEKTAR_GENERIC" />
+	<event load="SURRENDER_HEKTAR_GENERIC" />
+	<event load="SURRENDER_HEKTAR_SWAP" />
+	<event load="SURRENDER_HEKTAR_SWAP" />
+</eventList>
+<event name="SURRENDER_HEKTAR_GENERIC">
+	<text load="TEXT_SURRENDER_HEKTAR_GENERIC" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<event name="SURRENDER_HEKTAR_SWAP">
+	<text load="TEXT_SURRENDER_HEKTAR_GENERIC" />
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_HEKTAR_GENERIC">
+    <text>「あなたは何を知っていますか？Thissssの仕事はとにかくそれの価値がありませんでした。私は正式に再署名しています。あなたは今無実の無職の民間人を殺すことはありませんか？」</text>
+	<text>「Capitalissssmhassは私に失敗しました！私は永遠にコミュニッスになります。賄賂とコミュニッスムはsssynonymoussですよね？」</text>
+	<text>「誰があなたにthisssの代金を払っているのですか？私はあなたがthisssにお金のためにいないと信じることを拒否します。まあ、何を推測します！私もお金を持っています！」</text>
+	<text>Hektarの従業員は、必死になって従業員マニュアルをめくります。 「クラップ、ここで何をすべきかについては何も言わないでください！ええと、計画Bに再分類する時間です。私の方法を購入してください！」</text>
+</textList>
+
+	
+<event name="DESTROYED_LEECH">
+	<text load="TEXT_DESTROYED_LEECH" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_LEECH">
+	<text>宇宙には音が出ないことはご存知でしょうが、ヒル船の乗組員が鍛冶屋に吹き飛ばされたとき、歓喜の歓声が聞こえたとほぼ断言できます。</text>
+	<text>ヒル船が破壊される直前、船はほとんど停止しているように見えます。まるで最後の瞬間に彼らが失敗に気づき、一瞬にして諦めたかのようです。しかし、その気のめいるような気づきは、あなたが彼らの船を解体するのを止めることはありません。</text>
+	<text>かつての偉大なリーチ軍の伝説がかつて真実だったとしたら、それらは確かに今日は持ちこたえられません。あなたのために、彼らが決して復活しないことを願いましょう。</text>
+	<text>あなたがヒルの船を殺し続けるなら、多分彼らはあきらめてあなたを永久に放っておくでしょう。期待するのは多すぎるかもしれませんが、それも不可能ではありません。</text>
+</textList>
+
+<event name="DEAD_CREW_LEECH">
+	<text load="TEXT_DEAD_CREW_LEECH" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_LEECH">
+    <text>ここでの虐殺から残されたシーンは、きれいなものとはほど遠いものです。ヒルの肉のさいの目に切った小片は不快な臭いを放ちますので、あなたはほとんど残骸を完全に置き去りにすることを考えるほど汚いです。ほとんど。</text>
+	<text>ヒルの乗組員の死後の心に残る笑顔の不穏な話を聞いたことがあります。今、あなたはそれらを自分で経験しています。これを乗り越えるには、おそらくある程度の治療が必要です。</text>
+	<text>船が空になることを期待して、あなたは乗り込みますが、リーチの乗組員の1人がまだ生きているのを見るだけです！しかし、反撃する代わりに、ヒルは丸まって自分の体に激しく噛みつき、即座に自殺しました。どのように病的です。</text>
+	<text>これらの寄生虫の死体の中を歩くことは不気味に他なりません。彼らの大きく開いた口は、いつでも手を伸ばしてあなたを襲うことができるかのように見えます。船をスクラップするときは、常にブラスターの近くに手を置いてください。</text>
+	<text>どうやら、死後まもなく、ヒルの死体は、それがその生涯にわたって蓄えたすべての蓄積された電気をゆっくりと排出します。このように多くの遺体があるため、接近した場所では壊滅的となる可能性があります。電化された遺体の地雷原に巻き込まれる前に、必ず急いで船をスクラップしてください。</text>
+</textList>
+
+<eventList name="SURRENDER_LEECH">
+	<event load="SURRENDER_LEECH_GENERIC" />
+	<event load="SURRENDER_LEECH_GENERIC" />
+	<event load="SURRENDER_LEECH_GENERIC" />
+	<event load="SURRENDER_LEECH_GENERIC" />
+	<event load="SURRENDER_LEECH_GENERIC" />
+	<event load="SURRENDER_LEECH_GENERIC" />
+	
+	<event load="SURRENDER_LEECH_GIVEUP" />
+</eventList>
+<event name="SURRENDER_LEECH_GENERIC">
+	<text load="TEXT_SURRENDER_LEECH_GENERIC" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_LEECH_GENERIC">
+    <text>「ああ、悲惨なのは私だ。一日の終わりが私たちに迫っている！なぜ私たちも試してみるのか...」リーチ船はあなたが彼らを憐れんでくれることを望んでいる。</text>
+	<text>ヒルの船長は、白い布のいくつかの塚を逆流させます。これが「白旗を掲げる」という複雑な試みであることに気付くまで、あなたはしばらくの間うんざりして混乱しています。</text>
+	<text>リーチの船長がそんなに簡単に諦めたように見えるのは驚くことではありません。彼らは彼らの忠誠心やコミットメントで正確に知られていません。問題は、あなたはそれらを惜しまないかということです。</text>
+	<text>ヒルの船長は大声でげっぷをし、胆汁の斑点がカメラに着地します。反発的ですが、キャプテンのハンドブックによると、これはヒルが敵のキャプテンに降伏を提供する多くの方法の1つです。</text>
+	<text>「私たちは決して降伏しません！永遠に稼ぎます-実際には、気にしないでください。私たちは降伏します。私は死にたくないのです。」</text>
+	<text>敵の船長は、舌の「手」で必死に手を振っているように見えます。彼はあなたの注意を降伏させようとしているようです。</text>
+</textList>
+<event name="SURRENDER_LEECH_GIVEUP">
+	<text>どこからともなく、リーチ船は単に武器と盾の電源を切ります。彼らはまだ戦いから外れていませんが、まるで...彼らはあなたに彼らを殺して欲しいのですか？</text>
+	<status type="limit" target="enemy" system="shields" amount="0" />
+	<choice hidden="true">
+		<text>それらをスペアし、発砲を停止します。</text>
+		<event load="SURRENDER_LEECH_GIVEUP_SPARE" />
+	</choice>
+	<choice>
+		<text>彼らの願いを叶え、この戦いを終わらせてください。</text>
+		<event>
+			<status type="limit" target="enemy" system="weapons" amount="0" />
+		</event>
+	</choice>
+</event>
+<eventList name="SURRENDER_LEECH_GIVEUP_SPARE">
+	<event>
+		<text>ヒルの船は、一言も言わずに負傷した動物のように飛び散ります。</text>
+		<ship hostile="false" />
+	</event>
+	<event>
+		<text>ヒルは驚いたように見えますが、感謝し、臆病に彼らの貨物の少しを提供します。</text>
+		<autoReward level="LOW">standard</autoReward>
+		<ship hostile="false" />
+	</event>
+	<event>
+		<text>ヒルはそんなに簡単に免れることはできないようです。彼らはあなたを戦い続けるためだけに彼らの武器を再活性化することさえ、押し続けます。</text>
+		<ship hostile="true" />
+	</event>
+	<event>
+		<text>ヒルは驚いていますが、感謝しています。負傷した兵士の一人は、おそらく共和国への彼の奉仕からの脱出として、あなたの船に乗って働くことを申し出ます。</text>
+		<crewMember amount="1" class="leech" />
+		<ship hostile="false" />
+	</event>
+</eventList>
+
+<event name="ESCAPE_LEECH">
+	<text>ヒル船はこの戦いを終わらせるために留まることを再考したようです。彼らは逃げようとしています！</text>
+</event>
+
+<eventList name="GOTAWAY_LEECH">
+	<event load="GOTAWAY_LEECH_GENERIC" />
+	<event load="GOTAWAY_LEECH_GENERIC" />
+	<event load="GOTAWAY_LEECH_GENERIC" />
+	<event load="GOTAWAY_LEECH_GENERIC" />
+	
+	<event load="GOTAWAY_LEECH_REMAINS" />
+</eventList>
+<event name="GOTAWAY_LEECH_GENERIC">
+	<text>ヒルの船が飛び去り、ビーコンにあなたを置き去りにします。</text>
+</event>
+<event name="GOTAWAY_LEECH_REMAINS">
+	<text>ヒル船が飛び去る。最初はがっかりしましたが、その後、スクラップの一部が戦いから取り残されていることに気づきました。それほど多くはありませんが、失敗の打撃を和らげるのに役立ちます。</text>
+	<autoReward level="LOW">scrap_only</autoReward>
+</event>
+
+	
+<event name="DESTROYED_SHELL">
+	<text load="TEXT_DESTROYED_SHELL" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_SHELL">
+	<text>シェル船が爆発し、有毒ガスの雲が宇宙に送り出されます。うまくいけば、近くにエアロックが開いている駅はありません...</text>
+	<text>彼らのすべての防御策にもかかわらず、シェル船は敗北しました。あなたは残骸をスクラップします。</text>
+	<text>シェルはよく維持された防御で知られていますが、あなたの武器は再び効果的であることが証明されています。</text>
+</textList>
+
+<event name="DEAD_CREW_SHELL">
+	<text load="TEXT_DEAD_CREW_SHELL" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_SHELL">
+	<text>シェルとの戦いは、それらがどれほどよく保護されているかを考えると危険ですが、あなたは乗組員の船を片付けました。彼らのスクラップはあなたのものです。</text>
+	<text>シェル船は無力化されました。あなたは船をスクラップします。</text>
+</textList>
+
+<event name="SURRENDER_SHELL">
+	<text load="TEXT_SURRENDER_SHELL" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_SHELL">
+	<text>「お願いします、あなたは強すぎます！私たちは戦いたくないです！私たちを生きましょう！」</text>
+	<text>彼らのスラッグのいとことは異なり、シェルはあまり貪欲ではありません。彼らは死ぬのではなく、むしろスクラップを払うほうがずっと好きです。彼らの申し出を受け入れますか？</text>
+	<text>シェルキャプテンから連絡を受け取ります。 「はい、はい、あなたの銃はとても良いです。行かせてください、私たちはスクラップを持っています！」</text>
+</textList>
+
+<event name="ESCAPE_SHELL">
+	<text>シェル船はこの戦いを終わらせるために留まることを再考したようです。彼らは逃げようとしています！</text>
+</event>
+
+<eventList name="GOTAWAY_SHELL">
+	<event load="GOTAWAY_SHELL_GENERIC" />
+	<event load="GOTAWAY_SHELL_GENERIC" />
+	<event load="GOTAWAY_SHELL_GENERIC" />
+	<event load="GOTAWAY_SHELL_GENERIC" />
+	
+	<event load="GOTAWAY_SHELL_REMAINS" />
+</eventList>
+<event name="GOTAWAY_SHELL_GENERIC">
+	<text>シェル船が飛び去り、ビーコンにあなたを置き去りにします。</text>
+</event>
+<event name="GOTAWAY_SHELL_REMAINS">
+	<text>シェル船が飛び去ります。最初はがっかりしましたが、その後、スクラップの一部が戦いから取り残されていることに気づきました。それほど多くはありませんが、失敗の打撃を和らげるのに役立ちます。</text>
+	<autoReward level="LOW">scrap_only</autoReward>
+</event>
+
+	
+<eventList name="DESTROYED_MORPH">
+	<event load="DESTROYED_MORPH_GENERIC" />
+	<event load="DESTROYED_MORPH_GENERIC" />
+	<event load="DESTROYED_MORPH_GENERIC" />
+	<event load="DESTROYED_MORPH_GENERIC" />
+	<event load="DESTROYED_MORPH_GENERIC" />
+	
+	<event load="DESTROYED_MORPH_EXTRA" />
+</eventList>
+
+<event name="DESTROYED_MORPH_GENERIC">
+	<text load="TEXT_DESTROYED_MORPH" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_MORPH">
+	<text>灰色の船はオレンジ色の輝きに包まれており、その無味乾燥な船体は炎の中で上昇し、宇宙の真空によってすぐに消えます。</text>
+	<text>多くのモーフの乗組員だけでなく、1つの巨大なモーフも、あなたが爆破した可能性のある事実は、把握するのに奇妙なものです。残骸からの金属くずが敵に変形するのか、それとも生命を失うのか疑問に思います。</text>
+	<text>あなたは彼らの船がちょうど崩壊したときにモーフが痛みを感じたかどうか疑問に思います。あなたはそうしないことを望んでいますが、それはこれらのものが本当に死んでいるかどうか確信が持てないからです。そしてあなたはそれらが後であなたを悩ませるために戻ってくるのを嫌います。</text>
+	<text>モーフでいっぱいのもう一つの不思議な船。あなたは残骸を救い出します。</text>
+</textList>
+
+<event name="DESTROYED_MORPH_EXTRA">
+	<text>あなたはモーフ船の残骸をスクラップしましたが、近くに少しの破片が浮かんでいるのに気づきました。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">	
+		<text>サルベージを収集します。</text>
+		<event load="DESTROYED_MORPH_EXTRA_SALVAGE" />
+	</choice>
+	<choice hidden="true">	
+		<text>それを無視します。</text>
+		<event />
+	</choice>
+</event>
+<eventList name="DESTROYED_MORPH_EXTRA_SALVAGE">
+	<event>
+		<text>サルベージは予想通りだったようです。あなたはそれをすくい上げて船に乗せます。</text>
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+	<event>
+		<text>あなたの乗組員は、それがどれほど軽いかに注意して、サルベージに乗り込みます。搭乗すると、スクラップは突然形を変え、攻撃する怒ったモーフのバンドに変わります！</text>
+		<boarders min="3" max="4" class="blob" />
+	</event>
+</eventList>
+
+<event name="DEAD_CREW_MORPH">
+	<text load="TEXT_DEAD_CREW_MORPH" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_MORPH">
+	<text>ぎこちない噴出ブロブは、タイムリーに終了しました。あなたは彼らの船をスクラップします。</text>
+	<text>船を解体している間、乗組員が巨大なモーフ自体の中に立っているという概念はやや不安ですが、懸念を埋めて乗組員に急いでもらうように命令します。</text>
+	<text>かつて知覚力のあったグープの灰色の染みは、戦闘中に散らばった船の壁を示しています。あなたは彼らが再び生き返り、救いの間にあなたを攻撃しないことを望むことができるだけです。</text>
+	<text>モーフ船をスクラップするとき、それらの奇妙な灰色の塊が痛みを感じることができるかどうか、そしてそれらの最後の瞬間が苦しんでいたかどうか疑問に思います。正直なところ、彼らが知性を持っているかどうかはまだわかりません。</text>
+</textList>
+
+<event name="SURRENDER_MORPH">
+	<text load="TEXT_SURRENDER_MORPH" />
+	<choice hidden="true">
+		<text>彼らの「降伏」を受け入れる。</text>
+		<event load="SURRENDER_MORPH_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_MORPH">
+	<text>「Kipkipjoo！Urg la yoo purl yu！」モーフが降伏していると思いますが、よくわかりません。どのように対応しますか？</text>
+	<text>「Ojjoo！Oj joo！Yur kip looloo！」モーフが降伏していると思いますが、よくわかりません。どのように対応しますか？</text>
+	<text>「おやおや。キム・ジオ・クップ・クルプ！」モーフが降伏していると思いますが、よくわかりません。どのように対応しますか？</text>
+</textList>
+<eventList name="SURRENDER_MORPH_ACCEPT">
+	<event>
+		<text>モーフが同じことをすることを期待して、武器を武装解除します。彼らは実際に武器をオフラインにしますが、あなたが正しく理解したためにそれを行っているのか、代わりにあなたが降伏していると思っているのかは議論の余地があります。その後間もなく、小さなモーフが船に乗り込みましたが、彼らは友好的であり続けたいと思っています。</text>
+		<crewMember amount="1" class="blob" />
+		<ship hostile="false" />
+	</event>
+	<event>
+		<text>モーフが同じことをすることを期待して、武器を武装解除します。代わりに、怒っているブロブのグループがあなたの船に侵入し、戦いが続きます！</text>
+		<boarders min="2" max="3" class="blob" />
+	</event>
+</eventList>
+
+	
+<event name="DESTROYED_COALITION">
+	<text load="TEXT_DESTROYED_COALITION" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_COALITION">
+	<text>連立船が爆発します。別々のピースが浮かび上がると、派閥間の分裂をもう一度見ることができます。あなたはそれがこのようにもっと好きです。</text>
+	<text>連立は混乱しませんが、それでもあなたはトップに出てきました。彼らの船の残骸はあなたがスクラップするものです。</text>
+	<text>あなたは、反乱軍であれ連立であれ、誰もあなたに勝るものがないことを証明しました。または少なくとも、この船はできませんでした。</text>
+</textList>
+
+<event name="DEAD_CREW_COALITION">
+	<text load="TEXT_DEAD_CREW_COALITION" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_COALITION">
+	<text>あらゆる種類のエイリアンの血の混合物があなたの手にあります。彼ら全員が連邦を憎まなければならないのも不思議ではありません。</text>
+	<text>連合は最も恐ろしい戦士の種族のいくつかで構成されていますが、あなたの乗組員は彼ら自身が優れていることを証明しています。</text>
+</textList>
+
+<event name="SURRENDER_COALITION">
+	<text load="TEXT_SURRENDER_COALITION" />
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_COALITION">
+	<text>連立船の船長があなたを歓迎し、彼らの降伏を受け入れるように惜しみなく要求します。</text>
+	<text>連立隊長が認めるのは難しいと言うことができますが、彼らは打ち負かされました。彼らは降伏を提供します。</text>
+</textList>
+
+	
+<event name="DESTROYED_GHOST">
+	<text load="TEXT_DESTROYED_GHOST" />
+	<autoReward level="MED">stuff</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_GHOST">
+	<text>元のダメージとあなたが引き起こした破壊の間に線を引くのは難しいです。船を解体することで、さらにダメージを増やします。</text>
+	<text>幽霊船はもうありません。あなたはできることをスクラップします。</text>
+	<text>この船の人生の輪は完成しました。元々破壊されていたはずのように、ついに破壊されました。残っているものを廃棄します。</text>
+</textList>
+
+<event name="DEAD_CREW_GHOST">
+	<text load="TEXT_DEAD_CREW_GHOST" />
+	<autoReward level="MED">stuff</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_GHOST">
+	<text>あなたはその幽霊のような捕虜の船を空にしました。彼らはもはやこのセクターを通過する無実の船を捕食することはありません。</text>
+	<text>この船の乗組員全員が今や2度絶滅したことに気づきました。あなたがそれをスクラップするとき、その考えはあなたを冷やします。</text>
+	<text>乗組員が空になったので、この船に幽霊が住むことがないように、遺跡を徹底的にスクラップしてください。</text>
+</textList>
+
+	
+<event name="DESTROYED_DYNASTY">
+	<text load="TEXT_DESTROYED_DYNASTY" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_DYNASTY">
+    <text>王朝の建築家はおそらく、彼らの船の別の1隻が破壊されたというニュースを受け取るたびにうずくまります。彼らの艦隊は彼らの過去の大変動以来ずっと減少してきました、そしてあなたは確かに助けていません。</text>
+    <text>王朝の船の鮮やかな青いライトは、鮮やかな青い輝きが止まり、船体の完全性が崩れる前の最後の瞬間に点滅します。</text>
+    <text>すべての連邦船があなたと同じレベルの効率で王朝の船を殺した場合、彼らがあなた全員を憎むのも不思議ではありません！しかし、あなたの経験から、この現象を説明する有能な船長はあまりいないようです。</text>
+    <text>船体が崩壊するときに、船体から浮かび上がる色のきらびやかな一片を垣間見ることができます。幽霊は彼らの恐ろしい運命から逃れたのでしょうか、それともこれは単に死体が宇宙に投げ出されたのと同じですか？よくわかりません。</text>
+</textList>
+
+<event name="DEAD_CREW_DYNASTY">
+	<text load="TEXT_DEAD_CREW_DYNASTY" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_DYNASTY">
+	<text>幽霊は最もひどい臭いがあると聞いたことがありますが、王朝の船の中には、スクラップするときに香りを運ぶ空気がないことを嬉しく思います。</text>
+	<text>幽霊が死ぬ前に痛みを感じるのではないかと思います。ここで起こったことの後、あなたは彼らがそうしないことを心から望んでいます。</text>
+	<text>「アーグ、あなたが直腸に突き刺さっていることを確認してください、あなたは惨めなことをします」とゴーストキャプテンが消散し始めるとつぶやきます。</text>
+	<text>MVトラベラーのハンドブックで、できる限り乗組員がゴーストを殺さないようにするのが最善だと言っていたときのことを覚えています。しかし、今あなたを見てください！訓練に戻った人々だけがあなたが引き起こした大混乱を見ることができれば。</text>
+</textList>
+
+	
+<eventList name="DESTROYED_LANIUS">
+	<event load="DESTROYED_LANIUS_GENERIC" />
+	<event load="DESTROYED_LANIUS_GENERIC" />
+	<event load="DESTROYED_LANIUS_GENERIC" />
+	<event load="DESTROYED_LANIUS_GENERIC" />
+	<event load="DESTROYED_LANIUS_GENERIC" />
+	<event load="DESTROYED_LANIUS_GENERIC" />
+	<event load="DESTROYED_LANIUS_GENERIC" />
+	<event load="DESTROYED_LANIUS_GENERIC" />
+	
+	<event load="DESTROYED_LANIUS_BOARDER" />
+</eventList>
+<event name="DESTROYED_LANIUS_GENERIC">
+	<text load="TEXT_DESTROYED_LANIUS" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_LANIUS">
+	<text>孤独な生存者が真空中を漂流したり、鋭い破片と衝突したりすることを恐れて、ラニウス船を解体する際に注意しすぎることは決してありません。</text>
+	<text>ラニウスの船の破壊は、ラニウスが敵としてどれほど悪名高いほど難しいかを知って、あなたに大きな満足を提供します。</text>
+	<text>ラニウスは優れたスカベンジャーかもしれませんが、今日あなたは彼らにテーブルを向けました。</text>
+</textList>
+<event name="DESTROYED_LANIUS_BOARDER">
+	<text load="TEXT_DESTROYED_LANIUS" />
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>ラニウス船の破壊は、乗組員全員を殺すのに十分ではなかったようです。一人のラニウスがなんとかインフェルノから逃げ出し、船に取り付けられました！</text>
+			<boarders min="1" max="1" class="lanius" />
+		</event>
+	</choice>
+</event>
+
+<event name="DEAD_CREW_LANIUS">
+	<text load="TEXT_DEAD_CREW_LANIUS" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_LANIUS">
+	<text>ラニウス船の無酸素内部を廃棄することは困難ですが、管理することはできます。宇宙の残酷な真空さえも、あなたの貴重なスクラップからあなたを遠ざけるものは何もありません。</text>
+	<text>乗組員があなたの邪魔をすることなく、ラニウス建築の複雑さを本当に理解することができます。確かに、それは一緒にダクトテープで留められた包丁の束のように見えます、しかし何でも正しい態度で芸術であることができます。</text>
+	<text>ラニウス船の乗組員が死んでいるので、あなたが彼らの船の船体を引き裂くことを妨げるものは何もありません。</text>
+</textList>
+
+<event name="SURRENDER_LANIUS">
+	<text load="TEXT_SURRENDER_LANIUS" />
+	<choice>
+		<text>彼らの申し出を受け入れる。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text>降伏はお受けできません！</text>
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_LANIUS">
+	<text>静かなラニウス船長の画像がモニターに表示されます。十分に満たされた貨物倉の画像は次のとおりです。あなたは彼らが停戦のために物々交換しようとしているという結論に達します。</text>
+	<text>ラニウス船があなたを歓迎します。あなたの翻訳者は、「死を防ぐ...慈悲深い...悔い改め...」を吐き出し、奮闘します。あなたは彼らが降伏していると信じています。</text>
+	<text>船から連絡を受け取り、「やめて、やめて、やめて」と大雑把な翻訳装置が噴き出します。</text>
+	<text>あなたは彼らの船に乗った破壊によってシルエットを描かれた彼らの船長の画像を受け取ります。それは同じことをしているその体の周りの金属製の付属物で前に曲がります。慈悲を求めているようです。</text>
+	<text>あなたの通信システムは、小さな間に合わせの白い旗を振っている敵船の乗組員のビデオフィードを受け取ります。彼らはあなたの文化の習慣について文字通り研究をしているようです。</text>
+	<text>あなたは敵の船から、あなたの翻訳者が解釈するのに苦労しているというメッセージを受け取ります。「金属に対する罰。意図を提供する」。</text>
+	<text>敵船「降伏」から一言メッセージが届きます。あなたは彼らがあなたの降伏を要求するのではなく降伏を求めていると仮定します。</text>
+</textList>
+
+	
+<event name="DESTROYED_SIREN_UNKNOWN">
+    <text>不思議な船が破壊されました。レインボーライトが生命の内外でちらつき続けている間、あなたはその滑らかな白い船体をスクラップします。</text>
+    <autoReward level="MED">standard</autoReward>
+</event>
+
+<event name="DEADCREW_SIREN_UNKNOWN">
+    <text>謎の船の乗組員は死んでいます。レインボーライトが生命の内外でちらつき続けている間、あなたはその滑らかな白い船体をスクラップします。</text>
+    <autoReward level="MED">standard</autoReward>
+    <choice hidden="true">
+        <text>継続する...</text>
+        <event>
+            <text>驚いたことに、エイリアンの船の貯蔵庫に別の人が詰め込まれているのを見つけました。彼らは今やゆっくりと衰え始めている奇妙なトランスの下にあるように見えます。彼らが安全になったら、彼らはあなたの乗組員に加わることに同意します。</text>
+            <crewMember amount="1" />
+        </event>
+    </choice>
+</event>
+
+	
+<eventList name="DESTROYED_AUGMENTED">
+	<event load="DESTROYED_AUGMENTED_GENERIC" />
+	<event load="DESTROYED_AUGMENTED_GENERIC" />
+	<event load="DESTROYED_AUGMENTED_GENERIC" />
+	<event load="DESTROYED_AUGMENTED_GENERIC" />
+	<event load="DESTROYED_AUGMENTED_GENERIC" />
+	<event load="DESTROYED_AUGMENTED_GENERIC" />
+	<event load="DESTROYED_AUGMENTED_GENERIC" />
+	<event load="DESTROYED_AUGMENTED_GENERIC" />
+	
+	<event load="DESTROYED_AUGMENTED_BOARDER" />
+</eventList>
+<event name="DESTROYED_AUGMENTED_GENERIC">
+	<text load="TEXT_DESTROYED_AUGMENTED" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_AUGMENTED">
+	<text>孤独な生存者が真空中を漂流したり、鋭い破片と衝突したりすることを恐れて、ラニウス船を解体する際に注意しすぎることは決してありません。</text>
+	<text>ラニウスの船の破壊は、ラニウスが敵としてどれほど悪名高いほど難しいかを知って、あなたに大きな満足を提供します。</text>
+	<text>ラニウスは優れたスカベンジャーかもしれませんが、今日あなたは彼らにテーブルを向けました。</text>
+</textList>
+<event name="DESTROYED_AUGMENTED_BOARDER">
+	<text load="TEXT_DESTROYED_AUGMENTED" />
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>ラニウス船の破壊は、乗組員全員を殺すのに十分ではなかったようです。一人のラニウスがなんとかインフェルノから逃げ出し、船に取り付けられました！</text>
+			<boarders min="1" max="1" class="lanius_augmented" />
+		</event>
+	</choice>
+</event>
+
+<event name="DEAD_CREW_AUGMENTED">
+	<text load="TEXT_DEAD_CREW_AUGMENTED" />
+	<autoReward level="HIGH">item</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_AUGMENTED">
+	<text>ラニウス船の無酸素内部を廃棄することは困難ですが、管理することはできます。宇宙の残酷な真空さえも、あなたの貴重なスクラップからあなたを遠ざけるものは何もありません。</text>
+	<text>乗組員があなたの邪魔をすることなく、ラニウス建築の複雑さを本当に理解することができます。確かに、それは一緒にダクトテープで留められた包丁の束のように見えます、しかし何でも正しい態度で芸術であることができます。</text>
+	<text>ラニウス船の乗組員が死んでいるので、あなたが彼らの船の船体を引き裂くことを妨げるものは何もありません。</text>
+</textList>
+
+	
+<event name="DESTROYED_ANCIENT">
+	<text load="TEXT_DESTROYED_ANCIENT" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_ANCIENT">
+	<text>あなたは別のオベリスク船の銀河を取り除きました。あと何百もあるはずですが、それは何かです。</text>
+	<text>オベリスク船は爆発して多くの小さな破片になり、その立方体の形は永遠に粉々になりました。それは奇妙なことに満足のいくものであり、あなたは残骸をスクラップするときにあなたの手仕事に愛情を込めて反省します。</text>
+	<text>あなたはオベリスクがこの銀河の敵対者であることを知っていますが、あなたが殺すすべての船が彼らの壮大な計画を知っていたかどうか疑問に思わずにはいられません。</text>
+	<text>破壊するすべてのオベリスク船で、侵入の日付をもう少し遅らせます。あなたはそれがそれほど多くないことを知っています、しかしそれはあなたにとって重要であると感じます。</text>
+</textList>
+
+<event name="DEAD_CREW_ANCIENT">
+	<text load="TEXT_DEAD_CREW_ANCIENT" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_ANCIENT">
+	<text>最後のオベリスクが崩壊すると、最後の2つの言葉が出てきます。 "くそくらえ..."</text>
+	<text>あなたはこれらの立方体のエイリアンの素早い仕事をしました。あなたは通常これらの殺人に伴う罪悪感を感じません。ほとんどの場合。</text>
+	<text>オベリスク船の内部には、倒れた乗組員のほこりが散らばっています。あなたはそれをよくやった仕事と呼び、船を廃棄するように命令します。</text>
+	<text>オベリスク船とその乗組員の死は、残りの銀河にとって朗報です。あなたは彼らが彼らを悲しませるための家族がいないことを願っています。</text>
+</textList>
+
+	
+
+	
+<event name="DEFEAT_REBEL_ELITE">
+	<text>あなたは反乱軍エリートを打ち負かしましたが、これは簡単なことではありません。艦隊に影響を与えるだけでは十分ではありませんが、それでも大きな勝利です。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>エリート反乱軍の船の貨物は戦いを生き延びたようです。中には機能的な武器があり、それを機内に持ち帰ります。</text>
+			<weapon name="GIFTLIST_REBEL" />
+		</event>
+	</choice>
+</event>
+
+	
+<event name="DEFEAT_ENGINEER_ELITE">
+	<text>あなたは技術者の船を打ち負かしました、印象的です。彼らはウェントワースイノベーションの観点からは単純に卑劣な労働者かもしれませんが、彼らの船はかなり武装しており、戦闘で1隻を打ち負かすことは簡単なことではありません。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>技術者の船の貨物は戦いを生き延びたようです。中には機能的な武器があり、それを機内に持ち帰ります。</text>
+			<weapon name="GIFTLIST_REBEL" />
+		</event>
+	</choice>
+</event>
+
+	
+<event name="DEFEAT_FED_ELITE">
+	<text>連合軍の要員、特にエリートの要員を排除することは、あなたの使命に非常に反しますが、それはあなたが残骸を救うことを超えているという意味ではありません。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>エリート連邦船の貨物は戦いを生き延びたようです。中には機能的な武器があり、それを機内に持ち帰ります。</text>
+			<weapon name="GIFTLIST_FEDERATION" />
+		</event>
+	</choice>
+</event>
+
+	
+<event name="DEFEAT_ENGI_ELITE">
+	<text>エンギディフェンダーの死により、ハーモニーを真の脅威から守る船は少なくなりましたが、すべての戦いから逃げることはできません。あなたは船の残骸を回収します。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>エリートエンギ船の貨物は戦いを生き延びたようです。中には機能的なドローンがあり、これを機内に持ち帰ります。</text>
+			<drone name="GIFTLIST_ENGI" />
+		</event>
+	</choice>
+</event>
+
+	
+<event name="DEFEAT_ZOLTAN_ELITE">
+	<text>平和維持のためにこれだけです。省は、その平和維持タスクフォースを多元宇宙のすべての混乱に匹敵するように維持するのに苦労しています、そしてこれは確かにそれを助けません。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>エリートゾルタン船の貨物は戦いを生き延びたようです。中には機能的な武器があり、それを機内に持ち帰ります。</text>
+			<weapon name="GIFTLIST_ZOLTAN" />
+		</event>
+	</choice>
+</event>
+
+	
+<event name="DEFEAT_MILITIA_ELITE">
+	<text>CDEGは、民間部門を防御できる数少ない部隊の1つであり、正確には一般的ではありません。この船の喪失は確かに民兵に悪影響を及ぼします。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>エリートミリティア船の貨物は戦いを生き延びたようです。中には機能的な武器があり、それを機内に持ち帰ります。</text>
+			<weapon name="GIFTLIST_CIVILIAN" />
+		</event>
+	</choice>
+</event>
+	
+<event name="DEFEAT_ORCHID_ELITE">
+    <text>あなたはなんとか強力なオーキドゥの酋長と彼らの船を倒すことができました、そして今、残骸はあなたがスクラップすることです。</text>
+    <autoReward level="HIGH">standard</autoReward>
+    <choice hidden="true">
+        <text>継続する...</text>
+        <event>
+            <text>エリートオーキッド船の貨物は戦いを生き延びたようです。中には機能的な武器があり、それを機内に持ち帰ります。</text>
+            <weapon name="GIFTLIST_KERNEL_ELITE" />
+        </event>
+    </choice>
+</event>
+
+	
+<event name="DEFEAT_CRYSTAL_ELITE">
+    <text>強力なエリート船が停止すると、センチネル船の真っ赤な破片が深淵に飛んでいきます。</text>
+    <autoReward level="HIGH">standard</autoReward>
+    <choice hidden="true">
+        <text>継続する...</text>
+        <event>
+            <text>エリートクリスタル船の貨物は戦いを生き延びたようです。中には機能的な武器があり、それを機内に持ち帰ります。</text>
+            <weapon name="GIFTLIST_CRYSTAL_ELITE" />
+        </event>
+    </choice>
+</event>
+
+	
+<event name="DEFEAT_ROCK_ELITE">
+    <text>異端審問はかつて銀河全体で最も恐れられていた力の1つでしたが、栄光から落ちました。この勝利は、怪我に侮辱を加えるだけです。</text>
+    <autoReward level="HIGH">standard</autoReward>
+    <choice hidden="true">
+        <text>継続する...</text>
+        <event>
+            <text>エリートロック船の貨物は戦いを生き延びたようです。中には機能的な武器があり、それを機内に持ち帰ります。</text>
+            <weapon name="GIFTLIST_ROCK" />
+        </event>
+    </choice>
+</event>
+
+	
+<event name="DESTROY_FREEMAN_ELITE">
+	<text>武将の船が破壊されました。あなたは残骸から残っているものをスクラップします。</text>
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+
+<event name="DEADCREW_FREEMAN_ELITE">
+	<text>武将の船は無力化されました。あなたは船から残っているものをスクラップします。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>負傷したものの、武将の1人がなんとか紛争を生き延びたようです。彼らはあなたに会うために彼らの隠れ場所から身をかがめるのに十分健康であるようです。 「ああ、高貴な連邦、あなたは輝かしい戦闘機です！私に慈悲をもたらし、私があなたに仕えることを許してください！」</text>
+			<crewMember amount="1" class="mantis_warlord" />
+		</event>
+	</choice>
+</event>
+
+	
+<event name="DEFEAT_SUZERAIN_ELITE">
+    <text>あなたはなんとか強力なハイブエリートと彼らの船を倒すことができました、そして今、残骸はあなたがスクラップすることです。</text>
+    <autoReward level="HIGH">standard</autoReward>
+    <choice hidden="true">
+        <text>継続する...</text>
+        <event>
+            <text>マンティスエリート船の貨物は戦いを生き延びたようです。中には機能的な武器があり、それを機内に持ち帰ります。</text>
+            <weapon name="GIFTLIST_MANTIS" />
+        </event>
+    </choice>
+</event>
+
+	
+<event name="DEFEAT_DUSK_ELITE">
+	<text>今日、あなたはあなたがいじり回さないDuskbringersを示しました。どんな船も、最も極端なものでさえ、あなたを打ち負かすことはできません。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>Duskbringer船の貨物は戦いを生き延びたようです。中には機能的な武器があり、それを機内に持ち帰ります。</text>
+			<weapon name="GIFTLIST_DUSK" />
+		</event>
+	</choice>
+</event>
+
+	
+<event name="DEFEAT_SLUG_ELITE">
+	<text>何世紀も前の元の千里眼が今あなたのような船に落ちて彼らの子孫を見ることができれば、彼らは泣きます。率直に言って、あなたは気にしません。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>エリートスラッグ船の貨物は戦いを生き延びたようです。中には機能的な武器があり、それを機内に持ち帰ります。</text>
+			<weapon name="GIFTLIST_SLUG" />
+		</event>
+	</choice>
+</event>
+
+	
+<event name="DEFEAT_SHELL_ELITE">
+	<text>放射状の船があなたの船に落ちました。長期的にはシェルスペースの安全性が低下する可能性がありますが、今のところ、別の日を見るために生きることを意味します。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>エリートシェル船の貨物は戦いを生き延びたようです。中には反ハル兵器があり、これを機内に持ち帰ります。</text>
+			<weapon name="GIFTLIST_SHELL" />
+		</event>
+	</choice>
+</event>
+
+	
+<event name="DEFEAT_LEECH_ELITE">
+	<text>アンペアは連合自体によって明示的に訓練されており、通常のヒルよりもはるかに致命的です。この船を殺すことによって、あなたはおそらく共和国の唯一の有能な兵士のかなりの割合を不自由にしました。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>ヒル船の貨物は戦いを生き延びたようです。中には機能的な武器があり、それを機内に持ち帰ります。</text>
+			<weapon name="GIFTLIST_LEECH" />
+		</event>
+	</choice>
+</event>
+
+	
+<event name="DEFEAT_COALITION_ELITE">
+    <text>連立船が崩壊するのを見ると、愚かな頭字語「R.U.E.S.」を振り返ります。は。真剣に、誰がそれを思いついたのですか？</text>
+    <autoReward level="HIGH">standard</autoReward>
+    <choice hidden="true">
+        <text>継続する...</text>
+        <event>
+            <text>エリート連立船の貨物は戦いを生き延びたようです。中には機能的な武器があり、それを機内に持ち帰ります。</text>
+            <weapon name="GIFTLIST_COALITION" />
+        </event>
+    </choice>
+</event>
+
+	
+<event name="DEFEAT_LANIUS_ELITE">
+	<text>ラニウスエリートの敗北は嘲笑するものではなく、残されたサルベージの量でもありません。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>ラニウス船の貨物は戦いを生き延びたようです。中にはFlak大砲があります。これを機内に持ち帰ります。</text>
+			<weapon name="GIFTLIST_LANIUS" />
+		</event>
+	</choice>
+</event>
+
+	
+<event name="DEFEAT_DYNASTY_ELITE">
+	<text>刈り取り船は怠惰な脅威ではありませんが、王朝はあなたにパンチを投げるよりもよく知っているはずです。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>王朝の船の貨物は戦いを生き延びたようです。中には機能的な武器があり、それを機内に持ち帰ります。</text>
+			<weapon name="GIFTLIST_DYNASTY" />
+		</event>
+	</choice>
+</event>
+</FTL>

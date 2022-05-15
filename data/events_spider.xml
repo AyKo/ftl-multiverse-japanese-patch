@@ -1,0 +1,1206 @@
+<FTL>
+
+<event name="SPIDER_QUEST_START" unique="true">
+	<text>小さな宇宙ステーションから逃げる船がたくさんあります。民兵隊の艦隊がこの地域の周りに配備されました。ある船があなたを歓迎します：「民間人、このシステムは制限されています。私たちはあなたがすぐに去ることを要求しなければなりません。」</text>
+	<distressBeacon />
+	<choice req="loc_beentobrood" lvl="0" hidden="true" blue="false" max_group="0">
+		<text>私たちは民間船ではありません、問題は何ですか？</text>
+		<event>
+			<text>「連邦軍の船？それでは悪い。このステーションは、ある種の奇妙な...巨大なエイリアンのクモに感染している。あまりダメージを与えることなく、このステーションから侵入を取り除くことができると思う？」</text>
+			<ship load="SHIP_INFESTED_STATION" hostile="false" /> 
+			<choice hidden="true">
+				<text>同意。</text>
+				<event>
+					<text>軍人はあなたに駅に従事する許可を与えますが、最後の2つの警告を与えます。 「これらが何であるかはわかりませんが、ステーションのシステムを機能させることができるようです。理解できるダメージを与える必要がある場合は、あまり引き起こさないでください。民間人を破壊することはできません。財産。"</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>却下。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice req="loc_beentobrood" lvl="1" hidden="true" blue="false" max_group="0">
+		<text>私たちは民間船ではありません、問題は何ですか？</text>
+		<event>
+			<text>「まあ、私はそうなるでしょう！あなたはその蜘蛛の問題を処理するために派遣された船です。残念ながら、ここの郊外にはまだいくつかの蜘蛛の問題があります。あなたがこれらの問題を再び処理できるとは思わないでください、出来ますか？"</text>
+			<ship load="SHIP_INFESTED_STATION_REPEAT" hostile="false" /> 
+			<choice hidden="true">
+				<text>同意。</text>
+				<event>
+					<text>ミリティアメンはあなたに駅に従事するための許可を与えます。 「以前と同じように、気をつけてみてください！民間の財産を爆破することはできません！」</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>却下。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice req="pilot" lvl="1" hidden="true" max_group="1" blue="false">
+		<text>去ることに同意します。</text>
+		<event>
+			<text>あなたは駅から離れてナビゲートしますが、船で何かをするのに十分な時間システムにとどまります。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="INFESTED_STATION_WIN">
+	<text>あなたは駅からクモの蔓延を一掃しました。軍人はあなたの助けに感謝し、あなたの努力に対して支払いが行われます。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>クモについて聞いてください。</text>
+		<event>
+			<text>「私があなたに話すことができることがたくさんあるかどうかはわかりません。物事は、放棄された空間に住む海賊の一族の1つであるBroodから来ました。モンゴメリー司令官は私よりもあなたに話すことができますが、彼は他の場所での侵入を処理するのに忙しいようです。手に負えなくなったので、Broodでさえもう彼らをコントロールすることはできません。そして今が私たちのチャンスです。」</text>
+			<choice hidden="true">
+				<text>手伝ってもらえますか？</text>
+				<event>
+					<text>「私たちはしばらく前にあなたのような別のレネゲードを雇いましたが、彼はあまり役に立たなかったと私は理解しています。私は別の緩い大砲を送ることを躊躇しますが、あなたが状況をとても繊細に処理したことを考えると、なぜ地獄そうではありません。Brood要塞の座標をあなたに転送します。幸運を祈ります。」</text>
+					<variable name="coords_spider" op="set" val="1" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>報酬を受け取り、続行します。</text>
+		<event />
+	</choice>
+</event>
+<event name="INFESTED_STATION_WIN_REPEAT">
+	<text>「助けてくれてありがとう！これからしばらくして、これらのものを民間の空間から完全に取り除くことができるようになることを願っています。」</text>
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+
+<event name="INFESTED_STATION_SURRENDER">
+	<text>「あなたは駅の船体にあまりにも多くの損害を与えました！あなたはそれを傷つけるのをやめる必要があります！蜘蛛を殺すかやめれば、私たちは仕事のために誰かをより良くするでしょう。 。」</text>
+	<choice hidden="true">
+		<text>発砲を停止します。</text>
+		<event>
+			<text>あなたはあなたが支払われているだけであると言うことができるので、軍人はあなたが去ることを保証することができます、しかしそれは何もないよりはましです。</text>
+			<autoReward level="LOW">standard</autoReward>
+			<ship hostile="false" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>いいえ、できます！</text>
+		<event>
+			<text>他の船の船長はため息をついた。 「結構ですが、破壊しないように注意してください。」</text>
+		</event>
+	</choice>
+</event>
+<event name="INFESTED_STATION_DESTROY">
+	<text>「なんてこった、駅を破壊しないように言ったんだ！」あなたに非常に不満を持っている軍人は、あなたがシステムを離れることを要求します。</text>
+</event>
+
+	
+
+
+<eventList name="ITEM_INFESTATION">
+	<event load="INFESTATION_ORPHAN" />
+	<event load="INFESTATION_SLAVERS" />
+</eventList>
+
+<event name="INFESTATION_SLAVERS" unique="true">
+	<text>奴隷船は、信じられないほど安い価格で通過する船に奴隷を提供しています。さらに尋ねると、「息子さん、蜘蛛の販売事業に参加するようになりました。銀行ができます、ハハ！ああ...スペースが足りないので、長年の労働者と一緒に出発しなければなりません。質の高い価格で、新しい労働者はどのように聞こえますか？」</text>
+	<ship load="SHIP_SLAVER_ALL" hostile="false" />
+	<choice>
+		<text>奴隷を買う。</text>
+		<event>
+			<crewMember amount="1" />
+			<item_modify>
+				<item type="scrap" min="-15" max="-30" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text>船と戦ってください。</text>
+		<event>
+			<text>民兵が対処する必要がある最後のことは、他の船にクモを売る奴隷です。あなたは彼らのためにこれらの海賊の世話をします！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>却下。</text>
+		<event>
+			<text>「あなたの喪失した息子！」奴隷商人は電話を切ります。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="INFESTATION_ORPHAN" unique="true"> 
+	<text>このシステムには船がありません。退屈から、あなたは近くの惑星でいくつかのスキャンを実行し、それが実際に長時間実行されている洞窟システムを持っていることを発見します！多分一見の価値がありますか？</text>
+	<img planet="PLANET_UNPOPULATED_TERRA" />
+	<choice hidden="true">
+		<text>洞窟を探索してください。</text>
+		<event>
+			<text>あなたは洞窟の奥深くに飛び込みます、そしてあなたの中でそれほど遠くないところに子供の泣き声が聞こえます。</text>
+			<choice hidden="true">
+				<text>ソースを探します。</text>
+				<event>
+					<text>巨大な蜘蛛に追われて、ロックマンの子供に出くわすまで、あなたは泣きに向かいます！聞いた音が泣いていないことに気づいたら、撮影しようとしています。ふざけた笑いです。ロックマンは何度かトリップし、クモは彼らを追い続ける前に彼らが立ち上がるのを辛抱強く待っていました。</text>
+					<choice hidden="true">
+						<text>子供を救出せよ！</text>
+						<event>
+							<text>あなたは武器を上げてクモを撃ちますが、それは彼らをほとんど傷つけません！数人の織工が周囲のトンネルから這い出てきて、銃撃によって警告されました。蜘蛛を追いかけて船に追い返されます！</text>
+							<boarders min="2" max="3" class="spider_weaver" />
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>平和的にあなたの存在を発表してください。</text>
+						<event>
+							<text>あなたは銃と咳をホルスターに入れ、あなたの存在を示します。あなたはロックマンと話そうとします。 「訪問者？私たちはめったにそれらを見ません！これは私の友人のシャーロットです、そして私はウィルバーです！私の両親の船がここで墜落して以来、彼女は私の世話をしています！」あなたはウィルバーにさらに質問し、彼が単なる幼児だったときからずっとここにいることを知ります。</text>
+							<choice hidden="true">
+								<text>ウィルバーを連れて行くことを申し出てください。</text>
+								<event>
+									<text>「あなたは私を連れ去ってくれるだろうか？私は何年もこの惑星から離れていなかった！ただ、さようならを言わせてくれ！」ロックマンは蜘蛛に駆け寄り、大きな抱擁を与え、そしてあなたに加わるために駆け寄ります。あなたが洞窟を去るとき、あなたはあなたが去る蜘蛛の時計を見るために引き返します。もしあなたがもっとよく知っていたら、あなたはそれが悲しそうに覠?えたとさえ言っただろう。</text>
+									<crewMember amount="1" class="rock">Wilbur</crewMember>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>難破現場を見るために要求します。</text>
+								<event>
+									<text>"もちろん！"あなたがたどってトンネルを通り抜けるためのウィルバーの動き。あなたは、卵で覆われ、休眠している巨大な難破船のある大きな部屋に入るまで続きます。 「船は機能しなくなりましたが、気軽に廃棄してください。感傷的なものは何年も前に削除しました。」</text>
+									<autoReward level="HIGH">scrap_only</autoReward>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>見過ごされてください。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>現在のパスを続行し、音を無視します。</text>
+				<event>
+					<text>壁に沿って水かきにされた古い、変色したロッククルーザーの断片に出くわすまで、あなたは旅を続けます。あなたはすぐにクモをチェックし、あなたが一人であると確信したら、あなたはあなたが運ぶことができる限り多くを集めて、サルベージを船に戻します。</text>
+					<autoReward level="LOW">scrap_only</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>いやいやいやいや、今ここから出て行け。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>惑星を無視します。</text>
+		<event>
+			<text>巨大なエイリアンのクモがはびこっているセクターで洞窟探検をしないのが最善です。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+<eventList name="NEUTRAL_INFESTATION">
+	<event load="BROOD_CIVILIAN" />
+	<event load="INFESTATION_CIVILIAN" />
+	<event load="INFESTATION_PURGER" />
+	<event load="INFESTATION_BAKE_SALE" />
+	<event load="INFESTATION_MAFIA" />
+	<event load="INFESTATION_SHELL" />
+</eventList>
+
+<event name="BROOD_CIVILIAN" unique="true">
+	<text>ひなは主に民兵を標的にするかもしれませんが、彼らはまだ海賊です。ここでは民間船がBrood船から攻撃を受けています！</text>
+	<ship load="SHIP_BROOD_RESCUE" hostile="false" />
+	<choice>
+		<text>民間船を助けてください。</text>
+		<event>
+			<text>あなたは武器をパワーアップし、海賊船と交戦します。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>それを避けてください。</text>
+		<event>
+			<text>戦いはそれらをあなたの直接のスキャン範囲から外します。しばらくすると、苦痛の呼びかけは止まります。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="INFESTATION_CIVILIAN" unique="true">
+	<text>あなたは民間船から連絡を受け取ります。 「助けて、私たちはクモでいっぱいの船から攻撃を受けています！なぜこのようなことがいつも私たちに起こるのですか？！」</text>
+	<ship load="SHIP_INFESTED_RESCUE" hostile="false" />
+	<choice>
+		<text>民間船を助けてください。</text>
+		<event>
+			<text>あなたは武器をパワーアップし、出没した船と交戦します。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>それを避けてください。</text>
+		<event>
+			<text>戦いはそれらをあなたの直接のスキャン範囲から外します。しばらくすると、苦痛の呼びかけは止まります。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="INFESTATION_SHELL" unique="true">
+	<text>シェルの科学船は、出没した船がビーコンの周りを散発的に前後にちらつくのを監視しています。彼らはあなたが飛び込んだ直後にあなたを歓迎します。「こんにちは。私たちは勉強する幼児のクモを探しています。私たちはリスクを理解しており、あなたがそれをやり通せば支払います。」</text>
+	<ship load="SHIP_SHELL_BROOD" hostile="false" />
+	<choice hidden="true">
+		<text>出没した船にチームを送り、孵化したばかりの子を捕獲します。</text>
+		<event load="INFESTATION_SHELL_RISKY" />
+	</choice>
+	<choice hidden="true" req="teleporter">
+		<text>（テレポーター）危険を冒さずにスパイダーをビームバックします。</text>
+		<event>
+			<text>あなたは蜘蛛をロックして船に戻します。捕らえられたら、あなたはシェル船を呼びます...</text>
+			<choice hidden="true">
+				<text>シェルに連絡してください。</text>
+				<event load="INFESTATION_SHELL_REWARD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>却下。</text>
+		<event>
+			<text>「理解できる。誰もが科学に興味があるわけではない。」</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="INFESTATION_SHELL_RISKY">
+	<event>
+		<text>あなたの乗組員は船に乗り込みますが、すぐにクモに襲われます！彼らは船に後退しますが、そのうちの1人はそれをしません。ドッキングを解除すると、蜘蛛が揺れ動く体を引きずり出すのを見ることができます。シェルはあなたの損失をお詫びし、「補償」するためにかなりの量のスクラップを提供します。</text>
+		<autoReward level="LOW">scrap_only</autoReward>
+		<removeCrew>
+			<clone>true</clone>
+			<text>幸いなことに、あなたの乗組員はすでにクローン化されていますが、今ではクモ恐怖症の深い種の感覚があります。</text>
+		</removeCrew>
+	</event>
+	<event>
+		<text>あなたの乗組員にとって幸いなことに、ほとんどのクモは眠っています。彼らは、孵化したばかりの子の1つをつかんで船に戻るまで、静かにホールを歩きます。</text>
+		<choice hidden="true">
+			<text>シェルに連絡してください。</text>
+			<event load="INFESTATION_SHELL_REWARD" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="INFESTATION_SHELL_REWARD">
+	<event>
+		<text>シェルはあなたの助けに感謝します。 「これは私たちの研究に大いに役立ちます。この蔓延を防ぐための最初のステップは、これらのクモがダニになる原因を理解することです！」</text>
+		<autoReward level="HIGH">weapon</autoReward>
+	</event>
+	<event>
+		<text>「ありがとう...これはBroodを大いに助けます！」彼らの武器はオンラインになり、これが罠だったという確かな兆候です！</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="INFESTATION_MAFIA" unique="true">  
+	<text>民兵とブロードの間で激しい戦いが行われています。遠くには、大きくて武装した海賊ヨットが発射されています。</text>
+	<choice hidden="true">
+		<text>ヨットに乗ってください、それはあなたが気づかれることなく周りを見回すことができるのに十分な大きさです。</text>
+		<event>
+			<text>あなたは乗り込んで、歩き回っているあらゆる形と大きさの多種多様な種族を見つけます。インテリアは深紅色の壁紙で裏打ちされ、床はベルベットのカーペットで裏打ちされています。それはある種の奇妙なホテルのように見えます...そしてそのような奇妙なほど武装したホテルです。</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>ヨットの奥深くまで進むと、2つのドアがあります。 1つは「ナイトクラブ」、もう1つは「高級軍用爆薬[オフアクセス!!!]」とマークされています。</text>
+					<choice hidden="true">
+						<text>クラブをチェックしてください。</text>
+						<event>
+							<text>あなたはナイトクラブに足を踏み入れただけで、他の海賊の前のステージでポールの周りを魅惑的に踊っているクモを見つけました。あなたはすぐにドアを閉め、代わりに爆発室に向かいます。</text>
+							<choice hidden="true">
+								<text>爆発室を確認してください。</text>
+								<event load="INFESTATION_MAFIA_EXPLOSIVES" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>爆発室を確認してください。</text>
+						<event load="INFESTATION_MAFIA_EXPLOSIVES" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>すぐに出発します。</text>
+		<event>
+			<text>あなたは戦いから飛び去ります。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="INFESTATION_MAFIA_EXPLOSIVES">
+	<text>部屋の壁には爆発物が並んでおり、その多くには小さな頭蓋骨が印刷されています。</text>
+	<choice hidden="true">
+		<text>爆発物のいくつかをつかみます。</text>
+		<event>
+			<text>あなたの乗組員は、真っ赤な鎧を着たダスクブリンガーが小さな爆弾を持って部屋に飛び込むまで、持ち運べるだけの弾薬を手に入れます。 「連邦政府、私の領土で？ああ、今あなたは本当に私を怒らせた！」</text>
+			<autoReward level="HIGH">missiles_only</autoReward>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>あなたが去るために走るとき、あなたはDuskbringerと他の何人かのBroodメンバーに追いかけられます。ヨットからドッキングを解除しても、異常な色のDuskbringer海賊が続きます。</text>
+					<ship load="SHIP_CHERRI" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>去って、私たちは海賊から盗むべきではありません。</text>
+		<event load="INFESTATION_MAFIA_EARLYLEAVE" />
+	</choice>
+</event>
+<eventList name="INFESTATION_MAFIA_EARLYLEAVE">
+	<event>
+		<text>あなたがヨットを出るために走るとき、あなたは何人かの海賊によって発見されます。あなたは時間内にあなたの船にそれを戻します、しかしBrood船は熱心に追求しています！</text>
+		<ship load="SHIP_BROOD" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event />
+</eventList>
+<event name="CHERRI_AUG">
+	<event />
+</event>
+
+<event name="INFESTATION_BAKE_SALE" unique="true">  
+	<text>ビーコンに停泊しているBrood船に気づいたらジャンプしますが、攻撃する動きはありません。代わりに、彼らはいくつかのドーナツとサイダーを使った小さなベークセールを宣伝しています。 「蜘蛛のために、蜘蛛によって、蜘蛛の！」ひざに孵化したペットを乗せた海賊は言う。</text>
+	<ship load="SHIP_BROOD_MUFFET" hostile="false" />
+	<choice hidden="true">
+		<text>ドーナツを持っています。</text>
+		<event>
+			<text>「ああ、とても寛大なので、私たちは多くの顧客を獲得していません。うまくいけば、あなたは支払うつもりです、ディアリー。ドーナツはこれらの部分で999スクラップを要します！」</text>
+			<choice>
+				<text>それを支払う。</text>
+				<event>
+					<text>「アフフフフ…いつでも戻ってきて……」ブロード船が電話を切る。</text>
+					<item_modify>
+						<item type="scrap" min="-999" max="-999" />
+					</item_modify>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="SCAM_UNLOCK" />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>地獄！</text>
+				<event>
+					<text>「ああ、ばかげてはいけない。お金を払わずにどこにも行かないよ！アフフフ…次のケーキで素晴らしい材料を作ってくれるに違いない！」あなたはあなたのエンジンがより低いパワーで機能していることに気づきました、彼らは戦闘増強を使用しているに違いありません！」</text>
+					<status type="divide" target="player" system="engines" amount="2" />
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>Brood船を無視します。</text>
+		<event load="INFESTATION_BAKE_SALE_LEAVE" />
+	</choice>
+</event>
+<eventList name="INFESTATION_BAKE_SALE_LEAVE">
+	<event>
+		<text>あなたが去ろうとしているとき、あなたは別のメッセージを受け取ります。 「ああ、けちなことはしないでください！ここに戻ってきてください、ディアリー..」ブロード船は武器を装備しています。</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>あなたは海賊と取引をしません。</text>
+		<choice>
+			<text>船に乗って何かをしなさい。</text>
+			<event load="STORAGE_CHECK" />
+		</choice>
+		<choice>
+			<text>何もしない。</text>
+			<event />
+		</choice>
+	</event>
+</eventList>
+
+<event name="INFESTATION_PURGER" unique="true">
+	<text>あなたの周りには、かつて船だったものの焦げた残骸があります。それらのいずれにも生命の兆候は検出されません。残骸の中央には、それを守るために大幅に変更されたオートガードを備えた小さな民間ステーションがあります。</text>
+	<ship load="SHIP_AUTO_PURGER" hostile="false" />
+	<choice hidden="true">
+		<text>駅に連絡する。</text>
+		<event>
+			<text>「もう一人？離れて、離れて！クモのフリークは誰も欲しくない！もっと近づいて、他のすべての出没した残骸と同じようにあなたはあなたの終わりを迎えるだろう！」民間人は妄想的であるようです。</text>
+			<choice hidden="true">
+				<text>オートシップを攻撃します。</text>
+				<event>
+					<text>これらの民間人に他の船を殺害し続けることはできません。あなたは彼らを止めるために彼らの自動船を取り除く必要があるでしょう。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>彼らの警告に注意し、近づかないでください。</text>
+				<event>
+					<text>あなたはその自動船をいじることに特に興味がありません。あなたは駅を避けます。</text>
+					<choice>
+						<text>船に乗って何かをしなさい。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="INFESTATION_PURGER_WIN">
+	<text>Auto-Purgerが処理されました。あなたは船の残骸をスクラップします。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>「AAAAH、スパイダー、彼らは進化している！」民間人は通信をミュートし、いくつかの大きくて高価なレーザー砲が船体から伸びています。これらの人はビジネスを意味します、そしておそらく今彼らを放っておくのが最善です。幸いなことに、それはあなたが特別なレーザー兵器を発見するオートシップを調査するためのさらなる時間を残します！</text>
+			<weapon name="LASER_FIRE_SPECIAL" />
+		</event>
+	</choice>
+</event>
+
+
+<eventList name="HOSTILE_INFESTATION">
+	<event load="ENCOUNTER_INFESTED" />
+	<event load="ENCOUNTER_INFESTED_ENGI" />
+	<event load="ENCOUNTER_BROOD" />
+	<event load="ENCOUNTER_CLANSMEN_INFESTATION" />
+</eventList>
+
+<event name="ENCOUNTER_INFESTED"> 
+	<text load="TEXT_ENCOUNTER_INFESTED" />
+	<ship load="SHIP_INFESTED" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_INFESTED">
+	<text>あなたは隣の船を呼び寄せようとしますが、見返りとして得られるのは一連のクリックとチッタリングだけです。船は出没している、武器を持っている！</text>
+	<text>非常にインテリジェントなクモでいっぱいのこのセクターでは、決して注意しすぎることはありません。クイックスキャンにより、ここの船が出没していることがわかり、船が攻撃を受けたときに疑惑が確認されます。</text>
+	<text>出没した船が入ってきます。対処すべきクモでいっぱいの別の船があるようです。</text>
+	<text>民兵は、このセクターがクモでいっぱいになっていると言ったとき、冗談を言っていませんでした。スパイダーによって制御されるようになった完全に機能する船が、攻撃に近づきます！</text>
+	
+	
+	<text>あなたは隣の船を呼び寄せようとしますが、見返りとして得られるのは一連のクリックとチッタリングだけです。船は出没している、武器を持っている！</text>
+	<text>非常にインテリジェントなクモでいっぱいのこのセクターでは、決して注意しすぎることはありません。クイックスキャンにより、ここの船が出没していることがわかり、船が攻撃を受けたときに疑惑が確認されます。</text>
+	<text>出没した船が入ってきます。対処すべきクモでいっぱいの別の船があるようです。</text>
+	<text>民兵は、このセクターがクモでいっぱいになっていると言ったとき、冗談を言っていませんでした。スパイダーによって制御されるようになった完全に機能する船が、攻撃に近づきます！</text>
+</textList>
+
+<event name="ENCOUNTER_INFESTED_ENGI" unique="true"> 
+	<text>エンギの船がこのような危険なセクターの奥深くにいるのを見るのは珍しい驚きです。あなたは彼らをあられようとしますが、文字化けした応答とそれに続くシューという音だけを取り戻します。船にはクモがはびこっていなければなりません！</text>
+	<ship load="SHIP_INFESTED_ENGI" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ENCOUNTER_BROOD">
+	<text load="TEXT_ENCOUNTER_BROOD" />
+	<ship load="SHIP_BROOD" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_BROOD">
+	<text planet="PLANET_MOONS">船が攻撃するのを待っている近くの月の陰に、Brood船が隠れています。彼らはあなたが連邦であることに気づいたら、彼らのスパイダーをあなたに解放することにしました！</text>
+	<text>ここでBrood船についての警備員の警告を覚えています、そしてあなたはその理由を見ることができます。武器を持った蜘蛛が近づいてくる致命的なブロード船。</text>
+	<text>非常に短いメッセージを送信した後、民間船が飛び降ります。 「クレイジースパイダーの人々、近づかないで！」敵対的なBrood船がどこからともなく出てきて攻撃する前に、船の意味を処理する時間がありません！</text>
+	<text>巨大なレーザー砲を備えた永遠に燃えるロックマンでいっぱいの船ほど脅威となる脅威はほとんどありません。幸いなことに、そのような船はあなたがこのビーコンで迎えられるものではありませんが、それでもそれは良い光景ではありません。狂ったBrood船が攻撃し、紛争は避けられないようです。</text>
+	<text>「私を恐れなさい！クモを恐れなさい！」蜘蛛に取り憑かれた海賊船が彼らの心に殺人を犯してあなたを襲う前に、あなたは応答する機会を与えられていません。</text>
+	
+	
+	<text planet="PLANET_MOONS">船が攻撃するのを待っている近くの月の陰に、Brood船が隠れています。彼らはあなたが連邦であることに気づいたら、彼らのスパイダーをあなたに解放することにしました！</text>
+	<text>ここでBrood船についての警備員の警告を覚えています、そしてあなたはその理由を見ることができます。武器を持った蜘蛛が近づいてくる致命的なブロード船。</text>
+	<text>非常に短いメッセージを送信した後、民間船が飛び降ります。 「クレイジースパイダーの人々、近づかないで！」敵対的なBrood船がどこからともなく出てきて攻撃する前に、船の意味を処理する時間がありません！</text>
+	<text>巨大なレーザー砲を備えた永遠に燃えるロックマンでいっぱいの船ほど脅威となる脅威はほとんどありません。幸いなことに、そのような船はあなたがこのビーコンで迎えられるものではありませんが、それでもそれは良い光景ではありません。狂ったBrood船が攻撃し、紛争は避けられないようです。</text>
+	<text>「私を恐れなさい！クモを恐れなさい！」蜘蛛に取り憑かれた海賊船が彼らの心に殺人を犯してあなたを襲う前に、あなたは応答する機会を与えられていません。</text>
+</textList>
+
+<event name="ENCOUNTER_CLANSMEN_INFESTATION">
+	<text load="TEXT_ENCOUNTER_CLANSMEN_INFESTATION" />
+	<ship load="SHIP_CLAN_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_CLANSMEN_INFESTATION">
+	<text>「私はsssesssspiderssに飽きてきました。私は挑戦のために来ましたが、ssssearachnidsssは殺すのが簡単すぎます。私は挑戦を待ち望んでいます...ssssuch asss you！」ナメクジの一族が攻撃します！</text>
+	<text>クランズマンはエキゾチックな狩りを楽しんでいます、そしてクモはまさにそれです。しかし、それは彼らがあなたのような船を狩るのに邪魔にならないという意味ではありません！</text>
+	<text>「連邦政府を怒らせてください！このセクターは私の狩猟場であり、あなたの狩猟場ではありません！」気分を害したナメクジは彼らの武器を武装させます、そしてあなたが同じことをする時が来ました！</text>
+	<text>狂ったナメクジほど致命的なものはほとんどなく、ここのクランズマンは特に不機嫌です。 「くそーssspidersは私の乗組員を食べ続けます。あなた、Fed sship。Sssstayssstillと私にあなたを殺させてください、私はonccceのために簡単な殺害が必要です！」</text>
+	
+	
+	<text>「私はsssesssspiderssに飽きてきました。私は挑戦のために来ましたが、ssssearachnidsssは殺すのが簡単すぎます。私は挑戦を待ち望んでいます...ssssuch asss you！」ナメクジの一族が攻撃します！</text>
+	<text>クランズマンはエキゾチックな狩りを楽しんでいます、そしてクモはまさにそれです。しかし、それは彼らがあなたのような船を狩るのに邪魔にならないという意味ではありません！</text>
+	<text>「連邦政府を怒らせてください！Thissss sssectorは私の狩猟場であり、yoursssではありません！」気分を害したナメクジは彼らの武器を武装させます、そしてあなたが同じことをする時が来ました！</text>
+	<text>狂ったナメクジほど致命的なものはほとんどなく、ここのクランズマンは特に不機嫌です。 「くそーssspidersは私の乗組員を食べ続けます。あなた、Fed sship。Sssstayssstillと私にあなたを殺させてください、私はonccceのために簡単な殺害が必要です！」</text>
+</textList>
+
+
+<eventList name="BOARDERS_INFESTATION">
+	<event load="INFESTED_WRECKAGE" />
+</eventList>
+
+<event name="INFESTED_WRECKAGE" unique="true">
+	<text>近くには民間船の小さな残骸が漂っています。</text>
+	<choice hidden="true">
+		<text>船体をスクラップします。</text>
+		<event load="INFESTED_WRECKAGE_SCRAP" />
+	</choice>
+	<choice hidden="true">
+		<text>残骸を無視します。</text>
+		<event>
+			<text>残骸はあなたのそばを漂い続け、一見生命がないようです。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIFE_SCANNER">
+		<text>（Lifeform Scanner）残骸をスキャンします。</text>
+		<event load="INFESTED_WRECKAGE_SCAN" />
+	</choice>
+	<choice hidden="true" req="sensors" lvl="2">
+		<text>（センサーのアップグレード）残骸をスキャンします。</text>
+		<event load="INFESTED_WRECKAGE_SCAN" />
+	</choice>
+</event>
+<eventList name="INFESTED_WRECKAGE_SCRAP">
+	<event>
+		<text>船の内部には数十匹の蜘蛛の死体があります。実権を握っているのは、負傷しているが生きている船長です。彼の船が破壊されたので、彼はあなたの乗組員に加わることを申し出ます。</text>
+		<crewMember amount="1" />
+	</event>
+	<event>
+		<text>驚いたことに、残骸に乗っているクモはありません。あなたは船の外面をスクラップします。</text>
+		<autoReward level="MED">standard</autoReward>
+	</event>
+	<event>
+		<text>ご想像のとおり、船は蜘蛛でいっぱいです。あなたはなんとか時間内にあなたの乗組員を引き戻すことができますが、クモの大群を止めることはできません。</text>
+		<boarders min="2" max="3" class="spider" />
+	</event>
+	<event>
+		<text>ご想像のとおり、船は蜘蛛でいっぱいです。あなたは乗組員を元に戻すように命令しますが、手遅れで、そのうちの1人が群れの犠牲になります。蜘蛛が乗る前に、あなたはすぐに難破船から離れます。</text>
+		<removeCrew>
+			<clone>true</clone>
+			<text>あなたの乗組員はすでにクローン化されており、今ではクモ恐怖症の深い感覚を持っています。</text>
+		</removeCrew>
+	</event>
+</eventList>
+<eventList name="INFESTED_WRECKAGE_SCAN">
+	<event>
+		<text>残骸のスキャンは、それがクモでいっぱいであることを示しています。あなたは船を無視するのが最善だと判断します。</text>
+	</event>
+	<event>
+		<text>船をすばやくスキャンして生命体を探します。幸いなことに、クモを含む生き物は残っていないようです。船体を安全にスクラップします。</text>
+		<autoReward level="MED">standard</autoReward>
+	</event>
+</eventList>
+
+
+<eventList name="DISTRESS_INFESTATION">
+	<event load="DISTRESS_INFESTATION_CRASH" />
+	<event load="DISTRESS_BROOD_CIVILIAN" />
+	<event load="DISTRESS_INFESTATION_CIVILIAN" />
+</eventList>
+
+<event name="DISTRESS_BROOD_CIVILIAN" unique="true">
+	<text>遭難信号を送信したのと同じ民間船に、Brood船が発砲しています。あなたが何かをしなければ、民間人はチャンスに耐えられません。</text>
+	<ship load="SHIP_BROOD_RESCUE" hostile="false" />
+	<distressBeacon />
+	<choice>
+		<text>民間船を助けてください。</text>
+		<event>
+			<text>あなたは武器をパワーアップし、海賊船と交戦します。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>それを避けてください。</text>
+		<event>
+			<text>戦いはそれらをあなたの直接のスキャン範囲から外します。しばらくすると、苦痛の呼びかけは止まります。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="DISTRESS_INFESTATION_CIVILIAN" unique="true">
+	<text>この遭難ビーコンには2隻の船がありますが、元の所有者によって管理されているのは1隻だけです。出没した船が民間人を狩っています、そして彼らはほとんど彼らの上にいるようです！</text>
+	<ship load="SHIP_INFESTED_RESCUE" hostile="false" />
+	<distressBeacon />
+	<choice>
+		<text>民間船を助けてください。</text>
+		<event>
+			<text>あなたは武器をパワーアップし、出没した船と交戦します。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>それを避けてください。</text>
+		<event>
+			<text>戦いはそれらをあなたの直接のスキャン範囲から外します。しばらくすると、苦痛の呼びかけは止まります。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="DISTRESS_INFESTATION_CRASH" unique="true"> 
+	<text>近くの森の惑星では、遭難信号の発信源であるように見えます。</text>
+	<distressBeacon />
+	<img planet="PLANET_POPULATED_GRASSY" />
+	<choice hidden="true">
+		<text>調査。</text>
+		<event>
+			<text>あなたは水面近くで操縦します。そこでは、2本の木の間に立ち往生している難破した民兵の艦船を見つけます。 1人は明るいオレンジ色の髪をしており、もう1人は顔に長い傷跡があり、丸い眼鏡をかけている2人の軍人が掩蔽壕に沈められ、ライフルが丘に向かって描かれています。</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>あなたは車を降りてミリティアメンに向かって歩きます。ミリティアメンはあなたが話す前にすぐにあなたを黙らせます。ゆっくりとしたささやきの中で、赤い頭は「とても静かにしてください。さもないと、これらのクモが私たちの声を聞きます。ここには巨大な巣があり、私たちは出なければなりません」と言います。眼鏡をかけている人は、「いいえ、クモが補給品のキャム?シュを奪ったと聞きました。それを取り戻さなければなりません！」と首を横に振る。</text>
+					<choice hidden="true">
+						<text>ハイブを避けることに同意します。</text>
+						<event>
+							<text>蜘蛛を起こさないように注意しながら、船に戻ります。彼らの友人は後ろにとどまりますが、愚かなことに彼自身でキャッシュを取り戻すことに決めました、赤い頭はあなたと一緒にいることを申し出ます。</text>
+							<crewMember amount="1" class="human_soldier">Ronald Westly</crewMember>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>キャッシュを追跡することに同意します。</text>
+						<event>
+							<text>あなたはハイブに向かって急いで、続いて眼鏡をかけたミリティアマンに向かいます。丘を走る洞窟にさらに足を踏み入れると、キャッシュがウェビングで覆われているのがわかります。あなたはそれを肩越しに船に戻しますが、クモの群れがあなたの場所を警告します！</text>
+							<crewMember amount="1" class="human">Harold Porter</crewMember>
+							<autoReward level="MED">item</autoReward>
+							<boarders min="4" max="5" class="spider" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>惑星を避けてください。</text>
+		<event>
+			<text>そこに何があるのかわかりませんが、このセクターでは何も信頼できません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+<eventList name="QUEST_INFESTATION">
+	<event load="INFESTATION_PHOTOGRAPHER" />
+</eventList>
+
+<event name="INFESTATION_PHOTOGRAPHER" unique="true"> 
+	<text>あなたはほとんどの民間人がこのセクターを避難させたと仮定しましたが、1隻の船がいくつかの大型船の残骸を捜索しています。</text>
+	<ship load="SHIP_CIVILIAN_GENERIC" hostile="false" />
+	<choice hidden="true">
+		<text>彼らに連絡する。</text>
+		<event>
+			<text>「うーん、JJは腹を立てるだろう-ああ、こんにちは。あなたが現れてとても幸運です。私はコアワールドの小さな新聞であるトランペットから来ました。私たちの主任写真家はセクターの写真を撮るためにここに送られました、しかし彼は行方不明になっています。おそらくあなたは私たちのために彼を追い詰めることができますか？私たちはこのセクターのために十分に武装しだ?いません...」</text>
+			<quest event="INFESTATION_PHOTOGRAPHER_QUEST" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>民間人を無視します。</text>
+		<event>
+			<text>あなたは民間船を放っておく。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="INFESTATION_PHOTOGRAPHER_QUEST">
+	<text>あなたは民間人によって与えられた座標に到着しました。地球型惑星は、文明の兆候はほとんどありませんが、システムの制限内にあります。これは場所でなければなりません...</text>
+	<img planet="PLANET_UNPOPULATED_TERRA" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>写真家を見つけるのにそれほど時間はかかりません。胸郭が非常に薄い人間は、胸部から逃げようとしているように見えます。蜘蛛の群れに勝ち誇って立っており、蜘蛛は服従して彼の周りを這っています。彼はあなたの船に叫びます。 「恐れてください。私は蜘蛛の男です！蜘蛛の王、そして間もなく人間の王になります！」</text>
+			<choice hidden="true">
+				<text>なに…なに？</text>
+				<event>
+					<text>地面からは、殴打されたがまだ機能している連邦船が上昇し、主にクモが配置されています。 「蜘蛛の男」が船に飛び乗って、あなたと戦うために立ち上がります！</text>
+					<ship load="SHIP_SPIDERMAN" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="INFESTATION_PHOTOGRAPHER_DESTROY">
+	<text>難破した船は地面に倒れ込み、数百匹のクモを押しつぶし、さらに多くのクモを飛ばします。大群が分散した状態で、あなたも着陸し、すぐにいくつかの救済を集めます。</text>
+	<autoReward level="MED">standard</autoReward> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>残念ながら、これは写真家が死んでいることを意味します。今、民間船に報告する理由はありません。</text>
+		</event>
+	</choice>
+</event>
+<event name="INFESTATION_PHOTOGRAPHER_DEADCREW">
+	<text>今や乗組員のいない船は地面に倒れ、数百のクモを押しつぶし、さらに多くの飛行を送ります。大群が分散した状態で、あなたも着陸し、すぐにいくつかの救済を集めます。</text>
+	<autoReward level="HIGH">standard</autoReward> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>残念ながら、これは写真家が死んでいることを意味します。今、民間船に報告する理由はありません。</text>
+		</event>
+	</choice>
+</event>
+<event name="INFESTATION_PHOTOGRAPHER_SURRENDER">
+	<text>連邦の船が煙を出し、シャッターを切ると、かつての写真家から連絡を受け取ります。 「わかりました、私はもうクモの王になりたくありません！」</text>
+	<choice hidden="true">
+		<text>彼を生きさせなさい。</text>
+		<event>
+			<text>連邦の船のパイロットは惑星の表面に戻り、人間は降ります。</text>
+			<ship hostile="false" />
+			<choice hidden="true">
+				<text>報酬のために彼を最寄りの駅に降ろしてください。</text>
+				<event>
+					<text>以前の民間人が待っている最寄りの駅に写真家を降ろします。ありがたいことに、彼らはあなたに燃料とスクラップの寛大な援助を与えます。</text>
+					<autoReward level="MED">fuel</autoReward> 
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>彼にあなたの船の位置を提供してください。</text>
+				<event>
+					<text>写真家としての彼の以前の2つの職業と「蜘蛛の王」が終わらせられたことで、彼はあなたのために働くことをいとわない。</text>
+					<crewMember amount="1" class="human">Peter</crewMember>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>彼を無視して、彼を終わらせてください。</text>
+		<event />
+	</choice>
+</event>
+
+
+<ship name="SHIP_BROOD_CRUISER" auto_blueprint="MU_BROOD_CRUISER">
+	<destroyed load="INFESTATION_IRWIN_WIN" />
+	<deadCrew load="INFESTATION_IRWIN_WIN" />
+	<crew>
+		<crewMember type="LIST_CREW_PIRATE_RANDOM" prop="0.5" />
+		<crewMember type="LIST_CREW_SPIDER_RANDOM" prop="0.5" />
+	</crew>
+</ship>
+<event name="INFESTATION_IRWIN" unique="true">
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<nebulaBeacon>false</nebulaBeacon>
+		<aggressive>2</aggressive>
+	</quest>
+	<beaconType id="map_icon_irwin" global="true">
+		<color r="235" g="95" b="255" a="1.0" />
+	</beaconType>
+	<text>これらは、民兵によって雇われた反逆者の最後の既知の座標です。ここには奇妙な施設がいくつか建設されており、巨大な民間輸送船が惑星を離れる過程にあります。入り口の外に駐車している、遠くの奇妙な形の船を見つけます。</text>
+	<img back="BACK_EVENT_SPIDERLAB" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>目立たないように注意しながら、近づきます。 2隻目の船、Broodカラーの大型Mantis巡洋艦を見つけられなかったようです。あなたは巨大なソーラーパネルの1つの後ろに着陸し、2隻の船の間の会話に耳を傾けます。アーウィンは、塗装されたエースのユニフォームのように見える、非常に身なりのよいブロードのメンバーと話しているようです。</text>
+			<ship load="SHIP_BROOD_CRUISER" hostile="false" />
+			<choice hidden="true" req="loc_beentonest" blue="false" lvl="0" max_group="0">
+				<text>継続する...</text>
+				<event>
+					<text>「おとめ座、おとめ座。ほら、これは見た目が悪いのはわかっているけど……」アーウィンは堂々とした姿で断ち切られている。 「私はもうあなたのたわごとの時間がありません。アーウィン。ヴェールは疲れています。あなたにはDNAを取り戻すための1つの仕事がありました。そして何が起こったのですか？あなたは何もせずに私に戻ってきます。今、彼らは全体を吹き飛ばそうとしています地獄に巣を作る。あなたは私がこれを容認することを期待しているのか？」</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>「ええと...そうですか？ほら、Vek disssassasssterがレネガデスの評判を台無しにした後、C.D.E.G。に私を雇うよう説得するのは簡単ではありませんでした！」アーウィンは抗議し続けますが、もう一度断ち切られます。 「関係ありません。時間が経ちすぎました。機会の窓は薄いです。VaelはBroodと契約を結びました、彼らは私たちのためにDNAを回復します。私たちはあなたのためにもだ?役に立たない、Irwin。あなたは何もないしかし、終わりは緩い。」乙女座は彼のレーザーを描き、それをアーウィンに向けます。</text>
+							<choice hidden="true">
+								<text>介入する。</text>
+								<event>
+									<text>このアーウィンの仲間は使用に関する情報を持っているようです。あなたはあなたのカバーから飛び出して、あなた自身の武器を引きます。乙女座は妨害の兆候を示さず、単に武器を撤回し、急いでブロード船に戻り、すぐに武器の電源を入れます！アーウィンは、当然のことながら、急いで船に戻りましたが、海賊からのミサイルによって止められ、エンジンを破壊しました。</text>
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>何もしない。</text>
+								<event>
+									<text>あなたはスラッグが必死に彼の人生を懇願するのを見ます、しかし暗殺者は彼に注意を払いません。彼は一度だけ撃ち、クランズマンは彼自身の緑色の血の水たまりで地面に倒れます。乙女座は彼の後ろの海賊に彼らが行く前にアーウィンの船を破壊するように命じます。これもあなたが去る手がかりのようです。</text>
+									<instantEscape />
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="loc_beentonest" blue="false" lvl="1" max_group="0">
+				<text>継続する...</text>
+				<event>
+					<text>「おとめ座、おとめ座。ほら、これは見た目が悪いのはわかっているけど……」アーウィンは堂々とした姿で断ち切られている。 「私はもうあなたのたわごとの時間がありません。アーウィン。ヴェールは疲れています。あなたにはDNAを取り戻すための1つの仕事がありました。そして何が起こったのですか？あなたは何もせずに私に戻ってきます。今、彼らはその巣を地獄に吹き飛ばしましたサンプルを回収する方法はありません！これを容認することを期待していますか？」</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>「ええと...そうですか？ほら、Vek disssassasssterがレネガデスの評判を台無しにした後、C.D.E.G。に私を雇うよう説得するのは簡単ではありませんでした！」アーウィンは抗議し続けますが、もう一度断ち切られます。 「それは問題ではありません。あまりにも多くの時間が経過しました。機会の窓はなくなりました。私たちはあなたのためにもう役に立たない、アーウィン。あなただ?ただのゆるい終わりに過ぎません。」乙女座は彼のレーザーを描き、それをアーウィンに向けます。</text>
+							<choice hidden="true">
+								<text>介入する。</text>
+								<event>
+									<text>このアーウィンの仲間は使用に関する情報を持っているようです。あなたはあなたのカバーから飛び出して、あなた自身の武器を引きます。乙女座は妨害の兆候を示さず、単に武器を撤回し、急いでブロード船に戻り、すぐに武器の電源を入れます！アーウィンは、当然のことながら、急いで船に戻りましたが、海賊からのミサイルによって止められ、エンジンを破壊しました。</text>
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>何もしない。</text>
+								<event>
+									<text>あなたはスラッグが必死に彼の人生を懇願するのを見ます、しかし暗殺者は彼に注意を払いません。彼は一度だけ撃ち、クランズマンは彼自身の緑色の血の水たまりで地面に倒れます。乙女座は彼の後ろの海賊に彼らが行く前にアーウィンの船を破壊するように命じます。これもあなたが去る手がかりのようです。</text>
+									<instantEscape />
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="INFESTATION_IRWIN_WIN">
+	<text>BroodCruiserが敗北しました。それは山のように地面に落ち、あなたはその残骸をスクラップします。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>アーウィンをチェックしてください。</text>
+		<event>
+			<text>ナメクジはあなたが近づいてくるのを見ると、すぐに怖がっていないふりをしますが、銃のような奇妙な大失敗の周りでは触手が白くなっています。 「私たちがお互いに固執する方法を知ってうれしいです！今、あなたのレートは何ですか？私はこの種のssserviccceが無料ではないことを知っています。私はsssstupidではありません。」</text>
+			<choice hidden="true">
+				<text>私たちは賃金を求めていません。しかし、私たちは情報を気にしません。</text>
+				<event>
+					<text>「ハァッ！なんて暴動だ。ここではっきりさせておきましょう。情報はお金を無駄にします。お金はすべてを無駄にし、すべてはお金を無駄にします。thisssMultiverssseには無料で働くsssane男はいない。 。好意は空白のチェックです。あなたは反逆者です。私を馬鹿にしないでください。私たちは慈善家ではありません。私たちは傭兵です。 。」</text>
+					<choice hidden="true">
+						<text>それは重要ではありません。この乙女座の仲間について教えてください。</text>
+						<event>
+							<text>「おとめ座は天使です。おとめ座は、Ssssyndicateの大きなパパVaelの暗殺者です。彼は私のモスストの最近のクライアントをssssしますが、問題issVaeldossssは通常は不正なものを扱いません。私と一緒にwassssshort。乙女座は私が従う彼のreassssurrenccceをwassしました。」</text>
+							<choice hidden="true">
+								<text>何を続けますか？</text>
+								<event>
+									<text>「sssome種類のDNAを盗む。ThessseG.A.S。、Vek、bla bla bla、それらはすべてsssame ssstuffをベースにしている。私はバイオロジストではない、私が話していることを知らない。Pointisss、Vaelが風を捕まえたSssenatorライトは足が冷たくなり、このすべてを吹き飛ばすつもりでした。私は、大きなブームの前にDNAをVaelに持ってくるために、SSSUPPOSSSEDをしましたが、私は生きているのが好きです、だ?なたは知っていますか？」</text>
+									<choice hidden="true">
+										<text>かつてはクランズマンでしたか？</text>
+										<event>
+											<text>「うん。私はワッス。でも、その嫌いな人ビリー・ヘクタールにだまされて、ヒスの小さなssslave取引に巻き込まれた。ワスは、ある日、私の友人であるSsssylvanという名前のレンジャーを連れてくることを決心した。 d助けたいのですが、代わりに彼はすべて奇妙な行動をしました。私は彼がリスクを抱えていることに気づきましたが、私が望むようにジャスストが死ぬのではなく〠?彼は私の艦隊を爆破し、ヘクタールへの関与をギルドに漏らしました。神聖なルールの、それで私は一種のブートをしました。レッソンは誰もいません！彼らはいつもあなたをオンにします。」</text>
+											<choice hidden="true">
+												<text>右...</text>
+												<event>
+													<text>「それは言われているので、私は乗る必要があります。私の船はアストする必要があります。あなたは反逆者なので、いつでももっと助けてくれると確信しています。利益は半分と半分です。取引しますか？いいえ！？わかりました、後で数字を理解できると思います...ああ、そしてお尻を見て、もう私のssshipは必要ありません、あなたはそれで何でもします。」</text>
+													<crewMember amount="1" all_skills="2" class="unique_irwin">Irwin</crewMember>
+													<variable name="ach_boss_brood" op="set" val="1" />
+													<variable name="ach_crew_irwin" op="set" val="1" />
+													<autoReward level="MED">standard</autoReward>
+													<unlockCustomShip silent="false">PLAYER_SHIP_SPIDER</unlockCustomShip>
+												</event>
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<ship name="SHIP_MILITIA_CRUISER" auto_blueprint="MU_MILITIA_CRUISER">
+	<destroyed load="INFESTATION_NEST_WIN" />
+	<deadCrew load="INFESTATION_NEST_WIN" />
+</ship>
+<event name="INFESTATION_NEST">
+	<preventQuest />
+	<preventFleet />
+	<beaconType id="map_icon_nest" global="true">
+		<color r="63" g="73" b="77" a="1.0" />
+	</beaconType>
+	<quest>
+		<nebulaBeacon>false</nebulaBeacon>
+		<aggressive>2</aggressive>
+	</quest>
+	<text>スパイダーハイブに到着しました。惑星はあなたが扱っているものに対して適切に不気味です。空では、民兵とブロード軍が惑星を支配するために戦いますが、混沌をすり抜けて巨大な洞窟の近くの地表に着陸することができます。</text>
+	<img back="BACK_EVENT_NEST" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>モンゴメリーから遠くの呼び声を受けるが、それは切り刻まれたり消えたりする。"あなたが作った-配送船が損傷-洞窟で爆弾が失われた-あなたが必要-それを見つけて-巣を破壊する-Broodの中に-注意！"</text>
+			<choice hidden="true">
+				<text>洞窟に入ります。</text>
+				<event>
+					<text>あなたは暗闇に飛び込み、自分の船からの光だけが岩盤の空の迷路を通り抜けます。あなたは、明らかに爆弾を運んでいる民兵の船の残骸のように見えるものを通り過ぎます。幸いなことに、貨物に損傷がないことを発見し、船に戻します。</text>
+					<choice hidden="true">
+						<text>これらを爆発させなければ、他の誰も爆発させることはできません。</text>
+						<event>
+							<text>失敗した場合、最初の船と同じ運命に簡単に遭遇する可能性があるという事実に常に警戒しながら、あなたは進み続けます。最終的に、トンネルはおそらく洞窟の中心に通じます。これは、数万個の卵を含む穴が並んだ壁のある、ほぼ完全に球形の巨大な部屋です。これが自然の産物であった方法はありません。この部屋は意図的に設計されました。</text>
+							<choice hidden="true">
+								<text>密かに爆弾の設置を開始します。</text>
+								<event>
+									<text>あなたの乗組員はクモを起こさずに爆弾を配線するために急いでいます。あなたが覚えていることから、これらは地球上のベックに対して使用されたものと同じデザインです。そのうちの1つだけが宇宙から見える爆発を引き起こし、惑星全体に大地震を引き起こしたので、そのうちの3つがどのような影響を与えるかを想像することしかできません。そして、あなたは地獄がそれを見るために立ち往生したくないので確かです。</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event>
+											<text>3番目の最後の爆弾を配線しているときに、乗組員の1人がつまずいて、爆弾から金属板を地面に落とします。すぐに、洞窟全体のすべてのクモが叫び声を上げているように見えます。ほんの数秒で、大規模な咆哮が彼らを沈黙させ、3人の男性の大きさの巨大な生き物が地面から噴出します。これは女王であるに違いありません、そして彼女は確かに幸せではありません。彼女の8つの目はすべてあなたに固定されていますが、彼女は攻撃しません。彼女があなたに警告を与えているように見えます。</text>
+											<choice hidden="true">
+												<text>レーザーを置きます。</text>
+												<event>
+													<text>ほとんど自殺のようですが、危険を冒したい最後のことはクモを怒らせることです。あなたがこれまでに見たすべてから、彼らは民兵が認めようとしているよりも賢いように見えます、そして多分、たぶん、あなたは誰も死ぬことなくここからそれを作ることができます。女王はこの行動に気づき、あなたから遠ざかります。彼女の周りにはいくつかの孵化したばかりの子が足にだ?がみついていますが、彼女が向きを変えて孵化場の壁の穴を這うと、それらは散らばっています。彼女はあなたにフォローしてほしいようです。</text>
+													<choice hidden="true">
+														<text>彼女に従ってください。</text>
+														<event>
+															<text>あなたはトンネルを這い回り、船と実験装置のある巨大な長方形の部屋に立っていることに気づきます。壁に固まった汚れを拭き取ると、その下に錆びた金属があります。ある時点で研究センターだったのですが、匂いからするとスタッフ全員が死んでいます。女王が壁のチューブの列に歩いて行くのを見ると、そこには多くのエキゾチックな生き物がいます。そのうちのいくつだ?は、G.A.S.、Vek、およびBroodが使用する他の昆虫型の怪物に不気味に似ているようです。近くの机を見ると、すべての人の中でオスカー・ライト宛ての手紙があります。その隣には、ある種の巡洋艦モデルの設計図が入ったドングルがあり、ポケットに入れます。</text>
+															<variable name="loc_beentonest" op="set" val="1" />
+															<choice hidden="true">
+																<text>手紙を読む。</text>
+																<event>
+																	<text>「親愛なる上院議員、
+計画の変更がありました。昆虫様DNAをテストするためのあなたの方法は、私と評議会の両方を深く混乱させました。私のチームはとにかく新しい候補者を見つけました。実験を続ける必要はもうありません。あなたが今日いる唯一の理由は、提督との歴史のためであり、提督がいない場合、新しい指導者はそれほど寛大ではないことを思い出してください〠?私はあなたの幸福のための最善の意図からのみこれを書いています。頭に弾丸を入れて目を覚ましたくない場合は、すべての証拠を破棄することをお勧めします。
+
+オスカー、あなたはあなたがしなければならないことを知っています。再び反乱を失敗させないでください。
+よろしくお願いいたします。E.W。博士」</text>
+																	<choice hidden="true">
+																		<text>継続する...</text>
+																		<event>
+																			<text>これをどうすればいいのかわかりませんが、時間があまりありません。モンゴメリーはあなたの後ろから呼びかけ、あなたに手紙を落とすように命じます。 「ゆっくり振り返って、船長。その紙を置いて私と一緒に来なさい。爆弾を爆発させて去る必要がある。」</text>
+																			<ship load="SHIP_MILITIA_CRUISER" hostile="false" />
+																			<choice hidden="true">
+																				<text>その手紙についてモンゴメリーと対峙する。</text>
+																				<event>
+																					<text>モンゴメリーはあなたが終わる前にあなたを断ち切ります。 「C.D.E.G.がここにいる理由は何だと思いますか？Broodがこのすべての背後にあると本当に思いましたか？一部の愚かな海賊が連合のコアワールドのセキュリティを侵害する可能性があるということですか？いいえ、しかし連邦は上院議員の意図に懸念を持って無知でした。Broodは本物です、はい、しかし彼らはこれまで何もありませんでした。私たちは彼らに昆虫型を放出させました。私たちは地球にVekを植えました。それは後知恵でひどい決断でした、はい、そしてそれが私たちがここにいる理由です。実験上院議員の関係を反乱にさらす危険を冒すことはできません。あなたは今や責任を負っているのではないかと思います。しかし、責任を処分することが私が得意とすることです。」</text>
+																					<ship hostile="true" />
+																					<choice hidden="true">
+																						<text>継続する...</text>
+																						<event load="COMBAT_CHECK" />
+																					</choice>
+																				</event>
+																			</choice>
+																			<choice hidden="true">
+																				<text>実験室と蜘蛛を捨てて去ってください。</text>
+																				<event>
+																					<text>女王を最後にもう一度見て、ラボから急いで出てください。モンゴメリーが搭乗する巨大なCDEGクルーザーを見つけます。遠くではクモの大群があなたを追いかけますが、あなたは速すぎます。爆弾があなたの船をまばゆいばかりの光で満たすので、あなたの船は両方ともちょうど間に合うように逃げます。それがようやく治まると、モンゴメリーは最後にもう一度あなたを歓迎します。 「あそこには何も見えなかった、分かりますか？」あなたはあなたの頭をうなずきます。 「よかった。あなたはあなたの援助に対して報われるだろうが、そこにあったことを他の誰かに話すのは悪い決断だろうということをあなたが理解することを願っている。」</text>
+																					<autoReward level="HIGH">weapon</autoReward>
+																				</event>
+																			</choice>
+																		</event>
+																	</choice>
+																</event>
+															</choice>
+														</event>
+													</choice>
+													<choice hidden="true">
+														<text>今すぐ出発します。</text>
+														<event />
+													</choice>
+												</event>
+											</choice>
+											<choice hidden="true">
+												<text>チャンスを逃して、女王を撃ちなさい。</text>
+												<event>
+													<text>ここで他のことを試みるのは自殺でしょう。あなたは女王を爆破しますが、あなたのショットは彼女の硬化した外骨格に対してほとんど何もしません。彼女は他の子孫と同じようにあなたに突撃し、彼らはあなたの乗組員の手足の1つを手足から引き裂きます。船に戻って洞窟から急いで出るしかない。遠くからトリガーを引くと爆弾が一気に爆発し、すべてを飲み込んでいるように見えるまばゆいばかりの光の閃光を作り出します。そして、一瞬にして光が沈み、地球に面した記念碑的な火口だけが残ります。ブロード軍は彼らの失敗を見て飛び去り、民兵はあなたに感謝します。ガス。もうありません。</text>
+													<autoReward level="HIGH">weapon</autoReward>
+													<removeCrew>
+														<clone>true</clone>
+														<text>幸いなことに、クローンベイのおかげで乗組員は回復することができますが、今後は永続的なクモ恐怖症に苦しむ可能性があります。</text>
+													</removeCrew>
+												</event>
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>爆弾を残して、より資格のある人に渡してください。</text>
+						<event>
+							<text>爆弾を無事に回収したので、洞窟を出てモンゴメリーを呼びます。民兵の船が爆発物を回収するために戦闘から離脱し、報酬を与えます。</text>
+							<autoReward level="MED">standard</autoReward>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>これはリスクが高すぎるため、これを行うことはできません。</text>
+				<event>
+					<text>あなたは私たち自身でクモの巣全体に立ち向かう危険を冒すことはできません！あなたは戦いから引き離します。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="INFESTATION_NEST_WIN">
+	<text>結局、モンゴメリーはあなたを止めるのに十分ではありませんでした。彼の船に乗った残りの乗組員はおそらく彼の意図に気づかなかったが、彼らは必要な犠牲者だった。</text>
+	<variable name="ach_boss_milcruiser" op="set" val="1" />
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>墜落した残骸を解体している間、あなたは死にゆく男のうめき声を聞き、残骸の一部に突き刺されたモンゴメリーを見つけます。彼はあなたの方を向いて、最後の息で「証拠はありません。エースは...失敗することはありません」とつぶやきます。彼は起爆装置を持ったまま手を上げ、スイッチを入れます。即座に、近くのラインフィールド爆弾が作動し、デシメーションへのカ゠?ントダウンが始まります。</text>
+			<choice hidden="true">
+				<text>私たちは女王を救出する必要があります！</text>
+				<event>
+					<text>あなたは孵化場に戻って、女王がいくつかの嘆きの孵化場を慰めているのを見つけます。爆弾がカウントダウンするときのドローンの音はあなたの泣き声をかき消しますが、女王はあなたを見つけ、どういうわけか状況の深刻さを理解します。あなたは船に戻って離陸し、壁が揺れ、後ろのインフェルノが広がるとトンネルを急いで通り抜けます。結局、エンジンを最大の推力で蹠?って惑星から離陸するとき、それはほとんど数秒になります。</text>
+					<crewMember amount="1" class="unique_queen" combat="2">The Queen</crewMember>
+					<variable name="ach_crew_queen" op="set" val="1" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>非常に多くの異なる質問があなたの頭の中を駆け巡っています。なぜ反乱はクモとベックをテストしたのですか？ 「新しい候補者」とは何ですか？ E.W.博士は誰ですか？これらの質問のいずれかに答えられるかどうかはわかりませんが、あまり長く長居することはできません。女王は安全ですが、明らかに子供を失ったことで邪魔されています。もしあなたが彼女を救わなかった゠?、種全体が絶滅したでしょう。あなたが今できることは、別のエースが死んだことを嬉しく思い、あなたの使命を続けることです。たぶんいつか、それがあなたであろうと別の船長であろうと、誰かがこれの底に達するでしょう。以前からドングルを引き出し、後で使用するためにブループリントデータを船にダウンロードします。</text>
+							<unlockCustomShip silent="false">PLAYER_SHIP_BROOD</unlockCustomShip>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+</FTL>

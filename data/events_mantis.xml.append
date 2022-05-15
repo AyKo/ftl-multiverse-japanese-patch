@@ -1,0 +1,1601 @@
+<FTL>
+
+
+
+<eventList name="MANTIS_ITEMS">
+	<event load="MANTIS_GAMBLE" />
+	
+	<event load="TAVERN_HIRE" />
+	<event load="TRADER_CIV" />
+</eventList>
+
+<event name="MANTIS_CAPTURE_COMMANDO" unique="true">
+	<text>ライフサインが1つ乗っているエンギの難破船に出くわします。それはスゼラインであり、船の乗組員を一掃したマンティス搭乗隊の唯一の生存者であることが判明しました。彼は戦う状態になく、乗船しました。</text>
+	<ship load="SHIP_ENGI_FIGHT" hostile="false" />
+	<choice hidden="true">
+		<text>彼を解放します。</text>
+		<event load="MANTIS_CAPTURE_COMMANDO_RELEASE" />
+	</choice>
+	<choice hidden="true">
+		<text>彼を殺せ。</text>
+		<event load="MANTIS_CAPTURE_COMMANDO_KILL" />
+	</choice>
+	<choice req="LIST_CREW_MANTIS" hidden="true">
+		<text>（マンティスクルー）彼に質問します。</text>
+		<event load="MANTIS_CAPTURE_COMMANDO_TALK" />
+	</choice>
+	<choice req="mind" hidden="true"> 
+		<text>（マインドコントロール）彼に質問します。</text>
+		<event>
+			<text>あなたのマインドコントロールデバイスはあなたが抵抗することなく彼の話を素早く得ることを可能にします。搭乗者は、エンギ船が輸送していた武器を盗もうとしていたようです。しかし、彼らのチームはドローンによって一掃されました。</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>あなたは隠された貯蔵庫に武器を見つけ、カマキリを去らせるのに十分なほど船にパッチを当てることに決めました。</text>
+					<autoReward level="LOW">weapon</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="MANTIS_CAPTURE_COMMANDO_RELEASE">
+	<event>
+		<text>あなたはエンギの船を稼働させるのを手伝いますが、彼らの物資のいくつかを取ります。彼は一言も言わずに離陸した。</text>
+		<autoReward level="MED">stuff</autoReward>
+	</event>
+	<event>
+		<text>彼はあなたの憐れみを弱さのしるしとしてとらえ、エンギ船で離陸する前に小さな時限爆薬を装備します。</text>
+		<damage amount="2" />
+		<damage amount="1" system="random" effect="fire" />
+	</event>
+</eventList>
+<eventList name="MANTIS_CAPTURE_COMMANDO_KILL">
+	<event>
+		<text>Mantis Suzerainは、エアロックの内側のドアが密閉されており、スペースが彼を連れて行く準備をしているので、恐れることはありません。あなたがスイッチを押すと、彼は去り、大きな黒に飛び出しました。</text>
+		<autoReward level="MED">stuff</autoReward>
+	</event>
+	<event>
+		<text>カマキリに対処する準備をする前に、エンギ船を剥ぎ取ります。しかし、スゼラインはすぐにあなたの意図と攻撃に気づきます！</text>
+		<autoReward level="MED">stuff</autoReward>
+		<boarders min="1" max="1" class="mantis_suzerain" />
+	</event>
+</eventList>
+<eventList name="MANTIS_CAPTURE_COMMANDO_TALK">
+	<event>	
+		<text>ロックされたドアの後ろにある2つのマンティスの間で何が起こっているのかは明らかではありませんが、それらが出現すると、スゼラインはローカルセクターでテレメトリを提供する準備ができています。その後、彼はエンギ船に乗ります。マップが更新されました。</text>
+		<reveal_map />
+	</event>
+	<event>
+		<text>スゼラインとの短い時間の後、あなたは彼が乗組員に加わりたいと言われました。忠誠心を交換するスゼラインの意欲に驚いていますが、あなたは彼についての乗組員の判断を信頼しています。</text>
+		<crewMember amount="1" class="mantis_suzerain" />  
+		<autoReward level="MED">stuff</autoReward>
+	</event>
+</eventList>
+	
+<event name="MANTIS_GAMBLE" unique="true">
+	<text>このノードには現在、カマキリのレジャー船があります。これは、戦士が蒸気を放出するための売春宿と戦闘アリーナの場所です。彼らがあなたの在庫をスキャンするとき、彼らはあなたがチャンスの壮大なゲームに従事する資格があることを示します。</text>
+	<choice hidden="true">
+		<text>あなたは詐欺師とギャンブルをしません。ジャンプする準備をします。</text>
+		<event>
+			<text>そこで起こっていることに関与しないほうがいいです。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>青い絵の具で戦士に50のスクラップを賭けます。</text>
+		<event>
+			<text>戦闘中に2人のマンティスの少年が互いに投げ合うとき、あなたはビュースクリーンを見守っています。</text>
+			<item_modify>
+				<item type="scrap" min="-50" max="-50" />
+			</item_modify>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MANTIS_GAMBLE_BLUE" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>赤いペンキで戦士に50のスクラップを賭けます。</text>
+		<event>
+			<text>戦闘中に2人のマンティスの少年が互いに投げ合うとき、あなたはビュースクリーンを見守っています。</text>
+			<item_modify>
+				<item type="scrap" min="-50" max="-50" />
+			</item_modify>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MANTIS_GAMBLE_RED" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="MANTIS_GAMBLE_BLUE">
+	<event>
+		<text>青いものは隅に押し込まれますが、彼は最後の瞬間に打ちのめされ、相手を斬首します。あなたはあなたの賞金を請求します！</text>
+		<item_modify>
+			<item type="scrap" min="100" max="100" />
+		</item_modify>
+	</event>
+	<event>
+		<text>青いマンティスは確実に勝ち、敵に多数のヒットを記録しているようです。ただし、赤の1つは、キーを1回スワイプするだけで戦闘を終了します。</text>
+		<choice hidden="true">
+			<text>あなたが借りているものを支払います。</text>
+			<event>
+				<text>賭けたスクラップを転送して、出航する船がまだある間に終了します。</text>
+			</event>
+		</choice>
+		<choice req="engines" lvl="4" hidden="true">
+			<text>（Adv. Engines）借金をかわし、エンジンをパワーアップします。</text>
+			<event>
+				<text>彼らが反応する前に、あなたは巡洋艦の射撃場から出ることができます。しかし、小型の船がパトロールから離脱し、交戦するために移動します。</text>
+				<ship load="SHIP_MANTIS_FIGHT" hostile="true" />
+				<item_modify>
+					<item type="scrap" min="50" max="50" />
+				</item_modify>
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<eventList name="MANTIS_GAMBLE_RED">
+	<event>
+		<text>青いマンティスは確実に勝ち、敵に多数のヒットを記録しているようです。ただし、赤の1つは、キーを1回スワイプするだけで戦闘を終了します。あなたはあなたの賞金を請求します！</text>
+		<item_modify>
+			<item type="scrap" min="100" max="100" />
+		</item_modify>
+	</event>
+	<event>
+		<text>青いものは隅に押し込まれますが、彼は最後の瞬間に打ちのめされ、相手を斬首します。</text>
+		<choice hidden="true">
+			<text>あなたが借りているものを支払います。</text>
+			<event>
+				<text>賭けたスクラップを転送して、出航する船がまだある間に終了します。</text>
+			</event>
+		</choice>
+		<choice req="engines" lvl="4" hidden="true">
+			<text>（Adv. Engines）借金をかわし、エンジンをパワーアップします。</text>
+			<event>
+				<text>あなたはあなたが送る準備をしたスクラップを思い出し、彼らが反応する前に巡洋艦の射撃場から出ることができます。しかし、小型の船がパトロールから離脱し、交戦するために移動します。</text>
+				<ship load="SHIP_MANTIS_FIGHT" hostile="true" />
+				<item_modify>
+					<item type="scrap" min="50" max="50" />
+				</item_modify>
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+</eventList>
+
+
+<eventList name="HOSTILE_MANTIS"> 
+	<event load="HOSTILE_MANTIS_EVENTS" />
+</eventList>
+<eventList name="HOSTILE_MANTIS_EVENTS">
+	<event load="ENCOUNTER_MANTIS" />
+	<event load="ENCOUNTER_MANTIS" />
+	<event load="MANTIS_SUN_FIGHT" />
+	<event load="MANTIS_CHASE" />
+	
+	<event load="PIRATE_MANTIS_CHOICE" />
+	
+	<event load="ENCOUNTER_REBEL" />
+	<event load="ENCOUNTER_AUTO_ASTEROID" />
+	<event load="ENCOUNTER_AUTO_WARNING" />
+	
+	<event load="ENCOUNTER_REBEL_PULSAR" />
+</eventList>
+
+<event name="ENCOUNTER_MANTIS">
+	<text load="TEXT_ENCOUNTER_MANTIS" />
+	<ship load="SHIP_MANTIS_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_MANTIS">
+	<text>カマキリの軍艦が、人間の貨物船の残骸と並んで地元のレーダーに現れます。敵対的な出会いに備えましょう！</text>
+	<text>カマキリの軍の偵察隊があなたの船を歓迎します。 「愚かなエイリアン！あなたはあまりにも長い間偉大さを抑えてきました！あなたは連邦を支持する日を失います！」</text>
+	<text>小さなカマキリ巡洋艦が広帯域周波数で繰り返しメッセージを放送しています。「領土に入るカマキリ以外の船は没収されます。あなたの命を大切にするなら、盾を下げて降伏してください。」</text>
+	<text>あなたは小さな軍の前哨基地と近くの数人の貨物船を発見しました。孤立した場所にあるこのミネラル豊富な惑星は、マンティスの違法な採掘作業に最適です。あなたがあなたの選択肢を考えるとき、船は前哨基地から進水します。戦いの準備をしなさい。</text>
+	<text>あなたはさらに別の無免許で未知のマンティスコロニーを発見します。彼らは確かに彼らの主張を拡大する時間を無駄にしません。あなたが飛び去る前に、カマキリの船があなたを迎撃するために移動します。</text>
+	<text>カマキリの軍の偵察隊は、近くの難破船でサルベージ作戦を終えたばかりのようです。彼らは警告で無駄にする時間がなく、戦いたいように見えます。</text>
+	<text>小さな軍の工芸品があなたを歓迎し、カマキリの船長があなたの受信機に現れます。 「すべての地元の植民地は連邦の違反で罰せられました。処理に提出してください。」</text>
+	<text>近くのマンティス船が攻撃的な操縦を開始します。あなたは最悪の事態に備えます。</text>
+	<text>クリックとゴロゴロの流れは、敵対的なマンティススカウトからの通信に来ます。万能翻訳機は瞬く間にいるかもしれませんが、彼の意図は明らかです。</text>
+	<text>マンティスの船はあなたに会えてうれしく思い、武器システムを始動させます。</text>
+	<text>あなたは暗闇に対してカマキリの船の輪郭を認識します。従事！</text>
+	<text>何か赤い織機。カマキリです。</text>
+	<text>マンティスの船から連絡があった。「呼びかけは単なる気晴らしだ！」 彼らのシールドと武器がオンラインになったことに気づくだろう。</text>
+	<text>港の窓のそばで、レーザーの火が一瞥しているのに気づきます。カマキリがあなたの上にいます。</text>
+	<text>カマキリはあなたを歓迎します。彼らの船長は、「私は自分の一族のために船を要求します。良い狩りをします！」と言います。</text>
+	<text>カマキリの女性がvidscreenに登場します。彼らが特に悪質でない限り、女性は権威にそれをしません。あなたは武器に動力を与えます。</text>
+	<text>戦士の部族のマークが付いたカマキリの船が位置を壊して攻撃します！</text>
+	<text>カマキリの船は、「ああ！素晴らしい獲物。素晴らしい獲物！私たちは、最も精巧な武器を持っていることを光栄に思います！」と呼びかけます。あなたはこの銀色の裏地に雲を感じ、武器に動力を与えます。</text>
+	<text>地球上の子供たちは、かつて惑星を脅かしていた血のように赤いカマキリの侵入船の恐ろしい話を聞かれます。あなたは武器を無料で注文します！</text>
+	<text>若々しいマンティスの船長が呼びかけます。 「あなた、獲物、知っている必要があります。あなたの死、Kaaazthwakの成熟前の最後の殺害。Kaaazthwakは敬意を払います。」カマキリ文化への敬意はレーザーで支払われているようです。</text>
+</textList>
+
+<event name="MANTIS_CHASE" unique="true">
+	<text>あなたはすぐに印象的な見た目のカマキリの船に歓迎されます、「船は強力な素晴らしい賞品を作ります。戦いの準備をしてください！」</text>
+	<ship load="SHIP_MANTIS_CHASE1" hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="MANTIS_CHASE2">
+	<text>あなたは前に逃げたカマキリの船に追いつきますが、彼らが彼らの乗組員をさらに大きな船に移すのを見るだけです！</text>
+	<ship load="SHIP_MANTIS_CHASE2" hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>「二度とあなたではありません！あなたは私にどれくらいの修理がかかるか知っていますか？大きな銃を取る時間です。」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+
+<event name="MANTIS_SUN_FIGHT" unique="false">   
+	<text>なぜカマキリが太陽の近くで冒険するのか誰にも分かりません。おそらくそれはより多くの挑戦になりますか？</text>
+	<ship load="SHIP_MANTIS_FIGHT" hostile="true" />
+	<environment type="sun" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+
+<eventList name="NEUTRAL_MANTIS">
+	<event load="MANTIS_FIGHT_CHOICE" />
+	<event load="MANTIS_CIVILIAN" />
+	<event load="MANTIS_CREW" />
+	
+	<event load="MANTIS_SLUG_TAUNT" />
+	<event load="MANTIS_PIRATE_FAKE" />
+	<event load="MANTIS_BROKEN_TELEPORTER" />
+	
+	<event load="BROKEN_REBEL_DRONE" />
+	
+	<event load="ALISON_MANTIS_CREW_MV" />
+</eventList>
+
+<event name="MANTIS_BROKEN_TELEPORTER">
+	<text>あなたはカマキリの船に歓迎されています。 「爪による修理がどれほど難しいかわかりません。テレポーターが壊れています。修理してもらえますか？とても親切なので、お支払いします。」</text> 
+	<ship load="SHIP_MANTIS_FIGHT" hostile="false" />
+	<choice hidden="true">
+		<text>テレポーターの修理を手伝うことに同意します。</text>
+		<event load="MANTIS_BROKEN_TELEPORTER_YES" />
+	</choice>
+	<choice hidden="true" req="doors" lvl="2">
+		<text>（Upg. Doors）同意しますが、罠の場合はドアをしっかりとロックしてください。</text>
+		<event load="MANTIS_BROKEN_TELEPORTER_YES_DOORS" />
+	</choice>
+	<choice hidden="true" req="REPAIR">
+		<text>（修理ドローン）修理ドローンを派遣して修理します。 [-1ドローンパート]</text>
+		<event load="MANTIS_BROKEN_TELEPORTER_YES_REPAIR" />
+	</choice>
+	<choice hidden="true" req="BOMB_HEAL_SYSTEM">
+		<text>（バーストの修理）爆弾を使ってテレポーターを修理します。 [-1発のミサイル]</text>
+		<event load="MANTIS_BROKEN_TELEPORTER_YES_BOMB" />
+	</choice>
+	<choice hidden="true">
+		<text>仕方がない。</text>
+		<event load="MANTIS_BROKEN_TELEPORTER_NO" />
+	</choice>
+</event>
+<eventList name="MANTIS_BROKEN_TELEPORTER_YES">
+	<event>
+		<text>船をカマキリにドッキングすると、すぐにドアから充電されます。彼らの船は敵対的になります、そしてあなたは戦いの準備をしなければなりません。</text>
+		<ship hostile="true" />
+		<boarders min="2" max="2" class="mantis" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>彼らのテレポーターは確かに危機的な状態にあるように見えます。それを修正するのにそれほど時間はかかりません、そして、マンティスは約束されたようにあなたに支払います。</text>
+		<autoReward level="MED">standard</autoReward>
+	</event>
+</eventList>
+<eventList name="MANTIS_BROKEN_TELEPORTER_YES_DOORS">
+	<event>
+		<text>船をマンティスにドッキングすると、すぐにドアの料金が請求されます。幸いなことに、彼らは彼らの道を突破することができませんが、あなたはまだ彼らの船に対処しなければなりません。</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>カマキリはあなたをだまそうとしているようには見えません、そして彼らのテレポーターは確かに危機的な状態にあるように見えます。それを修正するのにそれほど時間はかかりません、そして、マンティスは約束されたようにあなたに支払います。</text>
+		<autoReward level="MED">scrap_only</autoReward>
+	</event>
+</eventList>
+<eventList name="MANTIS_BROKEN_TELEPORTER_YES_REPAIR">
+	<event>
+		<text>マンティスは乗組員の代わりにドローンを見て驚いています、そして彼らが彼らの敵意を明らかにするのにそれほど時間はかかりません。彼らはドローンを切断し、彼らの船は敵対的になります。</text>
+		<item_modify>
+			<item type="drones" min="-1" max="-1" />
+		</item_modify>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>マンティスのテレポーターは確かに危機的な状態にあるように見えます。ドローンがそれを修正するのにそれほど時間はかかりません、そしてマンティスは約束されたようにあなたに支払います。</text>
+		<autoReward level="HIGH">scrap_only</autoReward>
+		<item_modify>
+			<item type="drones" min="-1" max="-1" />
+		</item_modify>
+	</event>
+</eventList>
+<eventList name="MANTIS_BROKEN_TELEPORTER_YES_BOMB">
+	<event>
+		<text>カマキリはあなたのバースト武器が彼らの船を狙っているのを見て驚いています。彼らが常に敵対的な意図を持っていたのか、あなたの修理バーストが本当の武器であると思っているのかは関係ありません。なぜなら、カマキリは敵対的になっているからです。</text>
+		<item_modify>
+			<item type="missiles" min="-1" max="-1" />
+		</item_modify>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>マンティスのテレポーターは確かに危機的な状態にあるように見えます。あなたの爆弾はすぐにそれを修正し、カマキリは約束通りにあなたに支払います。</text>
+		<autoReward level="HIGH">scrap_only</autoReward>
+		<item_modify>
+			<item type="missiles" min="-1" max="-1" />
+		</item_modify>
+	</event>
+</eventList>
+<eventList name="MANTIS_BROKEN_TELEPORTER_NO">
+	<event>
+		<text>「いいです。本当のことを言ってください、私たちは嘘をつきます。今、私たちはあなたから物資を受け取り、さらに良いテレポーターを作ります！」</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>カマキリはそれ以上押し込もうとはしません。</text>
+		<choice>
+			<text>船に乗って何かをしなさい。</text>
+			<event load="STORAGE_CHECK" />
+		</choice>
+		<choice>
+			<text>何もしない。</text>
+			<event />
+		</choice>
+	</event>
+</eventList>
+
+<event name="MANTIS_PIRATE_FAKE"> 
+	<text>カマキリの海賊船がこのビーコンを守り、ハイブの執行者の1人であると主張しています。彼らはあなたが彼らにスクラップか奴隷のどちらかを支払うか、あるいは全滅することを要求します。</text> 
+	<ship load="SHIP_PIRATE_MANTIS" hostile="false" />
+	<choice hidden="true">
+		<text>ごみ。</text>
+		<event>
+			<text>あなたは海賊に死以外の何かを与えることに興味がないことを明らかにします。あなたは二人とも戦いの準備を急いでいます。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>彼らの料金を払ってください。</text>
+		<event>
+			<text>カマキリは満足して飛び去り、失われたスクラップに不平を言うようになります。</text>
+			<item_modify>
+				<item type="scrap" min="-25" max="-35" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>奴隷を引き渡す。</text>
+		<event>
+			<text>マンティスが乗って来て、あなたの乗組員の1人を選んで彼らと一緒に持ち帰ります。あなたの乗組員は彼ら自身を解放しようと奮闘します、しかしあなたが彼らの最後に見るのは船から引きずり出されて叫んでいます。</text>
+			<removeCrew>
+				<clone>false</clone>
+				<text>乗組員のクローンを作成するのは魅力的ですが、あなたは彼らをあきらめることにしました。そして、そのためのフェデレーションコードを破ることはありません。</text>
+			</removeCrew>
+		</event>
+	</choice>
+</event>
+
+<event name="MANTIS_SLUG_TAUNT" unique="true"> 
+	<text>ナメクジとカマキリの船がこのビーコンで戦っているように見えますが、武器はまだ発射されていません。両方の船が同時にあなたを歓迎します。ナメクジは最初に、「フェデレーション、私がssssureであるsssomeone elssseが、弱々しいエンドウ豆の頭脳を持ったMantisssのユーモアと方言での哀れな試みをどのように評価するか！」と話します。カマキリは彼らを断ち切ります、「あなたは愚かな者です！聞いてください、あなたがどのようにsを引きずり出すか。劣等感の本当の兆候」。どちらの船も状況についてのあなたの意見を熱心に待っています。</text> 
+	<choice hidden="true">
+		<text>ナメクジが優れていることに同意します。</text>
+		<event>
+			<text>ナメクジはカマキリを指差して笑いますが、カマキリが激怒し、武器と攻撃を強化すると切断されます！</text>
+			<ship load="SHIP_MANTIS_TAUNT" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>カマキリが優れていることに同意します。</text>
+		<event>
+			<text>ナメクジはカマキリがうめき声を上げると不平を言う。彼らのエゴでのあなたのショットに激怒し、スラッグはあなたに向かってその武器バレルをアクティブにします！</text>
+			<ship load="SHIP_SLUG_TAUNT" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>二人とも仲良くできないの？</text>
+		<event>
+			<text>カマキリとナメクジは、2人が同時に「ナッ」と言う前に、しっかりと1分間お互いをちらりと見つめ、武器を燃やしながら、お互いに向かってまっすぐ飛んでいきます。あなたは戦いに巻き込まれる前に飛び去ります。</text>
+		</event>
+	</choice>
+</event>
+<event name="MANTIS_SLUG_TAUNT_MANTIS_WIN">   
+	<text>ナメクジは、彼のすでに大きく膨らんだ自我が再び拡大されたので、カックルします。彼は明らかにあなたを劣っていると思っていますが、彼はマンティス船の残骸と一緒にあなたにいくつかの追加の燃料を与えます。</text>
+	<autoReward level="LOW">standard</autoReward>
+	<item_modify>
+		<item type="fuel" min="4" max="6" />
+	</item_modify>
+</event>
+<event name="MANTIS_SLUG_TAUNT_SLUG_WIN">   
+	<text>カマキリは勝利の叫びを上げ、奇妙な儀式の踊りを披露します。彼らはあなたにナメクジの船の残骸を残し、飛び去ります。</text>
+	<autoReward level="MED">standard</autoReward>
+</event>
+
+
+
+<event name="ALISON_MANTIS_CREW_MV" unique="true">	
+	<text>非常に武装したエンギ船が小さな海賊船を破壊するのを見るのにちょうど間に合うように到着します。テレポーター信号が検出されました...デッキへの侵入者！</text>
+	<choice>
+		<text>継続する...</text>
+		<event>
+			<text>焦げた制服を着た若いカマキリが甲板にテレポートしました。彼はエンギに聖域を求め、あなたの保護と引き換えに奉仕することを申し出ます。エンギはすでにテレポーター信号を追跡しており、囚人と引き換えに取引を提供しています。</text>
+			<choice hidden="true">
+				<text>逃亡者の側に立ち、エンギ船と戦ってください。</text>
+				<event load="ALISON_MANTIS_CREW_HELP" />
+			</choice>
+			<choice hidden="true">
+				<text>賞金と引き換えにカマキリを提供することに同意します。</text>
+				<event load="ALISON_MANTIS_CREW_REJECT" />
+			</choice>
+			<choice hidden="true" req="mind">
+				<text>（マインドコントロール）決断を下す前に、カマキリが受動的であることを確認してください。</text>
+				<event>
+					<text>マンティスのシンプルなマインドのおかげで、マインドコントロールの効果によってすぐに抑制されます。</text>
+					<choice hidden="true">
+						<text>逃亡者の側に立ち、エンギ船と戦ってください。</text>
+						<event load="ALISON_MANTIS_CREW_HELP_SAFE" />
+					</choice>
+					<choice hidden="true">
+						<text>賞金と引き換えにカマキリを提供することに同意します。</text>
+						<event load="ALISON_MANTIS_CREW_REJECT_SAFE" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ALISON_MANTIS_CREW_HELP">
+	<event>
+		<text>罠だった！ Mantisは、ビームを放つ前に、なんとかエンジンを妨害しました。</text>
+		<ship load="SHIP_ENGI_MANTIS_CONTROLLED" hostile="true" />
+		<status type="divide" target="player" system="engines" amount="2" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>カマキリは彼の感謝を表明し、あなたが彼の追跡者と戦うのを助ける準備をします。</text>
+		<ship load="SHIP_ENGI_FIGHT" hostile="true" />
+		<crewMember amount="1" class="mantis" />	
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="ALISON_MANTIS_CREW_REJECT">
+	<event>
+		<text>エンギの船長は喜んでおり、囚人の移送を迅速に手配します。</text>
+		<autoReward level="HIGH">scrap_only</autoReward>
+	</event>
+	<event>
+		<text>カマキリの目には怒りが火花を散らす。彼は簡単に行けず、捕らえられる前に深刻なダメージを与えます。</text>
+		<autoReward level="HIGH">scrap_only</autoReward>
+		<damage amount="4" />
+		<damage amount="1" system="room" effect="fire" />
+	</event>
+	<event>
+		<text>追跡している船は、完全に理解できないメッセージで応答します。若いカマキリは注意をそそり、戦いの姿勢をとります。罠だった！</text>
+		<boarders min="1" max="1" class="mantis" />
+		<ship load="SHIP_ENGI_MANTIS_CONTROLLED" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="ALISON_MANTIS_CREW_HELP_SAFE">
+	<event>
+		<text>これは罠であることが意図されていたようです！しかし、カマキリがまだ呪文の下にあるので、彼らはダメージを与えることができず、あなたはすぐに彼らを倒します。戦いはまだ避けられないようです。</text>
+		<ship load="SHIP_ENGI_MANTIS_CONTROLLED" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>カマキリは彼の感謝を表明し、あなたが彼の追跡者と戦うのを助ける準備をします。あなたはカマキリからマインドコントロールをリダイレクトし、戦う準備をします。</text>
+		<ship load="SHIP_ENGI_FIGHT" hostile="true" />
+		<crewMember amount="1" class="mantis" />	
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="ALISON_MANTIS_CREW_REJECT_SAFE">
+	<event>
+		<text>エンギの船長は喜んでおり、囚人の移送を迅速に手配します。</text>
+		<autoReward level="HIGH">scrap_only</autoReward>
+	</event>
+	<event>
+		<text>怒りはカマキリの目に火花を散らしますが、マインドコントロールのために、彼は倒れる前にあなたの床に単一の引っかき傷を引き起こす以上のことはほとんどできません。</text>
+		<autoReward level="HIGH">scrap_only</autoReward>
+	</event>
+	<event>
+		<text>追跡している船は、完全に理解できないメッセージで応答します。これが罠だったことが明らかになりましたが、幸いなことにマインドコントロールのおかげで、カマキリを倒して、ハイジャックされた船との戦いにすぐに進むことができます。</text>
+		<ship load="SHIP_ENGI_MANTIS_CONTROLLED" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="MANTIS_FIGHT_CHOICE" unique="false">   
+	<text load="MANTIS_FIGHT_CHOICE" />
+	<ship load="SHIP_MANTIS_FIGHT" hostile="false" />
+	<choice hidden="true">
+		<text>船を攻撃します。</text>
+		<event>
+			<text>あなたは戦闘の準備をします。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>隠されたままにしようとします。</text>
+		<event load="MANTIS_FIGHT_CHOICE_AVOID" />
+	</choice>
+	<choice hidden="true" req="cloaking" lvl="1">
+		<text>（クローキング）隠れたままにするマント。</text>
+		<event load="MANTIS_FIGHT_CHOICE_CLOAK" />
+	</choice>
+</event>
+<textList name="MANTIS_FIGHT_CHOICE">
+	<text>あなたは珍しい光景に迎えられます：あなたに気づいていないように見えるカマキリの船。</text>
+	<text>一度は、彼らがあなたに会う前に、あなたはカマキリに会います。</text>
+	<text>彼らがあなたの意図した座標で待ち伏せで待っているカマキリの軍艦を見るとき、あなたの乗組員はあなたがマークからどこかでジャンプしたことに気付くと安心します。</text>
+	<text>あなたはマンティスの通信のおしゃべりを耳にします：「否定的です、私はより多くの人間を殺します！」あなたは目立ってゴロゴロしますが、幸いなことに彼らはまだあなたに会っていません。</text>
+	<text>あなたはマンティスのコミュニケーションのおしゃべりを耳にします：「右側の人が腐り始めています。彼を降ろしてください。指を離してください。エアロックを外してください。」彼らは確かに友好的ではないようです...</text>
+	<text>あなたはマンティスの通信のおしゃべりを耳にします：「同意しました。次はあなたの番を出荷します。良い狩りをします。」彼らはまだあなたに会っていません。</text>
+</textList>
+<eventList name="MANTIS_FIGHT_CHOICE_AVOID">
+	<event>
+		<text>重要でないシステムの電源を切り、FTLドライブが充電されるのを待ちます。彼らは戦いたくないか、あなたの船に気づかなかったかのどちらかであり、後者の可能性が高いです。</text>
+	</event>
+	<event>
+		<text>あなたが離れるチャンスがある前に、マンティスの船はあなたに気づき、彼らの武器をパワーアップします。</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>見過ごされないように、重要でないシステムの電源を切ります。彼らが突然向きを変えて、武器を動力源としてあなたに向かって進路を設定したとき、彼らは去ろうとしているように見えます。</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="MANTIS_FIGHT_CHOICE_CLOAK">
+	<event>
+		<text>あなたはすぐに船を覆い、即時のスキャン範囲から移動します。あなたは気づかれずに逃げ出したようです。</text>
+	</event>
+	<event>
+		<text>不要なシステムをクロークしてシャットダウンします。短時間でカマキリの船が飛び去り、獲物を探していることは間違いありません。</text>
+	</event>
+	<event>
+		<text>あなたはすぐに船を覆い隠しますが、十分な速さではありません。彼らはあなたを見つけて、従事するために移動します。</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="MANTIS_CIVILIAN" unique="false">   
+	<text load="MANTIS_CIVILIAN" />
+	<ship load="SHIP_MANTIS_CIVILIAN" hostile="false" />
+	<choice hidden="true">
+		<text>民間船を助けてください。</text>
+		<event>
+			<text>あなたは眉をひそめ、武器の電源を入れ、カマキリの船と交戦する準備をします。今日ではありません。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>それを避けてください。</text>
+		<event>
+			<text load="MANTIS_CIVILIAN_AVOID" />
+		</event>
+	</choice>
+</event>
+<textList name="MANTIS_CIVILIAN">
+	<text>カマキリの船があなたのビュースクリーン、武器、エンジンを完全に通り過ぎて点滅します。センサーの読み取り値の小さなブリップは、採石場を示します。</text>
+	<text>あなたは遠くでカマキリの船の狩猟を見つけます。</text>
+	<text>民間人と交戦するカマキリの船があなたを歓迎します。彼が「この人間に近づかないでください！次はあなたを！」と叫ぶと、彼のコックピットの周りに火花が飛び交います。</text>
+	<text>ローカルセンサーは、激しい戦闘に従事している2隻の船を検出します。カマキリの軍艦は確実に獲物を打ち負かすようです。</text>
+	<text>あなたは民間船から遭難信号を受信します。カマキリの船に追われています！</text>
+</textList>
+<textList name="MANTIS_CIVILIAN_AVOID">
+	<text>喫煙すると、民間船は足を引きずります。あなたは未来に目を向けます。</text>
+	<text>FTLが回転する音は、爆発をほとんどかき消します。ほとんど。</text>
+	<text>あなたは彼らを通過させ、それについて考えないようにします。</text>
+</textList>
+
+<event name="MANTIS_CREW" unique="true">
+	<text>近くに浮かんでいる脱出ポッドを検出して取得します。カマキリだとわかったら、宇宙に戻すことを検討します。</text>
+	<choice>
+		<text>ポッドのジェティソン。</text>
+		<event>
+			<text>ポッドをエアロックから送り返します。あなたは愚かではありません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それをこじ開けます。</text>
+		<event load="MANTIS_CREW_LIST" />
+	</choice>
+	<choice hidden="true" req="INFO_MACHINE">
+		<text>（アナライザー）ポッドの内部映像にアクセスします。</text>
+		<event load="MANTIS_CREW_LIST_ANALYZER" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_SHELL">
+		<text>（シェルクルー）シェルにポッドを開いてもらいます。</text>
+		<event load="MANTIS_CREW_LIST_SHELL" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ROCK">
+		<text>（ロッククルー）ロックにポッドを開いてもらいます。</text>
+		<event load="MANTIS_CREW_LIST_ROCK" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ANCIENT">
+		<text>（オベリスククルー）オベリスクにポッドを開けてもらいます。</text>
+		<event load="MANTIS_CREW_LIST_ANCIENT" />
+	</choice>
+</event>
+<eventList name="MANTIS_CREW_LIST_ANALYZER">	
+	<event>
+		<text>この映像は、ポッドの内部に狂犬病の興奮したマンティスが含まれていることを示しています。それを開くことは災害につながるだけであることを知っているので、あなたはそれを宇宙に投棄することを選びます。</text>
+	</event>
+	<event>
+		<text>映像は、彼らの運命を心配そうに待っている、リラックスしたマンティスを中に示しています。あなたがそれを開くと、マンティスは地面に落ち、あなたの足元でうなり声を上げます。 「ああ、最も優雅で高貴な船長、あなたは私を惜しまない！私の感謝と奉仕を受け入れてください。」</text>
+		<crewMember amount="1" class="mantis" />
+	</event>
+	<event>
+		<text>映像は、彼らの運命を心配そうに待っている人間の内部を示しています。カマキリの捕われの身のまれな生存者。落ち着いたら、生存者はしばらくの間あなたの乗組員に加わることを申し出ます。</text>
+		<crewMember amount="1" class="human" />
+	</event>
+</eventList>
+<eventList name="MANTIS_CREW_LIST">	
+	<event>
+		<text>中のカマキリは激怒しています。彼は1回のスワイプで最も近い人を半分にカットします。誰かが怪我をする前にそれを殺しなさい。</text>
+		<boarders min="1" max="1" class="mantis" />
+		<removeCrew>
+			<clone>true</clone>
+			<text>カマキリは、それがクローンベイから出て行ったばかりの乗組員を見てショックを受けました。</text>
+		</removeCrew>
+	</event>
+	<event>
+		<text>ポッドを開くとすぐに、中のカマキリが地面に倒れ、足元でうなり声を上げます。 「ああ、最も優雅で高貴な船長、あなたは私を惜しまない！私の感謝と奉仕を受け入れてください。」</text>
+		<crewMember amount="1" class="mantis" />
+	</event>
+	<event>
+		<text>男がライフポッドの叫び声から飛び出し、隅に向かって鉤爪をします。カマキリの捕われの身のまれな生存者。落ち着いたら、生存者はしばらくの間あなたの乗組員に加わることを申し出ます。</text>
+		<crewMember amount="1" class="human" />
+	</event>
+</eventList>
+<eventList name="MANTIS_CREW_LIST_SHELL">	
+	<event>
+		<text>ポッドが開くとすぐに、怒っているカマキリが飛び出し、シェルに爪を植えます。これにより、すぐに自己防衛反射として燃焼し、この脅威を中和します。彼らの体の構造のために、あなたの乗組員は致命的な傷を受けていないようです。</text>
+	</event>
+	<event>
+		<text>ポッドを開くとすぐに、中のカマキリが地面に倒れ、足元でうなり声を上げます。 「ああ、最も優雅で高貴な船長、あなたは私を惜しまない！私の感謝と奉仕を受け入れてください。」</text>
+		<crewMember amount="1" class="mantis" />
+	</event>
+	<event>
+		<text>男がライフポッドの叫び声から飛び出し、隅に向かって鉤爪をします。カマキリの捕われの身のまれな生存者。落ち着いたら、生存者はしばらくの間あなたの乗組員に加わることを申し出ます。</text>
+		<crewMember amount="1" class="human" />
+	</event>
+</eventList>
+<eventList name="MANTIS_CREW_LIST_ROCK">	
+	<event>
+		<text>あなたの乗組員はポッドを開きます...それはあなたの岩にすぐに跳躍する凶暴なマンティスを解放します。彼らの攻撃者の動揺状態にもかかわらず、彼らはカマキリを制御し、持ち上げたままであるように見えます。その後、部屋全体にその妨害を叩きつけ、その攻撃による怪我はなかったようです。乗組員はもう危険にさらされていませんが、その状況の血まみれの混乱の後に郠?屋を片付けたほうがいいでしょう。</text>
+	</event>
+	<event>
+		<text>ポッドを開くとすぐに、中のカマキリが地面に倒れ、足元でうなり声を上げます。 「ああ、最も優雅で高貴な船長、あなたは私を惜しまない！私の感謝と奉仕を受け入れてください。」</text>
+		<crewMember amount="1" class="mantis" />
+	</event>
+	<event>
+		<text>男がライフポッドの叫び声から飛び出し、隅に向かって鉤爪をします。カマキリの捕われの身のまれな生存者。落ち着いたら、生存者はしばらくの間あなたの乗組員に加わることを申し出ます。</text>
+		<crewMember amount="1" class="human" />
+	</event>
+</eventList>
+<eventList name="MANTIS_CREW_LIST_ANCIENT">	
+	<event>
+		<text>オベリスクはゆっくりとポッドに向かって進み、目の中のそのような原始的な装置がどのように機能するかについて戸惑っているように見えます。彼らがそれを活性化する方法を理解すると、暴れ回るマンティスが現れ、すぐに彼らを襲います。オベリスクは、無駄なスワイプにほとんど悩まされているようで、頑丈な体にはほとんど影響を与えませんが、最終的には疲れて攻撃耠?を崩壊させ、侵入者の痕跡は灰だけになります。</text>
+	</event>
+	<event>
+		<text>ポッドを開くとすぐに、中のカマキリが地面に倒れ、足元でうなり声を上げます。 「ああ、最も優雅で高貴な船長、あなたは私を惜しまない！私の感謝と奉仕を受け入れてください。」</text>
+		<crewMember amount="1" class="mantis" />
+	</event>
+	<event>
+		<text>男がライフポッドの叫び声から飛び出し、隅に向かって鉤爪をします。カマキリの捕われの身のまれな生存者。落ち着いたら、生存者はしばらくの間あなたの乗組員に加わることを申し出ます。</text>
+		<crewMember amount="1" class="human" />
+	</event>
+</eventList>
+
+
+<eventList name="DISTRESS_MANTIS">
+	<event load="DISTRESS_ESCORT_BEACON" />
+	<event load="DISTRESS_FRIENDLY_BEACON" />
+	<event load="DISTRESS_TRAP_BEACON" />
+	<event load="DISTRESS_TRAPPED_MINER" />
+	<event load="DISTRESS_SATELLITE_DEFENSE" />
+	<event load="DISTRESS_STATION_FIRE" />
+	<event load="DISTRESS_STATION_DISEASE" />
+	
+	<event load="DISTRESS_MANTIS_IDLE" />
+</eventList>
+
+
+
+<eventList name="ITEMS_MANTIS_HIVE">
+	<event load="MANTIS_CAPTURE_COMMANDO" />
+	<event load="MANTIS_GAMBLE" />
+
+</eventList>
+
+
+<eventList name="HOSTILE_MANTIS_HIVE">
+	<event load="ENCOUNTER_MANTIS_HIVE" />
+	<event load="ENCOUNTER_MANTIS_HIVE" />
+	<event load="ENCOUNTER_MANTIS_KAMIKAZE" />
+	<event load="ENCOUNTER_ROGUE_HIVE" />
+	<event load="ENCOUNTER_MANTIS_STATION_HIVE" />
+	
+	<event load="ENCOUNTER_BISHOP_CHOICE" />
+	
+	<event load="ENCOUNTER_SUZERAIN_HIVE" /> 
+	
+	<event load="MANTIS_SUN_FIGHT" />
+</eventList>
+
+<event name="ENCOUNTER_MANTIS_HIVE">
+	<text load="TEXT_ENCOUNTER_MANTIS_HIVE" />
+	<ship load="SHIP_MANTIS_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_MANTIS_HIVE">	
+	<text>カマキリが他の分野で致命的であると思った場合、あなたが彼らの領土に入ったときのカマキリの怒りに匹敵するものはありません。</text>	
+	<text>ハイブマンティスはあまり友好的ではありませんが、あなたが彼らのハイブに侵入したので、彼らはあなたの船を破壊するために何にも立ち止まりません。猛烈なカマキリの船があなたを見つけて攻撃します。</text>	
+	<text>あなたはカマキリの船に歓迎されています。 「連邦の肉袋？ここハイブに？あなたには死の願いがあります。それを認めさせてください！」</text>	
+	<text>あなたは、ハイブに侵入した最後の貧しい船の残骸を掃討するカマキリの船の光景に迎えられます。彼らの攻撃者はあなたを次の例にするために移動します。</text>	
+	<text>このビーコンでカマキリの船からの連絡を受け取ります。 「あなたはハイブに来るので、ハイブを離れてはならないことを理解しなければなりません！」</text>	
+	<text>カマキリの船が移動して攻撃し、ハイブを船から守ることになります。</text>	
+	<text>ここのマンティス船があなたに気付くのにそれほど時間はかかりません。彼らはあなたを歓迎します。 「連邦はハイブでは歓迎されません！あなたはこれを知っています、それでもあなたはここに来ます。死ぬ準備をしてください。」</text>	
+		
+	<text>何か赤い織機。カマキリです。</text> 	
+</textList>	
+
+
+<eventList name="ENCOUNTER_SUZERAIN_HIVE">
+	<event load="ENCOUNTER_SUZERAIN_HIVE_1" />
+	<event load="ENCOUNTER_SUZERAIN_HIVE_2" />
+</eventList>
+<event name="ENCOUNTER_SUZERAIN_HIVE_1" unique="true">
+	<text load="TEXT_ENCOUNTER_SUZERAIN" />
+	<ship load="SHIP_SUZERAIN_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="ENCOUNTER_SUZERAIN_HIVE_2" unique="true">
+	<text load="TEXT_ENCOUNTER_SUZERAIN" />
+	<ship load="SHIP_SUZERAIN_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_SUZERAIN">	
+	<text>宗主国は考慮されるべき力ではありません。残念ながら、このビーコンは現在スゼラインをホストしており、彼らはあなたと一緒に考えたいと思っているようです。</text>	
+	<text>スゼライン船が近づき、攻撃の準備が整いました！あなたは銃を武装させるために急いでいます。</text>	
+	<text>宗主国は、銀河系で最強の戦士になるようにカマキリの司教たちによって選ばれ、訓練されています。残念ながら、このビーコンでは、スゼラインの船の1つと対峙していることに気づきます。</text>	
+	<text>シアンの船体を一目見ただけで、このビーコンにいる船はスゼラインであることがわかります。あなたは戦いの準備をします。</text>	
+	<text>宗主国はドローンと搭乗技術の両方を利用して敵を殺します。あなたはスゼライン船と向かい合って戦うしかありません。</text>	
+	<text>あなたは近くの船に乗っているスゼラインの戦士に歓迎されています。 「ああ、連邦船。私がスゼラインになって以来、あなたは私が最初に殺したのです！私はあなたに感謝し、あなたを死に迎えます。」</text>	
+	<text>カマキリの船があなたを歓迎し、それがスゼラインによって導かれているのを見るとあなたは青ざめます。 「あなたは臆病者ではありません、そうですか？いいですね、私は挑戦を探します。私は挑戦を歓迎します！血浴の準備をしてください。」</text>	
+</textList>
+
+<event name="ENCOUNTER_BISHOP_CHOICE" unique="true">
+	<text>カマキリの司教に出会うのに不運な人は、後で物語を語ることはめったにありません。ここの船がまだあなたを発見していないという事実がなければ、同じことがあなたにも言われたかもしれません。あなたが望むなら、まだ逃げる時間があります。</text>
+	<ship load="SHIP_BISHOP_FIGHT" hostile="false" /> 
+	<choice hidden="true">
+		<text>私たちはそれらを取ることができます！</text>
+		<event>
+			<text>あなたはここで大きなリスクを冒して司教船と戦うことにしました。それが報われることを願いましょう。</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>すぐに出発します。</text>
+		<event />
+	</choice>
+</event>
+
+<event name="ENCOUNTER_COALITION_HIVE" unique="true">
+	<text>連合がマンティスハイブの支援を受けているので、彼らの船はしばしばここで見つけることができます。連邦船を破壊する機会を逃すようなものではなく、彼らは攻撃します。</text>
+	<ship load="SHIP_COALITION_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ENCOUNTER_MANTIS_KAMIKAZE" unique="true">
+	<text>あなたはカマキリに歓迎されます。カマキリはあなたに直面する前に必死になって部屋の中をぐるぐる回ります。 「ハイブのセキュリティが危険にさらされました、あなたのせいです！死は唯一の方法です。ハイブが生きるために私は死にます！」</text>
+	<ship load="SHIP_MANTIS_KAMIKAZE" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ENCOUNTER_MANTIS_STATION_HIVE" unique="true">
+	<text>マンティスステーションがここに配置されているようです。どういうわけかあなたは知りませんが、ステーションはあなたを脅威とみなし、あなたの方向に発砲し、反撃するしかありません。</text>
+	<ship load="SHIP_MANTIS_STATION" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ENCOUNTER_ROGUE_HIVE" unique="true">
+	<text>クランズマン船はすでにこのビーコンにいます。彼らはあなたを歓迎します、彼らの船長はくすくす笑っています。 「ああ、ここに連盟のssshipがありますか？私は娯楽のためにthessse freaksssを嫌がらせるためにここに頻繁に来ますが、thisss isssは見逃すチャンスが多すぎます！」</text>
+	<ship load="SHIP_CLAN_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+
+
+
+<eventList name="NEUTRAL_MANTIS_HIVE">
+	<event load="MANTIS_FIGHT_CHOICE" />
+	<event load="MANTIS_CREW" />
+	
+	<event load="HIVE_VETERAN" />
+	<event load="HIVE_JAILER_CHOICE" />
+	<event load="HIVE_SUZERAIN_COMPLEX" />
+	<event load="HIVE_MANTIS_AUTO_SITUATION" />
+	
+	<event load="MANTIS_SLUG_TAUNT" />
+	<event load="MANTIS_PIRATE_FAKE" />
+	<event load="MANTIS_BROKEN_TELEPORTER" />
+	
+	<event load="ALISON_MANTIS_CREW_MV" />
+</eventList>
+
+<event name="HIVE_VETERAN" unique="true">
+	<text>このビーコンはスゼライン船の本拠地です。彼らはあなたを歓迎します。「私はこれには年を取りすぎています。カマキリと人間の戦争で戦ってから何日も経ち、地球への侵入は多くの体と心の傷を残しました。ここで戦わないでください。無意味な憎しみからの不必要な流血はどこにも行きません。」</text>
+	<ship load="SHIP_SUZERAIN_FIGHT" hostile="false" />
+	<choice hidden="true">
+		<text>私たちはあなたが殺したすべての人に復讐します！</text>
+		<event>
+			<text>「はぁ、何を期待していましたか？ここで死んだ者が至福に行くことができるように、戦いましょう。」</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_MANTIS">
+		<text>（Mantis Crew）スゼラインにあなたに加わるよう説得してください。</text>
+		<event>
+			<text>「あなたは友情を築きたいですか？1つ、何、何年も続くのですか？はい、私がそうすることを受け入れてください。」</text>
+			<crewMember amount="1" class="mantis_suzerain" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それらを避けてください。</text>
+		<event>
+			<text>スゼラインは彼らの言葉に忠実であり、あなたを追いかけません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="HIVE_MANTIS_AUTO_SITUATION" unique="true">
+	<text>カマキリの船がビーコンの近くを周回しているようです。あなたは彼らのスゼラインのリーダーであるとあなたが想定しているものとの会話を傍受します。</text>
+	<choice hidden="true">
+		<text>それが何を意味するにせよ、「生きている船」を殺すことを申し出なさい。</text>
+		<event>
+			<text>カマキリはあなたが彼らを呼ぶ勇気を持っていることにショックを受けていますが、あなたの申し出に対してオープンであるように見えます。彼らは、問題の船は実際には失われ、マンティスの集落を攻撃し始めた自動化された反乱軍の船であり、問題を処理するために派遣されたと説明しています。 「生きている船を殺したいのなら、何か特別なものが必要です。そうすれば、私たちは感謝し、あなたに支払います。スゼライン・カラザワカによって斬首されるよりも、敵からの助けを受け入れるほうがよいでしょう。」</text>
+			<choice hidden="true" req="hacking">
+				<text>（ハッキング）ハッキングがあります。</text>
+				<event>
+					<text>「よかった、はい、これはうまくいくかもしれません。さあ、私たちはあなたに出荷することを示します。」彼らはあなたをオートシップに導きます。オートシップは民間のカマキリ船を苦しめている最中です。あなたは戦う準備をします。</text>
+					<ship load="SHIP_HIVE_AUTO_SITUATION" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="cloaking">
+				<text>（クローキング）クローキングがあります。</text>
+				<event>
+					<text>「よかった、はい、これはうまくいくかもしれません。さあ、私たちはあなたに出荷することを示します。」彼らはあなたをオートシップに導きます。オートシップは民間のカマキリ船を苦しめている最中です。あなたは戦う準備をします。</text>
+					<ship load="SHIP_HIVE_AUTO_SITUATION" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="weapons" lvl="5">
+				<text>（Adv. Weapons）私たちは優れた武器システムを持っています。</text>
+				<event>
+					<text>「よかった、はい、これはうまくいくかもしれません。さあ、私たちはあなたに出荷することを示します。」彼らはあなたをオートシップに導きます。オートシップは民間のカマキリ船を苦しめている最中です。あなたは戦う準備をします。</text>
+					<ship load="SHIP_HIVE_AUTO_SITUATION" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="BLUELIST_CREW_NO2">
+				<text>（嫌気性菌）無酸素環境で生き残ることができる菌がいます。</text>
+				<event>
+					<text>「よかった、はい、これはうまくいくかもしれません。さあ、私たちはあなたに出荷することを示します。」彼らはあなたをオートシップに導きます。オートシップは民間のカマキリ船を苦しめている最中です。あなたは戦う準備をします。</text>
+					<ship load="SHIP_HIVE_AUTO_SITUATION" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="BLUELIST_MISSILES_ALL">
+				<text>（ミサイル兵器）防御を迂回するミサイル兵器があります。</text>
+				<event>
+					<text>「よかった、はい、これはうまくいくかもしれません。さあ、私たちはあなたに出荷することを示します。」彼らはあなたをオートシップに導きます。オートシップは民間のカマキリ船を苦しめている最中です。あなたは戦う準備をします。</text>
+					<ship load="SHIP_HIVE_AUTO_SITUATION" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>特別なことは何もありませんが、それでも同じように資格があります。</text>
+				<event>
+					<text>「いやいや！分からない、準備ができていないとこの船はあなたを殺す。あなたは役に立たない。多分カラザワカは死んだ連邦船を連れてきたら私たちを惜しまないだろう...」</text>
+					<ship load="SHIP_MANTIS_FIGHT" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>船を攻撃します。</text>
+		<event>
+			<text>あなたはカマキリの船を殺す以外に興味はありません。あなたは武器をパワーアップして従事します。</text>
+			<ship load="SHIP_MANTIS_FIGHT" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>飛び去る。</text>
+		<event>
+			<text>あなたはカマキリの船があなたを見たに違いないと思うが、彼らは追跡しようとはしない。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="HIVE_MANTIS_AUTO_SITUATION_SUCCESS">
+	<text>「驚いたことに、私たちはあなたが死ぬことを期待し、死体をリーダーに戻します。それでも、これもうまくいきます。」オートシップを廃棄します。</text> 
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>あなたの給料を求めなさい。</text>
+		<event>
+			<text>カマキリは不平を言う。 「いいでしょう、そうです、これは約束されました。ここで、これを取り、二度とこれを話さないでください。」</text>	
+			<autoReward level="RANDOM">standard</autoReward>
+		</event>
+	</choice>
+</event>
+
+<event name="HIVE_JAILER_CHOICE" unique="true">
+	<text>ハイブはしばしば、侵入者を誘拐するために刑務官の船について送ります。この用語にはあなたも含まれます。幸いなことに、ここの刑務官はまだあなたに会っていません。あなたは刑務官を攻撃してその捕虜を解放しようとするか、またはあなたがまだできる間に逃げることができます。</text>
+	<ship load="SHIP_SUZERAIN_JAILER" hostile="false" />
+	<choice hidden="true">
+		<text>船を攻撃します。</text>
+		<event>
+			<text>あなたは囚人を生きさせたいのなら彼らの乗組員を殺さなければならないことを知って、刑務官を破壊するために引っ越します。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="FIREARMS_AND_TELEPORT">
+		<text>（武器庫+テレポーター）刑務官を襲撃します。</text>
+		<event>
+			<text>あなたの乗組員は、歯に武装して、刑務官に乗り込み、すぐにそれを配置しているスゼラインの乗組員を降ろします。刑務官が囚人に変わったので、あなたはあなたがすぐにあなたを殺すとは思わない、閉じ込められたすべての人を解放します。</text>
+			<crewMember amount="1" class="LIST_CREW_FEDERATION" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>刑務官を避けてください。</text>
+		<event>
+			<text>あなたが逃げるとき、刑務官は気づいていないようです。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="HIVE_JAILER_KILL">
+	<text>あなたは刑務官を破壊しましたが、残念ながら、どの捕虜も爆発を生き延びませんでした。あなたは残骸をスクラップし、漂流する死体を避けようとします。</text> 
+	<autoReward level="MED">standard</autoReward>
+</event>
+<event name="HIVE_JAILER_CAPTURE">
+	<text>刑務官の乗組員は死んでいますが、捕虜のほとんどは戦いを生き延びました。彼らのほとんどは、あなたがハイブから出たらすぐに降ろされることを要求しますが、1人のボランティアが後ろにいてあなたの船に乗って働きます。</text> 
+	<autoReward level="MED">standard</autoReward>
+	<crewMember amount="1" />
+</event>
+
+<event name="HIVE_SUZERAIN_COMPLEX" unique="true">
+	<text>宗主国は、カマキリの司教たちによって誕生から選ばれ、ハイブの周りに点在する特別な機関でエリート戦士として訓練されます。そのような複合体の1つが近くの惑星に設置されました。あなたが推測しなければならなかったならば、それはおそらく非常によく保護されています。</text>
+	<img planet="PLANET_POPULATED" />
+	<choice hidden="true" req="weapons" blue="false">
+		<text>複合施設に発砲します。</text>
+		<event>
+			<text>予想されるように、あなたの武器はほとんど防御をへこませることさえできません。あなたが撃ち始めた瞬間、あなたは彼らにあなたの存在を警告し、彼らの最高の警備員の一人があなたを破壊するために派遣されます。</text>
+			<ship load="SHIP_SUZERAIN_COMPLEX_GUARD" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="teleporter">
+		<text>（テレポーター）複合施設を妨害するために搭乗チームを派遣します。</text>
+		<event load="HIVE_SUZERAIN_COMPLEX_TELEPORTER" />
+	</choice>
+	<choice hidden="true">
+		<text>複合体はそのままにしておきます。</text>
+		<event>
+			<text>重要なマンティスの構造を襲撃するよりも、やるべきことがもっと重要です。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="HIVE_SUZERAIN_COMPLEX_WIN_STUPID">
+	<text>あなたは警備員を打ち負かしました、しかしあなたはもっと彼らの道に疑いの余地がないことを知っています。あなたはすぐにあなたができることを捨てて去ります。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice req="MAGNET_ARM" hidden="true">
+		<text>（マグネットアーム）マグネットを使用して、追加の消耗品を引き込みます。</text>
+		<event>
+			<autoReward level="MED">stuff</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event />
+	</choice>
+</event>
+<eventList name="HIVE_SUZERAIN_COMPLEX_TELEPORTER">
+	<event>
+		<text>あなたは乗組員の位置をロックしようとしますが、彼らがテレポートしてから間もなく、状況が熱くなっていることがわかります。肉が引き裂かれ、悲鳴を上げ、続いて静音が聞こえる独特の音が聞こえます。乗組員に急いで戻るように命令しましたが、そのうちの1人が行方不明です。他に選択肢がないので、あなたはまだできるうちに逃げますが、複合施設の警備員の1人が追跡します。</text>
+		<ship load="SHIP_SUZERAIN_COMPLEX_GUARD" hostile="true" />
+		<removeCrew>
+			<clone>true</clone>
+			<text>あなたの最近殺害された乗組員は、まだ彼らの喉をつかんで、クローンベイからつまずきます。頭がまだしっかりと体に付いていることを確認したら、警備員から身を守るために急いでいます。</text>
+		</removeCrew>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>彼らが化合物の迷路のようなステンレス鋼の廊下を旅するとき、あなたはあなたの乗組員と連絡を取り続けます。小さなハンドヘルド爆薬を可能な限り配置すると、乗組員は気付かれずに急いで船の安全に戻り、爆弾を遠隔で爆発させます。爆発が建物を揺さぶり、彼らの防御が陥没するのを見ることができます。さらなる攻撃から身を守る方法がないので、彼らはあなたの要求だ?屈し、スクラップと彼らのエンギの奴隷の一人を譲ります。エンギに尋問すると、訓練生を見ることで戦闘スキルを著しく習得できたことがわかり、乗組員の間で役立つと判断しました。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<crewMember amount="1" class="engi" combat="2" />
+	</event>
+</eventList>
+
+
+<eventList name="DISTRESS_BEACON_MANTIS_HIVE">
+</eventList>
+
+
+<eventList name="QUESTS_MANTIS_HIVE">
+	<event load="QUEST_HIVE_FREEMANTIS_HUNTER" />
+</eventList>
+
+<event name="QUEST_HIVE_FREEMANTIS_HUNTER" unique="true">
+	<text>フリーマンティスがハイブに戻って嫌いになることはめったにないので、このビーコンでマイナーな修理をしているように見えるフリーマンティスの船を見るのはかなり衝撃的です。</text>
+	<choice hidden="true">
+		<text>通信を試みます。</text>
+		<event>
+			<text>無料のカマキリはあなたに会えて恍惚です。 「完璧な日、ここでお会いできてうれしいです、キャプテン！重要な情報があります。ここに私たちが見つけたマンティスキャンプの座標があります。あなたが望むことをしてください。すぐに出発して一族に戻らなければなりません。ベスト幸運を祈ります。」</text>
+			<quest event="QUEST_HIVE_FREEMANTIS_HUNTER_CAMP" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>船を無視します。</text>
+		<event>
+			<text>船が脅威をもたらすとは思えませんが、通信することに興味はありません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="QUEST_HIVE_FREEMANTIS_HUNTER_CAMP" unique="true">
+	<text>フリーマンティスによってあなたに明らかにされたマンティスウォーキャンプは、予想よりもはるかに小さいです。さまざまなサイズのマンティス船に囲まれた単一のステーションがビーコンを周回しています。彼らはあなたに会いません。</text>
+	<choice hidden="true">
+		<text>他のはるかに大きな船を怒らせることを知って、駅を攻撃してください。</text>
+		<event>
+			<text>あなたは駅に向かって飛んで、その主要なインフラストラクチャを攻撃します。最大の船の1つは、駅を守るために分離します。</text>
+			<ship load="SHIP_MANTIS_HUNTER_CAMP" hostile="true" /> 
+			<environment type="PDS" target="player" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="cloaking" max_lvl="2">
+		<text>（Upg. Cloaking）マントに隠れている間にステーションを妨害します。</text>
+		<event load="QUEST_HIVE_FREEMANTIS_HUNTER_CAMP_CLOAK" />
+	</choice>
+	<choice hidden="true" req="cloaking" lvl="3">
+		<text>（Adv. Cloaking）マントに隠れている間にステーションを妨害します。</text>
+		<event>
+			<text>あなたはマントに隠されて、船体に大きなダメージを与えることに成功し、ステーションを危険にさらしました。爆発により、ドッキングされたマンティスの船が飛び去り、残骸を残します。</text>
+			<autoReward level="MED">standard</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>離れる。</text>
+		<event>
+			<text>サイズに関係なく、あらゆる種類のマンティスキャンプを攻撃するには自殺する必要があります。あなたは彼らの視界から外れていると確信するまで飛び去ります。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="QUEST_HIVE_FREEMANTIS_HUNTER_CAMP_CLOAK">
+	<event>
+		<text>あなたはマントに隠されて、船体に大きなダメージを与えることに成功し、ステーションを危険にさらしました。爆発により、ドッキングされたマンティスの船が飛び去り、残骸を残します。</text>
+		<autoReward level="MED">standard</autoReward>
+	</event>
+	<event>
+		<text>あなたは駅を破壊しようとしますが、船体をうまく破壊する前にマントが外れます。攻撃はドッキングされた船のほとんどを飛ばしますが、ステーション自体はまだ立っていて、あなたに降伏しようとはしていません。</text>
+		<ship load="SHIP_MANTIS_STATION" hostile="true" /> 
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<event name="QUEST_HIVE_FREEMANTIS_HUNTER_CAMP_WIN">
+<removeHazards />
+	<text>臆病のまれな表示では、残りのマンティス船はあなたと戦って逃げようとはしません。駅に移動する前に、倒したばかりの船の船体をスクラップします。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>ステーションを強制的に降伏させます。</text>
+		<event>
+			<text>それを守るための船が残っていないので、ステーションはあなたの要求に応え、より多くのスクラップを渡します。</text>
+			<autoReward level="HIGH">standard</autoReward>
+		</event>
+	</choice>
+</event>
+
+
+
+
+
+<event name="HIVE_MERCENARY" unique="true">
+	<preventQuest />
+	<text>あなたはこのシステムを通してあなたがフォローされているという感覚を揺さぶるしかないのです。周囲で基本的なスキャンを実行するのにしばらく時間を費やした後、あなたの疑惑が根拠のないものではなかったことが明らかになります。ビショップの船は、武器がオフラインになっているにもかかわらず、自分自身を明らかにします。</text>
+	<ship load="SHIP_BISHOP_GENERIC" hostile="false" />
+	<choice hidden="true">
+		<text>彼らのメッセージを聞くのを待ってください。</text>
+		<event>
+			<text>宇宙船に乗っているにも関わらず走っていたかのように息を切らして、女性の司教が画面に現れます。 「あなたは連邦多元宇宙船ですよね？彼女の王室の威厳ある女王ライコンプリイナクラがあなたに要求したので、非公式と過去の不便を無視してください。私たちはあなたにハイブの忠誠や安全な旅行の約束を提供することはできませんが、あなたは女王の感謝の尊敬の念を与えられます！そして、あなたがそう主張するなら、おそらく十分な現金報酬。」</text>
+			<choice hidden="true">
+				<text>申し出を聞いてください。</text>
+				<event>
+					<text>「この領土には、将来の宗主国と司教のための孵化場があります。しかし、危険な不正な脱北者が孵化場を手に入れました。女王の命令により、卵を確保して新しい場所に移動する必要があります。孵化場の座標をに転送しますあなたは今です。そこでお会いしましょう。」</text>
+					<quest event="HIVE_MERCENARY_HATCHERY" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>ごみ。</text>
+				<event>
+					<text>「残念な姿勢ですが、抗議する時間はありません。支援しない場合は、ライコンプリイナクラの軍隊があなたを発見する前に、すぐにハイブを離れることをお勧めします。」</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<instantEscape />
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>何も危険を冒さず、すぐに攻撃します。</text>
+		<event>
+			<text>あなたは忍耐力のある人ではありません。これはおそらく重要なことでしたが、最初のストライキを行うことでその可能性を完全に放棄しました。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<ship name="SHIP_HATCHERY" auto_blueprint="MU_SUZERAIN_CRUISER">
+	<triggeredEvent name="HATCHERY_TIMER_START" event="HIVE_MERCENARY_HATCHERY_TIMER" enemyDamage="7" enemyDeaths="3" />
+	<destroyed load="HIVE_MERCENARY_HATCHERY_WIN" />
+	<deadCrew load="HIVE_MERCENARY_HATCHERY_WIN" />
+	<crew>
+		<crewMember type="mantis" prop="0.80" />
+		<crewMember type="mantis_suzerain" prop="0.20" />	
+	</crew>
+</ship>
+<event name="HIVE_MERCENARY_HATCHERY" unique="true">
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<nebulaBeacon>false</nebulaBeacon>
+		<aggressive>2</aggressive>
+	</quest>
+	<beaconType id="map_icon_hatchery" global="true">
+		<color r="220" g="35" b="32" a="1.0" />
+		<unvisitedTooltip>Location of the Mantis hatchery.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+	</beaconType>
+	<img planet="PLANET_POPULATED" />
+	<text>孵化場に到着しましたが、他の司教船の兆候は見られません。しかし、ここには巨大なスゼラインクルーザーがいます。どうすればいいのかわからない。</text>
+	<ship load="SHIP_HATCHERY" hostile="false" />
+	<choice hidden="true">
+		<text>自分で孵化場を攻撃します。</text>
+		<event>
+			<text>巡洋艦には、司教が率いる宗主国がいくつかいるようです。そのメッセンジャーは嘘をついていませんでした、この孵化場はこれだけの安全に値するために重要であるに違いありません。巨大な戦いの時間！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>孵化場を避けてください。</text>
+		<event>
+			<text>他の司教がいなければ、あなたはその計画が何であるかを確信することはできません。あなたがまだ生きている間、危険を冒して去らないほうがよいです。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="HIVE_MERCENARY_HATCHERY_TIMER">
+	<text>あなたはたまたま戦っている間に他の司教船が到着したことに気づきました。しかし、あなたを助けるために来る代わりに、それは代わりに孵化場の隣に着陸し、その貨物に卵を積み込み始めました。彼らは立ち往生するつもりはないようですので、彼らと対峙したいのなら、この巡洋艦をすぐに殺さなければなりません！</text>
+	<clearTriggeredEvent name="HATCHERY_TIMER_START" />
+	<triggeredEvent event="HIVE_MERCENARY_HATCHERY_FAIL" time="60" thisFight="true" clearOnJump="true">
+		<triggeredEventBox load="DEFAULT_TIMER" pos="combat">
+			<warning time="15.0" flash="true" />
+			<tooltip>If you can't kill the Suzerain Cruiser before the time runs out, the Bishop will escape with the eggs.</tooltip>
+		</triggeredEventBox>
+		<timerSounds load="DEFAULT_TIMER_SOUNDS" />
+	</triggeredEvent>
+</event>
+<event name="HIVE_MERCENARY_HATCHERY_FAIL">
+	<text>あなたは十分に速くなかったようです-そして今、司教は卵を持って飛び去りました！スゼラインクルーザーも気づきました。それは、すぐにフォーカスをあなたから逃げるビショップの軌道に切り替え、その後ジャンプするからです！これはすべてただ1つの巨大な策略だったようです...</text>
+	<instantEscape />
+</event>
+<event name="HIVE_MERCENARY_HATCHERY_WIN">
+	<text>スゼラインクルーザーが敗北しました。船の巨大な船体は惑星の表面に衝突しますが、幸いなことに、それは孵化場自体ではなく近くの川に着陸します。マンティスの下の労働者とエンギの奴隷は逃げるが、ビショップ船はまだ貨物の積み込みを終えていない。</text>
+	<variable name="ach_boss_suzzycruiser" op="set" val="1" />
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>ビショップと対峙する。</text>
+		<event>
+			<text>「あなたは生き残っていますか？不可能ですが、印象的です！あなたは私の父と同じように戦います！」</text>
+			<choice hidden="true">
+				<text>なぜ私たちを気晴らしとして使ったのですか？どうしたの？</text>
+				<event>
+					<text>「私はこのような対決を計画していませんでしたが、告白する時が来ました。私は、リピオキニス女王の下で監督制が創設されて以来、最初に任命された女性司教であるライイカルカピです。マンティスへの奉仕-私がこれらの卵を戦士の命から守ることは、私の目的を果たし、私と同じように育てることです。」</text>
+					<choice hidden="true">
+						<text>では、どこで卵を取りますか？</text>
+						<event>
+							<text>「私は計画を立てました。ハイブから離れたフリーマンティスの植民地は、それらを自分たちのものとして取り上げて育てることに同意しました。これがより良い家になると信じています。その後どうなるかわかりません。運命はハイブへの裏切り者としての私の死は確かです。しかし、それは高貴な死です。それはあなたにとって心配ではありません。私があなたをだましてい゠?かもしれませんが、あなたは私を大いに助けてくれました。あなたが今日敗北した巡洋艦。あなたの連邦がその力を利用できるように。」</text>
+							<unlockCustomShip silent="false">PLAYER_SHIP_SUZERAIN</unlockCustomShip>
+							<choice hidden="true">
+								<text>彼女を連れて行くことを申し出てください。</text>
+								<event>
+									<text>「え？あなたは本気ですか？私は通常は考えませんが...現実を救うことは許しを意味し、連邦での生活はハイブでの死よりも良いでしょう。おそらく私の遺産はここで終わらないでしょう。私は乗組員に卵を輸送させます彼ら自身。彼らは有能です。私はあなたとすぐに一緒にいるでしょう、船長。」</text>
+									<variable name="ach_crew_bishop" op="set" val="1" />
+									<crewMember amount="1" all_skills="2" class="mantis_bishop">Laiiikarkapi</crewMember>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>彼女の幸運を祈り、続けてください。</text>
+								<event>
+									<text>「はい、あなたも幸運を祈っていますように。おそらく、連邦での私の運命のニュースをすぐに聞くでしょう...」</text>
+								</event>
+							</choice>
+							<choice hidden="true" req="unique_kaz">
+								<text>女王を見つけるのに彼女の助けを求めてください。</text>
+								<event>
+									<text>「え？あなたは本気ですか？あなたが何を成し遂げたいのかわかりませんが、監督制の手による特定の死よりは確かに良いです。私は乗組員に自分で卵を輸送させます。彼らは有能です。私はします。キャプテン、一瞬あなたと一緒にいてください。」</text>
+									<crewMember amount="1" all_skills="2" class="mantis_bishop">Laiiikarkapi</crewMember>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event>
+											<text>Laiiikarkapiの指示とKazの計画により、MantisQueen自身を追跡できるようになります。これは簡単なことではありませんが、これをやめれば何ができるかは誰にもわかりません。 LaiiikarkapiとKazaaakがないと、道を見つけることができないので、必ず周りに置いてください。</text>
+											<quest event="HIVE" />
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<ship name="SHIP_BISHOP_BOSS" auto_blueprint="MU_BISHOP_CRUISER">
+	<destroyed load="HIVE_BISHOP_WIN" />
+	<deadCrew load="HIVE_BISHOP_WIN" />
+</ship>
+<event name="HIVE">
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<nebulaBeacon>false</nebulaBeacon>
+		<aggressive>2</aggressive>
+	</quest>
+	<beaconType id="map_icon_hive" global="true" req="mantis_bishop">
+		<color r="220" g="35" b="32" a="1.0" />
+		<unvisitedTooltip>Location of the Mantis Hive.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+	</beaconType>
+	<text>これがマンティスハイブです。街の大部分が地下の巨大な洞窟にあるので、見つけるのがとても難しいのも不思議ではありません。火力発電所はマグマの巨大な穴の周りに点在しており、中央には大都市が立っています。そんな距離からでも王宮が見えます…</text>
+	<img back="BACK_EVENT_HIVE" planet="NONE" />
+	<choice hidden="true" req="HIVE_QUEST_CREW">
+		<text>私たちはカズとライの両方を持っています、私たちはこれを行うことができます。</text>
+		<event>
+			<text>あなたが宮殿に近づき始めると、司教の警備員があなたを止めます。 「あなたはここにいることはできません！あなたは彼女の威厳のある宮殿にとても近づいたことを後悔するでしょう！」</text>
+			<choice hidden="true">
+				<text>ライに警備員と話してもらいます。</text>
+				<event>
+					<text>「それで、あなたは2人の裏切り者を運んでいますが、それでもハイブにアクセスしたいですか？私はその場であなたを殺しますが、女王は不名誉なカザークプレスキリックの到着を聞いて、彼に会いたいと思っています...」</text>
+					<choice hidden="true">
+						<text>宮殿に進みます。</text>
+						<event>
+							<text>あなたは宮殿に儀式的に「歓迎」され、短いファンファーレで、金色のローブを着たLeikonpliiinakraが現れます。ちなみに、カザアックが彼女を見ているのを見ると、彼女はカマキリにとって非常に望ましいはずです。彼女はあなたやライにほとんど注意を払わず、代わりにあなたのそばにいるマンティスの戦士とイチャイチャしています。いくつかの交換された手続きの後、彼女は宮殿に戻り、あなたは従うように案内されます。</text>
+							<choice hidden="true">
+								<text>従う。</text>
+								<event>
+									<text>次の場所は長い食堂で、テーブルはカマキリ料理で飾られています。ついに、Leikonpliiinakraはあなたのグループ全体に話しかけ、奇妙なことにマンティスのためによく話されました。 「私の最愛のカズが戻ってきたと聞いてすぐに、あなたがここに来ることを知っていました。座って、好きなだけごちそうしてください。あなたがここに来たどんなビジネスについても話し合います。」</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event>
+											<text>あなたはごちそうのほとんどをぎこちない沈黙の中で過ごし、カザークとレイクの間でたまにしか会話をしません。最終的に、事態はさらに深刻になります。 「私は連合空間でのカズの最近の動きに気づいていませんが、私は彼らに目をつぶることを選びました。あなたがハイブの同盟からの撤退を交渉するためにここに来たことを期待できます。」</text>
+											<choice hidden="true">
+												<text>はい。</text>
+												<event>
+													<text>「それなら、私は両方ともそのようなことをすることができず、影響も及ぼさないのではないかと心配しています。率直に言って、私が完全に反対することはないという考えである連立から撤退したとしても、あなたはあらゆる現実のライコンプリイナクラも撤退する。気づかないかもしれないが、連立はそれ自身の多くの現実を確保している。しかし、それにもかかわらず、ハ゠?ブは連立との関係を断ち切る立場にない。連立後-マンティス戦争で私たちの経済は崩壊し、泥棒政治と神権政治の産業力は私たちを大いに助けてくれました。」</text>
+													<choice hidden="true">
+														<text>おー...</text>
+														<event>
+															<text>その結論が出たので、LeikはKazaaakに戻ります。 「お詫び申し上げますが、あなたがいない場合、ハイブはあなたを好きになりませんでした。しかし、監督制と連邦キャプテンへの別の裏切り者と一緒に武装して旅行することはあなたのイメージを助けませんでした。私はあなたを愛していますが、女王としての私の役割は私を意味しますハイブの安全を最優先する必要があります〠?砂のどこに線が引かれているかは明らかなので、これで私たちの終わりを示す必要があります。ここで許可した別の理由があります。 Laiiikarkapi、あなたが持ってきた逃亡者。あなたをこの役割に任命したのは私のせいでしたので、お詫びします。しかし、そのようなことは罰せられることはありません。敬意を表して開催されます。」 Leikonpliiinakraが立ち上がり、彼女の警備員が武器を引きます。あなたはちょうど間に合うように宮殿から急いで出て、巨大な巡洋艦があなたを止めようとしているのを目撃します！ここから抜け出すために戦う時が来たようです。</text>
+															<ship load="SHIP_BISHOP_BOSS" hostile="true" />
+															<choice hidden="true">
+																<text>継続する...</text>
+																<event load="COMBAT_CHECK" />
+															</choice>
+														</event>
+													</choice>
+												</event>
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>これはできません。</text>
+		<event>
+			<text>あなたはこの使命の準備ができていません。これ以上先に進むリスクよりも、今すぐ引き返す方がよいでしょう。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="HIVE_BISHOP_WIN">
+	<text>ビショップクルーザーが敗北しました。明らかに、この船にはある程度の重要性があったに違いありません。それがなければ、司教軍が散らばっていたからです。その残骸からあなたは特別な武器を救い出します。 LaiiikarkapiがSuzerain巡洋艦であなたに与えた知識で、あなたは船のコンソールにアクセスしてその青写真をダウンロードする方法を理解します。</text>
+	<variable name="ach_boss_bishop" op="set" val="1" />
+	<unlockCustomShip silent="false">PLAYER_SHIP_BISHOP</unlockCustomShip>
+	<autoReward level="HIGH">standard</autoReward>
+	<weapon name="LASER_BISHOP" />
+	<choice hidden="true">
+		<text>Leikonpliiinakraの降伏を要求します。</text>
+		<event>
+			<text>あなたの要求は満たされておらず、あなたはあなたが何を期待していたのか確信が持てません。降伏することはマンティスの名誉の規範ではなく、特に連邦船に降伏することはありません。</text>
+			<choice hidden="true">
+				<text>宮殿を破壊します。</text>
+				<event load="HIVE_DESTROY" />
+			</choice>
+			<choice hidden="true">
+				<text>離れる。</text>
+				<event load="HIVE_LEAVE" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>宮殿を破壊します。</text>
+		<event load="HIVE_DESTROY" />
+	</choice>
+	<choice hidden="true">
+		<text>離れる。</text>
+		<event load="HIVE_LEAVE" />
+	</choice>
+</event>
+ 
+<event name="HIVE_DESTROY">
+	<text>司教軍が散らばり、巡洋艦の衝撃で防御が損なわれたため、宮殿の破壊にはそれほど時間はかかりません。攻撃中に女王が殺されたことはほぼ確実です。ハイブが今どうなるのか、それが連合に関与するのかは定かではありませんが、ここでの作業は完了です。多かれ少なかれ。</text>
+</event>
+<event name="HIVE_LEAVE">
+	<text>今日は大量虐殺の日ではありません。このように女王を殺すことはハイブの崩壊につながるでしょう、そしてそのすべてのためにカマキリはその運命に値しません。あなたが去るときに、これ以上船があなたを止めようとはしません。</text>
+</event>
+
+
+</FTL>

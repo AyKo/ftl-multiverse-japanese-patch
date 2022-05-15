@@ -1,0 +1,125 @@
+<FTL>
+
+<event name="FUEL_ESCAPE_PULSAR">
+	<text>最後の燃料備蓄を利用して、パルサーから安全な距離に移動することができました。</text>
+</event>
+
+<event name="FUEL_ESCAPE_PDS">
+	<text>インパルスエンジンを使用して、敵対的な惑星から安全な距離まで引っ張ることができました。</text>
+</event>
+
+<event name="FUEL_ESCAPE_FLEET">
+	<text>あなたがあなたの計画が何であるかを正確に整理しようとしている間、あなたのパイロットは周囲の艦隊からの砲撃を巧みに避けます。</text>
+</event>
+
+
+
+
+
+
+
+<event name="REBEL_PULSAR" unique="true">
+	<text load="REBEL_PULSAR_TEXT" />
+	<ship load="SHIP_REBEL_FIGHT" hostile="true" />
+	<environment type="pulsar" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="REBEL_PULSAR_TEXT">
+	<text>反乱軍の船長が画面に表示されます。 「私たちは背水の任務に運命づけられていたと思っていました。これはコマンドの良い恵みに戻るチャンスです！武器を充電してください！」</text>
+	<text>小さな反乱軍の研究基地は、脈動する星を見下ろしています。あなたが反応する前に、反乱軍の船があなたを見つけて攻撃に移ります。</text>
+	<text>パルサーの近くで、使用頻度の低いビーコンに到着します。やがて反乱軍の船がたまたま近くにジャンプしました。あなたは戦わなければならないように見えます。</text>
+</textList>
+
+<event name="PIRATE_PULSAR" unique="true">
+	<text load="PIRATE_PULSAR_TEXT" />
+	<ship load="SHIP_PIRATE_ALL" hostile="true" />
+	<environment type="pulsar" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="PIRATE_PULSAR_TEXT">
+	<text>近くのパルサーが検出されると、センサーが暴走します。 FTLドライブを再調整しようとしているときに、海賊が船に忍び寄り、武器を充電します。戦いの準備を！</text>
+	<text>ビュー画面を支配しているパルサーを見つけるために到着します。星の前に小さなシルエットのパスが見えます。それが何であるかを考える前に、警告信号が鳴ります。発射軌道に乗った船のようです！</text>
+	<text>小さな研究基地が近くのパルサーを周回しています。ほとんど見捨てられているように見えますが、スキャン距離に入るとすぐにパワーシグネチャがフレアアップしているのを検出します。小さな戦闘艦が駅から進水します。パイレーツ！</text>
+</textList>
+
+<event name="REBEL_PDS" unique="true">
+	<text load="REBEL_PDS_TEXT" />
+	<environment type="PDS" target="player" />
+	<ship load="SHIP_REBEL_FIGHT" hostile="true" />
+	<choice>
+		<text>戦う準備をしなさい。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice req="hacking" lvl="1">
+		<text>（単純なハッキング）対艦バッテリーのターゲットを混乱させます。</text>
+		<event>
+			<text>対象となる衛星の弱点を見つけます。あなたの乗組員は、対艦バッテリーのターゲティングマトリックスを混乱させるためにハッキングドローンを発射することができます。反乱軍の船にも発砲するはずです。</text>
+			<environment type="PDS" target="all" />
+			<item_modify>
+				<item type="drones" min="-1" max="-1" />
+			</item_modify>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="hacking" lvl="3">
+		<text>（高度なハッキング）対艦バッテリーのターゲットを上書きします。</text>
+		<event>
+			<text>対象となる衛星の弱点を見つけます。乗組員は、改良されたハッキングドローンを発射して、対艦バッテリーのターゲティングマトリックスを上書きすることができます。代わりに反乱軍の船に発砲します！</text>
+			<environment type="PDS" target="enemy" />
+			<item_modify>
+				<item type="drones" min="-1" max="-1" />
+			</item_modify>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<textList name="REBEL_PDS_TEXT">
+	<text>あなたはこの惑星で反乱軍の前方基地を発見することにショックを受けました。巡視船が迎撃のために移動し、センサーが対艦バッテリーが発砲しようとしていることを示します。ここから出なければなりません！</text>
+</textList>
+
+
+<event name="REBEL_AUTO_PDS" unique="true">
+	<text load="REBEL_AUTO_PDS_TEXT" />
+	<environment type="PDS" target="player" />
+	<ship load="SHIP_AUTO_FIGHT" hostile="true" />
+	<choice>
+		<text>戦う準備をしなさい。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice req="hacking" lvl="1">
+		<text>（単純なハッキング）対艦バッテリーのターゲットを混乱させます。</text>
+		<event>
+			<text>対象となる衛星の弱点を見つけます。乗組員はハッキングドローンを発射して、ASBのロック信号を定期的に混乱させることができます。時々反乱軍の船に発砲するはずです。</text>
+			<environment type="PDS" target="all" />
+			<item_modify>
+				<item type="drones" min="-1" max="-1" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice req="hacking" lvl="3">
+		<text>（高度なハッキング）ASBのターゲットをオーバーライドします。</text>
+		<event>
+			<text>対象となる衛星の弱点を見つけます。あなたの乗組員は、ASBのターゲットロックを上書きするために改良されたハッキングドローンを発射することができます。代わりに反乱軍の船に発砲します！</text>
+			<environment type="PDS" target="enemy" />
+			<item_modify>
+				<item type="drones" min="-1" max="-1" />
+			</item_modify>
+		</event>
+	</choice>
+</event>
+<textList name="REBEL_AUTO_PDS_TEXT">
+	<text>到着するとすぐに、複数の警告が鳴ります。敵対的な自動艦艇が検出され、対艦バッテリーが発射を開始します。これはよく見えません！</text>
+</textList>
+</FTL>

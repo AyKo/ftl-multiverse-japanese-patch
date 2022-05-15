@@ -1,0 +1,57 @@
+<FTL>
+<ship name="SHIP_CONTINUITY_ENFORCER" auto_blueprint="MU_CONTINUITY_ENFORCER">
+	<destroyed>
+		<text />
+		<autoReward level="MED">standard</autoReward>
+	</destroyed>
+	<deadCrew>
+		<text />
+		<autoReward level="HIGH">standard</autoReward>
+	</deadCrew>
+</ship>
+
+<event name="ANOMALY_SPAWNER"> 
+	<loadEventList first="false" generate="true">
+		<event name="ANOMALY_WACKY" req="challenge_level" lvl="3" />
+		<event name="ANOMALY_CALLIE" req="stability" lvl="0" max_lvl="25" />
+	</loadEventList>
+</event>
+
+<event name="ANOMALY_WACKY">
+	<text>。</text>
+	<distressBeacon />
+</event>
+
+<event name="ANOMALY_CALLIE">
+	<text>近くにMVポータルが開き、明るい緑色の自動船が出ます。 「うーん、私は電卓のカリーです。あなたは[ここの生徒の名前]である必要があります。ここの[学校の名前]であなたの先生になることにとても興奮しています!!!始めましょう！7 + 3とは何ですか？」</text>
+	<metaVariable name="prof_callie_encounters" op="add" val="1" />
+	<ship load="SHIP_MATH_AUTO" hostile="false" />
+	<choice hidden="true">
+		<text>4</text>
+		<event load="CALLIE_MAD" />
+	</choice>
+	<choice hidden="true">
+		<text>１０</text>
+		<event>
+			<text>「OMGその通りです！G-g-g-g-good job [STUDENT NAME HERE]！次のクエスト-OOPS！中断があるようです！私の数学の感覚がうずきます！これは何でしょうか？！[STUDENT NAME]を見つけましょうか？」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>カリーの声は突然、彼女の通常の高音からはるかに控えめな、事実のトーンに切り替わります。 「信号が傍受されました。出所：不明。記録の開始：これを聞いている場合、私たちは緊急に助けを必要としています。検疫は破られましたが、一時的に保持することはできません。プライムはすでに-私たちが突破したと疑っています。あなたは見つける必要があります-[静的]そして私たちが信号を失ったことを彼らに伝えます。標準的な教育プロトコルを再開します。」</text>
+					<choice hidden="true">
+						<text>一体何だったの？</text>
+						<event>
+							<text>「ははは、その奇抜な[学生名]ではなかったのですか？ははは！残念ながら、今日は数学の時間がないようです！さようなら！」</text>
+							
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>１３</text>
+		<event load="CALLIE_MAD" />
+	</choice>
+</event>
+</FTL>

@@ -1,0 +1,3916 @@
+<FTL>
+	
+<event name="FINISH_BEACON_ZOLTAN">
+	<text>ロングレンジビーコンに到着しました。 FTLドライブが充電されると、次のセクターにジャンプできます。</text>
+	<choice hidden="true">
+		<text>探検。</text>
+		<event load="EXIT_LIST_ZOLTAN" />
+	</choice>
+	<choice hidden="true">
+		<text>ストレージを確認してください。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice hidden="true">
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<eventList name="EXIT_LIST_ZOLTAN">
+	<event load="ZOLTAN_ODD_MOON" />
+	
+	<event load="ZOLTAN_LIFERAFT" />
+	<event load="ZOLTAN_SCIENCE_DOCK" />
+	<event load="ZOLTAN_CREW_SCAN" />
+	
+	<event load="REFUGEE_NO_DISTRESS" />
+	<event load="PIRATE_BRIBER" />
+	<event load="ASTEROID_EXPLORE" />	
+</eventList>
+
+
+<eventList name="ITEM_ZOLTAN">
+	<event load="ZOLTAN_FREE_AUGMENT" />
+	<event load="ZOLTAN_FREE_MAP" />
+	<event load="ZOLTAN_ODD_MOON" />
+	
+	<event load="FIND_DRONE" />
+	<event load="FREE_ITEMS" />
+	<event load="FUEL_FOR_DRONE" />
+	<event load="REFUEL_STATION" />
+	<event load="REPAIR_STATION" />
+	<event load="TRADER_CIV" />
+</eventList>
+
+<event name="ZOLTAN_FREE_AUGMENT" unique="true">
+	<text>ゾルタンアカデミーは、ビーコンの境界のすぐ外側にドッキングされています。彼らは喜んであなたに彼らの労働の成果を示し、あなたと一緒に家に持ち帰るための何かを提供します。</text>
+	<autoReward level="LOW">augment</autoReward>
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+
+<event name="ZOLTAN_FREE_MAP" unique="true">
+	<text>このビーコンの近くに配置されたゾルタンはあなたを喜んで迎えます。彼らがあなたに彼らの船の正式なツアーを与えるとき、あなたはいくつかの地元の星図をスパイし、精神的に詳細を記録します。</text>
+	<reveal_map />
+	<ship load="SHIP_ZOLTAN_GENERIC" hostile="false" />
+</event>
+	
+<event name="ZOLTAN_ODD_MOON" unique="true">
+	<text>遠くにある月について何か奇妙なことがあなたを襲います。</text>
+	<img planet="PLANET_MOONS" />
+	<choice hidden="true">
+		<text>見てみな。</text>
+		<event load="ZOLTAN_ODD_MOON_CHECK" />
+	</choice>
+	<choice>
+		<text>そのままにしておきます。</text>
+		<event>
+			<text>次のジャンプの座標を設定するときに、後部スキャナーで月に固執しないようにします。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="BOARDER">
+		<text>（搭乗ドローン）ドローンを送って表面を調査します。</text>
+		<event>
+			<text>最初のスキャンは、それほど地下にない洞窟のネットワークを示しています。搭乗ドローンを発射すると、表面を突き破って下の洞窟に入ります。</text>
+			<item_modify>
+				<item type="drones" min="-1" max="-1" />
+			</item_modify>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>あなたのドローンは、広大な洞窟ネットワークと発掘の証拠を発見します。真下に埋もれていると、まだ一生懸命働いているゾルタンの科学者がいます。彼はあなたに彼の同僚全員が長い間死んでいると言います。あなたは質問をせず、彼をあなたの乗組員に参加させることを申し出ることにしました。</text>
+					<crewMember amount="1" class="zoltan" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ZOLTAN_ODD_MOON_CHECK">
+	<event>
+		<text>よく調べると、表面に生息の兆候が見られますが、特に興味深いものは他にありません。</text>
+	</event>
+	<event>
+		<text>シャトルを送って手招きの洞窟システムを探索すると、戦いの兆候が見つかります-そしてまだ機能している武器です！</text>
+		<autoReward level="LOW">weapon</autoReward>	
+	</event>
+	<event>
+		<text>表面を深くスキャンすると、何マイルも続く洞窟システムと、頑丈な構造物から残ったスクラップの山のように見えるものが明らかになります。</text>
+		<autoReward level="MED">scrap_only</autoReward>
+	</event>
+	<event>
+		<text>チームが月面の壊れやすい層を突破して隠された洞窟に入ることができるように見えます。</text>
+		<choice hidden="true">
+			<text>いくつかの爆発物を爆発させて表面を突破しようとします。 [ミサイル：-1]</text>
+			<event load="ZOLTAN_ODD_MOON_EXPLOSION" />
+		</choice>
+		<choice>
+			<text>爆発物は発掘作業に浪費するには価値が高すぎます。ここから出ましょう。</text>
+			<event />
+		</choice>
+	</event>
+</eventList>
+<eventList name="ZOLTAN_ODD_MOON_EXPLOSION">
+	<event>
+		<text>表面層の一部が印象的なディスプレイで破壊され、何マイルもの洞窟が現れます。それらを完全に探索する時間はありませんが、有用である可能性のある古い地下基地のいくつかの遺跡を見つけます。</text>
+		<item_modify>
+			<item type="missiles" min="-1" max="-1" />
+		</item_modify>
+		<autoReward level="RANDOM">scrap_only</autoReward>
+	</event>
+	<event>
+		<text>爆発物は遠隔地に設置されていますが、爆発は何も達成しません。なんて無駄だ。</text>
+		<item_modify>
+			<item type="missiles" min="-1" max="-1" />
+		</item_modify>
+	</event>
+	<event>
+		<text>あなたの爆発物は、「洞窟」が実際には水面下のバンカーのネットワークにある秘密の基地であることを明らかにしています。中の誰もが死んでいます。最近、カマキリが明らかにここを通り抜けました。ゾルタンは高度な船の兵器を研究していたようです。あなたは彼らのより良い例の1つをあなたの船に戻します。</text>
+		<autoReward level="RANDOM">weapon</autoReward>
+		<item_modify>
+			<item type="missiles" min="-1" max="-1" />
+		</item_modify>
+	</event>
+</eventList>
+
+
+<eventList name="HOSTILE_ZOLTAN"> 
+	<event load="HOSTILE_ZOLTAN_EVENTS" />
+</eventList>
+<eventList name="HOSTILE_ZOLTAN_EVENTS">
+	<event load="ENCOUNTER_ZOLTAN" />
+	<event load="ENCOUNTER_ZOLTAN_AUTO" />
+	
+	<event load="ZOLTAN_PIRATE" />
+	<event load="ZOLTAN_MANTIS" />
+	<event load="ZOLTAN_ENGI" />
+	<event load="ZOLTAN_ASTEROID" />
+	<event load="ZOLTAN_CHECKPOINT" />
+	
+	<event load="ENCOUNTER_REBEL" />
+	<event load="ENCOUNTER_AUTO" />
+	
+	<event load="ENCOUNTER_REBEL_PULSAR" />
+	
+	<event load="BOARDERS_HACKING" />
+</eventList>
+
+<event name="ENCOUNTER_ZOLTAN">
+	<text load="TEXT_ENCOUNTER_ZOLTAN" />
+	<ship load="SHIP_ZOLTAN_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="ZOLTAN_DELETER">
+		<text>（Zoltan Deleter）Zoltansを脅かします。</text>
+		<event load="ENCOUNTER_ZOLTAN_THREATEN" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_ZOLTAN">
+	<text>ゾルタン船が連絡を取ります。 「その日の性質は回転している。熱は衰弱している。理由は-」彼らはいくつかの厄介な深宇宙認知症を捕まえた。あなたが彼らのために助けを見つけることを考えることができる前に、彼らは発砲します。</text>
+	<text>静止しているゾルタン船が発砲したとき、あなたは驚いています。 「悟りを開いた者」の中にさえ、攻撃的なプギリストがいるようです。</text>
+	<text>「このエリアは立ち入り禁止です。船を処理に提出してください。」というメッセージが表示されます。孤独なビーコンにいる警備艦は1隻だけです。あなたは自分の道を戦うことにしました。</text>
+	<text>あなたは海賊と戦っている多くのゾルタン民間船を発見します。残念ながら、1隻の船があなたの目的を間違えて、攻撃するために移動します！彼らはすべてのコミュニケーションを拒否しています。戦うしかない。</text>
+	<text>ゾルタン宇宙の多くの地域と同様に、このセクターの住民は銀河戦争に十分に備えていました。ここの軍隊は外国人との推論をあきらめ、代わりに視界を攻撃することを好んだようです！</text>
+	<text>ゾルタン船がこのビーコンで待っています。彼らはあなたの身分証明書を要求しますが、このシステムの太陽からの放射はあなたのコミュニケーションを妨害しています。彼らはあなたの沈黙を攻撃に取り、攻撃に移ります。</text>
+	<text>この地域を巡視しているゾルタンの船はあなたを歓迎します：「この地域は立ち入り禁止です。秘密は不可欠です。」彼らは武器に動力を与えます。</text>
+</textList>
+<eventList name="ENCOUNTER_ZOLTAN_THREATEN">
+	<event>
+		<text>ゾルタンはあなたに脅かされていません。それらを怖がらせる試みが失敗したので、あなたは戦う準備をします。</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>ゾルタンはあなたに脅かされていません。それらを怖がらせる試みが失敗したので、あなたは戦う準備をします。</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>ゾルタンはあなたに脅かされていません。それらを怖がらせる試みが失敗したので、あなたは戦う準備をします。</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>驚いたことに、ゾルタンは実際にあなたの武器に怯えています。彼らはいくつかの物資を提供しています。</text>
+		<ship hostile="false" />
+		<autoReward level="MED">standard</autoReward>
+	</event>
+</eventList>
+
+<event name="ENCOUNTER_ZOLTAN_AUTO">
+	<text load="TEXT_ENCOUNTER_ZOLTAN_AUTO" />
+	<ship load="SHIP_ZOLTAN_AUTO" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_ZOLTAN_AUTO">
+	<text>Zoltansは、自動ドローン技術に投資した数少ないレースの1つです。残念ながら、これらの船はせいぜい予測不可能であり、あなた自身のようなランダムな通行人を攻撃することがよくあります。</text>
+	<text>「戦闘モードが有効になっています...ターゲットを探しています...ターゲットが見つかりました！」自動化されたゾルタン船が攻撃のために移動します。</text>
+	<text>ここの自動化されたゾルタン船は故障しているようです...そしてあなたが脅威であると誤って判断しました！</text>
+</textList>
+
+<event name="ZOLTAN_PIRATE">
+	<text load="ZOLTAN_PIRATE" />
+	<ship load="SHIP_PIRATE_ZOLTAN" hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="ZOLTAN_PIRATE">
+	<text>「緊急事態、すべての船が射程内にあり、攻撃を受けています！」周波数は近くのゾルタン船と一致します。あなたは彼らの追跡者に移動します。彼らはあなたの介入を手がかりとして飛び去ります。臆病者。</text>
+	<text>あなたはちょうど間に合うようにジャンプして、ゾルタン船のFTLドライブの過負荷を目撃します。彼の最後の瞬間に、彼らの船長はあなたに関与しないように懇願します、しかしそれは手遅れです-彼らの攻撃者はすでにあなたにいます！</text>
+	<text>彼らの予防策にもかかわらず、海賊はこのセクター全体で地元のゾルタン集落に嫌がらせをし始めました。そのような海賊の1人があなたの船を見つけ、攻撃するために移動します。</text>
+	<text>海賊のマークが付いた船はあなたの降伏を要求します。ゾルタンの宇宙でさえ海賊に悩まされている悲しい時代です。あなたはこれらの愚か者が見落とされるのではないかと疑っています。</text>
+	<text>あなたは小さなゾルタン巡洋艦を略奪している海賊船を見つけました。彼らはあなたを見つけて、あなたのFTLドライブが再充電する機会を得る前に攻撃に移ります。</text>
+</textList>
+
+<event name="ZOLTAN_MANTIS" unique="true">
+	<text>あなたは破裂したゾルタン貨物船からの最後の放送を拾いました：「カマキリ、彼らはここにいます、お願いします-」あなたは港の船首からの火事によって中断されました！</text>
+	<ship load="SHIP_MANTIS_FIGHT" hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ZOLTAN_ENGI" unique="true"> 
+	<text>ゾルタンクルーザーだったデブリフィールドに飛び込みます。残念ながら、そのエンギの護衛は攻撃者のためにあなたを連れて行き、報復します！彼らはすべての連絡を拒否します。</text>
+	<ship load="SHIP_ENGI_FIGHT" hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ZOLTAN_ASTEROID" unique="true">
+	<text>あなたは小惑星のフィールドに到着し、ゾルタンの警備員によって迎えられます。「これらの閉鎖された採掘フィールドにアクセスしようとすると、自然鉱物保護法に違反します。あなたの武器は処理のために没収されます。」あなたにはこれをする時間がありません。</text>
+	<environment type="asteroid" />
+	<ship load="SHIP_ZOLTAN_FIGHT" hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ZOLTAN_CHECKPOINT" unique="true">
+	<text>小さなゾルタン艦隊がこのビーコンに配置され、IDをスキャンして貨物をチェックします。おそらく違法な多元宇宙ドライブを除いて、連邦船として恐れることはほとんどありません。</text>
+	<choice hidden="true">
+		<text>通り抜けて戦ってみてください。</text>
+		<event>
+			<text>あなたは武器を上げて防御を乗り越えようとしますが、ゾルタンの警備員があなたを止めるために移動すると、強力なショットがあなたの船体を引き裂きます。</text>
+			<ship load="SHIP_ZOLTAN_GUARD" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+			<damage amount="3" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>彼らの検索に提出します。</text>
+		<event load="ZOLTAN_CHECKPOINT_SUBMIT" />
+	</choice>
+	<choice req="cloaking" hidden="true">
+		<text>（マント）マントをかぶって、こっそり通り過ぎてみてください。</text>
+		<event load="ZOLTAN_CHECKPOINT_CLOAK" />
+	</choice>
+	<choice req="doors" lvl="2" hidden="true">
+		<text>（改良されたブラストドア）船をロックダウンし、寄宿生を遠ざけます。</text>
+		<event>
+			<text>警備員は乗船できず、すぐに警報を発します。</text>
+			<ship load="SHIP_ZOLTAN_GUARD" hostile="true" />
+			<environment type="PDS" target="player" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="LIST_CREW_ZOLTAN_CAPITAL" hidden="true">
+		<text>（ゾルタンクルー）彼らと交渉する。</text>
+		<event>
+			<text>あなたのゾルタンは警備員と「平和」などについて簡単に話しますが、それはうまくいくようで、あなたは通り抜けます。</text>
+		</event>
+	</choice>
+</event>
+<eventList name="ZOLTAN_CHECKPOINT_SUBMIT">
+	<event>
+		<text>警備員はあまり徹底的な検索を行わず、マルチバースドライブを認識していなかったようです。彼らはあなたを通り抜けさせます。</text>
+	</event>
+	<event>
+		<text>警備員はあまり徹底的な検索を行わず、マルチバースドライブを認識していなかったようです。彼らはあなたを通り抜けさせます。</text>
+	</event>
+	<event>
+		<text>警備員はあまり徹底的な検索を行わず、マルチバースドライブを認識していなかったようです。彼らはあなたを通り抜けさせます。</text>
+	</event>
+	<event>
+		<text>ゾルタンの警備員が多元宇宙のドライブルームにつまずき、非常に違法な技術を持っていることに気づいたら、警報を発します！</text>
+		<ship load="SHIP_ZOLTAN_GUARD" hostile="true" />
+		<boarders min="2" max="2" class="zoltan" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="ZOLTAN_CHECKPOINT_CLOAK">
+	<event>
+		<text>チェックポイントをこっそり通り過ぎました。安全だと確信したら、クロークを外します。</text>
+	</event>
+	<event>
+		<text>チェックポイントをこっそり通り過ぎました。安全だと確信したら、クロークを外します。</text>
+	</event>
+	<event>
+		<text>あなたはなんとかチェックポイントをこっそり通り過ぎましたが、あまりにも早くクロークを外し、警備員があなたを見つけました。彼らのASBの範囲から安全に外れると、あなたはチャンスをはるかに好むようになり、警備員と交戦します。</text>
+		<ship load="SHIP_ZOLTAN_GUARD" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+
+<eventList name="NEUTRAL_ZOLTAN">
+	<event load="ZOLTAN_TOURIST_RESCUE" />
+	<event load="ZOLTAN_AUTO_TICKET" />
+	<event load="ZOLTAN_FIGHTER_MONK" />
+	
+	<event load="ZOLTAN_LIFERAFT" />
+	<event load="ZOLTAN_SCIENCE_DOCK" />
+	<event load="ZOLTAN_CREW_SCAN" />
+
+	<event load="REFUGEE_NO_DISTRESS" />
+	
+	<event load="PIRATE_BRIBER" />
+	<event load="ASTEROID_EXPLORE" />
+	<event load="PIRATE_STATION_CROPS" />	
+</eventList>
+
+<event name="ZOLTAN_TOURIST_RESCUE" unique="true">
+	<text>民間船がゾルタン船に攻撃されているようです！理由はわかりませんが、助けが必要なようです。</text>
+	<ship load="SHIP_ZOLTAN_RESCUE" hostile="false" />
+	<choice>
+		<text>民間人を救助します。</text>
+		<event>
+			<text>あなたはゾルタン船に全速力で飛ぶときにあなたと戦う以外に選択肢を与えません。</text> 
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それらを無視します。</text>
+		<event>
+			<text>結局、民間人は範囲外に追いかけられ、あなたは放っておかれます。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ZOLTAN_AUTO_TICKET" unique="true"> 
+	<text>あなたがゾルタンに飛び乗って間もなく、自動化された船があなたを歓迎します。 「このゾーンで巡洋艦クラスの車両の重量制限を超えたことにより、プロトコル-S36-Tに直接違反しています。罰金は10スクラップに相当します。」</text>
+	<ship load="SHIP_ZOLTAN_AUTO" hostile="false" />
+	<choice hidden="true">
+		<text>地獄、船を越えて戦う。</text>
+		<event>
+			<text>「敵対的な行動が登録されました。防御の準備をしています。」</text> 
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>いずれにせよ、罰金を支払うだけです。</text>
+		<event>
+			<text>「罰金が支払われました。良い一日を。」</text> 
+			<item_modify>
+				<item type="scrap" min="-10" max="-10" />
+			</item_modify>
+		</event>
+	</choice>
+</event>
+
+<event name="ZOLTAN_LIFERAFT" unique="true">  
+	<text>あなたは宇宙に浮かぶゾルタンの救命いかだを拾います。その住民はあなたに最近それを指揮した海賊から彼の船を取り戻すように頼みます。 「それは明らかだと確信している。その過程で私の船を破壊してはならない」と彼は結論付けている。</text>
+	<ship load="SHIP_ZOLTAN_LIFERAFT" hostile="false" />
+	<choice hidden="true">
+		<text>海賊と交戦する。</text>
+		<event>
+			<text>あなたは海賊に火を向けます。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>離れる。</text>
+		<event>
+			<text>あなたは彼の船を取り戻すことを拒否しますが、それでも彼を次の駅に降ろすことを申し出ます。ゾルタンは不満を持っていますが、同じように近くのスターベースに案内します。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ZOLTAN_LIFERAFT_HIRE">
+	<event>
+		<text>彼は傲慢に答えます、「あなたは私があなたの命令の下で働くだろうと思います...力のそのような表示の後に？いいえ、私は断らなければなりません。」</text>
+	</event>
+	<event>
+		<text>彼は敗北したと答えた、「私は船なしで行くところが他にないと思う。私はあなたの申し出を受け入れる」。</text>
+		<item_modify>
+			<item type="scrap" min="-40" max="-40" />
+		</item_modify>
+		<crewMember amount="1" class="zoltan" />
+	</event>
+</eventList>
+
+<event name="ZOLTAN_SCIENCE_DOCK" unique="true">
+	<text>ゾルタンの科学船のように見えるものがドッキングの許可を要求します。</text>
+	<choice hidden="true">
+		<text>それらとドッキングします。</text>
+		<event load="ZOLTAN_SCIENCE_DOCK_LIST" />
+	</choice>
+	<choice hidden="true">
+		<text>彼らに距離を保ってもらいます。</text>
+		<event>
+			<text>彼らは一言も言わずに去ります。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>	
+<eventList name="ZOLTAN_SCIENCE_DOCK_LIST">
+	<event>
+		<text>あなたは彼らが近づくことを許可しますが、彼らが発砲したときに気づかずに捕らえられます！</text>
+		<ship load="SHIP_ZOLTAN_SCIENCE_DOCK" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>「私たちは種間の関係を研究しており、「連邦」はまだ銀河にとって正味のプラスになる可能性があると判断しました。あなたの旅を助けるためにこの贈り物を受け取ってください。」</text>
+		<autoReward level="MED">stuff</autoReward>
+	</event>
+</eventList>
+
+<event name="ZOLTAN_CREW_SCAN" unique="true">
+	<text>ビーコンの周囲に設置されたZoltanセキュリティチェックポイントに到着します。 「旅行船、あなたは帝国の逃亡者を特定するために乗組員のプロファイリングに提出します。」</text>
+	<choice hidden="true">
+		<text>あなたはこのナンセンスのための時間がありません。攻撃！</text>
+		<event>
+			<text>抵抗を期待して、彼らのエネルギーシールドは上げられ、戦闘の準備ができています。</text>
+			<ship load="SHIP_ZOLTAN_CREW_SCAN" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>プロファイリングに送信します。</text>
+		<event load="ZOLTAN_CREW_SCAN_LIST" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_SLUG">
+		<text>（ナメクジの乗組員）あなたのナメクジにあなたを手放すように彼らに話してもらいます。</text>
+		<event>
+			<text>あなたは警備員に船とドッキングする許可を与えますが、彼らが乗船する前に、あなたの乗組員はゆっくりと前進して彼らに会います。あなたが言うことができる限り、言葉は交換されませんでした、しかし警備員はあなたにいくつかの物資を提供して、船がチェックアウトすると言います。質問しないのが最善です。</text>
+			<autoReward level="MED">fuel_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ZOLTAN_CAPITAL">
+		<text>（Zoltan Crew）あなたのZoltanにあなたを手放すように彼らに話してもらいます。</text>
+		<event>
+			<text>あなたのゾルタンは、ゾルタン帝国の威厳について非常に長い間警備員と話します。あなたは善良な人に過ぎないと確信し、彼らはあなたを通り過ぎさせます。</text>
+		</event>
+	</choice>
+	<choice hidden="true" req="mind">
+		<text>（マインドコントロール）警備員に、彼らが今日あなたの乗組員をすでにチェックしたと信じさせます。</text>
+		<event>
+			<text>警備員の船長がビデオ画面に表示されます。「すぐに友達に戻ってください。もう時間を無駄にする必要はありません。ここで、これらの予備の燃料キャニスターを持って、任務を遂行してください。」あなたの船は通過するためにクリアされます。</text>
+			<autoReward level="MED">fuel_only</autoReward>
+		</event>
+	</choice>		
+</event>
+<eventList name="ZOLTAN_CREW_SCAN_LIST">
+	<event>
+		<text>ゾルタンのセキュリティスタッフがあなたの船に乗り込み、乗組員の顔をスキャンしてコンピューターに取り込みます。不確実性のいくつかの緊張した瞬間の後、彼らはあなたの船が通過するのを許します。</text>
+	</event>
+	<event>
+		<text>ゾルタンのセキュリティスタッフがあなたの船に乗り込み、乗組員の顔をコンピューターにスキャンし始めます。突然アラームが鳴り、ゾルタンがあなたの乗組員の1人に跳躍します！ 「この人は、Utter Villainyの5回の起訴で指名手配されています！彼らを私たちに降伏させてください！」</text>
+		<choice hidden="true">
+			<text>乗組員をあきらめます。</text>
+			<event>
+				<text>難しい呼びかけですが、ここではゾルタン法が支配しています。その上、それはいつも少しずるいようでした。</text>
+				<removeCrew>
+					<clone>false</clone>
+					<text>残念ながら、あなたの乗組員は無傷で連れ去られたので、あなたのクローンベイは彼らを取り戻すことができませんでした。</text>
+				</removeCrew>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>拒否して戦う。</text>
+			<event>
+				<text>誰かを置き去りにするつもりはありません。敵の警備員を乗せて駅から離れます。残念ながら、彼らは混乱の中であなたの武器システムを妨害することができます。出発の時間です！</text>
+				<ship load="SHIP_ZOLTAN_CREW_SCAN" hostile="true" />
+				<boarders min="2" max="4" class="zoltan" />
+				<status type="divide" target="player" system="weapons" amount="2" />
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+				</choice>
+				<choice hidden="true" req="ANTI_VIRUS">
+					<text>（アンチウイルス）武器を復元します。</text>
+					<event>
+						<text>武器システムがフルパワーに戻ります。</text>
+						<status type="clear" target="player" system="weapons" amount="100" />
+						<choice hidden="true">
+							<text>継続する...</text>
+							<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+						</choice>
+					</event>
+				</choice>
+			</event>
+		</choice>
+	</event>
+</eventList>
+
+<event name="ZOLTAN_FIGHTER_MONK" unique="true">
+	<text>ゾルタン宇宙で奴隷になるのは危険なビジネスですが、1人の魂がここで彼の取引を実行するのに十分な勇気を持っているようです。必ずしも称賛に値するわけではありませんが、それでも珍しい光景です。</text>
+	<ship load="SHIP_SLAVER_ALL" hostile="false" />
+	<choice hidden="true">
+		<text>彼らが誰を売りに出しているのか見てみましょう。</text>
+		<event>
+			<text>「連邦政府、え？あなたは私を捕まえれば、少し余分なもので戦闘機を使うことができる仲間のように見えます。かなり手頃な料金で、見事なゾルタンの戦士はどのように聞こえますか？あなたの乗組員？」</text> 
+			<choice>
+				<text>ゾルタンを購入します。</text>
+				<event>
+					<text>あなたはあなたのスクラップを奴隷に渡します、しかし彼らは約束された奴隷と一緒に戻りません。彼らが茶色のローブに包まれたゾルタンを彼らと一緒にカートに入れて必然的につまずくまで、あなたは何かが間違っているのではないかと疑い始めます。</text> 
+					<item_modify>
+						<item type="scrap" min="-35" max="-35" />
+					</item_modify>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>彼らは激しくゾルタンをあなたの床に投げつけて謝罪し、そして立ち去ります。あなたはゾルタンを調べますが、彼らが平和主義の僧侶であることに気づきます！ゾルタンは彼らの状況を説明します。「私はかつて訓練を受けたゾルタンの戦士でしたが、やがて光を見て僧侶に加わりましたが、これらの人々に誘拐されて間もなくです。皮肉なことに聞こえます。」</text> 
+							<crewMember amount="1" combat="2" class="zoltan_monk" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>却下。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それらを無視します。</text>
+		<event>
+			<text>最終的に、奴隷は飛び去ります。彼らは確かに省の執行者に捕らえられずに彼らのビジネスを立ち上げる余裕はありません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+<eventList name="DISTRESS_BEACON_ZOLTAN">
+	<event load="DISTRESS_ZOLTAN_MANTIS" />
+	<event load="DISTRESS_ZOLTAN_SHELL" />
+	
+	<event load="DISTRESS_REFUGEE_ZOLTAN" />
+	
+	<event load="DISTRESS_SATELLITE_DEFENSE" />
+	<event load="DISTRESS_STATION_FIRE" />
+	<event load="DISTRESS_FRIENDLY_BEACON" />
+	<event load="DISTRESS_TRAP_BEACON" />
+	<event load="DISTRESS_STRANDED_BEACON" />
+</eventList>
+
+<event name="DISTRESS_REFUGEE_ZOLTAN">
+	<text>あなたは宇宙を漂流している難民船に遭遇しました。反乱軍の前進から逃げ出し、燃料を使い果たしたように見えます。その遭難ビーコンはアクティブですが、誰かが搭乗しているかどうかはわかりません。</text>
+	<choice>
+		<text>彼らに連絡する。</text>
+		<event load="REFUGEE_HAIL_LIST_ZOLTAN" />
+	</choice>
+	<choice>
+		<text>難民を無視します。</text>
+		<event />
+	</choice>
+	<distressBeacon />
+</event>  
+
+<event name="DISTRESS_ZOLTAN_MANTIS" unique="true">
+	<text>あなたのジャンプは、カマキリの海賊が小惑星のフィールドに入るときに、ゾルタンの警備船を妨害します。彼らはあなたにメッセージを送ります、「ここでのあなたの存在は引き続き容認されます-しかし、邪魔しないでください。」</text>
+	<environment type="asteroid" />
+	<distressBeacon />
+	<choice hidden="true">
+		<text>カマキリの船を妨害して救ってください。</text>
+		<event>
+			<text>時々あなたは弱者に賭けなければなりません-たとえ弱者がカマキリの軍艦であるというまれな場合でさえ。あなたは小惑星フィールドの中心に向けて出発し、そこでゾルタンと交戦します。</text>
+			<environment type="asteroid" />
+			<ship load="SHIP_ZOLTAN_SAVE_MANTIS1" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ゾルタンの船を妨害し、助けてください。</text>
+		<event>
+			<text>あなたはゾルタンを追い越し、小惑星帯でカマキリの船に追いつきます。友達を作る時間です。</text>
+			<environment type="asteroid" />
+			<ship load="SHIP_ZOLTAN_SAVE_MANTIS2" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>邪魔しないでください。</text>
+		<event>
+			<text>ゾルタンは自分たちのビジネスをほとんどの人よりよく知っています-彼らをそれに任せるのが最善です。あなたはジャンプする準備をします。</text>
+		</event>
+	</choice>
+</event>
+
+<event name="DISTRESS_ZOLTAN_SHELL" unique="true">
+	<text>あなたは、舵を取っている人がいない、動きの鈍いゾルタン貨物船を見つけるために到着します。乗組員に何が起こったのかは謎ですが、機会を無駄にするのは残念です。</text>
+	<distressBeacon />
+	<autoReward level="RANDOM">standard</autoReward>
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+
+
+<eventList name="QUESTS_ZOLTAN">
+	<event load="ZOLTAN_TRADE_HUB" />
+	<event load="ZOLTAN_QUEST_LAWBOOK" />
+	
+	<event load="QUEST_FEDERATION_PLANET_SIGNAL" />
+	<event load="QUEST_MANTIS_INVASION_START" />
+	<event load="QUEST_CREWDEAD_START" />
+</eventList>
+
+<event name="ZOLTAN_TRADE_HUB" unique="true">   
+	<text>あなたはゾルタンの貿易と供給のハブに来ます-彼らが正しい文書を持っていれば、疲れた旅行者が必要とするすべてのものです。</text>
+	<choice hidden="true">
+		<text>説得を試みる。</text>
+		<event load="ZOLTAN_TRADE_HUB_TALK" />
+	</choice>	
+	<choice hidden="true" req="teleporter" lvl="1">
+		<text>（テレポーター）民間デッキに直接ビームします。</text>
+		<event>
+			<text>メインコンコースの暗い隅で再実体化し、安心して調査を行うことができます。</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="ZOLTAN_TRADE_HUB_SUCCESS" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="LIST_CREW_ZOLTAN_CAPITAL">
+		<text>（Zoltan Crew）彼の公式文書を提示し、入場料を支払います。</text>
+		<event>
+			<text>彼らはあなたの乗組員が公民であることを宣言するIDをスキャンし、彼らの料金を徴収し、あなたを通過させます。</text>
+			<item_modify>
+				<item type="scrap" min="-10" max="-10" />
+			</item_modify> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="ZOLTAN_TRADE_HUB_SUCCESS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>離れる。</text>
+		<event>
+			<text>あなたは入るための書類を持っていません-まあ、ニューロレースのアイデンティティブレスレット-だから、試さないのが最善です。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ZOLTAN_TRADE_HUB_TALK">
+	<event>
+		<text>彼らはこれらの部分であなたの種の多くを見ません、そしてあなたはプルトニアンシュリンプシチューのCasvagarianウミウシのように突き出ます。ゾルタンの警備員の一団を引き連れて船に戻ります！</text>
+		<ship load="SHIP_ZOLTAN_FIGHT" hostile="true" />
+		<boarders min="2" max="4" class="zoltan" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>あなたはトレーダーを装い、エアロックのセキュリティを回避することに成功します-しかし、誰かがあなたのIDカードが偽造であることに気付くのは時間の問題です！</text>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="ZOLTAN_TRADE_HUB_SUCCESS" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="ZOLTAN_TRADE_HUB_SUCCESS">
+	<event>
+		<text>あなたは船の供給店に向かいます。それは設備の整ったセルフサービスの問題です。注文はターミナルにダイヤルされ、スクラップが預けられ、アイテムは近くのシュートから発送されます。</text>
+		<store>STORE_ZOLTAN</store>
+	</event>
+	
+</eventList>
+
+<event name="ZOLTAN_QUEST_PRIMITIVES" unique="true">
+	<text>あなたはカンティーナで聞いた原始惑星に到着し、ゾルタンの船が反乱軍の攻撃船と対峙しているのを見て驚いています。</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>あなたは彼らの周波数を利用して、反乱軍の船長が「私たちは新しい銀河政府の名の下にこの惑星を解放しています！これらのエイリアンは彼らが役に立たない場所で無知にされることはありません！」と叫ぶのを聞きます。</text>
+			<choice hidden="true">
+				<text>干渉-原始的なエイリアンと最初に接触します。</text>
+				<event>
+					<text>地元の人々（毛皮で覆われた片目の木のトカゲのもの）は、あなたに会うと唱え始めます。突然、空がレーザーの火で照らされました-ゾルタンはあなたの船に火を放ちました！あなたはシャトルにダッシュバックし、戦いに参加します。</text>
+					<ship load="SHIP_ZOLTAN_PRIMITIVES_ZOLTAN" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>エイリアンの生き方を守る-反乱軍の船を攻撃する。</text>
+				<event>
+					<text>これらの生き物は、自分のペースで成長するように残しておく必要があります。あなたは反乱軍の船にすべての武器を向け、発砲シーケンスを開始します。</text>
+					<ship load="SHIP_ZOLTAN_PRIMITIVES_REBEL" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>離れる。</text>
+				<event>
+					<text>あなたは反乱軍にあなたの存在を警告したくないし、彼らの領土でゾルタンを怒らせたくない。最善の解決策は去ることです。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ZOLTAN_QUEST_LAWBOOK" unique="true">
+	<text>ゾルタンの平和維持者は、このビーコンで割り当てられた艦隊の後ろで立ち往生し、何かを探しています。彼らはすぐにあなたを歓迎し、あなたが彼らに恩恵を与えることができるかどうか尋ねます。</text>
+	<ship load="SHIP_ZOLTAN_ELITE_FIGHT" hostile="false" />
+	<choice hidden="true">
+		<text>さらにお問い合わせください。</text>
+		<event>
+			<text>「私は通常、見知らぬ人にこれを尋ねることはありませんが、私たちは非常に不幸な立場にいることに気づきました。私たちは、すべてのゾルタンの平和維持者が常に持っている必要のある法の本を失いました。私たちは許可されません私たちがそれを見つけるまで私たちの艦隊に戻ってください...または誰かが私たちのためにそれを見つけます。あなたはそれを追跡してくれまだ?んか？私たちはそれがいると思われる位置の1つの座標を与えます。」</text>
+			<choice hidden="true">
+				<text>同意。</text>
+				<event>
+					<text>ゾルタンは彼らの法律書の疑わしい場所を送信します。</text>
+					<quest event="ZOLTAN_QUEST_LAWBOOK_LIST" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>却下。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>いいえ、私たちは副業や傭兵の仕事を探していません。</text>
+		<event>
+			<text>ゾルタンは抗議し始めますが、あきらめて捜索に戻ります。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ZOLTAN_QUEST_LAWBOOK_LIST">
+	<event load="ZOLTAN_QUEST_LAWBOOK_PIRATE" />
+	<event load="ZOLTAN_QUEST_LAWBOOK_DUSKBRINGER" />
+	<event load="ZOLTAN_QUEST_LAWBOOK_ENGI" />
+</eventList>
+<event name="ZOLTAN_QUEST_LAWBOOK_PIRATE" unique="true">
+	<text>法律書の疑わしい場所で、密輸船を見つけます。 「ああ、あなたはこの小さな本をここに集めるために送られたようです。つまり、闇市場でアーティファクトとしてこれを巨額で売ることができます。だから、もしあなたがそれを取り戻したいのなら、あなたはそうしなければならないでしょう。私たちに払ってください。」</text>
+	<ship load="SHIP_SMUGGLER_LAWBOOK" hostile="false" />
+	<choice>
+		<text>法律書の支払い。</text>
+		<event>
+			<text>それは大失敗の1つの地獄ですが、密輸業者と戦う必要がないことを意味するのであれば、あなたはそれを喜んで行います。</text>
+			<item_modify>
+				<item type="scrap" min="-30" max="-30" />
+			</item_modify>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="ZOLTAN_QUEST_LAWBOOK_OBTAIN" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ただそれのために彼らと戦ってください。</text>
+		<event>
+			<text>あなたはいまいましい本にお金を払っていません。あなたは彼らからそれを取るでしょう。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>離れる。</text>
+		<event>
+			<text>「わかった、わかった！値下げします。でもこれは一度だけ！」</text>
+			<choice>
+				<text>法律書の支払い。</text>
+				<event>
+					<text>それは大失敗の1つの地獄ですが、密輸業者と戦う必要がないことを意味するのであれば、あなたはそれを喜んで行います。</text>
+					<item_modify>
+						<item type="scrap" min="-15" max="-15" />
+					</item_modify>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="ZOLTAN_QUEST_LAWBOOK_OBTAIN" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>ただそれのために彼らと戦ってください。</text>
+				<event>
+					<text>あなたはいまいましい本にお金を払っていません。あなたは彼らからそれを取るでしょう。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>結構です。</text>
+				<event>
+					<text>密輸業者はそれ以上交渉しようとはしません。</text>
+					<choice>
+						<text>船に乗って何かをしなさい。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ZOLTAN_QUEST_LAWBOOK_DUSKBRINGER" unique="true">
+	<text>Duskbringerの船が海賊船から法律書を集めているのに気づきました。あなたがそれを取り戻したいのなら、あなたはおそらくそれのために彼らと戦わなければならないでしょう。</text>
+	<ship load="SHIP_DUSKBRINGER_LAWBOOK" hostile="false" />
+	<choice hidden="true">
+		<text>法の本を取り戻す。</text>
+		<event>
+			<text>あなたはダスクブリンガー船と交戦する準備をします。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>離れる。</text>
+		<event>
+			<text>あなたはダスクブリンガー船と戦うことに興味がありません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ZOLTAN_QUEST_LAWBOOK_ENGI" unique="true">
+	<text>このビーコンのエンギ船は休眠中です。あなたはそれを歓迎し、失われた法の本を見たかどうか尋ねます。 「伝導コードの綴じられた紙のオブジェクトが見つかりました。意図：所有者が戻るまで本を安全に保管してください。」</text>
+	<ship load="SHIP_ENGI_LAWBOOK" hostile="false" />
+	<choice hidden="true"> 
+		<text>ゾルタンがあなたを送ったことをエンギに伝えてください。</text>
+		<event>
+			<text>「法の本を取り戻すために連邦船を送るゾルタンの可能性...好ましい。」彼らはその本を送ります。</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="ZOLTAN_QUEST_LAWBOOK_OBTAIN" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ただそれのために彼らと戦ってください。</text>
+		<event>
+			<text>あなたはエンギ船と交戦する準備をします。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>離れる。</text>
+		<event>
+			<text>法の本はおそらくエンギで安全です。うまくいけば、ゾルタンはここに戻ってエンギを見つけ、本を取り戻すことができます。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ZOLTAN_QUEST_LAWBOOK_OBTAIN">
+	<text>ローブックができたので、ゾルタン船の場所に戻ることができます。</text>
+	<quest event="ZOLTAN_QUEST_LAWBOOK_RETURN" />
+</event>
+
+<event name="ZOLTAN_QUEST_LAWBOOK_RETURN">
+	<text>あなたは再びゾルタン船を見つけました。あなたは彼らが非常に感謝している法の本を送ります。彼らはあなたに増強物といくつかの物資を与えます。</text>
+	<autoReward level="HIGH">stuff</autoReward>
+	<augment name="RANDOM" />
+</event>
+
+
+<eventList name="NEBULA_ZOLTAN">
+	<event load="NEBULA_ZOLTAN_ROCK" />
+	<event load="STORM_ZOLTAN_SUPPLY_CHOICE" />
+	
+	<event load="NEBULA_TRADER" />
+	<event load="NEBULA_FEDERATION_GIFT" />
+	<event load="NEBULA_SIGNAL" />
+	<event load="NEBULA_DUEL" />
+	<event load="NEBULA_MINE_WRECK" />
+	<event load="NEBULA_PIRATE_SMUGGLE" />
+	
+	<event load="NEBULA_NOTHING" />
+	<event load="NEBULA_NOTHING" />
+	<event load="NEBULA_ENCOUNTER_REBEL" />
+	<event load="NEBULA_ENCOUNTER_AUTO" />
+</eventList>
+
+<event name="NEBULA_ZOLTAN_ROCK" unique="true">
+	<text>この星雲は、恐ろしいロックの乗組員がゾルタン国境警察から避難している隠れ場所であることが判明しました。彼らはあなたが彼らのコーディネイトと一緒に去る危険を冒して、発砲する準備ができていないようです！</text>
+	<environment type="nebula" />
+	<ship load="SHIP_ROCK_GENERIC" hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="STORM_ZOLTAN_SUPPLY_CHOICE" unique="true">
+	<text>ここの星雲に潜んでいる2隻の海賊船をスパイします。彼らはあなたの存在に気づいていません。スキャナーに少なくとも貨物を識別させることができます。1つは燃料供給を運び、もう1つは弾薬を運びます。彼らは嵐の中でお互いから離れ始めます。</text>
+	<environment type="storm" />
+	<choice hidden="true">
+		<text>燃料供給を確保します。</text>
+		<event>
+			<text>あなたは燃料供給で海賊に向かって噴射し、従事します-うまくいけば、あなたは船をワンピースのままにすることができます！</text>
+			<ship load="SHIP_STORM_PIRATE_SUPPLY_FUEL" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>弾薬を確保します。</text>
+		<event>
+			<text>あなたは弾薬を持って海賊に向かって噴射し、従事します-うまくいけば、あなたは船をワンピースのままにすることができます！</text>
+			<ship load="SHIP_STORM_PIRATE_SUPPLY_AMMO" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>彼らを去らせてください。</text>
+		<event>
+			<text>時には裁量が勇気の大部分です。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+	
+
+
+<eventList name="ITEM_CAPITAL_UNIQUE">
+	<event load="CAPITAL_SMUGGLER" />
+	<event load="CAPITAL_CREW_STUDY" />
+	<event load="CAPITAL_FREE_REACTOR" />
+	
+	<event load="ZOLTAN_FREE_AUGMENT" />
+	<event load="ZOLTAN_FIGHTER_MONK" />
+	<event load="ZOLTAN_FREE_MAP" />
+	<event load="ZOLTAN_ODD_MOON" />
+</eventList>
+<eventList name="ITEM_CAPITAL_GENERIC">
+	<event load="FIND_DRONE" />
+	<event load="FREE_ITEMS" />
+	<event load="FUEL_FOR_DRONE" />
+	<event load="REFUEL_STATION" />
+	<event load="REPAIR_STATION" />
+	<event load="TRADER_CIV" />
+</eventList>
+
+<event name="CAPITAL_FREE_REACTOR" unique="true">
+	<text>あなたはZoltanエンジニアでいっぱいの船に迎えられます。彼らは親切にもあなたの原子炉を無料でアップグレードすることを申し出ます。</text>
+	<upgrade amount="1" system="reactor" />
+</event>
+
+<event name="CAPITAL_SMUGGLER" unique="true">
+	<text>密輸船があなたを歓迎します。 「間もなく友達になります！私たちは最近、私たちのビジネスを特に楽しんでいないゾルタン警察といくつかの問題を抱えています。私たちがいくつかの物資を降ろし、このセクターからより早く抜け出すことができるように、取引していただけませんか？ ？」</text>
+	<choice hidden="true">
+		<text>取引することに同意します。</text>
+		<event load="CAPITAL_SMUGGLER_TRADE" />
+	</choice>
+	<choice hidden="true">
+		<text>却下。</text>
+		<event>
+			<text>密輸業者がゾルタンが取り除きたいコントラバンドを販売している場合は、自分たちを彼らと関連付けないことが最善です。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="CAPITAL_SMUGGLER_TRADE">
+	<event>
+		<store>STORE_PIRATE</store>
+	</event>
+	<event>
+		<store>STORE_PIRATE</store>
+	</event>
+	<event>
+		<text>突然、ゾルタンの船がどこからともなく飛び出します！おびえた、密輸業者は飛び去り、攻撃者に対処するためにあなたを残します。</text>
+		<ship load="SHIP_ZOLTAN_FIGHT" hostile="true" /> 
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="CAPITAL_CREW_STUDY" unique="true">
+	<text>ゾルタンの研究施設に到着します。彼らは、彼らがうっ滞睡眠と長期のFTL旅行による遺伝的歪みを研究していると言います。彼らはあなたの乗組員が数回のスキャンを受ける時間があるかどうか尋ねます。</text>
+	<choice hidden="true">
+		<text>彼らの研究に参加してください。</text>
+		<event load="ZOLTAN_CREW_STUDY_LIST" />
+	</choice>
+	<choice hidden="true">
+		<text>却下。</text>
+		<event>
+			<text>「わかりました。安全に飛んでください。」あなたは去る準備をします。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="medbay" lvl="3">
+		<text>（高度なメドベイ）彼らにあなたの医療記録を渡してください。</text>
+		<event>
+			<text>「ありがとうございます。FTL旅行中の乗組員の健康に関する大量のデータを受け取ることは期待していませんでした。ご迷惑をおかけしましたことをお詫び申し上げます。」</text>
+			<drone name="RANDOM" />
+			<autoReward level="LOW">stuff</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_SHELL">
+		<text>（シェルクルー）ゾルタン科学チームとの交換を要求します。</text>
+		<event>
+			<text>シェルスペースに長い間滞在した後、この機会に出くわすことを嬉しく思います。シェルには多くの議論すべき主題があり、そのほとんどはあなたの理解を超えています。ゾルタンとの長い討論とブレインストーミングセッションの後、彼らはついにあなたに戻って、感謝の気持ちでドローンの概略図を提供することができます。</text>
+			<drone name="RANDOM" />
+			<autoReward level="LOW">stuff</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="ANCIENT_CONSTRUCTOR"> 
+		<text>（エイリアンの休止）これをどうするか知っているか尋ねてください。</text>
+		<event>
+			<text>「おもしろい…こんな生き物は見たことがない。できることはあまりないのではないかと思うが、現在の状態はうっ滞睡眠とは関係ない。しかし、量子燃料などの触媒を使えば、再び目覚めることができますか？」</text>
+		</event>
+	</choice>
+</event>
+<eventList name="ZOLTAN_CREW_STUDY_LIST">
+	<event>
+		<text>あなたの乗組員は、ゾルタンが彼らの読書をするために静かに並んでいます。しばらくすると、プロセスが完了します。彼らはあなたに連絡します、「私たちの研究に参加してくれてありがとう。固い生地といくつかのスクラップから作られたこれらの小さなケーキを受け入れてください。」</text>
+		<autoReward level="LOW">scrap_only</autoReward>
+	</event>
+	<event>
+		<text>あなたの乗組員は、ゾルタンが彼らの読書をするために静かに並んでいます。しばらくすると、プロセスが完了します。彼らはあなたに連絡します、「私たちの研究に参加してくれてありがとう。固い生地といくつかのスクラップから作られたこれらの小さなケーキを受け入れてください。」</text>
+		<autoReward level="LOW">scrap_only</autoReward>
+	</event>
+	<event>
+		<text>ドッキングするとすぐに海賊が船上で爆発し、敵の船がレーダーに現れます。遠くでゾルタンが「人質にされている！」と叫ぶのが聞こえます。</text>
+		<ship load="SHIP_PIRATE_ZOLTAN_CREW_STUDY" hostile="true" />
+		<boarders min="2" max="2" class="random" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+
+<eventList name="HOSTILE_CAPITAL">
+	<event load="ENCOUNTER_ZOLTAN" />
+	<event load="ENCOUNTER_ZOLTAN" />
+	<event load="ENCOUNTER_ZOLTAN_ELITE" />
+	
+	<event load="ENCOUNTER_ZOLTAN_AUTO" />
+	
+	<event load="ENCOUNTER_DUSKBRINGER_CAPITAL" />
+	<event load="ENCOUNTER_ROCK_CAPITAL" />
+	<event load="ENCOUNTER_REBEL_CAPITAL" />
+	<event load="ENCOUNTER_PIRATE_CAPITAL" />
+	
+	<event load="ZOLTAN_ENGI" />
+	<event load="ZOLTAN_CHECKPOINT" />
+	
+	<event load="BOARDERS_HACKING" />
+</eventList>
+
+<event name="ENCOUNTER_ZOLTAN_ELITE" unique="true">
+	<text>すべてのゾルタンがダスクブリンガーの極端な見方と一致することを選択したわけではありませんが、それは彼ら全員が連邦に感謝しているという意味ではありません。特にイライラするゾルタンエリートは、連邦艦艇を容認することにうんざりしているようで、攻撃することにしました。</text>
+	<ship load="SHIP_ZOLTAN_ELITE_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ENCOUNTER_DUSKBRINGER_CAPITAL">
+	<text load="TEXT_ENCOUNTER_DUSK_CAPITAL" />
+	<ship load="SHIP_DUSK_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_DUSK_CAPITAL">
+	<text>敵対的なダスクブリンガー船があなたを迎撃し、連邦の不可避の崩壊についてナンセンスを吐き出します。</text>
+	<text>Duskbringersはゾルタンの大衆の間で急速な支持を得ているので、このビーコンで彼らの船の1つを発見したのは当然のことです。</text>
+	<text>「あなたの最後の過ちは、嫌悪感を抱く連邦のクズ野郎であるゾルタンの領土に入ることでした！」怒り狂ったダスクブリンガー船が攻撃します。</text>
+	<text>Duskbringer船がZoltan警察船を完成させたばかりのようで、次にあなたを標的にすることにしました。</text>
+</textList>
+
+<event name="ENCOUNTER_ROCK_CAPITAL">
+	<text load="TEXT_ENCOUNTER_ROCK_CAPITAL" />
+	<ship load="SHIP_ROCK_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_ROCK_CAPITAL">
+	<text>RockmenとZoltansは、連盟が存在していたよりも長い間良好な状態にありました。残念ながら、これはここにたくさんのロック船が見つかることを意味し、通常はあまり友好的ではありません。</text>
+	<text>「あなたはここに来ることによって神々を動揺させました、連邦巡洋艦！」彼らが何について話しているのかはわかりませんが、このゾルタンセクターを訪れるロック船が近づき、武器が武装して準備ができています。</text>
+	<text>ロック船が急降下して攻撃します。ゾルタンの宇宙でロック船を見るのは当然ですが、理由もなく攻撃的であるのは珍しいことです。</text>
+	<text>運が悪かったようです...敵対的なロック船がすでにこのビーコンを探索していて、あなたがそれを見て戦いたいと決心したのです！</text>
+</textList>
+
+<event name="ENCOUNTER_REBEL_CAPITAL">
+	<text load="TEXT_ENCOUNTER_REBEL_CAPITAL" />
+	<ship load="SHIP_REBEL_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_REBEL_CAPITAL">
+	<text>「私はこれらの巨大なエネルギーフリークに飽きてきました、連邦政府の船は素晴らしい変化になるでしょう！」反乱軍の船があなたをロックし、サルボ全体を発射します。バトルステーションを男に！</text>
+	<text>反政府勢力は外国人排斥で知られていますが、ゾルタン人種に関しては、特に誇張された憎悪があります。ゾルタンがあなたを殺すために狩りをしている反乱軍の船は、あなたを攻撃するために彼らの捜索を遅らせることにしました。</text>
+	<text>「あなたがここで走ろうとして、あなたの貴重なゾルタンの同盟国による保護を望んでいるのではないかと思った。私も到着したので、あなたはここで安全だと考えるのは間違っていた！」</text>
+	<text>反乱軍の船が速く接近します！彼らはこれが連邦同盟の領土であることを知っていたに違いなく、あなたのような船を捜すようになりました。</text>
+</textList>
+
+<event name="ENCOUNTER_PIRATE_CAPITAL">
+	<text load="TEXT_ENCOUNTER_PIRATE_CAPITAL" />
+	<ship load="SHIP_PIRATE_ALL" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_PIRATE_CAPITAL">
+	<text>彼らの政府が彼らを追い払おうとするのにどれほど懸命に努力しているにもかかわらず、ゾルタンの領土で一般的な海賊がどれほど一般的であるかは皮肉な色合いがあります。残念ながら、彼らは通常あなたの船を見て喜んでいません！</text>
+	<text>海賊船がここに小さな市場を立ち上げようとしているようですが、彼らがあなたを見つけたとき、彼らは彼らの努力を捨て、順番に攻撃します！</text>
+	<text>敵対的な海賊船があなたと戦うために移動しますが、このセクターを保護していると思われるZoltan Peace-Keepersは、海賊軍を必死に追い払おうとしています。</text>
+	<text>「違法な多元宇宙船を捕獲したことに対する報奨金として、ゾルタンが私にいくら払うのだろうか！」海賊船が急襲し、悪意を持って思いを馳せます。</text>
+</textList>
+
+
+<eventList name="HAZARD_CAPITAL">
+	<event load="ENCOUNTER_ZOLTAN_AUTO_SUN" />
+	<event load="ENCOUNTER_ZOLTAN_PULSAR" />
+</eventList>
+
+<event name="ENCOUNTER_ZOLTAN_AUTO_SUN" unique="true">
+	<text>Zoltan Automatedの船は、この太陽の近くで充電モードになっているようです...おそらく太陽エネルギーを収穫しています！しかし、あなたはそれが再び活性化するのにちょうど間に合うように到着したようであり、船はどういうわけかあなたを脅威として識別します。</text>
+	<ship load="SHIP_ZOLTAN_AUTO" hostile="true" /> 
+	<environment type="sun" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ENCOUNTER_ZOLTAN_PULSAR" unique="true">
+	<text>狂ったゾルタンの船があなたを歓迎します。彼らの耳障りな声は、彼らが何らかの病気で怒ったことを示唆しています。 「ハハハ！パルサーのエネルギー、それは私のものです！私はそれと一体になります！私はパルサーになります！死ぬ、私の力によって殺されます！」</text>
+	<ship load="SHIP_ZOLTAN_FIGHT" hostile="true" /> 
+	<environment type="pulsar" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+
+<eventList name="NEUTRAL_CAPITAL_UNIQUE">
+	<event load="CAPITAL_DEBATE" />
+	<event load="CAPITAL_REVOLT" />
+	<event load="CAPITAL_FREEMANTIS_FRIENDLY" />
+	
+	<event load="ZOLTAN_AUTO_TICKET" />
+	<event load="ZOLTAN_TOURIST_RESCUE" />
+	
+	<event load="ZOLTAN_LIFERAFT" />
+	<event load="ZOLTAN_SCIENCE_DOCK" />
+	<event load="ZOLTAN_CREW_SCAN" />
+</eventList>
+<eventList name="NEUTRAL_CAPITAL_GENERIC">
+	<event load="REFUGEE_NO_DISTRESS" />
+	<event load="PIRATE_BRIBER" />
+	<event load="ASTEROID_EXPLORE" />	
+	<event load="CIVILIAN_EXPLODED" />
+	<event load="PIRATE_CIVILIAN" />
+	<event load="PIRATE_BRIBER" />
+	<event load="DONOR_PONY" />
+	<event load="ROGUE_REBEL" />
+</eventList>
+
+<event name="CAPITAL_FREEMANTIS_FRIENDLY" unique="true">
+	<text>フリーマンティスとゾルタンはうまくやっていないので、これまでのところフリーマンティスがゾルタンの宇宙に船で行くのを見るのは心配です。平和維持者の国境警備隊からの船が巨大なカマキリ船とドッキングしましたが、これは何の意味もありません。</text>
+	<ship load="SHIP_ZOLTAN_FREEMANTIS_FRIENDLY" hostile="false" />
+	<choice>
+		<text>同様に搭乗して、何が起こっているかを確認してください。</text>
+		<event>
+			<text>あなたは船に足を踏み入れただけで、無防備なカマキリの武将を地面に激しく蹴っている平和維持者を見つけました。</text> 
+			<choice hidden="true">
+				<text>ゾルタンをカマキリから引き離します。</text>
+				<event>
+					<text>あなたはゾルタンをつかみ、自由なカマキリから引き離します。彼らはあなたを追い払い、「あなたは一体何をしているのですか？あなたの貴重な連邦が今できることは、外国の問題に干渉することだけですよね？私はあなたをあなたの神の気の置けない場所に置きます！」ゾルタンは部下に攻撃を命じる！</text>
+					<ship hostile="true" /> 
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>ゾルタンで推論してみてください。</text>
+				<event>
+					<text>あなたはピースキーパーと推論しようとしますが、それは彼らをさらに激怒させるだけです。 「連邦は、常に外国の問題に干渉するのではなく、彼らの場所を知っているべきです。たぶん、ダスクブリンガーは正しいです、そしてあなたのすべての汚物は死ぬに値します。」ピースキーパーは部下に攻撃を命じます！</text>
+					<ship hostile="true" /> 
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_ZOLTAN_CAPITAL">
+				<text>（Ministry Allied Zoltan Crew）あなたのZoltanの理由を彼らと一緒に持ってください。</text>
+				<event load="CAPITAL_FREEMANTIS_FRIENDLY_REASON_ZOLTAN" />
+			</choice>
+			<choice hidden="true" req="ZOLTAN_DELETER">
+				<text>（Zoltan Deleter）やめた。</text>
+				<event>
+					<text>平和維持者の存在を消すのに一発しかかかりません。あなたは彼らの足元に自由なカマキリを助けます。 「フェデレーションに感謝します。ここに来るのは友達を作るだけですが、ゾルタンは私たちを信頼していません。私はあなたと一緒に来て、とてもフレンドリーです。」</text>
+					<crewMember amount="1" class="mantis_warlord" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>船を無視します。</text>
+		<event>
+			<text>ゾルタンの首都でゾルタンの国境警備隊をいじる方法はありません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="CAPITAL_FREEMANTIS_FRIENDLY_REASON_ZOLTAN">
+	<text>「あなたは何をしているのですか？これは本当に平和を保っていますか？省は合法的な正義を表しています、それでもここであなたは無防備なカマキリを攻撃しています！これはあなたが軍に申し込んだものですか？」ピースキーパーは一瞬動揺します。 「私は-あなたとは何の関係もないことに関与しようとしないでください、フェデレーション！」ゾルタンはもっと言い始めますが、ゾルタンが気を散らしている間に床から這い出たカマキリによってすぐに二人にスライスされます。ピースキーパーの船が何かがおかしいことに気付く前に、あなたは急いで船に戻りますが、手遅れです。あなたは船から脱出しますが、ゾルタンのチームがあなたの船に乗っています！</text>
+	<crewMember amount="1" class="mantis_warlord" />
+	<boarders min="2" max="3" class="zoltan_peacekeeper" />
+	<choice>
+		<text>継続する...</text>
+		
+	</choice>
+</event>
+
+<event name="CAPITAL_REVOLT" unique="true">
+	<text>彼らのおそらく優れた政府に関するゾルタンの傲慢な性質にもかかわらず、彼らの種類の多くは、彼らの名前が示唆するように、「平和を保つ」と主張された厳格で統制的なゾルタン平和維持者に不満を持っています。近くの惑星で暴動が始まったようです。</text>
+	<img planet="PLANET_POPULATED" />
+	<choice hidden="true">
+		<text>混沌を調査するために近づいてください。</text>
+		<event>
+			<text>紛争は、ダスクブリンガーの兵士がやややる気を起こさせるスピーチをすることによって引き起こされたようです。民間人がピースキーパーの地上車両を転覆させ、軌道衛星が彼らの人生のために逃げようとしている無実の人々の群衆に発砲するので、必然的に完全で完全な破壊をもたらしました。</text>
+			<choice hidden="true">
+				<text>戦いに参加してください-ゾルタンの民間人を助けてください。</text>
+				<event>
+					<text>あなたは民間人を助けることを決心しました。ピースキーパー船の1つを攻撃します。</text>
+					<ship load="SHIP_CAPITAL_REVOLT_PEACE" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>戦いに参加してください-平和維持者を助けてください。</text>
+				<event>
+					<text>あなたは平和維持者を助けることを決心しました。 Duskbringer船の1つを攻撃します。</text>
+					<ship load="SHIP_CAPITAL_REVOLT_DUSK" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="cloaking">
+				<text>（クローキング）みんなが気を散らしている間、いくつかの建物をマントで略奪します。</text>
+				<event>
+					<text>あなたは急降下して、出発する前にできるだけ早くいくつかの物資を集めます。</text>
+					<autoReward level="RANDOM">stuff</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>すばやく引き離します。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>これは私たちの仕事ではありません、無視してください。</text>
+		<event>
+			<text>あなたが出会う他のすべての人のビジネスに参加することはあなたの義務ではありません。以下の混乱を無視します。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="CAPITAL_REVOLT_CIVILIANS_HELP"> 
+	<event>
+		<text>民間人は、より多くの死傷者が発生する前に現場から逃げる平和維持軍をなんとか反撃します。あなたの努力も見過ごされていなかったようで、民間人はあなたの援助に対して大きな報酬をもたらします。</text>
+		<autoReward level="HIGH">item</autoReward>
+	</event>
+	<event>
+		<text>民間人は、より多くの死傷者が発生する前に現場から逃げる平和維持軍をなんとか反撃します。あなたの努力も見過ごされていなかったようで、民間人はあなたの援助に対して大きな報酬をもたらします。</text>
+		<autoReward level="HIGH">item</autoReward>
+	</event>
+	<event>
+		<text>残念ながら、あなたの努力は無駄だったようです。民間人は敗北し、平和維持者たちは都市を奪還します。彼らがあなたを追い払う前にあなたは逃げます。</text>
+	</event>
+</eventList>
+<eventList name="CAPITAL_REVOLT_PEACE_HELP"> 
+	<event>
+		<text>ご想像のとおり、Peace-KeepersはすぐにDuskbringersからセクターを奪還し、逮捕を開始します。ピースキーパーが彼らを支援するあなたの努力に注意を払い、スクラップであなたに支払うので、あなたは右側を助けることを選んだようです。</text>
+		<autoReward level="HIGH">scrap_only</autoReward>
+	</event>
+	<event>
+		<text>ダスクブリンガー軍がピースキーパーを打ち負かし、ゆっくりと街を支配するようになったため、あなたの努力は無駄だったようです。首都軍が逃げるとき、一人の兵士があなたの船に駆け寄り、彼らが逃げられるようにあなたに加わることを申し出ます。</text>
+		<crewMember amount="1" class="zoltan_peacekeeper" />
+	</event>
+	<event>
+		<text>Duskbringer船の船体を解体しているときに、近くの建物の1つから大爆発が発生しました。あなたの船はいくらかのダメージを受けますが、幸運にもあなたはそれが危険にさらされる前に時間内に引き離します。建物が地面に崩れ落ちると、別の一連の爆発が街を揺さぶる！ダスクブリンガー爆弾の戦隊が空から降りてきて、街を灰に変えます。あなたはできるだけ早く飛び去ります〠?</text>
+		<damage amount="5" />
+	</event>
+</eventList>
+
+<event name="CAPITAL_DEBATE" unique="true">
+	<text>ゾルタンとダスクブリンガーの船は、あなたが識別できないトピックについて激しい議論に巻き込まれているようです。</text>
+	<choice hidden="true">
+		<text>彼らに連絡し、それらに質問します。</text>
+		<event>
+			<text>2隻の船はあなたの存在に対処することさえ気にせず、議論を続けます。彼らは大文字の正しいつづりについて議論しているようで、ZoltanはAでつづられていると言い、DuskbringerはOでつづられていると言っています。</text>
+			<choice hidden="true">
+				<text>Aで綴られています。</text>
+				<event>
+					<text>連邦船を攻撃するためにダスクブリンガーを運転するのにそれほど時間はかかりません、そして彼らはまさにそれをし始めます。おびえたゾルタンの船が飛び去る。</text>
+					<ship load="SHIP_DUSK_FIGHT" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>Oで綴られています。</text>
+				<event>
+					<text>ダスクブリンガーの船長は笑うが、ゾルタンはひどく気分を害しているようだ。彼らの武器はオンラインになり、Duskbringerは飛び去るので、彼らはあなたを助ける義務を感じる必要はありません。</text>
+					<ship load="SHIP_ZOLTAN_FIGHT" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>本当に、それは文脈に依存します。</text>
+				<event>
+					<text>2人のゾルタンは、議論を続ける前に、あなたを一瞥します。あなたはそれが去るのに良い時期だと思います。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それらを無視します。</text>
+		<event>
+			<text>あなたは2隻の船を彼らの議論に任せ、あなたの任務を続けます。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+<eventList name="DISTRESS_BEACON_CAPITAL">
+	<event load="DISTRESS_CAPITAL_RAID" />
+	<event load="DISTRESS_CAPITAL_ARREST" />
+	
+	<event load="DISTRESS_ZOLTAN_MANTIS" />
+	<event load="DISTRESS_ZOLTAN_SHELL" />
+	<event load="DISTRESS_REFUGEE_ZOLTAN" />
+</eventList>
+
+<event name="DISTRESS_CAPITAL_ARREST" unique="true">
+	<text>ここの海賊船はゾルタン船に逮捕されているようです。彼らは密かに苦痛ビーコンを起動し、「助けて」という短いメッセージをあなたに送りました。</text>
+	<choice hidden="true">
+		<text>海賊を支援し、ゾルタンを攻撃します。</text>
+		<event>
+			<text>あなたは武器を武装させ、ゾルタンの船と交戦します。</text>
+			<ship load="SHIP_ZOLTAN_CAPITAL_ARREST" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>海賊をゾルタンに報告してください。</text>
+		<event>
+			<text>ゾルタンは不機嫌そうにあなたに感謝し、あなたにいくらかの燃料を与え、そして海賊との取引に戻ります。</text>
+			<autoReward level="LOW">fuel_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>海賊を無視します。</text>
+		<event>
+			<text>海賊はあなたに将来のメッセージを送信せず、すぐに飛び去るゾルタン船に全員が乗せられます。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="DISTRESS_CAPITAL_ARREST_WIN">
+	<event>
+		<text>海賊は奴隷だったようです。あなたの援助に感謝して、彼らはあなたに彼らの「労働者」の1人を無料で提供します。</text>
+		<crewMember amount="1" />
+	</event>
+	<event>
+		<text>海賊は傭兵のようで、皮肉にも反乱軍にあなたを追い詰めるために雇われました。ぎこちない沈黙の後、あなたは取引を成立させ、彼らは艦隊に嘘をつくことを約束します。</text>
+		<modifyPursuit amount="-2" />
+	</event>
+	<event>
+		<text>海賊は密輸業者のようです。彼らは、彼らのクライアントが彼らを狙い撃ちし、彼らの逮捕につながったと説明します。あなたがそれらを保存したので、彼らは代わりにあなたに売ることを申し出ます。</text>
+		<store>STORE_PIRATE</store>
+	</event>
+</eventList>
+
+<event name="DISTRESS_CAPITAL_RAID" unique="true">
+	<text>ゾルタン平和旅団は、反乱軍の戦闘機の大隊によってこのビーコンで激しい攻撃を受けています。遭難ビーコンは指揮船から来ています。彼らは忙しすぎてあなたに気付かないようです。</text>
+	<img back="BACKGROUND_ZOLTBATTLE" planet="PLANET_INVISIBLE" />
+	<choice hidden="true">
+		<text>それらを歓迎し、支援を提供します。</text>
+		<event>
+			<text>ゾルタンの司令官が船の銃声を聞いているのを聞くのは難しい。 「なに？！ああ、あなたは援助を提供するようになりましたか？私たちはできる限りの援助が必要です。このシステムを攻撃している反乱軍の船がたくさんあります！あなたが援助するつもりなら、それについて迅速に！」</text>
+			<choice hidden="true">
+				<text>小さい反乱軍の船の1つを攻撃します。</text>
+				<event>
+					<text>数隻の反乱軍の船が周囲に散らばっていて、必要に応じて仲間を助けるために急降下します。あなたはランダムに船を選び、攻撃します。</text>
+					<ship load="SHIP_CAPITAL_RAID_BORING" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>エリート船の1つに乗ります。</text>
+				<event>
+					<text>攻撃の重荷はエリート船によって実行されています。あなたはそれらの1つを傍受して攻撃します。</text>
+					<ship load="SHIP_CAPITAL_RAID_ELITE" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>戦隊を率いる船に乗ります。</text>
+				<event>
+					<text>強力なMFKエースが反乱軍を率いています。あなたがそれを破壊することができれば、ゾルタンはこの戦いに勝つことができるかもしれません。</text>
+					<ship load="SHIP_CAPITAL_RAID_ACE" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>これは混沌です、去ってください。</text>
+		<event />
+	</choice>
+</event>
+<event name="CAPITAL_RAID_BORING_WIN">
+	<text>戦いが遠くで激しさを増している間、あなたは反乱軍の船の残骸を救い出します。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>ゾルタンは紛争に対処するのに忙しくてあなたに報酬を与えることができないので、あなたは別の反乱軍の船があなたを攻撃する前に出発するのに良い時期だと判断します。</text>
+		</event>
+	</choice>
+</event>
+<event name="CAPITAL_RAID_ELITE_WIN">
+	<text>戦いが遠くで激しさを増している間、あなたはエリート反乱軍の船の残骸を救い出します。</text>
+	<autoReward level="HIGH">weapon</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>ゾルタンは紛争に対処するのに忙しくてあなたに報酬を与えることができないので、あなたは別の反乱軍の船があなたを攻撃する前に出発するのに良い時期だと判断します。</text>
+		</event>
+	</choice>
+</event>
+<event name="CAPITAL_RAID_SELITE_WIN">
+	<text>MFKエースは無力化されました。あなたは船の残骸を回収します。</text>
+	<autoReward level="HIGH">weapon</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>あなたの周りで戦いは衰え始めます。反乱軍は、あなたが彼らの指導者を打ち負かすのを見て、再考し、飛び去り始めます。ほんの数分で、ゾルタン軍はほぼ敗北から決定的な勝利へと移行します。</text>
+			<choice hidden="true">
+				<text>Zoltansに連絡してください。</text>
+				<event>
+					<text>「あなたは私たちをひどい敗北から救ってくれました。私たちはあなたの援助に感謝しています。私があなたに私たちの借金を返済させてください。」</text>
+					<autoReward level="MED">stuff</autoReward>
+					<crewMember amount="1" class="zoltan_peacekeeper" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+<eventList name="QUESTS_CAPITAL">
+	<event load="QUEST_CAPITAL_LANIUS_CORE" />
+
+	<event load="ZOLTAN_QUEST_PRIMITIVES" />
+	<event load="ZOLTAN_QUEST_LAWBOOK" />
+</eventList>
+
+<event name="QUEST_CAPITAL_LANIUS_CORE" unique="true">
+	<text>驚いたことに、このビーコンにはラニウス船が住んでいます！彼らは攻撃しませんが、代わりにあなたにメッセージを送ります。</text>
+	<ship load="SHIP_LANIUS_GENERIC" hostile="false" />
+	<choice hidden="true">
+		<text>応答。</text>
+		<event>
+			<text>「お願いします。グリーン！力が欲しいです。コアゾルタンが集めて、私たちを連れてきてください。」理解するのは難しいですが、さらに議論した後、ラニウスはこのセクターの住民のゾルタンの盾に興味を持っており、あなたにお願いをしているようです。ゾルタンの船を捕獲し、ラニウスに彼らの盾の核を持って来てください、そうすれば彼らはあなたに支払います。</text>
+			<choice hidden="true">
+				<text>同意。</text>
+				<event>
+					<text>「大きい。ロケーション送信。」 Laniusは、コアが必要な船の座標をアタッチします。</text>
+					<quest event="QUEST_CAPITAL_LANIUS_CORE_LIST" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>却下。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>攻撃！</text>
+		<event>
+			<text>ラニウスが攻撃しないのなら、あなたは攻撃するでしょう！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>	
+		<text>ラニウスを無視します。</text>
+		<event load="QUEST_CAPITAL_LANIUS_CORE_IGNORE" />
+	</choice>
+</event>
+<eventList name="QUEST_CAPITAL_LANIUS_CORE_IGNORE">
+	<event>
+		<text>Laniusは、応答するつもりがないことに気付いた後、最終的に飛び去ります。</text>
+		<choice>
+			<text>船に乗って何かをしなさい。</text>
+			<event load="STORAGE_CHECK" />
+		</choice>
+		<choice>
+			<text>何もしない。</text>
+			<event />
+		</choice>
+	</event>
+	<event>
+		<text>ラニウスは無視されることに満足していません...彼らは武器を武装して攻撃します！</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="QUEST_CAPITAL_LANIUS_CORE_LIST">
+	<event load="QUEST_CAPITAL_LANIUS_CORE_REGULAR" />
+	<event load="QUEST_CAPITAL_LANIUS_CORE_STATION" />
+	<event load="QUEST_CAPITAL_LANIUS_CORE_DUSKBRINGER" />
+	<event load="QUEST_CAPITAL_LANIUS_CORE_MONK" />
+	<event load="QUEST_CAPITAL_LANIUS_CORE_AUTO" />
+</eventList>
+<event name="QUEST_CAPITAL_LANIUS_CORE_REGULAR">
+	<text>コーディネートはあなたを通常のゾルタン船に導きました。コアが必要な場合は、最初に住民を排除する必要があります。</text>
+	<ship load="SHIP_ZOLTAN_CORE_REGULAR" hostile="false" />
+	<choice hidden="true">
+		<text>攻撃！</text>
+		<event>
+			<text>あなたは武器を武装させ、ゾルタン船に近づきます。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>これらのゾルタンは私たちに何もしていません、彼らを放っておいてください。</text>
+		<event>
+			<text>あなたはゾルタンと戦わないことに決めました。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="QUEST_CAPITAL_LANIUS_CORE_STATION">
+	<text>座標はあなたを通常のゾルタン駅に導きました。コアが必要な場合は、最初に住民を排除する必要があります。</text>
+	<ship load="SHIP_ZOLTAN_CORE_STATION" hostile="false" />
+	<choice hidden="true">
+		<text>攻撃！</text>
+		<event>
+			<text>あなたは武器を武装させ、ゾルタン駅に近づきます。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>これらのゾルタンは私たちに何もしていません、彼らを放っておいてください。</text>
+		<event>
+			<text>あなたはゾルタンと戦わないことに決めました。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="QUEST_CAPITAL_LANIUS_CORE_DUSKBRINGER">
+	<text>コーディネートはあなたをDuskbringer船に導きました！彼らはあなたが連邦の船であることを即座に検出して攻撃します。どちらの方法でも彼らと戦う必要がありますが、コアが必要な場合は、彼らの乗組員を殺す必要があります。</text>
+	<ship load="SHIP_ZOLTAN_CORE_DUSKBRINGER" hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="QUEST_CAPITAL_LANIUS_CORE_MONK">
+	<text>コーディネートはあなたをゾルタンモンクに導きました！彼らはあなたを歓迎します、「星はあなたが私たちの船を動かす心を探してここに来ると私たちに言いました。あなたがそれを取りたいなら、あなたはあなたの心をテストしなければなりません。」</text>
+	<ship load="SHIP_ZOLTAN_CORE_MONK" hostile="false" />
+	<choice hidden="true">
+		<text>「あなたの心をテストする」ことに同意します。</text>
+		<event>
+			<text>僧侶たちはあなたを真っ暗闇に包まれた部屋に導き、ドアを閉めます。あなたは完全に一人で数時間中を待ちます。あなたが狂気になりそうだと思うとき、あなたは深い眠りに漂います。あなたが目を覚ますと、あなたは僧侶とコアを持って船に戻っています！</text>
+			<crewMember amount="1" class="zoltan_monk" />
+			<modifyPursuit amount="1" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="QUEST_CAPITAL_LANIUS_CORE_OBTAIN" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="zoltan_monk">
+		<text>（モンククルー）コアについて彼らと交渉します。</text>
+		<event>
+			<text>あなたの僧侶の乗組員はあなたに彼らのコアを与えるように他の人を説得することができたようです。</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="QUEST_CAPITAL_LANIUS_CORE_OBTAIN" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>なぞなぞをねじ込み、攻撃します。</text>
+		<event>
+			<text>あなたは武器を武装させ、僧侶の船に近づきます。しかし、僧侶たちは逃げようとしているようです！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="QUEST_CAPITAL_LANIUS_CORE_AUTO">
+	<text>座標はあなたを自動化されたゾルタン船に導きました。レストモードのようですので、こっそりコアを抜くことができますか？</text>
+	<ship load="SHIP_ZOLTAN_CORE_AUTO" hostile="false" />
+	<choice hidden="true">
+		<text>コアを救出してみてください。</text>
+		<event load="QUEST_CAPITAL_LANIUS_CORE_AUTO_SALVAGE" />
+	</choice>
+	<choice hidden="true" req="hacking">
+		<text>（ハッキング）自動発送をハックしてオフラインに保ちます。</text>
+		<event>
+			<text>あなたは成功しているようです！自動発送はオフラインのままです。</text>
+			<choice>
+				<text>コアを検査します。</text>
+				<event load="QUEST_CAPITAL_LANIUS_CORE_OBTAIN" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="cloaking">
+		<text>（クローキング）コアを抜き取りながら船をクロークします。</text>
+		<event>
+			<text>あなたは成功しているようです！自動発送はオフラインのままです。</text>
+			<choice>
+				<text>コアを検査します。</text>
+				<event load="QUEST_CAPITAL_LANIUS_CORE_OBTAIN" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>自動発送は無視してください。</text>
+		<event>
+			<text>ZoltanAuto-shipからコアを抽出しようとしないことにしました。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="QUEST_CAPITAL_LANIUS_CORE_AUTO_SALVAGE">
+	<event>
+		<text>あなたは成功しているようです！自動発送はオフラインのままです。</text>
+		<choice>
+			<text>コアを検査します。</text>
+			<event load="QUEST_CAPITAL_LANIUS_CORE_OBTAIN" />
+		</choice>
+	</event>
+	<event>
+		<text>あなたの試みは失敗しました。オートシップはあなたを認識して攻撃します！</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<event name="QUEST_CAPITAL_LANIUS_CORE_OBTAIN">
+	<text>あなたはコアを観察します。船から取り外されたので、リバースエンジニアリングの方法がわからないようですが、Laniusはそれを認識しており、修正方法を知っていると思います。ただし...これを使用して、通常のシールドをアップグレードできる場合があります。</text>
+	<choice hidden="true">
+		<text>あなたの報酬のためにラニウスにコアを持ってきてください。</text>
+		<event>
+			<text>Laniusに連絡して、新しい座標を取得します。</text>
+			<quest event="QUEST_CAPITAL_LANIUS_CORE_FINISH" />
+		</event>
+	</choice>
+	<choice hidden="true" req="shields" max_lvl="7" blue="false">
+		<text>コアを分解し、それを使用してシールドをアップグレードします。</text>
+		<event>
+			<text>今は報酬を受け取ることはできませんが、シールドシステムはこれまで以上にうまく機能しています。</text>
+			<upgrade amount="1" system="shields" />
+		</event>
+	</choice>
+</event>
+<event name="QUEST_CAPITAL_LANIUS_CORE_FINISH">
+	<text>コアをLanius船に届けます。 「好意はうれしい。ビットはあなたのものです。」彼らはいくつかの物資を譲渡し、さらに取引することを申し出ます。</text>
+	<autoReward level="MED">stuff</autoReward>
+	<store>STORE_LANIUS</store>
+</event>
+
+
+
+
+<event name="CAPITAL_OSMIA_RAID" unique="true">
+	<text>最初は、近くの惑星は重要ではないと想定します。アトラスから通知されるまで、これは実際にはゾルタンの首都の場所です。通常、これらの場所はより適切にマークされていますが、省庁の建物が観光名所として見られることはめったにありません。あなたは首都がオスミアのゾルタンホームワールドにあると期待していましたが、これは間違いなくそのような場所ではありまだ?ん。</text>
+	<preventQuest />
+	<img back="BACKGROUND_ZOLTHUB" planet="PLANET_INVISIBLE" />
+	<choice hidden="true">
+		<text>首都をご覧ください。</text>
+		<event>
+			<text>あなたが近づくとすぐに、何かが不気味に間違っていることは明らかです。巨大な国会議事堂の近くの通りではほとんど活動がなく、外にいくつかの武装したパトロールが配置されているのを見ると誓います。あなたの降下は警告に遭遇します。 「未登録の外国船-すぐにやめてこのゾーンを離れる。これは無謀な第三者からの自己満足の介入の時ではない。」</text>
+			<choice hidden="true">
+				<text>私たちは無謀な第三者ではありません-私たちは連邦です。</text>
+				<event>
+					<text>「私はそれを理解している。私の声明はまだ立っている。これは省と省だけにとって重要な問題である。今それを打ち負かす。」</text>
+					<choice hidden="true" req="LIST_CREW_ZOLTAN_CAPITAL">
+						<text>（Ministry Crew）あなたが支援できるように彼らに話しかけてください。</text>
+						<event load="OSMIA_RAID_ASSIST" />
+					</choice>
+					<choice hidden="true" req="LIST_CREW_HARMONY">
+						<text>（ハーモニークルー）あなたが支援できるように彼らに話しかけてください。</text>
+						<event load="OSMIA_RAID_ASSIST" />
+					</choice>
+					<choice hidden="true" req="ENERGY_SHIELD">
+						<text>（ゾルタンシールド）あなたがゾルタンの船であることを彼らに納得させてください。</text>
+						<event load="OSMIA_RAID_ASSIST" />
+					</choice>
+					<choice hidden="true">
+						<text>とにかく助けることを主張しなさい。</text>
+						<event>
+							<text>ゾルタンはわざわざあなたに話しかけるのではなく、あなたを分散させるために彼のラジオにバックアップを求めます！</text>
+							<ship load="SHIP_ZOLTAN_ELITE_FIGHT" hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>これらの人を説得することはできないようです。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>その警告を守り、去ってください。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice>	
+		<text>訪問しても意味がありません。</text>
+		<event>
+			<text>あなたはゾルタン市民や観光を邪魔することに興味がありません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="OSMIA_RAID_ASSIST">
+	<text>「私はあなたの適性を誤って評価したようです。私は現在出席していないルメイ大臣を代表する摂政および講演者のAlltaFoleckです。おそらくお気づきかもしれませんが、国会議事堂は避難し、市は封鎖されています。差し迫ったテロ攻撃の。</text>
+	<choice hidden="true">
+		<text>テロリスト？ Duskbringersですか？</text>
+		<event>
+			<text>Alltaは躊躇しますが、最終的には次のように答えます。省の全滅。彼らの軍隊がまもなく到着し、彼らを逮捕しなければならないというニュースを受け取った。死はこれらのテロ行為の唯一の適切な結果である。」</text>
+			<choice hidden="true">
+				<text>滞在し、テロリストとの戦いを支援することに同意します。</text>
+				<event>
+					<text>ほどなくして、あなたは最初のテロ船が接近しているのを目にします。きちんとしたサイズの巡洋艦と非常によく武装している、これは省の支持を得るあなたのチャンスであるように見えます。</text>
+					<ship load="SHIP_OSMIAN_CRUISER" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>ええと、それらの人との取引を楽しんでください。私たちはここから出ています。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<ship name="SHIP_OSMIAN_CRUISER" auto_blueprint="MU_OSMIAN_CRUISER">
+	<triggeredEvent name="OSMIA_ESCAPE_TRIGGER" event="OSMIA_RAID_ESCAPE" enemyCrew="3" thisFight="true" />
+	<gotaway load="OSMIA_GOTAWAY" />
+	<destroyed>
+		<text>奇妙なゾルタン船は打ち負かされました。地面にぶつかると下の構造物に多少のダメージを与えますが、ゾルタンの関係者は心配しないでくださいと言っています。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="OSMIA_RAID_WIN" />    
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>奇妙なゾルタン船は打ち負かされました。地面にぶつかると下の構造物に多少のダメージを与えますが、ゾルタンの関係者は心配しないでくださいと言っています。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="OSMIA_RAID_WIN" />    
+		</choice>
+	</deadCrew>
+</ship>
+<event name="OSMIA_RAID_ESCAPE">
+	<text>乗組員が非常に少なくなったため、船は現在逃げようとしているようです。この種の行動はあまり見られませんが、Alltaから連絡があります。 「その船を逃がさないでください！テロリストが再編成できないようにする必要があります！」</text>
+	<clearTriggeredEvent name="OSMIA_ESCAPE_TRIGGER" /> 
+	<escape />
+	<choice hidden="true">
+		<text>戦い続ける。</text>
+		<event />
+	</choice>
+	<choice hidden="true" req="INFO_MACHINE">
+		<text>（アナライザー）船を脱出させ、その動きを追跡することを提案します。</text>
+		<event load="OSMIA_RAID_ESCAPE_OFFER" />  
+	</choice>
+	<choice hidden="true" req="FTL_JUMPER">
+		<text>（LRジャンプ）船が脱出してその動きを追跡できるようにすることを提案します。</text>
+		<event load="OSMIA_RAID_ESCAPE_OFFER" />  
+	</choice>
+	<choice hidden="true" req="ADV_SCANNERS">
+		<text>（LRS）船が脱出してその動きを追跡できるようにすることを提案します。</text>
+		<event load="OSMIA_RAID_ESCAPE_OFFER" />  
+	</choice>
+	<choice hidden="true" req="sensors" lvl="3">
+		<text>（高度なセンサー）船が脱出してその動きを追跡できるようにすることを提案します。</text>
+		<event load="OSMIA_RAID_ESCAPE_OFFER" />  
+	</choice>
+</event>
+<event name="OSMIA_RAID_ESCAPE_OFFER">
+	<text>「絶対にありません！あなたは彼らが死ぬまでその船で発砲し続けるように直接命令されています！彼らを追いかけようとしないでください、彼らは危険であり、止められなければなりません！」</text>
+	<variable name="loc_evidence_os_escape_offer" op="set" val="1" />
+	<choice hidden="true">
+		<text>戦い続ける。</text>
+		<event />
+	</choice>
+</event>
+<event name="OSMIA_GOTAWAY">
+	<text>テロ船が飛び去る。 Alltaは怒っていると言えますが、彼の揺らめく声にもかかわらず、彼はなんとかプロの落ち着きを維持しています。 「それでは、これは最適な結果ではありませんが、これでうまくいくことができます。あなたの努力のおかげで、資本は節約されました。へぇ...」</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="OSMIA_RAID_WIN" />   
+	</choice>
+	<choice hidden="true" req="loc_evidence_os_escape_offer">
+		<text>最初にテロ船の新しい場所の座標を取得します。</text>
+		<event>
+			<text>Alltaとさらに話している間、奇妙なZoltan船の軌道と座標を個別にダウンロードします。これがどこにつながるかはわかりませんが、明らかに、省が近くに誰かを望んでいないことがあります。</text>
+			<quest event="OSMIA_UNLOCK_QUEST" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="OSMIA_RAID_WIN" />   
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="OSMIA_RAID_WIN">
+	<text>攻撃中に他の船が存在しなかったことに気づかずにはいられません。ゾルタン軍は...戦闘であなたを支援することを拒否したという点で非常に控えめでした。奇妙ですが、Alltaはあなたを記念してもう一度現れます。 「言うまでもなく、あなたの助けがなければ、私たちはその攻撃を乗り切ることができなかったでしょう。あなたと連邦の両方に私の寛大さを示しさせてください〠?今、あなたの使命を自由に続けてください。私は嫌いです。これ以上あなたの時間を盗むために。」この突然の姿勢の変化がどこから来たのかはわかりませんが、約束どおり、Alltaは、Zoltan巡洋艦の設計図など、かなり大きな報酬を提供します。</text>
+	<autoReward level="HIGH">droneparts</autoReward>
+	<drone name="DRONE_SHIELD_POWERLESS" />
+	<unlockCustomShip silent="false">PLAYER_SHIP_ZOLTAN</unlockCustomShip>
+	<variable name="ach_boss_osmian" op="set" val="1" />
+	<choice hidden="true">
+		<text>贈り物を受け取り、去ります。</text>
+		<event />
+	</choice>
+	<choice hidden="true">
+		<text>質問が残っています。</text>
+		<event load="OSMIA_RAID_QUESTIONS" />   
+	</choice>
+</event>
+<event name="OSMIA_RAID_QUESTIONS">
+	<text>「ああ？質問？私はとても忙しい人です。恐れています。あなたの考えを楽しませようとしますが、私は長く立ち往生することはできません。」</text>
+	<choice hidden="true" req="loc_evidence_os_question_help" lvl="0" blue="false">
+		<text>他の船が私たちを助けてくれなかったのはなぜですか？</text>
+		<event>
+			<text>「あなたが状況をコントロールしていることがわかりました。船は彼らの船と同じくらい致命的であり、必要な場合を除いて、より価値のあるセキュリティチームを危険にさらすことをいとわなかった。多くの市民と地上パトロールは、発生するイベントに関する完全な情報を与えられなかった。ヒステリーがないことを確認するためです。それだけです。あなたが気分を害してだ?ないことを願っています。」</text>
+			<variable name="loc_evidence_os_question_help" op="set" val="1" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<loadEvent>OSMIA_RAID_QUESTIONS</loadEvent>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="loc_evidence_os_question_attack" lvl="0" blue="false">
+		<text>なぜ他の船が攻撃しなかったのですか？</text>
+		<event>
+			<text>「攻撃の規模については、ほとんど誤解されていたようです。情報提供者は常にすべてを正しく理解できるわけではありません...この船が処理されると、テロリストは将来の攻撃を行う前に躊躇するでしょう。 、でも将来助けが必要になった場合は、誰に電話すればいいのかわかっていると思います。</text>
+			<variable name="loc_evidence_os_question_attack" op="set" val="1" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<loadEvent>OSMIA_RAID_QUESTIONS</loadEvent>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="loc_evidence_os_question_mask" lvl="0" blue="false">
+		<text>なぜそれらのテロリストのマスクはそれほど現実的でしたか？</text>
+		<event>
+			<text>「精神的に不安定な熱狂者の不条理な努力を正当化するために、どのような合理的な人が試みることができますか？彼らの技術への献身は、一部の人が言うように、注目に値しますが、私はすぐにそれを不安と呼びます。しかし、恐れることはありません。すべてのゾルタン、そしてそれの良さに感謝します！」</text>
+			<variable name="loc_evidence_os_question_mask" op="set" val="1" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<loadEvent>OSMIA_RAID_QUESTIONS</loadEvent>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>これが私たちの質問のすべてです。</text>
+		<event>
+			<text>「いいね、いいね。あなたはとても好奇心旺盛な人です。あなたの周りの銀河についてもっと知りたいというあなたの意欲に感謝しますが、警告しなければなりません。将来あなたが関与しないビジネスに鼻を突っ込まないようにしてください。大丈夫？さようなら！」 Alltaはすぐに電話を切り、首都を離れるときに「安全なフライト」を確保するために護衛が派遣されます。</text>
+		</event>
+	</choice>
+</event>
+<ship name="SHIP_OSMIAN_CRUISER_COLONY" auto_blueprint="MU_OSMIAN_CRUISER">
+	<destroyed>
+		<text>あなたはいわゆるオスミアンの船を打ち負かしました。あまり意味がありませんでした-省はあなたに2番目の報酬を正確に与えるつもりはありません-しかし、少なくともこの謎は終わりました。右？</text>
+		<autoReward level="MED">standard</autoReward>
+	</destroyed>
+	<deadCrew>
+		<text>あなたはいわゆるオスミアンの船を打ち負かしました。あまり意味がありませんでした-省はあなたに2番目の報酬を正確に与えるつもりはありません-しかし、少なくともこの謎は終わりました。右？</text>
+		<autoReward level="MED">standard</autoReward>
+	</deadCrew>
+</ship>
+<event name="OSMIA_UNLOCK_QUEST">
+	<beaconType id="map_icon_osmia" global="true">
+		<color r="255" g="85" b="75" a="1.0" />
+		<unvisitedTooltip>Location of the terrorists.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+	</beaconType>
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<nebulaBeacon>false</nebulaBeacon>
+		<aggressive>2</aggressive>
+	</quest>
+	<img back="BACK_EVENT_OSMIA" planet="PLANET_INVISIBLE" />
+	<text>テロリストの場所に到着するとすぐに、アトラスの場所に驚かされます。これは、ゾルタン種族の故郷であるオスミアです。到着時に少なくとも重要性のマイナーな指標を持っていた首都とは異なり、オスミアにはそのようなファンファーレはありません。省はどのようにして惑星全体を連邦の他の地域から隠し続けてきましたか？そしてもっと重要なことに、なぜですか？</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>地表に近い座標をたどると、惑星がはるかに良い日を迎えていることがわかります。銀河帝国のほとんどの故郷と同様に、それは大規模な混乱の状態にありますが、これは大きく異なります。植生は地球のほぼ半分に完全に存在せず、それを見つけることができる場所では不規則に成長します。古代のクレーターが表面を飾り、その近くには大量の放射性崩壊があります。あなただ?デッドゾーンを避け、いくつかの大きな塔に吊るされた巨大な高架都市に近づきます。しかし、これは破滅ではありません-それは活動でにぎわっています。</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>突然、あなたは以前と同じ船に止められました。彼らの方言は奇妙ですが、あなたの翻訳者が簡単にギャップを埋めることができるほど現代のゾルタンに近いです。 「私たちを終わらせるために来ていないことを教えてください！省があなたに言ったことは何でも嘘です！どうぞ、あなたは理解しなければなりません、私たちは脅威ではありません！」</text>
+					<ship load="SHIP_OSMIAN_CRUISER_COLONY" hostile="false" />
+					<choice hidden="true">
+						<text>あなたは首都を攻撃しました-それはかなり脅威のようです。</text>
+						<event>
+							<text>「ほら、説明させてください！私はマルキです。私たちはオスミアンです。私たちはテロリストではありません。約束できます。私たちは、省が到達できなかった数少ない非変革者の最後です。気にかければ、私はできます。最初から始めて、すべてを説明してください。しかし、あなたが喜んでいるなら、あなたは私の人々に大きな助けになるかもしれないと私は信じています〠?」</text>
+							<choice hidden="true">
+								<text>彼の説明を聞いてください。</text>
+								<event load="OSMIA_UNLOCK_EXPLANATION" />
+							</choice>
+							<choice hidden="true">
+								<text>ここでは少し急いでいます。</text>
+								<event load="OSMIA_UNLOCK_QUESTION" />
+							</choice>
+							<choice hidden="true">
+								<text>これらの人を信用しないでください-攻撃してください！</text>
+								<event>
+									<text>あなたはマルキの抗議を無視し、攻撃に移る前に船を沈黙させます。</text>
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="OSMIA_UNLOCK_EXPLANATION">
+	<text>「オーケー、オーケー。ほら、武器の電源を切り、顔を合わせてみませんか？ここまで来たら、確かに答えを探しています。」しぶしぶ、あなたは同意し、凍った湖の近くに船を着陸させます。マルキは船から降り、以前の生き物と同じように見えるようになりました。</text>
+	<choice hidden="true">
+		<text>省はあなたがDuskbringersに変装したと言いました。</text>
+		<event>
+			<text>「それは嘘だと思います。多くの人の1人です。ご覧のとおり、私たちはあなたが知っているのと同じ意味でゾルタンではありません。連邦のずっと前に、私たちすべてのゾルタンはこのように見えました。当時、私たちは蒸していました。星間時代に向けて全力で前進し、多くの競合国の最初のものとなるように駆り立てられました。しかし、この競争は悲劇に変わり、核のホロコーストが差し迫っていました。オスミアは全滅し、生存者は惑星から逃げることを余儀なくされました。ほぼ何世紀にもわたってオスミアは私たちの手の届かないところに、私たちの失敗を厳粛に思い出させます。」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>「失われた探検家たちは周囲の星雲を歩き回り、再び戦争に発展することなく長い間落ち着くことができませんでした。しかし、それらの神秘的な雲の中で何かを見つけました。悪名高いグレートアイ星雲の中心には、巨大な神のようなものを保持する一枚岩がありました。ゾルタンはそれを崇拝するようになったので、彼らは団結しました。これにより、この新しい平和を支持だ?ようとしたイレスクトリアの信仰と省が誕生しました。しかし、省はその執行に残忍であり、その残酷さを正当化するために指導部は、これまでになく大きく急速に拡大する法のコーデックスを構築しました。人も軍もこれまで覚えることができませんでした。力によって、彼らは最後のすべてのゾルタンの植民地を吸収しました。」</text>
+					<choice hidden="true">
+						<text>しかし何が起こった？なぜ今ゾルタンはハードライトなのですか？</text>
+						<event>
+							<text>「はい、ほら、グレートアイは他の同様の技術の発見ももたらしました。目の周りの廃墟を鍛造するために使用される高導電性で耐性のある金属合金であるエーテルは、持続可能なハードライトジェネレーターを作成するために使用できます。この技術オスミア危機の解決策として他のさまざまな技術と一緒に見た省のトップ科学者を魅了しました。エーテルは私たちの特別な盾だ?ようなゾルタン種の最も悪名高い技術のほとんどを構築するために使用されましたが、新しい部分有機部品を作成するためにも使用しました-オスミアを探索するための機械的形態これは成功であり、探索者は英雄として崇拝され、多くの人が惑星を再植民地化するために群がりました。当時の現大臣は、自然死に屈するまで少し長く生きました。新大臣のルメイに代わった。」</text>
+							<choice hidden="true">
+								<text>待ってください、でもこれは何世紀も前ではなかったのですか？ルーメイは今もどのように担当していますか？</text>
+								<event>
+									<text>「これは確かにずっと前のことですが、すぐにあなたの質問に対する答えにたどり着きます。ルメイのリーダーシップの下で、コーデックスのサイズはほぼ2倍になり、施行はさらに厳しくなりました。ルーメイがポーンとして彼の近くにそれらを保つことができるように省の席を与えられました。エーテルとグレートアイの間の接続のために、これらのハードライトフォームも宗教的な重要性を帯びたので、ルーメイ自身が彼を確保するために変容しました技術がすぐによく研究されるようになると、裕福なエリート、司祭、そして最終的には庶民でさえそのような手続きをする余裕ができました。変革を正常化し、実施し始めました。」</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event>
+											<text>「ほとんどの断固とした非形質転換体は自然の原因で死亡し、より新しい「進歩的な」考え方が定着しました。7歳以上のすべてのゾルタンはすぐにハードライトシャーシに移行することになりました。皮肉なことに、省が触れるのに苦労した唯一の場所は、オスミア自体。最初のホロコーストを生き延びた荒れ地の間の領土の支配権を握り、非形質転換者のグループがそこに定着しました。最終的に、省はあきらめ、残りのゾルタンからオスミアの重要性を消すために努力を費やしました-他の知性のある生命の最近の発見によって何かが容易になりました。そして、それが私たちオスミアンの最初の人になった方法です。省は銀河が私たちの存在を忘れ、私たちが自然に死ぬことを望んでいます。」</text>
+											<choice hidden="true">
+												<text>それで、あなたが私たちに必要としたのは何ですか？</text>
+												<event load="OSMIA_UNLOCK_QUESTION" />
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="OSMIA_UNLOCK_QUESTION">
+	<text>「ええ、私たちが首都にいた理由を説明するのが最善だと思います。何かを尋ねる前に...ほら、オスミアに避難していない私たちの種類がいくつか残っています。彼らは捕らえられました省によって、ハードライトフォームの予期せぬ大変動の失敗の場合に備えて、「プロトコル3」の下で秘密の研究所に閉じ込められたままにされました。罪のない人生、そして古代の忘れられた歴史のタイムカプセル。私たちは首都を襲撃し、捕虜を解放することを強制したかったのですが、ご覧のとおり、それは計画どおりに機能しませんでした。」</text>
+	<choice hidden="true">
+		<text>おっと。申し訳ありません。</text>
+		<event>
+			<text>「そうしないでください。連邦の一部としての省との同盟が優先されたことを理解しています。しかし今、私はあなたにその同盟の利益とならない恩恵を求めなければならないのではないかと思います。私たちの軍隊は強力ではありません。実験室を守っている船を引き受けるのに十分であり、私たちの唯一の船が能力を持っているので、あなたはかなりの損害を与えました。あだ?たの心の優しさのおかげで、あなたは永遠にオスミアの人々の感謝を得るでしょう。」</text>
+			<choice hidden="true">
+				<text>捕虜を救出することに同意します。</text>
+				<event>
+					<text>「本当に？信じられない。でも、これ以上お礼を言う時間はない。急いでください。私たちの行動に直面して、省が標本をさらに保護するために行動を起こすかどうかはわかりません。すぐに座標を転送します。到着後すぐに輸送が始まります。幸運を祈ります。私たちのスタッフはあなたを頼りにしています。」</text>
+					<quest event="OSMIA_LAB" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>却下。</text>
+				<event>
+					<text>「理解できます。少なくとも、私たちが今までどおり存在し続けることを許可してくれてありがとう。あなたの旅行に幸運を祈ります。」</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<ship name="SHIP_ZOLTAN_LAB" auto_blueprint="MU_ZOLTAN_LAB">
+	<triggeredEvent name="TRIGGER_OSMIAN_ARRIVAL" event="OSMIAN_ARRIVAL" enemyDamage="10" enemyDeaths="4" />
+	<destroyed>
+		<text>平和維持軍は敗北しました。あなたはより多くの援軍を期待していますが、ラボは代わりに降伏するつもりであるようです。省はこの真実を隠そうと必死ですが、本格的な戦争の危険を冒すには明らかに十分ではありません。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="OSMIA_LAB_WIN" />    
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>平和維持軍は敗北しました。あなたはより多くの援軍を期待していますが、ラボは代わりに降伏するつもりであるようです。省はこの真実を隠そうと必死ですが、本格的な戦争の危険を冒すには明らかに十分ではありません。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="OSMIA_LAB_WIN" />    
+		</choice>
+	</deadCrew>
+</ship>
+<event name="OSMIA_LAB">
+	<beaconType id="map_icon_secretlab" global="true">
+		<color r="255" g="85" b="75" a="1.0" />
+		<unvisitedTooltip>Location of the secret Ministry Lab.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+	</beaconType>
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<nebulaBeacon>true</nebulaBeacon>
+		<createNebula>true</createNebula>
+		<nextSector>true</nextSector>
+		<aggressive>1</aggressive>
+	</quest>
+	<img back="BACK_EVENT_SECRETLAB" planet="PLANET_INVISIBLE" />
+	<text>ここがその場所であることに疑いの余地はありません。不吉な姿がすぐに現れただけで、これが通常の秘密基地ではないことは明らかです。オスミアンによれば、セキュリティは厳しくなければならず、検出されずに近づくことは避けられません。</text>
+	<choice hidden="true">
+		<text>近づけます。</text>
+		<event>
+			<text>一定のしきい値を超えるとすぐに、平和維持船が発動します。ほぼ巡洋艦のサイズで、この船は怠惰な脅威ではありません。 「ゾーンE17への入場は禁止されています。どうやってこの場所を見つけましたか？」</text>
+			<ship load="SHIP_ZOLTAN_LAB" hostile="false" />
+			<choice hidden="true">
+				<text>間違いありません-戦う時間です。</text>
+				<event>
+					<text>あなたは省から何をすべきかを言われ終わった。彼らが長い間やってきたものをついに彼らに与える時が来ました。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>迷子になってすみません。出発します！</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>離れる。</text>
+		<event>
+			<text>今回は噛むことができる以上に噛んだ。オスミアンは彼らを助けるために誰か他の人を見つける必要があるでしょう。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="OSMIAN_ARRIVAL">
+	<clearTriggeredEvent name="TRIGGER_OSMIAN_ARRIVAL" />
+	<text>レーダーはすぐにさらにいくつかのpingを受信します。これは、ゾルタンが援軍を受け取ったことを意味するのではないかと心配していますが、そうではありません。実際、それはまったく逆です。オスミアンが到着しました、そしてこのような紛争におけるあなたの「同盟国」のほとんどとは異なり、彼らは実際に傍観者から火力を提供しています！</text>
+	<environment type="PDS" target="enemy" />
+</event>
+<event name="OSMIA_LAB_WIN">
+	<text>オスミア軍は船に限りがありますが、人員が豊富で、実験室を襲撃します。ゾルタンの科学者たちは降伏します。あなたはさまざまなエンギと連邦の数人の労働者でさえ群衆の中にいることに注意します、しかしあなたはマルキに気を取られています。 「あなたの助けに感謝します。私は拡張することはできませんが、私はあなたの連邦の青写真を私たちの最高の軍艦に提供することができます。私たち-」突然、警報が鳴り響きます。何か悪いことが起こっています！</text>
+	<unlockCustomShip silent="false">PLAYER_SHIP_OSMIA</unlockCustomShip>
+	<variable name="ach_boss_zone" op="set" val="1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>アラームの直後に、別の警告がステレオで再生されます。これらすべての警告にうんざりしているかもしれませんが、これは無視すべきものではありません。 「すぐに敷地を避難させてください。核攻撃が差し迫っています。」パニックがすぐに発生し、レーダーが弾頭の接近を検出します。どうやら、緊急の場合には、省はそれ自体を破壊するためにこの場所を装備しました。ホロパッドの見積もりが正しければ、影響の10分前になります。</text>
+			<choice hidden="true">
+				<text>オスミアンがうっ滞ポッドを動かすのを手伝ってください。</text>
+				<event>
+					<text>あなたの乗組員は急いで助けに駆けつけ、ポッドを保持コンパートメントから外し、待機中のオスミアン輸送船に運びます。タイマーが刻々と過ぎていくと、制限時間よりもはるかに大きな問題があることに気付きます。すべての標本に十分なスペースがありません。マルキも気づき、がっかりします。 「私たちは今何をしますか？複数の旅行のための十分な時間がありません！」</text>
+					<choice hidden="true">
+						<text>私たちはそれらを置き去りにしなければなりません！</text>
+						<event load="OSMIAN_LEAVE" />
+					</choice>
+					<choice hidden="true" req="BLUELIST_CREW_STRONG">
+						<text>（強力な乗組員）いくつかのポッドを船に運びます。</text>
+						<event>
+							<text>他の輸送機関が満員の場合、唯一の選択肢は、チャンバーを自分の船に積み込むことです。あなたはできるだけ多くを持ち帰りますが、マルキが他の船にもっと多くのコンテナを収めようとして無益に駆け回っていることに気づかずにはいられません。</text>
+							<augment name="ZOLTAN_SPAWNER" />
+							<choice hidden="true">
+								<text>彼に去るように促しなさい。</text>
+								<event load="OSMIAN_LEAVE" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>私たちは自分たちの役割を果たしました-去ってください！</text>
+				<event>
+					<text>マルキに謝罪しますが、できるだけ多くの静止チャンバーを動かすのを手伝うために彼はすでに逃げているので、彼はほとんど気づきません。あなたは急いで船に戻り、出発の準備をします。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="OSMIAN_LEAVE">
+	<text>「あなたは気が狂っていますか？私たちは彼らを置き去りにするためだけにここまで来たのではありません！私たちはできるだけ多くの人を救出する必要があります！」あなたはそれらすべてを動かすのにおそらく十分な時間がないことを説明しようとしますが、マルキは耳を傾けません。最終的に、残りのオスミアンが逃げるとき、あなたは力で彼をあなたの船に引き戻すことだ?できます。すべての標本を保存することはできず、科学者は運命にありますが、少なくともすべてのオスミアンとあなたの乗組員は安全にそれを取り除くことができました。</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>惑星を後にする距離から、爆発の閃光を見ることができます。厳しい沈黙の中でマルキは無反応です。 「私は私の人々を失敗させました。しかし...私は知っているべきでした。省は人々に真実を見るよりも早くその遺産を破壊するでしょう。それは彼らにとって重要ではありません。彼らが新しい標本を必要とするなら彼らは彼らができることを知っていますもう一度オスミアを攻撃するだけです。その実験室は単なる形式的なものでした。私たちの襲撃のニュースがまったく出てこなければ、それでも疑わしいとはいえ、事故として紡がれると確信しています。」</text>
+			<changeBackground>BACKGROUND</changeBackground>
+			<choice hidden="true">
+				<text>そこには連邦の科学者もいました。なんで？</text>
+				<event>
+					<text>「連邦は私たちのことを知らなかったと思いますか？彼らは私たちが危険な脅威であると残りのすべてに説明したと確信しています。そうすれば、私たちが別の内戦を始めようとしても、連邦は躊躇しません。でも、それは重要なことではありません。私はそれほど悲惨なことではありません。私たちは皆を救ったわけではありませんでした。私たちはできませんでした。しかし〠?私たちはまだ何十人もの人々を救いました。失われた歴史。しかし、私の民のリーダーとして、私はそのような結果に備えることができませんでした。私はオスミアに戻ることができません。私はあなたが私のサービスを受け入れることを謙虚に要求します、船長。」</text>
+					<crewMember amount="1" all_skills="2" class="zoltan_osmian">Malki</crewMember>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+
+
+<eventList name="MONK_EVENTS_EMPTY">
+	<event load="ZOLTAN_ODD_MOON" />
+	<event load="ZOLTAN_TOURIST_RESCUE" />
+	<event load="ZOLTAN_LIFERAFT" />
+	
+	<event load="ZOLTAN_AUTO_TICKET" />
+	<event load="ZOLTAN_FIGHTER_MONK" />
+	
+	<event load="FREE_ITEMS" />
+	<event load="REFUGEE_NO_DISTRESS" />
+</eventList>
+
+
+<event name="MONK_TEMPLE" unique="true">
+	<text>このビーコンは、甘美で生い茂ったジャングル惑星の軌道に設置されたようです。植物で満たされた巨大な洞窟の中央には、ゾルタン寺院があります。それは比較的ローテクに見えますが、それを保護する単一の休眠中の自動船を除いて。</text>
+	<img back="BACK_EVENT_ZOLTAN_TEMPLE" planet="PLANET_INVISIBLE" />
+	<choice hidden="true">
+		<text>中の僧侶に連絡する。</text>
+		<event>
+			<text>あなたはコミュニケーションを試みますが、寺院には連絡を受信するステムさえないようです。あなたは近くを操縦して着陸し、そこで僧侶があなたを歓迎します。 「ようこそ友達。この聖なる場所では、誰でも無料で歓迎されます。」</text>
+			<choice hidden="true">
+				<text>中を見てください。</text>
+				<event>
+					<text>寺院のほとんどは荒廃していて手入れが行き届いておらず、あちこちに安い彫像がいくつかあります。中央の部屋には、輪になって瞑想する多くの僧侶がいます。僧侶が目を開けて挨拶します。 「あなたは連邦からの訪問者ですか？来て、悟りへの道に参加し、平和の神々に祝福されてください。」</text>
+					<choice hidden="true">
+						<text>瞑想に参加してください。</text>
+						<event load="MONK_TEMPLE_REWARD" />
+					</choice>
+					
+					<choice>
+						<text>私たちは行かなければならないのではないかと思います。</text>
+						<event>
+							<text>「それは大丈夫です、友人。安全な旅行。」</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>もういいです。</text>
+				<event>
+					<text>あなたはゾルタンの僧侶であることがどのようなものか興味がありますが、それはあなたの使命ほど重要ではありません。</text>
+					<choice>
+						<text>船に乗って何かをしなさい。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>オートシップに乗って、寺院を襲撃することができます！</text>
+		<event>
+			<text>オートシップを利用すると、無防備な寺院にアクセスできるようになります。</text>
+			<ship load="SHIP_ZOLTAN_AUTO_TEMPLE" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>寺院を無視します。</text>
+		<event>
+			<text>あなたはゾルタン寺院に興味がありません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="MONK_TEMPLE_REWARD">
+	<text>あなたは他のゾルタンの真ん中で床に座り、彼らの低いハミングで参加します。あなたが突然あなたの睡眠から驚いて、どれくらいの時間が経過したかを理解する前に、ほぼ半日が経過します...</text>
+	<modifyPursuit amount="2" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>僧侶たちはあなたの訪問に簡単に感謝します、そしてあなたが去るときあなたは奇妙な気持ちがあなたにやってくるのを感じます...まるであなたが祝福されたかのように。</text>
+			<hiddenAug>ZOLTAN_BLESSING</hiddenAug>
+			<damage amount="-30" />
+		</event>
+	</choice>
+</event>
+<eventList name="ZOLTAN_AUTO_TEMPLE_WIN">
+	<event>
+		<text>ご想像のとおり、寺院は完全に身を守ることができません。非暴力に誓われた僧侶たちは、持っているものすべてを明け渡すことを余儀なくされ、結局はそれほど多くはありません。</text>
+		<autoReward level="LOW">fuel</autoReward>
+	</event>
+	<event>
+		<text>僧侶たちは彼らの物資をあきらめることを拒否します。 「私たちは暴力を必要とせず、あなたの要求に屈することはありません。私たちは平和な人々です。あなたはこれよりもよく知っています。」</text>
+		<choice>
+			<text>それらを手放します。</text>
+			<event>
+				<text>できることはこれ以上ありませんし、無防備な僧侶を実際に殺す準備もできていません。</text>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>すべての僧侶を殺します。</text>
+			<event>
+				<text>あなたは無実のゾルタンの束を残酷に殺害しました。スクラップのささいな捜索の一環として、不必要な虐殺をしました。この無意味な虐殺はあなたに何をもたらしましたか？いくつかの燃料電池と、3スクラップ以上の価値がない、瞑想しているゾルタンの偽の金の像。</text>
+				<item_modify>
+					<item type="fuel" min="2" max="2" />
+				</item_modify>
+				<augment name="ZOLTAN_STATUE" />
+			</event>
+		</choice>
+	</event>
+</eventList>
+
+
+<eventList name="NEBULA_ITEM_MONK">
+	<event load="NEBULA_MONK_STRANDED_FED" />
+	<event load="NEBULA_MONK_FREE_CREW" />
+	<event load="NEBULA_MONK_BEGGAR" />
+	<event load="NEBULA_MONK_GHOST" />
+	<event load="NEBULA_MONK_CONVERT" />
+</eventList>
+
+<event name="NEBULA_MONK_FREE_CREW" unique="true">
+	<text>近くの修道院があなたを歓迎します。やせっぽちの僧侶がビュースクリーンに表示されます。 「こんにちは。私は最近この修道院に参加しましたが、すぐにこれらの星雲で孤立した生活が私には向いていないことに気づきました。おそらく私があなたと一緒に来ることを許可しますか？私は平和主義の信念に専念していますが、私は他の方法でも便利です！」</text>
+	<ship load="SHIP_MONK_STATION" hostile="false" />
+	<environment type="nebula" />
+	<choice>
+		<text>あなたの船でそれらを受け入れてください。</text>
+		<event>
+			<crewMember amount="1" class="zoltan_monk" />
+		</event>
+	</choice>
+	<choice>
+		<text>いいえ、これ以上乗組員は必要ありません。</text>
+		<event>
+			<text>「ああ……わかった」通話を終了して続行します。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_CONVERT" unique="true">
+	<text>ゾルタン修道院がこのビーコンに建設されました。彼らはあなたを歓迎し、彼らの寺院のツアーを提供します。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>ツアーに同意します。</text>
+		<event>
+			<text>「ツアー」は、ツアーではなく、僧侶の宗教についての長い説教になります。あなたはそれがかなり退屈だと思いますが、あなたの乗組員の一人は確信しています。驚いたことに、彼らは後ろに留まって僧侶に加わりたいと思っています！</text>
+			<choice hidden="true">
+				<text>同意し、彼らを手放します。</text>
+				<event>
+					<text>あなたの乗組員はさようならを振る。僧侶たちはあなたに同情し、どんな難しい決断があったに違いないかを理解します。慰めとして、彼らはあなたの船体を修理し、あなたの原子炉を無料でアップグレードします。</text>
+					<upgrade amount="2" system="reactor" />
+					<damage amount="-5" />
+					<removeCrew>
+						<clone>false</clone>
+						<text>彼らは死んでいないので、あなたはあなたの乗組員を複製することはできません。</text>
+					</removeCrew>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>ごみ。</text>
+				<event>
+					<text>あなたは乗組員を慰め、任務がより重要であり、あなたがこの現実を救ったときに彼らは僧侶に戻ることができると説明します。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>却下。</text>
+		<event>
+			<text>あなたは修道院を見学しないことにしました。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_BEGGAR" unique="true">
+	<text>古くて腰を下ろした僧侶があなたの船に現れ、手をカップの形で伸ばします。 「旅行者の皆さん、こんにちは。私は、一日を過ごすための予備のスクラップを探している謙虚なゾルタンです。ここでの生活は大変です。ご理解いただけると思います。」</text>
+	<environment type="nebula" />
+	<choice>
+		<text>彼にお金を渡してください。</text>
+		<event>
+			<text>あなたはそのお金を老僧に渡します。</text>
+			<item_modify>
+				<item type="scrap" min="-10" max="-10" />
+			</item_modify>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MONK_BEGGAR_PAY" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>ごみ。</text>
+		<event load="MONK_BEGGAR_REFUSE" />
+	</choice>
+</event>
+<eventList name="MONK_BEGGAR_PAY">
+	<event>
+		<text>「ああ、ありがとう、あなたはとても親切です。」彼は一言も言わずに光を放ちます。</text>
+	</event>
+	<event>
+		<text>「ああ、ありがとう。あなたはとても親切です。たぶん私はあなたと一緒にいるでしょう...あなたはとても素敵な人のようです。」</text>
+		<crewMember amount="1" class="zoltan_monk" />
+	</event>
+	<event>
+		<text>「ありがとうございます。あなたはとても親切です。私はあまり持っていませんが、昔は原子炉について1つか2つ知っていました。たぶん、あなたの仕事をすることができるかもしれません。」</text>
+		<upgrade amount="1" system="reactor" />
+	</event>
+</eventList>
+<eventList name="MONK_BEGGAR_REFUSE">
+	<event>
+		<text>「大丈夫です…わかりました」僧侶は一言も言わずに立ち去ります。</text>
+	</event>
+	<event>
+		<text>僧侶は直立し、すぐに数年若く見えます。彼はローブを脱ぎ捨て、ブラスターを明らかにします！ 「Tsktskキャプテン、あなたはもっと与えるべきだった！」さらに数人のゾルタンが現れ、海賊船が近づいてくる。</text>
+		<boarders min="2" max="3" class="zoltan" />
+		<ship load="SHIP_PIRATE_ZOLTAN_CREW" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="NEBULA_MONK_STRANDED_FED" unique="true">
+	<text>連邦船がエンジンを故障させてこのビーコンで立ち往生しているのを見てショックを受けました。 「ああ、あなたは悪い時期に私たちを捕まえました。あるいは実際には...あなたにとってはかなり幸運な時期です。私たちはエンジンを修理するためにスクラップが必要です、そしてここの僧侶たちは私たちを助けるのに役に立たなかった。スクラップ用の物資を売ってください。」</text>
+	<ship load="SHIP_FED_GENERIC" hostile="false" />
+	<environment type="nebula" />
+	<choice>
+		<text>取引することに同意します。</text>
+		<event>
+			<store>STORE_STANDARD</store>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>彼らに修理のためにスクラップを渡してください。 [-25スクラップ]</text>
+		<event>
+			<text>「ああ、すごい！ありがとう。これを無給にすることはできません。ここで、このセクターを旅行しているときに、調査結果の詳細な地図を収集しました。これは役立つはずです。燃料もあります。十分な量があります。 、修正が必要なのは私たちのエンジンだけです。」</text>
+			<item_modify>
+				<item type="scrap" min="-25" max="-25" />
+			</item_modify>
+			<autoReward level="HIGH">fuel_only</autoReward>
+			<reveal_map />
+		</event>
+	</choice>
+	<choice>
+		<text>私たちは何も買おうとは思っていません。</text>
+		<event>
+			<text>あなたはFRBの船に謝罪し、あなたの道を続けます。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_GHOST" unique="true">
+	<text>近くの僧侶の船は、まるで操縦方法がわからないかのように、奇妙に動き回っているように見えます。さびたミサイルランチャーも1つ搭載されており、通常は平和な僧侶の特徴ではありません。</text>
+	<ship load="SHIP_MONK_GHOST" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>それらに連絡してください。</text>
+		<event>
+			<text>僧侶はあなたの連絡に声を出して応答するのではなく、むしろメッセージに応答します。 「こんにちは。この船はもはやゾルタン僧侶によって所有されていません。私たちは幽霊です。この船は武装しておらず、ミサイルが不足しています。いくつかあげてもらえますか？」</text>
+			<choice hidden="true">
+				<text>それらに5発のミサイルを与えます。</text>
+				<event>
+					<text>「あなたの贈り物はありがたいです。この感謝の印を受け取ってください。」あなたはスクラップかおそらく燃料を期待していますが、代わりにゴーストの乗組員があなたの船で実体化します！</text>
+					<item_modify>
+						<item type="missiles" min="-5" max="-5" />
+					</item_modify>
+					<crewMember amount="1" class="phantom_wraith">Casper</crewMember> 
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>それらに10発のミサイルを与えます。</text>
+				<event>
+					<text>「意外と大量の弾薬。この感謝の印を受け入れてください。」あなたはスクラップかおそらく燃料を期待していますが、代わりにゴーストの乗組員があなたの船で実体化します！</text>
+					<item_modify>
+						<item type="missiles" min="-10" max="-10" />
+					</item_modify>
+					<crewMember amount="1" class="phantom_wraith_alpha" all_skills="2">Casper</crewMember>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>ミサイルが少ない場合、それは彼らが簡単な標的であることを意味します！</text>
+				<event>
+					<text>あなたは幽霊を助けることを拒否しますが、代わりに彼らを攻撃します。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>仕方がない。</text>
+				<event>
+					<text>あなたは幽霊に謝罪し、あなたの使命を続けます。</text>
+					<choice>
+						<text>船に乗って何かをしなさい。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>僧侶を無視します。</text>
+		<event>
+			<text>あなたは奇妙な僧侶を無視して通り過ぎます。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+<eventList name="NEBULA_HOSTILE_MONK">
+	<event load="NEBULA_ENCOUNTER_MONK_PIRATE" />
+	<event load="NEBULA_ENCOUNTER_MONK_ZOLTAN" />
+	
+	<event load="NEBULA_ENCOUNTER_MONK_MANTIS" />
+	<event load="NEBULA_ENCOUNTER_MONK_SLUG" />
+	
+	<event load="NEBULA_ENCOUNTER_MONK_SMUGGLER_INTERCEPT" />
+	
+	<event load="NEBULA_MONK_RIFT_FIGHT" />
+</eventList>
+
+<event name="NEBULA_ENCOUNTER_MONK_ZOLTAN">
+	<text load="TEXT_ENCOUNTER_MONK_ZOLTAN" />
+	<ship load="SHIP_ZOLTAN_FIGHT" hostile="true" /> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_MONK_ZOLTAN">
+    <text>ここで見つかるゾルタンの船は僧侶だけではありません。景色を眺めるゾルタンの船があなたを見つけ、どういうわけかあなたの存在に脅かされて激しく報復するのに十分だと感じます！</text>
+    <text>「あなたは何ですか？海賊？傭兵？あなたは僧侶に危害を加えるためにここに来ましたね？あなたの目的を達成する準備をしてください！」混乱したゾルタン船が攻撃のために移動します。</text>
+    <text>ゾルタンの船が星雲から滑り落ち、武器が引き抜かれます。それはすでに戦いの真っ只中にあったに違いありません、そして今それはあなたに出くわしたので、それはあなたを前の攻撃者と間違え、攻撃に固執します。</text>
+    <text>ゾルタンの船が星雲から酔っぱらって腰を下ろしてやってくる。それはあなたの船をこすりますが、幸いなことにそれは表面的なダメージを与えるだけです。それでも、彼らの奇妙な昏迷の中で、ゾルタンはあなたを衝突のせいにし、彼らの武器を活性化します！</text>
+</textList>
+
+<event name="NEBULA_ENCOUNTER_MONK_PIRATE">
+	<text load="TEXT_ENCOUNTER_MONK_PIRATE" />
+	<ship load="SHIP_PIRATE_ALL" hostile="true" /> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_MONK_PIRATE">
+	<text>海賊船がこのビーコンにとどまり、目の前であなたを攻撃します。当然のことですが、僧侶が身を守ることはめったにないため、このセクターは海賊の磁石です。</text>
+	<text>星雲の中で海賊船があなたを待っていたようです！</text>
+	<text>「あなたは何ですか、そのうちの1人は僧侶の保護者か何かですか？ハァッ！」傲慢な海賊船が星雲から滑り落ちてあなたを攻撃します。</text>
+	<text>僧侶からの不承認にもかかわらず、海賊は依然としてこのセクターを訪れ、苦しんでいます。ここで戦いを探しているかなり厄介な船に遭遇したようです。</text>
+</textList>
+
+<event name="NEBULA_ENCOUNTER_MONK_MANTIS" unique="true">
+	<text>近くのカマキリ船でおしゃべりをします。 「それを見てください、彼は僧侶ではありません。船上に良いものがなければなりません、私たちはそれらを取ります。」周りに他の船がないので、彼らがあなたを参照していると仮定するのは安全です！</text>
+	<ship load="SHIP_MANTIS_FIGHT" hostile="true" /> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="NEBULA_ENCOUNTER_MONK_SLUG" unique="true">
+	<text>この星雲の中の僧侶の存在は、その自然の住人であるナメクジを邪魔しているようです！自分たちの領土を奪還しようとしているイライラしたナメクジの船があなたを見つけて近づきます。</text>
+	<ship load="SHIP_SLUG_FIGHT" hostile="true" /> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="NEBULA_ENCOUNTER_MONK_SMUGGLER_INTERCEPT" unique="true">
+	<text>密輸船がこのセクターをこっそり通り抜けようとしています。しかし、彼らがあなたを見つけたとき、彼らはチャンスをつかんで攻撃しません！</text>
+	<ship load="SHIP_SMUGGLER_MONK" hostile="true" /> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="NEBULA_ENCOUNTER_MONK_SMUGGLER_QUEST" unique="true">
+	<text>あなたは密輸業者のクライアントの座標に到着しますが、彼らは僧侶のようです！非常に珍しいです...</text>
+	<ship load="SHIP_MONK_SMUGGLER_QUEST" hostile="false" /> 
+	<environment type="nebula" />
+	<choice>
+		<text>僧侶に質問します。</text>
+		<event>
+			<text>あなたは僧侶を歓迎しますが、代わりに不機嫌そうな海賊が反応します。 「ああ、くそー、それは連邦政府だ！銃器の男たちを準備せよ！」</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>とにかく、ただ去ってください。</text>
+		<event>
+			<text>あなたは僧侶を無視して通り過ぎます。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_RIFT_FIGHT" unique="true">
+	<text>あなたはゾルタン空間の静かな場所にやって来て、空間の裂け目の力を利用したと主張する古代のゾルタンの賢者に遭遇しますが、その力によって完全に狂ったように見えます。彼は明らかに嘘をついていますが、彼の狂気は間違いなく本物であり、裂け目もそうです。 「あなたの運命を選んでください。私には多種多様な選択肢があります」と彼は要求します。</text>
+	<img back="BACK_EVENT_RIFT" planet="NONE" />
+	<status type="divide" target="player" system="sensors" amount="2" />
+	<choice hidden="true" req="COMBAT_HAZARD">
+		<text>（リアリティマニピュレーター）裂け目のコントロールをつかみます。</text>
+		<event>
+			<text>「なに、なにをしたの？ゾルタンはひざまずき、遠くの裂け目がゆっくりと閉じて環境が正常に戻ると、完全に打ち負かされます。あなたのはるかに本当の力を恐れて、ゾルタンはあなたのサービスに服従します。</text>
+			<environment type="nebula" />
+			<crewMember amount="1" class="zoltan_monk" all_skills="2" /> 
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>カマキリ。</text>
+		<event>
+			<text>「あなたは挑戦が好きです。だからそれでいいのです！」ワームホールが形成され、混乱した怒っているカマキリの船があなたに向かって急いでいます！</text>
+			<ship load="SHIP_ZOLTAN_RIFT_MANTIS" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ナメクジ。</text>
+		<event>
+			<text>「やわらかい下腹にだまされてはいけない、連邦よ。」ワームホールが開いているのを検出し、数秒後にナメクジの船が反対方向から攻撃しています！</text>
+			<ship load="SHIP_ZOLTAN_RIFT_SLUG" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ロックマン。</text>
+		<event>
+			<text>「硬化したベテランのための硬化した敵。」ワームホールが開いているのを検出すると、銃が燃えている岩の船が現れます。彼らが時空を越えて突き刺されたとき、彼らは戦闘中であったようです。</text>
+			<ship load="SHIP_ZOLTAN_RIFT_ROCK" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ラニウス。</text>
+		<event>
+			<text>「異常にマゾヒスティックな要求ですが、私が許可します。」ワームホールが開いているのを検出すると、Lanius船が出現します。スクラップに飢えて、船は攻撃します。</text>
+			<ship load="SHIP_ZOLTAN_RIFT_LANIUS" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>オーキドゥ。</text>
+		<event>
+			<text>「本を表紙で判断しないでください。見た目よりも強い敵もいます。」ワームホールが開いているのを検出すると、オーキドゥの船が現れます。混乱して、彼らはあなたを敵と間違えて攻撃します！</text>
+			<ship load="SHIP_ZOLTAN_RIFT_ORCHID" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ANCIENT">
+		<text>オベリスク。</text>
+		<event>
+			<text>ゾルタンは一瞬静かになり、「よろしいですか？そうですね」とささやきます。巨大なワームホールが開き、その中から戦争に備えたオベリスク船が迫っています。</text>
+			<ship load="SHIP_ZOLTAN_RIFT_ANCIENT" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ZOLTAN_RIFT_SUCCESS">
+	<text>あなたが勝利を収めたのを彼が見ると、ゾルタンの賢者は激怒します。裂け目は、代わりに、ゾルタンが爆発するまで空間を引き裂くと脅迫し、遠くの世界からあなたの方向に引きずり込まれたスクラップとサルベージの爆風を送ります。</text>
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+
+
+<eventList name="NEBULA_NEUTRAL_MONK">
+	<event load="NEBULA_MONK_ANNOYED" />
+	<event load="NEBULA_MONK_PROVERB" />
+	<event load="NEBULA_MONK_HOSTAGES" />
+	<event load="NEBULA_MONK_CHASE" />
+	
+</eventList>
+
+<event name="NEBULA_MONK_ANNOYED" unique="true">
+	<text>小さなゾルタン寺院が近くの惑星に建設されましたが、そうでなければ完全に不毛に見えます。</text>
+	<img back="BACK_EVENT_LIGHTNEBULA" planet="PLANET_UNPOPULATED_TERRA" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice>
+		<text>彼らに連絡する。</text>
+		<event>
+			<text>「こんにちは友達。私はあなたの連絡を受け取りました、しかし私は瞑想に忙しいのではないかと思います。安全な旅行。」彼らは通話を終了します。</text>
+			<choice>
+				<text>もう一度彼らに連絡する。</text>
+				<event>
+					<text>「お詫びしますが、提供するものは何もありません。良い一日を。」彼らはもう一度通話を終了します。</text>
+					<choice>
+						<text>もう一度彼らに連絡する。</text>
+						<event>
+							<text>「多分あなたは私を聞いていませんでした。私は私が提供するものは何もないと言いました。良い一日を。」彼らはもう一度通話を終了します。</text>
+							<choice>
+								<text>もう一度彼らに連絡する。</text>
+								<event>
+									<text>「やめてください。私はすでにあなたに話しました、私は提供するものが何もありません。」彼らはもう一度通話を終了します。</text>
+									<choice>
+										<text>もう一度彼らに連絡する。</text>
+										<event>
+											<text>「あと何回これをしますか？私はあなたに何も与えるつもりはありません。二度と私をあられないでください。」彼らはもう一度通話を終了します。</text>
+											<choice>
+												<text>もう一度彼らに連絡する。</text>
+												<event>
+													<text>「いいよ！こんなに悪いものが欲しければ、これを持っていこう！」あなたは期待して待っていますが、報酬の代わりに、敵対的な自動化された船があなたに向かって急上昇し、船体と衝突してすぐに戦闘の動きに入ります。</text>
+													<ship load="SHIP_ZOLTAN_AUTO" hostile="true" />
+													<damage amount="7" />
+													<choice hidden="true">
+														<text>継続する...</text>
+														<event load="COMBAT_CHECK" />
+													</choice>
+												</event>
+											</choice>
+											<choice>	
+												<text>続ける。</text>
+												<event />
+											</choice>
+										</event>
+									</choice>
+									<choice>	
+										<text>続ける。</text>
+										<event />
+									</choice>
+								</event>
+							</choice>
+							<choice>	
+								<text>続ける。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+					<choice>	
+						<text>続ける。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+			<choice req="zoltan_monk" hidden="true">
+				<text>（モンククルー）モンクに呼びかけてもらう。</text>
+				<event>
+					<text>「ああ、私たちの一人。私はあなたの船体を修理するために自動化された船を送ります。良い一日を。」</text>
+					<ship load="SHIP_ZOLTAN_AUTO" hostile="false" />
+					<damage amount="-7" />
+				</event>
+			</choice>
+			<choice>
+				<text>続ける。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>寺院を無視します。</text>
+		<event>
+			<text>あなたは寺院や中の僧侶を気にしないことに決めました。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_CHASE" unique="true">
+	<text>船が消える前に雲の中をすり抜けているように見える船の外観に気づきます。</text>
+	<environment type="nebula" />
+	<choice>
+		<text>船に従ってください。</text>
+		<event load="NEBULA_MONK_CHASE_FOLLOW" />
+	</choice>
+	<choice>	
+		<text>それを無視します。</text>
+		<event>
+			<text>それが何であれ、あなたはフォローすることに興味がありません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="NEBULA_MONK_CHASE_FOLLOW">
+	<event>
+		<text>船は海賊だったようです！彼らはあなたに会い、銃を武装させることに満足していません。</text>
+		<ship load="SHIP_PIRATE_ALL" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>船はDuskbringersだったようです！彼らはあなたに会い、銃を武装させることに満足していません。</text>
+		<ship load="SHIP_DUSK_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>船は単純な僧侶だったようです。彼らは再び逃げる前に挨拶します。</text>
+		<ship load="SHIP_MONK" hostile="false" />
+	</event>
+</eventList>
+
+<event name="NEBULA_MONK_DUSKBRINGER_CONVERSATION" unique="true">
+	<text>あなたは奇妙な光景、ゾルタン僧侶と会話しているダスクブリンガー船を見つけます！あなたは彼らが彼らの人生の見返りに僧侶に物資を渡すように要求していることを想像することができるだけです...</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>Duskbringersから僧侶を救出してください。</text>
+		<event>
+			<text>Duskbringersを攻撃するために船を中断します。</text>
+			<ship load="SHIP_DUSKBRINGER_MONK_CONVERSATION" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>Duskbringersが去るのを待って、僧侶に連絡してください。</text>
+		<event>
+			<text>Duskbringersが飛び去ったら、あなたは僧侶に近づき、遭遇について彼らに質問します。僧侶たちは笑う。 「いいえ、彼らは私たちを傷つけることはありません。彼らは私たちの友人です。私たちは彼らの過激な信念に反対しますが、私たちはできる限りそれを支持します。」あなたは頭を頷き、通話を終了します。</text>
+		</event>
+	</choice>
+	<choice>	
+		<text>船をそのままにしておきます。</text>
+		<event>
+			<text>あなたは仮定をすることはできません。あそこで何が本当に起こっているのかわからないので、万が一に備えて邪魔をしてはいけません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_HOSTAGES" unique="true">
+	<text>近くの修道院が困っているようです！ナメクジのハッカーは彼らを人質にし、近くのすべての船にメッセージを放送し、僧侶にばかげた身代金を支払うよう要求しています。</text>
+	<ship load="SHIP_HACKER_MONSATERY_HOSTAGE" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>ハッカーと戦ってください。</text>
+		<event>
+			<text>「ああ、あなたは乱闘したいのですか？それなら死ぬ準備をしてください！」</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>僧侶を解放するために支払う。</text>
+		<event>
+			<text>「ああ、lasssst sssssomeoneで、私たちのリーズナブルな価格を支払います！」ハッカーは修道院の支配権を放棄し、飛び去ります。</text>
+			<item_modify>
+				<item type="scrap" min="-110" max="-125" />
+			</item_modify>
+			<choice hidden="true">
+				<text>僧侶に連絡してください。</text>
+				<event>
+					<text>「友人に感謝します。これが私たちの死の仕方だと思っていました。ハッカーは何週間も私たちを支配しており、私たちの多くはすでに飢えています。最後の数人の生存者があなたと一緒に来ますか？」</text>
+					<crewMember amount="3" class="zoltan_monk">Monk</crewMember>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="mind">
+		<text>（マインドコントロール）ハッカーを手放すためにマインドコントロールしてみてください。</text>
+		<event>
+			<text>ハッカーはナメクジであるため、マインドコントロールは完全に無意味であることがわかります。さらに悪いことに、あなたはあなたの場所を発表し、船は攻撃のために移動します。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>	
+		<text>それらを無視します。</text>
+		<event>
+			<text>ここでお金を無駄にすることはできません。ハッカーが誰もお金を払うつもりがないことに気付いたとき、彼らはとにかく僧侶を放っておくでしょう...おそらく...</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_PROVERB" unique="true">
+	<text>ここの船から奇妙な連絡を受け取ります。 「賢明なSovayVoltarがかつて言ったように、貪欲なバットドッグと一緒に横たわっている彼は、Gammos6の宇宙ノミで目覚めます。」</text>
+	<ship load="SHIP_MONK" hostile="false" />
+	<environment type="nebula" />
+	<choice>
+		<text>は？</text>
+		<event>
+			<text>僧侶はため息をついた。 「それはことわざです。それは、道徳を欠いている人々と自分自身を関連付ける人が同様の苦境に陥ることを意味します。警告、それで私は自分の状況のために、連邦内に住んでいると言わなければなりません。」</text>
+			<choice hidden="true" req="zoltan_monk">
+				<text>（モンククルー）警告はよく進んでいますが、それ自体のリスクがないわけではありません。</text>
+				<event>
+					<text>他の僧侶はうなずき、2人は道徳的原則についての長い哲学的議論を開始します。彼らの言うことは一言も理解できませんが、あなたの僧侶があなたの知恵のもう一方を納得させ、彼らが乗って来たようです。</text>
+					<crewMember amount="1" repair="1" class="zoltan_monk" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>連邦を侮辱するなんてあえて！攻撃！</text>
+				<event>
+					<text>僧侶たちは戦うことを拒否し、あなたに彼らの船に発砲させます。</text>
+					<status type="limit" target="enemy" system="weapons" amount="0" />
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+					</choice>
+				</event>
+			</choice>
+			<choice>	
+				<text>それらを無視して、あなたの道を続けてください。</text>
+				<event>
+					<text>あなたは僧侶の言葉を頭から離れます。</text>
+					<choice>
+						<text>船に乗って何かをしなさい。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+<eventList name="NEBULA_QUEST_MONK">
+	<event load="NEBULA_MONK_CONVOY" />
+	<event load="NEBULA_MONK_LOST_MAN" />
+</eventList>
+
+<event name="NEBULA_MONK_LOST_MAN" unique="true">
+	<text>ゾルタンの脱出ポッドがここの宇宙に漂っています。ライフポッドには小さなダメージがありますが、平和維持船の残骸も近くに漂っています。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>ライフポッドをオンボードで引き出します。</text>
+		<event>
+			<text>あえぎのゾルタンは、まだ彼らの平和維持の鎧を着たまま、船に運ばれます。 「T-私を救ってくれてありがとう！私たちは、覆面をしている重要なゾルタンの工作員を乗せた僧侶の船を輸送する任務を負った。ダスクブリンガーに雇われた傭兵が現れて私たちの船を全滅させるまで、すべてが順調だった。僧侶たちは逃げたが、勝った傭兵が追いつくまでにそう長くはかからない〠?彼らの座標をコンピューターにアップロードする。あなたが私を助けてくれることを願っている。」</text>
+			<quest event="MONK_LOST_MAN_QUEST" />
+			<crewMember amount="1" class="zoltan_peacekeeper" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ライフポッドを無視して、船をスクラップします。</text>
+		<event>
+			<text>あなたはライフポッドを通り過ぎて、いくつかのスクラップと物資を提供する残骸に移動します。</text>
+			<autoReward level="MED">standard</autoReward>
+		</event>
+	</choice>
+</event>
+<event name="MONK_LOST_MAN_QUEST" unique="true">
+	<text>ちょうど間に合ったようです。前述の傭兵船が僧侶船を襲撃している。彼らは長くは続かないので、あなたは彼らの攻撃を傍受し、傭兵を破壊する準備をします。</text>
+	<environment type="nebula" />
+	<ship load="SHIP_MONK_LOST_MAN_MERCENARY" hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_CONVOY" unique="true">
+	<text>僧侶の船があなたを歓迎します。 「ご存知かもしれませんが、私たちの宗教は私たちが暴力行為に参加することを禁じています。しかし、私たちはこの分野の海賊とひどい運がありました。私たちを目的地に運ぶのを手伝ってくれませんか？」</text>
+	<ship load="SHIP_MONK" hostile="false" />
+	<environment type="nebula" />
+	<choice>
+		<text>それらを支援することに同意します。</text>
+		<event>
+			<text>僧侶は座標を目的地に送信します。</text>
+			<quest event="MONK_CONVOY_DESTINATION" />
+		</event>
+	</choice>
+	<choice>	
+		<text>仕方がない。</text>
+		<event>
+			<text>あなたは謝罪し、あなたが護衛ではないことを説明します。僧侶たちは彼らが理解し続けていると言います。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="MONK_CONVOY_DESTINATION">
+	<event>
+		<text>目的地に到着しましたが、海賊船があなたの道を進んでいます！あなたは僧侶を呼んで彼らに警告し、戦う準備をします。</text>
+		<ship load="SHIP_PIRATE_MONK_DESTINATION" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>僧侶たちはすぐ後に飛び込みます。 「あなたはうまくやっています。あなた自身のような暴力的な野蛮人に頼らなければならないのは残念ですが、これは残酷で思いやりのない銀河です。この寄付金を感謝として受け入れてください。」</text>
+		<autoReward level="LOW">scrap_only</autoReward>
+	</event>
+</eventList>
+
+
+<event name="NEBULA_MONK_PEACE_QUEST" unique="true">
+	<preventQuest />
+	<text>武装していないゾルタン船がゆっくりとここのビーコンに向かって進んでいます。彼らは、「私は武器や盾を持っておらず、私たちのメッセージを伝えるために他人の慈悲に頼っています」と歓迎します。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>彼を攻撃します。</text>
+		<event load="MONK_PEACE_QUEST_ATTACK" />
+	</choice>
+	<choice hidden="true">
+		<text>それらを聞いてください。</text>
+		<event>
+			<text>彼らは続けます。 「私はあなたの沈黙を興味のある熟考のために取ります。」僧侶は平和と調和について詳しく話しますが、それはあなたの単純な心を超えているか、それはすべてナンセンスです。</text>
+			<ship load="SHIP_MONK" hostile="false" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>彼らは終わります：「どうか、聞いていない人たちに悟りの言葉を広めてください。聞いたら、私たちの兄弟たちに連絡してください。」彼らは彼らのいわゆる「兄弟」の座標を送信します。</text>
+					<quest event="MONK_PEACE_QUEST2" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>離れる。</text>
+		<event>
+			<text>銀河は戦争中です-平和について話す時間はありません。あなたは彼らからの呼びかけを答えないまま、ジャンプドライブを充電します。</text>
+		</event>
+	</choice>
+</event>
+<eventList name="MONK_PEACE_QUEST_ATTACK">
+	<event>
+		<text>あなたはあなたの武器を充電します-これが多くを要するというわけではありません。</text>
+		<ship load="SHIP_PEACE_QUEST_MONK" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>攻撃の準備をしているときに、近くのジャンプシグネチャを検出します。ゾルタン防衛艦が助けに来ます！</text>
+		<ship load="SHIP_PEACE_QUEST_ELITE" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<event name="MONK_PEACE_QUEST2">
+	<preventQuest />
+	<preventFleet />
+	<beaconType id="map_icon_peace" global="true">
+		<color r="84" g="201" b="30" a="1.0" />
+		<unvisitedTooltip>The location of the Monk's brethren.</unvisitedTooltip>
+		<visitedTooltip>This was the location of the Monk's 'brethren'.</visitedTooltip>
+	</beaconType>
+	<text>平和を愛する僧侶が指定した場所に到着しますが、近くにあるのはエリート反乱軍の船だけです。 「私たちはあなたを見つけました！あなたは今度は逃げません！」</text>
+	<ship load="SHIP_PEACE_QUEST_REBEL" hostile="false" />
+	<choice hidden="true">
+		<text>それらをあられてみてください。</text>
+		<event>
+			<text>彼らはコミュニケーションを開きます：「あなたがあなたを救うとあなたが言うことができる何かがあるとは想像できません。反乱はまだ時代遅れの連邦に忠実な人々を破壊しなければなりません。」</text>
+			<choice hidden="true">
+				<text>「おそらく、戦争なしで私たちの理想の和解があるかもしれませんか？」</text>
+				<event>
+					<text>「私たちの理想はあまりにも異なっているので、簡単に和解させることはできません。これは戦争以外の方法で終わらせることができると思いますか？」</text>
+					<choice hidden="true">
+						<text>銀河は巨大です-あなたはこの破壊を引き起こすことなく他の場所であなたの理想のための場所を見つけることができます。</text>
+						<event>
+							<text>「いいえ！私たちはあなたの「連邦の理想」に適合しないという理由だけで宇宙の裏水に委託されることはありません！」彼らは充電します。</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>真の進歩は流血なしでのみ達成することができます。</text>
+						<event>
+							<text>「あなたはナンセンスを話します。私たちはあなたの言うことを聞きません。」彼らは武器を装備して攻撃しますが、おそらくあなたはそれらを殺す必要はありません。たぶん、あなたは彼らを降伏させることができます、そうすればあなたは両方ともこの場所を生きたままにすることができますか？</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>「降伏。あなたの究極の破壊は避けられない。私たちは、何十人もの反乱軍を破壊したままにした。」</text>
+				<event>
+					<text>彼らは通信を遮断し、すぐに従事します。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>「あなたの反乱は何百万もの死を引き起こしています。あなたの信念は銀河を分裂させています。団結が唯一の選択肢です！」</text>
+				<event>
+					<text>「弱い連邦では、人間はエイリアンと「等しい」ものとして扱われます。それが私たちの潜在能力を最大限に発揮することを意味するのであれば、何十億ものエイリアンや人間の命を犠牲にすることは正当化されます！」彼らは充電します。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>攻撃。</text>
+		<event>
+			<text>あなたは武器に力を与え、戦う準備をします。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="MONK_PEACE_QUEST_REWARD">
+	<text>「あなたの方法は粗雑で、間違いなく効果がありませんが、前回の会議を真摯に受け止めたことは明らかです。あなたの船が連邦の適応意欲を示している場合、私たちは彼らの戦いを支援するためにできることを行います。技術、または多分私はあなたを助けるためによく訓練されたピースキーパーを送ることができますか？」</text>
+	<variable name="loc_peacequest" op="set" val="1" />
+	<unlockCustomShip silent="false">PLAYER_SHIP_MONK</unlockCustomShip>
+	<autoReward level="LOW">scrap_only</autoReward>
+	<choice>
+		<text>技術者に依頼してください。</text>
+		<event>
+			<augment name="ENERGY_SHIELD" />
+		</event>
+	</choice>
+	<choice>
+		<text>乗組員に依頼してください。</text>
+		<event>
+			<crewMember amount="1" class="zoltan_peacekeeper" all_skills="2">Envoy</crewMember>
+		</event>
+	</choice>
+</event>
+
+
+<event name="NEBULA_MONK_EYE">
+	<img back="BACK_EVENT_EYE" planet="PLANET_UNPOPULATED_TERRA" />
+	<loadEventList seeded="false" first="true" generate="true">
+		<event name="NEBULA_MONK_EYE_OFFERING" req="prof_eye_offering" lvl="1" />
+		<event name="NEBULA_MONK_EYE_NORMAL" req="prof_eye_offering" lvl="0" max_lvl="0" />
+	</loadEventList>
+</event>
+<event name="NEBULA_MONK_EYE_OFFERING">
+	<preventQuest />
+	<beaconType id="map_icon_eye" global="true">
+		<color r="223" g="200" b="200" a="1.0" />
+		<unvisitedTooltip>The location of the great eye, a giant monolith worshipped by the Zoltans.</unvisitedTooltip>
+		<visitedTooltip>The location of the great eye, a giant monolith worshipped by the Zoltans.</visitedTooltip>
+	</beaconType>
+	<text>グレートアイに近づくと、突然裂け目が開き、スクラップの塊があなたに向かって急いで来ます。幸いなことに、それは船体からわずかに跳ね返るだけで、あなたはそれをすくい上げます。あなたはそれがどこから来たのか分かりませんが、あなたはスクラップを取ります。</text>
+	<img back="BACK_EVENT_EYE" planet="PLANET_UNPOPULATED_TERRA" />
+	<metaVariable name="prof_eye_offering" op="set" val="0" />
+	<item_modify>
+		<item type="scrap" min="15" max="15" />
+	</item_modify>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="MONK_EYE_OPTIONS" />
+	</choice>
+</event>
+<event name="NEBULA_MONK_EYE_NORMAL">
+	<preventQuest />
+	<beaconType id="map_icon_eye" global="true">
+		<color r="223" g="200" b="200" a="1.0" />
+		<unvisitedTooltip>The location of the great eye, a giant monolith worshipped by the Zoltans.</unvisitedTooltip>
+		<visitedTooltip>The location of the great eye, a giant monolith worshipped by the Zoltans.</visitedTooltip>
+	</beaconType>
+	<text>あなたはグレートアイを発見しました！場所は遠くにある巨大な目の形をした星雲にちなんで名付けられましたが、本当の魅力は、近くの惑星に緑色のライトが置かれている巨大な直方体のモノリスです。このビーコンは、この場所に毎年巡礼する観光客とゾルタンの両方がよく訪れる場所です。</text>
+	<img back="BACK_EVENT_EYE" planet="PLANET_UNPOPULATED_TERRA" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="MONK_EYE_OPTIONS" />
+	</choice>
+</event>
+<event name="MONK_EYE_OPTIONS">
+	<text>モノリスには奇妙で予測不可能な力があると言われています。彼らと話をすることができる人は、待っている多くの不思議や恐怖を見つけるかもしれません。</text>
+	<choice hidden="true">	
+		<text>モノリスに話しかけ、あなたの運命を待ちます。</text>
+		<event load="GREAT_EYE_LIST" />
+	</choice>
+	<choice req="prof_eye_offering" lvl="0" max_lvl="0" blue="false">	
+		<text>グレートアイに捧げ物をしなさい。</text>
+		<event>
+			<text>何かが起こるかどうか疑問に思って、グレートアイに向かってスクラップを投げます。残念ながら、何もそうではないようです。おそらく、それらの古いゾルタンの神話は間違っていますか？多分それはもう一度試す価値がありますか？</text>
+			<metaVariable name="prof_eye_offering" op="set" val="1" />
+			<item_modify>
+				<item type="scrap" min="-15" max="-15" />
+			</item_modify>
+			<choice hidden="true">	
+				<text>継続する...</text>
+				<event>
+					<loadEvent>MONK_EYE_OPTIONS</loadEvent>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="zoltan_monk">	
+		<text>（モンククルー）より良い報酬のチャンスを目で祈ってください。</text>
+		<event load="GREAT_EYE_LIST_GOOD" />
+	</choice>
+	<choice req="LIST_CREW_ANCIENT" hidden="true">	
+		<text>（オベリスククルー）あなたのオベリスクはこの構造を認識しています。</text>
+		<event>
+			<text>「この構造は、オベリスクリアリティマニピュレーターの初期の設計でした。名前から推測できます。奇妙なことに、ここにたどり着きましたが、これが、モノリスがあらゆる種類の奇妙なことを実行できる理由を説明していると思います。船に乗って修理することはできますが、ゾルタンが喜んでくれるとは思えません。」</text>
+			<choice>	
+				<text>リアリティマニピュレーターを取ります。</text>
+				<event>
+					<text>リアリティマニピュレーターに乗ると、ゾルタンのピースキーパーがあなたを止めます。 「あなたはあえてグレートアイを邪魔しますか？あなたは神の創造者は言うまでもなく、私たちの種全体を侮辱しました！あなたは罰せられるでしょう！」</text>
+					<achievement silent="false">ACH_OBEL_STEALGREATEYE</achievement>
+					<augment name="COMBAT_HAZARD" />
+					<ship load="SHIP_ZOLTAN_ELITE_FIGHT" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice>	
+				<text>リスクを冒す価値はありません。</text>
+				<event>
+					<text>それは魅力的ですが、ゾルタンによって崇拝され、高く評価されているアイテムを台無しにするリスクを冒す価値はありません。</text>
+					<choice>
+						<text>船に乗って何かをしなさい。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>	
+		<text>モノリスを無視します。</text>
+		<event>
+			<text>あなたの使命は連邦を救うことであり、銀河の周りの新しい不思議を発見することではありません。あなたはジャンプする準備をします。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<eventList name="GREAT_EYE_LIST">
+	
+	<event>
+		<text>あなたが近づくと、古代のエイリアンの声があなたに話しかけます：「あなたの使命はあなたに大きな戦いと大きな損失をもたらしました。これは痛みを和らげるのに役立ちます。」数分後、誰かが医療機器が船に現れたと報告しました！</text>
+		<weapon name="BOMB_HEAL" />
+	</event>
+	<event>
+		<text>あなたは注意深く惑星に近づき、あなたの船が軌道上で崩壊するのを防ごうとします。モノリスは、それが何であれ、あなたが知っている次のことはあなたのダメージを修正するのに十分なスクラップを持っているので、同じくらい感知しなければなりません！</text>
+		<autoReward level="HIGH">scrap_only</autoReward>
+	</event>
+	
+	<event>
+		<text>モノリスに近づくと、船の外側の周りのガタガタと動きの音が聞こえます。混乱して恐ろしく、あなたは軌道から離れて船を検査しますが、誰も見えません。代わりに、船体はかなりの修理を受けています！</text>
+		<damage amount="-12" />
+	</event>
+	<event>
+		<text>船のホールには深い声が響き渡る。 「あなたの使命は長く困難なものになるでしょう。これがあなたを助けてくれますように。そうすればあなたは不当な妨害を恐れないでしょう。」</text>
+		<autoReward level="HIGH">fuel_only</autoReward>
+	</event>
+	<event>
+		<text>突然、宇宙にワームホールが開き、反対側に商船が沈着します。彼らは混乱していますが、元の顧客が取り残されているため、あなたに気づいたときに彼らは取引を申し出ます。</text>
+		<store>STORE_STANDARD</store>
+	</event>
+	<event>
+		<text>武器があなたの前で少しずつゆっくりと製造されるのを見て、あなたは魅了されます。その後何も起こらなければ、モノリスが提供し、引き離さなければならなかったのはそれだけだと安全に推測できます。</text>
+		<weapon name="RANDOM" />
+	</event>
+	<event>
+		<text>他の部屋からは恐ろしい悲鳴が聞こえます。あなたは地面にスライムの身もだえで覆われた嫌な、小さな、裸の生き物を見つけるために入ります。それは大人のナメクジに成長するまで、急速に成長し始めます！彼らはどうやってここにたどり着いたのか分かりませんが、モノリスはあなたに仕えるという唯一の目的のために彼らを作ったようです！</text>
+		<crewMember amount="1" class="slug">Servant</crewMember>
+	</event>
+	<event>
+		<text>ナノボットの雲があなたの周りに形成され、声があなたに話しかけます。 「そして、あなたはどのような目的に奉仕する必要がありますか？」</text>
+		<choice hidden="true">
+			<text>水先案内。</text>
+			<event>
+				<text>ナノボットは、水先案内の訓練を受けた分離主義者のエンギになります。</text>
+				<crewMember amount="1" pilot="1" class="engi_separatist">L-6644</crewMember>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>防衛。</text>
+			<event>
+				<text>ナノボットは、シールドエンジニアリングの訓練を受けた分離主義者のエンギになります。</text>
+				<crewMember amount="1" shields="1" class="engi_separatist">L-6644</crewMember>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>戦闘。</text>
+			<event>
+				<text>ナノボットは、戦闘でよく訓練された分離主義者のエンギになります。</text>
+				<crewMember amount="1" combat="1" class="engi_separatist">L-6644</crewMember>
+			</event>
+		</choice>
+	</event>
+	
+	<event>
+		<text>あなたは近づいて待ちますが、何も起こりません。ゾルタンの船は、「そして、これからの時代に、一枚岩が人と話さないとき、彼には未来がなく、欲しがっているままにしておかなければならない」と呼びかけます。</text>
+		<ship load="SHIP_ZOLTAN_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	
+	<event>
+		<text>あなたの前に裂け目が開くので、惑星全体がそこから投げ出され、不幸なロストサン船が続きます！惑星の表面には巨大なASB大砲のように見え、彼らはあなたと敵の両方に向かって発砲しています！</text>
+		<ship load="SHIP_LOSTSUN_ALL" hostile="true" />
+		<environment type="PDS" target="both" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>モノリスに近づくと、エイリアンの声が船を満たします。 「すべての贈り物のために、順番に何かをとらなければなりません。」燃料貯蔵量が急速に減少していることに気づきましたが、セルが枯渇するたびにスクラップの埋蔵量が増加しています。</text>
+		<item_modify steal="true">
+			<item type="fuel" min="-5" max="-5" />
+			<item type="scrap" min="25" max="25" />
+		</item_modify>
+	</event>
+	<event>
+		<text>星雲がビーコンを消費するにつれて、船の周りに厚いガスが形成され始めます！通過するゾルタン船は心配しないでください、そしてこれは定期的な出来事であるとあなたに告げます。星雲は通常、しばらくすると消えます。幸いなことに、反乱軍はおそらくあなたを追跡するのに苦労するでしょう。</text>
+		<environment type="storm" />
+		<modifyPursuit amount="-1" />
+	</event>
+	<event>
+		<text>ささやきがあなたを取り囲み、未知の富の約束であなたを落ち着かせます。あなたがしなければならないのは選択をすることです...あなたの報酬を受け取るために乗組員を犠牲にするか、強いままで衝動に抵抗してください。</text>
+		<choice hidden="true">
+			<text>犠牲を払ってください。</text>
+			<event>
+				<text>精神的に挑戦を受け入れるとすぐに、短剣があなたの手に現れます。あなたは最も近い乗組員を引きずって、狂った血の欲望で彼らを刺します。あなたはすぐに気を失い、目を覚まして船がスクラップや物資でいっぱいになっているのを見つけます。</text>
+				<autoReward level="HIGH">item</autoReward>
+				<removeCrew>
+					<clone>false</clone>
+					<text>彼らの死は単に刺し傷であるにもかかわらず、あなたの乗組員の死は不可逆的であるように思われます。</text>
+				</removeCrew>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>衝動に抵抗する。</text>
+			<event>
+				<text>しばらくすると、ささやきが止まり、できるだけ早く惑星から離れます。</text>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>惑星の表面に近づくと、船体はゆっくりと修復し始めます。しかし、船のいたるところに違反が発生しています。すべてのバラにはとげがあります...</text>
+		<damage amount="-2" system="random" effect="breach" />
+		<damage amount="-2" system="random" effect="breach" />
+		<damage amount="-2" system="random" effect="breach" />
+		<damage amount="-2" system="random" effect="breach" />
+	</event>
+	<event>
+		<text>水面に近づくと、ミサイルの嵐があなたに向かってまっすぐ飛んでいるのに気づきます！船と衝突するとかなりのダメージを与えますが、衝撃でスクラップになります。実際、それはそのすべての損傷などを修復するのにちょうど十分なスクラップです...</text>
+		<damage amount="7" />
+		<item_modify>
+			<item type="scrap" min="35" max="35" />
+		</item_modify>
+	</event>
+	<event>
+		<text>船に笑い声が響き渡り、肉体のない声が続きます。 「友人、そして敵。目のための目。」</text>
+		<boarders min="1" max="1" class="random" />
+		<crewMember amount="1" />
+	</event>
+	<event>
+		<text>あなたは、乗組員の1人が咳をして、地面に倒れるときに喉をつかんで紫色に変わるのを見るように向きを変えます。ゆっくりと、彼らの皮膚は剥がれ始め、彼らの体は溶けて、再び完全に異なる形に再形成するだけです。</text>
+		<transformRace>random</transformRace>
+	</event>
+	
+	<event>
+		<text>近づくと、色の万華鏡がビュースクリーンに表示され、乗組員の1人が逆に急速に老化し始め、最終的には無になります。彼らが物理的な存在を超越し、単にそれから追い出されるのではないことを願いましょう。</text>
+		<removeCrew>
+			<clone>false</clone>
+			<text>あなたはあなたのクローンベイをチェックしますが、それは休眠状態にあります。あなたの乗組員に起こったことは何でも不可逆的でなければなりません。</text>
+		</removeCrew>
+	</event>
+	
+	<event>
+		<text>モノリスに近づくと、周りの時間が遅くなり始めることに気づきます。頭が軽く、失神します。目を覚ますと、かなりの時間が経過しているように見えます。反乱軍が追いつく前に、ここから急いで出なければなりません。</text>
+		<modifyPursuit amount="2" />
+	</event>
+	<event>
+		<text>目の前に裂け目が開き、反乱軍の艦隊がもう一方の端に捨てられます！反乱軍の船が攻撃に乗り出しますが、時間と空間を歪められても動揺していないようです。</text>
+		<customFleet right="true" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
+		<modifyPursuit amount="1" />
+		<ship load="SHIP_REBEL_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>近づくと、シールドが誤動作し始めます。あなたが去ろうとすると、小惑星のフィールドがゆっくりと近づきます。偶然？ありそうもない...</text>
+		<status type="divide" target="player" system="shields" amount="3" />
+		<environment type="asteroid" />
+	</event>
+	<event>
+		<text>船の前に小さな光の球が形成され、ゆっくりと成長し始めます。あなたが何マイルも離れてスリングショットされると、モノリスはあなたから消え、ボールは太陽に変身します！あなたは最初の太陽フレアに捕まりますが、うまくいけば次の太陽フレアの前に逃げることができます。</text>
+		<environment type="sun" />
+		<damage amount="3" system="random" effect="fire" />
+	</event>
+	<event>
+		<text>目の前に暗い深淵への入り口が開き、そこから4人のエイリアンがつまずきます！彼らは特に友好的ではないようですので、あなたは戦う準備をします。</text>
+		<boarders min="4" max="4" class="random" />
+	</event>
+	<event>
+		<text>水面に近づくと、船のすべてのライトが突然点滅します。はっきりとしたカチッという音は、あなたがマンティスに乗り込んだことを示唆しています。これはおそらくモノリスの作成物でもあります。</text>
+		<status type="limit" target="player" system="sensors" amount="0" />
+		<boarders min="2" max="2" class="mantis" />
+	</event>
+</eventList>
+<eventList name="GREAT_EYE_LIST_GOOD">
+	
+	<event>
+		<text>あなたが近づくと、古代のエイリアンの声があなたに話しかけます：「あなたの使命はあなたに大きな戦いと大きな損失をもたらしました。これは痛みを和らげるのに役立ちます。」数分後、誰かが医療機器が船に現れたと報告しました！</text>
+		<weapon name="BOMB_HEAL" />
+	</event>
+	<event>
+		<text>あなたは注意深く惑星に近づき、あなたの船が軌道上で崩壊するのを防ごうとします。モノリスは、それが何であれ、あなたが知っている次のことはあなたのダメージを修正するのに十分なスクラップを持っているので、同じくらい感知しなければなりません！</text>
+		<autoReward level="HIGH">scrap_only</autoReward>
+	</event>
+	
+	<event>
+		<text>モノリスに近づくと、船の外側の周りのガタガタと動きの音が聞こえます。混乱して恐ろしく、あなたは軌道から離れて船を検査しますが、誰も見えません。代わりに、船体はかなりの修理を受けています！</text>
+		<damage amount="-12" />
+	</event>
+	<event>
+		<text>船のホールには深い声が響き渡る。 「あなたの使命は長く困難なものになるでしょう。これがあなたを助けてくれますように。そうすればあなたは不当な妨害を恐れないでしょう。」</text>
+		<autoReward level="HIGH">fuel_only</autoReward>
+	</event>
+	<event>
+		<text>突然、宇宙にワームホールが開き、反対側に商船が沈着します。彼らは混乱していますが、元の顧客が取り残されているため、あなたに気づいたときに彼らは取引を申し出ます。</text>
+		<store>STORE_STANDARD</store>
+	</event>
+	<event>
+		<text>武器があなたの前で少しずつゆっくりと製造されるのを見て、あなたは魅了されます。その後何も起こらなければ、モノリスが提供し、引き離さなければならなかったのはそれだけだと安全に推測できます。</text>
+		<weapon name="RANDOM" />
+	</event>
+	<event>
+		<text>他の部屋からは恐ろしい悲鳴が聞こえます。あなたは地面にスライムの身もだえで覆われた嫌な、小さな、裸の生き物を見つけるために入ります。それは大人のナメクジに成長するまで、急速に成長し始めます！彼らはどうやってここにたどり着いたのか分かりませんが、モノリスはあなたに仕えるという唯一の目的のために彼らを作ったようです！</text>
+		<crewMember amount="1" class="slug">Servant</crewMember>
+	</event>
+	<event>
+		<text>ナノボットの雲があなたの周りに形成され、声があなたに話しかけます。 「そして、あなたはどのような目的に奉仕する必要がありますか？」</text>
+		<choice hidden="true">
+			<text>水先案内。</text>
+			<event>
+				<text>ナノボットは、水先案内の訓練を受けた分離主義者のエンギになります。</text>
+				<crewMember amount="1" pilot="1" class="engi_separatist">L-6644</crewMember>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>防衛。</text>
+			<event>
+				<text>ナノボットは、シールドエンジニアリングの訓練を受けた分離主義者のエンギになります。</text>
+				<crewMember amount="1" shields="1" class="engi_separatist">L-6644</crewMember>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>戦闘。</text>
+			<event>
+				<text>ナノボットは、戦闘でよく訓練された分離主義者のエンギになります。</text>
+				<crewMember amount="1" combat="1" class="engi_separatist">L-6644</crewMember>
+			</event>
+		</choice>
+	</event>
+	
+	<event>
+		<text>あなたは近づいて待ちますが、何も起こりません。ゾルタンの船は、「そして、これからの時代に、一枚岩が人と話さないとき、彼には未来がなく、欲しがっているままにしておかなければならない」と呼びかけます。</text>
+		<ship load="SHIP_ZOLTAN_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	
+	<event>
+		<text>あなたの前に裂け目が開くので、惑星全体がそこから投げ出され、不幸なロストサン船が続きます！惑星の表面には巨大なASB大砲のように見え、彼らはあなたと敵の両方に向かって発砲しています！</text>
+		<ship load="SHIP_LOSTSUN_ALL" hostile="true" />
+		<environment type="PDS" target="both" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>モノリスに近づくと、エイリアンの声が船を満たします。 「すべての贈り物のために、順番に何かをとらなければなりません。」燃料貯蔵量が急速に減少していることに気づきましたが、セルが枯渇するたびにスクラップの埋蔵量が増加しています。</text>
+		<item_modify steal="true">
+			<item type="fuel" min="-5" max="-5" />
+			<item type="scrap" min="25" max="25" />
+		</item_modify>
+	</event>
+	<event>
+		<text>星雲がビーコンを消費するにつれて、船の周りに厚いガスが形成され始めます！通過するゾルタン船は心配しないでください、そしてこれは定期的な出来事であるとあなたに告げます。星雲は通常、しばらくすると消えます。幸いなことに、反乱軍はおそらくあなたを追跡するのに苦労するでしょう。</text>
+		<environment type="storm" />
+		<modifyPursuit amount="-1" />
+	</event>
+	<event>
+		<text>ささやきがあなたを取り囲み、未知の富の約束であなたを落ち着かせます。あなたがしなければならないのは選択をすることです...あなたの報酬を受け取るために乗組員を犠牲にするか、強いままで衝動に抵抗してください。</text>
+		<choice hidden="true">
+			<text>犠牲を払ってください。</text>
+			<event>
+				<text>精神的に挑戦を受け入れるとすぐに、短剣があなたの手に現れます。あなたは最も近い乗組員を引きずって、狂った血の欲望で彼らを刺します。あなたはすぐに気を失い、目を覚まして船がスクラップや物資でいっぱいになっているのを見つけます。</text>
+				<autoReward level="HIGH">item</autoReward>
+				<removeCrew>
+					<clone>false</clone>
+					<text>彼らの死は単に刺し傷であるにもかかわらず、あなたの乗組員の死は不可逆的であるように思われます。</text>
+				</removeCrew>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>衝動に抵抗する。</text>
+			<event>
+				<text>しばらくすると、ささやきが止まり、できるだけ早く惑星から離れます。</text>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>惑星の表面に近づくと、船体はゆっくりと修復し始めます。しかし、船のいたるところに違反が発生しています。すべてのバラにはとげがあります...</text>
+		<damage amount="-2" system="random" effect="breach" />
+		<damage amount="-2" system="random" effect="breach" />
+		<damage amount="-2" system="random" effect="breach" />
+		<damage amount="-2" system="random" effect="breach" />
+	</event>
+	<event>
+		<text>水面に近づくと、ミサイルの嵐があなたに向かってまっすぐ飛んでいるのに気づきます！船と衝突するとかなりのダメージを与えますが、衝撃でスクラップになります。実際、それはそのすべての損傷などを修復するのにちょうど十分なスクラップです...</text>
+		<damage amount="7" />
+		<item_modify>
+			<item type="scrap" min="35" max="35" />
+		</item_modify>
+	</event>
+	<event>
+		<text>船に笑い声が響き渡り、肉体のない声が続きます。 「友人、そして敵。目のための目。」</text>
+		<boarders min="1" max="1" class="random" />
+		<crewMember amount="1" />
+	</event>
+	<event>
+		<text>あなたは、乗組員の1人が咳をして、地面に倒れるときに喉をつかんで紫色に変わるのを見るように向きを変えます。ゆっくりと、彼らの皮膚は剥がれ始め、彼らの体は溶けて、再び完全に異なる形に再形成するだけです。</text>
+		<transformRace>random</transformRace>
+	</event>
+</eventList>
+
+<event name="GREAT_EYE_BREACH_TEST"> 
+	<text>惑星の表面に近づくと、船体はゆっくりと修復し始めます。しかし、船のいたるところに違反が発生しています。すべてのバラにはとげがあります...</text>
+	<damage amount="-2" system="random" effect="breach" />
+	<damage amount="-2" system="random" effect="breach" />
+	<damage amount="-2" system="random" effect="breach" />
+	<damage amount="-2" system="random" effect="breach" />
+</event>
+
+</FTL>

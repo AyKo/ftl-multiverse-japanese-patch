@@ -1,0 +1,2797 @@
+<FTL>
+	
+<textList name="TEXT_LIGHTSPEED">
+	<text>ハイパースピードに入りました。あなたの周りでは、遠くの星や惑星が驚異的な速度で通り過ぎていくときに渦を巻いています。</text>
+	<text>ハイパースピードに入りました。惑星に衝突するという穏やかな懸念はあなたの頭をよぎります、しかしあなたはそれを防ぐためにある種のセキュリティシステムが整っていると思います。うまくいけば。</text>
+	<text>ハイパースピードに入りました。ほんの数分から数時間で世界を旅するという考えが幻想に過ぎなかったとずっと前に考えるのは驚くべきことです。</text>
+	<text>ハイパースピードに入りました。あなたは光があなたがそれらを見せたことを気にしないことを望みます。</text>
+	<text>ハイパースピードに入りました。古い地球の科学者たちは、彼らの研究が無駄ではなかったことを誇りに思うでしょう。</text>
+	<text>ハイパースピードに入りました。船を伝わる穏やかな振動を感じることができます。巨大な宇宙の岩が数秒ごとに驚くべき速度であなたの船に向かって飛んでいなければ、それはリラックスするでしょう。</text>
+	<text>ハイパースピードに入りました。エンジンにすばやく移動して、FTLドライブが動作するときにハム音が聞こえるのを聞きます。</text>
+	<text>ハイパースピードに入りました。次のセクターへの旅は、うまくいけば迅速になるでしょう。反乱軍の艦隊は速いかもしれませんが、それでも彼らは超高速であなたを追いかけることはできません。</text>
+	<text>ハイパースピードに入りました。ハイパースピードの別の船かもしれないと思うものを簡単に垣間見ることができますが、彼らはすぐに通り過ぎます。</text>
+	<text>ハイパースピードに入りました。それは彼らの故郷の惑星を決して離れない民間人としての興味深い人生であるに違いありません。確かに難しい選択ですが、旅行者の人生は決して見逃すことのできないものです。</text>
+	<text>ハイパースピードに入りました。マルチバースドライブはまだ充電中です。次のリアリティジャンプの準備が整うまでに数か月かかる場合がありますが、ここでのミッションはまだ終わっていません。</text>
+	<text>ハイパースピードに入りました。多元宇宙の移動と混同しないように、超高速は単にシステムからシステムへ、またはセクターからセクターへ移動するプロセスです。</text>
+	<text>ハイパースピードに入りました。 2つのビーコン間を移動するにはわずか数分かかる場合がありますが、セクター間を移動するには数時間かかる場合があります。幸い、この遅延は反乱軍を含むすべての船に適用されます。</text>
+	<text>ハイパースピードに入りました。次のセクターへのあなたの旅は、うまくいけば問題なく残るはずです。デッドスペースは、それが呼ばれるように、セクター間の領域であり、ほとんど空であることが知られています。</text>
+</textList>
+
+<event name="ATLAS_EQUIPMENT">
+	<text>あなたが超高速の間に何かをしたいのなら、今がそれをする時でしょう。</text>
+	<choice hidden="true" req="DISTRACTION_BUOY">
+		<text>（おとりブイ）ブイを配備します。</text>
+		<event>
+			<text>いくつのブイを配備しますか？</text>
+			<choice hidden="true">
+				<text>1 [無料、1遅延を与える]</text>
+				<event>
+					<text>ブイを配備します。</text>
+					<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+					<modifyPursuit amount="-1" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="LOAD_ATLAS" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>2 [コスト4ドローン、2遅延を与える]</text>
+				<event>
+					<text>ブイを配備します。</text>
+					<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+					<modifyPursuit amount="-2" />
+					<item_modify>
+						<item type="drones" min="-4" max="-4" />
+					</item_modify>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="LOAD_ATLAS" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>3 [コスト8ドローン、3遅延を与える]</text>
+				<event>
+					<text>ブイを配備します。</text>
+					<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+					<modifyPursuit amount="-3" />
+					<item_modify>
+						<item type="drones" min="-8" max="-8" />
+					</item_modify>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="LOAD_ATLAS" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>もういいです。</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="PRE_SCANNER">
+		<text>（スリップスキャナー）いくつかのスキャンを実行します。 [コスト3燃料、次のセクターを明らかにする]</text>
+		<event>
+			<text>スキャンが完了しました！</text>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<item_modify>
+				<item type="fuel" min="-3" max="-3" />
+			</item_modify>
+			<reveal_map />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="FUEL_CONSERVER">
+		<text>（燃料節約）燃料をリサイクルします。 [2燃料を返します]</text>
+		<event>
+			<text>リサイクル完了！</text>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<item_modify>
+				<item type="fuel" min="2" max="2" />
+			</item_modify>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="KERNAL_REPLICATOR">
+		<text>（温室）燃料をリサイクルします。 [1燃料を返します]</text>
+		<event>
+			<text>リサイクル完了！</text>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<item_modify>
+				<item type="fuel" min="1" max="1" />
+			</item_modify>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="FLEET_SKIP">
+		<text>（エンジンオーバードライブ）コンデンサを作動させます。 [艦隊3ジャンプを遅らせ、エンジンと船体に6ダメージを与えます。 Augmentを削除します]</text>
+		<event>
+			<text>あなたの船が信じられないほどの速度で前進するとき、あなたはあなたの脳が少しの間ゼリーに変わるように感じます。回復するまでに、燃え尽きたエンジンに火が広がっているのが聞こえます。</text>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<remove name="FLEET_SKIP" />
+			<damage amount="6" effect="fire" system="engines" />
+			<modifyPursuit amount="-3" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>もういいです。</text>
+		<event load="LOAD_ATLAS" />
+	</choice>
+</event>
+
+<event name="ATLAS_MENU_LEARN">
+	<text>Atlasは、船を超高速で誘導し、危険な状態に陥らないようにするために使用されます。これを行うには、セクターは開始ビーコンの座標をアトラスに入力して、船がアトラスに向けられるようにする必要があります。 Atlasは現在、フェデレーションデータベースから取得していますが、旅行中に見つけた新しい座標で更新される可能性があります。</text>
+	<choice hidden="true">
+		<text>セクター分類について学びます。</text>
+		<event>
+			<text>セクター分類のリスト：
+友好的-このセクターを支配する派閥は、連邦と同盟または良好な関係にあります
+ニュートラル-このセクターを支配する派閥は、味方でも敵でもありません
+敵対的-このセクターを支配する派閥は連邦の敵です
+植民地化されていない-セクターは派閥によって管理されていませんが、チャート化されています
+マップされていない-セクターはマップされておらず、派閥によって管理されていません</text>
+			<choice>
+				<text>戻る。</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>セクターのサブタイプについて学びます。</text>
+		<event>
+			<text>セクターサブタイプのリスト：
+星雲-このセクターには星雲が集中しています
+ハザード-このセクターには、小惑星のフィールドや星など、多数のハザードがあります</text>
+			<choice>
+				<text>戻る。</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>興味のある場所は何ですか？</text>
+		<event>
+			<text>関心のある場所は、訪問するのに役立つ可能性のある場所を示すために、特定のセクターでマークされています。通常、これらには座標が添付されていないため、自分で見つける必要があります。
+一部のセクターには関心のある場所がマークされていませんが、それはそれらに関心のある場所がないことを意味するものではありません。これは、現在のところ、その場所が現在丠?明であることを意味するだけです。
+一部のセクターには、複数の関心のある場所があります。</text>
+			<choice>
+				<text>戻る。</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>場所を再ルーティングするにはどうすればよいですか？</text>
+		<event>
+			<text>あなたの旅行を通して、あなたは特別なセクターへの特別なコーディネートを受け取るかもしれません。これらのセクターにアクセスできるのは1回だけですが、セクター8より前の超高速移動の期間中にアクセスできます。これを行うと、次のセクターで見つけたクエストが上書きされることに注意してください。</text>
+			<choice>
+				<text>戻る。</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>反乱軍の脅威レベルとは何ですか？</text>
+		<event>
+			<text>反乱軍の脅威にはいくつかの意味があります。脅威レベルが高いセクターでは、反乱軍の集中度が高くなりますが、そのセクターの艦隊が制御するビーコンでMFKエースに遭遇する可能性もあります。
+非常に低い-ここでMFKエースに遭遇することはありません
+低-MFKエースはここに現れる可能性が10％あります
+中-低-MFKエースは20％の確率でここに表示されます
+中-MFKエースは30％の確率でここに表示されます
+高-MFKエースは50％の確率でここに表示されます
+非常に高い-MFKエースは75％の確率でここに表示されます
+！非常に高い！ -すべてのフリート制御ビーコンにはMFKエースがあります
+ランクが高以上のセクターも、出口ビーコンに常にエースがあります。</text>
+			<choice>
+				<text>戻る。</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>フリートタイプとは何ですか？</text>
+		<event>
+			<text>一部のセクターには特別な種類の艦隊があります。これらは、フリートの脅威レベルの横の括弧内に書き込まれます。
+（自動）-エリート反乱軍ではなく、代わりに強力な自動船に遭遇します。エースがスポーンするチャンスはありません。
+（ニュートラル）-追加のフェデレーションバックアップはニュートラルASBで提供されます。脅威レベルが許せば、エースがスポーンする可能性があります。</text>
+			<choice>
+				<text>戻る。</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>戻る。</text>
+		<event load="LOAD_ATLAS" />
+	</choice>
+</event>
+
+<event name="LOAD_ATLAS_MARKER">
+	<variable name="loc_sector_count" op="add" val="1" />
+	<loadEvent>ATLAS_MENU</loadEvent>
+</event>
+<event name="LOAD_ATLAS">
+	<loadEvent>ATLAS_MENU</loadEvent>
+</event>
+<event name="ATLAS_MENU">
+	<text>超高速の場合、いくつかのオプションがあります。次のセクターに進むか、最初に船に乗って何かをすることができます。</text>
+	<variable name="loc_has_salvaged" op="set" val="0" />
+	<choice hidden="true" req="LIST_JUMPSPACE_EQUIPMENT">
+		<text>船に乗って何かをしなさい。</text>
+		<event load="ATLAS_EQUIPMENT" />
+	</choice>
+	<choice hidden="true" req="FEDERATION_DATABASE">
+		<text>[フェデレーションデータベース]アトラスについて学びます。</text>
+		<event load="ATLAS_MENU_LEARN" />
+	</choice>
+	<choice hidden="true" req="CURA_TASK_CHECK">
+		<text>C.U.R.Aから利用可能なタスクを表示する</text>
+		<event load="CURA_TASK_MENU" />
+	</choice>
+	
+	<choice hidden="true" req="SEC FINAL" blue="false">
+		<text>連邦首都に進みます。</text>
+		<event load="LASTSTAND_WARP" />
+	</choice>
+	
+	<choice hidden="true" req="SEC SECTOR_ASTEROID_GENERIC" blue="false">
+		<text>鉱業セクターに進みます。</text>
+		<event load="ASTEROID_WARP" />
+	</choice>
+	
+	<choice hidden="true" req="SEC SECTOR_CIVILIAN" blue="false">
+		<text>民間部門に進みます。</text>
+		<event load="CIVILIAN_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_CIVILIAN_UNIQUE" blue="false">
+		<text>ユニオンコアワールドに進みます。</text>
+		<event load="CIVILIAN_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_CIVILIAN_HACKED" blue="false">
+		<text>民間部門に進みます。</text>
+		<event load="CIVILIAN_HACKED_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_MILITIA" blue="false">
+		<text>民兵の野営地に進みます。</text>
+		<event load="MILITIA_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ENGI" blue="false">
+		<text>エンギセクターに進みます。</text>
+		<event load="ENGI_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ENGI_UNIQUE" blue="false">
+		<text>エンギハーモニーに進みます。</text>
+		<event load="ENGI_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ZOLTAN" blue="false">
+		<text>ゾルタンセクターに進みます。</text>
+		<event load="ZOLTAN_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ZOLTAN_UNIQUE" blue="false">
+		<text>ゾルタンの首都に進みます。</text>
+		<event load="ZOLTAN_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ORCHID" blue="false">
+		<text>オーキッドセクターに進みます。</text>
+		<event load="ORCHID_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ORCHID_UNIQUE" blue="false">
+		<text>OrchidGardenworldsに進みます。</text>
+		<event load="ORCHID_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_FREEMANTIS" blue="false">
+		<text>フリーマンティスセクターに進みます。</text>
+		<event load="FREEMANTIS_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_FREEMANTIS_UNIQUE" blue="false">
+		<text>狩猟場に進みます。</text>
+		<event load="FREEMANTIS_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_SEPARATIST" blue="false">
+		<text>分離主義セクターに進みます。</text>
+		<event load="SEPARATIST_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_SEPARATIST_UNIQUE" blue="false">
+		<text>分離主義セクターに進みます。</text>
+		<event load="SEPARATIST_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_CRYSTAL" blue="false">
+		<text>結晶セクターに進みます。</text>
+		<event load="CRYSTAL_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_CRYSTAL_UNIQUE" blue="false">
+		<text>CrystallineNew-Homeworldsに進みます。</text>
+		<event load="CRYSTAL_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_OUTCAST" blue="false">
+		<text>追放セクターに進みます。</text>
+		<event load="OUTCAST_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_OUTCAST_UNIQUE" blue="false">
+		<text>神権政治のバッドランズに進んでください。</text>
+		<event load="OUTCAST_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_FEDERATION" blue="false">
+		<text>フェデレーションセクターに進みます。</text>
+		<event load="FEDERATION_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_REBEL" blue="false">
+		<text>反乱軍セクターに進みます。</text>
+		<event load="REBEL_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_REBEL_UNIQUE" blue="false">
+		<text>反乱軍の拠点に進みます。</text>
+		<event load="REBEL_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_PIRATE" blue="false">
+		<text>海賊セクターに進みます。</text>
+		<event load="PIRATE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_PIRATE_UNIQUE" blue="false">
+		<text>ブラックマーケットに進みます。</text>
+		<event load="PIRATE_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_MANTIS" blue="false">
+		<text>カマキリセクターに進みます。</text>
+		<event load="MANTIS_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_MANTIS_UNIQUE" blue="false">
+		<text>マンティスハイブに進みます。</text>
+		<event load="MANTIS_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ROCK" blue="false">
+		<text>ロックセクターに進みます。</text>
+		<event load="ROCK_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ROCK_UNIQUE" blue="false">
+		<text>RockHomeworldsに進みます。</text>
+		<event load="ROCK_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_LOSTSUN" blue="false">
+		<text>ロストサン要塞に進みます。</text>
+		<event load="LOSTSUN_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_DUSKBRINGER" blue="false">
+		<text>Duskbringerセクターに進みます。</text>
+		<event load="DUSKBRINGER_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_DUSKBRINGER_UNIQUE" blue="false">
+		<text>DuskbringerCapitolに進みます。</text>
+		<event load="DUSKBRINGER_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_COALITION" blue="false">
+		<text>連合セクターに進みます。</text>
+		<event load="COALITION_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_COALITION_UNIQUE" blue="false">
+		<text>連立拠点に進みます。</text>
+		<event load="COALITION_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_AUTO" blue="false">
+		<text>自動造船所に進みます。</text>
+		<event load="AUTO_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_AUTO_UNIQUE" blue="false">
+		<text>中央造船所に進みます。</text>
+		<event load="AUTO_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ESTATE" blue="false">
+		<text>ウェントワースの本部に進みます。</text>
+		<event load="ESTATE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ABANDONED" blue="false">
+		<text>放棄されたセクターに進みます。</text>
+		<event load="ABANDONED_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_LANIUS" blue="false">
+		<text>LaniusSwarmlandsに進みます。</text>
+		<event load="LANIUS_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_NEBULA" blue="false">
+		<text>星雲セクターに進みます。</text>
+		<event load="NEBULA_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_SLUG" blue="false">
+		<text>スラッグセクターに進みます。</text>
+		<event load="SLUG_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_SLUG_UNIQUE" blue="false">
+		<text>SlugHomeworldsに進みます。</text>
+		<event load="SLUG_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_CLAN" blue="false">
+		<text>ギルドテリトリーに進みます。</text>
+		<event load="CLAN_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_LEECH" blue="false">
+		<text>ヒルセクターに進みます。</text>
+		<event load="LEECH_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_LEECH_UNIQUE" blue="false">
+		<text>リーチキャピタルに進みます。</text>
+		<event load="LEECH_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_SHELL" blue="false">
+		<text>シェルセクターに進みます。</text>
+		<event load="SHELL_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_SHELL_UNIQUE" blue="false">
+		<text>セントラルシェルスペースに進みます。</text>
+		<event load="SHELL_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_MORPH" blue="false">
+		<text>シェルサイエンスセンターに進みます。</text>
+		<event load="MORPH_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_GHOST" blue="false">
+		<text>ヴァガボンド星雲に進みます。</text>
+		<event load="GHOST_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_GHOST_UNIQUE" blue="false">
+		<text>スペクトル荒れ地に進みます。</text>
+		<event load="GHOST_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_DYNASTY" blue="false">
+		<text>スペクトル星雲に進みます。</text>
+		<event load="DYNASTY_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_DYNASTY_UNIQUE" blue="false">
+		<text>スペクトルキャピタルに進みます。</text>
+		<event load="DYNASTY_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_MONK" blue="false">
+		<text>僧侶の避難所に進みます。</text>
+		<event load="MONK_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_AUGMENTED" blue="false">
+		<text>古代の回復サイトに進みます。</text>
+		<event load="AUGMENTED_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECRET_ANCIENT" blue="false">
+		<text>オベリスクセクターに進みます。</text>
+		<event load="ANCIENT_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECRET_ROYAL" blue="false">
+		<text>オベリスクの故郷に進みます。</text>
+		<event load="ROYAL_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ORIGINS" blue="false">
+		<text>CrystallineOriginsに進みます。</text>
+		<event load="ORIGINS_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ORIGINS_RUWEN" blue="false">
+		<text>CrystallineOriginsに進みます。</text>
+		<event load="ORIGINS_RUWEN_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_SLUG_HEKTAR" blue="false">
+		<text>スラッグセクターに進みます。</text>
+		<event load="SALE_SLUG_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_PIRATE_HEKTAR" blue="false">
+		<text>海賊セクターに進みます。</text>
+		<event load="SALE_PIRATE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ABANDONED_HEKTAR" blue="false">
+		<text>放棄されたセクターに進みます。</text>
+		<event load="SALE_ABANDONED_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_NEBULA_HEKTAR" blue="false">
+		<text>星雲セクターに進みます。</text>
+		<event load="SALE_NEBULA_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECRET_SYLVAN" blue="false">
+		<text>???に進みます。</text>
+		<event load="NEXUS_WARP" />
+	</choice>
+</event>
+<event name="ATLAS_MENU_NOEQUIPMENT">
+	<text>これで、次のセクターに進むことができます。</text>
+	<choice hidden="true" req="SEC FINAL" blue="false">
+		<text>連邦首都に進みます。</text>
+		<event load="LASTSTAND_WARP" />
+	</choice>
+	
+	<choice hidden="true" req="SEC SECTOR_ASTEROID_GENERIC" blue="false">
+		<text>鉱業セクターに進みます。</text>
+		<event load="ASTEROID_WARP" />
+	</choice>
+	
+	<choice hidden="true" req="SEC SECTOR_CIVILIAN" blue="false">
+		<text>民間部門に進みます。</text>
+		<event load="CIVILIAN_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_CIVILIAN_UNIQUE" blue="false">
+		<text>ユニオンコアワールドに進みます。</text>
+		<event load="CIVILIAN_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_CIVILIAN_HACKED" blue="false">
+		<text>民間部門に進みます。</text>
+		<event load="CIVILIAN_HACKED_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_MILITIA" blue="false">
+		<text>民兵の野営地に進みます。</text>
+		<event load="MILITIA_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ENGI" blue="false">
+		<text>エンギセクターに進みます。</text>
+		<event load="ENGI_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ENGI_UNIQUE" blue="false">
+		<text>エンギハーモニーに進みます。</text>
+		<event load="ENGI_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ZOLTAN" blue="false">
+		<text>ゾルタンセクターに進みます。</text>
+		<event load="ZOLTAN_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ZOLTAN_UNIQUE" blue="false">
+		<text>ゾルタンの首都に進みます。</text>
+		<event load="ZOLTAN_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ORCHID" blue="false">
+		<text>オーキッドセクターに進みます。</text>
+		<event load="ORCHID_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ORCHID_UNIQUE" blue="false">
+		<text>OrchidGardenworldsに進みます。</text>
+		<event load="ORCHID_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_FREEMANTIS" blue="false">
+		<text>フリーマンティスセクターに進みます。</text>
+		<event load="FREEMANTIS_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_FREEMANTIS_UNIQUE" blue="false">
+		<text>狩猟場に進みます。</text>
+		<event load="FREEMANTIS_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_SEPARATIST" blue="false">
+		<text>分離主義セクターに進みます。</text>
+		<event load="SEPARATIST_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_SEPARATIST_UNIQUE" blue="false">
+		<text>分離主義セクターに進みます。</text>
+		<event load="SEPARATIST_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_CRYSTAL" blue="false">
+		<text>結晶セクターに進みます。</text>
+		<event load="CRYSTAL_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_CRYSTAL_UNIQUE" blue="false">
+		<text>CrystallineNew-Homeworldsに進みます。</text>
+		<event load="CRYSTAL_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_OUTCAST" blue="false">
+		<text>追放セクターに進みます。</text>
+		<event load="OUTCAST_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_OUTCAST_UNIQUE" blue="false">
+		<text>神権政治のバッドランズに進んでください。</text>
+		<event load="OUTCAST_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_FEDERATION" blue="false">
+		<text>フェデレーションセクターに進みます。</text>
+		<event load="FEDERATION_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_REBEL" blue="false">
+		<text>反乱軍セクターに進みます。</text>
+		<event load="REBEL_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_REBEL_UNIQUE" blue="false">
+		<text>反乱軍の拠点に進みます。</text>
+		<event load="REBEL_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_PIRATE" blue="false">
+		<text>海賊セクターに進みます。</text>
+		<event load="PIRATE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_PIRATE_UNIQUE" blue="false">
+		<text>ブラックマーケットに進みます。</text>
+		<event load="PIRATE_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_MANTIS" blue="false">
+		<text>カマキリセクターに進みます。</text>
+		<event load="MANTIS_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_MANTIS_UNIQUE" blue="false">
+		<text>マンティスハイブに進みます。</text>
+		<event load="MANTIS_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ROCK" blue="false">
+		<text>ロックセクターに進みます。</text>
+		<event load="ROCK_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ROCK_UNIQUE" blue="false">
+		<text>RockHomeworldsに進みます。</text>
+		<event load="ROCK_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_LOSTSUN" blue="false">
+		<text>ロストサン要塞に進みます。</text>
+		<event load="LOSTSUN_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_DUSKBRINGER" blue="false">
+		<text>Duskbringerセクターに進みます。</text>
+		<event load="DUSKBRINGER_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_DUSKBRINGER_UNIQUE" blue="false">
+		<text>DuskbringerCapitolに進みます。</text>
+		<event load="DUSKBRINGER_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_COALITION" blue="false">
+		<text>連合セクターに進みます。</text>
+		<event load="COALITION_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_COALITION_UNIQUE" blue="false">
+		<text>連立拠点に進みます。</text>
+		<event load="COALITION_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_AUTO" blue="false">
+		<text>自動造船所に進みます。</text>
+		<event load="AUTO_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_AUTO_UNIQUE" blue="false">
+		<text>中央造船所に進みます。</text>
+		<event load="AUTO_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ESTATE" blue="false">
+		<text>ウェントワースの本部に進みます。</text>
+		<event load="ESTATE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ABANDONED" blue="false">
+		<text>放棄されたセクターに進みます。</text>
+		<event load="ABANDONED_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_LANIUS" blue="false">
+		<text>LaniusSwarmlandsに進みます。</text>
+		<event load="LANIUS_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_NEBULA" blue="false">
+		<text>星雲セクターに進みます。</text>
+		<event load="NEBULA_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_SLUG" blue="false">
+		<text>スラッグセクターに進みます。</text>
+		<event load="SLUG_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_SLUG_UNIQUE" blue="false">
+		<text>SlugHomeworldsに進みます。</text>
+		<event load="SLUG_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_CLAN" blue="false">
+		<text>ギルドテリトリーに進みます。</text>
+		<event load="CLAN_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_LEECH" blue="false">
+		<text>ヒルセクターに進みます。</text>
+		<event load="LEECH_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_LEECH_UNIQUE" blue="false">
+		<text>リーチキャピタルに進みます。</text>
+		<event load="LEECH_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_SHELL" blue="false">
+		<text>シェルセクターに進みます。</text>
+		<event load="SHELL_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_SHELL_UNIQUE" blue="false">
+		<text>セントラルシェルスペースに進みます。</text>
+		<event load="SHELL_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_MORPH" blue="false">
+		<text>シェルサイエンスセンターに進みます。</text>
+		<event load="MORPH_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_GHOST" blue="false">
+		<text>ヴァガボンド星雲に進みます。</text>
+		<event load="GHOST_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_GHOST_UNIQUE" blue="false">
+		<text>スペクトル荒れ地に進みます。</text>
+		<event load="GHOST_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_DYNASTY" blue="false">
+		<text>スペクトル星雲に進みます。</text>
+		<event load="DYNASTY_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_DYNASTY_UNIQUE" blue="false">
+		<text>スペクトルキャピタルに進みます。</text>
+		<event load="DYNASTY_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_MONK" blue="false">
+		<text>僧侶の避難所に進みます。</text>
+		<event load="MONK_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_AUGMENTED" blue="false">
+		<text>古代の回復サイトに進みます。</text>
+		<event load="AUGMENTED_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECRET_ANCIENT" blue="false">
+		<text>オベリスクセクターに進みます。</text>
+		<event load="ANCIENT_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECRET_ROYAL" blue="false">
+		<text>オベリスクの故郷に進みます。</text>
+		<event load="ROYAL_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ORIGINS" blue="false">
+		<text>CrystallineOriginsに進みます。</text>
+		<event load="ORIGINS_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ORIGINS_RUWEN" blue="false">
+		<text>CrystallineOriginsに進みます。</text>
+		<event load="ORIGINS_RUWEN_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_SLUG_HEKTAR" blue="false">
+		<text>スラッグセクターに進みます。</text>
+		<event load="SALE_SLUG_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_PIRATE_HEKTAR" blue="false">
+		<text>海賊セクターに進みます。</text>
+		<event load="SALE_PIRATE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ABANDONED_HEKTAR" blue="false">
+		<text>放棄されたセクターに進みます。</text>
+		<event load="SALE_ABANDONED_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_NEBULA_HEKTAR" blue="false">
+		<text>星雲セクターに進みます。</text>
+		<event load="SALE_NEBULA_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECRET_SYLVAN" blue="false">
+		<text>???に進みます。</text>
+		<event load="NEXUS_WARP" />
+	</choice>
+</event>
+
+	
+
+
+	
+<event name="ENTER_ASTEROID">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ASTEROID_WARP">
+	<text>名前：鉱業セクター
+タイプ：ニュートラル（ハザード）
+一意：False
+支配的な派閥：なし
+反乱軍の脅威レベル：低
+
+このようなセクターには、あらゆる種類の探鉱者を引き込む鉱物が豊富な小惑星帯が散らばっています。切望された資源をめぐる競争は激しいですが、あなたにとっての唯一の大きな脅威は小惑星そのものです。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_ASTEROID_LIST" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_CIVILIAN">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="CIVILIAN_WARP">
+	<text>名前：ユニオン管理セクター
+タイプ：フレンドリー
+一意：False
+支配的な派閥：銀河連合
+反乱軍の脅威レベル：中〜低
+
+銀河連合はその名前で広く嘲笑されています-だまされてはいけません。銀河系にはほど遠いですが、その指導者たちはあなたにそう思わせたいと思っています。連合は、以前は独立していた多くのさまざまな企業国家の同盟です。連合は主に人間が住゠?でいますが、最近では多くの外国人難民の聖域になっています。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_CIVILIAN" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_CIVILIAN_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="CIVILIAN_UNIQUE_WARP">
+	<text>名前：Union Coreworlds
+タイプ：フレンドリー
+ユニーク：真
+支配的な派閥：銀河連合
+反乱軍の脅威レベル：中〜低
+関心のある場所：地球
+
+ユニオンコアワールドは、人類の故郷である地球の故郷でもあります。民兵によって厳重に保護されているため、結果に苦しむことをいとわない限り、これは悪役を演じる場所ではありません。それにもかかわらず、最近、Broodとして矠?られている謎の海賊派閥が海外の連合の入植地を恐怖に陥れ始めています。これらのとらえどころのない海賊に気をつけてください-彼らを倒すことには報酬があるかもしれません。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_COREWORLDS" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_CIVILIAN_HACKED">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="CIVILIAN_HACKED_WARP">
+	<text>名前：文民管理部門
+タイプ：エラー
+ユニーク：エラー
+支配的な派閥：エラー
+反乱軍の脅威レベル：エラー
+
+[このセクターのデータエントリが破損しています。回復の試みは失敗しました。とにかくジャンプを続行します。]</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_HACKED" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_MILITIA">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="MILITIA_WARP">
+	<text>名前：民兵の野営地
+タイプ：フレンドリー
+ユニーク：真
+支配的な派閥：民間民兵
+反乱軍の脅威レベル：中〜低
+興味のある場所：民兵格納庫
+
+このセクターは、民兵の活動の中心的な拠点です。それは彼らの武器庫、格納庫、兵舎などを保持します。ここでトラブルを引き起こすのは賢明ではありません。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_MILITIA" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_ENGI">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ENGI_WARP">
+	<text>名前：エンギ管理セクター
+タイプ：フレンドリー
+一意：False
+支配的な派閥：エンギハーモニー
+反乱軍の脅威レベル：低
+興味のある場所：ハーモニーリンク
+
+エンギは非暴力的で、一般的に連邦と友好的です。誤解を避けることができる限り、先住民はほとんど問題になりません。しかし、他の敵対的な侵略者についても同じことは言えません。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_ENGI" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_ENGI_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ENGI_UNIQUE_WARP">
+	<text>名前：エンギハーモニー
+タイプ：フレンドリー
+ユニーク：真
+支配的な派閥：エンギハーモニー
+反乱軍の脅威レベル：低
+興味のある場所：ハーモニーリンク
+
+ハーモニーは、ハーモニーが率いるハーモニーと混同しないでください。記録には、いくつかの巨大な超構造物の残骸と密輸業者の集団に対する令状も示されています。異常なことに気をつけてください。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_HARMONY" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_ZOLTAN">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ZOLTAN_WARP">
+	<text>名前：ゾルタン管理セクター
+タイプ：フレンドリー
+一意：False
+支配的な派閥：ゾルタン省
+反乱軍の脅威レベル：中〜低
+
+連邦とゾルタンの間の緊張は高いですが、ゾルタンは最終的には他の何よりも法と秩序を支持します。ボタンを押さないでください。うまくいけば、Zoltanが問題なく通過できるようになります。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_ZOLTAN" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_ZOLTAN_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ZOLTAN_UNIQUE_WARP">
+	<text>名前：ゾルタンキャピタル
+タイプ：フレンドリー
+ユニーク：真
+支配的な派閥：ゾルタン省
+反乱軍の脅威レベル：中〜低
+関心のある場所：重要度の高い未知の構造が検出されました。
+
+首都はゾルタン省の中心です。 Duskbringers、Pirates、Rebelsだけでなく、省の注意深い目にも注意してください。あなたの連邦当局はここでいくらかの価値があるかもしれませんが、それは省のものと比較して何もありません。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_CAPITAL" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_ORCHID">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ORCHID_WARP">
+	<text>名前：オーキドゥ管理セクター
+タイプ：フレンドリー
+一意：False
+支配的な派閥：オーキドゥの収集
+反乱軍の脅威レベル：低
+
+オーキドゥはあなたにとって幸運な平和なレースです。彼らの特別に育てられたカーネル兵器は彼らを強力な敵にするので、あなたが最初に攻撃しなければ植物があなたを攻撃することはめったにないことを嬉しく思います。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_ORCHID" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_ORCHID_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ORCHID_UNIQUE_WARP">
+	<text>名前：オーキッドガーデンワールド
+タイプ：フレンドリー
+ユニーク：真
+支配的な派閥：オーキドゥの収集
+反乱軍の脅威レベル：低
+興味のある場所：Rt'lak Et
+
+ガーデンワールドはオーキッドスペースの中心であり、グランドオーキッドガーデンであるRt'lak Etの本拠地であり、オーキッドの船や武器が栽培されています。</text>
+	
+    <choice hidden="true">
+        <text>超高速を終了します。</text>
+        <event load="START_GARDEN" />
+    </choice>
+    <choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_FREEMANTIS">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="FREEMANTIS_WARP">
+	<text>名前：無料のカマキリ管理セクター
+タイプ：フレンドリー
+一意：False
+支配的な派閥：自由なカマキリ
+反乱軍の脅威レベル：中〜低
+
+フリーマンティスは、ゾルタンからこのセクターを捕獲しました。フェロモンへの依存は彼らの知性を低下させるかもしれませんが、フリーマンティスは連邦に非常に忠実です。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_FREEMANTIS" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_FREEMANTIS_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="FREEMANTIS_UNIQUE_WARP">
+	<text>名前：無料のカマキリ狩猟場
+タイプ：フレンドリー
+ユニーク：真
+支配的な派閥：自由なカマキリ
+反乱軍の脅威レベル：低
+関心のある場所：ZoltanとMantisの艦隊が検出されました。
+
+このセクターは、フリーマンティスが頻繁に訪れる場所です。元ゾルタン部門である省市民は、移民中に受けた暴力的な拒絶に対する復讐として、カマキリ氏族の主な獲物です。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_HUNTGROUNDS" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_SEPARATIST">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="SEPARATIST_WARP">
+	<text>名前：分離主義者が管理するセクター
+タイプ：ニュートラル
+一意：False
+支配的な派閥：エンギ分離主義者
+反乱軍の脅威レベル：中〜低
+
+分離主義者は、彼らを抑圧しようとする抑圧的なハーモニーに対する支援を拒否された後、連邦の大きな友人ではありません。しかし、彼らは通常、自分自身を守ることを好み、うまくいけば、あなたにとってあまり問題にならないでしょう。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_SEPERATIST" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_CRYSTAL">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="CRYSTAL_WARP">
+	<text>名前：水晶制御セクター
+タイプ：ニュートラル
+一意：False
+支配的な派閥：結晶帝国
+反乱軍の脅威レベル：中
+
+クリスタルセクターは通常、新たに植民地化され、市民が自分たちのために領土を主張するのに苦労しているため、拡大し続けています。人種のるつぼ、Crystallineの人々があなたをどう思うかは決してわかりません...</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_CRYSTAL" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_CRYSTAL_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="CRYSTAL_UNIQUE_WARP">
+    <text>名前：CrystallineNew-故郷
+タイプ：敵対的
+ユニーク：真
+支配的な派閥：結晶帝国
+反乱軍の脅威レベル：低
+興味のある場所：結晶性キャピトル
+
+これらは、実際、クリスタルの2番目のホームワールドです。貪欲な「パイオニア」によって彼らのセクターから追い出された後、クリスタルはこのセクターに移住し、それを彼ら自身のものと呼びました。頑固な外国人嫌いの結晶のいくつかがここにあるので、誰と接触するかに注意してください...</text>
+	
+    <choice hidden="true">
+        <text>超高速を終了します。</text>
+        <event load="START_CRYSTALHOME" />
+    </choice>
+    <choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_OUTCAST">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="OUTCAST_WARP">
+	<text>名前：追放された管理セクター
+タイプ：ニュートラル
+一意：False
+支配的な派閥：ロックアウトキャスト
+反乱軍の脅威レベル：低
+
+これらのセクターはかつて産業で満たされ、神権政治によって強く保持されていました。しかし、最近、長老たちの把握が彼らの帝国からゆっくりと滑り落ちるにつれて、これらの土地は、彼らの古い家から追放された政治的反対者と難民のための主要な場所になりました。どうやら、「姉妹種解放グループ」のために働いている結晶帝国によって送られたエージェントは、追放者の間にも住んでいました。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_OUTCAST" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_OUTCAST_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="OUTCAST_UNIQUE_WARP">
+    <text>名前：神権政治バッドランズ
+タイプ：ニュートラル
+ユニーク：真
+支配的な派閥：ロックアウトキャスト
+反乱軍の脅威レベル：低
+興味のある場所：ターバン
+
+神権政治空間のまさに縁で、いわゆる悪地は、追放された社会の密集した中心になりました。この場所は貿易と文化の両方が豊富であると言われていますが、神権政治への強い抵抗と、結晶帝国から送られたSSLGエージェントの流入についての言及は危険である可能性があります。そのすべての中心にあるのはターバンであり、豊かな都市であり、すべてのアウトキャストスペースで最も確立された都市の1つであり、潜在的な神権政治攻撃の主要なターゲットです。</text>
+	
+    <choice hidden="true">
+        <text>超高速を終了します。</text>
+        <event load="START_BADLANDS" />
+    </choice>
+    <choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+
+	
+<event name="ENTER_FEDERATION">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="FEDERATION_WARP">
+	<text>名前：連邦管理セクター
+タイプ：フレンドリー
+ユニーク：真
+支配的な派閥：連邦
+反乱軍の脅威レベル：高（中立艦隊）
+関心のある場所：ノード17メモリアル
+
+これは、首都自体に加えて、この現実に残っている最後の数少ない連邦セクターの1つです。反乱軍の艦隊はこのセクターを追い抜くことに力を注いでいるので、あなたの歩みを監視し、できるだけ多くの同盟因?を助けるようにしてください。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_FED" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_REBEL">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="REBEL_WARP">
+	<text>名前：反乱軍支配セクター
+タイプ：敵対的
+一意：False
+支配的な派閥：反乱
+反乱軍の脅威レベル：非常に高い
+
+この古い民間部門は反乱によって捕らえられました。おそらくいくつかの連邦同盟国が残っているでしょうが、ここでの遭遇の大部分は反乱の支持者との出会いでしょう。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_REBEL" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_REBEL_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="REBEL_UNIQUE_WARP">
+	<text>名前：反乱軍の拠点
+タイプ：敵対的
+ユニーク：真
+支配的な派閥：反乱
+反乱軍の脅威レベル：！非常に高い！
+興味のある場所：反乱軍の格納庫
+
+このセクターは反乱軍の宇宙の中心にあり、最も著名な反乱軍の作戦の中心地です。ここで連盟からの友好的な顔を見たいと思ったら、すぐにそれを固めてください。愚か者だけがここでそのようなことを夢見ることができだ?した。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_REBELHOLD" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_PIRATE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="PIRATE_WARP">
+	<text>名前：海賊管理セクター
+タイプ：敵対的
+一意：False
+支配的な派閥：海賊
+反乱軍の脅威レベル：中
+
+海賊スペースはどの船にとっても安全な場所ではありません。幸いなことに、彼らがあなたに同じことをするのと同じように喜んでいることを考えると、あなたはこのセクターの住民を選ぶ罪をほとんど持たないはずです。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_PIRATE" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_PIRATE_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="PIRATE_UNIQUE_WARP">
+	<text>名前：ブラックマーケット
+タイプ：敵対的
+ユニーク：真
+支配的な派閥：海賊
+反乱軍の脅威レベル：中
+興味のある場所：スカイドリフターカジノ、スマグラーステーション
+
+闇市場は密輸業者の一族の活動の拠点です。ここにはあらゆる種類の人々がいますが、それは素晴らしいことでもあり、ひどいことでもあります...</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_BLACKMARKET" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_MANTIS">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="MANTIS_WARP">
+	<text>名前：マンティス管理セクター
+タイプ：敵対的
+一意：False
+支配的な派閥：マンティスハイブ
+反乱軍の脅威レベル：低
+
+マンティスの領土はハイブによって厳重に保護されています。宗主国によって監視されているセグメントに分割されているこのセクターは、連邦船の場所ではありません。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_MANTIS" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_MANTIS_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="MANTIS_UNIQUE_WARP">
+	<text>名前：マンティスハイブ
+タイプ：敵対的
+ユニーク：真
+支配的な派閥：マンティスハイブ
+反乱軍の脅威レベル：低
+興味のある場所：マンティスハイブ
+
+このセクターには、Leikonpliiinakra女王と彼女のカマキリ司教が住んでいます。カマキリは侵入者を高く評価していないので、このセクター全体でのあなたの歩みに注意してください。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_HIVE" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_ROCK">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ROCK_WARP">
+	<text>名前：ロック制御セクター
+タイプ：敵対的
+一意：False
+支配的な派閥：ロック神権政治
+反乱軍の脅威レベル：低
+
+ロック政府は市民に対して鉄の拳を握っており、ロックマンは彼らの信仰に専念しています。真実を知らず、一般的に攻撃的ですが、ロックマンの怒りを避けることは不可能ではありません。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_ROCK" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_ROCK_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ROCK_UNIQUE_WARP">
+	<text>名前：ロックホームワールド
+タイプ：敵対的
+ユニーク：真
+支配的な派閥：ロック神権政治
+反乱軍の脅威レベル：低
+興味のある場所：Vrachos IV
+
+ロックマンは彼らの故郷を強化し、このセクターを完全に支配している、あるいは少なくとも彼らが主張している。長老たちの悪い面に乗らないようにしてください、そうすればあなたはそれを生き生きとさせるでしょう。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_ROCKHOME" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+
+<event name="ENTER_LOSTSUN">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="LOSTSUN_WARP">
+	<text>名前：ロストサンストロングホールド
+タイプ：ニュートラル
+ユニーク：真
+支配的な派閥：失われた太陽
+反乱軍の脅威レベル：低
+
+このセクターはかつてロック神権政治がクリスタルを崇拝するための聖地でしたが、その後、ロストサンズとその作戦のための防御的な拠点になりました。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_LOSTSUN" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_DUSKBRINGER">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="DUSKBRINGER_WARP">
+	<text>名前：Duskbringer Controlled Sector
+タイプ：敵対的
+一意：False
+支配的な派閥：Duskbringers
+反乱軍の脅威レベル：高
+
+DuskbringersはZoltan省よりもはるかに攻撃的であり、彼らの部門はそれを証明しています。さらに悪いことに、DuskbringersとRebelsは連邦との連携で機能することが知られているため、ここでは友好的な顔をほとんど見ることができません。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_DUSKBRINGER" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_DUSKBRINGER_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="DUSKBRINGER_UNIQUE_WARP">
+	<text>名前：ダスクブリンガーキャピトル
+タイプ：敵対的
+ユニーク：真
+支配的な派閥：Duskbringers
+反乱軍の脅威レベル：非常に高い
+興味のある場所：Duskbringer Capital
+
+意地悪なことを示すために、ダスクブリンガーはこのセクターを国会議事堂と名付け、省からの独立を宣言しました。スキャンでもここに反乱軍が大量に集中していることが示されているので、足元に注意してください。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_DUSKCAP" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_COALITION">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="COALITION_WARP">
+	<text>名前：連立管理セクター
+タイプ：敵対的
+一意：False
+支配的な派閥：連立
+反乱軍の脅威レベル：中
+
+連立は連邦と同じくらい反乱に対する脅威であり、それはあなたがここで多くの反乱軍を見つけることができないことを意味するかもしれません。しかし、連立が常に潜んでいるとき、それはほとんど意味がありません...</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_COALITION" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_COALITION_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="COALITION_UNIQUE_WARP">
+	<text>名前：連立拠点
+タイプ：敵対的（ネブラ）
+ユニーク：真
+支配的な派閥：連立
+反乱軍の脅威レベル：低
+
+このセクターは必ずしも星雲ではありませんでしたが、スキャンはここに合成星雲が大量に集中していることを示しています。非常に奇妙な...</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_COALITIONHOLD" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_AUTO">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="AUTO_WARP">
+	<text>名前：自動造船所
+タイプ：敵対的
+一意：False
+支配的な派閥：反乱
+反乱軍の脅威レベル：高（自動艦隊）
+
+このセクターは反乱軍に属していますが、当分の間維持するためにほとんどエンジニア隊に任せています。ここでのほとんどの機能は完全に自動化されていますが、人間の反乱軍が対処しなくても、自動輸送は脅威になります。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_AUTO" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_AUTO_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="AUTO_UNIQUE_WARP">
+	<text>名前：中央自動造船所
+タイプ：敵対的
+ユニーク：真
+支配的な派閥：反乱
+反乱軍の脅威レベル：非常に高い（自動艦隊）
+関心のある場所：セントラルパワーコア
+
+このセクターは、自動車船の生産の中心地です。はるかに多くのエンジニアのスタッフがそれを保護しているので、このセクターの通常の自動船と一緒にいくつかの十分に武装したエンジニアの船に遭遇しだ?も驚かないでください。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_SHIPYARD" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_ESTATE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ESTATE_WARP"> 
+	<text>名前：ウェントワースイノベーションズ本社
+タイプ：敵対的
+ユニーク：真
+ドミナントファクション：ウェントワースイノベーションズ（ユニオン子会社）
+反乱軍の脅威レベル：！非常に高い！ （自動艦隊）
+関心のある場所：ウェントワースイノベーション本社、マーキュリー造船所
+
+連合内で最大のメガコープの1つであるウェントワース・イノベーションズは、反乱の提督であり創設者であるヴァンス・ウェントワース自身の家族会社です。しかし、提督の不在により、副大統領のケイデン・スティムリーが一時的な責任を負った。 Stimlyの指揮の下、同社は競争に対して非常に積極的になり、賄賂の呪文の下で連合のリーダーシップを維持しています。注意して踏みます。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_ESTATE" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_ABANDONED">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ABANDONED_WARP">
+	<text>名前：放棄されたセクター
+タイプ：植民地化されていない
+一意：False
+支配的な派閥：なし
+反乱軍の脅威レベル：中
+
+これはかつては民間部門でしたが、激しい紛争の後、放棄されました。今では、銀河中のスカベンジャーのるつぼとして機能し、廃墟だけでなく、あなたのような船からも利益を得ることを望んでいます。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_ABANDONED_LIST" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_LANIUS">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="LANIUS_WARP">
+	<text>名前：Lanius Swarmlands
+タイプ：ニュートラル
+ユニーク：真
+支配的な派閥：ラニウススウォーム
+反乱軍の脅威レベル：低
+
+大規模なラニウスの冬眠中に、このセクターは海賊と幽霊によって荒廃しました。今、群れは再び目覚めました、そして彼らは満足していません。ただし、多少のスクラップがあれば、Laniusを無傷で通過させるのに十分な満足度を得ることができます。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_LANIUS" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_NEBULA">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="NEBULA_WARP">
+	<text>名前：星雲セクター
+タイプ：マップされていない（ネブラ）
+一意：False
+支配的な派閥：なし
+反乱軍の脅威レベル：中〜低
+
+このセクターは植民地化されておらず、ほとんどマッピングされていません。ここで何が見つかるかは言うまでもありません。アトラスはもう少し情報を提供します。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_NEBULA" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_SLUG">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="SLUG_WARP">
+	<text>名前：スラッグ制御セクター
+タイプ：ニュートラル（ネブラ）
+一意：False
+支配的な派閥：ナメクジ泥棒政治
+反乱軍の脅威レベル：低
+
+ナメクジはずっと前に連邦から追放されましたが、彼らはそれについて無関心です。主に犯罪者の種であり、ここにいるほぼすべての人があなたを詐欺したいと思うでしょう。この星雲を横断するときは常に警戒してください、ナメクジは見ています...</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_SLUG" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_SLUG_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="SLUG_UNIQUE_WARP">
+	<text>名前：Slug Homeworlds
+タイプ：ニュートラル（ネブラ）
+ユニーク：真
+支配的な派閥：ナメクジ泥棒政治
+反乱軍の脅威レベル：低
+関心のある場所：このセクターを横断するのが見られる高価なナメクジのプレジャーボート。
+
+Slug Homeworldsは、クズと泥棒のハブであり、彼らの富で高生活を送っています。特に彼らがナメクジである場合は、信頼できる人に注意してくださだ?。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_SLUGHOME" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_CLAN">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="CLAN_WARP">
+	<text>名前：ギルドテリトリー
+タイプ：ニュートラル（ネブラ）
+ユニーク：真
+ドミナントファクション：エキゾチックハンターギルド
+反乱軍の脅威レベル：低
+関心のある場所：「ソルトマン」として知られているエンティティに求められている高価値の報奨金
+
+このセクターは、EHGの本拠地、狩猟場、集会所です。 EHGはまだ泥棒政治の一部ですが、彼らは大量の領土を持っています。残念ながら、あなたがここにいるので、あなたが逃げることができるまで、あなたはおそらく彼らの貴重な狩りのリストに載ることになるでしょう。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_CLAN" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+
+<event name="ENTER_SHELL">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="SHELL_WARP">
+	<text>名前：シェル制御セクター
+タイプ：フレンドリー（ネブラ）
+一意：False
+支配的な派閥：シェルの天才政治
+反乱軍の脅威レベル：中
+
+シェルは通常友好的ですが、彼らの文化的慣習は、誘拐された乗組員に無害な実験を行おうとすると、人種との誤解を招くことがよくあります。寛容になるようにしてください。そうすれば、シェルはあなたにとってそれほど問題にはなりません。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_SHELL" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>	
+
+
+<event name="ENTER_SHELL_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="SHELL_UNIQUE_WARP">
+	<text>名前：セントラルシェルスペース
+タイプ：ニュートラル（ネブラ）
+ユニーク：真
+支配的な派閥：シェルの天才政治
+反乱軍の脅威レベル：中
+関心のある場所：登録された長距離連邦遭難信号
+
+シェルはナメクジと同じ惑星で進化しましたが、はるかに攻撃的ないとこ種によって追い出されました。シェルはここに定住し、彼らの領土を保護するために強力な防御を設定だ?ました。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_SHELLHOME" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+
+<event name="ENTER_MORPH">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="MORPH_WARP">
+	<text>名前：シェルサイエンスセンター
+タイプ：ニュートラル（ネブラ）
+ユニーク：真
+支配的な派閥：シェルの天才政治
+反乱軍の脅威レベル：高
+関心のある場所：遺伝的強化および研究所
+
+奇妙なことに、このセクターから提供された大量のデータは、エントリポイントの作成者によって消去されたようです。ここにもいくつかのぎこちなさがあり、旅行者に近づかないよだ?に勧める大きな警告が印刷されています。今すぐ戻るには遅すぎるので、最初から危機的な状況に陥らないことを願っています。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_MORPH" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_LEECH">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="LEECH_WARP">
+	<text>名前：リーチ管理セクター
+タイプ：ニュートラル（ハザード）
+一意：False
+支配的な派閥：Eargen共和国
+反乱軍の脅威レベル：低
+
+ここでの最大の脅威がヒルそのものであると期待しないでください。彼らの種類はほとんど連邦に対して中立であり続けました-リスクは異端審問と共和国と同盟した連合軍の間にあります。ここで誰に打ち明けるか注意し、ここで虐げられた帠?民をあまり利用しないようにしてください。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_LEECH_LIST" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_LEECH_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="LEECH_UNIQUE_WARP">
+	<text>名前：Eargen Capital
+タイプ：ニュートラル（ハザード）
+ユニーク：真
+支配的な派閥：Eargen共和国
+反乱軍の脅威レベル：低
+関心のある場所：ゴラとして知られる異端審問官がこのセクターに侵入するのが見られました。ティキュロ大統領の私邸はここにあります。
+
+このセクターには、アーゲン共和国の中心部だけでなく、異端審問、連立、およびヴァンプウィードを含むあまり知られていない内戦もあります。これらの派閥はどれも連邦と友達ではありませんが、うまくいけば、あなたに気付かないようにお互いに気を取られてしまうでしょう。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_LEECHCAP" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_GHOST">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="GHOST_WARP">
+	<text>名前：ヴァガボンド星雲
+タイプ：ニュートラル（ネブラ）
+一意：False
+支配的な派閥：ヴァガボンド氏族
+反乱軍の脅威レベル：中
+
+Vagabondsは、はるか昔に王朝から分裂した遊牧民の幽霊です。彼らはほとんどあなたに無関心ですが、王朝は信じられないほど攻撃的で謎めいたことでよく知られています。ここでそれらの多くが表示されないことを願っています...</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_GHOST_LIST" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+<event name="ENTER_GHOST_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="GHOST_UNIQUE_WARP">
+	<text>名前：スペクトル荒れ地
+タイプ：ニュートラル（ネブラ）
+ユニーク：真
+支配的な派閥：ヴァガボンド氏族
+反乱軍の脅威レベル：中
+関心のある場所：反乱軍の船に求められている高額の報奨金
+
+このセクターはかつて王朝に属していましたが、未知の力がここを通り抜け、植民地のほとんどを一掃しました。残っているのはスカベンジャーと数隻の王朝の船で、彼らがだ?きることをほとんど取り戻すために送られました。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_GHOSTWASTE" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_DYNASTY">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="DYNASTY_WARP">
+	<text>名前：スペクトル星雲
+タイプ：敵対的（ネブラ）
+一意：False
+支配的な派閥：スペクトル王朝
+反乱軍の脅威レベル：高（自動艦隊）
+
+ここで多くの有人の反乱軍の船を見ることを期待しないでください-反乱軍の幽霊とその王朝との戦いはほぼ完全に自動化されています。残念ながら、王朝は反乱だけでなく連邦に対してもこの侵略を阻止しているようです。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_DYNASTY" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+<event name="ENTER_DYNASTY_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="DYNASTY_UNIQUE_WARP">
+	<text>名前：スペクトルキャピタル
+タイプ：敵対的（ネブラ）
+ユニーク：真
+支配的な派閥：スペクトル王朝
+反乱軍の脅威レベル：非常に高い（自動艦隊）
+興味のある場所：王朝の国会議事堂、古代遺跡
+
+報告によると、反乱軍はそれほど前にこのセクターに巨大な運搬船を配備しました。そのようなサイズの船は、同様に巨大な脅威の船を運んでいたに違いありませんが、歠?確なデータは提供されていません。常駐のゴーストがすでに世話をしていて、安心して先に進むことができることを願っています。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_DYNCAP" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_MONK">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="MONK_WARP">
+	<text>名前：僧侶の避難所
+タイプ：フレンドリー（ネブラ）
+ユニーク：真
+支配的な派閥：ゾルタン省
+反乱軍の脅威レベル：低
+
+このセクターは、最も献身的なゾルタン僧侶の隠れ場所です。彼らの宗教は彼らが暴力行為に参加することを妨げています。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_MONK" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_SALE_SLUG">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="SALE_SLUG_WARP">
+	<text>名前：スラッグ制御セクター
+タイプ：ニュートラル（ネブラ）
+一意：False
+支配的な派閥：ナメクジ泥棒政治
+反乱軍の脅威レベル：低
+
+ナメクジはずっと前に連邦から追放されましたが、彼らはそれについて無関心です。主に犯罪者の種であり、ここにいるほぼすべての人があなたを詐欺したいと思うでしょう。この星雲を横断するときは常に警戒してください、ナメクジは見ています...
+アトラスの下部に、小さな「H」ロゴがあります...スポンサーシップですか？ 「地元のヘクタール産業市場に来てください！」と書かれています。は...</text>
+	<variable name="loc_beentomarket" op="set" val="1" />
+	<choice hidden="true" req="loc_beentomarket" lvl="0" max_group="0" blue="false">
+		<text>超高速を終了します。</text>
+		<event>
+			<text>Hyperspeedの終了を完了する前に、通常とは異なる広告が表示されます。 「Hektarのお客様を大切にしています。HektarCorporationのCEOであるBillyHektarがあなたに話しかけます。新しい顧客ロイヤルティプログラムの一環として、新しい「揺るぎない賃金ユーティリティポイント」を紹介できることを誇りに思います。 Hektar（tm）ブランドのssstoreにアクセスするたびに、フレンドリーなcussstomerサポートvesssselssがアカウントに追加のU.W.U.ポイントを追加します！十分に集めると、報酬プログラムに参加できるようになります！ハッピーssshopping！」広告が終わり、陽気なジングルがコンピューター上で再生され、「お金が戻ってこないので、満足が保証されます！」というモットーが続きます。</text>
+			
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="START_SLUG" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="loc_beentomarket" lvl="1" max_group="0" blue="false">
+		<text>超高速を終了します。</text>
+		<event>
+			<text>Hyperspeedの終了を完了する前に、以前と同じ広告が表示されます。これはさらに別のヘクタール市場セクターのようです。</text>
+			
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="START_SLUG" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_SALE_PIRATE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="SALE_PIRATE_WARP">
+	<text>名前：海賊管理セクター
+タイプ：敵対的
+一意：False
+支配的な派閥：海賊
+反乱軍の脅威レベル：中
+
+海賊スペースはどの船にとっても安全な場所ではありません。幸いなことに、彼らがあなたに同じことをするのと同じように喜んでいることを考えると、あなたはこのセクターの住民を選ぶ罪をほとんど持たないはずです。
+アトラスの下部に、小さな「H」ロゴがありまだ?...スポンサーシップですか？ 「地元のヘクタール産業市場に来てください！」と書かれています。は...</text>
+	<variable name="loc_beentomarket" op="set" val="1" />
+	<choice hidden="true" req="loc_beentomarket" lvl="0" max_group="0" blue="false">
+		<text>超高速を終了します。</text>
+		<event>
+			<text>Hyperspeedの終了を完了する前に、通常とは異なる広告が表示されます。 「Hektarのお客様を大切にしています。HektarCorporationのCEOであるBillyHektarがあなたに話しかけます。新しい顧客ロイヤルティプログラムの一環として、新しい「揺るぎない賃金ユーティリティポイント」を紹介できることを誇りに思います。 Hektar（tm）ブランドのssstoreにアクセスするたびに、フレンドリーなcussstomerサポートvesssselssがアカウントに追加のU.W.U.ポイントを追加します！十分に集めると、報酬プログラムに参加できるようになります！ハッピーssshopping！」広告が終わり、陽気なジングルがコンピューター上で再生され、「お金が戻ってこないので、満足が保証されます！」というモットーが続きます。</text>
+			
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="START_PIRATE" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="loc_beentomarket" lvl="1" max_group="0" blue="false">
+		<text>超高速を終了します。</text>
+		<event>
+			<text>Hyperspeedの終了を完了する前に、以前と同じ広告が表示されます。これはさらに別のヘクタール市場セクターのようです。</text>
+			
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="START_PIRATE" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_SALE_NEBULA">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="SALE_NEBULA_WARP">
+	<text>名前：星雲セクター
+タイプ：マップされていない（ネブラ）
+一意：False
+支配的な派閥：なし
+反乱軍の脅威レベル：中〜低
+
+このセクターは植民地化されておらず、ほとんどマッピングされていません。ここで何が見つかるかは言うまでもありません。アトラスはもう少し情報を提供します。
+アトラスの下部に、小さな「H」ロゴがあります...スポンサーシップですか？ 「地元のヘクタール産業市場に来てください！」と書かれています。は...</text>
+	<variable name="loc_beentomarket" op="set" val="1" />
+	<choice hidden="true" req="loc_beentomarket" lvl="0" max_group="0" blue="false">
+		<text>超高速を終了します。</text>
+		<event>
+			<text>Hyperspeedの終了を完了する前に、通常とは異なる広告が表示されます。 「Hektarのお客様を大切にしています。HektarCorporationのCEOであるBillyHektarがあなたに話しかけます。新しい顧客ロイヤルティプログラムの一環として、新しい「揺るぎない賃金ユーティリティポイント」を紹介できることを誇りに思います。 Hektar（tm）ブランドのssstoreにアクセスするたびに、フレンドリーなcussstomerサポートvesssselssがアカウントに追加のU.W.U.ポイントを追加します！十分に集めると、報酬プログラムに参加できるようになります！ハッピーssshopping！」広告が終わり、陽気なジングルがコンピューター上で再生され、「お金が戻ってこないので、満足が保証されます！」というモットーが続きます。</text>
+			
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="START_NEBULA" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="loc_beentomarket" lvl="1" max_group="0" blue="false">
+		<text>超高速を終了します。</text>
+		<event>
+			<text>Hyperspeedの終了を完了する前に、以前と同じ広告が表示されます。これはさらに別のヘクタール市場セクターのようです。</text>
+			
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="START_NEBULA" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_SALE_ABANDONED">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="SALE_ABANDONED_WARP">
+	<text>名前：放棄されたセクター
+タイプ：植民地化されていない
+一意：False
+支配的な派閥：なし
+反乱軍の脅威レベル：中
+
+これはかつては民間部門でしたが、激しい紛争の後、放棄されました。今では、それは銀河中からのスカベンジャーのるつぼとして機能し、廃墟だけでなくあなたのような船からも利益を得ることを望んでいます。
+アトラスの下部に、小さな「H」ロゴだ?あります...スポンサーシップですか？ 「地元のヘクタール産業市場に来てください！」と書かれています。は...</text>
+	<variable name="loc_beentomarket" op="set" val="1" />
+	<choice hidden="true" req="loc_beentomarket" lvl="0" max_group="0" blue="false">
+		<text>超高速を終了します。</text>
+		<event>
+			<text>Hyperspeedの終了を完了する前に、通常とは異なる広告が表示されます。 「Hektarのお客様を大切にしています。HektarCorporationのCEOであるBillyHektarがあなたに話しかけます。新しい顧客ロイヤルティプログラムの一環として、新しい「揺るぎない賃金ユーティリティポイント」を紹介できることを誇りに思います。 Hektar（tm）ブランドのssstoreにアクセスするたびに、フレンドリーなcussstomerサポートvesssselssがアカウントに追加のU.W.U.ポイントを追加します！十分に集めると、報酬プログラムに参加できるようになります！ハッピーssshopping！」広告が終わり、陽気なジングルがコンピューター上で再生され、「お金が戻ってこないので、満足が保証されます！」というモットーが続きます。</text>
+			
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="START_ABANDONED_LIST" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="loc_beentomarket" lvl="1" max_group="0" blue="false">
+		<text>超高速を終了します。</text>
+		<event>
+			<text>Hyperspeedの終了を完了する前に、以前と同じ広告が表示されます。これはさらに別のヘクタール市場セクターのようです。</text>
+			
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="START_ABANDONED_LIST" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>ルートを変更します。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_AUGMENTED">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="AUGMENTED_WARP">
+	<text>名前：古代の回復サイト
+タイプ：ニュートラル
+支配的な派閥：拡張ラニウス
+反乱軍の脅威レベル：低
+
+このセクターに関する情報はほとんどありません。いくつかの古代の種族の廃墟がここで発見されたようです、そしてそれはAugmentedとして知られているLaniusのバンドによってすぐに群がりました。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_AUGMENTED" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>このジャンプ中はルートを変更できません。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_ANCIENT">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ANCIENT_WARP">
+	<text>名前： ？？？
+タイプ： ？？？
+支配的な派閥：???
+反乱軍の脅威レベル：???
+
+Atlasの次のセクターに関するデータはありません。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_BEACON_ANCIENT" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>このジャンプ中はルートを変更できません。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_ROYAL">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ROYAL_WARP">
+	<text>名前： ？？？
+タイプ： ？？？
+支配的な派閥：???
+反乱軍の脅威レベル：???
+
+Atlasの次のセクターに関するデータはありません。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_BEACON_ROYAL" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>このジャンプ中はルートを変更できません。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+</event>
+
+	
+<event name="ENTER_ORIGINS">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ORIGINS_WARP">
+	<text>名前：Crystalline Origins
+タイプ： ？？？
+支配的な派閥：???
+反乱軍の脅威レベル：???
+
+アトラスには、このセクターに関する情報はほとんどありません。そこにあるわずかなデータは、これが貪欲な「開拓者」によって強制される前の結晶帝国の古い故郷であったことを示唆しています。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_ORIGINS" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>このジャンプ中はルートを変更できません。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+</event>
+
+<event name="ENTER_ORIGINS_RUWEN">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ORIGINS_RUWEN_WARP">
+	<text>名前：Crystalline Origins
+タイプ： ？？？
+支配的な派閥：???
+反乱軍の脅威レベル：???
+
+アトラスには、このセクターに関する情報はほとんどありません。そこにあるわずかなデータは、これが貪欲な「開拓者」によって強制される前の結晶帝国の古い故郷であったことを示唆しています。</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_ORIGINS_RUWEN" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>このジャンプ中はルートを変更できません。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+</event>
+
+	
+
+<event name="ENTER_NEXUS">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="NEXUS_WARP">
+	<text>名前： ？？？
+タイプ： ？？？
+支配的な派閥：???
+反乱軍の脅威レベル：???
+
+どこへ行っても、もうカンザスではないことは確かです。あなたが同じ現実にいるのかどうかさえわかりません。あなたが引き込まれたばかりの場所は、多元宇宙全体の半分です！</text>
+	
+	<choice hidden="true">
+		<text>超高速を終了します。</text>
+		<event load="START_NEXUS" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>このジャンプ中はルートを変更できません。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+</event>
+
+	
+<event name="REROUTE_MENU">
+	<text>どこにルート変更しますか？
+[警告：再ルーティングとは、次のセクターで発生したであろうクエストを見逃すことを意味します。]</text>
+	<choice hidden="true" max_group="0">
+		<text>もういいです。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true" req="coords_spider" blue="false" max_group="1">
+		<text>感染セクターにジャンプします。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_SPIDER" />
+	</choice>
+	<choice hidden="true" req="coords_jerry" blue="false" max_group="2">
+		<text>ジェローム保護領にジャンプします。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_JERRY" />
+	</choice>
+	<choice hidden="true" req="coords_nights" blue="false" max_group="3">
+		<text>ロイヤル星雲にジャンプします。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_NIGHTS" />
+	</choice>
+	<choice hidden="true" req="coords_hektar" blue="false" max_group="4">
+		<text>HektarMega-Marketにジャンプします。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_HEKTAR" />
+	</choice>
+	<choice hidden="true" req="coords_estate" blue="false" max_group="5">
+		<text>ウェントワースイノベーションズ本社にジャンプします。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_ESTATE" />
+	</choice>
+	<choice hidden="true" req="coords_hive" blue="false" max_group="6">
+		<text>マンティスハイブにジャンプします。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_HIVE" />
+	</choice>
+</event>
+<event name="REROUTE_MENU_LASTSTAND">
+	<text>どこにルート変更しますか？
+[警告：再ルーティングとは、次のセクターで発生したであろうクエストを見逃すことを意味します。]</text>
+	<choice hidden="true" req="pilot" lvl="1" max_group="0" blue="false">
+		<text>もういいです。</text>
+		<event>
+			<variable name="loc_laststand" op="set" val="0" />
+			<loadEvent>LASTSTAND_WARP</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true" req="coords_spider" blue="false" max_group="1">
+		<text>感染セクターにジャンプします。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_SPIDER" />
+	</choice>
+	<choice hidden="true" req="coords_jerry" blue="false" max_group="2">
+		<text>ジェローム保護領にジャンプします。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_JERRY" />
+	</choice>
+	<choice hidden="true" req="coords_nights" blue="false" max_group="3">
+		<text>ロイヤル星雲にジャンプします。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_NIGHTS" />
+	</choice>
+	<choice hidden="true" req="coords_hektar" blue="false" max_group="4">
+		<text>HektarMega-Marketにジャンプします。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_HEKTAR" />
+	</choice>
+	<choice hidden="true" req="coords_estate" blue="false" max_group="5">
+		<text>ウェントワースイノベーションズ本社にジャンプします。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_ESTATE" />
+	</choice>
+	<choice hidden="true" req="coords_hive" blue="false" max_group="6">
+		<text>マンティスハイブにジャンプします。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_HIVE" />
+	</choice>
+</event>
+
+<event name="LIGHTSPEED_SECTOR_WARP_SPIDER">
+	<text>ルートを変更しようとしています。以下は、このセクターのAtlasエントリです。
+名前：感染したセクター
+タイプ：敵対的
+支配的な派閥：民兵、The Brood（海賊）
+反乱軍の脅威レベル：低
+興味のある場所：スパイダーハイブ
+
+脅迫されている民間部門であるこれらの調整は、あなたが彼らのクモの蔓延の問題を支援できることを期待して、民兵によってあなたに与えられました。</text>
+	<choice hidden="true">
+		<text>ジャンプを続けます。</text>
+		<event>
+			<text>新しい座標にジャンプする準備をし、それに応じて飛行経路を変更します。</text>
+			<variable name="coords_spider" op="set" val="0" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="JUMP_TO_SPIDER" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>もういいです。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="JUMP_TO_SPIDER">
+	<secretSector />
+</event>
+
+<event name="LIGHTSPEED_SECTOR_WARP_JERRY">
+	<text>ルートを変更しようとしています。以下は、このセクターのAtlasエントリです。
+名前：ジェローム保護領
+タイプ：敵対的
+支配的な派閥：反乱
+反乱軍の脅威レベル：非常に高い
+
+反乱軍艦隊の甥のヴァンス提督であるジェローム・ウェントワースによって統治されていた反乱軍の二次拠点。間違いなく優先度の高いターゲットであり、彼を連れ出すことで反乱軍の艦隊を弱体化させる可能性があります。</text>
+	<choice hidden="true">
+		<text>ジャンプを続けます。</text>
+		<event>
+			<text>新しい座標にジャンプする準備をし、それに応じて飛行経路を変更します。</text>
+			<variable name="coords_jerry" op="set" val="0" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="JUMP_TO_JERRY" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>もういいです。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="JUMP_TO_JERRY">
+	<secretSector />
+</event>
+
+<event name="LIGHTSPEED_SECTOR_WARP_NIGHTS">
+	<text>ルートを変更しようとしています。以下は、このセクターのAtlasエントリです。
+名前：ロイヤルナメクジ星雲
+タイプ：敵対的
+支配的な派閥：ナメクジ泥棒政治
+反乱軍の脅威レベル：低
+興味のある場所：スラッグパレス
+
+このセクターにはスラグロイヤルファミリーが住んでいます...現在はキャプテンナイトで構成されています。 Slocknogは、「スペクタクルを見る」ためにこれらの座標を提供しましたが、これはおそらく良いことを意味するものではありません。</text>
+	<choice hidden="true">
+		<text>ジャンプを続けます。</text>
+		<event>
+			<text>新しい座標にジャンプする準備をし、それに応じて飛行経路を変更します。</text>
+			<variable name="coords_nights" op="set" val="0" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="JUMP_TO_NIGHTS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>もういいです。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="JUMP_TO_NIGHTS">
+	<secretSector />
+</event>
+
+<event name="LIGHTSPEED_SECTOR_WARP_HEKTAR">
+	<text>ルートを変更しようとしています。以下は、このセクターのAtlasエントリです。
+名前：Hektar Mega-Market（tm）
+タイプ：ニュートラル
+支配的な派閥：Hektar Industries
+反乱軍の脅威レベル：非常に低い
+関心のある場所：Hektar Industries HQ
+
+このセクターのエントリーは、製品の配置と企業用語で肥大化しています。しかし、あなたがもっと心配しているのは、このセクター内にある膨大な数の遭難ビーコンです。これは面白いはずです...</text>
+	<choice hidden="true">
+		<text>ジャンプを続けます。</text>
+		<event>
+			<text>新しい座標にジャンプする準備をし、それに応じて飛行経路を変更します。</text>
+			<variable name="coords_hektar" op="set" val="0" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="JUMP_TO_HEKTAR" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>もういいです。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="JUMP_TO_HEKTAR">
+	<secretSector />
+</event>
+
+<event name="LIGHTSPEED_SECTOR_WARP_ESTATE">
+	<text>ルートを変更しようとしています。以下は、このセクターのAtlasエントリです。
+名前：ウェントワースイノベーション本社
+タイプ：敵対的
+ドミナントファクション：ウェントワースイノベーションズ（ユニオン子会社）
+反乱軍の脅威レベル：！非常に高い！ （自動艦隊）
+関心のある場所：W.I。HQ、Mercury Shipyards
+
+ユニオン内で最大のメガコープの1つであるウェントワース・イノベーションズは、ヴァンス提督自身の家族会社です。しかし、彼の不在のため、VPCaydenStimlyが一時的な責任を負っています。彼の指示の下で、会社は競争に対して非常に積極的になり、賄賂の呪文の下で連合のリーダーシップを保持しています。注意して踏みます。</text>
+	<choice hidden="true">
+		<text>ジャンプを続けます。</text>
+		<event>
+			<text>新しい座標にジャンプする準備をし、それに応じて飛行経路を変更します。</text>
+			<variable name="coords_estate" op="set" val="0" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="JUMP_TO_ESTATE" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>もういいです。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="JUMP_TO_ESTATE">
+	<secretSector />
+</event>
+
+<event name="LIGHTSPEED_SECTOR_WARP_HIVE">
+	<text>名前：マンティスハイブ
+タイプ：敵対的
+ユニーク：真
+支配的な派閥：マンティスハイブ
+反乱軍の脅威レベル：低
+興味のある場所：マンティスハイブ
+
+このセクターには、Leikonpliiinakra女王と彼女のカマキリ司教が住んでいます。カマキリは侵入者を高く評価していないので、このセクター全体でのあなたの歩みに注意してください。</text>
+	<choice hidden="true">
+		<text>ジャンプを続けます。</text>
+		<event>
+			<text>新しい座標にジャンプする準備をし、それに応じて飛行経路を変更します。</text>
+			<variable name="coords_hive" op="set" val="0" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="JUMP_TO_HIVE" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>もういいです。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="JUMP_TO_HIVE">
+	<secretSector />
+</event>
+
+</FTL>

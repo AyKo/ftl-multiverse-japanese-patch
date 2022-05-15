@@ -1,0 +1,311 @@
+<FTL>
+<event name="TEST_HYPERSPACE_QUEST">
+	<text>これはあなたにクエストか私が知らない何かを与えます。</text>
+	<quest event="HIDDEN_FEDERATION_BASE_LIST" />
+</event>
+
+<event name="TEST_HAZARDS">
+	<text>ええと...太陽。</text>
+	<environment type="sun" />
+	<choice>
+		<text>まだ終わってない</text>
+		<event>
+			<text>ああ神ああフリックパルサー</text>
+			<environment type="pulsar" />
+			<choice>
+				<text>それがすべてではありません</text>
+				<event>
+					<text>ああ神ああフリック小惑星</text>
+					<environment type="asteroid" />
+					<choice>
+						<text>まだ終わってない</text>
+						<event>
+							<text>Oh god oh frick ASB</text>
+							<environment type="PDS" target="player" />
+							<choice>
+								<text>それをねじ込み、さらに進みましょう</text>
+								<event>
+									<text>ハレーイオンストーム</text>
+									<environment type="storm" />
+								</event>
+							</choice>
+							<choice>
+								<text>わかりました、それで十分です</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+<event name="TEST_HYPERSPACE_AUGMENT">
+	<text>ロックされた拡張。</text>
+	<augment name="MULTIVERSE_DRIVE" />
+</event>
+
+<event name="TEST_HYPERSPACE_CARGO">
+	<text>このイベントは、イオンブラストmk1をチェックします。</text>
+	<choice req="ION_1">
+		<text>その検出イオン1</text>
+		<event>
+			<text>かっこいい。</text>
+			<choice>
+				<text>イオンを取り除く</text>
+				<event>
+					<text>なくなった</text>
+					<remove name="ION_1" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>これは2番目のオプションです</text>
+		<event>
+			<text>ネイト。</text>
+		</event>
+	</choice>
+</event>
+
+<event name="EXAMPLE_CREW_TRANSFORM" unique="true">
+	<text>大野！あなたの乗組員は回心しています！</text>
+	<choice req="LIST_CREW_CANCHANGE" hidden="true" blue="false" max_group="0" lvl="0">
+		<text>継続する...</text>
+		<event>
+			<text>幸いなことに、変身できる乗組員はいませんでした。</text>
+		</event>
+	</choice>
+	<choice req="LIST_CREW_CANCHANGE" hidden="true" blue="false" max_group="0" lvl="1">
+		<text>継続する...</text>
+		<event load="EXAMPLE_CREW_TRANSFORM_1" />
+	</choice>
+</event>
+<event name="EXAMPLE_CREW_TRANSFORM_1"> 
+	<text>大野！あなたの乗組員の1人は変身することができます。</text>
+	<choice req="human" hidden="true" blue="false">
+		<text>継続する...</text>
+		<event>
+			<text>あなたの乗組員はラニウスに変更されました！ Wierd。</text>
+			<removeCrew class="human">
+				<clone>false</clone>
+				<text>彼らは死んでいないので、あなたの乗組員はクローンすることができません。</text>
+			</removeCrew>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>変換が完了しました。</text>
+					<crewMember amount="1" class="lanius" />
+					<choice req="LIST_CREW_CANCHANGE" hidden="true" blue="false" max_group="0" lvl="0">
+						<text>継続する...</text>
+						<event>
+							<text>幸いなことに、変身できる乗組員はもういませんでした。</text>
+						</event>
+					</choice>
+					<choice req="LIST_CREW_CANCHANGE" hidden="true" blue="false" max_group="0" lvl="1">
+						<text>継続する...</text>
+						<event load="EXAMPLE_CREW_TRANSFORM_2" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice req="slug" hidden="true" blue="false">
+		<text>継続する...</text>
+		<event>
+			<text>あなたの乗組員はラニウスに変更されました！ Wierd。</text>
+			<removeCrew class="slug">
+				<clone>false</clone>
+				<text>彼らは死んでいないので、あなたの乗組員はクローンすることができません。</text>
+			</removeCrew>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>変換が完了しました。</text>
+					<crewMember amount="1" class="slug" />
+					<choice req="LIST_CREW_CANCHANGE" hidden="true" blue="false" max_group="0" lvl="0">
+						<text>継続する...</text>
+						<event>
+							<text>幸いなことに、変身できる乗組員はもういませんでした。</text>
+						</event>
+					</choice>
+					<choice req="LIST_CREW_CANCHANGE" hidden="true" blue="false" max_group="0" lvl="1">
+						<text>継続する...</text>
+						<event load="EXAMPLE_CREW_TRANSFORM_2" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice req="mantis" hidden="true" blue="false">
+		<text>継続する...</text>
+		<event>
+			<text>あなたの乗組員はラニウスに変更されました！ Wierd。</text>
+			<removeCrew class="mantis">
+				<clone>false</clone>
+				<text>彼らは死んでいないので、あなたの乗組員はクローンすることができません。</text>
+			</removeCrew>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>変換が完了しました。</text>
+					<crewMember amount="1" class="lanius" />
+					<choice req="LIST_CREW_CANCHANGE" hidden="true" blue="false" max_group="0" lvl="0">
+						<text>継続する...</text>
+						<event>
+							<text>幸いなことに、変身できる乗組員はもういませんでした。</text>
+						</event>
+					</choice>
+					<choice req="LIST_CREW_CANCHANGE" hidden="true" blue="false" max_group="0" lvl="1">
+						<text>継続する...</text>
+						<event load="EXAMPLE_CREW_TRANSFORM_2" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="EXAMPLE_CREW_TRANSFORM_2">
+	<text>大野！あなたの乗組員の1人は変身することができます。</text>
+	<choice req="human" hidden="true" blue="false">
+		<text>継続する...</text>
+		<event>
+			<text>あなたの乗組員はラニウスに変更されました！ Wierd。</text>
+			<removeCrew class="human">
+				<clone>false</clone>
+				<text>彼らは死んでいないので、あなたの乗組員はクローンすることができません。</text>
+			</removeCrew>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>変換が完了しました。</text>
+					<crewMember amount="1" class="lanius" />
+					<choice req="LIST_CREW_CANCHANGE" hidden="true" blue="false" max_group="0" lvl="0">
+						<text>継続する...</text>
+						<event>
+							<text>幸いなことに、変身できる乗組員はもういませんでした。</text>
+						</event>
+					</choice>
+					
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice req="slug" hidden="true" blue="false">
+		<text>継続する...</text>
+		<event>
+			<text>あなたの乗組員はラニウスに変更されました！ Wierd。</text>
+			<removeCrew class="slug">
+				<clone>false</clone>
+				<text>彼らは死んでいないので、あなたの乗組員はクローンすることができません。</text>
+			</removeCrew>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>変換が完了しました。</text>
+					<crewMember amount="1" class="slug" />
+					<choice req="LIST_CREW_CANCHANGE" hidden="true" blue="false" max_group="0" lvl="0">
+						<text>継続する...</text>
+						<event>
+							<text>幸いなことに、変身できる乗組員はもういませんでした。</text>
+						</event>
+					</choice>
+					
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice req="mantis" hidden="true" blue="false">
+		<text>継続する...</text>
+		<event>
+			<text>あなたの乗組員はラニウスに変更されました！ Wierd。</text>
+			<removeCrew class="mantis">
+				<clone>false</clone>
+				<text>彼らは死んでいないので、あなたの乗組員はクローンすることができません。</text>
+			</removeCrew>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>変換が完了しました。</text>
+					<crewMember amount="1" class="lanius" />
+					<choice req="LIST_CREW_CANCHANGE" hidden="true" blue="false" max_group="0" lvl="0">
+						<text>継続する...</text>
+						<event>
+							<text>幸いなことに、変身できる乗組員はもういませんでした。</text>
+						</event>
+					</choice>
+					
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="FREE_WIN">
+	<text>あなたが勝ちます！</text>
+	<win creditsText="credit_victory_cheat" text="Nice" creditsBackground="VICTORY_DEFAULT" />
+</event>
+
+<event name="TEST_DOUBLE_SPAWN_START">
+	<text>これは船です！</text>
+	<ship load="TEST_DOUBLE_SPAWN_1" hostile="true" />
+</event>
+<ship name="TEST_DOUBLE_SPAWN_1" auto_blueprint="MU_REBEL_FIGHTER">
+	<destroyed load="TEST_DOUBLE_SPAWN_2_LOAD" />
+	<deadCrew load="TEST_DOUBLE_SPAWN_2_LOAD" />
+</ship>
+<event name="TEST_DOUBLE_SPAWN_2_LOAD">
+	<loadEvent>TEST_DOUBLE_SPAWN_2</loadEvent>
+</event>
+<event name="TEST_DOUBLE_SPAWN_2">
+	<text>その死者</text>
+	<choice>
+		<text>Ok</text>
+		<event>
+			<text>2隻目！</text>
+			<ship load="TEST_DOUBLE_SPAWN_2" hostile="true" />
+		</event>
+	</choice>
+</event>
+	
+<event name="MAP">
+	<text>地図</text>
+	<reveal_map />
+</event>
+
+<event name="FLEET_SLOW">
+	<text>艦隊が遅くなった</text>
+	<modifyPursuit amount="-999" />
+</event>
+
+<event name="FLEET_FAST">
+	<text>フリートスピードアップ</text>
+	<modifyPursuit amount="999" />
+</event>
+
+<event name="FORCE_HOSTILE">
+	<text>船は敵対的です</text>
+	<ship hostile="true" />
+</event>
+
+<event name="GIVE_CRIME">
+	<text>あなたは今+1の犯罪を持っています</text>
+	<variable name="rep_general" op="add" val="1" />
+</event>
+	
+<event name="PLACEHOLDER">
+	<text>あなたはこれを見るべきではありません。</text>
+</event>
+
+<event name="EVENT_TEMPLATE">
+	<text>これをコピーして貼り付けることができます</text>
+	<choice>
+		<text>Ok</text>
+		<event>
+			<text>文章</text>
+		</event>
+	</choice>
+</event>
+</FTL>

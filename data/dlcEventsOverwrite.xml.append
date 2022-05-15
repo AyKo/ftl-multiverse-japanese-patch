@@ -1,0 +1,87 @@
+<FTL>
+
+
+<eventList name="OVERRIDE_HOSTILE_ENGI"> 
+	<event load="HOSTILE_ENGI_EVENTS" />
+</eventList>
+
+<eventList name="OVERRIDE_HOSTILE_MANTIS"> 
+	<event load="HOSTILE_MANTIS_EVENTS" />
+</eventList>
+
+<eventList name="OVERRIDE_HOSTILE_PIRATE"> 
+	<event load="HOSTILE_PIRATE_EVENTS" />
+</eventList>
+
+<eventList name="OVERRIDE_HOSTILE_REBEL"> 
+	<event load="HOSTILE_REBEL_NEW" />
+</eventList>
+
+<eventList name="OVERRIDE_HOSTILE_ZOLTAN"> 
+	<event load="HOSTILE_ZOLTAN_EVENTS" />
+</eventList>
+
+
+
+
+<eventList name="OVERRIDE_HOSTILE">
+	<event load="HOSTILE_EVENTS" />
+</eventList>
+
+<eventList name="OVERRIDE_ITEMS">
+	<event load="ITEMS_EVENTS" />
+</eventList>
+
+<eventList name="OVERRIDE_NEUTRAL"> 
+	<event load="NEUTRAL_EVENTS" />
+</eventList>
+
+<eventList name="OVERRIDE_NEUTRAL_EXIT">
+	<event load="NEUTRAL_CLONE" />
+	<event load="ITEMS_CLONE" />
+</eventList>
+
+<eventList name="OVERRIDE_QUESTS">
+	<event load="QUESTS_EVENTS" />
+</eventList>
+
+
+
+
+<eventList name="OVERRIDE_FEDERATION_BASE_ASSIST">
+	<event>
+		<text>あなたはセクターに到着し、自動ドローンによって爆撃されている小さな前哨基地を見ます。これはあなたが言われた連邦基地でなければなりません！</text>
+		<ship load="AUTO_FEDERATION_BASE" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>あなたはセクターに到着し、自動ドローンによって爆撃されている小さな前哨基地を見ます。これはあなたが言われた連邦基地でなければなりません！</text>
+		<ship load="AUTO_FEDERATION_BASE2" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event> 
+		<text>あなたはセクターに到着し、複数の反乱軍の船からの攻撃を受けている連邦の前哨基地を見ます。しかし、あなたが近づくと、彼らは対艦バッテリーをオンラインにし、2隻の小型船を無効にします。あなたは急降下して支援し、翼のリーダーを倒します。</text>
+		<ship load="SHIP_REBEL_FEDERATION_PDS" hostile="true" />
+		<environment type="PDS" target="enemy" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>あなたはセクターに到着し、対艦バッテリーを使用して自動ドローンを発射する小さな連邦の前哨基地を見ます。他の船からの破片が周辺に散らばっています。戦いの矢面に立ったのはもう終わったようです。あなたは支援するために引っ越します。</text>
+		<ship load="AUTO_FEDERATION_BASE2" hostile="true" />
+		<environment type="PDS" target="enemy" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+</FTL>

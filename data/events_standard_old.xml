@@ -1,0 +1,2928 @@
+<FTL>
+
+
+	
+<ship name="SHIP_REBEL_STORE" auto_blueprint="LIST_SHIPS_REBEL_FIGHT">
+	<destroyed>
+		<text>船はバラバラになり、あなたはすぐにできることを救い出します。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="STORE_HOSTILE_WIN" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>乗組員が死んだ状態で、あなたはすぐにあなたができることを救い出します。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="STORE_HOSTILE_WIN" />
+		</choice>
+	</deadCrew>
+</ship>
+<event name="STORE_HOSTILE_REBEL">
+	<text load="TEXT_STORE_REBEL_HOSTILE" />
+	<ship load="SHIP_REBEL_STORE" hostile="false" />
+	<choice hidden="true">
+		<text>店を救出してください。</text>
+		<event>
+			<text>あなたは戦闘の準備をします。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>商人を無視します。</text>
+		<event>
+			<text>幸いなことに、船はあなたの存在に気づいていません。</text>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_STORE_REBEL_HOSTILE">
+	<text>苦痛ビーコンのソースは、反乱軍からの攻撃を受けている小さな市場のようです！</text>
+	<text>ここの商船は反乱軍からの攻撃を受けています。彼らは彼らに対して無力であり、あなたは彼らが生き残る唯一のチャンスかもしれません。</text>
+	<text>反乱軍の船が小さな闇市場を襲撃しています。おそらく、あなたが彼らを救うことができれば、彼らはあなたに売るでしょう。</text>
+</textList>
+
+<ship name="SHIP_AUTO_STORE" auto_blueprint="LIST_SHIPS_AUTO_FIGHT">
+	<destroyed>
+		<text>船はバラバラになり、あなたはすぐにできることを救い出します。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="STORE_HOSTILE_WIN" />
+		</choice>
+	</destroyed>
+</ship>
+<event name="STORE_HOSTILE_AUTO">
+	<text load="TEXT_STORE_AUTO_HOSTILE" />
+	<ship load="SHIP_AUTO_STORE" hostile="false" />
+	<choice hidden="true">
+		<text>店を救出してください。</text>
+		<event>
+			<text>あなたは戦闘の準備をします。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>商人を無視します。</text>
+		<event>
+			<text>幸いなことに、船はあなたの存在に気づいていません。</text>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_STORE_AUTO_HOSTILE">
+	<text>自動化された反乱軍の船が小さな市場で発砲しました。おそらく彼らが連邦政府と取引していたためです！</text>
+	<text>小さな交易所から遭難信号を受信します。 「助けて！私たちの自動化された船は暴走し、私たちを攻撃しています！」</text>
+	<text>近くの自動車船から闇市場が炎上しているのに気づきました。反乱軍でさえ海賊に満足していないようです。</text>
+</textList>
+
+<ship name="SHIP_PIRATE_STORE" auto_blueprint="LIST_SHIPS_PIRATE_ALL">
+	<destroyed>
+		<text>船はバラバラになり、あなたはすぐにできることを救い出します。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="STORE_HOSTILE_WIN" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>乗組員が死んだ状態で、あなたはすぐにあなたができることを救い出します。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="STORE_HOSTILE_WIN" />
+		</choice>
+	</deadCrew>
+</ship>
+<event name="STORE_HOSTILE_PIRATE">
+	<text load="TEXT_STORE_PIRATE_HOSTILE" />
+	<ship load="SHIP_PIRATE_STORE" hostile="false" />
+	<choice hidden="true">
+		<text>店を救出してください。</text>
+		<event>
+			<text>あなたは戦闘の準備をします。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>商人を無視します。</text>
+		<event>
+			<text>幸いなことに、船はあなたの存在に気づいていません。</text>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_STORE_PIRATE_HOSTILE">
+	<text>苦痛のビーコンは、海賊からの攻撃を受けている小さな民間市場から発信されているようです！</text>
+	<text>海賊は必ずしも仲良くなるとは限らず、このビーコンのシーンは明らかです。敵対的な海賊船が別の海賊局に発砲しています。あなたが足を踏み入れない限り、駅の運命は暗いように見えます。</text>
+	<text>連邦商船が海賊に封鎖されていることに気づきました。これは苦痛のビーコンの源であるに違いありません。</text>
+</textList>
+
+<ship name="SHIP_MANTIS_STORE" auto_blueprint="LIST_SHIPS_MANTIS_FIGHT">
+	<destroyed>
+		<text>船はバラバラになり、あなたはすぐにできることを救い出します。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="STORE_HOSTILE_WIN" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>乗組員が死んだ状態で、あなたはすぐにあなたができることを救い出します。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="STORE_HOSTILE_WIN" />
+		</choice>
+	</deadCrew>
+</ship>
+<event name="STORE_HOSTILE_MANTIS">
+	<text load="TEXT_STORE_MANTIS_HOSTILE" />
+	<ship load="SHIP_MANTIS_STORE" hostile="false" />
+	<choice hidden="true">
+		<text>店を救出してください。</text>
+		<event>
+			<text>あなたは戦闘の準備をします。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>商人を無視します。</text>
+		<event>
+			<text>幸いなことに、船はあなたの存在に気づいていません。</text>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_STORE_MANTIS_HOSTILE">
+	<text>カマキリは近くの非武装商船を捕食することに決めたようです。武器なしでマンティススペースに移動することは特に賢明ではありませんが、彼らはまだ民間人であり、長くは続かないでしょう。</text>
+	<text>カマキリと密輸業者がこのビーコンで決闘し、価格について議論しているようです。</text>
+	<text>カマキリは、セクターから抜け出そうとしている小さなエンギ商人に発砲しています。エンギが長持ちすることはないでしょう。</text>
+</textList>
+
+<event name="STORE_HOSTILE_WIN">
+	<text>あなたは彼らの攻撃者から店を救出しました。店主は取引を申し出ます。</text>
+	<store />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event />
+	</choice>
+	<choice hidden="true" req="MARKER_GOT_CORPSE">
+		<text>昏睡状態のロボットについて質問してください。</text>
+		<event load="AUGMENTED_QUESTION" />
+	</choice>
+</event>
+
+
+<eventList name="LIST_STORE_EVENTS">
+	<event load="EVENT_STORE_NOTHING" />
+	<event load="EVENT_STORE_NOTHING" />
+	<event load="EVENT_STORE_NOTHING" />
+	<event load="EVENT_STORE_NOTHING" />
+	
+	<event load="EVENT_STORE_SLAVES" />
+	<event load="EVENT_STORE_CIVILIAN_FUEL" />
+	<event load="EVENT_STORE_ENGI_PARTS" />
+	<event load="EVENT_STORE_ROCK_AMMO" />
+	
+	<event load="EVENT_STORE_ORCHID_KERNEL" />
+	<event load="EVENT_STORE_CRYSTAL_WEAPON" />
+	<event load="EVENT_STORE_VAGABOND_WEAPON" />
+	<event load="EVENT_STORE_ZOLTAN_REACTOR" />
+	<event load="EVENT_STORE_BEGGAR" />
+	<event load="EVENT_STORE_INN" />
+	<event load="EVENT_STORE_MERCENARY_FLEET" />
+	<event load="EVENT_STORE_REBEL_CHOICE" />
+	<event load="EVENT_STORE_PIRATE_SKETCHY" />
+	<event load="EVENT_STORE_MANTIS_SLAVES" />
+	<event load="EVENT_STORE_MAP" />
+	<event load="EVENT_STORE_MINELAUNCHER" />
+	<event load="EVENT_STORE_AUTO_REPAIRS" />
+</eventList>
+
+<event name="EVENT_STORE_NOTHING">
+	<text>必要に応じて、店に行く前に船で何かをする時間があります。</text>
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice hidden="true" req="MARKER_GOT_CORPSE">
+		<text>昏睡状態のロボットについて質問してください。</text>
+		<event load="AUGMENTED_QUESTION" />
+	</choice>
+	<choice>
+		<text>まっすぐ店に向かいます。</text>
+		<event />
+	</choice>
+</event>
+
+<textList name="TEXT_EVENT_STORE_SLAVES">
+	<text>あなたは近くに有名な奴隷商人を見つけ、いくつかの手頃な価格の奴隷を宣伝しています。</text>
+	<text>近くの奴隷商人も買い物をしていて、別の海賊船からの「労働者」を買いだめしているようです。あなたはおそらくそれらからいくつかを購入することもできます。</text>
+	<text>小さな奴隷の一族があなたを歓迎し、奴隷をスクラップに変えて提供します。</text>
+</textList>
+<event name="EVENT_STORE_SLAVES" unique="true">
+	<text load="TEXT_EVENT_STORE_SLAVES" />
+	<ship load="SHIP_SLAVER_ALL" hostile="false" />
+	<status type="limit" target="enemy" system="teleporter" amount="0" />
+	<choice>
+		<text>奴隷を買う。</text>
+		<event load="PIRATE_ODDSHOP_SLAVE" />
+	</choice>
+	<choice>
+		<text>奴隷を買う。</text>
+		<event load="PIRATE_ODDSHOP_SLAVE" />
+	</choice>
+	<choice>
+		<text>奴隷を無視します。</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+</event>
+
+<textList name="TEXT_EVENT_STORE_CIVILIAN_FUEL">
+	<text>民間船が店に停泊し、船に小さな改造を加えています。彼らはあなたが燃料の購入を要求していることを歓迎します。</text>
+	<text>民間の船がすぐに飛び込み、エンジンが急速に漏れました。彼らはおそらくいくらかの燃料を使うことができたでしょう。</text>
+</textList>
+<event name="EVENT_STORE_CIVILIAN_FUEL" unique="true">
+	<text load="TEXT_EVENT_STORE_CIVILIAN_FUEL" />
+	<ship load="SHIP_CIVILIAN_GENERIC" hostile="false" />
+	<status type="limit" target="enemy" system="teleporter" amount="0" />
+	<choice>
+		<text>それらに5つの燃料を売る。</text>
+		<event>
+			<item_modify>
+				<item type="scrap" min="7" max="15" />
+				<item type="fuel" min="-5" max="-5" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text>それらに10個の燃料を売る。</text>
+		<event>
+			<item_modify>
+				<item type="scrap" min="15" max="25" />
+				<item type="fuel" min="-10" max="-10" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice hidden="true" req="CRATE_FUEL" blue="false">
+		<text>彼らに燃料の箱を渡してください。</text>
+		<event>
+			<text>「うわー、それは燃料の大きな箱です！どうもありがとうございました！」</text>
+			<item_modify>
+				<item type="scrap" min="30" max="30" />
+			</item_modify>
+			<remove name="CRATE_FUEL" />
+		</event>
+	</choice>
+	<choice>
+		<text>彼らの申し出を断る。</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+</event>
+
+<textList name="TEXT_EVENT_STORE_ENGI_PARTS">
+	<text>エンギ船が近くに停泊しています。彼らはあなたを歓迎し、追加のドローンパーツの購入を要求します。</text>
+	<text>エンギ船長の注意を引いたようです。 「リクエスト：余分なドローン部品を購入します。スクラップはお返しに提供されます。」</text>
+</textList>
+<event name="EVENT_STORE_ENGI_PARTS" unique="true">
+	<text load="TEXT_EVENT_STORE_ENGI_PARTS" />
+	<ship load="SHIP_ENGI_GENERIC" hostile="false" />
+	<status type="limit" target="enemy" system="teleporter" amount="0" />
+	<choice>
+		<text>それらに5つのドローンパーツを売る。</text>
+		<event>
+			<item_modify>
+				<item type="scrap" min="12" max="20" />
+				<item type="drones" min="-5" max="-5" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text>それらに10個のドローンパーツを売る。</text>
+		<event>
+			<item_modify>
+				<item type="scrap" min="25" max="35" />
+				<item type="drones" min="-10" max="-10" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice hidden="true" req="CRATE_DRONES" blue="false">
+		<text>彼らに部品の箱を渡してください。</text>
+		<event>
+			<text>「大量のドローンパーツ...満足のいくものです。必要なもの：代替の支払い。ハルドローンが派遣されます。」</text>
+			<item_modify>
+				<item type="scrap" min="70" max="70" />
+			</item_modify>
+			<damage amount="-7" />
+			<remove name="CRATE_DRONES" />
+		</event>
+	</choice>
+	<choice>
+		<text>彼らの申し出を断る。</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+</event>
+
+<textList name="TEXT_EVENT_STORE_ROCK_AMMO">
+	<text>近くにいるロック船のパイロット、ミサイルはオフライン。彼らは弾薬を使い果たした可能性があります。</text>
+	<text>たくましいロックキャプテンがあなたを歓迎します。 「キャプテン！私たちは弾薬を必要としています。いくらか惜しまないでしょうか？私たちは支払います。」</text>
+</textList>
+<event name="EVENT_STORE_ROCK_AMMO" unique="true">
+	<text load="TEXT_EVENT_STORE_ROCK_AMMO" />
+	<ship load="SHIP_ROCK_GENERIC" hostile="false" />
+	<status type="limit" target="enemy" system="teleporter" amount="0" />
+	<choice>
+		<text>それらに5発のミサイルを売る。</text>
+		<event>
+			<item_modify>
+				<item type="scrap" min="15" max="25" />
+				<item type="missiles" min="-5" max="-5" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text>それらに10発のミサイルを売る。</text>
+		<event>
+			<item_modify>
+				<item type="scrap" min="30" max="55" />
+				<item type="missiles" min="-10" max="-10" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice hidden="true" req="CRATE_MISSILES" blue="false">
+		<text>彼らに弾薬の箱を渡してください。</text>
+		<event>
+			<text>ロックマンはあなたの多額の寄付に満足しています。それらは大量のスクラップと燃料を移動します。</text>
+			<item_modify>
+				<item type="scrap" min="55" max="55" />
+				<item type="fuel" min="3" max="3" />
+			</item_modify>
+			<remove name="CRATE_MISSILES" />
+		</event>
+	</choice>
+	<choice>
+		<text>彼らの申し出を断る。</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+</event>
+
+<textList name="TEXT_EVENT_STORE_CRATES">
+	<text>いくつかの商人は、いくつかの大きな木枠の物資を降ろすのに忙しい。必要に応じて、それらの一部を購入することもできます。</text>
+	<text>あなたは、いくつかの大きな箱の物資を提供する正直な商人に歓迎されています。</text>
+</textList>
+<event name="EVENT_STORE_CRATES" unique="true">
+	<text load="TEXT_EVENT_STORE_CRATES" />
+	<choice hidden="true">
+		<text>燃料の箱を購入します。 【15スクラップ】</text>
+		<event>
+			<item_modify>
+				<item type="scrap" min="-15" max="-15" />
+			</item_modify>
+			<augment name="CRATE_FUEL" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ミサイルの箱を購入します。 【30スクラップ】</text>
+		<event>
+			<item_modify>
+				<item type="scrap" min="-30" max="-30" />
+			</item_modify>
+			<augment name="CRATE_MISSILES" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ドローンパーツの箱を購入します。 【40スクラップ】</text>
+		<event>
+			<item_modify>
+				<item type="scrap" min="-40" max="-40" />
+			</item_modify>
+			<augment name="CRATE_DRONES" />
+		</event>
+	</choice>
+	<choice>
+		<text>彼らの申し出を断る。</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+</event>
+
+<event name="EVENT_STORE_ORCHID_KERNEL" unique="true">
+	<text>オーキドゥの軍用船が近くに停泊しており、修理が必要です。彼らはスクラップと引き換えに彼らの特別なカーネル武器の1つを提供しているようです。</text>
+	<ship load="SHIP_ORCHID_FIGHT" hostile="false" />
+	<status type="limit" target="enemy" system="teleporter" amount="0" />
+	<choice>
+		<text>武器を購入します。</text>
+		<event load="EVENT_STORE_ORCHID_KERNEL_PURCHASE" />
+	</choice>
+	<choice>
+		<text>オーキドゥを無視します。</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+</event>
+<eventList name="EVENT_STORE_ORCHID_KERNEL_PURCHASE">
+	<event>
+		<weapon name="KERNEL_1" />
+		<item_modify>
+			<item type="scrap" min="-30" max="-50" />
+		</item_modify>
+	</event>
+	<event>
+		<weapon name="KERNEL_CHARGE" />
+		<item_modify>
+			<item type="scrap" min="-40" max="-60" />
+		</item_modify>
+	</event>
+	<event>
+		<weapon name="KERNEL_HULL" />
+		<item_modify>
+			<item type="scrap" min="-57" max="-77" />
+		</item_modify>
+	</event>
+</eventList>
+
+<event name="EVENT_STORE_CRYSTAL_WEAPON" unique="true">
+	<text>クリスタル商人が近くで休んでいます。彼らはあなたを見つけ、彼らの人々によって手作りされた結晶の武器を提供します。</text>
+	<ship load="SHIP_CRYSTAL_GENERIC" hostile="false" />
+	<status type="limit" target="enemy" system="teleporter" amount="0" />
+	<choice>
+		<text>武器を購入します。</text>
+		<event load="EVENT_STORE_CRYSTAL_WEAPON_PURCHASE" />
+	</choice>
+	<choice>
+		<text>却下。</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+</event>
+<eventList name="EVENT_STORE_CRYSTAL_WEAPON_PURCHASE">
+	<event>
+		<weapon name="CRYSTAL_BURST_1" />
+		<item_modify>
+			<item type="scrap" min="-40" max="-60" />
+		</item_modify>
+	</event>
+	<event>
+		<weapon name="CRYSTAL_HEAVY_1" />
+		<item_modify>
+			<item type="scrap" min="-35" max="-55" />
+		</item_modify>
+	</event>
+	<event>
+		<weapon name="CRYSTAL_STUN" />
+		<item_modify>
+			<item type="scrap" min="-40" max="-60" />
+		</item_modify>
+	</event>
+	<event>
+		<weapon name="CRYSTAL_CHARGEGUN" />
+		<item_modify>
+			<item type="scrap" min="-40" max="-60" />
+		</item_modify>
+	</event>
+</eventList>
+
+<event name="EVENT_STORE_VAGABOND_WEAPON" unique="true">
+	<text>殴打されたゴースト船が近くに残り、疑わしい品質の武器を漕いでいます。彼らの価格はかなり安いようです...</text>
+	<ship load="SHIP_GHOST_ALL" hostile="false" />
+	<status type="limit" target="enemy" system="teleporter" amount="0" />
+	<choice>
+		<text>さびた武器を買う。</text>
+		<event load="EVENT_STORE_VAGABOND_WEAPON_PURCHASE_1" />
+	</choice>
+	<choice>
+		<text>さびた武器を買う。</text>
+		<event load="EVENT_STORE_VAGABOND_WEAPON_PURCHASE_2" />
+	</choice>
+	<choice>
+		<text>却下。</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+</event>
+<eventList name="EVENT_STORE_VAGABOND_WEAPON_PURCHASE_1">
+	<event>
+		<weapon name="RUSTY_LASER_BURST_2" />
+		<item_modify>
+			<item type="scrap" min="-25" max="-30" />
+		</item_modify>
+	</event>
+	<event>
+		<weapon name="RUSTY_LASER_BURST_3" />
+		<item_modify>
+			<item type="scrap" min="-55" max="-60" />
+		</item_modify>
+	</event>
+	<event>
+		<weapon name="RUSTY_LASER_BURST_5" />
+		<item_modify>
+			<item type="scrap" min="-70" max="-75" />
+		</item_modify>
+	</event>
+	<event>
+		<weapon name="RUSTY_LASER_HEAVY_1" />
+		<item_modify>
+			<item type="scrap" min="-25" max="-30" />
+		</item_modify>
+	</event>
+</eventList>
+<eventList name="EVENT_STORE_VAGABOND_WEAPON_PURCHASE_2">
+	<event>
+		<weapon name="RUSTY_MISSILES_1" />
+		<item_modify>
+			<item type="scrap" min="-10" max="-15" />
+		</item_modify>
+	</event>
+	<event>
+		<weapon name="RUSTY_MISSILES_2" />
+		<item_modify>
+			<item type="scrap" min="-15" max="-20" />
+		</item_modify>
+	</event>
+	<event>
+		<weapon name="RUSTY_MISSILES_3" />
+		<item_modify>
+			<item type="scrap" min="-25" max="-30" />
+		</item_modify>
+	</event>
+	<event>
+		<weapon name="RUSTY_MISSILES_BURST" />
+		<item_modify>
+			<item type="scrap" min="-50" max="-55" />
+		</item_modify>
+	</event>
+</eventList>
+
+<event name="EVENT_STORE_ZOLTAN_REACTOR" unique="true">
+	<text>ゾルタンの科学船が店の近くを歩き回っています。彼らは原子炉のアップグレードを宣伝しています。</text>
+	<ship load="SHIP_ZOLTAN_GENERIC" hostile="false" />
+	<status type="limit" target="enemy" system="teleporter" amount="0" />
+	<choice>
+		<text>アップグレードを購入します。</text>
+		<event>
+			<item_modify>
+				<item type="scrap" min="-15" max="-27" />
+			</item_modify>
+			<upgrade amount="1" system="reactor" />
+		</event>
+	</choice>
+	<choice>
+		<text>ゾルタンを無視します。</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+</event>
+
+<event name="EVENT_STORE_BEGGAR" unique="true">
+	<text>僧侶の船があなたを歓迎します。 「ああ、いい船長、私たちが自分たちを養うために、ほんの少しのスクラップを惜しまないでください。」</text>
+	<ship load="SHIP_MONK" hostile="false" />
+	<status type="limit" target="enemy" system="teleporter" amount="0" />
+	<choice>
+		<text>それらに非常に少量のスクラップを与えます。</text>
+		<event>
+			<text>僧侶はとてもけちだとあなたを睨みつけますが、それ以上は何も言いません。</text>
+			<item_modify>
+				<item type="scrap" min="-3" max="-3" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text>それらに十分な量のスクラップを与えます。</text>
+		<event>
+			<text>僧侶は金属くずをすくい上げ、あなたに向かって大きく笑います。</text>
+			<item_modify>
+				<item type="scrap" min="-15" max="-15" />
+			</item_modify>
+			<choice>
+				<text>継続する...</text>
+				<event load="EVENT_STORE_BEGGAR_CONTINUE" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>ごみ。</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+</event>
+<event name="EVENT_STORE_BEGGAR_REWARD">
+	<text>僧侶から離れると、足元が軽くなります。何も問題がないかのように、あなたは本当に幸運だと感じます。</text>
+	<modifyPursuit amount="-2" />
+	<choice>
+		<text>継続する...</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+</event>
+<eventList name="EVENT_STORE_BEGGAR_CONTINUE">
+	<event load="EVENT_STORE_NOTHING" />
+	<event load="EVENT_STORE_BEGGAR_REWARD" />
+</eventList>
+
+<textList name="TEXT_EVENT_STORE_INN">
+	<text>ここに小さな旅館ができました。傭兵のテーブルは、彼らの以前の冒険の物語を飲み、伝えます。スクラップがあれば、そのうちの1つを雇うことができます。</text>
+	<text>雑多な乗組員の一団が表彰台に立って彼らの能力を披露し、誰かが彼らのサービスをスクラップに雇うことを望んでいます。</text>
+</textList>
+<event name="EVENT_STORE_INN" unique="true">
+	<text load="TEXT_EVENT_STORE_INN" />
+	<choice>
+		<text>傭兵を雇う。</text>
+		<event>
+			<crewMember amount="1" />
+			<item_modify>
+				<item type="scrap" min="-40" max="-65" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text>傭兵を雇う。</text>
+		<event>
+			<crewMember amount="1" />
+			<item_modify>
+				<item type="scrap" min="-40" max="-65" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text>傭兵を無視します。</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+</event>
+
+<event name="EVENT_STORE_MERCENARY_FLEET" unique="true">
+	<text>卑劣な傭兵隊長があなたを歓迎します。 「あなたは艦隊の助けを借りることができる仲間のように見えます...」</text>
+	<ship load="SHIP_MERCENARY_ALL" hostile="false" />
+	<status type="limit" target="enemy" system="teleporter" amount="0" />
+	<choice>
+		<text>艦隊を遅らせるために彼らを雇う。</text>
+		<event>
+			<item_modify>
+				<item type="scrap" min="-17" max="-27" />
+			</item_modify>
+			<modifyPursuit amount="-1" />
+		</event>
+	</choice>
+	<choice>
+		<text>却下。</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+</event>
+
+<event name="EVENT_STORE_REBEL_CHOICE" unique="true">
+	<text>反乱軍の船が近くで休んでいて、船体を少し修理しています。彼らはあなたに気づいていないようです。</text>
+	<ship load="SHIP_REBEL_FIGHT" hostile="false" />
+	<status type="limit" target="enemy" system="teleporter" amount="0" />
+	<choice hidden="true">
+		<text>このチャンスを利用して攻撃してください！</text>
+		<event>
+			<text>あなたはこれらの反逆者に地獄を与えるでしょう。あなたは武器をパワーアップしてアプローチします。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>却下。</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+</event>
+
+<eventList name="EVENT_STORE_PIRATE_SKETCHY" unique="true">
+	<event load="EVENT_STORE_PIRATE_SKETCHY_REACTOR" />
+	<event load="EVENT_STORE_PIRATE_SKETCHY_REPAIRS" />
+</eventList>
+<event name="EVENT_STORE_PIRATE_SKETCHY_REACTOR" unique="true">
+	<text>ニヤリと笑う海賊船長があなたを歓迎します。 「あなたの船はかなりうまく動いているようですが、誰もが少し余分な力を使うことができますよね？」</text>
+	<ship load="SHIP_PIRATE_ALL" hostile="false" />
+	<status type="limit" target="enemy" system="teleporter" amount="0" />
+	<choice>
+		<text>それらから原子炉のアップグレードを購入します。</text>
+		<event>
+			<text>あなたはスクラップを海賊に渡します。</text>
+			<item_modify>
+				<item type="scrap" min="-15" max="-20" />
+			</item_modify>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="EVENT_STORE_PIRATE_REACTOR_PAY" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>却下。</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+</event>
+<eventList name="EVENT_STORE_PIRATE_REACTOR_PAY">
+	<event>
+		<text>海賊はあなたの原子炉で働きに行きます、しかし彼らはあなたが思ったほど経験がなく、代わりにあなたの原子炉に損害を与えることになります！彼らは心から謝罪し、部分的な払い戻しを提供します。</text>
+		<damage amount="3" />
+		<item_modify>
+			<item type="scrap" min="7" max="12" />
+		</item_modify>
+	</event>
+	<event>
+		<text>海賊はあなたの原子炉で良い仕事をし、それは以前よりもさらに高い効率で走ります。</text>
+		<upgrade amount="1" system="reactor" />
+	</event>
+</eventList>
+<event name="EVENT_STORE_PIRATE_SKETCHY_REPAIRS" unique="true">
+	<text>ニヤリと笑う海賊船長があなたを歓迎します。 「あなたの船はかなりうまく動いているようですが、修理をすることができるようですよね？」</text>
+	<ship load="SHIP_PIRATE_ALL" hostile="false" />
+	<status type="limit" target="enemy" system="teleporter" amount="0" />
+	<choice>
+		<text>それらを雇って10隻の船体を修理します。</text>
+		<event>
+			<text>あなたはスクラップを海賊に渡します。</text>
+			<item_modify>
+				<item type="scrap" min="-18" max="-18" />
+			</item_modify>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="EVENT_STORE_PIRATE_REPAIRS_PAY" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>却下。</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+</event>
+<eventList name="EVENT_STORE_PIRATE_REPAIRS_PAY">
+	<event>
+		<text>海賊はあなたの船体に取り組みに行きますが、彼らは彼らの仕事があまり得意ではありません。彼らはいくつかの良い仕事をしますが、偶然にいくつかの違反を開きます。彼らは謝罪しますが、払い戻しを拒否します。</text>
+		<damage amount="-2" effect="breach" system="random" />
+		<damage amount="-2" effect="breach" system="random" />
+		<damage amount="-2" effect="breach" system="random" />
+		<damage amount="-2" effect="breach" system="room" />
+		<damage amount="-2" effect="breach" system="room" />
+	</event>
+	<event>
+		<text>海賊はあなたの船体に良い仕事をします。</text>
+		<damage amount="-10" />
+	</event>
+</eventList>
+
+<event name="EVENT_STORE_MANTIS_SLAVES" unique="true">
+	<text>エンギの奴隷のチームを誇るカマキリの船が近くで買い物をしています。あなたがスクラップを持っているならば、あなたは彼らから彼らの奴隷の1人を買うことができるかもしれません。</text>
+	<ship load="SHIP_MANTIS_ALL" hostile="false" />
+	<status type="limit" target="enemy" system="teleporter" amount="0" />
+	<choice>
+		<text>スレーブを購入します。</text>
+		<event>
+			<crewMember amount="1" class="engi" />
+			<item_modify>
+				<item type="scrap" min="-35" max="-50" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text>カマキリを無視します。</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+</event>
+
+<event name="EVENT_STORE_MAP" unique="true">
+	<text>あなたは民間の船に歓迎されています。 「こんにちはキャプテン！私たちはこのセクターを旅していて、場所の詳細なマッピングを作成しました。いくつか購入していただけませんか？」</text>
+	<ship load="SHIP_CIVILIAN_GENERIC" hostile="false" />
+	<status type="limit" target="enemy" system="teleporter" amount="0" />
+	<choice>
+		<text>セクターマップを購入します。</text>
+		<event>
+			<item_modify>
+				<item type="scrap" min="-20" max="-25" />
+			</item_modify>
+			<reveal_map />
+		</event>
+	</choice>
+	<choice>
+		<text>お断りします。</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+</event>
+
+<event name="EVENT_STORE_MINELAUNCHER" unique="true">
+	<text>店からのループ広告は、信じられないほど安い価格でミネランチャーを売り込みます。彼らは必死にそれらを取り除くために努力しているようです。</text>
+	<choice>
+		<text>Minelauncherを購入します。</text>
+		<event load="EVENT_STORE_MINELAUNCHER_PURCHASE" />
+	</choice>
+	<choice>
+		<text>Minelauncherを購入します。</text>
+		<event load="EVENT_STORE_MINELAUNCHER_PURCHASE" />
+	</choice>
+	<choice>
+		<text>オファーを無視します。</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+</event>
+<eventList name="EVENT_STORE_MINELAUNCHER_PURCHASE">
+	<event>
+		<weapon name="MINELAUNCHER_1" />
+		<item_modify>
+			<item type="scrap" min="-7" max="-7" />
+		</item_modify>
+	</event>
+	<event>
+		<weapon name="MINELAUNCHER_2" />
+		<item_modify>
+			<item type="scrap" min="-12" max="-12" />
+		</item_modify>
+	</event>
+	<event>
+		<weapon name="MINELAUNCHER_FREE" />
+		<item_modify>
+			<item type="scrap" min="-25" max="-25" />
+		</item_modify>
+	</event>
+	<event>
+		<weapon name="MINELAUNCHER_FIRE" />
+		<item_modify>
+			<item type="scrap" min="-10" max="-10" />
+		</item_modify>
+	</event>
+	<event>
+		<weapon name="MINELAUNCHER_BREACH" />
+		<item_modify>
+			<item type="scrap" min="-10" max="-10" />
+		</item_modify>
+	</event>
+	<event>
+		<weapon name="MINELAUNCHER_STUN" />
+		<item_modify>
+			<item type="scrap" min="-8" max="-8" />
+		</item_modify>
+	</event>
+</eventList>
+
+<event name="EVENT_STORE_AUTO_REPAIRS" unique="true">
+	<text>自動サポート船は、スクラップと引き換えに修理を提供しています。 Rebelのデザインであるにもかかわらず、お金を払っても構わないと思っている人なら誰にでもサービスを提供できるようです。</text>
+	<ship load="SHIP_AUTO_SUPPORT" hostile="false" />
+	<status type="limit" target="enemy" system="teleporter" amount="0" />
+	<choice>
+		<text>修理を5つ購入します。</text>
+		<event>
+			<item_modify>
+				<item type="scrap" min="-8" max="-12" />
+			</item_modify>
+			<damage amount="-5" />
+		</event>
+	</choice>
+	<choice>
+		<text>修理を10個購入します。</text>
+		<event>
+			<item_modify>
+				<item type="scrap" min="-18" max="-27" />
+			</item_modify>
+			<damage amount="-10" />
+		</event>
+	</choice>
+	<choice>
+		<text>自動車船を無視します。</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+</event>
+
+	
+<eventList name="STANDARD_TAX">
+	<event>
+		<text>店主はあなたにいくらかのスクラップを義務付けて支払います。</text>
+		<autoReward level="LOW">scrap_only</autoReward>
+		<choice>
+			<text>継続する...</text>
+			<event load="LIST_STORE_EVENTS" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="UNAVAILABLE_TAX">
+	<text>どうやってこれを手に入れましたか？</text>
+	<item_modify>
+		<item type="fuel" min="-999" max="-999" />
+		<item type="scrap" min="-999" max="-999" />
+		<item type="missiles" min="-999" max="-999" />
+		<item type="drones" min="-999" max="-999" />
+	</item_modify>
+</event>
+	
+<event name="STORES_STANDARD">
+	<text load="TEXT_STORES" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="TEXT_STORES">
+	<text>船のエンジニアがここに小さな店を構えました。</text>
+	<text planet="NONE">あなたは不思議なエイリアンの船のグループに囲まれていることに気づきます。彼らはあなたを歓迎し、明らかにいくつかの貴重な技術を販売しています。</text>
+	<text planet="PLANET_POPULATED">近くの惑星からの送信は、旅行者に物資を提供する下の前哨基地を示しています。あなたはそれをチェックするためにアウェイパーティーを送ります。</text>
+	<text planet="PLANET_POPULATED">ここの宇宙ステーションには、彼の製品を見せてくれる旅行商人がいます。</text>
+	<text planet="NONE">このビーコンには他に1隻の船しかなく、大きな被害を受けています。コンソールに次のようなメッセージが表示されます。「旅行者に挨拶します。海賊団に不自由になり、家に帰るのに必要な物資を入手するために、残りの貴重な機器を売ることを余儀なくされました。」</text>
+	
+	<text>ここでは数隻のエイリアンの船が待っていますが、邪魔をするものはありません。このビーコンに店があるようです。</text>
+	<text>友好的な商人はこのビーコンであなたを偉大にし、あなたは取引を開始します。</text>
+</textList>
+
+<event name="EMPTY_STANDARD">
+	<text load="EMPTY" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY">
+	<text planet="NONE" back="BG_DARK">あなたのジャンプはあなたを空のスペースにしか導きません。このジャンプビーコンは、接続以外の目的はありません。</text>
+	<text planet="NONE">あなたは目立たないシステムに飛び込みます。スキャン範囲内で生命の兆候は検出されませんでした。</text>
+	<text>あなたのスキャンは、放棄されてからずっと前の近くの惑星の採掘基地を明らかにします。生命の兆候は検出されませんでした。</text>
+	<text planet="PLANET_POPULATED_SMALL">スキャンすると、鉱石精製所といくつかの工場が明らかになり、すべてが静止して空になっています。生命の兆候は検出されませんでした。</text>
+	<text planet="PLANET_POPULATED_SMALL">あなたは近くの惑星に集落が点在しているのを発見しますが、あなたの連絡には誰も反応しません。</text>
+	<text>このビーコンは、近くの民間宇宙ステーション用に作られています。誰もあなたの船を呼びません。</text>
+	<text planet="PLANET_POPULATED_SMALL">近くの惑星は、居住と素晴らしい美しさの兆候を示しています。初歩的な自動惑星防衛システムは、そのメッセージを宇宙にループさせています。「警告！FHA法22、第11.2条に基づいて有効な検疫レベル5。警告！検疫レベル5...」</text>
+	<text planet="NONE">あなたのジャンプは完全に目立たない連星システムにつながります。周りには何もありません。</text>
+	<text planet="NONE">あなたのジャンプは注目に値する連星システムにつながります。景色は美しいですが、周りには何もありません。</text>
+</textList>
+
+	
+<event name="STORES_START">
+	<text load="TEXT_STORES" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+
+<event name="EMPTY_START">
+	<text load="TEXT_EMPTY_START" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_EMPTY_START">
+	<text planet="NONE" back="BG_DARK">お使いのコンピュータは、このビーコンが繰り返し使用されると不安定であることを通知する多数のアラートで溢れています。それにもかかわらず、マルチバースドライブのおかげで心配はほとんどないので、この機会に船に乗って何かをすることができます。</text>
+	<text>このセクターは、補給基地と多元宇宙ワープベイに道を譲るために、まだ建設中です。このビーコンはまだ工業化されておらず、ご覧のとおり空です。</text>
+	<text planet="PLANET_POPULATED_SMALL">小さな惑星が近くの軌道上にあり、集落が点在しています。ただし、ビーコンにはビュー以外に提供できるものはありません。</text>
+	<text planet="NONE" back="BG_DARK">自動化された連邦船が近くのシステムを偵察しています。</text>
+</textList>
+
+	
+<event name="BOSS_STORES">
+	<text>このセクターで起こっている完全な混乱にもかかわらず、連邦艦隊はこのシステムを隔離し、通過する連邦船に物資を販売しているようです。</text>
+	<fleet>fed</fleet>
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="BOSS_TAX" />
+	</choice>
+</event>
+<eventList name="BOSS_TAX">
+	<event>
+		<text>「物資が必要ですか？確かに、そのライセンスは必要ありません。その旗艦の前にできることはすべて必要です。」</text>
+		<autoReward level="MED">stuff</autoReward>
+		<choice>
+			<text>継続する...</text>
+			<event load="LIST_STORE_EVENTS" />
+		</choice>
+	</event>
+</eventList>
+
+	
+<event name="STORES_COREWORLDS">
+	<text load="STORES_COREWORLDS" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="STORES_COREWORLDS">
+	<text>船のエンジニアがここに小さな店を構えました。</text>
+	<text planet="NONE">あなたは不思議なエイリアンの船のグループに囲まれていることに気づきます。彼らはあなたを歓迎し、明らかにいくつかの貴重な技術を販売しています。</text>
+	<text planet="PLANET_POPULATED">近くの惑星からの送信は、旅行者に物資を提供する下の前哨基地を示しています。あなたはそれをチェックするためにアウェイパーティーを送ります。</text>
+	<text planet="PLANET_POPULATED">ここの宇宙ステーションには、彼の製品を見せてくれる旅行商人がいます。</text>
+	<text planet="NONE">このビーコンには他に1隻の船しかなく、大きな被害を受けています。コンソールに次のようなメッセージが表示されます。「旅行者に挨拶します。海賊団に不自由になり、家に帰るのに必要な物資を入手するために、残りの貴重な機器を売ることを余儀なくされました。」</text>
+	
+	<text>ここでは数隻のエイリアンの船が待っていますが、邪魔をするものはありません。このビーコンに店があるようです。</text>
+	<text>友好的な商人はこのビーコンであなたを偉大にし、あなたは取引を開始します。</text>
+</textList>
+
+<event name="EMPTY_COREWORLDS">
+	<text load="EMPTY_COREWORLDS" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_COREWORLDS">
+	<text>小さな民間人の集落が近くにあり、民兵のパトロールによって十分に保護されています。わざわざ和解に連絡しようとしないでください。</text>
+	<text>このセクターのすべての民間インフラにもかかわらず、このビーコンはほとんど空のようです。</text>
+	<text>海賊、政治家、またはいかなる種類の人々もこの場所に住んでいません。</text>
+	<text>このビーコンは、このセクターの民間人の忙しい出来事からの脱却を提供します。</text>
+	<text>かつては、海賊船から民間人を救う必要がないビーコン。あなたはリラックスして船で何かをします。</text>
+	<text>厳重に保護された民兵隊のキャラバンがこのビーコンを通過しています。彼らはあなたの連絡に反応せず、彼らを攻撃することは事実上自殺になります。あなたは低く横たわって船で何かをします。</text>
+</textList>
+
+	
+<event name="STORES_MILITIA">
+	<text load="STORES_MILITIA" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="STORES_MILITIA">
+	<text>商船が近くの他の船に物資を売り払おうとしているようです。 「さあ、これらはいくつかの素晴らしい商品です！民兵はそれらの兵器に想像できるすべてのものを詰め込んでいません、あなたは他の誰かからも買いだめしなければならないでしょう！」</text>
+	<text>密輸船はすぐにあなたを歓迎します。 「ねえ、私たちは一族の領土に戻ることを意味しますが、私たちは...代わりにここに行き着きました。私たちの商品のいくつかであなたができるとは思わないので、それらの民兵が私たちを捕まえるための禁制品が少なくなりますか？」</text>
+	<text>民兵船の補給基地があなたを歓迎します。 「通常、私たちは通過する民兵の船に燃料補給を提供しますが、スクラップがあれば、私たちもあなたのために何かを解決できると確信しています！」</text>
+</textList>
+
+<event name="EMPTY_MILITIA">
+	<text load="EMPTY_MILITIA" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_MILITIA">
+	<text>いくつかの民兵船の間で小さな訓練演習が近くで行われています。関与しないのが最善だと感じます。</text>
+	<text>あなたは近くの小さな前哨基地を歓迎しようとしますが、彼らはあなたのコミュニケーションの試みを拒否します。あなたはそれであまり気になりませんが、彼らがそれほど失礼でなかったらいいのにと思います。</text>
+	<text planet="NONE">ここには空きスペースしかありません。足りないものがあるか、Militiamenにここにインストールする価値のあるものがありませんでした。いずれにせよ、あなたはそれが問題になるのに十分長く立ち往生することはありません。</text>
+	<text>海賊船が通り過ぎますが、あなたが反応する前に、彼らはすぐに民兵の船が続きます。しかし、民兵の船ははるかに速く、海賊を素早く捕まえて逮捕し始めます。あなたは関与せず、逃げようとします。</text>
+</textList>
+
+	
+<event name="STORES_FED">
+	<text load="STORES_FED" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="STORES_FED">
+	<text>自動化された連邦供給ドローンがここに配置されています。 IDをスキャンすると、あなたが連邦船であることを識別し、自動化されたストアを開きます。</text>
+	<text>このシステムでは、大規模な民間市場が確立されています。連合軍の船がその地域をパトロールして、反乱軍と海賊が侵入できないようにします。</text>
+	<text>近くのいくつかの損傷した連邦船があなたを歓迎します。 「ああ、友好的な顔だ。反乱軍の攻撃でダメージを受けた。大きなものは何もないが、戦隊と再会する前に修理のためにスクラップが必要だ。取引したくないと思う？」</text>
+	<text>近くの惑星に連邦補給基地が設置されています。彼らは無料で何も提供しませんが、それは彼らが取引に開放されないという意味ではありません。</text>
+</textList>
+
+<eventList name="EMPTY_FED">
+	<event load="EMPTY_FED_NORMAL" />
+	<event load="EMPTY_FED_FLEET" />
+</eventList>
+<event name="EMPTY_FED_NORMAL">
+	<text load="EMPTY_FED_NORMAL" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_FED_NORMAL">
+	<text>1隻の連邦船の残骸が近くに漂っています。救い出すものはあまり残っておらず、こすっても汚れを感じます。</text>
+	<text>このビーコンはかなり目立たないです。それは単に通過する船のための接続として機能しなければなりません。</text>
+	<text>連邦はこの現実に大きな打撃を与えており、このシステムは多くの放棄された連邦構造で満たされています。削る価値のあるものは何もないようです。</text>
+	<text>いくつかの連邦および民間の船がこのシステムを通過していますが、あなたの連絡に反応するものはありません。</text>
+</textList>
+<event name="EMPTY_FED_FLEET" unique="true">
+	<text>いくつかのより大きな連邦船は少し離れて浮かんでいますが、あなたの呼びかけに反応するものはありません。</text>
+	<fleet>fed</fleet>
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+
+	
+<event name="STORES_ENGI">
+	<text load="STORES_ENGI" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="STORES_ENGI">
+	<text>エンギはスクラップの山だけで驚くべきことをすることができます。このビーコンのエンギハイブはまさにそのための機器を販売しています。</text>
+	<text>「あなたのスクラップ、私たちのもの。あなたのための私たちの武器」というメッセージが届きます。エンギのトレーダーがトレードを探しているだけだと気づいたら、シールドを上げようとしています。</text>
+	<text>エンギ船は「帰宅にはエンジンのアップグレードが必要です。エンジンのアップグレードに必要な機器の販売」と呼びかけています。</text>
+</textList>
+
+<event name="EMPTY_ENGI">
+	<text load="EMPTY_ENGI" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_ENGI">
+	<text>宇宙に捨てられて浮かんでいる船体とFTL駆動コンデンサの複雑な配置は、エンギがそれほど昔にここにいなかったことを示唆しています。しかし、もはやありません。</text>
+	<text>あなたは素晴らしい平原となだらかな滝のある緑の惑星に到着します。近くのエンギにはほとんど興味がないでしょう。</text>  
+	<text>エンギ建設ヤードの近くに到着しました。ほとんどのエンギは習慣からバイペダルの外観を維持していますが、ここでは、船の建造に長けた巨大な有機機械を作成するために多数のエンギハイブが協力しているのを見ることができます。本当に見るべき光景。</text>
+	<text>それぞれの「個々の」エンギは何兆ものナノマシンで構成されていますが、それらの文化は依然として伝統的な社会的相互作用を中心に展開しています。近くの駅は、通りすがりのエンギ旅行者の娯楽のために建設されているようです。</text>
+	<text>近くにたくさんのエンギ宇宙ステーションと艦隊があります。がらくたの山がゆるく結ばれているように見えますが、実際には効率のモデルです。彼らは彼らの構造において特定の美的強調を欠いているだけです。</text>
+	<text>このシステムは非常に平和に見えます。反乱軍とマンティスの複合的な脅威の間でどれくらい続くかはわかりません。</text>
+	<text>カマキリの侵入の脅威にもかかわらず、この地域を通過する商船はたくさんあります。エンギの効率的な技術を購入することに興味があることは間違いありません。</text>
+	<text>遠くに小さな反乱軍の空母が見えます。あなたは低く横たわって、他のトラフィックに溶け込もうとします。しかし、エンギ宇宙の奥深くに反乱軍の艦艇が一人でいるのを見るのは驚くべきことです。</text>
+	<text>エンギは、他のすべての生命体とともに、この特定のノードを避けたようです。理由で目を離さないでください、しかしイベントなしでFTLをスピンアップしてください。</text>
+	<text>近くの惑星の軌道にあるエンギ衛星のクラスターは、機械種がこれまでここにあった唯一の手がかりです。あなたには他の場所があります。</text>
+</textList>
+
+	
+<event name="STORES_HARMONY">
+	<text load="STORES_HARMONY" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="STORES_HARMONY">
+	<text>エンギはスクラップの山だけで驚くべきことをすることができます。このビーコンのエンギハイブはまさにそのための機器を販売しています。</text>
+	<text>「あなたのスクラップ、私たちのもの。あなたのための私たちの武器」というメッセージが届きます。エンギのトレーダーがトレードを探しているだけだと気づいたら、シールドを上げようとしています。</text>
+	<text>エンギ船は「帰宅にはエンジンのアップグレードが必要です。エンジンのアップグレードに必要な機器の販売」と呼びかけています。</text>
+</textList>
+
+<event name="EMPTY_HARMONY">
+	<text load="EMPTY_HARMONY" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_HARMONY">
+	<text>宇宙に捨てられて浮かんでいる船体とFTL駆動コンデンサの複雑な配置は、エンギがそれほど昔にここにいなかったことを示唆しています。しかし、もはやありません。</text>
+	<text>あなたは素晴らしい平原となだらかな滝のある緑の惑星に到着します。近くのエンギにはほとんど興味がないでしょう。</text>  
+	<text>エンギ建設ヤードの近くに到着しました。ほとんどのエンギは習慣からバイペダルの外観を維持していますが、ここでは、船の建造に長けた巨大な有機機械を作成するために多数のエンギハイブが協力しているのを見ることができます。本当に見るべき光景。</text>
+	<text>それぞれの「個々の」エンギは何兆ものナノマシンで構成されていますが、それらの文化は依然として伝統的な社会的相互作用を中心に展開しています。近くの駅は、通りすがりのエンギ旅行者の娯楽のために建設されているようです。</text>
+	<text>近くにたくさんのエンギ宇宙ステーションと艦隊があります。がらくたの山がゆるく結ばれているように見えますが、実際には効率のモデルです。彼らは彼らの構造において特定の美的強調を欠いているだけです。</text>
+	<text>このシステムは非常に平和に見えます。反乱軍とマンティスの複合的な脅威の間でどれくらい続くかはわかりません。</text>
+	<text>カマキリの侵入の脅威にもかかわらず、この地域を通過する商船はたくさんあります。エンギの効率的な技術を購入することに興味があることは間違いありません。</text>
+	<text>遠くに小さな反乱軍の空母が見えます。あなたは低く横たわって、他のトラフィックに溶け込もうとします。しかし、エンギ宇宙の奥深くに反乱軍の艦艇が一人でいるのを見るのは驚くべきことです。</text>
+	<text>エンギは、他のすべての生命体とともに、この特定のノードを避けたようです。理由で目を離さないでください、しかしイベントなしでFTLをスピンアップしてください。</text>
+	<text>近くの惑星の軌道にあるエンギ衛星のクラスターは、機械種がこれまでここにあった唯一の手がかりです。あなたには他の場所があります。</text>
+</textList>
+
+	
+<event name="STORES_SEPERATIST">
+	<text load="STORES_SEPERATIST" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="STORES_SEPERATIST">
+	<text>奇妙な顔の形をした分離主義者は、片眼鏡とシルクハットをかぶったように見えます。彼はあなたにいくつかの商品を提供します。</text>
+	<text>分離主義者は見知らぬ人を避ける傾向がありますが、ここの船は通りすがりの人と取引することを申し出ています。</text>
+	<text>貿易船は、このセクターを通過する機会を利用して、反対意見がほとんどないことを知って、あなたに気づき、貿易を申し出ます。</text>
+</textList>
+
+<event name="EMPTY_SEPERATIST">
+	<text load="EMPTY_SEPERATIST" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_SEPERATIST">
+	<text>ナノボットのクラスターが近くに浮かんでいますが、あなたの船は無視されます。それはすぐに消散し、あなた自身のデバイスにあなたを残します。</text>
+	<text>分離主義者のエンギは自分自身を守るのが好きで、通常は他の船を避けます。近くの分離主義者はあなたが近づくとすぐに飛び去ります。</text>
+	<text>あなたはこのビーコンが空であると信じていますが、すべての微細なナノボットが空の空間に浮かんでいることを知ることは不可能です。</text>
+	<text>おそらく2隻のエンギ船から残ったスペースデブリがいくつか...合流。残念ながら、どれも救済に値するものではありません。</text>
+	<text>エンギ船は見えません。あなたは船で何かをするのは安全だと思います</text>
+</textList>
+
+	
+<event name="STORES_ZOLTAN">
+	<text load="STORES_ZOLTAN" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="STORES_ZOLTAN">
+	<text>ゾルタンは他の種に魅了されており、ここにエイリアンの小物屋のようなものを設置しました。見てみませんか？</text>
+	<text>人間の船が「友達よ！私が持っていないものは何もないし、手に入れられないものも欲しくない。私の店を見てみませんか？」と歓声を上げます。</text>
+	<text>ここのカマキリの乗組員は、長い間死んでいた宇宙クジラの腹部に身を寄せました。おそらく、彼らが闇市場での取引を検出せずに行う唯一の方法です。一見の価値がありますか？</text>
+</textList>
+
+<event name="EMPTY_ZOLTAN">
+	<text load="EMPTY_ZOLTAN" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_ZOLTAN">
+	<text>ここには、ゾルタンがアイドル状態のままにしたミネラル豊富な小惑星がいくつかありますが、それらを採掘するために必要な機器はありません。</text>
+	<text>あなたは認めなければなりません-ゾルタン空間は確かに美しく平和な場所です。ただし、FTLを再利用してミッションを完了することが優先事項であり、観光ではありません。</text>
+	<text>軽い小惑星のフィールドが近くの惑星の大気に侵入しています-銀河系の花火ショー。それにはほとんど何もありませんが、雰囲気を取り入れて次のジャンプをプログラムすることです。</text>
+	<text>あなたは戦闘訓練に従事しているいくつかのゾルタン軍の船に出くわしました。彼らのエネルギーシールドは印象的ですが、ビームとイオン兵器がどれほど速くそれらを破壊するかに気づきます。</text>
+	<text>ビーコンで待っていたゾルタン船が飛び去る前に呼び出す時間はない。彼らは慎重な種族だ。</text>
+	<text>ゾルタン造船所がこのビーコンに配置されています。あなたは、巨大な輸送船で繊細な外装作業を行っている何百もの輝くゾルタンの展示に感心します。</text>
+	<text>近くの惑星から放送されたメッセージは、訪問可能な古代のゾルタン修道院の存在を知らせています。たぶん単なる観光客の罠ですが、それでも残念ながらあなたは訪れる時間がありません。</text>
+</textList>
+
+
+<event name="STORES_CAPITAL">
+	<text load="STORES_CAPITAL" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="STORES_CAPITAL">
+	<text>ゾルタンの商船があなたを歓迎します。彼らは彼らの設備と備品を一瞥します。</text>
+	<text>ゾルタン政府とロック政府は、連邦よりも長い間友好的な関係にあります。市民に商品を求めるロック商船があなたを歓迎し、彼らが何を売っているのかに興味があるのではないかと思います。</text>
+	<text>ゾルタン政府の努力にもかかわらず、セクター周辺の小さな闇市場は依然として運営を続けています。ここで発見したようです。</text>
+</textList>
+
+<event name="EMPTY_CAPITAL">
+	<text load="EMPTY_CAPITAL" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_CAPITAL">
+	<text>省の船のグループは、近くの小さな駅にドッキングされています。通信に関するおしゃべりは完全に政治的な話のようであり、あなたは介入しないことに決めました。</text>
+	<text>このビーコンは、このセクターの市民間の典型的な政治的議論と同様に、当たり障りのない退屈なものです。</text>
+	<text>低価格のお土産を売っている漠然と面白い見た目の寺院はあなたの船に広告を向けます、しかしあなたはすぐに断ります。</text>
+	<text>ゾルタン平和旅団は、脱税のために近くのスターシステムに嫌がらせをしている。あなたは関与しないことにしました。</text>
+	<text>ゾルタンのコロニーが近くにあり、ゾルタンの盾がオンラインになっていて、武器が最大の力を発揮します。彼らは明らかに訪問者に興味がありません。</text>
+	<text>近づくとすぐに数隻の海賊船が飛び去り、彼らが何をしているのか不思議に思うようになります。</text>
+</textList>
+
+	
+<event name="NEBULA_STORES_MONK">
+	<text load="STORES_MONK" />
+	<environment type="nebula" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<event name="STORES_MONK">
+	<text load="STORES_MONK" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="STORES_MONK">
+	<text>商船が止まります。 「私たちは誤ってこのセクターに行きましたが、住民は軍の物資を必要としないことがわかりました。少なくとも彼らは友好的ですが、ビジネスはうまくいきませんでした。あなたが望むものはないと思いますか？」</text>
+	<text>このビーコンには民間市場が設立されました。 「旅行者、ようこそ。私は、すべての訪問者を私の店に迎え入れる限り、ここで私の店を経営することを僧侶から許可されました。それで、私たちが提供しなければならないものを見てください。」</text>
+	<text>ゾルタンの船があなたを歓迎します。 「こんにちは友人。私たちは悟りへの道を進んでいますが、私たちの主人は私たちが戦争の武器を取り除く必要があると私たちに言いました。おそらくあなたはいくつかを購入したいと思いますか？」</text>
+	<text>ここには、ナメクジと密輸業者によって運営されている小さな市場が設立されたようです。あなたは僧侶が不承認になることは確かですが、彼らの非暴力的な方法は彼らがそれについて何もすることを妨げます。</text>
+</textList>
+
+<event name="NEBULA_EMPTY_MONK">
+	<text load="EMPTY_MONK" />
+	<environment type="nebula" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_MONK">
+	<text>船のコンピューターは、このビーコンが聖地と見なされていることを通知します。ビーコンはあなたにはかなり空っぽに見えるので、理由はわかりません。</text>
+	<text>このビーコンは、渦巻く漠然としたガスを除いて、空に見えます。なぜゾルタンの僧侶がこれらの星雲に隠れているのか、そして彼らが何から隠れているのか不思議に思うでしょう。</text>
+	<text>他の星雲セクターとは異なり、これらの星雲の厚いガスでは比較的安全だと感じます。</text>
+	<text>このビーコンには船が見つかりません。休憩所でお使いいただけます。</text>
+	<text>このビーコンは他のセクターよりもさらに平和で、船は1隻も見つかりません。</text>
+</textList>
+
+	
+<event name="STORES_DUSKBRINGER">
+	<text load="STORES_DUSKBRINGER" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="STORES_DUSKBRINGER">
+	<text>商人があなたを歓迎します。 「これらは...彼らは何と呼ばれていますか...はい、Duskbringers。彼らは良い顧客を作りません。私の物資を買うよりも「コントラバンドを探して」私の倉庫を襲撃することに興味があります。あなたが興味を持っているとは思いません。私が何を提供しなければならないのですか？」</text>
+	<text>ゾルタンセクターの闇市場は非常にまれであり、ダスクブリンガーが支配する市場でさえあります。それでも、ここにあるものは大きな小惑星の側面に組み込まれており、あらゆる種類の顧客に開放されているように見えます。</text>
+	<text>あなたはこのビーコンのゾルタン商人がダスクブリンガーだけに売っていなければならないと思います、しかし驚くべきことに彼はあなたが飛び去ることができる前にあなたを呼びます。 「ご挨拶。議定書-S94-Bは、私が連邦船と取引することはできないと述べていますが、それを強制する人は誰もいないので、入ってください。」</text>
+</textList>
+
+<event name="EMPTY_DUSKBRINGER">
+	<text load="EMPTY_DUSKBRINGER" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_DUSKBRINGER">
+	<text>このビーコンは静かすぎます。あなたはトリックに警戒していますが、船は現れません。あなたはリラックスして、船で何かをすることに集中します。</text>
+	<text>いくつかの船の廃墟はまだここにありますが、彼らの骨はすでにきれいに拾われています。 Duskbringersがこれと関係があるに違いない。</text>
+	<text>ゾルタン旅団はこのビーコンを保護しており、ゾルタン政府によって行われている夕暮れ対策の珍しい展示です。彼らはあなたとのコミュニケーションを開くことを拒否します。</text>
+	<text>ゾルタンと連邦の間の冷戦は、ダスクブリンガーの進化に責任があります。幸いなことに、彼らの船はどれもこのビーコンに存在していません。</text>
+</textList>
+
+	
+<event name="EMPTY_ORCHID" unique="false">
+	<text load="EMPTY_ORCHID" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_ORCHID">
+	<text>オーキドゥの空間は穏やかで平和なことで有名です。このビーコンは、船が見えない状態でそれを例示しています。</text>
+	<text back="BG_DARK" planet="NONE">このビーコンは接続として機能します。あなたはそれが地元の星から非常に遠くに位置していることに気づきます。おそらくオーキドゥの脆弱な性質を考慮すると、太陽フレアに対する保護の手段です。</text>
+	<text planet="PLANET_UNPOPULATED">植物の生命を支えるためにテラフォーミングの過程で惑星の近くにあるビーコンに到着します。周りに他の船はありません。あなたは飛び去る準備をします。</text>
+	<text back="BG_DARK" planet="NONE">このビーコンには、現時点ではアクティビティがありません。星は薄暗すぎて、光に依存する植物相に十分なエネルギーを提供していません。</text>
+</textList>
+
+<event name="STORES_ORCHID" unique="false">
+	<text load="STORES_ORCHID" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="STORES_ORCHID">
+	<text>このビーコンはオーキドゥの貿易ハブです。彼らの機器のほとんどは植物でできていますが、オーキドゥは金属くずの用途もあり、それと交換する用意があります。</text>
+	<text>軍の護衛がいる巨大なオーキドゥの貿易ステーションがビーコンにあります。ドッキングして駅に入ると、その中がどれほど穏やかで静かであるかに気付かざるを得ません。</text>
+	<text>孤独な取引オーキドゥの船がビーコンであなたを待っています。その乗組員はあなたに簡単なメッセージを送ります：「軍の商品は売りに出されています」。</text>
+	<text>あなたは、オーキドゥの故郷の惑星に由来する有機材料から作られた一般的な商品を扱っているオーキドゥの交易所に出くわしました。あなたが連邦を代表していることを知って、オーキドゥはいくつかの軍隊も販売することに同意します。</text>
+</textList>
+
+	
+<event name="STORES_CRYSTAL">
+	<text load="STORES_CRYSTAL" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="STORES_CRYSTAL">
+	<text>クリスタルラインの船や駅でにぎわうエリアに到着します。商人はすぐにあなたにメッセージを送ります、「これは私たちの両方にとって素晴らしい機会です！あなたが売りたい、または交換したいものはありますか？」</text>
+	<text>「ああ！エイリアンの皆さん、こんにちは」と、ビデオ画面に丸いクリスタルラインが表示されていると言います。 「私はあなたの一人に出くわすことを望みました。私はエイリアンのアーティファクトのコレクターであり、物々交換するためのいくつかの機器を持っていることを望みました！」</text>
+	<text>あなたは貿易倉庫に到着し、あなたとのコミュニケーションを喜んで開く店を見つけます。 「私は以前にあなたの種類の多くと取引したことがあるとは言えませんが、おそらく私たちはある種の交換を行うことができます。」</text>
+	<text>着信送信を受信しましたが、文字化けがひどいようです。最終的に、あなたはそれが機器店を宣伝していることに気づきます。 「お詫びします」とベンダーは言います。最終的に彼をビデオ画面に表示したとき、「万能翻訳機を使用してから長い時間が必要ありません。どうぞ、購入してください！」</text>
+</textList>
+
+<event name="EMPTY_CRYSTAL">
+	<text load="EMPTY_CRYSTAL" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_CRYSTAL">
+	<text>到着するとすぐに、近くの駅に停泊しているすべての船が散乱してジャンプしますが、駅自体は何らかの形のマント技術を使用して姿を消します。彼らはここで部外者を好きになってはいけません...</text>	
+	<text>範囲内に船はないので、時間をかけてそのエリアをスキャンします。あなたがこれまでに見たすべての惑星は、過密になることなく高度に発達した居住の兆候を示しているようです。彼らは非常に構造化され、よく規制された社会を持っている必要があります。</text>
+	<text>このノードの近くに住んでいる人はいないようです。この高度に発達したセクターでは珍しい光景です。</text>
+	<text>あなたは民間人の集落の近くに到着します。彼らの家、船、駅はすべて、興味をそそる結晶材料に大きく依存しているようです。あなたは彼らがこの物質の多くをどのように作り出すことができるのか、そしてそれが銀河の他の種族にどのような利益をもたらすのか疑問に思います。</text>
+	<text>いくつかの商船が近くを通過しますが、彼らはあなたの連絡を無視しているか、彼らのコンピュータはまだ同じ周波数で動作するように調整されていません...</text>
+</textList>
+
+	
+<event name="STORES_CRYSTALHOME">
+	<text load="STORES_CRYSTALHOME" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="STORES_CRYSTALHOME">
+	<text>セクターの多くの住民からの不親切な態度にもかかわらず、あなたは彼のクライアントが誰であるかを気にしないトレーダーに出くわしたようです-彼らが使うスクラップがある限り。</text>
+	<text>すべてのクリスタルが部外者に対処することを望まないわけではないようです。近くの商船が通信を開始し、取引を要求します。</text>
+	<text>結晶性の容器から連絡を受け取ります。 「部外者？あなたの小さな船を見てください...ハハ！」あなたは目を転がし、彼らが再びあなたを呼ぶときに去る準備をします。 「待って、待って、離れないでください。これは単に私が貿易を始めようとしただけでした！」</text>
+	<text>ロックステーションが近くに漂い、他のいくつかの船が外に停泊しています。彼らの船長はあなたに挨拶し、買い物に乗ってあなたを歓迎します。</text>
+</textList>
+
+	
+<event name="STORES_PIRATE">
+	<text load="STORES_PIRATE" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="STORES_PIRATE">
+	<text>いくつかの小さな船がvidscreenに表示され、武器のターゲティングをほぼアクティブにします。ただし、センサーは、それらが単に正直な商人であることを示します。海賊はあなたをびくびくさせているに違いありません。あなたは彼らに彼らの製品について尋ねるメッセージを送ります。</text>
+	<text>近くの活動のハブを検出します。大企業は貿易基地を設置し、多くの武装した船が巡視しています。これは、修理を受けるのに比較的安全な場所のようです。</text>
+	<text>「私たちの謙虚な貿易基地と造船所へようこそ！すべての人を歓迎しますが、面白いビジネスを試してみてください。152個の自動砲塔衛星があなたの船を破砕します！」という広帯域の自動メッセージを受け取ります。</text>
+	<text>武装した輸送船と戦闘機の戦隊が近くの軌道上にあります。あなたは彼らの信頼性に警戒していますが、物乞いは選択者になることはできません。</text>	
+</textList>
+
+<event name="EMPTY_PIRATE">
+	<text load="EMPTY_PIRATE" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_PIRATE">
+	<text>あなたが到着するとすぐに、小さな船があなたの後ろのマントを脱ぎます。あなたはすぐに盾と武器の電源を入れますが、それらは感動せずに弾道を続けます。あなたは神経を落ち着かせようとします。</text>
+	<text>小さな海賊船があなたにメッセージを送ります、「それはあなたがそこに着いた光沢のある船です」。あなたは彼らの弓を横切って警告ショットを発射し、彼らは「ねえ！暴力の必要はありません！それはただのコメントでした...」と答えます。</text>
+	<text>スキャン範囲内にあるのは、古い廃坑と補給所だけです。彼らは略奪者によってきれいに選ばれたようです。</text>
+	<text>エンギ船の小さな艦隊が「海賊行為は社会に悪影響を及ぼします。許可されていません」というメッセージであなたを標的にするために到着します。あなたは彼らにあなたの正直な意図を保証し、彼らはあなたが通過することを可能にします。</text>
+</textList>
+
+	
+<event name="STORES_BLACKMARKET">
+	<text load="STORES_BLACKMARKET" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="STORES_BLACKMARKET">
+	<text>密輸船が近づき、あなたは本能に基づいて行動し、武器を武装させます。 「すごいすごい、リラックスしてください。私たちはあなたに貿易を提供するつもりでしたが、あなたがそのような態度をとるつもりならそうではありません！」あなたは謝罪し、彼らの製品を見るように頼みます。</text>
+	<text>ここで非常に多くの異なる種類の種族がほとんど衝突せずに見られるのは奇妙です。あなたは迷走した反乱軍の船を通り過ぎます。その船長はあなたにまぶしさを与えますが、あなたを放っておいてくれます。あなたはこのビーコンで店を見つけます。それはこれらすべての船の源であるに違いありません。</text>
+	<text>ここのしわがれたディンクステーションはあなたを歓迎します。 「私たちの外見の友人を気にしないでください！私たちは中に提供するものがたくさんあります、見てみてください？」</text>
+	<text planet="PLANET_POPULATED">あなたは都市にカーペットを敷き、船が行き来する賑やかな人口の多い惑星に近づきます。高層ビルの中に点在するのは多種多様な商人のハブであり、それらの多くは実際に民兵によって執行された場合、現地の法律に違反することになります。街の口コミは、反乱軍から「取得した」軍事機器を販売しているそのようなトレーダーの1人にあなたを導きます。</text>
+</textList>
+
+<event name="EMPTY_BLACKMARKET">
+	<text load="EMPTY_BLACKMARKET" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_BLACKMARKET">
+	<text>このビーコンは、それがどれほど空であるか、この忙しいセクターでは珍しいという理由だけで目立ちます。</text>
+	<text>紫や白のペンキの斑点は見えません。あなたはリラックスして、これを非常に必要な休憩と考えます。</text>
+	<text>ここのいくつかの船は取引されていますが、あなたの呼びかけに反応する船はありません。おそらく違法な販売だと思います。</text>
+	<text>おそらくほとんどビジネスがないために、放棄された貿易港がここにあります。さらに調べてみると、彼らはアンティークのスノードームを販売していました。取る価値のあるものは何もありません。</text>
+</textList>
+
+	
+<event name="STORES_HACKED">
+	<text load="STORES_HACKED" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect_unavailable" />
+		<event load="UNAVAILABLE_TAX" />
+	</choice>
+</event>
+<textList name="STORES_HACKED">
+	<text>ハッカー船が近くの船に取引を説いている。 「連盟、そうですか？関係なく、あなたがssscrapを手に入れたsssso長いお尻、あなたはここで歓迎されています。」</text>
+	<text>民間人がここで小さな店を経営しています。 「ハッカーは、収入の90％が彼らに支払われる限り、私が彼らの管理下で私の店を経営することを許可してくれました。だから、今夜私が食べ物を買う余裕があるように、できるだけたくさん買ってください。」</text>
+</textList>
+
+<event name="STORES_HACKED_FAKE">
+	<text>結局、ここには店がないようです！ここのハッカー船があなたを歓迎します。 「ははは！あなたは絶対バカだ！あなたはニンコンプープだ！あなたは私の罠に倒れた！死ぬ準備をしなさい。」</text>
+	<ship load="SHIP_HACKER" hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="EMPTY_HACKED">
+	<text load="EMPTY_HACKED" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_HACKED">
+	<text>この危険なセクターでは、このビーコンの明らかな空虚さを含め、何も確信できません。数分が経過し、何も悪いことが起こらなかった後、あなたは再び安全を感じ始めます。</text>
+	<text>このビーコンは空であり、このようなセクターでは予期しないものです。</text>
+	<text>非アクティブ化された民間インフラストラクチャが近くに漂っています。トラップの可能性に注意しすぎて近づくことができないため、代わりにこのビーコンをウェルカムブレイクとして使用します。</text>
+	<text>近づくと、数隻の民間船が散乱します。あなたはビーコンに一人で残されています。</text>
+	<text>このようなトリックでいっぱいのセクターの空のビーコンは疑わしいですが、近くのシステムについては何も問題がないようです。</text>
+</textList>
+
+	
+<event name="STORES_REBEL">
+	<text load="STORES_REBEL" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect_unavailable" />
+		<event load="UNAVAILABLE_TAX" />
+	</choice>
+</event>
+<textList name="STORES_REBEL">
+	<text>あなたは反乱軍と民間人が同様に使用する補給所を発見します。あなたはあなたの偽の船の身分証明書を送信します、そして一度、彼らはあなたの船を認識していないようです。ドッキングの準備をするときに、地元の人の空気を想定しようとします。</text>
+	<text>あなたは闇市場のチャンネルで広帯域放送を出している小さな宇宙ステーションに到着します。あなたは彼らが忠誠に関係なくどんなビジネスも断るだろうと疑っています。</text>
+	<text>近くの公共造船所から一般的な広告を受け取ります。彼らは反乱軍の色合いの船だけでなく、どんな船でも喜んで働いているようです。</text>
+</textList>
+
+<event name="EMPTY_REBEL">
+	<text load="EMPTY_REBEL" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_REBEL">
+	<text>あなたは反乱軍の活動でにぎわうシステムに入ります。補給貨物船と補給基地は、数隻の重軍艦によって矮小化されています。幸いなことに、誰も小さな巡洋艦に注意を払っていないようです。船はあなたをスキャンしたりメッセージを送ったりしていません。</text>
+	<text>あなたは小さな反乱軍の給油所の近くに到着します。あなたの船は複数回スキャンされているので、彼らはあなたを認識しなければなりませんが、近くに戦闘準備の整った船はないようです。受信する唯一のメッセージは、デポにドッキングする要求を拒否することです。</text> 
+	<text>近くにはあまり興味がありません。近くの宇宙にいくつかの軌道を回る惑星がある遠くにある小さな太陽は、ほとんど興味をそそりません。</text>
+	<text planet="NONE">このビーコンの近くに他の船はありませんが、小さな通信リレーを検出します。あなたは問題なくそれを利用します。暗号化はありません。おしゃべりのほとんどは、部隊と艦隊の動きを中心に展開しますが、特に興味深いものではありません。</text>
+	<text planet="PLANET_POPULATED_SMALL">近くに散居村のある小さな惑星があります。小さな反乱軍の艦隊が軌道上にあり、多くの船が行き来しています。それはもっと最近「解放された」惑星でなければなりません。</text>
+</textList>
+
+	
+<event name="STORES_JERRY">
+	<text load="STORES_JERRY" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect_unavailable" />
+		<event load="UNAVAILABLE_TAX" />
+	</choice>
+</event>
+<textList name="STORES_JERRY">
+	<text>あなたはその外に大きな庭がある小さな民間市場に出くわしました。店主があなたを歓迎します。 「それは素晴らしいことではありませんか？ジェリーは立ち寄って、これらすべてを自分で植えました！さあ、入って来てください、そして私があなたにいくつかの殺人道具を売ることができるかどうか見ます。」</text>
+	<text>近くの前哨基地は、連邦や外国の船を含むすべての船へのマーケティングサービスです。この場所は確かに反乱軍セクターにとって友好的であるようです...</text>
+	<text>連邦商船は通り過ぎますが、あなたに会うと止まります。 「この場所の男でさえ一体何なのか？その警備員は私を入れてくれて気にもしなかった！それは正気じゃない...でもとにかく、取引したいのか？」</text>
+</textList>
+
+<event name="EMPTY_JERRY">
+	<text load="EMPTY_JERRY" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_JERRY">
+	<text>漂遊風船が浮かんで、何もないところにぶらぶらと漂っています。どのように、そしてなぜ、あなたは確信が持てませんが、これがあなたが常に注意深く保持しなければならない理由です。</text>
+	<text>この驚くほど友好的なセクターで、あなたはついに沈黙しかないビーコンに出くわしました。</text>
+	<text>ここには船はありませんが、これは反乱軍の宇宙では特に珍しいことです。あなたの頭を手に入れるために殺人兵士はどこにいますか？</text>
+	<text planet="NONE">反乱軍の船が通り過ぎ、船の後ろにいくつかの缶が結ばれました。彼らはあなたの船を見るために立ち止まりますが、すぐに飛び去ります。</text>
+</textList>
+
+	
+<event name="STORES_REBELHOLD">
+	<text load="STORES_REBELHOLD" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect_unavailable" />
+		<event load="UNAVAILABLE_TAX" />
+	</choice>
+</event>
+<textList name="STORES_REBELHOLD">
+	<text>あなたは反乱軍と民間人が同様に使用する補給所を発見します。あなたはあなたの偽の船の身分証明書を送信します、そして一度、彼らはあなたの船を認識していないようです。ドッキングの準備をするときに、地元の人の空気を想定しようとします。</text>
+	<text>あなたは闇市場のチャンネルで広帯域放送を出している小さな宇宙ステーションに到着します。あなたは彼らが忠誠に関係なくどんなビジネスも断るだろうと疑っています。</text>
+	<text>近くの公共造船所から一般的な広告を受け取ります。彼らは反乱軍の色合いの船だけでなく、どんな船でも喜んで働いているようです。</text>
+</textList>
+
+<event name="EMPTY_REBELHOLD">
+	<text load="EMPTY_REBELHOLD" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_REBELHOLD">
+	<text>あなたは反乱軍の活動でにぎわうシステムに入ります。補給貨物船と補給基地は、数隻の重軍艦によって矮小化されています。幸いなことに、誰も小さな巡洋艦に注意を払っていないようです。船はあなたをスキャンしたりメッセージを送ったりしていません。</text>
+	<text>あなたは小さな反乱軍の給油所の近くに到着します。あなたの船は複数回スキャンされているので、彼らはあなたを認識しなければなりませんが、近くに戦闘準備の整った船はないようです。受信する唯一のメッセージは、デポにドッキングする要求を拒否することです。</text> 
+	<text>近くにはあまり興味がありません。近くの宇宙にいくつかの軌道を回る惑星がある遠くにある小さな太陽は、ほとんど興味をそそりません。</text>
+	<text planet="NONE">このビーコンの近くに他の船はありませんが、小さな通信リレーを検出します。あなたは問題なくそれを利用します。暗号化はありません。おしゃべりのほとんどは、部隊と艦隊の動きを中心に展開しますが、特に興味深いものではありません。</text>
+	<text planet="PLANET_POPULATED_SMALL">近くに散居村のある小さな惑星があります。小さな反乱軍の艦隊が軌道上にあり、多くの船が行き来しています。それはもっと最近「解放された」惑星でなければなりません。</text>
+</textList>
+
+	
+<event name="EMPTY_AUTO">
+	<text load="EMPTY_AUTO" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_AUTO">
+	<text>放棄された造船所は遠くにあります。救済する価値はないようです。</text>
+	<text>かつては自動車船だったものの空の殻が近くに漂い、海賊による帰還地点をはるかに超えて廃棄されました。</text>
+	<text>このビーコンは驚くほど空で、反乱軍がまだオートテックで破壊していない数少ないビーコンの1つです。</text>
+	<text>造船所の自動化された広がりはまだこのビーコンに達していないようです。</text>
+	<text>このビーコンでのいくつかの遠い足場を除いて、それは興味のあるものを何も欠いています。</text>
+</textList>
+
+<event name="STORES_AUTO">
+	<text>Auto-Vendorドローンがここに設置されました。幸いなことに、それはあなたを敵対的であると特定していないようであり、あなたにその市場を開きます。</text>
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect_unavailable" />
+		<event load="UNAVAILABLE_TAX" />
+	</choice>
+</event>
+
+	
+<event name="STORES_MANTIS">
+	<text load="STORES_MANTIS" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect_unavailable" />
+		<event load="UNAVAILABLE_TAX" />
+	</choice>
+</event>
+<textList name="STORES_MANTIS">
+	<text>このビーコンで何を発見するかわからない場合は、周囲をスキャンします。保護された貿易空間での暴力を思いとどまらせる広帯域チャネルでいくつかの警告を検出します。おそらくあなたは近くにいくつかの製品を見つけることができます。</text>
+	<text>商人はカマキリの種族の間であまり尊敬されていないので、職業を引き受ける人はほとんどいません。近くの宇宙ドックから広告を受け取って少し驚いています。あなたは彼らが何を提供しなければならないかを見ることを決心します。</text>
+	<text>先にカマキリの交易所を特定し、あなたのアプローチが脅威と見なされないように彼らに合図します。リーダーはあなたを歓迎します：「あなたはスクラップを持っていますか？すぐに、戦士があなたに会う前にドッキングしてください。」</text>
+	<text>ノードに向かう苦労しているカマキリの貨物船は、飛び込むときに盾の残りを持ち上げます。あなたは力のショーとして武器をパワーアップし、彼らはしぶしぶ彼らの貨物の一部をあなたにオフロードすることに同意します-価格で。</text>
+	<text>反乱軍はすでにここにいます！乗組員は衝撃に備えますが、誰も来ません。センサーは、無人の反乱軍の補給船が誤動作しており、自動販売モードでスタックしていることを報告します-少しのスクラップのためにあなたはあなたの選択をすることができます。</text>
+</textList>
+
+<event name="EMPTY_MANTIS">
+	<text load="EMPTY_MANTIS" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_MANTIS">
+	<text>この時点で、あなたはほとんどカマキリとの戦いを期待していますが、このビーコンは他の船を完全に欠いているようです。時間をかけて息を呑み、船のシステムを再確認してください。</text>
+	<text>このビーコンが提供する唯一のものは、深宇宙の眺めと戦いからの短い休息です。一部の人にとって、これは歓迎すべき避難所でなければなりません。</text>
+	<text>近くのカマキリの採掘作業は明らかにエンギの奴隷労働を多用しています。あなたは奴隷を解放する可能性を簡単に考えますが、カマキリの存在はあまりにも手ごわいです。あなたは低く横たわることに決めました。</text>
+	<text>過去の戦いの残骸が点在していないマンティススペースの部分はそれほど多くありませんが、これはそのうちの1つです。あなたは深呼吸をして、先に進む準備をします。</text>
+	<text>ここにはスペースデブリと住めないプラネトイド以外は何もありません。</text>
+	<text>ビーコンの影で何かが動いているのを見るのが好きですが、すべてが静止したままです。</text>
+</textList>
+
+	
+
+<event name="STORES_MANTIS_HIVE">
+	<text load="STORES_MANTIS_HIVE" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect_unavailable" />
+		<event load="UNAVAILABLE_TAX" />
+	</choice>
+</event>
+<textList name="STORES_MANTIS_HIVE">
+	<text>このビーコンで何を発見するかわからない場合は、周囲をスキャンします。保護された貿易空間での暴力を思いとどまらせる広帯域チャネルでいくつかの警告を検出します。おそらくあなたは近くにいくつかの製品を見つけることができます。</text>
+	<text>商人はカマキリの種族の間であまり尊敬されていないので、職業を引き受ける人はほとんどいません。近くの宇宙ドックから広告を受け取って少し驚いています。あなたは彼らが何を提供しなければならないかを見ることを決心します。</text>
+	<text>先にカマキリの交易所を特定し、あなたのアプローチが脅威と見なされないように彼らに合図します。リーダーはあなたを歓迎します：「あなたはスクラップを持っていますか？すぐに、戦士があなたに会う前にドックに来てください。」</text>
+	<text>ノードに向かう苦労しているカマキリの貨物船は、飛び込むときに盾の残りを持ち上げます。あなたは力のショーとして武器をパワーアップし、彼らはしぶしぶ彼らの貨物の一部をあなたにオフロードすることに同意します-価格で。</text>
+	<text>反乱軍はすでにここにいます！乗組員は衝撃に備えますが、誰も来ません。センサーは、無人の反乱軍の補給船が誤動作しており、自動販売モードでスタックしていることを報告します-少しのスクラップのためにあなたはあなたの選択をすることができます。</text>
+</textList>
+
+<event name="EMPTY_MANTIS_HIVE">
+	<text load="EMPTY_MANTIS_HIVE" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_MANTIS_HIVE">
+	<text>この時点で、あなたはほとんどカマキリとの戦いを期待していますが、このビーコンは他の船を完全に欠いているようです。時間をかけて息を呑み、船のシステムを再確認してください。</text>
+	<text>このビーコンが提供する唯一のものは、深宇宙の眺めと戦いからの短い休息です。一部の人にとって、これは歓迎すべき避難所でなければなりません。</text>
+	<text>近くのカマキリの採掘作業は明らかにエンギの奴隷労働を多用しています。あなたは奴隷を解放する可能性を簡単に考えますが、カマキリの存在はあまりにも手ごわいです。あなたは低く横たわることに決めました。</text>
+	<text>過去の戦いの残骸が点在していないマンティススペースの部分はそれほど多くありませんが、これはそのうちの1つです。あなたは深呼吸をして、先に進む準備をします。</text>
+	<text>ここにはスペースデブリと住めないプラネトイド以外は何もありません。</text>
+	<text>ビーコンの影で何かが動いているのを見るのが好きですが、すべてが静止したままです。</text>
+</textList>
+
+	
+<event name="STORES_FREEMANTIS">
+	<text load="STORES_FREEMANTIS" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="STORES_FREEMANTIS">	
+	<text>通常のハイブマンティスは部外者との取引にそれほど熱心ではありませんが、フリーマンティスは、クランの安全を脅かさない限り、訪問者を歓迎します。トレードを開始するように依頼する前に、武器の電源がオフになっていることを確認するための簡単なチェックを行います。</text>	
+	<text>中空のクジラの死骸が近くに浮かんでいます。当然、カマキリの市場が開催されていると思います。しかし、近づくと、無料のカマキリの船があなたを見守っています。 「ハハハ、クジラにはカマキリはいない。しかし、あなたが望むなら、私たちは喜んで取引する。」</text>	
+	<text>驚いたことに、このビーコンにある無料のカマキリの船は、あなたがそれらを呼ぶことができる前にあなたを呼びます。 「私たちが彼らを歓迎する前に、人間は走り続けます。私たちが望んでいるのは、余分な物資を売ることだけです。あなたは喜んでいますか？」</text>	
+	<text>このビーコンには民間ステーションが設置されており、自動メッセージで中に入って取引することができます。</text>	
+</textList>
+
+<event name="EMPTY_FREEMANTIS">
+	<text load="EMPTY_FREEMANTIS" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_FREEMANTIS">
+	<text>無料のカマキリ氏族は近くで活動していません。あなたは近づきますが、彼らは近づかないようにという警告であなたを歓迎します。あなたは彼らの願いを守るために最善を尽くします。</text>
+	<text>このビーコン付近には人が住んでいる気配はなく、ただ一隻のフリー・カマキリ船が、あなたが呼びかける前に飛び去っていった。</text>
+	<text>時折スペースデブリが飛び交いますが、フレークキャノンから発射する価値はありません。</text>
+	<text>フリーマンティスでさえ、目に見える船はありません。私たちは自分自身に費やす時間があります。</text>
+</textList>
+
+	
+<event name="STORES_ROCK">
+	<text load="STORES_ROCK" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="STORES_ROCK">
+	<text>あなたは珍しい外交使節団から戻ってきたロック船と道を渡ります。同様に驚くべきことに、船長はあなたの歓声に応え、相互貿易に同意します。</text>
+	<text>あなたはロックトレーディングポストに出くわします。彼らが部外者と取引することはめったにありませんが、彼らは最後の株を売る必要があり、彼らが家に帰ったときに彼らの違反に対して会費を支払うでしょう。</text>	
+	<text>地元のロックの集落が他の生物との取引を非常に嫌がっているため、日和見主義のカマキリの乗組員は海賊行為を延期し、通過する取引をキャッチするための店を設立しました。</text>
+	<text>ロックは彼らの宇宙にいる少数のエイリアンを容認します、しかし彼らでさえゾルタンの知恵を尊重しているようです-彼らのいくつかは放棄された主力艦の殻に交易所を設立しました。</text>
+	<text>フェデレーションの頻度について、「あなたはフェデレーションですか？！私たち-二度と友好的な顔を見ることができるかどうかはわかりませんでした。ここにはほとんどビジネスがありません。おそらく取引したいですか？」</text>
+</textList>
+
+<event name="EMPTY_ROCK">
+	<text load="EMPTY_ROCK" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_ROCK">
+	<text>あなたはエイリアンとしてあなたを堕落させることを意図したメッセージを受け取ります。あなたの半分は攻撃を期待していますが、それは小さな民間シャトルから来たようです。</text>
+	<text>あなたが多くの宇宙ステーションや採掘プラットフォームの間に浮かんでいるとき、誰もあなたの船を気にしません。ロックは確かに効率的な操作を実行します。</text>
+	<text>あなたは到着し、戦いの兆候を検出します。小さな駅の近くで数隻の船が互いにパスを取っています。それが領土の問題なのか、コンテストなのか、通過儀礼なのかはわかりませんが、それを避けるのが最善だと判断します。</text>
+	<text>このビーコンにはあまりありません。いくつかの放棄されたデポ、きれいに剥ぎ取られました。</text>
+	<text>数人の貨物船が通り過ぎますが、彼らはすべての通信を拒否します。外国人と話して評判を汚したくない。</text>
+	<text>あなたは小さな交易所を見て給油について尋ねますが、彼らは「離れてください！ここではあなたのようなものを提供しません」と答えます。</text>
+	<text>あなたはゾルタンの商人を見て、彼の製品について尋ねます。 「申し訳ありませんが、彼らの信頼を得るのに何年もかかりました。私はあなたとコミュニケーションをとっているのを見ることができません。あなたが理解してくれることを願っています。」と彼は答えます。彼はコミュニケーションを断ち切る。</text>
+</textList>
+
+	
+<event name="STORES_ROCKHOME">
+	<text load="STORES_ROCKHOME" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="STORES_ROCKHOME">
+	<text>ロックの追放者でいっぱいの船があなたを歓迎します。 「長老たちは私たちの『犯罪』で私たちを罰することを熱望しています。あなたにも同じことが言えると思います。それでは、私たちが同じような窮地に立たされているので、貿易はどうですか？」</text>
+	<text>トレーダーがあなたを歓迎します。 「ロックマンは...興味深いクライアントです。クライアントを多様化すれば、おそらくそれは有益でしょう...あなたはいくつかの物資を必要としていますか？」</text>
+	<text>ここでは小さなロック商館が運営されているようです。驚いたことに、それはその起源に関係なく、あらゆる種類の船に開放されていると主張しています。</text>
+	<text>Rock Homeworldsは危険なセクターですが、幸いなことに、時々友好的な顔を見ることがあります。単に通過するエンギ船は、連邦チャネルで通信を開き、「商品の相互転送を開始する」ことを提案します。</text>
+</textList>
+
+<event name="EMPTY_ROCKHOME">
+	<text load="EMPTY_ROCKHOME" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_ROCKHOME">
+	<text>Rock Eldersは、すべてのシステムを非常に厳しく監視しています。彼らの権威主義的な方法は、近くのシステムに非常に悪い影響を及ぼしたようです。なぜなら、歩き回っている船は1隻もないからです。</text>
+	<text>このセクターでのあなたの存在は犯罪ですが、ロック船はあなたを止めません。数人の民間人が飛び降りる前に長居しますが、あなたは邪魔されません。</text>
+	<text>ここで空のビーコンを見つけるのは奇跡です。このビーコンは、このセクターをパトロールする残忍な執行者や敵対的な市民から解放されています。</text>
+	<text>宇宙0からのロック異端審問の多くの話を思い出すことができませんが、恐ろしく激しい戦争がロック人口にひどい因果関係を持っていたことは確かです。このビーコンは、すべての生命を神経質に空けており、それが長老たちの連邦以前の年の熱狂の結果であるかどうかだけ疑問に思うことができます。</text>
+	<text>ロックパトロールはビーコンの周りを周回しますが、幸いなことに彼らはかなりのんびりしているように見えます。彼らはあなたを歓迎します、「あなたもそうしないかどうかはわかりません」。</text>
+	<text planet="PLANET_POPULATED">岩の集落は遠くにありますが、彼らはどんな呼びかけにも反応することを拒みます。ロックマンの頑固さに対抗できるものは何もないので、このビーコンは空の場合もあります。</text>
+</textList>
+
+	
+<event name="STORES_LOSTSUN">
+	<text load="STORES_LOSTSUN" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="STORES_LOSTSUN">	
+	<text>ロストサン船は近くの船に軍需品を交換しています。彼らはあなたを歓迎します。 「武器を連邦の手に渡せるよりも優れた防御策はありません。あなたは私たちの一人ではありませんが、何らかの装備を使用できるように見えます。」</text>	
+	<text>民間船があなたを歓迎します。 「私たちはこのセクターを進んでいましたが、その気の毒な警備員は私たちをほとんど殺しました。私たちは逃げましたが、私たちの防御は危うくされました。私たちは修理のためにお金が必要です。」</text>	
+	<text>連邦の輸送機関が通り過ぎて、あなたを見つけます。 「私たちはこれらの野蛮人のためにいくつかの物資を落とすはずですが、それはあまり満足のいく仕事ではありません。銀河が統治されるべき方法で彼らのマニフェストを吐き出そうとしている別の顧客がいると私は気になります。私はしません」私たちの物資の一部を私たちの手から取り除いて、この地獄の穴をもっと早く去ることができるとしたら？」</text>	
+</textList>
+
+<event name="EMPTY_LOSTSUN">
+	<text load="EMPTY_LOSTSUN" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_LOSTSUN">
+	<text>いくつかの失われた太陽の要塞が散らばっていますが、誰もあなたに連絡しません。あなたはこの時間を休ませます。</text>
+	<text>あなたは、このセクターの通常の忙しい戦時中の活動の異常な休憩に過ぎません。</text>
+	<text>あなたが飛び込むとすぐに近くのロストサンステーションがマントをまといます。あなたはメッセージを受け取り、あなたが一人になるまで飛び去ります。</text>
+</textList>
+
+	
+<event name="STORES_SLUG">
+	<text load="STORES_SLUG" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect_unavailable" />
+		<event load="UNAVAILABLE_TAX" />
+	</choice>
+</event>
+<event name="NEBULA_STORES_SLUG">
+	<text load="STORES_SLUG" />
+	<environment type="nebula" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect_unavailable" />
+		<event load="UNAVAILABLE_TAX" />
+	</choice>
+</event>
+<textList name="STORES_SLUG">
+	<text>巨大なナメクジがどこからともなく橋にテレポートします！あなたが発砲する前に、彼は彼の製品を舵取りに広げ、あなたに物事を振り回しています。</text>
+	<text>あなたは慎重に巨大な小惑星のナメクジのコロニーに近づきます。ナメクジの惑星に足を踏み入れるのは勇敢な人です-あなたの服から粘液を取り除くのに数週間かかることがあります-しかし、やらなければならない仕事があります。</text>
+	
+	<text>ナメクジは、著作権侵害対策法を施行することになると、たとえ施行したとしても、非常にリラックスしています。ここで運営されている忙しい闇市場。</text>
+	<text>ナメクジは怪しげなトリックスターかもしれませんが、あなたの力の小さなショーは、ここのナメクジの商人にあなたを台無しにしないように説得し、あなたが彼らの製品を自由に閲覧できるようにします。</text>
+	<text>あなたは民間の商人に歓迎されています。 「よかった、信頼できる人。私たちはこれらのくそったナメクジにだまされ続けているので、あなたがはるかに友好的なクライアントになることを願っています。」</text>
+</textList>
+
+<event name="EMPTY_SLUG">
+	<text load="EMPTY_SLUG" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_SLUG">
+	<text>あなたはビーコンに到着し、オープンスペースを見て安心します。星雲はひどく閉所恐怖症です。</text>
+	<text>このビーコンは、星雲の「小さな」ギャップを示します。スキャン距離にコロニーや船はありません。</text>
+	<text>ジャンプ後にセンサーが再び点滅するのを見て安心します。船は検出されませんでした。</text>
+	<text>ナメクジはテレパシーの力に大きく依存しており、星雲を超えてその利点を放棄することには消極的です。雲から遠く離れた場所で遭遇する可能性はほとんどありません。</text>
+	<text>星雲のない場所に到着し、センサーが機能しているかどうかをすばやく確認します。すべてが順調で、近くに船は検出されません。</text>
+</textList>
+<event name="NEBULA_EMPTY_SLUG">
+	<environment type="nebula" />
+	<text load="NEBULA_EMPTY_SLUG" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="NEBULA_EMPTY_SLUG">
+	<text>Slugsに関して言えば、ニュースは必ずしも良いニュースではありません。しかし、彼らが見ているのなら、彼らはあなたに立ち向かおうとは思わないようです。</text>
+	<text>ナメクジが制御する星雲でパラノイアを感じることは珍しいことではありませんが、一度は根拠がありません。</text>
+	<text>スラッグスペースのこの部分は捨てられているか、スラッグでさえあなたの存在を検出するには密度が高すぎます。移動する時間。</text>
+	<text>星雲のこの領域は、小さなナメクジの輸送機関とその護衛が雲の中から突然現れ、ほんの数秒で再び消えるまで、完全に空のように見えます。</text>
+	<text>あなたはビーコンの周りを探索し、小さな月の大きさの岩が突然あなたの前に迫ってくるとショックを受けます。スキャンの結果、固い岩はただの殻であり、ほぼ完全に有用な鉱物から採掘されていることがわかりました。</text>
+	<text>この地域には旅行者向けの小さな駅がたくさんあり、案内灯や広告で照らされています。スラッグ船だけがドッキングされているので、対立を避けて明確に操縦する方が良いと判断します。</text>
+</textList>
+
+	
+<event name="STORES_CLAN">
+	<text>ギルドは星雲から遠く離れた場所に店を構えているようで、漠然とした地形にあまり慣れていない観光客からのトラフィックを引き込む可能性があります。</text>
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect_unavailable" />
+		<event load="UNAVAILABLE_TAX" />
+	</choice>
+</event>
+<event name="NEBULA_STORES_CLAN">
+	<text load="STORES_CLAN" />
+	<environment type="nebula" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect_unavailable" />
+		<event load="UNAVAILABLE_TAX" />
+	</choice>
+</event>
+<textList name="STORES_CLAN">
+	<text>「Ay！Ay you！Ova'ere！I got- * hiccup * I got ssstuff！あなたはssstuffが好きですよね？ええ！」酔ったクランズマンは彼の船に乗ってあなたにいくつかの商品を提供します。</text>
+	<text>ギルドロッジでは、さまざまなアイテムを提供しています。さまざまな種の歯で作られた盗まれた臓器や水筒のように、ほとんどの人はあなたに興味がありませんが、あなたが見てみるためにいくつかの軍用品が販売されています。</text>
+	<text>いくつかのスラッグによって近くに小さな市場が設立されました。それについてのすべてが「健康と安全コード違反」を叫びますが、彼らはあなたに役立つかもしれないいくつかの商品を持っているようです。</text>
+</textList>
+
+	
+<event name="STORES_SHELL">
+	<text load="STORES_SHELL" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<event name="NEBULA_STORES_SHELL">
+	<text load="STORES_SHELL" />
+	<environment type="nebula" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="STORES_SHELL">
+	<text>貝殻は科学に魅了されていますが、彼らはしばしば彼らの努力に資金を供給するのに苦労しています。将来の生物学者は、スクラップ用の軍用品を販売する小さな市場を設立しました。</text>
+	<text>シェルは彼らのスラッグのいとこほど貪欲ではないかもしれませんが、それは彼らが利益のためにいくらかのがらくたを屈服させて売ることをいとわないという意味ではありません。</text>
+	<text>シェルは通常臆病ですが、ここの商船は逃げようとはしません。代わりに、彼らはあなたに彼らの製品を見せます。</text>
+	<text>いくつかの軍需品を売り払う小さなシェルステーションの周りに船の集まりが集まった。一見の価値があるかもしれません。</text>
+</textList>
+
+<event name="EMPTY_SHELL">
+	<text load="EMPTY_SHELL" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_SHELL">
+	<text>あなたはビーコンに到着し、オープンスペースを見て安心します。星雲はひどく閉所恐怖症です。</text>
+	<text>このビーコンは、星雲の「小さな」ギャップを示します。スキャン距離にコロニーや船はありません。</text>
+	<text>ジャンプ後にセンサーが再び点滅するのを見て安心します。船は検出されませんでした。</text>
+	<text>星雲のない場所に到着し、センサーが機能しているかどうかをすばやく確認します。すべてが順調で、近くに船は検出されません。</text>
+</textList>
+<event name="NEBULA_EMPTY_SHELL">
+	<environment type="nebula" />
+	<text load="NEBULA_EMPTY_SHELL" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="NEBULA_EMPTY_SHELL">
+	<text>シェルスペースは思ったほど落ち着きがありませんが、ここで他の船との休憩を見るのはいつでもいいことです。</text>
+	<text>星雲に消える前にシェル船をちらりと見ますが、追いつくことができるとは思えません。それ以外の場合、ビーコンは空です。</text>
+	<text>シェル起源の船でさえ、このビーコンに生息していません。</text>
+	<text>シェルスペースは他の多くの地域と比較してあまり開発されていないので、このような空のビーコンを見つけるのはそれほど驚くことではありません。</text>
+	<text>シェルスペースの多くは、科学的な目的で使用するために閉鎖されています。それらの目的が何であるかはわかりませんが、コンピューターはそれ以上の情報を提供しません。それでも、ここでは誰もあなたを悩ませません。</text>
+</textList>
+
+	
+
+<eventList name="STORES_MORPH">
+	<event load="STORE_HOSTILE_MORPH" />
+	<event load="STORE_HOSTILE_REBEL" />
+</eventList>
+
+<ship name="SHIP_MORPH_STORE" auto_blueprint="LIST_SHIPS_MORPH_FIGHT">
+	<destroyed>
+		<text>船はバラバラになり、あなたはすぐにできることを救い出します。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="STORE_HOSTILE_WIN" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>乗組員が死んだ状態で、あなたはすぐにあなたができることを救い出します。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="STORE_HOSTILE_WIN" />
+		</choice>
+	</deadCrew>
+</ship>
+<event name="STORE_HOSTILE_MORPH">
+	<text load="TEXT_STORE_MORPH_HOSTILE" />
+	<ship load="SHIP_MORPH_STORE" hostile="false" />
+	<choice hidden="true">
+		<text>店を救出してください。</text>
+		<event>
+			<text>あなたは戦闘の準備をします。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>商人を無視します。</text>
+		<event>
+			<text>幸いなことに、船はあなたの存在に気づいていません。</text>
+		</event>
+	</choice>
+</event>
+<event name="NEBULA_STORE_HOSTILE_MORPH">
+	<text load="TEXT_STORE_MORPH_HOSTILE" />
+	<ship load="SHIP_MORPH_STORE" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>店を救出してください。</text>
+		<event>
+			<text>あなたは戦闘の準備をします。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>商人を無視します。</text>
+		<event>
+			<text>幸いなことに、船はあなたの存在に気づいていません。</text>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_STORE_MORPH_HOSTILE">
+	<text>モーフの船がこのように非常に攻撃的に行動しているのを見ているとは思わなかった...モーフが小さなシェル商船を攻撃しているようだ！</text>
+	<text>あなたは遠くの連邦補給船から連絡を受け取ります。 「助けて、私は誤ってブロブのことを怒らせたと思う！彼らが何を言っているのかわからないが、彼らは本当に私を怖がらせている！」</text>
+	<text>「OOG！URP UPR TAGLE SPACK！」モーフでいっぱいの船は、商船の周りを一周すると詠唱し始めます。彼らはいくつかの助けを使うことができるようです。</text>
+</textList>
+
+	
+<event name="STORES_COALITION">
+	<text load="STORES_COALITION" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect_unavailable" />
+		<event load="UNAVAILABLE_TAX" />
+	</choice>
+</event>
+<textList name="STORES_COALITION">
+	<text>このスペースに反乱軍の船が立ち往生しているのを見て驚いています。彼らは攻撃するのではなく、あなたと取引することを提案します。</text>
+	<text>このビーコンで闇市場が運営されているのがわかります。連合を知っているので、彼らはおそらく操作を気にしません。うまくいけば、彼らはあなたがここで買い物をすることも気にしないでしょう。</text>
+	<text>連立はこのセクターの貿易に悪かった。しかし、戦争にもかかわらずうまくいっているように見えるトレーダーが数人います。</text>
+	<text>ここには大きな市場があります。あなたはその地域の周りのいくつかの連立パトロールを避けて、邪魔されずに市場に着きます。</text>
+</textList>
+
+<event name="EMPTY_COALITION">
+	<text load="EMPTY_COALITION" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_COALITION">
+	<text>数隻の連邦船の残骸が近くに浮かんでいますが、救助できるものは何もありません。ここで戦闘が起こったようですが、関係する他の船に何が起こったのかはわかりません。</text>
+	<text>このビーコンが提供する唯一のものは、深宇宙の眺めと戦いからの短い休息です。一部の人にとって、これは歓迎すべき避難所でなければなりません。</text>
+	<text>近くに別の連立船があるのを見ると、席から飛び降ります。しかし、彼らは武器を上げるのではなく、逃げてしまいます。彼らはあなたが彼らを避けたいのと同じくらいあなたを避けたいようです。</text>
+	<text>ビーコンの周りの領域はかなり空っぽであることがわかります。これは休憩してリラックスするのに良い場所かもしれません。</text>
+</textList>
+
+<event name="NEBULA_EMPTY_COALITION">
+	<text load="TEXT_NEBULA_EMPTY_COALITION" />
+	<environment type="nebula" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_NEBULA_EMPTY_COALITION">
+	<text>この星雲には船が見つかりません。この危険なセクターでは驚くほど予想外の結果になります。</text>
+	<text>この星雲ビーコンには、ありがたいことに連立船を含む船がありません。</text>
+	<text>ここの空の星雲は、救済よりもはるかに心配ですが、雲から船が近づくことはありません。</text>
+</textList>
+
+<event name="NEBULA_STORES_COALITION">
+	<text load="TEXT_NEBULA_STORES_COALITION" />
+	<environment type="nebula" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect_unavailable" />
+		<event load="UNAVAILABLE_TAX" />
+	</choice>
+</event>
+<textList name="TEXT_NEBULA_STORES_COALITION">
+	<text>このスペースに反乱軍の船が立ち往生しているのを見て驚いています。彼らは攻撃するのではなく、あなたと取引することを提案します。</text>
+	<text>このビーコンで闇市場が運営されているのがわかります。連合を知っているので、彼らはおそらく操作を気にしません。うまくいけば、彼らはあなたがここで買い物をすることも気にしないでしょう。</text>
+	<text>連立はこのセクターの貿易に悪かった。しかし、戦争にもかかわらずうまくいっているように見えるトレーダーが数人います。</text>
+	<text>ここには大きな市場があります。あなたはその地域の周りのいくつかの連立パトロールを避けて、邪魔されずに市場に着きます。</text>
+</textList>
+
+	
+<ship name="SHIP_SPIDER_STORE" auto_blueprint="LIST_SHIPS_MILITIA_FIGHT">
+	<destroyed>
+		<text>船はバラバラになり、あなたはすぐにできることを救い出します。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="STORE_HOSTILE_WIN" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>乗組員が死んだ状態で、あなたはすぐにあなたができることを救い出します。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="STORE_HOSTILE_WIN" />
+		</choice>
+	</deadCrew>
+	<crew>
+		<crewMember type="spider_hatch" prop="0.10" />
+		<crewMember type="spider" prop="0.8" />
+	</crew>
+</ship>
+<event name="STORE_HOSTILE_SPIDER">
+	<text>このビーコンは奇妙な光景であなたを迎えます、民兵の船が民間の市場で発砲します。しかし、スキャンが戻って民兵の船がクモに襲われていることを示しているときに、問題に気づきます！</text>
+	<ship load="SHIP_SPIDER_STORE" hostile="false" />
+	<choice hidden="true">
+		<text>店を救出してください。</text>
+		<event>
+			<text>あなたは戦闘の準備をします。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>商人を無視します。</text>
+		<event>
+			<text>幸いなことに、船はあなたの存在に気づいていません。</text>
+		</event>
+	</choice>
+</event>
+
+<event name="STORES_SPIDER">
+	<text load="STORES_SPIDER" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="STORES_SPIDER">
+	<text>カマキリはあなたに向かって彼の爪を振り、いくつかの金属製の装飾品がそれらからぶら下がっています。 「この店、祝福された！素晴らしいサイクルが起こった。最初に蜘蛛が人間を殺し、次に私が蜘蛛を殺す！入って、人間の古い物資を買う。」</text>
+	<text>民間商船がここで物資を販売しています。 「それは世界の終わりです！私たちの新しいクモの大君主が私たち全員を殺す前に、あなたの黙示録準備装置を購入してください。」</text>
+	<text>民兵の制服を着た不機嫌そうなロックマンが、近くで軍用品を販売している給油所を運営しています。 「ハハ、クモは私のミサイルの兵器庫に対処しないように、私の力の要塞をあえて邪魔しないでしょう。これは侵入からの安全な避難所です！」</text>
+	<text>自信を持ってオーキドゥの商人がここで店を経営しているようです。彼らは通常肉食性のクモを恐れてはいけませんが、あなたはそう確信していません...</text>
+</textList>
+
+<event name="EMPTY_SPIDER">
+	<text load="EMPTY_SPIDER" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_SPIDER">
+	<text>民兵隊がビーコンからいくつかの民間船を一掃しています。彼らはあなたに同じことをしようとしますが、あなたがあなたのIDを示すとき、彼らはあなたを放っておいてくれます。</text>
+	<text>廃墟となった駅がこのビーコンに置き去りにされました。自動防御システムがまだオンラインであることに気付くまで、簡単に廃棄することを検討します。それを無視するのが最善です...</text>
+	<text>クモの蔓延は、このセクターでかなりの数を占めています。ほとんどの民間人はすでに避難しており、このビーコンのようにセクターの多くは空のままです。</text>
+	<text>難民船が通り過ぎます。あなたは彼らが出没するのではないかと慎重に思っていますが、船はあなたに連絡しようとせずに飛び去ります。</text>
+</textList>
+
+	
+<event name="STORES_DYNASTY">
+	<text load="STORES_DYNASTY" />
+	<environment type="nebula" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<event name="NEBULA_STORES_DYNASTY">
+	<text load="STORES_DYNASTY" />
+	<environment type="nebula" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+
+<textList name="STORES_DYNASTY">
+	<text>小さな不正な惑星がここのシステムを漂流しているようです。あなたには住めないように見えますが、王朝が表面に市場を設立し、好気性の訪問者にとって便利な人工的な雰囲気を伴っているように見えます。</text>
+	<text>小さなマーケットステーションが近くのビーコンを周回しています。王朝の店であるに違いありません、そして幸いにも彼らはあなたに売ることに対して敵対的な配慮をしていません。</text>
+	<text>「悪魔が潜んでいるのは決して安全ではありません！来て購入してください！」ラジオでいくつかの言語で曲を再生します。王朝の市場が近くにあるようです。</text>
+	<text>王朝の巨大な軍隊は、機能するために印象的な金額の資金を必要とします。このお金を集めるために、王朝は彼らがもはや必要としない商品を配るためにこのような多くの店を設立しました。</text>
+	<text>「王朝の空間では安全ではありません。あなたが連邦であるなら、知っておくべきです。さあ、私はあなたのためにいくつかの商品を手に入れました。」海賊船があなたに近づくように誘います。通常、あなたは懐疑的ですが、それらについての何かは信頼できるようです。</text>
+</textList>
+
+
+	
+<event name="STORES_GHOST">
+	<text>このセクターの星雲やその他の未知の恐怖からの避難所であるこのビーコンには、市場が設立されました。明らかに、彼らはひどい商売をしていて、熱心にあなたを歓迎します。</text>
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+
+<event name="NEBULA_EMPTY_GHOST">
+	<text load="NEBULA_EMPTY_GHOST_LIST" />
+	<environment type="nebula" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="NEBULA_EMPTY_GHOST_LIST">	
+	<text>船の周りの濃いガスからは何も見えません。そこに何があるのかわからなくても、FTLが充電されるのを待つだけです。</text>	
+	<text>アクティブなセンサーがなければ、他に選択肢はありません。不安になっているビューポートの外を見るしかありません。不気味に静かです。</text>	
+	<text>FTLドライブが充電されるのを待つ間、あなたの半分はいつでも待ち伏せされることを期待しています。しかし、攻撃は来ません...</text>	
+	<text>センサーが機能していなくても裸になります。あなたの半分は、反乱軍の船がいつでも雲の後ろから現れることを期待していますが、誰も来ません。</text>	
+	<text>あなたの乗組員は常に窓の外を見て、敵対者をチェックしています。彼らは船のすべてのきしみとうめき声でジャンプします。緊張はほとんど明白です...</text>	
+	<text>あなたは神経質に窓をちらりと見ますが、あなたに挨拶する唯一のことはより多くの雲と沈黙です。</text>	
+	<text>到着するとすぐに、広帯域通信チャネルを循環します。静的なだけです。</text>	
+	<text>センサーを下げた状態で、窓の外を見つめるのにかなりの時間を費やします。それは、あなたが認めなければならない、ここではかなり美しいです。</text>	
+	<text>遠くの太陽からの光線を反射するガスの巨大な渦巻きを除いて、ここには何もありません。</text>	
+		
+	<text>このセクターに出没する幽霊の群れはあなたを追い詰めましたが、船は来ません。今のところ、あなたは一人です。</text>	
+	<text>あなたは漠然としたガスが外を漂うのを見ます。幽霊や他の船は見られません、そしてあなたは誰もここにいないと言っても安全だと思います。</text>	
+	<text>船の一部が滑り落ちる前に雲から突き出ているのを見ると誓いますが、それが本物だったとしたら、もうなくなっています。誰も現れません。あなたは気が狂っているに違いない。</text>	
+</textList>
+
+<event name="EMPTY_GHOST" unique="true">
+	<text>ついに、星雲とゴーストからの絶え間ない攻撃の両方からの脱却。</text>
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+
+	
+<event name="STORES_LANIUS">
+	<text load="STORES_LANIUS" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect_unavailable" />
+		<event load="UNAVAILABLE_TAX" />
+	</choice>
+</event>
+<textList name="STORES_LANIUS">
+	<text>連邦船があなたを歓迎し、貿易を行うことを申し出ます。 「ラニウスからのこのような攻撃的な「歓迎」を期待していなかったので、エンジンが撃たれました。修理にスクラップを使用することができました。」</text>
+	<text>駅のように見える場所に停泊しているラニウス船の数を発見するために到着します。あなたは急いで去りますが、彼らがあなたの言語であなたにメッセージを送ると安心します。 「買う？売る？トレーダー。」すべてのラニウスが見知らぬ人に不親切なわけではないようです。</text>
+	<text>かなり大胆な商船がここに店を構えています。 「私はメタルメンがいないことを恐れていません！彼らが眠りに落ちた後、これらの人はこの土地への権利を失いました。入って、いくつかのものを買ってください！」</text>
+	<text>ここでラニウスが運営する店を見るのは珍しいですが、彼らも生計を立てなければならないと思います。結局のところ、彼らは完全な野蛮人ではありません。</text>
+</textList>
+
+<event name="EMPTY_LANIUS">
+	<text load="EMPTY_LANIUS" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_LANIUS">	
+	<text>あなたは近くのラニウスを警告する民間船を通過します。 「そのうちの1隻が民間の輸送機関を攻撃し、船体を溶かし始めました。しかし、その後、最も奇妙なことが起こりました...別の金属製の船が、実際にその仲間に発砲し、後退しました。」どうやら、何を救うべきかについて、ラニウスの間で意見の相違があります。</text> 
+	<text>数隻のラニウス軍艦が近くに定住していますが、彼らはすべての呼びかけを拒否しています。一度にたくさんの致命的な船をいじりたくないので、あなたはそれらを放っておいてください。</text>
+	<text>古代のラニウス集落の廃墟が近くに漂っていますが、潜在的なラニウスの目撃者を怒らせることを恐れて、それを廃棄する危険はありません。</text>
+	<text planet="PLANET_POPULATED">このビーコンはかなり平和です。遠くには輝くラニウスの街があり、軌道から見ても素晴らしい光景ですが、あなたが交流したいと思っている街ではありません。</text>
+	<text>ラニウスの冬眠中にこのセクターが襲撃されたため、このセクターは大規模な交通の場所になりましたが、ラニウスが目覚め、無謀な放棄で民間人を攻撃し始めた後、訪問者の数は急減し、セクターは比較的あいまいな元の状態に戻りました。</text>
+</textList>
+
+	
+<event name="STORES_AUG">
+	<text load="STORES_AUG" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect_unavailable" />
+		<event load="UNAVAILABLE_TAX" />
+	</choice>
+</event>
+<textList name="STORES_AUG">
+	<text>拡張されたLaniusは、到着するとすぐにあなたを歓迎します。 「商品が多すぎます。販売する必要があります。購入しますか？」</text>
+	<text>損傷して部分的に溶けた自動ベンダーは販売モードでスタックし、到着するすべての船に商品を配布しようとしています。残念ながら、そのサービスは無料ではありませんが、少なくともあなたがフェデレーションであることを気にしません。</text>
+</textList>
+
+<event name="EMPTY_AUG">
+	<text load="EMPTY_AUG" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_AUG">	
+	<text>ここで見つかると予想される通常の廃墟やラニウスの群れにもかかわらず、このビーコンは戦闘からの休憩にすぎません。</text>
+	<text>いくつかの残骸が近くに浮かんでいますが、それらは完全に乾いた状態で摘み取られています。これらの古代の存在は、多くを置き去りにした多作のビルダーだったに違いありません...</text>
+</textList>
+
+	
+<event name="STORES_ABANDONED">
+	<text load="STORES_ABANDONED" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="STORES_ABANDONED">
+	<text>メンテナンス中の大型輸送船があなたを歓迎します。 「おめでとうございます。このクーラントシャフトが修理されるとすぐにこのセクターから抜け出します。同じことをお勧めします。海賊がすぐに私たちを襲うか、ラニウスがやってくると私は半分期待しています。私たちを溶かしてください。私たちはいくつかの在庫をオフロードしようとしています-何かを購入することに興味がありますか？」</text>
+	<text>ビーコンの近くにトレーディングデポが設置されています。驚くべき数の軍艦が駅を守っています。あなたは広帯域チャンネルで広告を受け取ります。「船の部品、修理、給油、お土産-私たちはすべてを手に入れました。オマクロン6のこちら側のスカベンジャーを恐れていない唯一の店をチェックしてください。」</text>
+	<text>あなたは空の宇宙ステーションに到着します、間違いなくすべての戦闘の後に放棄されました。船の倉庫で生命の痕跡が検出され、「すべてが行かなければならない」という原油の兆候がいくつか見つかります。</text>
+	<text>このビーコンは活気に満ちています。一部の商人は、数十隻の難民船がこの場所を使用してFTLドライブを充電しているという事実を利用することに決めたようです。あなたは彼らの製品を閲覧します。</text>
+	
+	
+	
+	<text>このセクターは主に放棄されていますが、旅行中の商人は目的地への道でこのセクターを使用することがあります。そのような船の1つが通過し、取引を申し出ています。</text>
+	<text>海賊船があなたを歓迎します。あなたはしぶしぶ応答し、彼らが放棄された採掘コロニーから最近「借りた」いくつかの商品を販売しようとしていることに気づきました。</text>
+</textList>
+
+<event name="EMPTY_ABANDONED">
+	<text load="EMPTY_ABANDONED" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_ABANDONED">	
+	<text>チャートは、これが近くの月の軍事施設上の小さな小競り合いの場所であったことを示しています。奇妙なことに、スキャンは戦闘またはステーションのどちらからも破片の兆候を拾いません。さらに別のエリアは、スカベンジャーによって吸い取られて乾燥しました。</text>
+	<text>スキャンでは、近くに船や集落の兆候は見られません。その地域が常に無人だったのか、それとも単にスカベンジャーによって消されたのかを知る方法はありません。</text>
+	
+	
+	
+	
+	
+	
+	<text>このビーコンには、ラニウス、ゴースト、海賊、その他の船はありません。</text>
+	<text>民間人居住地の焦げた残骸は、最近の海賊活動か、おそらく反乱軍とのはるか昔の戦いのいずれかを示唆しています。いずれにせよ、ビーコンは空になりました。</text>
+</textList>
+
+	
+<event name="STORES_CLEARING">
+	<text load="STORES_NEBULA_CLEARING" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<textList name="STORES_NEBULA_CLEARING">
+	<text>このビーコンは、セクターの密集した星雲からの歓迎された休憩です。ここにもお店ができているようです。</text>
+	<text>星雲から抜け出すことができた商船があなたを歓迎し、いくつかの物資を売ることを申し出ます。</text>
+	<text>星雲セクターは通常、店舗をホストするのに最適な場所ではありませんが、少なくともここのセクターは、雲の外でそうすることを賢明に決定しました。</text>
+</textList>
+<event name="NEBULA_STORES">
+	<text load="NEBULA_STORES" />
+	<environment type="nebula" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+<eventList name="STANDARD_TAX">
+	<event>
+		<text>店主はあなたにいくらかのスクラップを義務付けて支払います。</text>
+		<autoReward level="LOW">scrap_only</autoReward>
+		<choice>
+			<text>継続する...</text>
+			<event load="LIST_STORE_EVENTS" />
+		</choice>
+	</event>
+</eventList>
+<textList name="NEBULA_STORES">
+	<text>一部の勇敢な起業家は、星雲から元素を抽出するためにここにステーションを設置しました。ここにも公共の造船所と休憩所があるようです。</text>
+	<text>ビーコンの近くに貿易基地が設置されているのを見ると、近くの岩にエイリアンの集落があることを意味します。あなたは彼らの製品をチェックすることにしました。</text>
+	<text>水素雲の中心は、お店にとってはごく普通の場所のようには見えませんが、エンギは普通の種ではありません。見ても痛くないでしょう。</text>
+	<text>エンギの貨物船は、「相互に有益な財産の交換を提案する」と呼びかけています。それは掘り出し物のようなにおいがします。</text>
+	<text>あなたは、星雲のひだに避難している連邦難民船のクラスターを発見しました。 「申し訳ありませんが、何も提供できませんが、エンジンを稼働させ続けるにはスクラップが必要です。」あなたは彼らが取引をするだろうと感じます。</text>
+</textList>
+
+<event name="NEBULA_STORES_UNIQUE" unique="true">
+	<text load="NEBULA_STORES" />
+	<environment type="nebula" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="LIST_STORE_EVENTS" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect" />
+		<event load="STANDARD_TAX" />
+	</choice>
+</event>
+
+<event name="NEBULA_NOTHING">
+	<text load="TEXT_NEBULA_NOTHING" />
+	<environment type="nebula" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_NEBULA_NOTHING">
+	<text>船の周りの濃いガスからは何も見えません。そこに何があるのかわからなくても、FTLが充電されるのを待つだけです。</text>
+	<text>アクティブなセンサーがなければ、他に選択肢はありません。不安になっているビューポートの外を見るしかありません。不気味に静かです。</text>
+	<text>FTLドライブが充電されるのを待つ間、あなたの半分はいつでも待ち伏せされることを期待しています。しかし、攻撃は来ません...</text>
+	<text>センサーが機能していなくても裸になります。あなたの半分は、反乱軍の船がいつでも雲の後ろから現れることを期待していますが、誰も来ません。</text>
+	<text>あなたの乗組員は常に窓の外を見て、敵対者をチェックしています。彼らは船のすべてのきしみとうめき声でジャンプします。緊張はほとんど明白です...</text>
+	<text>あなたは神経質に窓をちらりと見ますが、あなたに挨拶する唯一のことはより多くの雲と沈黙です。</text>
+	<text>到着するとすぐに、広帯域通信チャネルを循環します。静的なだけです。</text>
+	<text>センサーを下げた状態で、窓の外を見つめるのにかなりの時間を費やします。それは、あなたが認めなければならない、ここではかなり美しいです。</text>
+	<text>遠くの太陽からの光線を反射するガスの巨大な渦巻きを除いて、ここには何もありません。</text>
+</textList>
+
+	
+<event name="NEBULA_EMPTY_ABYSS">
+	<text load="TEXT_ABYSS_EMPTY_NEBULA" />
+	<environment type="nebula" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_ABYSS_EMPTY_NEBULA">
+	<text>星雲の暗闇はあなたの船を消費します。ここにはあなたの周りを漂うガス以外は何もありません。</text>
+	<text>あなたの周りの星雲は静かです。船のきしみや音が聞こえます。</text>
+	<text>星雲は、このビーコンが特徴とする他の唯一のもののようです。他の船は見えません。</text>
+</textList>
+<event name="EMPTY_ABYSS">
+	<text load="TEXT_ABYSS_EMPTY" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_ABYSS_EMPTY">
+	<text>果てしなく続く深淵を見つめていると、このセクターが常にここにあり、長い間交通や宇宙の汚染から解放されていると考えるのは信じられないことです。</text>
+	<text>このセクターがどれほど空であるかを考えると、これらのビーコンがどのようにしてここに到達したかについては謎です。</text>
+	<text />
+	<text />
+</textList>
+
+	
+<event name="STORES_ORIGINS">
+	<text load="STORES_ORIGINS" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect_unavailable" />
+		<event load="UNAVAILABLE_TAX" />
+	</choice>
+</event>
+<textList name="STORES_ORIGINS">
+	<text>驚いたことに、これらのカルティストはお互いにかなり確立された経済を持っているようです。忙しい店先はカルト派で溢れていますが、彼らもあなたに売ることを気にしないようです。</text>
+	<text>ここでは、古い結晶船の骨組みが不足している小さな市場が運営されています。</text>
+	<text>失われた商船があなたを歓迎し、彼らがカルティストへの借金を返済して去ることができるように取引を要求します。</text>
+</textList>
+
+<event name="EMPTY_ORIGINS">
+	<text load="EMPTY_ORIGINS" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_ORIGINS">
+	<text>あなたの周りには、長い間見捨てられていた結晶社会の遺跡があります。カルティストの侵略前にこのセクターがどのようなものであったかを見ることができればよかったのに...</text>	
+	<text>船は見えません。あなたはこれがCrystallineの人々が彼らのセクターがとどまることを好んだであろう方法であると思います...</text>
+	<text>このビーコンは、侵略的なカルト信者の群れによってまだ触れられていません。それはよく稼いだ休憩として役立つはずです。</text>
+</textList>
+
+	
+<ship name="SHIP_ANCIENT_STORE" auto_blueprint="LIST_SHIPS_ANCIENT_AUTO">
+	<destroyed>
+		<text>船はバラバラになり、あなたはすぐにできることを救い出します。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="STORE_HOSTILE_ANCIENT_WIN" />
+		</choice>
+	</destroyed>
+</ship>
+<event name="STORE_HOSTILE_ANCIENT">
+	<text>近くの古代商人はAenwitheの抵抗の一部として登録されているようです！ただし、現在、自動船からの攻撃を受けています。お手伝いしませんか？</text>
+	<ship load="SHIP_ANCIENT_STORE" hostile="false" />
+	<choice hidden="true">
+		<text>店を救出してください。</text>
+		<event>
+			<text>あなたは戦闘の準備をします。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>商人を無視します。</text>
+		<event>
+			<text>幸いなことに、自動船はあなたの存在に気づいていません。</text>
+		</event>
+	</choice>
+</event>
+<event name="STORE_HOSTILE_ANCIENT_WIN">
+	<text>あなたは自動船から商人を救出しました。 「あなたは私の感謝、死すべき生き物を持っています。これを感謝の気持ちとして受け入れてください。今、あなたは取引する気がありますか？」</text>
+	<autoReward level="MED">stuff</autoReward>
+	<store />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event />
+	</choice>
+</event>
+
+<event name="STORES_ANCIENT">
+	<img back="BACKGROUND" planet="PLANET_ANCIENT" />
+	<text>あなたは翻訳者があなたの言語で話すことができる古代の船を見つけました。 「見知らぬ人、これは最も非正統的です。それでも、このビーコンにいる間、あなたは歓迎されます。入って、買い物をしてください。」</text>
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect_unavailable" />
+		<event load="UNAVAILABLE_TAX" />
+	</choice>
+</event>
+
+<event name="EMPTY_ANCIENT">
+	<text load="EMPTY_ANCIENT" />
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="EMPTY_ANCIENT">
+	<text planet="PLANET_ANCIENT_TRIO">ひどく損傷した3つの人工惑星が遠くに浮かんでいます。それらは軌道を回る星がなく、いつか互いに衝突するでしょうが、今のところこのビーコンは安全です。</text>
+	<text planet="PLANET_ANCIENT">あなたは認めなければなりません、あなたはこのセクターの外で頻繁な船の戦いによって引き起こされる汚染に慣れてきました。あなたの周りのきれいな空間はあなたを安心させます、そしてあなたは船に乗って何かをするのは大丈夫だと思います。</text>
+	<text planet="PLANET_ANCIENT_GARUNTEE">古代の集落が近くの人工惑星に設立されました。それは非常によく保護されているように見えます、そしてあなたは放っておくのが最善であると決めます。</text>
+	<text planet="PLANET_ANCIENT">見られる古代の船ではありません。エンシェントが絶滅の危機に瀕しているとこのセクターが忙しく思っていることに驚いていますが、休憩して喜んでいます。</text>
+</textList>
+
+<event name="STORES_ROYAL">
+	<img back="BACKGROUND" planet="PLANET_ANCIENT" />
+	<text load="STORES_ROYAL" />
+	<store />
+	<choice>
+		<text>継続する...</text>
+		<event load="EVENT_STORE_NOTHING" />
+	</choice>
+	<choice hidden="true" req="TAX_COLLECTOR">
+		<text id="text_tax_collect_unavailable" />
+		<event load="UNAVAILABLE_TAX" />
+	</choice>
+</event>
+<textList name="STORES_ROYAL">
+	<text>抵抗船はAenwitheを歓迎し、Aenwitheはそれらを船の残りの部分にパッチします。 「その反乱軍の攻撃は正気ではなかった！あなたがそれを大丈夫にしたことをうれしく思う。私たちはいくつかの余分な物資を残しているが、私たちはスクラップが少ない。取引する気がある？」</text>
+	<text>あなたはあなたと同じシステムで小さな古代の貨物船を見つけました。あなたは彼らが敵対的になるかあなたを侮辱するだろうと思いますが、代わりに彼らは取引を申し出ます！</text>
+	<text>小さな古代研究基地が月を周回しています。あなたが通り過ぎるとき、彼らはあなたにユニークな取引を提供します。 「通常、私たちは人を殺して死体を研究するだけですが、このセクターに非常に多くの不潔な人間が入ると、研究する人がたくさんいます。代わりに、取引しますか？」</text>
+	<text>何らかの理由で、壊れたオートベンダーは、これを含む銀河のすべての象限に侵入しているようです。誤動作している自動船は、あなたの船を反乱軍所有として誤って登録し、いくつかの製品を提供します。</text>
+</textList>
+
+	
+</FTL>

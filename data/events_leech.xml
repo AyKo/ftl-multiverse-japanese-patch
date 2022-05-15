@@ -1,0 +1,1393 @@
+<FTL>
+	
+
+
+<eventList name="NEBULA_ITEMS_LEECH">
+	<event load="NEBULA_LEECH_PSA" />
+	<event load="NEBULA_LEECH_CREW" />
+	
+	<event load="NEBULA_LIGHT_PIRATE_STATION" />
+	<event load="NEBULA_VAGABOND_ACID" />
+</eventList>
+<eventList name="ITEMS_LEECH">
+	<event load="LEECH_SPACE_TRASH" />
+	<event load="LEECH_MINERS" />
+	<event load="LEECH_MISSION" />
+</eventList>
+
+<textList name="TEXT_LEECH_SPACE_TRASH">
+	<text>宇宙に散らばっている大量のゴミを見つけることが期待できるのは、ここリーチスペースだけです。このビーコンはすべてのゴミを除いて放棄されているので、おそらくそれを利用できますか？</text>
+	<text>いくつかの大きな破片があなたの船とほとんど衝突しますが、幸いなことにあなたは邪魔にならないように旋回することができます。近くの地域には、ヒルが残したスペースデブリが散らばっているようです。</text>
+	<text>フロントガラスにトイレタリーと使用済み食品包装紙が飛び散る黒いバッグ。嫌ですが、このシステムの周りのゴミの輪には、いくつかの隠された財宝が含まれているようです。</text>
+</textList>
+<event name="LEECH_SPACE_TRASH" unique="true">
+	<text load="TEXT_LEECH_SPACE_TRASH" />
+	<img planet="NONE" />
+	<choice hidden="true">
+		<text>ジャンクの一部を回収します。</text>
+		<event load="LEECH_SPACE_TRASH_SEARCH" />
+	</choice>
+	<choice>
+		<text>船に乗って何か他のことをしてください。</text>
+		<event>
+			<text>代わりに、このビーコンを使用して船に乗って何かをすることにしました。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="LEECH_SPACE_TRASH_SEARCH">
+	<event>
+		<text>事故で廃棄されたに違いないいくつかの燃料電池を除いて、ほとんどのゴミは単なるスクラップのようです。</text>
+		<autoReward level="MED">fuel</autoReward>
+	</event>
+	<event>
+		<text>武器のように見えるものを除いて、ほとんどのものは価値がありません！古くて錆びていますが、銃は銃であり、不平を言うことはありません！</text>
+		<weapon name="GIFTLIST_RUSTY" />
+	</event>
+	<event>
+		<text>ゴミ箱が提供しなければならないのは、ほんのわずかなスクラップのようです。それにもかかわらず、それはまだ何かです。</text>
+		<autoReward level="LOW">scrap_only</autoReward>
+	</event>
+</eventList>
+
+<event name="NEBULA_LEECH_PSA" unique="true">
+	<text>近くのリーチ医療前哨基地があなたを歓迎します。中継すべき重要なメッセージがあるようです。</text>
+	<img back="BACK_EVENT_LIGHTNEBULA" planet="PLANET_POPULATED" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>聞く。</text>
+		<event>
+			<text>「メンタルヘルスは笑い事ではありません。うつ病を克服するのは難しいかもしれませんが、あなたは一人ではないことを忘れないでください。あなたが人生のどこにいても、あきらめることはできません。あなたの家族や友人があなたのためにここにいます。あなたや愛する人がうつ病や自殺念慮に苦しんでいる場合は、助けを求め、治療せずに放置しないでください。」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>劇的なひねりやパンチラインを待ちますが、何も起こりません。結局のところ、メンタルヘルスは深刻なビジネスです。ヒルは聞いてくれてありがとうとしてあなたにいくつかのスクラップを提供します、そしてあなたがこのアドバイスを心に留めてくれることを願っています。</text>
+					<autoReward level="LOW">scrap_only</autoReward>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event />
+					</choice>
+					<choice hidden="true" req="clonebay">
+						<text>（クローンベイ）あなたはあなたの乗組員に常に自殺を強いることを指摘してください。</text>
+						<event>
+							<text>あなたの鈍感なコメントは、彼らの怒りであなたの船に発砲するヒルにプラスの影響を与えていないようです。おそらくこれは良い考えではありませんでした。</text>
+							<damage amount="5" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>それらを無視します。</text>
+		<event>
+			<text>重要なメッセージ、重要なメッセージ。あなたが気にすることはおそらくそれほど重要ではありません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_LEECH_CREW" unique="true">
+	<text>大きなリーチの空母、間違いなくそれらの伝説的な「栄光の日々」の名残が遠くに迫っています。あなたが近づくと、シャトルが船から離れ、小惑星を通ってあなたに向かって注意深く滑空します。</text>
+	<img back="BACK_EVENT_LIGHTNEBULA" planet="PLANET_MOONS" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<environment type="asteroid" />
+	<ship load="SHIP_LEECH_SMALL" hostile="false" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>「助けてください！私は軍隊に引き込まれました、しかしそれが死刑判決に他ならないことを知っています。私はまだ私の人生の前にあります！あなたと一緒に私を連れて行ってください！」</text>
+			<choice>
+				<text>彼を受け入れなさい。</text>
+				<event>
+					<crewMember amount="1" class="leech" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>いいえ、臭いがします。</text>
+				<event>
+					<text>リーチはどうやら答えを拒否しないでしょう。さらに数回の拒否と侮辱の後、彼は最終的に敵対的になり攻撃します！</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="LEECH_MISSION" unique="true">
+	<text>神権政治によって近くにクリソリックの使命が確立されたようです。これらの前哨基地を建設する許可は、革命に反対する大統領を支援するための彼らの貿易の一部でした。異端審問でさえ反乱を止めることはできなかったようですが、それにもかかわらず、これらの任務はリーチスペースの周りに散らばっています。</text>
+	<ship load="SHIP_ROCK_STATION" hostile="false" />
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>ミッションにアクセスしてください。</text>
+		<event>
+			<text>乗った瞬間、入浴していないロックの牧師とリーチの胆汁の不快なムスクに迎えられます。あなたはなんとか喉に上がる嘔吐を抑えることができますが、住民からいくつかの奇妙な表情を捕らえます。</text>
+			<choice>
+				<text>彼らの神社からクリスタルの武器を購入してください。</text>
+				<event>
+					<text>あなたは正直なところ、ロックマンが彼らの貴重なクリスタル技術をそれほど簡単に手放すことを期待していませんでしたが、明らかにお金は他のすべてを上回っています。</text>
+					<weapon name="GIFTLIST_CRYSTAL" />
+					<item_modify>
+						<item type="scrap" min="-40" max="-60" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice>
+				<text>あなたの船に乗って働くために聖職者の1人を募集してください。</text>
+				<event>
+					<text>ロックマンのほとんどはあなたの申し出を嘲笑しますが、若い僧侶の一人はあなたと一緒に行きたがっているようです。あなたの船に乗ると、彼は彼の素早い心の変化を匂いに帰します。</text>
+					<crewMember amount="1" class="rock" />
+					<item_modify>
+						<item type="scrap" min="-35" max="-50" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_ROCK_FAITHFUL">
+				<text>（神権政治の乗組員）修理と供給を要求します。</text>
+				<event>
+					<text>あなたのロックマンが彼がもはや神権政治に奉仕していないことを明らかにした場合、彼らがそれほど寛大になるとは思わないが、スピリチュアルは常に彼ら自身の種類の人々に助けを提供しているようだ。</text>
+					<autoReward level="MED">standard</autoReward>
+					<damage amount="-7" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>悪臭があなたを殺す前に去ってください。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>攻撃！</text>
+		<event>
+			<text>あなたは武器を引き、従事します。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>ミッションを無視します。</text>
+		<event>
+			<text>神権政治は連邦と正確に友達ではありません、そしてあなたは彼らの聖職者があなたの存在にどのように反応するかを知ることは決してできません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="LEECH_MINERS" unique="true">
+	<text>ここの密集した小惑星フィールドには別の秘密があるようです-大きな小惑星の1つに埋め込まれた大きなヒルの集落です。それはうまくカモフラージュされており、彼らが見つけられたくないことを示唆しています。</text>
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>集落を攻撃します。</text>
+		<event load="LEECH_MINERS_ATTACK" />
+	</choice>
+	<choice hidden="true">
+		<text>和解を呼びかけます。</text>
+		<event load="LEECH_MINERS_HAIL" />
+	</choice>
+	<choice>
+		<text>それらを無視します。</text>
+		<event>
+			<text>この和解が提供しなければならないものは何でも、すでに存在する小惑星の危険に耐える価値はありません。次のジャンプを準備します。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="LEECH_MINERS_ATTACK">
+	<event>
+		<text>結局のところ、和解の防御はあなたが最初に予想したよりもはるかに弱いです。彼らはほとんど反撃する努力をしません-代わりにいくつかの物資を手渡します。</text>
+		<autoReward level="LOW">stuff</autoReward>
+	</event>
+	<event>
+		<text>結局のところ、和解の防御はあなたが最初に予想したよりもはるかに弱いです。彼らはほとんど反撃する努力をしません-代わりにいくつかの物資を手渡します。</text>
+		<autoReward level="LOW">stuff</autoReward>
+	</event>
+	<event>
+		<text>あなたの攻撃アプローチに応えて、和解は報復するために船を派遣しました！</text>
+		<ship load="SHIP_LEECH_SETTLEMENT" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="LEECH_MINERS_HAIL">
+	<event>
+		<text>その集落は、あなたが繰り返しの呼びかけても無視します。あなたはそれがもう長居しないというしるしだと思います。</text>
+	</event>
+	<event>
+		<text>彼らの優れたカモフラージュのおかげで忘れられていたため、和解は資源が不足しているようです。彼らは取引を申し出ます。</text>
+		<store>STORE_LEECH</store>
+	</event>
+	<event>
+		<text>和解はあなたが予想したよりも友好的です。彼らは、この一帯の宇宙を通過したら、反乱軍の艦隊を支援することを約束します。</text>
+		<modifyPursuit amount="-2" />
+	</event>
+</eventList>
+
+
+
+<eventList name="NEUTRAL_LEECH">
+	<event load="LEECH_COALITION_FEDUP" />
+	<event load="LEECH_TAVERN" />
+	
+	<event load="SLUG_ELITE_LOST" />
+</eventList>
+<eventList name="NEBULA_NEUTRAL_LEECH">
+	<event load="NEBULA_LEECH_LITTERING" />
+	<event load="NEBULA_LEECH_SUICIDEMOON" />
+	<event load="NEBULA_LEECH_GARDEN" />
+	
+	<event load="NEBULA_DUEL" />
+	<event load="NEBULA_MINE_WRECK" />
+</eventList>
+
+<event name="NEBULA_LEECH_GARDEN" unique="true">
+	<text>周りには星雲がありますが、小さなヴァンプウィードの前哨基地が近くにあります。軍事基地でもありません。駅の巨大なバイオドームにはさまざまな植物が含まれているようです。</text>
+	<img back="BACK_EVENT_LIGHTNEBULA" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>前哨基地とドッキングします。</text>
+		<event>
+			<text>前哨基地に近づくとすぐに、ヴァンプウィードの船が分離して攻撃します！あなたは彼らが領土である可能性があることを知っています、しかしこれはかなり極端な反応です！たぶん、あなたは彼らを少し荒らした後、これらの人と推論することができます。</text>
+			<ship load="SHIP_VAMPWEED_LEECH_GARDEN" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_VAMPWEED">
+		<text>（Vampweed Crew）前哨基地へのアクセスをリクエストします。</text>
+		<event load="LEECH_GARDEN_VISIT" />
+	</choice>
+	<choice>
+		<text>前哨基地を無視します。</text>
+		<event>
+			<text>それは確かに素晴らしい庭園かもしれませんが、ヴァンプウィードがあなたの味方であることは間違いありません。彼らがあなたを攻撃する理由があれば、彼らはそうする可能性があります。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="LEECH_GARDEN_VISIT">
+	<text>ヴァンプウィードは駅に乗ってあなたを歓迎します。彼らはあなたに彼らの庭にとても興味を示すためのいくつかの燃料電池を提供します。</text>
+	<autoReward level="HIGH">fuel_only</autoReward>
+	<choice>
+		<text>彼らの胞子の武器の1つを購入します。</text>
+		<event>
+			<weapon name="GIFTLIST_SPORE" />
+			<item_modify>
+				<item type="scrap" min="-50" max="-70" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text>庭師の一人を雇う。</text>
+		<event>
+			<crewMember amount="1" class="orchid_vampweed" />
+			<item_modify>
+				<item type="scrap" min="-40" max="-60" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text>離れる。</text>
+		<event />
+	</choice>
+</event>
+
+<event name="LEECH_TAVERN" unique="true">
+	<text>このセクターの星雲はまばらに広がっていますが、それでも完全にクリアされているのを見るのは素晴らしいことです。近くに忙しい居酒屋ができているので、多くの旅行者が同意しなければならないようです。</text>
+	<choice hidden="true">
+		<text>訪問。</text>
+		<event>
+			<text>いくつかの芳香剤が天井からぶら下がっていて、エイリアンの血のかすかな汚れが深紅色の壁を飾っています。あなたは他の多元宇宙の反逆者のいくつかのなじみのある顔を見つけます、しかしあなたの注意はEargen共和国の状態について互いに論争している2人の酔ったヒルによって奪われます。彼らの俗語から判断すると、1人はロイヤリストであり、もう1人は革命的であるようだ?見えます。</text>
+			<choice hidden="true">
+				<text>ステップイン-ロイヤリストをサポートします。</text>
+				<event>
+					<text>革命家たちは憤慨している。 「あなたはこれに居場所がありません、連邦の船長！これらのモロンは、「平和」のショーの一部として、死んだ子供たちの死体を最強の軍隊の1つの提督に与えたほど無能なリーダーをサポートします！」猛烈な勢いで、革命的なヒルの仲間が集まってあなたの船を攻撃します！</text>
+					<ship load="SHIP_LEECH_TAVERN_REVOLUTIONARY" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>ステップイン-革命をサポートします。</text>
+				<event>
+					<text>忠誠者たちは憤慨している。 「それで、連邦はこれらのモロンを支援することを決定しましたか？この革命は、私たちが何世紀にもわたって立ち往生してきたのと同じ悲惨なサイクルを永続させるだけだと思いませんか？」猛烈な勢いで、仲間のロイヤリストのリーチが集まってあなたの船を攻撃します！</text>
+					<ship load="SHIP_LEECH_TAVERN" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>関与せず、代わりに滞在してチャットしてください。</text>
+				<event>
+					<text>これらのモロンは、彼らが望むすべてを主張することができます。あなたは彼らを彼らの装置に任せて、以前からの友好的な顔で座りに行きます、そしてすぐに会話は取引の話に変わります。</text>
+					<store>STORE_LEECH</store>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>居酒屋は避けてください。</text>
+		<event>
+			<text>ランダムな居酒屋に行く必要はありません。ヒルだらけの場所も地獄の匂いがするでしょう。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="LEECH_COALITION_FEDUP" unique="true">
+	<text>連立船が近くからあなたを迎えます。最初はトリックに躊躇しますが、彼らは本当に話したいようです。 「私はそれを取ることができない、私はそれを取ることができない、私はそれを取ることができない！テッセリーチェスは私を怒らせている！私は孤児院を爆破する厄介な仕事をしている可能性があるが、どうやらリーチェスは孤児院さえ持っていない！彼らはすでに彼ら全員を爆破しました！私がsssenssslesslyに子供たちを殺すことができないとき、そこにどんな良い問題がありますか？！」</text>
+	<choice hidden="true">
+		<text>わあ、落ち着いて。</text>
+		<event>
+			<text>「ええ、ええ、何でも。ポイントissss、私はssssome sssteamをやめる必要があります。しかし、私は自分自身を殺すことができません。 sssome Leechessssを爆破します。誰でも構いません。さらに、爆破されていない孤児院を見つけたら、爆破してください！」</text>
+			<choice hidden="true">
+				<text>Eargen船を追跡します。</text>
+				<event>
+					<text>これは良いターゲットになります。うまくいけば、連立はこの殺害に満足するでしょう。</text>
+					<ship load="SHIP_LEECH_FEDUP_NORMAL" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>革命的な船を追跡します。</text>
+				<event>
+					<text>これは良いターゲットになります。うまくいけば、連立はこの殺害に満足するでしょう。</text>
+					<ship load="SHIP_LEECH_FEDUP_REVOLUTIONARY" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>アンペア船を追跡します。</text>
+				<event>
+					<text>これは良いターゲットになります。うまくいけば、連立はこの殺害に満足するでしょう。</text>
+					<ship load="SHIP_LEECH_FEDUP_AMPERE" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_LEECH">
+				<text>（ヒルクルー）あなたのヒルは、最も近い孤児院の場所を知っています。</text>
+				<event>
+					<text>あなたのヒルはあなたを最後の数人の孤児院の場所に導きます。彼らはそれを破壊するという考えで驚くほど大丈夫だと思われるので、あなたはもはやそれを地面に燃やすことを躊躇しません。連立隊の船長は、手に負えないほどの笑い声を上げます。</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>「あなたは実際にそれをしましたか？ああ、それはssssoを見て良かったと感じました。私は少しおしっこをしたと思います...または少なくともおしっこだといいのですが。関係ありません。あなたはリーチェスのエリートsssslayerです！私は思いますもっと頻繁にできることを願って一緒に来ます...」</text>
+							<crewMember amount="1" class="slug_saboteur" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>結構です。</text>
+				<event>
+					<text>「負け犬め」</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>待って、あなたは子供を殺していると言いましたか？</text>
+		<event>
+			<text>「ああ、くだらない、あなたがFRBだったことを忘れた。まあ、私はあなたを爆破するのにsssolaceを取ることができると思う。Jusssstはあなたが孤児であるふりをする、大丈夫？」</text>
+			<ship load="SHIP_COALITION_FIGHT" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>船をミュートして飛び去ります。</text>
+		<event>
+			<text>どうやらナメクジは彼の怒鳴り声にとても巻き込まれていて、あなたが飛び去っていることにさえ気づいていません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_LEECH_SUICIDEMOON" unique="true">
+	<text>脆弱性を利用するには、スラッグにお任せください。近くのナメクジは、近くの月に手放して墜落するという「特権」をヒル船に請求しています。この位置から見ることができるよりも長い列が彼らの順番を待っています。</text>
+	<ship load="SHIP_SLUG_SUICIDEMOON" hostile="false" />
+	<img back="BACK_EVENT_LIGHTNEBULA" planet="PLANET_MOONS" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>これは卑劣です！</text>
+		<event>
+			<text>「ああ、お願いします。もし私がいなかったら、彼らは彼らを殺しに行くでしょう。彼らは彼らを殺しに行きます。少なくとも私はそれから利益を得て、彼らはとにかく彼らが望むものを手に入れます！」</text>
+			<choice hidden="true">
+				<text>これらのろくでなしを攻撃してください！</text>
+				<event>
+					<text>あなたは武器に動力を与え、ナメクジの船を攻撃します。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>その論理と議論することはできません！</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>あなたとあなたの船を激しく全滅させるために料金を払ってください。</text>
+		<event>
+			<text>スラッグはあなたのスクラップを貪欲にすくい上げ、あなたにあなたのエンジンの電源を切る許可を与えます。そうすることで、船が下の地面に急降下することができます。船の混沌とした爆発が少しずつ引き裂かれるのを聞く前に、あなたは殺されます。</text>
+			<unlockCustomShip silent="false">PLAYER_SHIP_GOLD</unlockCustomShip>
+			<achievement silent="false">ACH_EVENT_SUICIDEMOON</achievement>
+			<damage amount="999" />
+			<item_modify>
+				<item type="scrap" min="-50" max="-50" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text>スラッグを無視します。</text>
+		<event>
+			<text>この「ビジネス」は嫌ですが、あなたのビジネスでもありません。これらのヒルがその岩の上で彼らの人生を終わらせたいのなら、彼らに任せてください。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="LEECH_SUICIDEMOON_WIN">
+	<text>並んでいるヒルはあなたの介入に激怒しているようです。 「ねえ！今どこで自殺するんだ？！」</text>
+	<choice hidden="true">
+		<text>あなたはどうですか？</text>
+		<event>
+			<text>「私-私は...すごい、私はそれについて考えたことはありませんでした。」ヒルはあなたの知恵に同意してうなずきます。残念ながら、彼らはあなたに何の見返りも提供しません。時々、道徳的に正しいオプションを選ぶことは単にお金を払わない...</text>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>スラッグが死んだ今、キューを担当してください。</text>
+		<event>
+			<text>あなたは今や死んだナメクジと場所を交換し、ヒルにエントリーの料金を請求し続けます。降りるまでは長続きせず、今やったことに完全にうんざりします。</text>
+			<autoReward level="MED">standard</autoReward>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_LEECH_LITTERING" unique="true">
+	<text>近くのリーチ船は、ゴミ箱の近くのエアロックからいくつかのゴツゴツした黒いバッグを捨てているようです。別の怠惰なことである必要があります-リサイクルすることを気にすることができないものは何もありません。</text>
+	<ship load="SHIP_LEECH_LITTERING" hostile="false" />
+	<img back="BACK_EVENT_LIGHTNEBULA" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<environment type="asteroid" />
+	<img planet="NONE" />
+	<choice hidden="true">
+		<text>おい！それを停止する！ポイ捨ては悪いです！</text>
+		<event>
+			<text>ヒルの船長は戸惑いながらあなたを見ています。 「うーん？うーん、ポイ捨て。お詫びします。うーん…うん…」</text>
+			<choice hidden="true">
+				<text>彼らのためにそれを拾うことを申し出なさい。</text>
+				<event>
+					<text>「ああ、それは必要ないだろう…えー、実は。あなたは何を知っている、どうぞ。」ヒルの船はすぐに飛び去ります。</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="LEECH_LITTERING_WIN" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>彼らがそれを自分で拾うように要求する。</text>
+				<event>
+					<text>ヒルの船のパニックは、現在彼らに課せられている責任に怯えています。彼らは武器をパワーアップします！</text>
+					<ship hostile="true" /> 
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_ORCHID">
+				<text>（オーキッドクルー）ヒルをレクチャーします。</text>
+				<event>
+					<text>「オーケー、オーケー。ご存知のとおり、ごめんなさい、ごめんなさい。ただ私たちと話すのをやめてください。あなたは警察か何かですか？私たちがこれらの遺体をなんとかして処分しなければならないことを知っています！ああ...私は言いましたあまりにも...」ヒルは、彼らが何をしているのか誰にも言わなければ、賄賂を提供します。あなたのオーキドゥは不承認ですが、彼らはそ゠?について何をするつもりですか？</text>
+					<autoReward level="MED">standard</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>船を無視します。</text>
+		<event>
+			<text>ポイ捨ては卑劣ですが、あなたはそれについて何も言う気がありません。問題に貢献する方法...</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="LEECH_LITTERING_WIN">
+	<text>あなたは黒い鞄の近くに浮かんで、それらを船にすくい上げます。しかし、彼らは奇妙なことに...スクイーズです。バッグを引っ張って開くと、最近バラバラにされた、解体されたヒルの臓器の反抗的な光景が明らかになります。これらの人は証拠を隠そうとしていたようです！</text>
+	<choice hidden="true">
+		<text>それらをバイオ燃料に使用します。</text>
+		<event>
+			<text>考えるのは嫌悪感があり、倫理的にきれいなわけではないかもしれませんが、あなたはそのような機会を逃す人ではありません。</text>
+			<autoReward level="LOW">fuel_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>体の部分をボイドに戻します。</text>
+		<event />
+	</choice>
+	<choice hidden="true" req="clonebay">
+		<text>（クローンベイ）いくつかのDNA綿棒を収集し、それらをクローン化します。</text>
+		<event>
+			<text>あなたのクローンベイから現れる怯え、そして最も確かにトラウマを抱えたヒルはパニックになり、あなたが誰であるかを知ることを要求します。あなたが状況を説明すると、彼らは落ち着いて働くことに同意します。おそらく彼らはあなたも彼らを殺すのではないかと恐れているからでしょう。</text>
+			<crewMember amount="1" class="leech" />
+		</event>
+	</choice>
+</event>
+
+
+<eventList name="NEBULA_HOSTILE_LEECH">
+	<event load="NEBULA_ENCOUNTER_LEECH" />
+	<event load="NEBULA_ENCOUNTER_REVOLUTIONARY" />
+	<event load="NEBULA_ENCOUNTER_LEECH_COALITION" />
+</eventList>
+<eventList name="HOSTILE_LEECH">
+	<event load="ENCOUNTER_LEECH_ASTEROID" />
+	<event load="ENCOUNTER_REVOLUTIONARY_ASTEROID" />
+	<event load="ENCOUNTER_LEECH_ROCK_ASTEROID" />
+	<event load="ENCOUNTER_LEECH_COALITION_ASTEROID" />
+	<event load="ENCOUNTER_LEECH_VAMPWEED" />
+	<event load="ENCOUNTER_VAMPWEED" />
+	
+	<event load="ENCOUNTER_LEECH_PULSAR" />
+</eventList>
+
+<event name="NEBULA_ENCOUNTER_LEECH">
+	<text load="TEXT_ENCOUNTER_LEECH" />
+	<ship load="SHIP_LEECH_FIGHT" hostile="true" /> 
+	<img back="BACK_EVENT_LIGHTNEBULA" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="ENCOUNTER_LEECH_ASTEROID">
+	<text load="TEXT_ENCOUNTER_LEECH" />
+	<ship load="SHIP_LEECH_FIGHT" hostile="true" /> 
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_LEECH">
+	<text>ヒルは憂鬱でやる気がないかもしれませんが、それでも彼らの傲慢さを妨げることはできません。高くて強大なヒルの兵士の中には、彼があなたを連れて行って攻撃できると思っているようです！</text>
+	<text>無能で、通常は意欲のない現代のアーゲン軍によって採用された予測不可能な戦略は、リーチの船を恐ろしい敵にすることができます。傷が多すぎずにこれで作れることを願っています！</text>
+	<text>近くの船のヒル船長があなたを呼び、喉をすっきりさせます。 「ああ、くだらない、私が言うつもりだったことがあった。ぎこちない...ええと、私はあなたを殺すつもりです。しかし、私が元のスピーチを覚えていれば、それはずっと涼しく聞こえるでしょう。」</text>
+	<text>近くのヒル船の酔った動きから一人で判断すると、あなたは彼らの船長が現在そこにすべてではないのではないかと疑っています。彼の昏迷で、彼はあなたを敵と間違えて攻撃します！これでは推論できないようです。</text>
+	<text>近くのリーチ船があなたを攻撃することを選んだ理由を言うのは難しいです。おそらく死の願い？あなたは驚かないでしょう、しかしあなたは彼らがあなたにそれを強制する代わりにちょうど尋ねたならばあなたは好んだでしょう！</text>
+	<text>ヒルの船が通りすがりのあなたを見て、立ち止まるように命じます。どうやら、彼は実際に彼のポストを支持する動機を残した最後の数人の兵士の一人です。彼の努力があなたに無駄になっているのは残念です！</text>
+</textList>
+
+<event name="ENCOUNTER_LEECH_PULSAR" unique="true">
+	<text>この見捨てられたセクターは主に小惑星のフィールドと星雲かもしれませんが、ヒルの船がロックして攻撃している間、パルサーはここであなたをもう少し悩ませる素敵な方法を見つけたようです！</text>
+	<ship load="SHIP_LEECH_FIGHT" hostile="true" /> 
+	<environment type="pulsar" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="NEBULA_ENCOUNTER_REVOLUTIONARY">
+	<text load="TEXT_ENCOUNTER_REVOLUTIONARY" />
+	<ship load="SHIP_ALKRAM_FIGHT" hostile="true" /> 
+	<img back="BACK_EVENT_LIGHTNEBULA" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="ENCOUNTER_REVOLUTIONARY_ASTEROID">
+	<text load="TEXT_ENCOUNTER_REVOLUTIONARY" />
+	<ship load="SHIP_ALKRAM_FIGHT" hostile="true" /> 
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_REVOLUTIONARY">
+	<text>ヒルを含め、今日ではほぼすべての政府が反乱の真っ只中にいるように思われます。危険なほど燃料が少ない革命的な船は、あなたが持っているすべてのものを攻撃することにしました！</text>
+	<text>近くの革命的な船は、あなたが自分自身を守ることができる前に、ティルデオ大統領を支援しているとあなたを非難し、攻撃します！</text>
+	<text>多くの反乱と同様に、リーチの革命家は暴力的で攻撃的なナショナリストであり、誰もが攻撃するようです。</text>
+	<text>ヒルの革命家たち自身は、ヴァンプウィードが彼らを支援していなければ、おそらく連邦をそれほど気にしないだろう。ヴァンプウィードは技術的にはあなたの敵ではありませんが、彼らの国は軍事化に非常に傾倒しており、連邦のハイブの側で戦ったという事実-マンティス戦争は、彼らが連邦の船に乗ることにそれほど躊躇しないことを意味しますスペース！</text>
+	<text>「未来は今です！最初にアーゲン共和国、次に銀河、そして多元宇宙です！ヒルは再び栄光を味わうでしょう！」これらの革命家は彼らの視線を少し高く設定しているように見えますが、あなたはそれについて話すのに時間を無駄にすることはありません。</text>
+</textList>
+
+<event name="ENCOUNTER_LEECH_ROCK_ASTEROID">
+	<text load="TEXT_ENCOUNTER_LEECH_ROCK" />
+	<ship load="SHIP_ROCK_FIGHT" hostile="true" /> 
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_LEECH_ROCK">
+	<text>異端審問は、革命家からアーゲンの宇宙を守るためにティルデオと契約を結びましたが、これまでのところ、彼らは政府を実際に助けることはほとんどなく、あなたのような旅行者を悩ますだけの膨大な数の軍隊をここに設立しました。おっと！</text>
+	<text>ロックキャプテンがあなたの船を見下ろします。 「私はこれらの反発性条虫を扱うのにうんざりしています。あなたの船を使って逃げます。」</text>
+	<text>彼らが通常とても慎重であるとき、それはロックマンがリーチの周りにいることを容認できる奇跡です。それは明らかにそれらを端に置いているので、ここのロック船が攻撃する理由はほとんどありません！</text>
+	<text>「これらのヒルは聖なる言葉を何も知りません！私は疲れていて、イライラしています。神権政治は戦争が終わるまで私たちを去らせません。私はあなたが私の同僚であるふりをします、そして私はあなたを細かく砕きます。」</text>
+</textList>
+
+<event name="NEBULA_ENCOUNTER_LEECH_COALITION">
+	<text load="TEXT_ENCOUNTER_LEECH_COALITION" />
+	<img back="BACK_EVENT_LIGHTNEBULA" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<ship load="SHIP_COALITION_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="ENCOUNTER_LEECH_COALITION_ASTEROID">
+	<text load="TEXT_ENCOUNTER_LEECH_COALITION" />
+	<ship load="SHIP_COALITION_FIGHT" hostile="true" /> 
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_LEECH_COALITION">
+	<text>リーチの連立への導入は、双方にとって中途半端なジェスチャーに過ぎなかったようです。共和国は連立の利益のために行動することにあまり熱心ではないようであり、ヒルが提供できる兵士の数のために連立が革命家との戦いを支援しているだけである可能性が高い。今、十分な政治。脅威が迫る！</text>
+	<text>いくつかの壮大な銀河の脅威としてのすべての連合の蓄積のために、彼らは実際には水族館の侵略以外に多くのことをしていないようです。確かに、今あなたに向かって砲撃しているような船に対処しなければならないのは厄介ですが、少なくとも彼らはもはや連邦を直接攻撃していません。</text>
+	<text>「ええ、あなたは愚かな臭いヒルよりも悪いことを知っていますか？愚かな、臭い連邦キャプテン！」連立隊長は乗組員からいくつかのハイファイブを受け取り、攻撃します！</text>
+	<text>連立船が迫っています。攻撃するかどうかはわかりません。もちろん、それは冗談です。最初の文を読む時間さえないうちに、彼らはすでに攻撃することを決心していました。</text>
+</textList>
+
+<event name="ENCOUNTER_LEECH_VAMPWEED" unique="true">
+	<text>話によると、ティルデオは外交会議で厳選された花束を彼に手渡すことでヴァンプウィード提督を怒らせたので、彼は彼らの種全体に宣戦布告した。陽気な話はありますが、残念ながら、ヴァンプウィードはフローラル兄弟とは正反対であり、あなたのような通行人を攻撃することをそれほど躊躇していません！</text>
+	<ship load="SHIP_VAMPWEED_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+
+<eventList name="NEBULA_QUEST_LEECH">
+	<event load="NEBULA_LEECH_DELIGATE" />
+</eventList>
+
+<event name="NEBULA_LEECH_DELIGATE" unique="true">
+	<text>緊急としてマークされたZoltanエンコーディングを使用した長距離送信を受信しているようです。ゾルタンにとって、すべての問題は「緊急」ですが、それでも注意が必要な場合があります。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>聞く。</text>
+		<event>
+			<text>「現大統領のティルデオの時代の前に、エルゲン大統領のオルティスはゾルタン宇宙への侵略に失敗した。彼の後継者であるエルケがオルティスの宮殿を包囲し、防腐処理された小さな断片にハッキングしたとき、彼のリーダーシップは短くなった。トロフィーとして保管されました。」</text>
+			<choice hidden="true">
+				<text>クールな歴史のレッスンですが、なぜあなたは私たちにこれを言っているのですか？</text>
+				<event>
+					<text>「忍耐を持ってください。省はAerkaeの任命に満足しましたが、将来の攻撃を防ぐために、省はさらに確実にするのに役立つ最大3つの大使館をリーチの領土内に設置することが合意されました...事件は発生しません。ティルデオのリーダーシップの下で、彼は現在の革命に非常に圧倒されたようであり、彼は異端審問の影響、さらには彼の領土で許可されている連立に無知になっているようです。」</text>
+					<choice hidden="true">
+						<text>どうぞ、要点を理解してください。</text>
+						<event>
+							<text>「私たちはもうすぐそこにいます。省は連邦を支援しているので、連邦を防ぐことは連立の最善の利益の範囲内であり、したがって、彼らが関与する紛争への省の介入もあります。しかし、彼らは直接行動を起こすことを恐れているようで、したがって、Tiiikakaを雇いました奴隷の一族は私たちの代表を奴隷にし、銀河の他の地域に彼らを送り出します。連邦船として、私たちはあなたがこれらの連立に旅行してこれに終止符を打つことを要求します。」ゾルタンは、喜ばせたり、感謝したりせずに電話を切ります。</text>
+							<quest event="LEECH_DELIGATE_CAMP" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>呼びかけを無視します。</text>
+		<event>
+			<text>ゾルタンは彼ら自身の問題に対処することができます。ヒルスペースを旅することは十分に危険です。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="LEECH_DELIGATE_CAMP">
+	<text>警告されたように、Tiiikaka海賊団は、与えられた座標で大使館を支配し、Zoltan職員を切り上げて在庫を取ります。</text>
+	<ship load="SHIP_SLAVER_DELIGATE" hostile="false" />
+	<choice hidden="true">
+		<text>介入する。</text>
+		<event>
+			<text>あなたは十分に見てきました-これをやめる時間です！</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="weapons" lvl="6">
+		<text>（Upg. Weapons）奴隷を脅かす。</text>
+		<event>
+			<text>どうやら、奴隷たちは、武装した連邦がここに船を出すのを見る準備ができていなかったようです。彼らはすぐに船に戻って離陸します。</text> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LEECH_DELIGATE_CAMP_WIN" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>ゾルタンの奴隷の1人を購入します。</text>
+		<event>
+			<text>奴隷商人はあなたの突然の出現に驚いていますが、彼らはあなたの申し出が本気であることに気づいたら、すぐにそれに沿って進みます。</text>
+			<crewMember amount="1" class="zoltan" />
+			<item_modify>
+				<item type="scrap" min="-40" max="-55" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>大使館を避けてください。</text>
+		<event>
+			<text>奴隷に巻き込まれるのは危険です。 Tiiikakaは慈悲を示すことで知られていません、そしてあなたは彼らの悪い面に巻き込まれたくありません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="LEECH_DELIGATE_CAMP_WIN">
+	<text>ゾルタンは動揺しますが、大丈夫です。ほどなくして、歯に武装したゾルタンの戦争船が飛び込み、あなたはその声を以前と同じものとして認識します。ゾルタンは簡単な「ここから取り上げます」と自己紹介し、大使館の再編成を開始します。繰り返しになりますが、あなたは感謝を受け取りませんが、少なくともあなたに報酬を与えるように彼らに話しかけます。</text>
+	<autoReward level="MED">standard</autoReward>
+</event>
+
+
+<eventList name="DISTRESS_LEACH">
+	<event load="DISTRESS_LEECH_GRAPHITI" />
+	
+	<event load="DISTRESS_FEDERATION_LOST" />
+	<event load="DISTRESS_REFUGEE_ABANDONED" />
+</eventList>
+
+<event name="DISTRESS_LEECH_GRAPHITI" unique="true">
+	<text>ここの小惑星フィールドを通して、重いグラファイトで覆われた連邦船を見つけて驚いています！彼らはあられます。 「厄介な10代のヒルの滞納者のバンドがやって来て、私たちの船にあらゆる種類の厄介なものを描き、私たちの貨物を盗み、私に恐ろしい名前を呼んだ。それは彼らが「ブーマー」と言ったように聞こえた。貨物を取り戻しに行きますか？」</text>
+	<distressBeacon />
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>同意。</text>
+		<event>
+			<text>中に3つほどのヒルが入った小さなヒルシャトルが見つかるまで、FRBの船の指示に従います。あなたが近づくとすぐに、彼らはあなたを笑い始め、さまざまな非創造的な侮辱を叫び始めます。</text>
+			<choice hidden="true">
+				<text>彼らを怖がらせるために少し警告ショットを送ってください。</text>
+				<event>
+					<text>シャトルの近くを通過する小惑星の1つに武器をロックします。爆発は思春期の若者を冷やしているようには見えませんが、むしろ彼らに卵を産んでいるようです。 「おじいさん！それを続けてください、そして私はあなたに私の父を呼ぶつもりです！」</text>
+					<choice hidden="true">
+						<text>別の警告ショットを発射します。</text>
+						<event>
+							<text>「ねえ！私はそれをしないと言った！さて、今あなたはそれに賛成です！」シャトルから遭難信号が放送されているのを検出すると、しばらくしてアンペア船が飛び込みます。「息子に触れていたのですか？頭蓋骨を彫って、逆流した胆汁を飲むのに使用します！」</text>
+							<ship load="SHIP_LEECH_GRAPHITI_DAD" hostile="true" /> 
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>彼らが貨物を与えることを要求する。</text>
+						<event>
+							<text>「ハァッ！いや！どうするんだ、お父さんか何か教えて？」</text>
+							<choice hidden="true">
+								<text>はい。</text>
+								<event>
+									<text>「がらくたを待ってください、しないでください！彼はとても怒っているでしょう！私はあなたを殺します！」ヒル船が攻撃！</text>
+									<ship load="SHIP_LEECH_GRAPHITI" hostile="true" /> 
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="mind">
+						<text>（マインドコントロール）貨物をください。</text>
+						<event>
+							<text>ヒルはしばらくの間苦労します。銀河系で最も洗練された操作技術の1つに匹敵する、10代の不安の封じ込められていない力です。必然的に、彼は屈服します。「私はあなたに貨物を与えると思います。そして、私は私の年長者を尊重することを学びます。」</text>
+							<choice hidden="true">
+								<text>貨物をFRBの船に戻します。</text>
+								<event load="LEECH_GRAPHITI_RETURN" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="weapons" lvl="6">
+						<text>（武器のアップグレード）トリックショットを引いて、すべての小惑星を爆破し始めます。</text>
+						<event>
+							<text>すべての自制心を失い、あなたの内側の野生の側面を受け入れて、あなたは船を円を描くように回転させ、無数の数百の小惑星を爆破します。ヒルはもはやそれほど段階的ではありません。 「おい、この男は精神病質者だと思う。実際の地獄はそれだったのか？」ヒルは貨物を手渡します。あなたがいつでもスナップして殺すかもしれないのではないかと心配しています。</text>
+							<choice hidden="true">
+								<text>貨物をFRBの船に戻します。</text>
+								<event load="LEECH_GRAPHITI_RETURN" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>ごみ。</text>
+		<event>
+			<text>あなたは用事人ではありません。彼らは貨物を持っていないかもしれませんが、この船は何人かのティーンエイジャーを扱うことができる以上のものです。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="LEECH_GRAPHITI_RETURN">
+	<text>「ああ、ニュートンに感謝します。それは、政府の財産を傷つけないようにそれらのがらくたを示すでしょう。」</text>
+	<autoReward level="MED">item</autoReward>
+</event>
+
+	
+
+
+<eventList name="NEBULA_ITEMS_LEECHCAP">
+	<event load="NEBULA_LEECH_PSA" />
+	<event load="NEBULA_LEECH_CREW" />
+</eventList>
+<eventList name="ITEMS_LEECHCAP">
+	<event load="LEECH_SPACE_TRASH" />
+	<event load="LEECH_MINERS" />
+	<event load="LEECH_MISSION" />
+</eventList>
+
+
+<eventList name="NEUTRAL_LEECHCAP">
+	<event load="LEECH_COALITION_FEDUP" />
+	<event load="LEECH_TAVERN" />
+</eventList>
+<eventList name="NEBULA_NEUTRAL_LEECHCAP">
+	<event load="NEBULA_LEECH_LITTERING" />
+	<event load="NEBULA_LEECH_SUICIDEMOON" />
+	<event load="NEBULA_LEECH_GARDEN" />
+</eventList>
+
+
+<eventList name="NEBULA_HOSTILE_LEECHCAP">
+	<event load="NEBULA_ENCOUNTER_LEECH" />
+	<event load="NEBULA_ENCOUNTER_REVOLUTIONARY" />
+	<event load="NEBULA_ENCOUNTER_LEECH_COALITION" />
+</eventList>
+<eventList name="HOSTILE_LEECHCAP">
+	<event load="ENCOUNTER_LEECH_ASTEROID" />
+	<event load="ENCOUNTER_REVOLUTIONARY_ASTEROID" />
+	<event load="ENCOUNTER_LEECH_ROCK_ASTEROID" />
+	<event load="ENCOUNTER_LEECH_COALITION_ASTEROID" />
+	<event load="ENCOUNTER_LEECH_VAMPWEED" />
+	<event load="ENCOUNTER_VAMPWEED" />
+	
+	<event load="ENCOUNTER_LEECH_PULSAR" />
+</eventList>
+
+<event name="NEBULA_ENCOUNTER_LEECH_ELITE" unique="true">
+	<text>アールゲン軍のほとんどは遅れをとっていますが、連立の支援のおかげでアンペアは依然として大きな脅威となっています。アンペア軍の大多数は連立の努力を支援することに専念していますが、多くは依然として脅威と戦うためにリーチのスペースに残っています。どうやらあなたのような脅威。</text>
+	<img back="BACK_EVENT_LIGHTNEBULA" planet="NONE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<ship load="SHIP_LEECH_ELITE_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+
+<eventList name="DISTRESS_LEACHCAP">
+	<event load="DISTRESS_LEECH_GRAPHITI" />
+</eventList>
+
+
+
+<ship name="SHIP_AMPERE_ALKRAM" auto_blueprint="LIST_SHIPS_LEECH_ELITE_FIGHT">
+	<destroyed>
+		<text>アンペア船は敗北しました。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="ALKRAM_MEET_WIN" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>アンペア船は敗北しました。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="ALKRAM_MEET_WIN" />
+		</choice>
+	</deadCrew>
+	<crew>
+		<crewMember type="leech_ampere" prop="0.7" />
+		<crewMember type="rock_crusader" prop="0.3" />
+	</crew>
+</ship>
+<event name="ALKRAM_MEET">
+	<text>不思議なことに、革命的な船に発砲されたため、Eargenの艦隊がここに集まりました。船の間を飛んでいる珍しい装飾の工芸品を見つけるまで、巻き込まれるのは不幸な小競り合いです。</text>
+	<preventQuest />
+	<customFleet right="false" firing="true" autoDarkening="true">CUSTOM_FLEET_LEECH</customFleet>
+	<customFleet right="true" firing="true" autoDarkening="true">CUSTOM_FLEET_ALKRAM</customFleet>
+	<choice hidden="true">
+		<text>船に従ってください。</text>
+		<event>
+			<text>奇妙な船は、リーチ将軍の絵の具を持った、ある種の戦艦のようです。しかし、アンペアの船があなたを発見し、あなたが敵対的であると想定しているため、長い間それを見ることができません！</text>
+			<ship load="SHIP_AMPERE_ALKRAM" hostile="true" /> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>離れる。</text>
+		<event>
+			<text>紛争に近づくのはリスクが高すぎます。あなたは自分自身から他の艦隊の船までできるだけ距離を置きます。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ALKRAM_MEET_WIN">
+	<text>船が邪魔にならない状態で、あなたは奇妙なリーチ船に注意を向けますが、それが戦闘から離れてしまったのを見てください。それはひどく損傷していて、内部の眺めは負傷した兵士と1人の重装甲のヒルが彼の尻尾を使って彼の歯から血を拭き取っているのを示しています。</text>
+	<choice hidden="true">
+		<text>呼びかける。</text>
+		<event>
+			<text>「それで、あなたは私たちを殺すために来ましたか？ティルデオのポーンのもう1つ。あなたができることをしてください、しかし共和国が倒れることを知っています。私は単に私を殺すだけでは元に戻せないことを動かしました。リーチの頭を切り落としてください、そしてそれはより強くなるだけです！」</text>
+			<choice hidden="true">
+				<text>私たちはあなたが誰であるかわかりません。</text>
+				<event>
+					<text>ヒルは一時停止し、彼の2つの目のスリットは通常よりも目を細めます。 「あなたはその紫色の寄生虫の代理人になるには高すぎるように見えます。私の紹介は無関係なので、詳細は割愛します。私は連邦-マンティス戦争中にエルティス大統領のリーダーシップの下でアーゲン共和国の元将軍であるアルクラム・トリペです。今、私の老後、私は王冠の現在の無能さを取り除くこだ?によって王冠の安定性を確保することに取り組んできました。」</text>
+					<choice hidden="true">
+						<text>クラウン？ティルデオが社長だと思った。</text>
+						<event>
+							<text>「まさに私の言いたいことです。あふれんばかりの薄暗いモロンは、彼と一緒に光沢のある金色の王冠を運び、王様を夢見ていますが、彼は私たちの種類をさらに大きな混乱に導くだけです。反乱、それならあなたはある意味で連邦でなければならないと思いますこの小競り合いはほんの小さなものです-まもなく、彼が隠れているティルデオの邸宅に再び集まり、共和国を占領します。あなたが連邦と同じ自由を支持するならそれなら、あなたが私たちに加わってくれることを願っています。」アルクラムはいくつかの座標を転送し、すぐに彼の乗組員に焦点を当てることに戻ります。</text>
+							<quest event="TYRDEO_PALACE" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>ええ、ただ彼を殺します。</text>
+				<event>
+					<text>このヒルが誰なのか、なぜティルデオが彼を死なせたいのかはわかりませんが、無意味な殺人を楽しんでいなければ地獄です。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>船を無視して、あなたの道を進んでください。</text>
+		<event />
+	</choice>
+</event>
+<ship name="SHIP_LEECH_DREADNAUGHT" auto_blueprint="MU_LEECH_DREAD">
+	<destroyed>
+		<text>強力な船は打ち負かされました-Eargen軍の最強の船でさえあなたの力に耐えることができませんでした。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="TYRDEO_PALACE_ENTER" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>強力な船は打ち負かされました-Eargen軍の最強の船でさえあなたの力に耐えることができませんでした。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="TYRDEO_PALACE_ENTER" />
+		</choice>
+	</deadCrew>
+	<crew>
+		<crewMember type="leech_ampere" prop="0.7" />
+		<crewMember type="rock_crusader" prop="0.3" />
+	</crew>
+</ship>
+<event name="TYRDEO_PALACE">
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<nebulaBeacon>true</nebulaBeacon>
+		<createNebula>false</createNebula>
+		<aggressive>2</aggressive>
+	</quest>
+	<beaconType id="map_icon_tyrdeo" global="true">
+		<color r="230" g="85" b="255" a="1" />
+		<unvisitedTooltip>Location of President Tyrdeo's mansion.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+	</beaconType>
+	<img back="BACK_EVENT_LEECHCAP" planet="NONE" />
+	<text>これは、アルクラムが確かに説明した場所です-巨大な宮殿をそのまばゆいばかりの光の灯台と間違えることは不可能です。残りのリーチスペースがどれほど荒廃しているのか、ここにこれほどうまく構築されたものを置くことは不可能のようですが、そうでなければ、その場所はそうではなかったでしょう。</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>革命的な船の艦隊が宮殿の周りに集まり、残りの少数のアーゲンの忠誠者、および異端審問と連立の船と同等の力で一致しました。誰も大邸宅のセキュリティを破ることができませんでした、そしてあなたはその理由を見ることができます。巨大なアンペアドレッドノートは、構造物の周りの障壁を保護し、それは小さな脅威ではありません。古代の巨大なヒル船の話を聞くとき〠?これは彼らが話していることです。</text>
+			<ship load="SHIP_LEECH_DREADNAUGHT" hostile="false" /> 
+			<choice hidden="true">
+				<text>私たちはそれを引き受けることができます！</text>
+				<event>
+					<text>あなたが近づくと、巨大な戦争船があなたに向かって潜んでいます。神話を試してみる時が来ました。</text>
+					<ship hostile="true" /> 
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>いや、行こう。</text>
+				<event>
+					<text>リバティとそのすべてのジャズはクールですが、個人的な利害関係のない紛争を支持して死ぬよりも、明日を見るために生きたいと思います。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="TYRDEO_PALACE_ENTER">
+	<text>ドレッドノートが倒れると、障壁はほんの数分で下がり、革命家たちは宮殿の敷地に群がります。紛争の真っ只中で、あなたはなんとか残りの防御をすり抜けて大邸宅に入ることができます。</text>
+	<variable name="ach_boss_leechdread" op="set" val="1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>内部には警備員がほとんど残っておらず、すべてが外部の侵入者を処理するために占有されています。あなたはなんとかティルデオの寝室に侵入しました。そこでは、病弱な紫色のワームが彼の窓から紛争を神経質に見守っています。ティルデオです。</text>
+			<choice hidden="true">
+				<text>あなたの時間は終わりました、Tyrdeo！</text>
+				<event>
+					<text>ヒルは振り返り、おびえた。彼の揺らめく声は、独裁者というよりは子供のように、驚くほど柔らかい。 「ああ、天国！お願いします、慈悲を。私のウェルシーを傷つけないでください。」ティルデオは舌の1つで部屋の隅にある檻を指さし、部屋の悲惨な気分にもかかわらず元気に鳴く、大きくて明るい黄色の鳥の生き物がいます。</text>
+					<choice hidden="true">
+						<text>私たちはヒットマンではありません-あなたはあなたの人々の前であなたの犯罪に答えます。</text>
+						<event>
+							<text>「いやいやお願いします！お願いします！あなたが私を殺してもかまいませんが、あなたが私を彼らに引き渡した場合、彼らが私に何をするのかわかりません！彼らは私をエルティスのようなビットにハックします、または、舌を切り取って、アエルケのように舌を絞めてください！私を撃ってください！」ティルデオは地面にくしゃくしゃになり、手に負えないほどにすすり泣だ?ます。あなたは彼を肩越しに投げ、彼をアルクラムに運びます。アルクラムも宮殿に到着し、ありがとうございます。 「格納庫の1つで巡洋艦を見つけました。これは、ティルデオのプライベート巡洋艦であり、彼の脱出計画だったようです。彼はもう役に立たないので、連邦に贈り物として贈ります。」</text>
+							<unlockCustomShip silent="false">PLAYER_SHIP_LEECH</unlockCustomShip>
+							<autoReward level="HIGH">stuff</autoReward>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event>
+									<text>Tyrdeoは中庭に引きずり出され、そこではほとんどの戦闘がすでに停止していることがわかります。大統領が捕らえられたのを見て、最後の支持者は降伏した。ティルデオは、すすり泣き続けるヒルの群衆の前で立ち往生しています。連立と異端審問の役員の何人かが参加します。ティルデオは「天国、これは本当に必要ですか？あなたが私を担当させたのです、私は助けようとしだ?だけです！」と嘆願します。ティルデオは巨大なすすり泣きを吐き出します。 「ヴァンプウィードに花をあげるのはばかげたことは知っているが、友達を作ろうとしただけだった。連立に参加することが国を安定させる最善の方法のようだった！私は何をすべきか？私はこの前は造園家だった！そして悪い人だった！なぜ私を担当させたのですか？！」</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event>
+											<text>アルクラムはティルデオを断ち切り、群衆の前に立ちます。 「あなたの泣き声はもう十分だ。男になりなさい。あなたが生け垣を整えるのに忙しい間、私はその戦争でエンギの戦争機械とゾルタンの平和維持者に立ち向かった！チャンスはあったが、アーゲン共和国にはかつて有能な指導者がいた！」群衆は、前大統領を殺害する見通しのために参加し、口で唱え、事実上よだれを垂らします。最後の努力の1つで、Tyrdeoはあなたの方を向いて、懇願します。 「お願いします、私が間違いを犯したことを知っています。連立があなたの敵であることを知っていますが、あなたは彼らにこれをさせることはできません！私はもう大統領になりたくありません、私は決してしませんでした！私はただ生きたいです！」</text>
+											<choice hidden="true">
+												<text>チャンスがありました。あなたはあなたに来るものを手に入れます。</text>
+												<event>
+													<text>彼の運命が封印されると、ティルデオは恐怖で悲鳴を上げます。彼は自由に切り取られて群衆の中に投げ込まれ、そこで彼はかつての弟子たちによって細かく裂かれました。疑いの余地のない恐ろしい終わり。アルクラムはあなたが嫌悪感を持っているとあなたが思うものを監視します。彼がそこで運命の手を演じたことを考えると皮肉なことですが、おそらく彼は自分自身を台焠?しにした場合、その位置にいることを想像しています。</text>
+													<choice hidden="true">
+														<text>継続する...</text>
+														<event>
+															<text>ティルデオが死んだ状態で、残りの連立部隊と異端審問部隊は逃げ出し、あなたとヒルだけを残しました。アルクラムはスピーチを始めます、「共和国はあまりにも長い間無能によって抑圧されてきました。真の指導者が王冠を握る時が来ました、そして私は自分よりも優れた人は誰も考えられませんでした-」アルクラムは群衆によって断ち切られます。再びブーイングします。ヒルはついに彼らの状況に追いついたようです。同じことのサイクルとサイクルが何度も繰り返され、それらはそれで終わります。アルクラムは後退し、彼が同じ運命を迎えようとしていることを恐れた。</text>
+															<choice hidden="true">
+																<text>継続する...</text>
+																<event>
+																	<text>「ええと、私は自分自身を言いましたか？申し訳ありませんが、私はそれを意味しませんでした。私が言いたかったのは、共和国が設立されて以来初めて大統領を最終的に選出する時だと思うということでした！参加しないでください。私は年を取りました。それは私が引退する時です。さようなら。」アルクラムはステージからあなたに向かって滑り落ちます。 「これは惨事でした。しかし、私は自分の役割を果たしました。少なくとも共和国はようやく良い日を迎えるかもしれません。あなたは戦闘機を必要としていますか？私は年を取りましたが、私はまだ有能です。」</text>
+																	<variable name="ach_crew_alkram" op="set" val="1" />
+																	<crewMember amount="1" all_skills="2" class="unique_alkram">Alkram</crewMember>
+																</event>
+															</choice>
+														</event>
+													</choice>
+												</event>
+											</choice>
+											<choice hidden="true">
+												<text>これは少し過剰に思えます。多分彼はこれに値しないのですか？</text>
+												<event>
+													<text>群衆があなたの意見を盛り上げる間、Tyrdeoは歓声を上げます。重大なことに、アルクラムは「このような男には二度とチャンスはない。私は殺した回数が少ない。王位を勝ち取るためには、この惨めなすすり泣きを殺さなければならない。すべての大革命は王の死で終わる。 「」</text>
+													<choice hidden="true">
+														<text>王位？それであなたは彼の後に王になるつもりですか？</text>
+														<event>
+															<text>アルクラムはまばたきし、彼の言葉の選択の悪さに気づきましたが、手遅れです。群衆は気づき、すぐに彼らの敵意は彼に向けられます。 「あなたはティルデオに勝るものはありません！あなたは力で権力を掌握しようとしているもう一人の堕落した、権力に飢えた志望者です！」怒っている傍観者1人が泣き、残りは同意します。すぐに暴徒はアルクラムに群がり、物事は血まみれになります。混沌の中で、ティルデオは自由になり、あなたのところに駆け寄ります。 「失神するかもしれません。これまでずっと恐怖を感じていませんでした。自分自身を汚しました。ああ、すみません、あなたはそれを知る必要はありませんでした。とにかく、どうぞ、私を連れて行ってください！私はもっとできる生け垣を整えるよりも、約束します！」同意しますが、船に戻る前に、ティルデオはアヒルを宮殿に戻し、鳥を貨物に積み込んで戻ります。なんて奇妙な、奇妙な男。</text>
+															<variable name="ach_crew_tyrdeo" op="set" val="1" />
+															<crewMember amount="1" all_skills="2" class="unique_tyrdeo">Tyrdeo</crewMember>
+															<choice hidden="true">
+																<text>継続する...</text>
+																<event>
+																	<crewMember amount="1" all_skills="2" class="unique_tyrdeo_bird">Wealsey</crewMember>
+																</event>
+															</choice>
+														</event>
+													</choice>
+												</event>
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>彼を殺せ。</text>
+						<event>
+							<text>あなたはティルデオを頭の中で一度撃ち、即座に彼を殺します。しばらくして、アルクラムと彼の部下は部屋に押し寄せましたが、大統領がすでに死んでいるのを見てショックを受けました。 「W-何？あなたは彼を殺した？すでに？何が地獄？これに対するあなたの熱意はプロセスをさらに複雑にしているだけだ。」アルクラムはうなり声を上げ、明らかにイライラします。 「これを修正するのは今私にかかっています。素晴らしいです。私は私の部下にこれに対する報酬を与えてもらいますが、将来の恩恵を期待しないでください。」</text>
+							<autoReward level="MED">item</autoReward>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="LEECH_INQUISITIONER">
+	<text>珍しい岩船の真っ赤な船体が近づいています。これは通常の異端審問船ではなく、パラディンです。パラディンがNumaVシステムの家の外で見られることはめったにないので、これは良いことではありません。</text>
+	<ship load="SHIP_ROCK_SELITE_LARGE" hostile="false" /> 
+	<choice hidden="true">
+		<text>待って、それが何をするか見てください。</text>
+		<event>
+			<text>驚いたことに、船は発砲するのではなく、単に連絡をします。 「私は...インクイジショナーのゴーラです。あなたの名前を教えてはいけません...私は気にしません。私はあなたに命題を持っています。私たちは友達ではないことを知っています、ありがたいことに...しかし私たちは相互に攻撃できると信じています有益な取り決め...」</text>
+			<choice hidden="true">
+				<text>聞く。</text>
+				<event>
+					<text>「私は神権政治によってここに派遣され、アルクラム将軍の革命の状況に対処しました。個人的にはヒルの世話はしませんが、リーダーに質問するよりはよく知っています。部下は発見しました。プロトタイプの船が保管されているキャッシュの場所。それを破壊すると...革命家は私の軍隊と戦うでしょう。その見返りに、巡洋艦の設計図と一緒に持ち運べる武器をキャッシュに兠?れて持ち運ぶことができます。これはどうですか...聞こえますか？」</text>
+					<choice hidden="true">
+						<text>承認。</text>
+						<event>
+							<text>「良い...良い...すぐに...座標を送信します。」それで、船は飛び去ります。</text>
+							<quest event="LEECH_INQUISITIONER_CACHE" />
+							<instantEscape />
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>ごみ。</text>
+						<event>
+							<text>「それなら、あなたは私の時間の無駄です...私はあなたをもう生き続ける理由がわかりません。」</text>
+							<ship hostile="true" /> 
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>ノーサンキューバディ。</text>
+				<event>
+					<text>「それなら、あなたは私の時間の無駄です...私はあなたをもう生き続ける理由がわかりません。」</text>
+					<ship hostile="true" /> 
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>先制攻撃！</text>
+		<event>
+			<text>避けられないことを待つ意味はありません。最初に攻撃し、速く攻撃する方がよいでしょう。</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>すぐに飛び去ります。</text>
+		<event>
+			<text>船はあなたに気づいても追いかけるのが遅すぎるように見えるので、あなたはすぐに逃げます。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<ship name="SHIP_REVOLUTIONARY_CRUISER" auto_blueprint="MU_ALKRAM_CRUISER">
+	<destroyed load="LEECH_INQUISITIONER_CACHE_WIN" />
+	<deadCrew load="LEECH_INQUISITIONER_CACHE_WIN" />
+	<crew>
+		<crewMember type="leech" prop="0.66" />
+		<crewMember type="orchid_vampweed" prop="0.33" />
+	</crew>
+</ship>
+<event name="LEECH_INQUISITIONER_CACHE">
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<nebulaBeacon>true</nebulaBeacon>
+		<createNebula>false</createNebula>
+		<aggressive>2</aggressive>
+	</quest>
+	<beaconType id="map_icon_cache" global="true">
+		<color r="135" g="50" b="55" a="1" />
+		<unvisitedTooltip>Location of the Revolutionary cache.</unvisitedTooltip>
+		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+	</beaconType>
+	<text>目の前の景色は座標を再確認する必要がありますが、これは間違いなく正しい場所です。単純なキャッシュについてはこれだけです。これは操作の基本全体です。かつて廃坑だった植民地から彫刻された革命家たちは、その下にいくつかの大きな倉庫を設置しました。</text>
+	<img back="BACK_EVENT_REVCACHE" planet="NONE" />
+	<ship load="SHIP_REVOLUTIONARY_CRUISER" hostile="false" />
+	<choice hidden="true">
+		<text>巡洋艦を攻撃してください！</text>
+		<event>
+			<text>激しい戦いの準備をしなさい-異端審問があなたにそれの世話をする必要があるなら、それは通常の脅威であってはならない。</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>離れる。</text>
+		<event>
+			<text>異端審問は気にしないでください、とにかくあなたを後ろで刺すかもしれない何人かのロックマンのために手足で命を危険にさらす理由はありません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="LEECH_INQUISITIONER_CACHE_WIN">
+	<text>プロトタイプ船は敗北しました。これはおそらく、良くも悪くも、革命家をかなり後退させるでしょう。</text>
+	<variable name="ach_boss_revcruiser" op="set" val="1" />
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>ゴーラに連絡する。</text>
+		<event>
+			<text>あなたはゴーラに手を差し伸べ始めますが、船が敗北した直後に彼はすでに到着しています。 「素晴らしい仕事...船長。約束通り、青写真はあなたのものです。あなたは...私たちがこの場所を破壊してあなたが望むものを何でも取るまで...3分あります。」</text>
+			<unlockCustomShip silent="false">PLAYER_SHIP_ALKRAM</unlockCustomShip>
+			<choice hidden="true">
+				<text>できるだけ多くの物資を手に入れましょう！</text>
+				<event>
+					<text>あなたは採掘コロニーに急いで行き、あなたが運ぶことができる限り多くの資源をつかみ、離陸する前にそれらをあなたの貨物に詰め込みます。あなたの下では、激しい爆発がコロニーを飲み込み、瓦礫を少し残しているのを見ることができます。</text>
+					<autoReward level="HIGH">stuff</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>武器の1つをつかみます！</text>
+				<event>
+					<text>あなたは急いで採掘コロニーに行き、武器の1つをつかんで、離陸する前に貨物に詰め込みます。あなたの下では、激しい爆発がコロニーを飲み込み、瓦礫を少し残しているのを見ることができます。</text>
+					<weapon name="RANDOM" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>生存者の1人をつかみます！</text>
+				<event>
+					<text>あなたは採掘コロニーに急いで行き、まだ生きているヒルの1人に離陸する前にあなたに加わるように説得します。あなたの下では、激しい爆発がコロニーを飲み込み、瓦礫を少し残しているのを見ることができます。</text>
+					<crewMember amount="1" class="leech" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+</FTL>

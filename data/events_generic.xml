@@ -1,0 +1,839 @@
+<FTL>
+
+
+
+<eventList name="ITEMS_ASTEROID">
+	<event load="ASTEROID_DEADPLATFORM" />
+	<event load="ASTEROID_HURTMINER" />
+	<event load="ASTEROID_CACHE" />
+	<event load="ASTEROID_REFINERY" />
+	
+	<event load="ASTEROID_EXPLORE" />
+	<event load="HELP_MINERS" />
+	<event load="WRECKAGE_EVENT" />
+</eventList>
+
+<event name="ASTEROID_REFINERY" unique="true">
+	<text>小さなユニオン製油所がすべての小惑星から離れて操業しています。彼らは主に生の鉱石を処理するだけですが、おそらくあなたはあなたのスクラップの一部を精製するためにそれらを支払うことができます。</text>
+	<ship load="SHIP_CIVILIAN_STATION" hostile="false" />
+	<choice>
+		<text>武器を作成するためにそれらを支払います。</text>
+		<event>
+			<text>「ちょっと変わったリクエストですが、寄付に感謝します。私たちに何ができるか見ていきます。」</text>
+			<item_modify>
+				<item type="scrap" min="-45" max="-60" />
+			</item_modify>
+			<weapon name="RANDOM" />
+		</event>
+	</choice>
+	<choice>
+		<text>増補を作成するためにそれらを支払います。</text>
+		<event>
+			<text>「ちょっと変わったリクエストですが、寄付に感謝します。私たちに何ができるか見ていきます。」</text>
+			<item_modify>
+				<item type="scrap" min="-35" max="-50" />
+			</item_modify>
+			<augment name="RANDOM" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>製油所を攻撃してください！</text>
+		<event>
+			<text>「待って！どうしたの？！」あなたは民間人を黙らせて発砲します。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_GENERAL_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>製油所を無視します。</text>
+		<event>
+			<text>この場所を探索することから得られるものはおそらく何もありません。次へ移りましょう。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ASTEROID_CACHE" unique="true">
+	<text>残念ながら、ここのビーコンは小惑星の激しい群れに飲み込まれています。いくつかのレーダーブリップに気づいたら、出発の準備をしようとしています。中空の人工物が岩の間を漂っています。推測しなければならない場合、それはおそらく供給キャッシュです。</text>
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>キャッシュをレイドします。</text>
+		<event load="ASTEROID_CACHE_OPEN" />
+	</choice>
+	<choice hidden="true">
+		<text>私たちはすでにペラペラになっています。私たちはただ去るべきです。</text>
+		<event>
+			<text>キャッシュにアクセスしようとするとリスクが高すぎます。あなたは小惑星の群れから自分自身を遠ざけます。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ASTEROID_CACHE_OPEN">
+	<event>
+		<text>キャッシュを開こうとするとダメージを受けますが、幸いなことにそれほど大きなものではありません。内部では、それは主にドローンの部品と回路図のようです。すべてを分解する時間はありませんが、印象的な運搬を取り戻すことはできます。</text>
+		<damage amount="3" />
+		<drone name="RANDOM" />
+		<autoReward level="HIGH">droneparts_only</autoReward>
+	</event>
+	<event>
+		<text>スクラッチなしでキャッシュに到達します。内部では、それは主にドローンの部品と回路図のようです。すべてを分解する時間はありませんが、印象的な運搬を取り戻すことはできます。</text>
+		<drone name="RANDOM" />
+		<autoReward level="HIGH">droneparts_only</autoReward>
+	</event>
+	<event>
+		<text>キャッシュを開こうとするとダメージを受けますが、幸いなことにそれほど大きなものではありません。内部では、それは主に弾薬と武器のようです。すべてを分解する時間はありませんが、印象的な運搬を取り戻すことができます。</text>
+		<damage amount="3" />
+		<weapon name="RANDOM" />
+		<autoReward level="HIGH">missiles_only</autoReward>
+	</event>
+	<event>
+		<text>スクラッチなしでキャッシュに到達します。内部では、それは主に弾薬と武器のようです。すべてを分解する時間はありませんが、印象的な運搬を取り戻すことができます。</text>
+		<weapon name="RANDOM" />
+		<autoReward level="HIGH">missiles_only</autoReward>
+	</event>
+	<event>
+		<text>キャッシュを開こうとするとダメージを受けますが、幸いなことにそれほど大きなものではありません。内部では、それは主に燃料と増強物のようです。すべてを分解する時間はありませんが、印象的な運搬を取り戻すことができます。</text>
+		<damage amount="3" />
+		<augment name="RANDOM" />
+		<autoReward level="HIGH">fuel_only</autoReward>
+	</event>
+	<event>
+		<text>スクラッチなしでキャッシュに到達します。内部では、それは主に燃料と増強物のようです。すべてを分解する時間はありませんが、印象的な運搬を取り戻すことはできます。</text>
+		<augment name="RANDOM" />
+		<autoReward level="HIGH">fuel_only</autoReward>
+	</event>
+</eventList>
+
+<event name="ASTEROID_DEADPLATFORM" unique="true">
+	<text>かなり大きな採掘プラットフォームが、くり抜かれた小惑星の側面に埋め込まれています。呼びかけにも反応を示さず、活動の兆候も示していませんが、それがどれくらいの期間、またはどのような理由で放棄されたかはわかりません。</text>
+	<choice hidden="true">
+		<text>プラットフォームに乗り込みます。</text>
+		<event load="ASTEROID_DEADPLATFORM_BOARD" />
+	</choice>
+	<choice hidden="true">
+		<text>プラットフォームを無視します。</text>
+		<event>
+			<text>この場所を探索することから得られるものはおそらく何もありません。次へ移りましょう。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ASTEROID_DEADPLATFORM_BOARD">
+	<event>
+		<text>小惑星の後ろから海賊船が現れたら、プラットホームに着陸して調査に移動します！プラットフォームを罠として使っていました！</text>
+		<environment type="asteroid" />
+		<ship load="SHIP_PIRATE_ALL" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>プラットフォームは、当初考えていたよりもボロボロです。シールドジェネレーターは煙霧で作動しており、乗組員はずっと前から去っています。なぜ彼らが去ったのかはわかりませんが、かなりの量の燃料が残っています。</text>
+		<autoReward level="HIGH">fuel</autoReward>
+	</event>
+	<event>
+		<text>あなたは駅に足を踏み入れただけで、プラットフォームの元居住者であるロックマンが貨物室に閉じ込められているのを見つけました。あなたがドアを開けると彼はおびえていますが、あなたはなんとか彼を落ち着かせます。彼は、海賊の襲撃が乗組員を虐殺し、彼が唯一の生存者であったと説明します。</text>
+		<crewMember amount="1" class="rock" />
+	</event>
+	<event>
+		<text>シールドジェネレーターがまだ機能していることに気付くためだけにステーションに乗り込みます。ステーションが放棄された原因は不明ですが、パーツを取り除き、それらを使用して独自のシールドをアップグレードします。</text>
+		<upgrade amount="1" system="shields" />
+	</event>
+</eventList>
+
+<event name="ASTEROID_HURTMINER" unique="true">
+	<text>別の船が密集した小惑星のフィールドを介してビーコンを探索しているようです。しかし、あなたがそれらを見つけた直後に、大きな小惑星が彼らの船に衝突し、彼らのエンジンを破壊し、彼らを飛ばします！</text>
+	<environment type="asteroid" />
+	<ship load="SHIP_GENERIC" hostile="false" />
+	<choice hidden="true">
+		<text>民間人を救出してみてください。</text>
+		<event load="ASTEROID_HURTMINER_HELP" />
+	</choice>
+	<choice hidden="true">
+		<text>衝突から残骸の一部を救おうとします。</text>
+		<event load="ASTEROID_HURTMINER_STEAL" />
+	</choice>
+	<choice hidden="true" req="pilot" lvl="2">
+		<text>（パイロットのアップグレード）高度な自動パイロットを使用して、軌道を修正します。</text>
+		<event load="ASTEROID_HURTMINER_HELP_GOOD" />
+	</choice>
+	<choice hidden="true" req="BLUELIST_ARM">
+		<text>（腕のアップグレード）腕を使って弾道を修正します。</text>
+		<event>
+			<text>あなたは船に掛かり、より大きな小惑星の進路からそれらを引き出します。あなたは少し殴打しますが、船長はあなたの助けに非常に感謝しており、彼の船が合計されていることを考えると、彼は代わりにあなたを助けることを申し出ます。</text>
+			<crewMember amount="1" pilot="2" />
+			<damage amount="3" />
+		</event>
+	</choice>
+	<choice>
+		<text>プラットフォームを無視します。</text>
+		<event>
+			<text>この場所を探索することから得られるものはおそらく何もありません。次へ移りましょう。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ASTEROID_HURTMINER_HELP_GOOD">
+	<event>
+		<text>あなたはいくつかのケーブルを使って民間船に到達し、衝突を避けるためにちょうど間に合うように彼らの軌道を修正することができます。彼らの船は乾杯ですが、安全な場所に輸送できるようになるまで、一緒に来るように説得します。それらの1つはあなたを助けるために後ろに残ることを申し出ます。</text>
+		<crewMember amount="1" />
+	</event>
+	<event>
+		<text>あなたはいくつかのケーブルを使って民間船に到達し、衝突を避けるためにちょうど間に合うように彼らの軌道を修正することができます。彼らの船は激しく殴打されていますが、彼らは大丈夫だと主張しています。彼らは彼らを救うためにあなたに支払います。</text>
+		<autoReward level="MED">stuff</autoReward>
+	</event>
+</eventList>
+<eventList name="ASTEROID_HURTMINER_HELP">
+	<event>
+		<text>あなたは民間人を追いかけますが、さらにいくつかの小惑星があなたの船体を攻撃します。あなたはなんとか彼らの船に到達することができます-それが巨大な小惑星と衝突するのと同じように、それを完全に覆い隠します。あなたは時間内に引き離しますが、救いの一部を手に取って出て行く以外に何もすることはありません。</text>
+		<autoReward level="LOW">scrap_only</autoReward>
+		<damage amount="4" />
+	</event>
+	<event>
+		<text>あなたは民間船に到着し、いくつかのケーブルを使用して、衝突を避けるためにちょうど間に合うようにそれらの軌道を修正することができます。彼らの船は乾杯ですが、安全な場所に輸送できるようになるまで、一緒に来るように説得します。それらの1つはあなたを助けるために後ろに残ることを申し出ます。</text>
+		<crewMember amount="1" />
+	</event>
+	<event>
+		<text>あなたは民間船に到着し、いくつかのケーブルを使用して、衝突を避けるためにちょうど間に合うようにそれらの軌道を修正することができます。彼らの船は激しく殴打されていますが、彼らは大丈夫だと主張しています。彼らは彼らを救うためにあなたに支払います。</text>
+		<autoReward level="MED">stuff</autoReward>
+	</event>
+</eventList>
+<eventList name="ASTEROID_HURTMINER_STEAL">
+	<event>
+		<text>あなたは金属くずの一部を拾うために近づきますが、船はそれ自体で軌道を修正したようです。彼らはあなたが彼らをめちゃくちゃにして、発砲しようとしていることにあまり親切ではありません！</text>
+		<autoReward level="MED">stuff</autoReward>
+		<enemyDamage amount="3" system="engines" effect="breach" />
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>あなたは金属くずの一部を拾うために近づきますが、船はそれ自体で軌道を修正したようです。 「くそーレネゲード！あなたが気にするのはスクラップだけです！これについて反乱軍に話さないとは思わないでください！」</text>
+		<autoReward level="MED">stuff</autoReward>
+		<modifyPursuit amount="1" />
+	</event>
+	<event>
+		<text>民間船はらせん状に離れ、はるかに大きな小惑星に衝突します。あなたが両方の残骸を集めるとき、他に何もあなたを邪魔しません。</text>
+		<autoReward level="HIGH">stuff</autoReward>
+	</event>
+</eventList>
+
+
+<eventList name="NEUTRAL_ASTEROID">
+	<event load="ASTEROID_ENGILAB" />
+	<event load="ASTEROID_STANDOFF" />
+	<event load="ASTEROID_REBELOUTPOST" />
+	<event load="ASTEROID_LENNY" />
+	<event load="ASTEROID_ABUSE" />
+	
+	<event load="CIVILIAN_ASTEROID_APPROACHING" />
+	<event load="ROGUE_REBEL" />
+	<event load="REBEL_AUTO_SPY" />
+</eventList>
+
+<event name="ASTEROID_LENNY" unique="true">
+	<text>ここの小惑星フィールドはそれほど密集していませんが、ほぼ月サイズの岩の塊が、その軌道上にある小さな連邦採掘コロニーを支えています。これは、連絡に反応しません。複雑な洞窟システムは、最大の岩に人工的に彫られたようです。</text>
+	<choice hidden="true">
+		<text>洞窟を探検。</text>
+		<event>
+			<text>あなたは洞窟の奥深くに飛び込み、肉でできているように見える壁に出くわすまで自由に探索します。恐ろしいことに、あなたは「壁」が手放し、巨大なワームのような生き物の一部であることを明らかにするのにちょうど間に合うように引き離します！</text>
+			<choice hidden="true">
+				<text>コロニーに警告します。</text>
+				<event load="ASTEROID_LENNY_WARN" />
+			</choice>
+			<choice hidden="true">
+				<text>ここから地獄を出せ！</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="sensors" lvl="2">
+		<text>（センサーのアップグレード）洞窟をスキャンします。</text>
+		<event load="ASTEROID_LENNY_SCAN" />
+	</choice>
+	<choice hidden="true" req="ADV_SCANNERS" lvl="2">
+		<text>（LRS）洞窟をスキャンします。</text>
+		<event load="ASTEROID_LENNY_SCAN" />
+	</choice>
+	<choice hidden="true">
+		<text>離れる。</text>
+		<event>
+			<text>ここでは何もしません。とにかく洞窟に価値のあるものがある可能性は低いです。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ASTEROID_LENNY_SCAN">
+	<text>恐ろしいことに、スキャンの結果、巨大なワームのような生き物が小惑星の中に潜んでいることがわかりました。船を飲み込むのに十分な大きさであるため、入植者に脅威を与える可能性があります。</text>
+	<choice hidden="true">
+		<text>コロニーに警告します。</text>
+		<event load="ASTEROID_LENNY_WARN" />
+	</choice>
+	<choice hidden="true">
+		<text>ここから地獄を出せ！</text>
+		<event />
+	</choice>
+</event>
+<event name="ASTEROID_LENNY_WARN">
+	<text>あなたはコロニーに急いで行き、彼らが最終的に反応するまで彼らを呼び、あなたが怒っているかのようにあなたを見つめます。あなたは彼らにワームについて警告します、そして彼らの目は恐怖で大きくなります。 「レニーに何か問題がありますか？！そうではないと言ってください！」</text>
+	<choice hidden="true">
+		<text>レニー？</text>
+		<event>
+			<text>「はい、レニー！ワーム！彼は最も大切な人です！私たちは彼に永遠の若さの見返りに贈り物を持ってきます！彼は私たちの救い主です！」入植者たちはそれぞれひざまずいて祈り、「ワームのレニーを賛美せよ、賛美を！」と唱えます。</text>
+			<choice hidden="true">
+				<text>じゃあオーケー...</text>
+				<event>
+					<text>「あなたは価値がありません！あなたは私たちにレニーの不幸の誤ったニュースをもたらしました、そして今私たちはあなたを彼に養います！」素晴らしいです。今、あなたには対処すべきワッコカルトがいるようです。</text>
+					<ship load="SHIP_FED_LENNY" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ASTEROID_LENNY_HELP">
+	<text>あなたは慎重に植民地に乗り込み、入植者にあなたの言うことを聞くように説得します。いくつかの調査は、それらのほとんどが心理的に苦しんでいることを明らかにしています。おそらく、他の誰も「レニー」を台無しにしたくないために、長期にわたる孤立が原因です。彼らを助けるためにあなたができることがたくさんあるかどうかはわかりませんが、一人の入植者があなだ?を脇に連れて行きます。彼らはまだ完全に狂っていないようで、彼らは他人の怒りを引き出さないようにふりをしているだけでした。彼らはあなたに彼らを連れて行くように頼みます。</text>
+	<crewMember amount="1" />
+</event>
+
+<event name="ASTEROID_ABUSE" unique="true">
+	<text>発掘調査法ではそうする権限がありませんが、連立局はこのビーコンの近くで小惑星を収穫し、全景で稼働しています。</text>
+	<environment type="asteroid" />
+	<ship load="SHIP_COALITION_STATION" hostile="false" />
+	<choice hidden="true">
+		<text>ねえ、あなたはここにいることはできません！</text>
+		<event>
+			<text>独善的な笑顔を着たカマキリの船長がカメラに現れます。 「ハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハハッお気づきの方もいらっしゃると思いますが、おかしな小石の男とグロスワームの物が乗っています。したがって、連合はあなたと同じくらいの権利を持っています！ハハ！ダムダム！」</text>
+			<choice hidden="true">
+				<text>これらの独善的なろくでなしを攻撃します。</text>
+				<event>
+					<text>「ハハハ、はい、私に幼児の脳の男と戦ってください！私はあなたの虐殺を歓迎します！ハハ！」</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>フェアポイント。</text>
+				<event>
+					<text>「なに？！いや！いやいや！あなたは同意するはずがない！あなたは怒っている！マダー！ああ！あなたを呪う！うーん。ええと、今何をすべきかわからない。ええと...あなたは売りと物を買う？」</text>
+					<store>STORE_COALITION</store>
+				</event>
+			</choice>
+			<choice hidden="true" req="BLUELIST_ANTIBIO">
+				<text>（反生物兵器）ロックマンとリーチを狙撃する。</text>
+				<event>
+					<text>あなたは武器を構成し、マンティスが誇らしげに表示した両方の乗組員をロックし、ほぼ瞬時に両方を殺します。カマキリは恐怖に襲われます。 「あなたは...どうやって？！この不正行為！ああ！」オフスクリーンから、乗っているスラッグがシャッフルします。 「ええ、あなたはちょっとサックします。私はここにいます、連邦準備制度理事会の男はより涼しい銃を手に入れました。」</text>
+					<crewMember amount="1" class="slug" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>駅を無視します。</text>
+		<event>
+			<text>あなたはこれらの人たちを悩ませることから得るものは何もありません。近づかないほうがいい。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ASTEROID_REBELOUTPOST" unique="true">
+	<text>ここの小惑星の間に小さな反乱軍の前哨基地がこっそりと配置されているようです。法律により、彼らはここにいることを意図していませんが、採掘作業が誰かを傷つけることで正確に知られているわけではありません。</text>
+	<ship load="SHIP_REBEL_STATION" hostile="false" />
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>それらに連絡してください。</text>
+		<event load="ASTEROID_REBELOUTPOST_CONTACT" />
+	</choice>
+	<choice hidden="true">
+		<text>法を自分の手に取りなさい！</text>
+		<event>
+			<text>「くそっ！そして、なぜこれまでに反乱があったのか不思議に思う！これは法律ではなく、これは腐敗だ！」</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="REBEL_ID">
+		<text>（偽造ID）取引する反逆者のふりをします。</text>
+		<event>
+			<text>反乱軍は懐疑的であると言うことができますが、反乱軍の宇宙から遠く離れた場所でのサポートが不足しているため、古い機器を売り払うことを切望しているようです。</text>
+			<store>STORE_REBEL</store>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>反乱軍を無視します。</text>
+		<event>
+			<text>無害であろうとなかろうと、これらの反逆者を悩ますことは危険です。関与しない方がいいです。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ASTEROID_REBELOUTPOST_CONTACT">
+	<event>
+		<text>反乱軍はあなたと話すのに非常に用心深いようです。あなたは追いつき始め、すぐに去ることを決心します。おそらく、この目撃情報について艦隊に情報を提供することをあまり躊躇しないでしょう。</text>
+		<modifyPursuit amount="1" />
+	</event>
+	<event>
+		<text>「あなたは反逆者ですよね？私たちはすべてに目を向けることができたとは言えませんが、私は魅力を見ることができます。時々私もこの場所を置き去りにしたいのですが、私には果たす義務があります。それでも戦闘に突入しないあなたのような人を見かけることはめったにありません。気をつけてください、友よ。私たちがお互いに銃を引く必要がないように。」</text>
+		<autoReward level="MED">fuel</autoReward>
+	</event>
+	<event>
+		<text>「あなたが飛び込んだ瞬間から、私たちは死んだと思った。あなたがFRBであっても、友好的な顔を見てうれしい。合法性についてあまり心配していなければ、私たちは取引を行うことができるでしょうか？」</text>
+		<store>STORE_REBEL</store>
+	</event>
+</eventList>
+
+
+<event name="ASTEROID_STANDOFF" unique="true">
+	<text>接近する大規模な小惑星の嵐の存在にもかかわらず、2隻の船がスタンドオフの真っ只中にあるように見えます。省と神権政治の船は、ある種のデポへのアクセスをめぐって争っています。予想通り、ロックマンは攻撃的な人種的スラーを使用しており、ゾルタンは法的な専門用語を吐き出している。ほかに何かあたらしいことは？</text>
+	<choice hidden="true">
+		<text>ゾルタンを支援します。</text>
+		<event>
+			<text>彼らが突然飛び去るまで、あなたはしばらくの間、ゾルタンがあなたを助けることを考えていると思います！その理由は、ビーコンが接近する小惑星の嵐に飲み込まれた瞬間に明らかです！</text>
+			<environment type="asteroid" />
+			<ship load="SHIP_ASTEROID_ROCK_STANDOFF" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ロックマンを支援します。</text>
+		<event>
+			<text>あなたがゾルタンの船に閉じ込められている間、ロックマンはゾルタンでより多くの猥褻さを叫ぶことによって「サポート」を提供し続けます。つまり、小惑星がビーコンを飲み込み、ロックマンがデポをあきらめて放棄するまでです！</text>
+			<environment type="asteroid" />
+			<ship load="SHIP_ASTEROID_ZOLTAN_STANDOFF" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="cloaking" lvl="2">
+		<text>（Upg. Cloaking）デポを自分でこっそりと襲撃します。</text>
+		<event>
+			<text>あなたは2隻のしゃがむ船をすり抜けてデポを襲撃し、手の届くところにある釘付けされていないものをすべてつかみ、すぐに立ち去ります。</text>
+			<weapon name="RANDOM" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>これらの2つはそれを一人で公にすることができます。</text>
+		<event>
+			<text>このように2隻の船の間を行き来するのは無意味です。彼らが彼らである男子のようにお互いを扱うようにするのが最善です。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ASTEROID_STANDOFF_DEPOT">
+	<text>船が邪魔にならないので、自分でデポを追いかける機会がありますが、小惑星から追加のダメージを受ける可能性があります！</text>
+	<choice hidden="true">
+		<text>デポを襲撃します。</text>
+		<event>
+			<text>あなたはデポを襲撃し、手の届くところにある釘付けされていないものをすべてつかみ、すぐに去ります。いくつかの小惑星があなたの船体を攻撃しますが、うまくいけばそれはそれだけの価値がありました。</text>
+			<damage amount="3" />
+			<autoReward level="MED">standard</autoReward>
+			<weapon name="RANDOM" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>今すぐ出発します。</text>
+		<event />
+	</choice>
+</event>
+
+<event name="ASTEROID_ENGILAB" unique="true">
+	<text>近くの小惑星フィールドを監視している近くのエンギステーションから連絡を受け取ります。 「エンギの存在は省の許可を得ています。目標：ドローン技術を使用して遠隔採掘作業をテストおよび確立します。問題：バガボンドの和解は技術を盗み続けます。解決策：連邦船は「爆破」する可能性があります。取引は可能ですか？」</text>
+	<choice hidden="true">
+		<text>助けることに同意します。</text>
+		<event>
+			<text>「理解があります。限られた時間のリソースが不足しています。3隻のVagabond船が問題があると特定されました。1隻を倒してください。」</text>
+			<choice hidden="true">
+				<text>グールが住む船に乗ってください。</text>
+				<event>
+					<text>「了解しました。ターゲットの座標が転送されています。」</text>
+					<environment type="asteroid" />
+					<ship load="SHIP_ASTEROID_ENGILAB_GOUL" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>マレスが住む船に乗ります。</text>
+				<event>
+					<text>「了解しました。ターゲットの座標が転送されています。」</text>
+					<environment type="asteroid" />
+					<ship load="SHIP_ASTEROID_ENGILAB_MARE" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>レイスが住む船に乗ってください。</text>
+				<event>
+					<text>「了解しました。ターゲットの座標が転送されています。」</text>
+					<environment type="asteroid" />
+					<ship load="SHIP_ASTEROID_ENGILAB_WRAITH" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>エンギを無視して、代わりに攻撃してください！</text>
+		<event>
+			<text>「重大なエラー。連邦船からの予期しない敵意。適切な対応：「おやおや」。戦闘プロトコルのアクティブ化。」</text>
+			<environment type="asteroid" />
+			<ship load="SHIP_ENGI_STATION" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>私たちは用事のランナーではありません。</text>
+		<event>
+			<text>「あなたの回答は次のように評価されました：失礼。残念な状況。私たちはあなたの船との接触をやめます。」</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ASTEROID_ENGILAB_CONTACT">
+	<text>「印象的なデモンストレーション。連邦船は「お尻を蹴った」ことに成功しました。支払い期限があります。すぐに報酬を受け取ることを期待してください。」</text>
+	<autoReward level="MED">drone</autoReward>
+</event>
+
+
+<eventList name="DISTRESS_ASTEROID">
+	<event load="DISTRESS_ASTEROID_FREEDUMB" />
+	<event load="DISTRESS_ASTEROID_BACTERIA" />
+	
+	<event load="DISTRESS_TRAPPED_MINER" />
+	<event load="DISTRESS_CIVILIAN_ASTEROIDS_BEACON" />
+	<event load="DISTRESS_SATELLITE_DEFENSE" />
+	<event load="DISTRESS_CRASH_LANDING" />
+	<event load="DISTRESS_REFUGEE_ABANDONED" />
+</eventList>
+
+<event name="DISTRESS_ASTEROID_FREEDUMB" unique="true">
+	<text>ここでの苦痛のビーコンは、大きな被害を受けたロックマイニングプラットフォームから来ています。彼らはほとんどすぐにあなたを歓迎します。 「私たちはあなたが誰であるか、あなたの賭け金が何であるかを気にしません-ここの周りを走っている狂気のカマキリが数十人で私たちを虐殺しています！私たちはあなたが彼らを追跡してこの殺人を終わらせる必要があります！」</text>
+	<distressBeacon />
+	<choice hidden="true">
+		<text>殺人者を追跡することに同意します。</text>
+		<event>
+			<text>システムをスキャンして、少し離れた別の船を検出します。近づくと、フリーマンティスが操縦していることがわかります。フリーマンティスは大きな歓喜であなたを迎えます。 「メリーデイ、キャプテン！あなたも素晴らしい賞金を要求してここに来ますか？」</text>
+			<choice hidden="true">
+				<text>あなたは神権政治の鉱夫を殺しているのですか？</text>
+				<event>
+					<text>「え？あなたが何を話しているのかわからない。私たちはここに来て岩を収穫する！たくさんの岩が教えてくれる！岩を殺す、それはあなたに燃料を与える！そしてこれを聞いているとき、私は自分自身に考えている。 ！ 'あなたは言葉が間違っていると言っていますか？真実は、私たちは燃料を見つけていません！私が考えている何か間違ったことをしている...」</text>
+					<choice hidden="true">
+						<text>あなたはひどく誤解されてきました-ロックマンは小惑星ではありません。</text>
+						<event>
+							<text>「なに？あなたは岩があると言っている...そして男？これが私がそれらを切り開いたときに叫んで走っている理由ですか？ええと...革新的なアイデア！あなたは大きく賢く、最大に賢いと思います！いつか私が欲しい最大の賢い。だから、私はあなたと一緒に来て、知識が私と一緒に出てくることを望んでいます！」</text>
+							<crewMember amount="1" class="mantis_free" />
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>いいえ、あなたはうまくやっています。</text>
+						<event>
+							<text>「ああ、大丈夫！運が悪いと思います。どうもありがとう、船長！燃料はあまりありませんが、小さな岩が死んだ後、大きな岩から選んださまざまな金属の素晴らしいバスケットを提供します！」</text>
+							<autoReward level="MED">scrap_only</autoReward>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ごみ。</text>
+		<event>
+			<text>ロックマンはこれ以上何も言おうとはしません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="DISTRESS_ASTEROID_BACTERIA" unique="true">
+	<text>あなたが到着するとすぐに、ゾルタンの科学船があなたを歓迎します。 「今日はひどい日です、船長！あなたは私たちを助けなければなりません！条例セクションC67I-O23W-Bにもかかわらず...えーと...多分それはBではなくCでした...それにもかかわらず、非常に重要な判決に違反しているにもかかわらず、近くの南軍の前哨基地は、この地域を汚染するAUDACITYを持っており、誰も気にしない完全に役に立たない小惑星媒介微生物の非常にまれな種を危険にさらしました！これは耐えられません！」</text>
+	<distressBeacon />
+	<choice hidden="true">
+		<text>助けることを申し出る。</text>
+		<event>
+			<text>「ああ、ありがとう。私は一度自分のために何かをしなければならないのではないかと心配しました。ウェルプ、ここにコーディネートがあります。あなたがやり直したことは何でもして、彼らか何かを殺してください」。あなたは前哨基地に向かいます。前哨基地は1隻の船で保護されています。</text>
+			<environment type="asteroid" />
+			<ship load="SHIP_VAMPWEED_BACTERIA" hostile="false" />
+			<choice hidden="true">
+				<text>あなたが最善を尽くすことをしなさい。</text>
+				<event>
+					<text>言葉はパンジーのためのものです。傭兵としてのあなたの仕事は殺すことです、そしてあなたを殺すことです。の名において...役に立たない微生物。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>ヴァンプウィードに説明してみてください。</text>
+				<event>
+					<text>「私にはわかりません。なぜこれらのバクテリアが重要なのですか？そして「汚染をやめる」とはどういう意味ですか？私たちは何を汚染していますか？私たちはこの他の集落と同じくらい多くの廃棄物を生み出しますセクタ。"</text>
+					<choice hidden="true">
+						<text>ゾルタンは私たちにこのすべてを語った。私たちはただの傭兵です。</text>
+						<event>
+							<text>「うーん...そしてなぜ私は気にする必要があるのですか？私たちは省の市民ではありません。地獄、省は発掘法に最も注意を払うことを知っていたので、発掘法にのみ含まれていました。あなたにはやる…でも多分あなたはただ、私にはわからない、とにかくそれをやったとゾルタンに言うことができるだろうか？」</text>
+							<choice hidden="true">
+								<text>ゾルタンに嘘をつく。</text>
+								<event>
+									<text>あなたはゾルタンに戻り、仕事が完了したことを彼らに知らせます。あなたが何かをしたという証拠がないにもかかわらず、Zoltanが点灯します。 「信じられないほどの仕事です。これで、私たちは皆、安心してバクテリアを気にせずに続けることができます！これがあなたの報酬です！」</text>
+									<autoReward level="LOW">item</autoReward>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>仕事をきちんと終えて、ヴァンプウィードを殺してください。</text>
+								<event>
+									<text>あなたはゾルタンを助けることを約束しました、そしてあなたはそれを続けます。戦闘の準備を！</text>
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>申し訳ありませんが、お手伝いできません。</text>
+		<event>
+			<text>「ああ、あなたは無価値です。なぜ誰も私の仕事を喜んでやってくれないのですか？！」</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ASTEROID_BACTERIA_HELP">
+	<text>「信じられないほどの仕事です。これで、私たちは皆、安心してバクテリアを気にせずに続けることができます！これがあなたの報酬です！」</text>
+	<autoReward level="LOW">item</autoReward>
+</event>
+
+
+<eventList name="HOSTILE_ASTEROID">
+	<event load="ENCOUNTER_ROCK_ASTEROID" />
+	<event load="ENCOUNTER_ZOLTAN_ASTEROID" />
+	<event load="ENCOUNTER_VAMPWEED_ASTEROID" />
+	<event load="ENCOUNTER_LEECH_ASTEROID" /> 
+	
+	<event load="PIRATE_ASTEROID" />
+	<event load="ENCOUNTER_AUTO_ASTEROID" />
+	<event load="ENCOUNTER_REBEL_ASTEROID" />
+</eventList>
+
+<event name="ENCOUNTER_ROCK_ASTEROID">
+	<text load="TEXT_ENCOUNTER_ROCK" />
+	<ship load="SHIP_ROCK_FIGHT" hostile="true" /> 
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ENCOUNTER_ZOLTAN_ASTEROID">
+	<text load="TEXT_ENCOUNTER_ZOLTAN" />
+	<ship load="SHIP_ZOLTAN_FIGHT" hostile="true" /> 
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="ZOLTAN_DELETER">
+		<text>（Zoltan Deleter）Zoltansを脅かします。</text>
+		<event load="ENCOUNTER_ZOLTAN_THREATEN" />
+	</choice>
+</event>
+
+<event name="ENCOUNTER_VAMPWEED_ASTEROID">
+	<text load="TEXT_ENCOUNTER_VAMPWEED" />
+	<ship hostile="true" load="SHIP_VAMPWEED_FIGHT" />
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+
+<eventList name="QUEST_ASTEROID">
+	<event load="QUEST_ASTEROID_TRANSPORT" />
+	
+	<event load="QUEST_ESCORT" />
+	<event load="STORE_RESCUE" />
+</eventList>
+
+<event name="QUEST_ASTEROID_TRANSPORT" unique="true">
+	<text>小さなEargenトランスポートがあなたを歓迎し、彼らのLeechキャプテンは長いガッシュから背中を出血します。 「あなた、あなたは私たちを助けることができます。私たちはこれらを首都に戻すことになっていますが、何人かの海賊が私たちの邪魔をして貨物を盗みました。 ？」</text>
+	<ship hostile="false" load="SHIP_LEECH_TRANSPORT" />
+	<choice hidden="true">
+		<text>同意。</text>
+		<event>
+			<text>「素晴らしい。貨物に追跡ビーコンがあり、それらの馬鹿はそれを自分でつかんだようだ。彼らを追跡するのはそれほど難しいことではないはずだ。」</text>
+			<autoReward level="LOW">standard</autoReward>
+			<quest event="ASTEROID_TRANSPORT_PIRATES" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>却下。</text>
+		<event>
+			<text>あなたは謝罪します、しかしあなたは用事を実行するためにここにいません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ASTEROID_TRANSPORT_PIRATES">
+	<text>問題の海賊船を見つけたようです。無駄にする時間がないので、すぐに彼らと関わります。貨物を傷つけないように注意してください！</text>
+	<environment type="asteroids" />
+	<ship hostile="true" load="SHIP_ASTEROID_TRANSPORT_PIRATE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+
+<event name="LANDFILL_AIRTIGHT" unique="true">
+	<text>近くのビーコンは大規模な王朝の艦隊に完全に囲まれており、彼らの指揮官は爆破を要求します。 「あなたがこの墓所を一度に中断することを確認してください！細い艦隊はあなたを包み込みました。あなたの手足を上げてアプローチし、急いで動きをしないように考えてください！」最初はこれがあなたに向けられているかもしれないと思いますが、これはあなたが周りにいたよりもずっと長く続いているようです。</text>
+	<customFleet right="false" firing="true" autoDarkening="true">CUSTOM_FLEET_ENGINEER</customFleet>
+	<choice hidden="true">
+		<text>司令官に連絡して、あなたの援助を提供してください。</text>
+		<event>
+			<text />
+			
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>艦隊を無視します。</text>
+		<event>
+			<text>彼らが実際にあなたに向けられていないのなら、それから固執する特別な理由はありません。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+</FTL>

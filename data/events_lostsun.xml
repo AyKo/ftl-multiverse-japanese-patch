@@ -1,0 +1,1231 @@
+<FTL>
+
+
+
+<eventList name="ITEMS_LOSTSUN">
+	<event load="LOSTSUN_MISSILES_DRIFT" />
+	<event load="LOSTSUN_CACHE" />
+	<event load="LOSTSUN_DONATION" />
+	<event load="LOSTSUN_SHRINE" />
+</eventList>
+
+<event name="LOSTSUN_MISSILES_DRIFT" unique="true">	
+	<text>破壊されたロック船が漂流し、その船体は最近きれいに拾われました。しかし、あなたは幸運で、生き残った弾薬箱を1つ見つけました。</text>	
+	<autoReward level="LOW">missiles_only</autoReward>
+	<choice>
+		<text>船に乗って何かをしなさい。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>	
+</event>
+
+<event name="LOSTSUN_SHRINE" unique="true">
+	<text>ロストサン船のチームが近くのクリスタル神社を破壊しているようです。彼らはあなたを歓迎し、爆発物を惜しまないかと尋ねます。</text>
+	<choice>
+		<text>彼らにミサイルを貸してください。</text>
+		<event>
+			<text>「私たちはすぐに補給船を期待していませんでした、そしてこれは助けになるかもしれません。」彼らはロケットを構造物の基礎に直接発射し、すべてを崩壊させます。 「驚くべきことです。私たちは長い間、このような高品質の弾薬を入手できませんでした。スペアを保管してもいいですか？」</text>
+			<item_modify>
+				<item type="missiles" min="-7" max="-7" />
+			</item_modify>
+			<choice hidden="true">
+				<text>彼らにミサイルを保管させてください。</text>
+				<event>
+					<text>「あなたの善意が記されています。船長、あなたに返済しましょう。」</text>
+					<autoReward level="LOW">standard</autoReward>
+					<damage amount="-5" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>スペアを返却するように依頼します。</text>
+				<event>
+					<text>「結構ですが、これを忘れるとは思わないでください。これらは簡単に供給できると思うかもしれませんが、そうではありません。」</text>
+					<item_modify>
+						<item type="missiles" min="6" max="6" />
+					</item_modify>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>謝罪し、彼らの申し出を断ります。</text>
+		<event>
+			<text>失われた太陽は再びあなたを歓迎しようとはしません。万が一に備えて、自分と彼らの間に距離を置いてください。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="LOSTSUN_CACHE" unique="true">
+	<text>レーダーで絶え間なくビープ音が鳴り続けると、奇妙な物体が空の空間に浮かんでいることがわかります。それは...失われた太陽の武器のキャッシュであるように見えますか？</text>
+	<choice hidden="true">
+		<text>それを開く。</text>
+		<event load="LOSTSUN_CACHE_OPEN" />
+	</choice>
+	<choice hidden="true">
+		<text>危険を冒さないでください。</text>
+		<event>
+			<text>ロストサンの領土で軍の物資を盗むことは良い考えのように聞こえません。あなたはそれを残します。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="LOSTSUN_CACHE_OPEN">
+	<event>
+		<text>キャッシュをこじ開けて、弾薬のラックとラックを見つけます。</text>
+		<autoReward level="HIGH">missiles_only</autoReward>
+	</event>
+	<event>
+		<text>キャッシュは主に救急用品と配給でいっぱいです。しかし、あなたは火の武器、物資の黒い羊を見つけます。</text>
+		<weapon name="GIFTLIST_FIRE" />
+	</event>
+	<event>
+		<text>キャッシュを開くのが予想よりも難しいです。ロストサンの船があなたを見つけて攻撃したとき、あなたはそれを開こうとしてしばらく時間を費やします！あなたはキャッシュを放棄し、戦う準備をします。</text>
+		<ship load="SHIP_LOSTSUN_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="LOSTSUN_DONATION" unique="true">
+	<text>ロストサン艦隊は、比較的大規模な採掘作業を行っている近くの月を保護しているようです。よく調べてみると、艦隊の武装は不十分なようです。</text>
+	<choice hidden="true">
+		<text>それらに連絡してください。</text>
+		<event>
+			<text>「私たちのセクターの連邦船？あなたは別の補給ランナーですか？」あなたは首を横に振る。 「ふむ。私は通常、歓迎されるかもしれないし歓迎されないかもしれない見知らぬ人に助けを求めることはないが、私たちは弾薬を必要としている。あなたが惜しまない弾頭はあるか？」</text>
+			<choice>
+				<text>それらにいくつかのミサイルを与えます。</text>
+				<event>
+					<text>「私はあなたがあなたの物資を惜しまないように見えます。それでも、それは私の質問する場所ではありませんでした。何かが何もないよりはましです...」</text>
+					<item_modify>
+						<item type="missiles" min="-5" max="-5" />
+					</item_modify>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>しぶしぶ、ロストサンキャプテンはあなたに支払いとしていくらかのスクラップを与えます。</text>
+							<autoReward level="LOW">scrap_only</autoReward>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>彼らに多くのミサイルを与えてください。</text>
+				<event>
+					<text>「これはかなりの供給です。あなたは私を驚かせます、連邦の船長。私は今あなたの借金を抱えていると思います。」</text>
+					<item_modify>
+						<item type="missiles" min="-15" max="-15" />
+					</item_modify>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>あなたの多額の寄付に感謝し、LostSunsは十分なスクラップであなたに返済します。</text>
+							<autoReward level="HIGH">scrap_only</autoReward>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="RECYCLER">
+				<text>（リサイクル業者）彼らに増強物を与えなさい。</text>
+				<event>
+					<text>「興味深い技術です。聞いたことはありますが、予算が少ないです。これは私たちに大いに役立ちます。ありがとう、船長。」</text>
+					<remove name="RECYCLER" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>ロストサンズはあなたの技術に彼ら自身のいくつかといくつかのスクラップで返済します。</text>
+							<autoReward level="LOW">scrap_only</autoReward>
+							<weapon name="GIFTLIST_FIRE" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>仕方がない。</text>
+				<event>
+					<text>「予想通り。それでは急いでください。不幸があなたに続かないことを願っています。」</text>
+					<choice>
+						<text>船に乗って何かをしなさい。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それらを残します。</text>
+		<event>
+			<text>ここであなたに関係することは何もありません。あなたは飛び去ります。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+<eventList name="HOSTILE_LOSTSUN">
+	<event load="ENCOUNTER_LOSTSUN" />
+	<event load="ENCOUNTER_ROCK_LOSTSUN" />
+	<event load="LOSTSUN_ROCK_CHOICE" />
+	
+	<event load="ENCOUNTER_COALITION_LOSTSUN_1" /> 
+	<event load="ENCOUNTER_COALITION_LOSTSUN_2" />
+	
+	<event load="HAZARD_LOSTSUN" />
+</eventList>
+
+<event name="ENCOUNTER_LOSTSUN">
+	<text load="TEXT_ENCOUNTER_LOSTSUN" />
+	<ship load="SHIP_LOSTSUN_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_LOSTSUN">
+	<text>「これは私たちの領土、連邦です。私たち全員があなたの同情を歓迎するわけではありません。私たちの部門から出てください。さもないと、あなたを冥界の燃えるような穴に送ります。」</text>
+	<text>制限されたビーコンなどをめぐって別のロストサン船と議論を交わしていることに気づき、すぐに彼らの武器が引き抜かれます！</text>
+	<text>すべてのロストサンが連邦の支援に感謝しているわけではなく、一部の人々はそれに怒りさえしています。このビーコンにいる人は、間違いなくあなたの存在を評価していません。</text>
+	<text>あなたの存在は、彼らの武器が準備ができていてあなたにまっすぐに向けられているので、何らかの方法でこのビーコンで失われた太陽の船を怒らせたようです！</text>
+</textList>
+
+<event name="ENCOUNTER_ROCK_LOSTSUN">
+	<text load="TEXT_ENCOUNTER_ROCK_LOSTSUN" />
+	<ship load="SHIP_ROCK_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_ROCK_LOSTSUN">	
+	<text>「ロストサンズである過激なテロリストグループとのあなたの同盟は、もはや容認されません、連邦キャプテン。」</text>	
+	<text>ロック政府はこのセクターを攻撃するために頻繁に船を送ります。そのような船の1つがあなたに気づき、あなたが彼らの位置を明らかにする危険を冒しません。</text>	
+	<text>ショットは防御全体に散らばっていますが、深刻なダメージを与えるものはありません。セクターを偵察している目に見えないロック船が攻撃しています！</text>	
+	<text>「勇敢な人、ここに来てください。ロックマンはこれらの放火犯のあなたのサポートに感謝していません、そして私たちは私たちの真のリーダーによって正しく行動するつもりです！」</text>	
+</textList>
+
+<event name="ENCOUNTER_COALITION_LOSTSUN_1" unique="true">
+	<text load="TEXT_ENCOUNTER_COALITION_LOSTSUN" />
+	<ship load="SHIP_COALITION_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="ENCOUNTER_COALITION_LOSTSUN_2" unique="true">
+	<text load="TEXT_ENCOUNTER_COALITION_LOSTSUN" />
+	<ship load="SHIP_COALITION_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_COALITION_LOSTSUN">	
+	<text>ロックマンは連立の強力な同盟国であるため、ロストサンの脅威に対処するために何らかの部隊を派遣するよう要請しました。ここの船は、その脅威と攻撃であなたをグループ化するように見えます！</text>	
+	<text>ロストサンの船を追い詰める連立船があなたを見つけます。彼らは武器をパワーアップして攻撃するために時間を無駄にしません。</text>	
+	<text>このビーコンで連立船に乗っている怒り狂ったナメクジの船長があなたを歓迎します。 「私はここに来て、火に取りつかれたフリークを狩りました。連邦の暗殺者ではありません！殺される準備をしてください。」</text>	
+</textList>
+
+<event name="LOSTSUN_ROCK_CHOICE">
+	<text load="TEXT_LOSTSUN_ROCK_CHOICE" />
+	<choice hidden="true">
+		<text>ロックを攻撃します。</text>
+		<event>
+			<text>あなたはロストサンズへの忠誠を証明することを熱望して、ロック船で武器をロックします。ロストサン船は臆病さを示さず、バックグラウンドからのサポートを提供します。</text>
+			<environment type="PDS" target="enemy" />
+			<ship load="SHIP_ROCK_FIGHT_CHOICE" hostile="true" /> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>失われた太陽を攻撃します。</text>
+		<event>
+			<text>あなたはロックの支持を勝ち取るのに害はないと思います。あなたがロストサン船を破壊したと仮定すると、誰もあなたの裏切りについて聞くことはありません。驚いたことに、ロックはロストサン船に対して火力支援を提供し続けています。</text>
+			<environment type="PDS" target="enemy" />
+			<ship load="SHIP_LOSTSUN_FIGHT_CHOICE" hostile="true" /> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_LOSTSUN_ROCK_CHOICE">
+	<text>ロックとロストサンの船がこのビーコンで決闘しています。どちらもあなたに気づき、驚くべきことに両方ともあなたの助けを求めます。</text>
+	<text>決闘に参加することは、忠誠を証明するための危険な方法になる可能性があります。このビーコンでは、ロックとロストサンの船が戦っています。どちらもあなたにはっきりと気づいているので、どちらかを保存する必要があります。</text>
+	<text>このビーコンのロックとロストサンの両方の船はあなたの存在を認識していますが、あなたに対処するには忙しすぎます。あなたはどちらの側を取りますか？</text>
+	<text>Rock and Lost Sunの船がこのビーコンでドッグファイトに閉じ込められているため、ジレンマに直面していることに気づきます。いずれにせよ、両方を怒らせずに去ることはできないので、あなたは選択をしなければならないでしょう。</text>
+</textList>
+<event name="LOSTSUN_ROCK_CHOICE_ROCK_WIN">
+	<text>「あなたは私を驚かせます、連邦キャプテン。おそらくあなたは本当に私たちの最大の関心を念頭に置いています。」彼らはあなたに感謝の意を表します。</text>
+	<autoReward level="LOW">standard</autoReward>
+</event>
+<event name="LOSTSUN_ROCK_CHOICE_LOSTSUN_WIN">
+	<text>「興味深い。これは予想外の結果でした。あなた方連合は本当に裏切り者のクズだと聞かされていた。それでも我々はあなた方に恩義を感じており、それを返済するつもりだ。」</text>
+	<autoReward level="LOW">standard</autoReward>
+</event>
+
+
+<eventList name="BOARDERS_LOSTSUN">
+	<event load="BOARDERS_LOSTSUN_FIRE" />
+</eventList>
+
+<event name="BOARDERS_LOSTSUN_FIRE" unique="true">
+	<text>火の爆弾の爆発とテレポーターの旋回の紛れもない音が聞こえます。彼らがどこから来たのかはわかりませんが、確かに歓迎されない訪問者がいます！</text>
+	<boarders min="2" max="3" class="rock_commando" />
+	<damage amount="0" effect="fire" system="random" />
+	<damage amount="0" effect="fire" system="random" />
+</event>
+
+
+<eventList name="HAZARD_LOSTSUN">
+	<event load="ENCOUNTER_LOSTSUN_SUN" />
+	<event load="ENCOUNTER_LOSTSUN_ROCK_ASTEROID" />
+</eventList>
+
+<event name="ENCOUNTER_LOSTSUN_SUN" unique="true">
+	<text>失われた太陽は太陽フレアの恐れがほとんどありません。このビーコンの船の船長は笑いました。 「小さな火事が怖い、船長？死ぬまで決闘しよう！」</text>
+	<ship load="SHIP_LOSTSUN_FIGHT" hostile="true" /> 
+	<environment type="sun" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ENCOUNTER_LOSTSUN_ROCK_ASTEROID" unique="true">
+	<text>この小惑星フィールドは、情報を収集するときにロストサンのパトロールから隠れようとしているロックスパイを収容しているようです。彼らは明らかにあなたが彼らの情報で逃げて攻撃することを許可することに興味がありません！</text>
+	<ship load="SHIP_ROCK_FIGHT" hostile="true" /> 
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+
+<eventList name="NEUTRAL_LOSTSUN">
+	<event load="LOSTSUN_CIVILIAN_RESCUE" />
+	<event load="LOSTSUN_PRISONERS" />
+	<event load="LOSTSUN_ROCK_SPY" />
+	<event load="LOSTSUN_MANTIS_LOST" />
+	<event load="LOSTSUN_CHALLENGE" />
+	<event load="LOSTSUN_ROCK_SETTLEMENT" />
+	<event load="LOSTSUN_CHALLENGERS" />
+	
+	<event load="SOLAR_WRECK" />
+	<event load="FED_BROKEN_SUPPLY_DRONE" />
+	<event load="ASTEROID_EXPLORE_LOSTSUN" />
+</eventList>
+
+<event name="ASTEROID_EXPLORE_LOSTSUN" unique="true"> 
+	<text>スキャンにより、近くに大きな小惑星フィールドが見つかります。 FTLが再充電されるのを待つ間、短距離スキャナーは有用な資料を発見する可能性があります。</text>
+	<choice hidden="true">
+		<text>小惑星のフィールドを探索します。</text>
+		<event load="ASTEROID_EXPLORE_LOSTSUN_RESULTS" />
+	</choice>
+	<choice>	
+		<text>危なすぎる。 FTLが充電されるのを待つだけです。</text>
+		<event>
+			<text>あなたは小惑星を無視することにしました。</text>
+			<choice hidden="true">
+				<text>ストレージを確認してください。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice req="SCRAP_COLLECTOR" hidden="true">
+		<text>（スクラップ回収アーム）小惑星の採掘を試みます。</text>
+		<event>
+			<text>FTLが充電されるのを待っている間、最も近い小惑星からできるだけ多くの使用可能な材料を注意深く抽出します。</text>
+			<autoReward level="HIGH">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice req="BLUELIST_MINING" hidden="true">
+		<text>（採掘設備）小惑星の採掘を試みます。</text> 
+		<event>
+			<text>FTLが充電されるのを待っている間、最も近い小惑星からできるだけ多くの使用可能な材料を注意深く抽出します。</text>
+			<autoReward level="HIGH">scrap_only</autoReward>
+		</event>
+	</choice>
+</event>
+<eventList name="ASTEROID_EXPLORE_LOSTSUN_RESULTS">
+	<event>
+		<text>簡単な調査では、何も興味がありません。</text>
+	</event>
+	<event>
+		<text>スキャンは、有用な組成を持つ多くの小惑星を明らかにします。燃料を抽出します。</text>
+		<autoReward level="HIGH">fuel_only</autoReward>
+	</event>
+	<event>
+		<text>小惑星に埋め込まれた船の残骸を発見します。それはまだいくつかの機能的なミサイルを持っています。</text>
+		<autoReward level="MED">missiles</autoReward>
+	</event>
+	<event>
+		<text>あなたは放棄された採掘現場で起こります。いくつかのマイニングドローンが残され、再利用される可能性があります。</text>
+		<autoReward level="MED">droneparts</autoReward>
+	</event>
+	<event>
+		<text>小惑星フィールドは予想よりも危険であることがわかりました。いくつかの小惑星はなんとかあなたの船の防御を通り抜けることができました。</text>
+		<damage amount="3" />
+		<damage amount="1" system="random" />
+		<damage amount="1" system="room" effect="fire" />
+	</event>
+	
+</eventList>
+
+<event name="LOSTSUN_CIVILIAN_RESCUE" unique="true">
+	<text>ロストサンの船が非武装の民間船を攻撃してセクターを通過しようとしているのが見えます。民間人の虐待に完全に焦点を当てているため、失われた太陽があなたに気付くのではないかと疑っています。</text>
+	<choice hidden="true">
+		<text>民間人を保護します。</text>
+		<event>
+			<text>あなたはエンジンをハイギアに蹴り上げ、民間人から失われた太陽を追い払います。戦いの時間。</text>
+			<ship load="SHIP_LOSTSUN_CIVILIAN" hostile="true" /> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>船を無視します。</text>
+		<event>
+			<text>民間人はあなたを歓迎しようとし続けます。あなたはそれらを調整し、あなたが完全に一人になるまで飛び去ります。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="LOSTSUN_CHALLENGERS" unique="true">
+	<text>このビーコンを保護しているロストサンの船は、近くに飛び込んだ後、すぐにあなたを歓迎します。 「通過する船！私たちはあなたに挑戦します。戦闘で私たちを最高にしてください、そして私たちはあなたに報酬を与えます。より大きな挑戦を受け入れ、そして私たちはさらに大きな報酬を与えます！」</text>
+	<choice hidden="true">
+		<text>通常の報酬のために彼らと戦ってください。</text>
+		<event>
+			<text>「戦いを始めましょう！」</text>
+			<ship load="SHIP_LOSTSUN_CHALLENGE_DEFAULT" hostile="true" /> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>生命維持や医療システムなしで彼らと戦ってください。</text>
+		<event>
+			<text>「戦いを始めましょう！」</text>
+			<ship load="SHIP_LOSTSUN_CHALLENGE_MEDICAL" hostile="true" /> 
+			<status type="limit" target="player" system="medbay" amount="0" />
+			<status type="limit" target="player" system="clonebay" amount="0" />
+			<status type="limit" target="player" system="oxygen" amount="0" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>弱体化した原子炉で彼らと戦ってください。</text>
+		<event>
+			<text>「戦いを始めましょう！」</text>
+			<ship load="SHIP_LOSTSUN_CHALLENGE_REACTOR" hostile="true" /> 
+			<status type="divide" target="player" system="reactor" amount="2" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>弱体化したシステムでそれらと戦ってください。</text>
+		<event>
+			<text>「戦いを始めましょう！」</text>
+			<ship load="SHIP_LOSTSUN_CHALLENGE_HIGH" hostile="true" /> 
+			<status type="limit" target="player" system="sensors" amount="1" />
+			<status type="loss" target="player" system="weapons" amount="1" />
+			<status type="limit" target="player" system="doors" amount="1" />
+			<status type="limit" target="player" system="shields" amount="2" />
+			<status type="limit" target="player" system="engines" amount="3" />
+			<status type="limit" target="player" system="cloaking" amount="1" />
+			<status type="limit" target="player" system="pilot" amount="1" />
+			<status type="limit" target="player" system="hacking" amount="1" />
+			<status type="limit" target="player" system="mind" amount="1" />
+			<status type="limit" target="player" system="medbay" amount="1" />
+			<status type="limit" target="player" system="clonebay" amount="1" />
+			<status type="limit" target="player" system="oxygen" amount="1" />
+			<status type="limit" target="player" system="teleporter" amount="1" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ひどく弱体化したシステムでそれらと戦ってください。</text>
+		<event>
+			<text>「戦いを始めましょう！」</text>
+			<ship load="SHIP_LOSTSUN_CHALLENGE_AMAZING" hostile="true" /> 
+			<status type="limit" target="player" system="sensors" amount="0" />
+			<status type="loss" target="player" system="weapons" amount="2" />
+			<status type="limit" target="player" system="doors" amount="0" />
+			<status type="limit" target="player" system="shields" amount="2" />
+			<status type="limit" target="player" system="engines" amount="1" />
+			<status type="limit" target="player" system="cloaking" amount="1" />
+			<status type="limit" target="player" system="pilot" amount="1" />
+			<status type="limit" target="player" system="hacking" amount="1" />
+			<status type="limit" target="player" system="mind" amount="1" />
+			<status type="limit" target="player" system="medbay" amount="1" />
+			<status type="limit" target="player" system="clonebay" amount="1" />
+			<status type="limit" target="player" system="oxygen" amount="1" />
+			<status type="limit" target="player" system="teleporter" amount="1" />
+			<status type="divide" target="player" system="reactor" amount="2" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>	
+		<text>私たちは戦いを探していません。</text>
+		<event>
+			<text>「私はあなたを臆病者に連れて行かなかった。まあ、おそらくそれは最善のためだ」</text>
+			<choice hidden="true">
+				<text>ストレージを確認してください。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="LOSTSUN_PRISONERS" unique="true">
+	<text>失われた太陽の閉じ込めは、さまざまな起源からのいくつかの船を捕らえているように見えます。巡視船がその地域を捜索していて、あなたはそれがあなたに会うまで長くはかからないでしょう。</text>
+	<choice hidden="true">
+		<text>バリケードを攻撃し、民間人を解放します。</text>
+		<event>
+			<text>あなたの攻撃は非効率的であり、いくつかの反撃があなたの防御を通り抜けます。あなたは時間内に彼らの範囲から外れますが、巡視船は攻撃するために移動します！</text>
+			<ship load="SHIP_LOSTSUN_PATROL" hostile="true" />
+			<damage amount="3" effect="breach" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>巡視船を攻撃します。</text>
+		<event>
+			<text>リスクを冒していることはわかっていますが、余分なスクラップを使用することもできます。あなたは武器をパワーアップし、巡視船と交戦します。</text>
+			<ship load="SHIP_LOSTSUN_PATROL" hostile="true" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>船を無視します。</text>
+		<event>
+			<text>あなたはなんとか巡視船から逃げることができます。それでも、できるだけ早くビーコンを離れる必要があります。</text>
+		</event>
+	</choice>
+	<choice req="cloaking">
+		<text>（鳴き声）巡視船が通り過ぎるのを待ってから、防御を妨害します。</text>
+		<event>
+			<text>巡視船がすぐそばを通り過ぎると、あなたの待機は報われ、最終的にはあなたの視界から外れます。あなたは閉じ込めに忍び寄り、爆発物を置き、そして花火を見るために安全な距離に飛ぶ。</text>
+			<item_modify>
+				<item type="missiles" min="-3" max="-3" />
+			</item_modify>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>爆発が表面全体に波打つように、カオスはロストサン構造で噴火します。民間人を寄せ付けないようにシールドの主力を無効にしたようで、彼らは逃げ出します。民間人はあなたを見つけ、2人と2人を合わせて、彼らを解放するためにあなたに支払うことにします。</text>
+					<autoReward level="MED">scrap_only</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="LOSTSUN_ROCK_SPY" unique="true">
+	<text>ロックスパイがこの小惑星のフィールドに隠れているように見えます。それらがすでに見えなくなるまで、あなたはそれらを非常に長い間見ません。</text>
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>それらを追求します。</text>
+		<event load="LOSTSUN_ROCK_SPY_PURSUE" />
+	</choice>
+	<choice hidden="true">
+		<text>スパイを無視します。</text>
+		<event>
+			<text>小惑星のフィールドでランダムなロック船を追いかける理由はありません。あなたはできるだけ早く出発する準備をします。</text>
+		</event>
+	</choice>
+	<choice hidden="true" req="engines" lvl="4">
+		<text>（アップグレードエンジン）改良されたエンジンを使用して、それらを追跡します。</text>
+		<event>
+			<text>あなたはなんとかロックスパイに追いつくことができます。彼らはあなたが彼らをフォローしていることを親切に受け入れず、攻撃します。</text>
+			<ship load="SHIP_ROCK_FIGHT" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="LOSTSUN_ROCK_SPY_PURSUE">
+	<event>
+		<text>あなたはなんとかロックスパイに追いつくことができます。彼らはあなたが彼らをフォローしていることを親切に受け入れず、攻撃します。</text>
+		<ship load="SHIP_ROCK_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>あなたはロック船を追跡することができず、小惑星で迷子になっています。</text>
+	</event>
+	<event>
+		<text>あなたはロック船をうまく追跡することができましたが、十分な速さではありません。大きな小惑星が船体に衝突し、船を引き裂きます。あなたは同じ運命に苦しむことなくあなたができることを捨てようとします。</text>
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+</eventList>
+
+<event name="LOSTSUN_MANTIS_LOST" unique="true">
+	<text>このビーコンの赤い船はカマキリのものです。明らかな動機がないので、なぜ彼らがここに来たのかわかりません。</text>
+	<choice hidden="true">
+		<text>カマキリを攻撃します。</text>
+		<event>
+			<text>交換する必要のある言葉はありません。あなたが近づき始めるとすぐに、あなたの意図が敵対的であることは明らかであり、カマキリは彼ら自身を守る準備をします。</text>
+			<ship load="SHIP_MANTIS_FIGHT" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>彼らに連絡する。</text>
+		<event>
+			<text>カマキリはあなたが彼らに手を差し伸べたことに少しショックを受けているように見えます。しかし、彼らが話すことができる前に、失われた太陽の船がどこからともなく飛んで来て、カマキリの船を爆破して忘却させます。彼らはあなたを脅威としても特定しているようです。</text>
+			<ship load="SHIP_LOSTSUN_FIGHT_MANTIS" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>離れる。</text>
+		<event>
+			<text>予想に反して、カマキリは従おうとはしません。あなたは彼らの船から距離を置きます。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="LOSTSUN_MANTIS_LOST_WRECK">
+	<event>
+		<text>残骸のほとんどは焦げすぎて回収できませんが、それでもできることは廃棄します。</text>
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+	<event>
+		<text>調査の結果、船の橋は他の船よりもわずかにうまくいきました。一人のマンティスの生存者が隅に震えながら横たわり、あなたが近づくとあなたの乗組員の1人をほとんど殺します。しかし、いくらか説得した後、あなたは彼にあなたの乗組員に加わるように説得します。</text>
+		<crewMember amount="1" class="mantis" />
+	</event>
+	<event>
+		<text>この船を破壊した兵器は、価値のないがらくただけを残しました。あなたが諦めようとしているとき、あなたの目はかつて貨物室だった場所の近くを漂う小さな木枠を捕らえます。爆発を乗り切ることができたいくつかの燃料電池が含まれています。</text>
+		<item_modify>
+			<item type="fuel" min="2" max="3" />
+		</item_modify>
+	</event>
+</eventList>
+
+<event name="LOSTSUN_CHALLENGE" unique="true">
+	<text>このビーコンのロストサン船は、手遅れになる前に、気づかれずに逃げる前に、すでにあなたを見つけています。彼らはあなたを歓迎します。</text>
+	<choice hidden="true">
+		<text>応答する。</text>
+		<event>
+			<text>「それで、あなたは私たちがよく耳にする連邦船であり、旗艦を破壊するための危険な探求で私たちのセクターに侵入しますか？勇敢で愚かです。艦隊を引くことによって私たちのセクターを危険にさらす権利があるとあなたが思うのは愚かですここで。無傷で通過したい場合は、いくつかの質問に答えて、自分が価値があることを証明する必要があります。」</text>
+			<choice hidden="true">
+				<text>同意。</text>
+				<event>
+					<text>「私たちロストサンズは何年もの間、残忍なロック独裁政権との戦いを続けてきました。どの犯罪に対して私たちは彼らに責任を負わせ、この血なまぐさい戦争の始まりを引き起こしましたか？」</text>
+					<choice hidden="true">
+						<text>彼らの市民に嘘をつくための宣伝の使用。</text>
+						<event load="LOSTSUN_CHALLENGE_CORRECT_1" />
+					</choice>
+					<choice hidden="true">
+						<text>連立の創設。</text>
+						<event>
+							<text>「連立は私たちの敵ではなく、ロックエルダーとその嘘だけです！連邦のすべての敵が他の銀河の敵であるわけではありません。私たちはあなたに当然の教訓を教えましょう。」</text>
+							<ship load="SHIP_LOSTSUN_FIGHT" hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>嫌いな人の束であること。</text>
+						<event>
+							<text>「それは犯罪でもありません！あなたが成熟することさえできないなら、あなたがここに属していないことは明らかです。あなたの人生を消滅させる準備をしてください。」</text>
+							<ship load="SHIP_LOSTSUN_FIGHT" hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="rock_commando">
+						<text>（ロストサンコマンドー）市民に嘘をつくためのプロパガンダの使用。</text>
+						<event load="LOSTSUN_CHALLENGE_CORRECT_1" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>ごみ。</text>
+				<event>
+					<text>「予想される。それなら、あなたの早すぎる死はあなたのせいであり、あなたのせいだけだ。」</text>
+					<ship load="SHIP_LOSTSUN_FIGHT" hostile="true" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="LOSTSUN_CHALLENGE_CORRECT_1">
+	<text>「とても良いですが、それはロックの人々以外の誰もが答えることができる質問でした。」</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>「私たちロストサンズは私たちの宗教に専念しています。他のどの種族の中で最も強く、最も純粋な種族ですか？」</text>
+			<choice hidden="true">
+				<text>ロックマン。</text>
+				<event>
+					<text>「あなたは間違っています。私たちにパンダリングすることでどこにでも行くことができると思いますか？聖火に巻き込まれるまで、純粋な種族はありません！あなたはそのような治療に値しません。不潔な致命的な炎によって破壊される準備をしてください。」</text>
+					<ship load="SHIP_LOSTSUN_FIGHT" hostile="true" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>クリスタルズ。</text>
+				<event>
+					<text>「バハハ！それは生まれてから私たちに言われた嘘です！クリスタルは神ではなく、偽りの偶像です！明らかに、あなたも長老たちの嘘を信じています。私たちはあなたが属していないこの世界からあなたを取り除きます。 「」</text>
+					<ship load="SHIP_LOSTSUN_FIGHT" hostile="true" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>なし。聖なる火だけが本当に純粋であることができます。</text>
+				<event load="LOSTSUN_CHALLENGE_CORRECT_2" />
+			</choice>
+			<choice hidden="true">
+				<text>連盟。</text>
+				<event>
+					<text>ロストサンのキャプテンは明らかに怒り狂う。 「あなたはこれが面白いと思いますか？連邦は人種でさえありません！私にはこのばかげた時間はありません。私はあなたの罪を火で清めます！」</text>
+					<ship load="SHIP_LOSTSUN_FIGHT" hostile="true" />
+				</event>
+			</choice>
+			<choice hidden="true" req="rock_commando">
+				<text>（ロストサンコマンドー）なし。聖なる火だけが本当に純粋であることができます。</text>
+				<event load="LOSTSUN_CHALLENGE_CORRECT_2" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="LOSTSUN_CHALLENGE_CORRECT_2">
+	<text>「そうです、すべての命を生んだ火は、私たちの罪を清めることができる唯一のものです！」</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>「嘘やスキャンダルのない政府はありません。あなたの貴重な連邦が何年にもわたって広がっていることを嘘を通して見ることを私たちに証明してください。」</text>
+			<choice hidden="true">
+				<text>連邦は、連立を無力化するためだけに失われた太陽を支援してきました。</text>
+				<event load="LOSTSUN_CHALLENGE_CORRECT_3" />
+			</choice>
+			<choice hidden="true">
+				<text>連邦は反乱軍自身と同じように反乱に責任があります。</text>
+				<event load="LOSTSUN_CHALLENGE_CORRECT_3" />
+			</choice>
+			<choice hidden="true">
+				<text>連邦は、敵と同じ数の戦争犯罪を犯しました。</text>
+				<event load="LOSTSUN_CHALLENGE_CORRECT_3" />
+			</choice>
+			<choice hidden="true">
+				<text>連盟は決して嘘をついたことがない。</text>
+				<event>
+					<text>「ハァッ！だから、あなたは本当に単純な愚か者であり、盲目的に言われたことに従います。この銀河にはあなたのような人々のための余地はありません。」</text>
+					<ship load="SHIP_LOSTSUN_FIGHT" hostile="true" />
+				</event>
+			</choice>
+			<choice hidden="true" req="rock_commando"> 
+				<text>（ロストサンコマンドー）あなたのコマンドーは答えを知りません。</text>
+				<event>
+					<text>コマンドーを含まない質問にもかかわらず、あなたはまだ答えを彼らに頼ります。彼らは肩をすくめる。ロストサンのキャプテンは待つのに飽き飽きしています。 「これは簡単な質問のキャプテンです！私はあなたのナンセンスのためにもう時間がありません。」</text>
+					<ship load="SHIP_LOSTSUN_FIGHT" hostile="true" />
+					<item_modify>
+						<item type="fuel" min="-9999" max="-9999" />
+						<item type="scrap" min="-9999" max="-9999" />
+						<item type="missiles" min="-9999" max="-9999" />
+						<item type="drones" min="-9999" max="-9999" />
+					</item_modify>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="LOSTSUN_CHALLENGE_CORRECT_3">
+	<text>「船長、あなたは私に感銘を与えました。私は以前にここを通過した多くの船に挑戦しましたが、誰も自分自身を証明することができませんでした。あなたは私の尊敬を持っています。あなたのような真実の測量士があなたを待っているそのような困難な任務をどのように処理するか。」</text>
+	<crewMember amount="1" all_skills="1" class="rock_commando">Captain Solid</crewMember>
+</event>
+
+<event name="LOSTSUN_ROCK_SETTLEMENT" unique="true">
+	<text>ロストサンがこのセクターを買収する前の名残であるロック集落全体は、近くのプラネトイドに根ざしています。しかし、ロストサンの船が入植地の不十分に維持された防御を攻撃しているので、その記録は長くは続かないようです。</text>
+	<choice hidden="true">
+		<text>ロックマンを助け、失われた太陽を破壊してください。</text>
+		<event>
+			<text>すべてのロックマンが彼らの政府の敵意を非難されるべきではありません。あなたは失われた太陽をブロックし、戦う準備をします。</text>
+			<ship load="SHIP_LOSTSUN_SETTLEMENT" hostile="true" /> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>集落の破壊を支援します。</text>
+		<event>
+			<text>あなたは入植地を攻撃するために近づきますが、失われた太陽の船があなたを止めます。 「連邦、これはあなたの仕事ではありません。私たちが義務を果たすために、このビーコンを残してください。」彼らが武器で彼らの言葉を補強することができる前に、あなたは安全な距離を離れて飛ぶ。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>和解を無視します。</text>
+		<event>
+			<text>あなたはこの攻撃のために失われるであろうすべての無実の命を考えないようにし、代わりに船に乗って何かをすることに集中しようとします。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="LOSTSUN_ROCK_SETTLEMENT_SAVE">
+	<event>
+		<text>ロックマンはあなたの助けに感謝しています。彼らは、ロストサンズがセクターを占領し、貧困に陥った後、主要な交易路から切り離された小さな農業植民地でした。過去に数隻の善良な連邦船が彼らにいくつかの物資を与えていましたが、これは必然的に彼らの発見につながりました。彼らはあなたに支払うものが何もないので、代わりに彼らはあなたの船体を修理します。</text>
+		<damage amount="-7" />
+	</event>
+	<event>
+		<text>コロニーはあなたが期待したほどうまくいきませんでした。ロストサンの攻撃のほとんどは、表面の構造物を保護している弱い盾を通り過ぎ、人口のかなりの部分を殺しました。彼らはあなたにわずかな感謝を捧げる以外にあなたを惜しまないものは何もありませんが、入植地での彼の人生はもはや約束を持たないので、生存者の一人があなたの乗組員に加わることを申し出ます〠?</text>
+		<crewMember amount="1" repair="1" class="rock" />
+	</event>
+</eventList>
+
+
+<eventList name="DISTRESS_LOSTSUN">
+	<event load="DISTRESS_LOSTSUN_CIVILIAN" />
+	<event load="DISTRESS_LOSTSUN_WRECK" />
+	<event load="DISTRESS_LOSTSUN_COALITION" />
+</eventList>
+
+<event name="DISTRESS_LOSTSUN_CIVILIAN" unique="true">
+	<text>武装が不十分な民間船がこのビーコンで立ち往生しており、明らかに燃料が不足しています。彼らは、失われた太陽のパトロールがそれらを見つける前に彼らがセクターから逃れることができるように、彼らにいくつかのカプセルを惜しまないようにあなたに頼みます。</text> 
+	<distressBeacon />
+	<ship load="SHIP_CIVILIAN_ALL" hostile="false" />
+	<status type="limit" target="enemy" system="teleporter" amount="0" />
+	<choice>
+		<text>燃料を貸してください。</text>
+		<event>
+			<text>民間人はあなたの助けに感謝しています。</text>
+			<item_modify>
+				<item type="fuel" min="-3" max="-3" />
+			</item_modify>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>スクラップはあまりありませんが、追加のミサイルを貸して船体の修理を行うことにしました。</text>
+					<autoReward level="LOW">missiles_only</autoReward>
+					<damage amount="-3" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>あなたが助けることができないことを彼らに伝えてください。</text>
+		<event>
+			<text>純粋な絶望の中で、そして彼らの命を救うための最後の溝の試みとして、民間人は彼らの武器に力を与えてあなたを攻撃します。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="DISTRESS_LOSTSUN_WRECK" unique="true">	
+	<text>あなたは遭難ビーコンの場所に到着しますが、かつてここにあった船は歌われた難破船に縮小されました。どの派閥がどの派閥に属しているのかを見分けることは不可能です。あなたは彼らの攻撃者に何が起こったのか分かりませんが、救い出すのは安全だと思います。</text> 	
+	<distressBeacon />	
+	<autoReward level="LOW">standard</autoReward>	
+</event>
+
+<event name="DISTRESS_LOSTSUN_COALITION" unique="true">
+	<text>ロストサンズを妨害するために送られた連立船は、すでに遭難ビーコンの場所に到着しているようです。苦痛の元々の原因であった人は誰でも長い間去っていますが、連立はあなたを簡単に行かせることを意図していません。</text> 
+	<distressBeacon />
+	<ship load="SHIP_COALITION_FIGHT" hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+
+<eventList name="QUESTS_LOSTSUN">
+	<event load="QUEST_LOSTSUN_DISRUPTION" />
+	<event load="QUEST_LOSTSUN_ESCORT" />
+</eventList>
+
+<event name="QUEST_LOSTSUN_DISRUPTION" unique="true">
+	<text>ロストサン船の集まりが近くにあります。彼らはあなたの存在を疑っており、あなたの船から距離を置き始めます。</text>
+	<choice hidden="true">
+		<text>彼らに連絡する。</text>
+		<event>
+			<text>Lost Sunsは、幸運にも彼らに共鳴しているように見えるフェデレーションバッジを表示するまで応答することを躊躇します。 「それで、あなたの同盟を証明することを熱望しますか？私たちはあなたのための仕事を持っています、しかしそれは最も重要です。あなたは挑戦に向かっていますか？」</text>
+			<choice hidden="true">
+				<text>同意。</text>
+				<event>
+					<text>「次の座標では、私たちの革命に関する情報をロックエルダーズに中継するためにここに設置されたロック通信ステーションがあります。ロックの集落もホストしている近くの惑星への侵入を計画していますが、そうすることはできません。通信ステーションが破壊されるまで。攻撃を進めることができるように、できる限り無効にしてください。」</text>
+					<quest event="QUEST_LOSTSUN_DISRUPTION_QUEST" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>私たちの主な使命を危険にさらすことはできません。</text>
+				<event>
+					<text>「それなら、あなたはすでにあまりにも多くを知っています。」他の船は分散し、グループの最大のものが攻撃に移動します。</text>
+					<ship load="SHIP_LOSTSUN_FIGHT" hostile="true" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>同じことをする必要があります。</text>
+		<event>
+			<text>彼らがあなたも彼らのグループを避けているのを見ると、ロストサンズはリラックスして彼らの秘密の議論を続けます。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="QUEST_LOSTSUN_DISRUPTION_QUEST"> 
+	<text>あなたはロストサンズがあなたに話したロック通信ステーションを見つけました。武装は非常に貧弱ですが、集落が援軍を派遣せずに本格的な攻撃を行うことはできません。</text>
+	<choice hidden="true">
+		<text>遠くから駅に向かって発砲してみてください。</text>
+		<event>
+			<text>あなたの弱い攻撃は駅では効果がなく、あなたを追い払うために決済船が送られます。あなたの船体はいくらかのダメージを受けますが、あなたがあなた自身と集落の間に十分な距離を置いた後、船はあなたを追いかけるのをやめます。</text>
+			<damage amount="3" />
+		</event>
+	</choice>
+	<choice hidden="true" req="hacking">
+		<text>（ハッキング）ステーションのシステムをシャットダウンします。</text>
+		<event>
+			<text>ハッキングにより、センサーステーションが一時的にシャットダウンされ、リレーシステムが損傷する可能性があります。あなたはロストサンズを歓迎します。ロストサンズはすぐに飛び込み、すぐに入植地を引き継ぎます。</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>頭のロストサン船はあなたの助けに感謝し、あなたに支払います。</text>
+					<autoReward level="MED">standard</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_SLUG">
+		<text>（Slug Crew）Slugをリレーシステムにハックさせます。</text>
+		<event>
+			<text>Slugは、リレーシステムに損傷を与えるのに十分な時間、センサーステーションを一時的にシャットダウンできます。あなたはロストサンズを歓迎します。ロストサンズはすぐに飛び込み、すぐに入植地を引き継ぎます。</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>頭のロストサン船はあなたの助けに感謝し、あなたに支払います。</text>
+					<autoReward level="MED">standard</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ENGI">
+		<text>（Engi Crew）Engiにリレーシステムをハックさせます。</text>
+		<event>
+			<text>Engiは、リレーシステムに損傷を与えるのに十分な時間、センサーステーションを一時的にシャットダウンすることができます。あなたはロストサンズを歓迎します。ロストサンズはすぐに飛び込み、すぐに入植地を引き継ぎます。</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>頭のロストサン船はあなたの助けに感謝し、あなたに支払います。</text>
+					<autoReward level="MED">standard</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>私たちにできることは何もありません。</text>
+		<event>
+			<text>駅を攻撃するのは危険すぎる。あなたはロストサンズが彼らの任務を完了するための別の方法を見つけることを望みます。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="QUEST_LOSTSUN_ESCORT" unique="true">
+	<text>ビーコンに到着すると、すでにここに船があり、非常に武装が不十分なロストサンがあります。彼らはあなたを歓迎します。 「よし、ついに誰かが来た。私たちの遭難ビーコンが故障し、「友好的な」誰かが間に合うかどうかわからなかった。私たちの船は弾薬を使い果たし、いくつかの弱い武器に切り替えなければならなかった。残念ながら、これは私たちができないことも意味するロックハンターと連合ハンターから身を守ってください。最寄りの前哨基地まで護衛してください。」</text>
+	<choice hidden="true">
+		<text>それらを護衛することに同意します。</text>
+		<event>
+			<text>「私たちを支援したいというあなたの熱意は注目されています。私たちはあなたをこれらの調整に従わせます。」</text>
+			<quest event="LOSTSUN_ESCORT_QUEST" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>彼らの要求を拒否します。</text>
+		<event>
+			<text>「それで、私が連邦について聞いたことは本当ですか？私はこれを期待するべきでした。行って、この場所を去って、あなたが私たちが無防備である同じ敵の犠牲にならないことを望みます。」</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>弾薬を提供します。</text>
+		<event>
+			<text>「いいえ、私たちはあなたの寄付や贈り物を必要としません。私たちは護衛を要求するだけです。」</text>
+			<choice hidden="true">
+				<text>それらを護衛することに同意します。</text>
+				<event>
+					<text>「私たちを支援したいというあなたの熱意は注目されています。私たちはあなたをこれらの調整に従わせます。」</text>
+					<quest event="LOSTSUN_ESCORT_QUEST" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>彼らの要求を拒否します。</text>
+				<event>
+					<text>「それで、私が連邦について聞いたことは本当ですか？私はこれを期待するべきでした。行って、この場所を去って、あなたが私たちが無防備である同じ敵の犠牲にならないことを望みます。」</text>
+					<choice>
+						<text>船に乗って何かをしなさい。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="LOSTSUN_ESCORT_QUEST">
+	<text>前哨基地に到着しましたが、手遅れです。大型のエリートロック船がすでに構造を破壊しています。彼らはあなたを見つけ、攻撃する前に状況を評価する機会をほとんど与えません。</text>
+	<ship load="SHIP_ROCK_ESCORT_LARGE" hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="LOSTSUN_ESCORT_QUEST_RAID_WIN" unique="true">
+	<text>あなたは船を救助します。残骸の多くはスクラップとして回収できます。あなたは戦利品をロストサンズと共有することを申し出ますが、彼らは拒否します。あなたは彼らにさらに連絡する前にあなたが運ぶことができるものを救います。</text> 
+	<autoReward level="HIGH">standard</autoReward>
+	<weapon name="RANDOM" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>「それで、私たちの前哨基地は破壊されました。これは予想外でした。あなたの援助は連邦大尉に大いに感謝されます、しかし私はあなたにもう一度お願いしなければなりません。私は失われた太陽の大義に専念しようとしました、しかしこの悲劇の後...多くの友人を失った...私たちのこの戦争は流血以外の何物にもならないでしょう。私には何も残っていません。私がここにいだ?ら決して見ることのできないすべてを体験するためにあなたと一緒に来てください。 、無意味な戦争と戦う？」</text>
+			<choice hidden="true">
+				<text>承認。</text>
+				<event>
+					<text>ロックマンは急いで物を集めて乗り込みます。彼は乗組員に短い正式な別れを告げ、彼らが将来の闘いで幸運を祈っていることを願っています。</text>
+					 <crewMember amount="1" class="rock_commando" />
+					 <autoReward level="LOW">scrap_only</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>申し訳ありませんが、これ以上の乗組員は必要ありません。</text>
+				<event>
+					<text>ロックマンは動揺しているように見えますが、彼はすぐに通常の正式な方法に戻ります。 「これは理にかなっていると思います。あなたも戦争を戦っています。約束通り、この任務の結果が失敗したとしても、支払いは支払われるべきです。」</text>
+					<autoReward level="MED">scrap_only</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+<event name="LOSTSUN_FLEET_UNLOCK1" unique="true">
+	<preventQuest />
+	<text>ロストサン船が近くにあり、船長は必死に前後に歩き回っています。 「あなたはそこにいます-あなたは連邦艦隊に属していますか？あなたは私たちを助けなければなりません。それは最も重要です。」</text>
+	<choice hidden="true">
+		<text>彼らの要求を聞いてください。</text>
+		<event>
+			<text>「私たちのリーダーであるアリアドネ提督の個人巡洋艦は、これらの座標で異端審問部隊に捕らえられました。どのような状況でも彼女を救出する必要があります。そうしないと、運命にあります。連邦は失われた太陽の唯一の同盟国です。私たちはあなただけに頼らなければなりません。私たちの継続的な生存のための努力。」</text>
+			<quest event="LOSTSUN_FLEET_UNLOCK2" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>時間がありません。</text>
+		<event>
+			<text>ロックマンはただうめき声を上げて飛び去ります。</text>
+			<choice>
+				<text>船に乗って何かをしなさい。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="LOSTSUN_FLEET_UNLOCK2">
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<nebulaBeacon>false</nebulaBeacon>
+		<aggressive>2</aggressive>
+	</quest>
+	<beaconType id="map_icon_lostsun" global="true">
+		<color r="255" g="94" b="94" a="1.0" />
+	</beaconType>
+	<text>ロストサンズが言及した艦隊は、彼らが与えた座標には存在しませんが、巡洋艦は存在します！船はあなたを歓迎します、彼の目の下に傷跡を持った不機嫌そうなロックマンがあなたを見下ろしています。 「異端審問はこの船を回収しました。これはこのセクター全体にも当てはまります。連邦が失われた太陽との関係を断ち切り、すぐに去るか、2回目の異端審問の怒りに直面するのが賢明です。それはただの神権政治が再び立ち上がるまでの時間の問題です。どちらの側になりたいですか？」</text>
+	<ship load="SHIP_LOSTSUN_UNLOCK" hostile="false" />
+	<choice hidden="true">
+		<text>そうです、失われた太陽は神権政治の力に対する哀れな味方です。</text>
+		<event>
+			<text>「それで、あなたは突然気が変わったのですか？何があなたにこれらの言葉を言わせるのですか？」</text>
+			<choice hidden="true">
+				<text>失われた太陽は発疹と暴力的です。神権政治はそのストライキのタイミングを計る方法を知っています。</text>
+				<event>
+					<text>カメラのロックマンは落ち着きを変えます。 「あなたはその時何も知りません。あまりにも簡単に説得され、失われた太陽への価値のない同盟国です。あなたが簡単に降りることを嬉しく思います。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>異端審問は以前に失敗しました。</text>
+		<event>
+			<text>「異端審問は決して失敗しませんでした！私たちはただ...時が来るまで私たちの努力を一時停止しました。連合は私たちの心の怒りの火を再燃させる火花になるでしょう。」</text>
+			<choice hidden="true">
+				<text>真の失われた太陽のように話されています。</text>
+				<event>
+					<text>「あなたは長老の聖なる十字軍の力と恵みをあえて侮辱しますか？あなたはここで死にます！」</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>これは死ぬほどの丘ではありません。離れる。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>黙って去ってください。</text>
+		<event />
+	</choice>
+</event>
+<event name="LOSTSUN_FLEET_UNLOCK3">
+	<text>「はい、そしてあなたが合格したと言っても過言ではありません。失われた太陽は彼らの同盟を惜しみません。あなたが本当に連邦を代表しているなら、あなたはあなたの忠誠心を示す良い仕事をしました。神権政治は私たちの道を越えたことに憤慨します私たちの側であなたと一緒に。」</text>
+	<variable name="ach_boss_lostsun" op="set" val="1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>「あなたにも援助を提供しないのは犯罪です。私はあなたを援助するために高品質の軍需品をあなたに提供します。私はすでにこの船の青写真を連邦に転送し始めました。彼らの戦い。」</text>
+			<variable name="ach_crew_ariadne" op="set" val="1" />
+			<unlockCustomShip silent="false">PLAYER_SHIP_LOSTSUN</unlockCustomShip>
+			<crewMember amount="1" class="unique_ariadne" all_skills="2">Ariadne</crewMember>
+			<autoReward level="HIGH">standard</autoReward>
+			<weapon name="RANDOM" />
+		</event>
+	</choice>
+	<choice hidden="true" req="ach_boss_rockcruiser">
+		<text>実は、私は一度ロック政権を転覆させました。</text>
+		<event>
+			<text>アリアドネは笑い出したが、止まった。 「私の星よ、あなたは私たちが聞いた船です。転覆はほとんど言葉ではありませんが、あなたは彼らの故郷を混乱に陥れました！あなたの努力は私たちにとってかなりの助けになりました。私ができるあらゆる方法であなたを助けさせてください。」</text>
+			<variable name="ach_crew_ariadne" op="set" val="1" />
+			<unlockCustomShip silent="false">PLAYER_SHIP_LOSTSUN</unlockCustomShip>
+			<crewMember amount="1" class="unique_ariadne" all_skills="2">Ariadne</crewMember>
+			<autoReward level="HIGH">standard</autoReward>
+			<upgrade amount="2" system="weapons" />
+			<reveal_map />
+			<damage amount="-30" />
+			<weapon name="RANDOM" />
+		</event>
+	</choice>
+</event>
+</FTL>

@@ -1,0 +1,1551 @@
+<FTL>
+
+<event name="TEST_HEKTAR_STORE">
+	<text>でも Ｓトレ。</text>
+	<store>STORE_HEKTAR_DEMO</store>
+</event>
+<event name="HEKTAR_VIRTUAL_STORE">
+	<store>STORE_HEKTAR_VIRTUAL</store>
+</event>
+
+<event name="HEKTAR_HEADQUARTERS">
+	<preventQuest />
+	<text>この苦痛のビーコンは、予想外の場所にあなたを上陸させました-緑豊かなテラフォーミングされた楽園、その中央にヘクタール本社以外の何者でもない広大なリング状の建物があります。不思議なことに、遭難ビーコンはいくつかの特定の周波数でのみブロードキャストしており、そのうちの1つはより秘密のフェデレーションチャネルです。</text>
+	<img back="BACK_EVENT_HEKTARHQ" planet="NONE" />
+	<distressBeacon />
+	<choice hidden="true">
+		<text>調査。</text>
+		<event>
+			<text>あなたはHQの着陸台に着陸し、いかなる種類の警備員からの介入も見当たらないことに驚いています。しかし、建物に近づくと、かなり危険な外観のセキュリティシステムに止められ、入室を拒否されます。</text>
+			<choice hidden="true">
+				<text>アクセスを試みます。</text>
+				<event>
+					<text>あなたの侵入の試みは、あなたの船に発砲するセキュリティタレットを作動させるアラームによって満たされます！幸いなことに、それらをシャットダウンして後でアクセスすることはできますが、あなたの船は殴打されています。</text>
+					<damage amount="5" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="BILLY" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_VARIANT_HEKTAR">
+				<text>（Hektar従業員）アクセスを試みます。</text>
+				<event load="BILLY" />
+			</choice>
+			<choice hidden="true" req="hacking" lvl="2">
+				<text>（Upg. Hacking）アクセスを試みます。</text>
+				<event load="BILLY" />
+			</choice>
+			<choice hidden="true" req="BLUELIST_CREW_NODOORS">
+				<text>（Phasing Crew）アクセスを試みます。</text>
+				<event load="BILLY" />
+			</choice>
+			<choice hidden="true" req="traitor">
+				<text>（Metyunt）アクセスを試みます。</text>
+				<event load="BILLY" />
+			</choice>
+			<choice hidden="true">
+				<text>あきらめる。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>これを手放す-罠かもしれない。</text>
+		<event>
+			<text>そのような信号がここまで遠くにあるのは非常に奇妙です。それは罠でなければなりません、他に説明はありませんよね？あなたは去る準備をします。</text>
+			<choice hidden="true">
+				<text>ストレージを確認してください。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="BILLY">
+	<text>入力の試みは成功したようです。あなたは建物全体を続けますが、ここでは物事があまり良くないことは明らかです。かすかな血の染みが壁を飾ります。ほとんどの場合、死んだナメクジからこぼれることが知られている明るい緑色のスラッジです。しかし、それは数週間前ですが、あなたがより深く見つけるかもしれないものの状態の前兆です。</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>ついに、あなたは開いたオフィスのドアに出くわします。中に入ると、青いスラッグが机の上に落ちて、静かにすすり泣いているのがわかります。彼はあなたに会うと元気になり、彼の態度はショック、恐怖、怒り、そして最後に敗北の間で急速に変化します。 「Sssso、あなたはついに私を殺すために来ましたか？私は締め切りが来ることを知っていました...まあ、あなたは今私゠?持っています。私はあきらめます。Jusssstは私を殺します。」</text>
+			<choice hidden="true">
+				<text>あなたは誰？そして、誰があなたを殺そうとしているのですか？</text>
+				<event>
+					<text>スラッグはあなたが彼が期待した人ではないことに気づいているようです。 「待ってください-あなたはタウルスではありません！私はSSSSAVEDです！SSSSAVED！ハハ！私はHektarのCCCCEOでありHektarIndustriesssの創設者であるCarleHektarの曾孫であるBillyHektarです！sssignalが最終的にsssomeoneに到達することを知っていました！残念ながら、私は何ヶ月もの間私の事務所に閉じ込められており、忙だ?さではなく犯罪の輪のようにこの会社を経営することを余儀なくされています...」</text>
+					<choice hidden="true">
+						<text>あなたは自分のオフィスに閉じ込められましたか？</text>
+						<event>
+							<text>「え？いや、ばかげている。ヘクタール・ハスは常に弱者だったが、私が兄と一緒に会社を継承したとき、私たちはこの会社を本当にsssshineにすることを望んでいた！そしてZulfiqarがやって来て、武器産業全体を完全に独占した。私は試した会社を救うために、しかし私の兄弟は私の方法を理解しませんでした。Sssso私が原始的なlizzzzardssssのssspeciesを奴隷にした場合はどうなりますか？</text>
+							<choice hidden="true">
+								<text>それがどのようにしてあなたがオフィスに閉じ込められたのかわかりません。</text>
+								<event>
+									<text>「私はそこに着きました、リラックスしてください！彼が会社を辞めた後...大丈夫、私は彼をやや強制的に追い出しました。しかし、それは重要ではありません！物事は下り坂になりました。私は私の投資家に支払いを続けることができませんでした。 1つは、彼らが去った。Sssoon、Tony Seniorという名前のsssomeグリースssstainと、そのバススターのVaelwassが残った。</text>
+									<choice hidden="true">
+										<text>待って-あなたはヴァエルを意味しますか？シンジケートのリーダー？！</text>
+										<event>
+											<text>「銀河系のすべての傭兵を担当しているのは？そうだね。ああ、ちなみに。このファシリティを入力することで、あなたは警報を発した。そして今、彼はおそらく来て、両方のusssを殺すためにassssassssinを送ってください。公正な警告、そしてそのすべて。」</text>
+											<choice hidden="true">
+												<text>ここから地獄を出せ！</text>
+												<event>
+													<text>あなたがオフィスを急いでいるとき、あなたは2番目の船があなたの隣に着陸したことに気付くのをやめます。巨大なステルスのような船で、その隣には塗装されたMFKのユニフォームを着た人間がいます。 「あなたがそこに着いた素敵な船、パートナー。さあ、スラッグを渡せば誰も怪我をすることはありません。」</text>
+													<ship load="SHIP_TAURUS" hostile="false" />
+													<choice hidden="true">
+														<text>お前は一体誰だ？</text>
+														<event>
+															<text>男はどう対応するか考えているかのように立ち止まる。 「名前はおうし座。ヴァエルの「執行者」の一人。あなたのような人々は私たちを「死の天使」と呼んでいます。それは適切ではありませんか？」彼はビリーに注意を向けます。 「今、ビルスター、あなたの時間は終わりました。ヴァエルはあなたのマラーキーにうんざりしています。あなたが彼のような男性を台無しにするとき、あなたは今までにあなたがあなたの約束を守るほうがよいことを知っているべきです。」彼はあなたに振り返ります。 「さて、前回お聞きします。ナメクジを渡せば、何も起こらなかったように私たちは皆立ち去ることができます。」</text>
+															<choice hidden="true">
+																<text>ビリーを引き渡す。</text>
+																<event>
+																	<text>おうし座はこっそりと微笑み、あざけるように手を振ってから、ビリーに手錠をかけ、彼を船に連れ戻します。 「これは言うまでもありませんが、パートナー、私たちが二度と出会わないことを願っています。あなたの頭には賞金が1つあります。率直に言って、私はそれを現金化しないで間違いを犯しています...」</text>
+																</event>
+															</choice>
+															<choice hidden="true">
+																<text>ごみ。</text>
+																<event>
+																	<text>「そんなに甘くない。あなたが拒否してくれることを望んでいた。あなたの頭蓋骨には甘い恵みが1つあるので、現金に換えたい」おうし座は威嚇するように微笑んだ後、エンジンがすでに始動している彼の船にダッシュバックします。これは大まかなものになります。</text>
+																	<variable name="ach_crew_billy" op="set" val="1" />
+																	<crewMember amount="1" class="unique_billy" all_skills="2">Billy</crewMember>
+																	<ship hostile="true" />
+																	<choice hidden="true">
+																		<text>継続する...</text>
+																		<event load="COMBAT_CHECK" />
+																	</choice>
+																</event>
+															</choice>
+														</event>
+													</choice>
+												</event>
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>彼を殺せ。</text>
+				<event>
+					<text>この男が誰であるかはわかりませんが、気にしません。つまり、彼は文字通り彼を殺すと言ったのです。なぜあなたは義務付けないのですか？あなたは頭の中でナメクジの正方形を撃ち、ほぼ瞬時に彼を殺し、壁を緑色に塗ります。これでこの謎は終わりのようです。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="BILLY_SAVE">
+	<text>ビリーが無事になったので、残骸を通り過ぎて最後の旅に出ます。驚いたことに、あなたは奇妙に異質でありながら同様の技術を搭載した高度な武器のように見えるものを掘り起こします。あなたはそれがどこから来たのかわからないが、あなたはそれを取るだろう。ビリーはまた、船をスキャンして設計図を取得するためにチームを招き、格納庫に素晴らしい追加を行います。</text>
+	<weapon name="LIST_WEAPONS_NEWGEN" />
+	<variable name="ach_boss_deathbringer" op="set" val="1" />
+	<unlockCustomShip silent="false">PLAYER_SHIP_ANGEL</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>ビリーはあなたの船のラウンジで快適に過ごしているようです。 「私は、古いビリーがこの混乱のすべてからリラックスした休暇を取るために、今は良いお尻だと思います。そして税金。Sssay、ssstranger、あなたはどこに向かったのですか？」</text>
+			<choice hidden="true">
+				<text>私たちは、次元間の反乱からすべての現実を救うために出発します。</text>
+				<event>
+					<text>「ああ、待って…異次元の英雄たちはおそらく税金を払わないだろうね？ハハベイビー、もう税金はここに来ない！ああ、そして現実を救うこともクールだと思う」</text>
+					<choice hidden="true">
+						<text>最後にもう1つ、私たちの債務はどうですか？</text>
+						<event>
+							<text>「そうだね…そうだね…そうだね、フェア・イッス・フェア。今ここにいるみんなを手放すのはいい考えかもしれない。これが出たらPRのディサスターになるだろう。 。」</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="BILLY_DEAD">
+	<text>あなたはビリーがどこに行ったかを見るために船を見回します、しかしそれはあなたに夜明けします-彼は戦いを生き延びませんでした。あなたはすぐにその借金を清算することはないようです...</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>最後にもう一度天使の船に戻って、中に何が見つかるか見てみましょう。驚いたことに、あなたは非常に異質でありながら同様の技術を搭載した高度な武器のように見えるものを掘り起こします。あなたはそれがどこから来たのかわからないが、あなたはそれを取るだろう。</text>
+			<weapon name="LIST_WEAPONS_NEWGEN" />
+		</event>
+	</choice>
+</event>
+
+<event name="HEKTAR_SHIPYARDS">
+	<preventQuest />
+	<text>最初は、地上に浮かんでいる巨大な球形の造船所を見つけるまで、このビーコンはかなり控えめに見えます。さらに調べてみると、その下にはある種の田舎の村があるように見えますが、少なくとも宇宙飛行種の1つではありません...</text>
+	<img back="BACK_EVENT_HEKTARSHIPYARD" planet="NONE" />
+	<choice hidden="true">
+		<text>近づけます。</text>
+		<event>
+			<text>下の村はトカゲの生き物のように見えるものでにぎわっています。あなたは以前にこれらの人がヘクタールの船に乗って働いていることに気づきましたが、これは彼らが住んでいる場所であるに違いありません。非常に奇妙ですが、造船所に近づくと、最初に観察したよりも多くのものがあることが明らかになります。スーツと後ろ向きのネクタイをしたオレンジ色の眼鏡をかけだ?トカゲがメガホンに向かって叫び、ピケの看板と武装した武器を持った怒り狂ったトカゲの群衆を落ち着かせようとしています。</text>
+			<choice hidden="true">
+				<text>マネージャーに相談してください。</text>
+				<event>
+					<text>あなたは群衆に気づかれずに近くに船を着陸させます。担当のトカゲがあなたの方を向いて、あなたが「裏切り者」の叫びと彼らに向かって投げつけられているより不快な言葉を捕まえます。 「はい、はい、こんにちは。私はこの施設のマネージャーであり、トカゲの人口統計の世話人であるMetyuntです。」 Metyuntは、炎のような石が近くに投げられ、トカゲの暴徒がバックグラウンドでヘクタールの船を引き裂く間、眼鏡を顔に押し戻します。また、群衆の上に浮かんでいる非常に大きなナメクジ船に気づきます。まだ発砲していませんが、群衆が物事を押しやりすぎているのではないかと思われますが、これは彼らがそれを抑制する計画です。</text>
+					<ship load="SHIP_HEKTAR_BOSS" hostile="false" />
+					<choice hidden="true">
+						<text>あなたの従業員はあまり幸せではないようです。</text>
+						<event>
+							<text>「はい、あなたが実際に盲目ではないのを見てうれしいです。これらの暴動は一般的ですが、あなたは何ができますか？私が「自分の種を企業に売り渡した」ので、彼らは私を裏切り者と呼んでいますが、このように見てください。私は彼らに恩恵を与え、彼らをここに連れてきました。彼らはまだ彼らの故郷に戻って喧嘩に住んでいて、新しい法科大学院か何かのために彼らの惠?星を森林伐採したいと思っている狂ったゾルタンの政治家の必然的な犠牲者です。」 Metyuntは点眼薬のボトルに手を伸ばし、それらを彼の目に滴下します。そして、いくつかのエイリアンの果物が渦巻くようになるとアヒルになります。</text>
+							<choice hidden="true">
+								<text>あなたは自分の種を裏切ったのですか？！抗議者の側に。</text>
+								<event>
+									<text>「何してるの？怒った？」あなたは台座から降りて、抗議者たちと唱え始めます。連邦の船長の支援を見て、トカゲは暴れ、ヘクタールの船が攻撃に乗り出します。争いの中で、あなたはメティウントが船に発砲しないように呼びかけているのを捕まえると誓いますが、彼らは耳を貸しません。あなたが介入して彼らを守る必要があるようです！</text>
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>彼らはただ盲目です、あなたは正しいです。 Metyuntの側。</text>
+								<event>
+									<text>結局のところ、連邦政府の役員が関与すると、人々はよりよく耳を傾ける傾向があります。あなたはいくつかの優雅なスピーチで時間を無駄にしません、Metyuntはそれを自分ですることができます。代わりに、あなたは群衆に彼らの家に戻って物事を醜くさせないように勧めます。彼らはしぶしぶ耳を傾け、シャッフルします。 Metyuntはひそかにあなたに感謝し、報酬を提供します〠?</text>
+									<autoReward level="MED">standard</autoReward>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>これは私たちの仕事ではありません。関与しないでください。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>物事が醜くなる前に今すぐ出発してください。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>惑星を無視します。</text>
+		<event>
+			<text>不思議なことに、ここに入力が必要なものはほとんどありません。</text>
+			<choice hidden="true">
+				<text>ストレージを確認してください。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="METYUNT">
+	<text>船が邪魔にならないようにして、造船所に戻ります。戦闘中、暴徒は場所のかなりの半分を支配していたようですが、メティウントと残りのヘクタールのスタッフは押し返しています。あなたが介入しない場合、これは別の銃撃戦で終わる可能性があります。</text>
+	<variable name="ach_boss_hektarloyalty" op="set" val="1" />
+	<choice hidden="true">
+		<text>あなたの乗組員を送って物事を話し合ってください。</text>
+		<event>
+			<text>緊張しているようです。 Hektarの従業員は解雇の準備ができているように見えますが、Metyuntの不本意が彼らを保留にしている唯一のことだと思われます。</text>
+			<choice hidden="true">
+				<text>彼らが彼らの主張を証明したので、群衆に彼らの家に戻るように説得してください。</text>
+				<event>
+					<text>あなたの提案は非常に人気がないようです。カオスが勃発し、あなたの乗組員は焚き火に巻き込まれます！</text>
+					<removeCrew>
+						<clone>true</clone>
+						<text>幸いなことに、あなたの乗組員は復活することができますが、戻って話をするのは遅すぎます。</text>
+					</removeCrew>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>Metyuntに立ち向かうように説得します。</text>
+				<event>
+					<text>Metyuntは揺らいでいますが、その後、彼の部下に造船所からの避難を命じます。彼はトカゲに捕らえられてハンガーに戻され、そこで彼らは彼をどうするかについて話し合います。</text>
+					<choice hidden="true">
+						<text>彼は二度目のチャンスに値する。</text>
+						<event>
+							<text>トカゲはうめきますが、あなたがどれだけ彼らを助けた後、彼らはあなたに質問するつもりはありません。 Metyuntは、まだ手足から手足を引き裂いていないことにショックを受けているようです。 「ええと、ええと、ここのどこかに道徳があると思います。あなたの種全体を奴隷制に売ってはいけませんか？ええ、それはいいですね...」</text>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="METYUNT_UNLOCK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>彼にはチャンスがありました。彼はこれ以上得るべきではありません。</text>
+						<event>
+							<text>トカゲは同意し、Metyuntが処刑されます。そこまで物事が進むとは思っていませんでしたが、今では手遅れです。トカゲは彼らの新たに発見された自由を称賛しますが、あなたが去ってヘクタールが援軍を送るとすぐには持続しない可能性があります。それにもかかわらず、トカゲはあなたに感謝し、別のヘクタール船から「借りた」報酬を提供します。</text>
+							<autoReward level="MED">stuff</autoReward>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>自分の武器を引き、双方に武器を置くように要求します。</text>
+				<event>
+					<text>大胆な動き、そして愚かな動き。第二に、あなたの乗組員は彼ら自身と彼らの現在露出している武器に注意を向け、地獄は解き放たれ、あなたの乗組員は焚き火に巻き込まれます！</text>
+					<removeCrew>
+						<clone>true</clone>
+						<text>幸いなことに、あなたの乗組員は復活することができますが、戻って話をするのは遅すぎます。</text>
+					</removeCrew>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>私たちはそれを危険にさらすことはできません。あなたが持っているものを取り、去りなさい。</text>
+		<event />
+	</choice>
+</event>
+<event name="METYUNT_UNLOCK">
+	<text>トカゲがMetyuntを周りに望んでいないのは明らかです。あなたは彼をセクターの他の場所に降ろすことを申し出ますが、彼は断ります。 「別の職業を見つけた方がいいのではないかと思います。ヘクタールは私が終わったので、助けなしでやらなければなりません。私は今あなたに固執すると思います。ああ、そして行く前に、私にさせてください返済...」</text>
+	<unlockCustomShip silent="false">PLAYER_SHIP_HEKTAR</unlockCustomShip>
+	<variable name="ach_crew_metyunt" op="set" val="1" />
+	<crewMember amount="1" repair="2" class="traitor">Metyunt</crewMember>
+</event>
+
+<event name="EXIT_HEKTAR">
+	<text>あなたはついにこの恐ろしいセクターへの出口を見つけました。</text>
+	<variable name="loc_hektarexit" op="set" val="1" />
+	<choice req="loc_hektarexit" lvl="0" max_group="0" hidden="true" blue="false"> 
+		<text>継続する...</text>
+		<event>
+			<text>巨大なヘクタール船で出発する前に、あなたは立ち止まります。 「申し訳ありませんが、このssssectorを離れることはできません！あなたはHektar Indusssstriessssに多額のお金を借りています！」</text>
+			<ship load="SHIP_HEKTAR_EXIT_BOSS" hostile="false" />
+			<choice hidden="true">
+				<text>私たちは自分たちの道を戦わなければならないようです！</text>
+				<event>
+					<text>今の唯一の方法は戦うことです！あなたは武器をパワーアップし、従事する準備をします。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_VARIANT_BILLY">
+				<text>（ビリー）ビリーにあなたを去らせるためにあなたを片付けさせなさい。</text>
+				<event>
+					<text>幸いなことに、ビリーが戻るまでに数分しかかからず、あなたは去ることができます。大手企業のCEOを船に乗せるのはお金がかかると思います。</text>
+					<autoReward level="HIGH">standard</autoReward>
+					<weapon name="HEKTAR_MODULAR_WEAPONS" />
+				</event>
+			</choice>
+			<choice hidden="true" req="traitor">
+				<text>（Metyunt）Metyuntにあなたを去らせるためにあなたを片付けさせてください。</text>
+				<event>
+					<text>幸いなことに、Metyuntが戻るまでに数分しかかからず、離れることができます。大企業のスタッフマネージャーを船に乗せるのはお金がかかると思います。</text>
+					<autoReward level="HIGH">standard</autoReward>
+					<weapon name="HEKTAR_MODULAR_WEAPONS" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice req="loc_hektarexit" lvl="1" max_group="0" hidden="true" blue="false"> 
+		<text>継続する...</text>
+		<event>
+			<text>反乱軍の艦隊がビーコンを支配しているようです！あなたはあなたの方法を戦わなければならないでしょう！</text>
+			<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
+			<environment type="PDS" target="player" />
+			<ship load="SHIP_REBEL_FLEET_S" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+			<choice hidden="true" req="engines" lvl="6">
+				<text>（Adv. Engines）エリートから脱出してみてください。</text>
+				<event load="FLEET_ESCAPE" />
+			</choice>
+			<choice hidden="true" req="LIST_CREW_JERRY">
+				<text>（ジェリー）こんにちは！</text>
+				<event>
+					<text load="TEXT_ENCOUNTER_REBEL_JERRY_HELLO" />
+					<ship hostile="false" /> 
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="NEBULA_EXIT_HEKTAR">
+	<text>出口に到着したようですが、巨大な船が出口を塞いでいます。 「申し訳ありませんが、このssssectorを離れることはできません！あなたはHektar Indusssstriessssに多額のお金を借りています！」</text>
+	<variable name="loc_hektarexit" op="set" val="1" />
+	<environment type="nebula" />
+	<choice req="loc_hektarexit" lvl="0" max_group="0" hidden="true" blue="false"> 
+		<text>継続する...</text>
+		<event>
+			<text>巨大なヘクタール船で出発する前に、あなたは立ち止まります。 「申し訳ありませんが、このssssectorを離れることはできません！あなたはHektar Indusssstriessssに多額のお金を借りています！」</text>
+			<ship load="SHIP_HEKTAR_EXIT_BOSS" hostile="false" />
+			<choice hidden="true">
+				<text>私たちは自分たちの道を戦わなければならないようです！</text>
+				<event>
+					<text>今の唯一の方法は戦うことです！あなたは武器をパワーアップし、従事する準備をします。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_VARIANT_BILLY">
+				<text>（ビリー）ビリーにあなたを去らせるためにあなたを片付けさせなさい。</text>
+				<event>
+					<text>幸いなことに、ビリーが戻るまでに数分しかかからず、あなたは去ることができます。大手企業のCEOを船に乗せるのはお金がかかると思います。</text>
+					<autoReward level="HIGH">standard</autoReward>
+					<weapon name="HEKTAR_MODULAR_WEAPONS" />
+				</event>
+			</choice>
+			<choice hidden="true" req="traitor">
+				<text>（Metyunt）Metyuntにあなたを去らせるためにあなたを片付けさせてください。</text>
+				<event>
+					<text>幸いなことに、Metyuntが戻るまでに数分しかかからず、離れることができます。大企業のスタッフマネージャーを船に乗せるのはお金がかかると思います。</text>
+					<autoReward level="HIGH">standard</autoReward>
+					<weapon name="HEKTAR_MODULAR_WEAPONS" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice req="loc_hektarexit" lvl="1" max_group="0" hidden="true" blue="false"> 
+		<text>継続する...</text>
+		<event>
+			<text>反乱軍の艦隊がビーコンを支配しているようです！あなたはあなたの方法を戦わなければならないでしょう！</text>
+			<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
+			<environment type="PDS" target="player" />
+			<ship load="SHIP_REBEL_FLEET_S" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+			<choice hidden="true" req="engines" lvl="6">
+				<text>（Adv. Engines）エリートから脱出してみてください。</text>
+				<event load="FLEET_ESCAPE" />
+			</choice>
+			<choice hidden="true" req="LIST_CREW_JERRY">
+				<text>（ジェリー）こんにちは！</text>
+				<event>
+					<text load="TEXT_ENCOUNTER_REBEL_JERRY_HELLO" />
+					<ship hostile="false" /> 
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+<eventList name="CLEARING_HEKTAR">
+	<event load="HEKTAR_UNION" />
+	<event load="HEKTAR_SUZERAIN" />
+	<event load="DISTRESS_HEKTAR_GHETTO" />
+	<event load="HEKTAR_INVESTOR" />
+</eventList>
+
+<event name="HEKTAR_INVESTOR" unique="true">
+	<text>近くでは、裕福な大物の船がビーコンを探索しています。面白いチャットかもしれません。</text>
+	<choice hidden="true" req="loc_dinkleman" lvl="0" max_group="0" blue="false">
+		<text>彼らに連絡する。</text>
+		<event load="HEKTAR_INVESTOR_QUESTIONS_NOTMET" />
+	</choice>
+	<choice hidden="true" req="loc_dinkleman" lvl="1" max_group="0" blue="false">
+		<text>彼らに連絡する。</text>
+		<event load="HEKTAR_INVESTOR_QUESTIONS_MET" />
+	</choice>
+	<choice hidden="true" req="pilot" lvl="1" max_group="1" blue="false">
+		<text>大物を無視します。</text>
+		<event>
+			<text>あなたはシャトルから飛び去り、船に乗って何かをするためにどこか他の場所を見つけます。</text>
+			<choice hidden="true">
+				<text>ストレージを確認してください。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="HEKTAR_INVESTOR_QUESTIONS_NOTMET"> 
+	<text>「ああ、チップチャップチェリオグッドフェロー！私はあなたのサービスで、カウントディンクルマンライヒスターフォンアップルバズトライトライザフォースです。私はヘクタールが私と私の莫大な富を提供しなければならないかもしれない宝物を見るためにこれらの土地に長い冒険をしました。教えてください。私、いい先生かマダム、ヘクタールについてどう思いますか？〠?</text>
+	<variable name="loc_dinkleman" op="set" val="1" />
+	<choice hidden="true">
+		<text>彼らは人々をだましてこのセクターに閉じ込められています。</text>
+		<event>
+			<text>「いい天国、なんて天才的なアイデアだ！人々に架空の借金を巨大な市場に閉じ込めて、連邦が決して見つけられない星雲に隠すことで、想像上の借金を返済するように強制するのか？うれしい！恐ろしいと思うだろう。でも、あなたは嫌なほど金持ちではないので。とにかく、チャットをありがとう、行かなくちゃ！」男は全力疾走して船に戻り、ポケットからスクラップの山゠?数枚落とします。</text>
+			<autoReward level="LOW">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>彼らは文字通り人々を奴隷にしている。</text>
+		<event>
+			<text>「ああ、あなたは彼らが 『ビジネス』で何を言っているか知っています。実際、私はそうではありません。私は 『ビジネス』にいません。しかし、どこかで、彼らには奴隷制の正当な理由があると確信しています。明らかに、あなたはあなたは嫌なほど金持ちではないので、わかりません。とにかく、チャットをありがとう、行かなければなりません！」男は全力疾走して船に戻り、ポケットからスクラップの山を数枚落とします。</text>
+			<autoReward level="LOW">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>まあ、彼らは大丈夫です。</text>
+		<event>
+			<text>「大丈夫ですか？ええと、彼らの製品はどうですか？あなたは自由に使える大型の軍用船を持っています。あなたはヘクタールの特徴的なモジュール式兵器の使用を楽しんでいますか？」</text>
+			<choice hidden="true" req="HEKTAR_MODULAR_WEAPONS" blue="false">
+				<text>彼らはかなり良いです。</text>
+				<event>
+					<text>「いいですか？素晴らしいです！私は軍人ではありませんが、あなたの言葉を信じます！私はヘクタールに投資します。素晴らしいチャット、いい仲間です。言ってください、私にサービスをして、私のこの価値のないアシスタントを連れて行ってくださいヘクタールのトカゲの人の一人が私にもっと役立つと思います。」</text>
+					<crewMember amount="1" class="engi" />
+				</event>
+			</choice>
+			<choice hidden="true" req="HEKTAR_MODULAR_WEAPONS" blue="false">
+				<text>彼らはひどいです。</text>
+				<event>
+					<text>「ああ、それは確かに良くない。私は軍人ではないが、あなたの言葉を信じる！私はヘクタールに投資しない。ここで、私が確かにそうしないことを考えると、あなたはこの価値のないがらくたを持っていることができる。欲しい。"</text>
+					<weapon name="SHOP_ITEM_HEKTAR_BASE" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>何もありません。</text>
+				<event>
+					<text>「じゃあ、あなたは私には無価値だ。とても貧しいと想像してみてください。チャットをありがとう、行かなくちゃ！」男は全力疾走して船に戻り、ポケットからスクラップの山を数枚落とします。</text>
+					<autoReward level="LOW">scrap_only</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="HEKTAR_INVESTOR_QUESTIONS_MET"> 
+	<text>「奇妙な貧しい人、私たちは再び会います！それは私です、カウント・ディンクルマン・ライヒスター・フォン・アップルバズ・トライ・トライ・ザ・フォース！この機会に私たちはお互いに偶然の一致が起こります。私はヘクタールがどんな宝物を持っているかを見るためにこれらの土地に長い冒険をしました私と私の莫大な富を提供しなければなりません。教えてください、艠?いサーまたはマダム、ヘクタールについてのあなたの意見は何ですか？」</text>
+	<variable name="loc_dinkleman" op="set" val="1" />
+	<choice hidden="true">
+		<text>彼らは人々をだましてこのセクターに閉じ込められています。</text>
+		<event>
+			<text>「いい天国、なんて天才的なアイデアだ！人々に架空の借金を巨大な市場に閉じ込めて、連邦が決して見つけられない星雲に隠すことで、想像上の借金を返済するように強制するのか？うれしい！恐ろしいと思うだろう。でも、あなたは嫌なほど金持ちではないので。とにかく、チャットをありがとう、行かなくちゃ！」男は全力疾走して船に戻り、ポケットからスクラップの山゠?数枚落とします。</text>
+			<autoReward level="LOW">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>彼らは文字通り人々を奴隷にしている。</text>
+		<event>
+			<text>「ああ、あなたは彼らが 『ビジネス』で何を言っているか知っています。実際、私はそうではありません。私は「ビジネス」に参加していません。しかし、どこかで、彼らには奴隷制の正当な理由があると確信しています。明らかに、あなたは嫌なほど金持ちではないので、あなたは知りません。とにかく、チャットに感謝します、行かなければなりません！」男は全力疾走して船に戻り、ポケットからスクラップの山を数枚落とします。</text>
+			<autoReward level="LOW">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>まあ、彼らは大丈夫です。</text>
+		<event>
+			<text>「大丈夫ですか？ええと、彼らの製品はどうですか？あなたは自由に使える大型の軍用船を持っています。あなたはヘクタールの特徴的なモジュール式兵器の使用を楽しんでいますか？」</text>
+			<choice hidden="true" req="HEKTAR_MODULAR_WEAPONS" blue="false">
+				<text>彼らはかなり良いです。</text>
+				<event>
+					<text>「いいですか？素晴らしいです！私は軍人ではありませんが、あなたの言葉を信じます！私はヘクタールに投資します。素晴らしいチャット、いい仲間です。言ってください、私にサービスをして、私のこの価値のないアシスタントを連れて行ってくださいヘクタールのトカゲの人の一人が私にもっと役立つと思います。」</text>
+					<crewMember amount="1" class="engi" />
+				</event>
+			</choice>
+			<choice hidden="true" req="HEKTAR_MODULAR_WEAPONS" blue="false">
+				<text>彼らはひどいです。</text>
+				<event>
+					<text>「ああ、それは確かに良くない。私は軍人ではないが、あなたの言葉を信じる！私はヘクタールに投資しない。ここで、私が確かにそうしないことを考えると、あなたはこの価値のないがらくたを持っていることができる。欲しい。"</text>
+					<weapon name="SHOP_ITEM_HEKTAR_BASE" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>何もありません。</text>
+				<event>
+					<text>「じゃあ、あなたは私には無価値だ。とても貧しいと想像してみてください。チャットをありがとう、行かなくちゃ！」男は全力疾走して船に戻り、ポケットからスクラップの山を数枚落とします。</text>
+					<autoReward level="LOW">scrap_only</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="DISTRESS_HEKTAR_GHETTO" unique="true">
+	<text>近くの惑星は、トカゲでいっぱいのにぎやかなゲットーと、それらに向かって発砲する海賊船の両方を誇っています！ヘクタールがこれを知っている可能性は十分にありますが、介入する気はないので、あなたが彼らの唯一の希望かもしれません！</text>
+	<img planet="PLANET_POPULATED" />
+	<distressBeacon />
+	<ship load="SHIP_HEKTAR_PIRATE_GHETTO" hostile="false" />
+	<choice hidden="true">
+		<text>トカゲを救出してください。</text>
+		<event>
+			<text>あなたは海賊船と戦う準備をします。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ゲットーは無視してください。</text>
+		<event>
+			<text>これらのトカゲの生活はあなたには何もありません。ああ、あなたが気にかけているすべてのために彼ら全員を死なせてください。</text>
+			<choice hidden="true">
+				<text>ストレージを確認してください。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="HEKTAR_UNION" unique="true">
+	<text>近くのヘクタールの船にナメクジを伴わないトカゲの群れを見つけて驚いています。彼らはあなたを歓迎します。 「あなたは軍艦ですよね？私たちを助けてくれると思います。助けてくれませんか？」</text>
+	<choice hidden="true">
+		<text>彼らの申し出を聞いてください。</text>
+		<event>
+			<text>「私たちは、最終的にこの場所で働く地獄を減らすかもしれない組合を設立するためのステップを開始しました。残念ながら、私たちの上司は私たちの努力を認めることさえ拒否します。あなたは私たちのために彼を「励ます」のを手伝ってくれますか？彼を殺さないでください、さもなければこれはすべて無意味になります！」</text>
+			<choice hidden="true">
+				<text>同意。</text>
+				<event>
+					<text>トカゲは上司がどこにいるかを示し、あなたが彼を殺してはならないことを強調します。</text>
+					<ship load="SHIP_HEKTAR_UNION" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>彼らの計画を彼らのマネージャーに明らかにしなさい。</text>
+				<event>
+					<text>ナメクジはトカゲの計画を知って笑う。 「ああ、これらの馬鹿は、ssshirtを正しい方法で着る方法さえ知らない。しかし、私に言ってくれてありがとう、良いホイッピンは彼らをうまくやるだろう！」貪欲なナメクジはあなたに何の見返りも与えませんが、トカゲは激怒してあなたの船を襲撃します！</text>
+					<boarders min="3" max="4" class="lizard" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>却下。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>結構です。</text>
+		<event>
+			<text>トカゲはそれ以上のコメントをせず、彼らの間で話し合うことに戻ります。</text>
+			<choice hidden="true">
+				<text>ストレージを確認してください。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="HEKTAR_SUZERAIN" unique="true">
+	<text>ここまで宗主国の船を見つけることを期待していたとは本当に言えず、彼らがヘクタールの犠牲者であると強く疑っています。彼らはどのような理由で来たのでしょうか？</text>
+	<ship load="SHIP_SUZERAIN_FIGHT" hostile="false" />
+	<choice hidden="true">
+		<text>彼らに連絡する。</text>
+		<event>
+			<text>スゼラインはそれに応え、いくつかの壮大な動きで腕を振り回します。 「ご挨拶！あなたは偉大なビリー・ヘクタールのことを聞いていますよね？彼は倫理が最も少なく、全多元宇宙で最も偉大で道徳的に破産した企業のリーダーです！私は彼から学び、自分でクズ野郎を生きる方法をマスターするようになりました！彼の教えを聞いた？」</text>
+			<choice hidden="true" req="slug">
+				<text>（ナメクジクルー）あります。</text>
+				<event>
+					<text>「私はあなたがあなたの船にナメクジを乗せているのを見ます！スクイーズな男性ですが、ほとんどの自然なレッチ生活の商人です！私は光栄です、そしてあなたに物を与えます。」</text>
+					<autoReward level="MED">standard</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="slug_clansman">
+				<text>（クランズマンクルー）あります。</text>
+				<event>
+					<text>「あなたはギルドマンを船に乗せているようです！感覚的なもののハンターと密猟者、生き物のスキナー！ああ、私はあなたの鋼の神経と厄介な切断方法をうらやましく思います！私は光栄です、そしてあなたに物を与えます。」</text>
+					<autoReward level="HIGH">standard</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="slug_saboteur">
+				<text>（サボタークルー）あります。</text>
+				<event>
+					<text>「あなたはあなたの船に忍び寄るナメクジを隠しているのを見ます！静かな暗殺と悪魔のような策略の狡猾なマスター！ああ、ああ、私はどのように学びたいのですか！はい、私はあなたから学ぶために来ます！」</text>
+					<autoReward level="LOW">standard</autoReward>
+					<crewMember amount="1" class="mantis_suzerain" />
+				</event>
+			</choice>
+			<choice hidden="true" req="slug_ranger">
+				<text>（レンジャークルー）あります。</text>
+				<event>
+					<text>「あなたはあなたの船に最悪の剥製術の男が乗っているのを見ます！あらゆる形態の非倫理的な生物兵器に精通し、スナイピングの達人です！ああ、ああ、私はどのように学びたいのですか！はい、私はあなたから学ぶために来ます！」</text>
+					<autoReward level="MED">standard</autoReward>
+					<crewMember amount="1" class="mantis_suzerain" />
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_VARIANT_HEKTAR">
+				<text>（ヘクタールクルー）あります。</text>
+				<event>
+					<text>「あなたはビリー自身の弟子の一人を持っています！あなたは肉体で素晴らしいビリーを見ています！私は本当に光栄です！私が来て学ぶことを許してください！」</text>
+					<crewMember amount="1" class="mantis_suzerain" />
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_VARIANT_BILLY">
+				<text>（ビリー）彼をビリーに紹介します。</text>
+				<event>
+					<text>「EEK！それはあなたです！最も不潔な人、ビリー自身！私は何を言うべきかわからないので、興奮して克服してください！私があなたと一緒に来ることを許してください、それは最大の名誉です！」</text>
+					<autoReward level="MED">standard</autoReward>
+					<crewMember amount="1" all_skills="2" class="mantis_suzerain" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>まだです。</text>
+				<event>
+					<text>「ハァッ！それならあなたはばかだ！最大の愚か者、倫理的に駆り立てられ、道徳的に豊富だ！ハハハハ！銀河はあなたを必要としないので、私はそれをする。」</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>宗主国を無視します。</text>
+		<event>
+			<text>頭を外す危険を冒したくないのでなければ、宗主国と交流する正当な理由はありません。万が一に備えて、船の間に大きな距離を置いてください。</text>
+			<choice hidden="true">
+				<text>ストレージを確認してください。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+
+
+<eventList name="NEBULA_DISTRESS_HEKTAR">
+	<event load="NEBULA_DISTRESS_HEKTAR_CHILDREN" />
+	<event load="NEBULA_DISTRESS_DEBTORS" />
+	<event load="NEBULA_DISTRESS_CRISIS" />
+</eventList>
+
+<event name="NEBULA_DISTRESS_CRISIS" unique="true">
+	<text>このビーコンで遭難信号が表示されますが、遭難信号のある船はありません。代わりに、貨物船を操縦するトカゲがあなたを歓迎します。</text>
+	<environment type="nebula" />
+	<distressBeacon />
+	<choice hidden="true">
+		<text>苦痛ビーコンとは何ですか？</text>
+		<event>
+			<text>「私は悩んでいます！ああ、恐ろしい恐ろしいです。あなたが考えているような悩みではありません。いいえ。私は絶望しています！私は神経衰弱を抱えていると思います！人生とは何ですか？私が知っているのは仕事だけです。私がしていることはすべてです。仕事です。私は仕事しか知りません。人生には終わりのない仕事のサイクルがありますか？」</text>
+			<choice hidden="true">
+				<text>いいえ。あなたは働くか、時代遅れになります。</text>
+				<event>
+					<text>「ああ、それなら私に時代遅れを選ばせてください！私はやめます！」トカゲは彼の船に乗っているすべてのエアロックを開き、彼、残りの乗組員、そして貨物全体を通気します。それはかなり病的ですが、それはあなたが急降下していくつかの箱を盗むのを止めることはありません。</text>
+					<autoReward level="HIGH">stuff</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>はい。十分に努力すれば、最終的にはサイクルから解放されます。</text>
+				<event>
+					<text>「自由があるということですか？比喩的な虹の終わりにある比喩的な金の壺？それなら私はその金を探しましょう！あなたは私に希望を与えてくれました！船長に感謝します！」トカゲは貨物からドローンを提供します。</text>
+					<drone name="RANDOM" />
+				</event>
+			</choice>
+			<choice hidden="true" req="zoltan_monk">
+				<text>（モンククルー）「人生はそうですが、どのサイクルをたどるかはあなた次第です。」</text>
+				<event>
+					<text>「私には選択肢がありますか？ヘクタールがすべてあると思いました。それが彼らが私に言ったことです。銀河の残りの部分は不毛の荒れ地であり、これが生きている最後のセクターでした。しかし待ってください...あなたはそこから来ました！私ついにあなたと一緒に来て、自由を味わわなければなりません！」</text>
+					<crewMember amount="1" repair="2" class="lizard" />
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_FREEMAN">
+				<text>（無料のMantis Crew）「StatusQuoは、2階の大物があなたにフォローしてほしいと思っているだけです！」</text>
+				<event>
+					<text>「私には選択肢がありますか？ヘクタールがすべてあると思いました。それが彼らが私に言ったことです。銀河の残りの部分は不毛の荒れ地であり、これが生きている最後のセクターでした。しかし待ってください...あなたはそこから来ました！私ついにあなたと一緒に来て、自由を味わわなければなりません！」</text>
+					<crewMember amount="1" repair="2" class="lizard" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>私は哲学者ではありません。</text>
+				<event>
+					<text>トカゲはすすり泣きですでに完全に勃発していて、あなたの足の不自由な言い訳がほとんど聞こえません。</text>
+					<choice hidden="true">
+						<text>ストレージを確認してください。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice hidden="true">
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_DISTRESS_DEBTORS" unique="true">
+	<text>遭難信号は、雲の中で失われた船から発信されているようです。 「助けてください！私たちはヘクタールに借金を負っていますが、それを完済するチャンスは絶望的です！あなたが私たちを惜しまないものはありますか？」</text>
+	<ship load="SHIP_GENERIC" hostile="false" />
+	<environment type="nebula" />
+	<distressBeacon />
+	<choice hidden="true">
+		<text>それらに少量のスクラップを与えます。 [-15スクラップ]</text>
+		<event>
+			<text>そのような少量で、あなたは船がそれを侮辱として受け取ることを期待するでしょう。代わりに、彼らは感謝しているようです。 「どうもありがとうございました！それはとても少ないです、はい、しかしどんなに寛大でもここから抜け出すチャンスを増やします。」民間人はあなたにスクラップで支払うことができないので、代わりにあなたの生活支援へのアップグレードを提供します。</text>
+			<upgrade amount="1" system="oxygen" />
+			<item_modify>
+				<item type="scrap" min="-15" max="-15" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それらに大量のスクラップを与えます。 [-50スクラップ]</text>
+		<event>
+			<text>民間人はあなたが彼らにたくさんのお金を提供することにショックを受けています。 「T-ありがとうございました！これは非常に役立ちます。」明らかに、民間人はスクラップの寄付であなたに報酬を与えることができないので、彼らはここで彼らの長い時間から集めた詳細なセクターマッピング、そして原子炉のアップグレードといくつかの燃料であなたに返済します。</text>
+			<autoReward level="MED">fuel_only</autoReward>
+			<upgrade amount="1" system="reactor" />
+			<reveal_map />
+			<item_modify>
+				<item type="scrap" min="-50" max="-50" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>これらの人は良いターゲットです。攻撃！</text>
+		<event>
+			<text>あなたは武器を上げて船を攻撃します。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_GENERAL_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>仕方がない、ごめんなさい。</text>
+		<event>
+			<text>残念ながら、これらの民間人は自分たちを救うために他の手段に頼らなければならないでしょう。このセクターがいかに巨大な罠であるかを知っているので、彼らが喜んで助けてくれる他の船を見つけることはありそうにありません。</text>
+			<choice hidden="true">
+				<text>ストレージを確認してください。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_DISTRESS_HEKTAR_CHILDREN" unique="true">
+	<text>ヘクタールの苦痛のビーコンがこのビーコンから来ています。見た目からすると、ヘクタールの工場にナメクジの群衆が集まっているようです。</text>
+	<environment type="nebula" />
+	<distressBeacon />
+	<choice hidden="true">
+		<text>工場の所有者に連絡してください。</text>
+		<event>
+			<text>工場の所有者は欲求不満で中年のナメクジのようです。バックグラウンドでは、何百人ものナメクジの子供たちが機械の作業に苦労しています。 「うーん、何年もの間、私たちはトカゲのフリークを使ってヘクタールを走らせてきました。しかし、私が決心したとき、私は子供たちを使って私の施設を運営することを始めたいと思います。</text>
+			<choice hidden="true">
+				<text>工場の所有者を支援し、抗議者を解散させます。</text>
+				<event load="HEKTAR_CHILDREN_DISPERSE" />
+			</choice>
+			<choice hidden="true">
+				<text>抗議者を支援し、子供たちを解放します。</text>
+				<event>
+					<text>あなたは武器をパワーアップし、ヘクタールの工場を攻撃します。あなたを止めるために船が到着します。</text>
+					<ship load="SHIP_HEKTAR_CHILDREN" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="false">
+				<text>子供たちを解放するために工場の所有者に支払います。</text>
+				<event>
+					<text>スラッグは彼の労働者を引き渡すことに気が進まないが、彼はあなたの申し出の論理を見てそれを受け入れるようだ。子供たちは解放され、歓喜の抗議者たちはあなたに報酬を与えます。</text>
+					<item_modify>
+						<item type="scrap" min="-20" max="-30" />
+					</item_modify>
+					<choice hidden="false">
+						<text>彼らの贈り物を受け取ります。</text>
+						<event>
+							<weapon name="RANDOM" />
+						</event>
+					</choice>
+					<choice hidden="false">
+						<text>彼らの贈り物を無視し、子供たちの一人を連れて行き、すぐに去ってください。</text>
+						<event>
+							<crewMember amount="1" class="slug">Timmy</crewMember>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>離れる。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>工場を無視します。</text>
+		<event>
+			<text>物事が醜い速さで変わる可能性があるようです。参加しない方がいいです。</text>
+			<choice hidden="true">
+				<text>ストレージを確認してください。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="HEKTAR_CHILDREN_DISPERSE">
+	<event>
+		<text>群衆は簡単に倒されます。カウンターアタックで彼らの考えを強化する気がないので、スラッグスは去り、工場の所有者があなたに支払います。あなたは今、強制児童労働の公式サポーターです、おめでとうございます！</text>
+		<autoReward level="LOW">scrap_only</autoReward>
+	</event>
+	<event>
+		<text>抗議者たちはあなたが予想したよりも彼らの考えを擁護することをいとわないようです。数発で船体がへこみますが、幸いなことにそれほど悪くはありません。彼らの攻撃がほとんど効果がなかったのを見て、抗議者たちはあきらめ、工場の所有者はあなたに支払います。あなたは今、強制児童労働の公式サポーターです、おめでとうございます！</text>
+		<autoReward level="LOW">scrap_only</autoReward>
+		<damage amount="3" />
+	</event>
+</eventList>
+
+
+<eventList name="NEBULA_ITEMS_HEKTAR">
+	<event load="NEBULA_HEKTAR_HOPE" />
+	<event load="NEBULA_HEKTAR_TOYS" />
+	<event load="NEBULA_HEKTAR_SYLVAN" />
+</eventList>
+
+<event name="NEBULA_HEKTAR_SYLVAN" unique="true">
+	<text>「Sssstranger、私のビーコンへようこそ！」どういうわけかシルバンをもう一度見つけたと思ってジャンプしますが、代わりにこれは悪名高い旅行商人ではなく、単なる別のヘクタールの従業員のようです。</text>
+	<ship load="SHIP_HEKTAR_TRANSPORT_LOOT" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>なぜシルバンのふりをしているのですか？</text>
+		<event>
+			<text>「まあ、Sssylvanは私のヒーローです！彼はssssssoクールです。そして暑いです。私は私がそのクールで暑いwassだと思います...オキシモロンを許してください。」</text>
+			<choice hidden="true">
+				<text>あなたも物を売っていますか？</text>
+				<event>
+					<text>ナメクジは元気になります。 「実際、私はそうします！」彼は以前からなりすましを再開します。 「sssstrangerに来て、私のgoodssssを見てください！」</text>
+					<store>STORE_HEKTAR_DEFAULT</store>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>8つのシールドと6つのバーストレーザーがありません。</text>
+				<event>
+					<text>「ええ...私は彼がどうやってトスを手に入れたのかさえわかりません！私がハードコードされた限界に達したように、私がジャスストする多くのssshieldsをインストールしようとするたびに、不快なビープ音が鳴ります。」</text>
+					<choice>
+						<text>彼の船を整えるために彼にいくつかのスクラップを提供します。</text>
+						<event>
+							<text>「それはかなり寛大です、ssstranger！ええと、つまり、ありがとう。」</text>
+							<item_modify>
+								<item type="scrap" min="-90" max="-90" />
+							</item_modify>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event>
+									<text>「ああ、私には与えるものが何もない...待って、いや！私はそうする！これは私にとって非常に価値のあるものですが、私よりもはるかに多くのussesを得ることができると確信しています。でも気をつけて」</text>
+									<weapon name="LASER_CHAINGUN_GOLD" />
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>あなたも物を売っていますか？</text>
+						<event>
+							<text>ナメクジは元気になります。 「実際、私はそうします！」彼は以前からなりすましを再開します。 「sssstrangerに来て、私のgoodssssを見てください！」</text>
+							<store>STORE_HEKTAR_DEFAULT</store>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="unique_sylvan">
+				<text>（シルバン）「こんにちは、ssstranger！」</text>
+				<event>
+					<text>「OHGOD！IT'SSS YOU！OH MY OH MY OH MY OH MY OH MY！」スラッグは、彼がシルバンと一緒に働くことができるように、あなたが彼を船に乗せることを実際に要求します。</text>
+					<crewMember amount="1" combat="2" class="slug_hektar" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ふりを無視します。</text>
+		<event>
+			<text>なぜ誰かがシルバンを真似ようとするのかはわかりませんが、それはあなたにとって迷惑にすぎません。</text>
+			<choice hidden="true">
+				<text>ストレージを確認してください。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_HEKTAR_TOYS" unique="true">
+	<text>小さなヘクタールのギフトショップが近くにあります。軍の物資を運んでいる可能性は非常に低いですが、中に何か面白いものが見つかるかもしれません。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>見てみな。</text>
+		<event>
+			<text>あなたは太りすぎのナメクジによって歓迎されています。 「Visssitorssss！入って来い！私はあなたにssshowする何かを持っている！私は銀河を横切る様々なracccesssに似ているプル-ssstringおもちゃの新しいラインを作成した。来て、それらを試してみてください！」</text>
+			<choice hidden="true">
+				<text>人間のひもを引っ張る。</text>
+				<event>
+					<text>人間のおもちゃがきしみ、「栄光の反逆！」を吐き出します。ナメクジはあなたのショックに気づき、あなたの神経を落ち着かせようとします。 「大丈夫です！多くの人間は反逆者です、それがポイントです！それは人間に関係があります！」</text>
+					<choice hidden="true">
+						<text>右...</text>
+						<event>
+							<text>ナメクジは神経質に笑います。 「それなら気に入らないと思いますか？*ため息*、大丈夫...」ナメクジは店のカウンターに戻って敗北しました。 「ここからそれほど遠くないところに軍の基地があります。何かしらのことをしたいのなら、代わりにそこに行ってください...」</text>
+							<store>STORE_HEKTAR_DEFAULT</store>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>おもちゃを20スクラップで購入します。</text>
+						<event>
+							<text>「あなたは実際にそれが好きですか？OH BOY！sssoありがとうございます！私の兄はEHGでplusssshieラインを開始しようとしましたが、物事は彼にとってうまくいっていませんでした、ssso私は彼に良いニュースを伝えるのが待ちきれません！待ってください、さらに良いことに、私はあなたと一緒に来ます、そしてそれから私は私のおもちゃをMultiverssse全体に売ることができます！」</text>
+							<item_modify>
+								<item type="scrap" min="-20" max="-20" />
+							</item_modify>
+							<crewMember amount="1" class="slug_hektar" />
+						</event>
+					</choice>
+					<choice hidden="true" req="LIST_CREW_HUMAN">
+						<text>（ヒューマンクルー）フィードバックをお寄せください。</text>
+						<event>
+							<text>あなたの乗組員はおもちゃについての彼らの意見を説明します。 Slugはこのアドバイスを慎重に検討しており、感謝しているようです。 「ご意見ありがとうございます！ここに、これを持ってください！」</text>
+							<autoReward level="MED">stuff</autoReward>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>カマキリのひもを引っ張る。</text>
+				<event>
+					<text>マンティスのおもちゃがきしむと、「すべての生き物を殺せ！」と吐き出します。ナメクジはあなたのショックに気づき、あなたの神経を落ち着かせようとします。 「大丈夫です！仮数はそのようにジャストです！それが本当なら、それは不快ではありませんよね？」</text>
+					<choice hidden="true">
+						<text>右...</text>
+						<event>
+							<text>ナメクジは神経質に笑います。 「それなら気に入らないと思いますか？*ため息*、大丈夫...」ナメクジは店のカウンターに戻って敗北しました。 「ここからそれほど遠くないところに軍の基地があります。何かしらのことをしたいのなら、代わりにそこに行ってください...」</text>
+							<store>STORE_HEKTAR_DEFAULT</store>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>おもちゃを20スクラップで購入します。</text>
+						<event>
+							<text>「あなたは実際にそれが好きですか？OH BOY！sssoありがとうございます！私の兄はEHGでplusssshieラインを開始しようとしましたが、物事は彼にとってうまくいっていませんでした、ssso私は彼に良いニュースを伝えるのが待ちきれません！待ってください、さらに良いことに、私はあなたと一緒に来ます、そしてそれから私は私のおもちゃをMultiverssse全体に売ることができます！」</text>
+							<item_modify>
+								<item type="scrap" min="-20" max="-20" />
+							</item_modify>
+							<crewMember amount="1" class="slug_hektar" />
+						</event>
+					</choice>
+					<choice hidden="true" req="LIST_CREW_MANTIS">
+						<text>（Mantis Crew）フィードバックをお寄せください。</text>
+						<event>
+							<text>あなたの乗組員はおもちゃについての彼らの意見を説明します。 Slugはこのアドバイスを慎重に検討しており、感謝しているようです。 「ご意見ありがとうございます！ここに、これを持ってください！」</text>
+							<autoReward level="MED">stuff</autoReward>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>シェルのひもを引っ張る。</text>
+				<event>
+					<text>シェルのおもちゃがきしむと、「人種差別はいい！」と吐き出します。ナメクジはあなたのショックに気づき、あなたの神経を落ち着かせようとします。 「それは大丈夫です！Sssshellsss usssse racccissssmは、彼らのssspeciesssを整理します！彼らはsssmartであり、sssoは明らかに、sssomethingを理解しました！それはそれを大丈夫にするコンテキストです！」</text>
+					<choice hidden="true">
+						<text>右...</text>
+						<event>
+							<text>ナメクジは神経質に笑います。 「その時は気に入らないと思いますか？*ため息*、大丈夫...」ナメクジは店のカウンターに戻って敗北しました。 「ここからそれほど遠くないところに軍の基地があります。何かしらのことをしたいのなら、代わりにそこに行ってください...」</text>
+							<store>STORE_HEKTAR_DEFAULT</store>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>おもちゃを20スクラップで購入します。</text>
+						<event>
+							<text>「あなたは実際にそれが好きですか？OH BOY！sssoありがとうございます！私の兄はEHGでplusssshieラインを開始しようとしましたが、物事は彼にとってうまくいっていませんでした、ssso私は彼に良いニュースを伝えるのが待ちきれません！待ってください、さらに良いことに、私はあなたと一緒に来ます、そしてそれから私は私のおもちゃをMultiverssse全体に売ることができます！」</text>
+							<item_modify>
+								<item type="scrap" min="-20" max="-20" />
+							</item_modify>
+							<crewMember amount="1" class="slug_hektar" />
+						</event>
+					</choice>
+					<choice hidden="true" req="LIST_CREW_SHELL">
+						<text>（シェルクルー）フィードバックをお寄せください。</text>
+						<event>
+							<text>あなたの乗組員はおもちゃについての彼らの意見を説明します。 Slugはこのアドバイスを慎重に検討しており、感謝しているようです。 「ご意見ありがとうございます！ここに、これを持ってください！」</text>
+							<autoReward level="MED">stuff</autoReward>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ギフトショップは無視してください。</text>
+		<event>
+			<text>あなたは重要な使命を帯びています。このような価値のない観光客の罠に立ち寄る時間はありません。</text>
+			<choice hidden="true">
+				<text>ストレージを確認してください。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_HEKTAR_HOPE" unique="true">
+	<text>民間の船がここにいて、雲の中をさまよって、迷子になって恐れています。彼らの船長はあなたに会うと元気になります。 「連邦が到着したのですか？！私たちは、これらのスラッグスの野郎に永遠に恩恵を受けて、ここに閉じ込められるだろうと思っていました！」</text>
+	<ship load="SHIP_CIVILIAN_ALL" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>真実を告白しなさい-連邦はこの場所について何も知らない。</text>
+		<event load="HEKTAR_HOPE_TRUTH" />
+	</choice>
+	<choice hidden="true">
+		<text>嘘-連盟が助けに来たことを彼らに約束しなさい。</text>
+		<event>
+			<text>「それなら私たちは救われます！今日は輝かしい日であり、ついに解放されます！私は多くを提供することはできませんが、この燃料を持っていってください！」</text>
+			<autoReward level="MED">fuel_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="human_soldier">
+		<text>（兵士の乗組員）私たちはヘクタールを止めるためにここに来たわけではありませんが、ここにいるので最善を尽くします。</text>
+		<event>
+			<text>「うわー！とても高貴です！しかし、あなたが何かをするためには、ここから生きてそれを成し遂げなければならないでしょう。私がそれであなたを助けることができるかどうか見させてください！」民間船はあなたの船体へのダメージの一部を修正します。</text>
+			<damage amount="-30" />
+		</event>
+	</choice>
+</event>
+<eventList name="HEKTAR_HOPE_TRUTH">
+	<event>
+		<text>「それで、連邦は私たちを放棄しましたか？銀河を保護するという彼らの誓いはどうなりましたか？どうすれば彼らはこれらの残虐行為を毎日犯させて何もしないことができますか？連邦は無価値です...」民間人は飛び去ります。</text>
+	</event>
+	<event>
+		<text>「でも、あなたは連邦の船ですよね？それはあなたが何かをすることができるということです！ここで彼らに話すことができます！しかしそれをするためには、それを生き生きとさせる必要があります。ここで、私がそれを手伝うことができるかどうか見てみましょう。」民間船はあなたの船体へのダメージの一部を修正します。</text>
+		<damage amount="-15" />
+	</event>
+	<event>
+		<text>「ああ……まあ、あなたは私がここから地獄を抜け出す良いチャンスだと思います。どうぞ、私を連れて行ってください、私はこの地獄から解放されたいです！」</text>
+		<crewMember amount="1" shields="1" class="human" />
+	</event>
+</eventList>
+
+
+<eventList name="NEBULA_NEUTRAL_HEKTAR">
+	<event load="NEBULA_HEKTAR_PATENT" />
+	<event load="NEBULA_HEKTAR_IKEA" />
+	<event load="NEBULA_HEKTAR_REFUEL" />
+	<event load="NEBULA_HEKTAR_POWERPLANT" />
+	<event load="NEBULA_HEKTAR_FANATIC" />
+</eventList>
+
+<event name="NEBULA_HEKTAR_FANATIC" unique="true">
+	<text>ヘクタールの犠牲者である可能性が高い民間人のグループが、廃墟となった倉庫の中に閉じ込められ、武装した仲間の民間人によって守られているように見えます。彼らのリーダーはかさばる人間で、明るい青色のモホークとヘクタールのロゴが両腕に刺さっています。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>何が起こっているのか見てみましょう。</text>
+		<event>
+			<text>倉庫に入る前に、前に見たのと同じ男に止められます。 「YOU！YOOUUUUUUUU！あなたは唯一のヘクタールに忠実ですか？偉大なヘクタール一族の足元で成長しますか？はいまたはいいえ？」</text>
+			<choice hidden="true">
+				<text>はい！！！</text>
+				<event>
+					<text>「YEEEEESSSSS！YEEEEEEESSSSS！私たちの1人、私たちの1人、私たちの1人!!! WOOOOOOOO！」この男は明らかに大規模な仕事であり、おそらく何らかのストックホルム症候群を患っていますが、彼は彼の仲間の中であなたを歓迎しているようで、民間人が閉じ込められている建物の中にあなたを導きます。</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>「これらは私が捕らえた異端者であり、ヘクタールの名の下に犠牲になります！彼らは実際に去りたいのです！この場所を去ることはありません。私たちは滞在し、私たちの生活と財布をヘクタールに捧げなければなりません！」</text>
+							<choice hidden="true">
+								<text>これらの人は止められなければなりません！</text>
+								<event>
+									<text>あなたがそれらをオンにしたことが明らかになると、たくましい男は彼の警備員の一人にあなたを攻撃するように呼びかけます！</text>
+									<boarders min="2" max="3" class="human" />
+									<ship load="SHIP_HEKTAR_FANATIC" hostile="true" />
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>あなたの頭をうなずいて、地獄を出してください。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>いいえ。</text>
+				<event>
+					<text>"なら出ていけ クズども！" 男は倉庫のドアを叩き、あなたを閉め出しました。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>倉庫を無視します。</text>
+		<event>
+			<text>これは混沌のように見えます。あなたがその一部になりたくないような混沌です。あなたは狂った民間人から距離を置きます。</text>
+			<choice hidden="true">
+				<text>ストレージを確認してください。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_HEKTAR_POWERPLANT" unique="true">
+	<text>このビーコンはイオンストームに覆われているようです。ただし、ここでの稲妻は異常なパターンで印象的であるように見えます。オーキドゥの船も近くにあり、雲を眺めています。</text>
+	<environment type="storm" />
+	<choice hidden="true">
+		<text>オーキドゥに連絡します。</text>
+		<event>
+			<text>「ああ、こんにちは。私は星雲生物学者のイテン教授です。これらの星雲がホストする奇妙な生き物の種類を信じられないでしょう！残念ながら、ヘクタールの発電施設はこれらの生き物にとって非常に致命的な合成イオンストームを製造しているようです。 ！すでに3頭ほどのデッドスペースクジラを見つけましたが、これを続けることはできません！近くの発電所のマネージャーと話してみてください。」</text>
+			<choice hidden="true">
+				<text>発電所をご覧ください。</text>
+				<event>
+					<text>問題の施設にはいくつかの巨大なテスラコイルが突き出ており、嵐を食い止めているようです。施設の管理者は、オーキドゥのメッセージをあまり受け入れていないようです。 「ああ、ssssome ssstupidクジラを愛撫します。Anaerobesssは足が不自由です！酸素を吸うだけです、あなたは敗者です。」</text>
+					<choice hidden="true">
+						<text>施設を攻撃せよ！</text>
+						<event>
+							<text>この男が論理を聞かないなら、彼はあなたの銃の音を聞かなければならないでしょう！</text>
+							<ship load="SHIP_HEKTAR_POWERPLANT_HEKTAR" hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>施設を手伝って、オーキドゥを攻撃してください。</text>
+						<event>
+							<text>これらのオーキドゥはただおせっかいで、彼らに関係のないビジネスに関与しています。あなたがそれらを取り出すのが最善です。</text>
+							<ship load="SHIP_HEKTAR_POWERPLANT_ORCHIDS" hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="MORALITY_UPDATE_ORCHID_FIGHT" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>あきらめる。</text>
+						<event>
+							<text>あなたはオーキドゥに戻り、それが機能しなかったと説明します。彼はあなたの献身の欠如に失望しているようですが、とにかく試してくれてありがとう、そしてあなたに小さな報酬を提供します。</text>
+							<autoReward level="LOW">scrap_only</autoReward>
+						</event>
+					</choice>
+					<choice hidden="true" req="LIST_CREW_ORCHID">
+						<text>（オーキッドクルー）生態系がどこにあるか、何であるかに関係なく、生態系に害を及ぼさないことの重要性を説明します。</text>
+						<event>
+							<text>あなたのオーキドゥのスピーチはスラッグを混乱させるだけのようです。 「私はあなたがsssaidと言った気の毒な言葉を理解していませんが、それはsssurewasss迷惑なロバ地獄です。黙れ」</text>
+							<choice hidden="true">
+								<text>Ithenに戻ります。</text>
+								<event>
+									<text>「素晴らしい仕事です。ありがとうございました。ここでの仕事は終わったと思います。残念ながら、私はここで立ち往生しています。多額の借金などがあります。この場所から私を護衛するのを手伝ってくれませんか？」</text>
+									<crewMember amount="1" class="orchid">Ithen</crewMember>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>ごみ。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>イオンの嵐は吸う、ただ去る。</text>
+		<event>
+			<text>イオンストームで必要以上に長居したくありません。これらのオーキドゥは彼らがしていることは何でもし続けることができます、あなたはここから出ています。</text>
+			<choice hidden="true">
+				<text>ストレージを確認してください。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_HEKTAR_REFUEL" unique="true">
+	<text>不思議なことに、ヘクタール駅が近くにあり、通過する船に無料の給油を提供しているようです。これらのスラッグは、このセクターの他のすべてのように貪欲ではないのでしょうか？</text>
+	<environment type="nebula" />
+	<ship load="SHIP_HEKTAR_STATION" hostile="false" />
+	<choice hidden="true">
+		<text>ドック。</text>
+		<event>
+			<text>あなたの完全なショックに、ステーションはあなたを歓迎し、実際にあなたの船に燃料を補給します！あなたはこれらのスラッグに感銘を受けて、快適に身を乗り出します。</text>
+			<autoReward level="HIGH">fuel_only</autoReward>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>あなたが去ろうとすると、あなたはナメクジに止められます。 「Sssorrycussstomer、しかしあなたは去ることができません！あなたはHektar Indussstriesssに借金をしているように見えます、そしてそれでthisss燃料hassssの無料割引は無効にされました。 。 支払え。"</text>
+					<choice hidden="true">
+						<text>地獄！</text>
+						<event>
+							<text>あなたは彼らにあなたのスクラップのすべてを払っていません！あなたは今あなたの方法を戦わなければならないでしょう。</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>あなたが持っているスクラップのすべてを彼らに支払います。</text>
+						<event>
+							<text>"また来てね！"あなたが飛び去るとき、ナメクジはあなたを振り払い、空のポケットに入れます。</text>
+							<item_modify steal="true">
+								<item type="scrap" min="-999999" max="-999999" />
+							</item_modify>
+						</event>
+					</choice>
+					<choice hidden="true" req="LIST_VARIANT_BILLY">
+						<text>（ビリー）「もう借金はありません、モロンス。」</text>
+						<event>
+							<text>従業員は、CEOがあなたの船に乗っているのを見てショックを受けました。ビリーが各スタッフを個別に叱責することを終えると、あなたは行くことが許可され、「誤解」を補うための物資さえ提供されます。</text>
+							<autoReward level="MED">stuff</autoReward>
+						</event>
+					</choice>
+					<choice hidden="true" req="engines" lvl="5">
+						<text>（Upg. Engines）そこからハイテールします。</text>
+						<event>
+							<text>スラッグが反応する前に、エンジンをパワーアップしてできるだけ速く飛び去ります。</text>
+						</event>
+					</choice>
+					<choice hidden="true" req="cloaking" lvl="2">
+						<text>（Upg. Cloaking）マントをかぶってこっそり。</text>
+						<event>
+							<text>クローキングシステムをアクティブにして、スラッグからこっそり離れます。</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>駅を無視します。</text>
+		<event>
+			<text>いいえ-これは罠に違いありません。これらの人々は、このセクターの他の住民と何ら変わりはありません。</text>
+			<choice hidden="true">
+				<text>ストレージを確認してください。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_HEKTAR_IKEA" unique="true">
+	<text>鮮やかな色の民間船がヘクタールのプラットフォームの近くに密かに隠されています。あなたが飛び込むと、彼らはあなたをすぐに見つけて呼びかけます。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>「こんにちは、連邦の船長です。私はアストリッド・カンプラードです。何世紀にもわたって、私の家族は銀河系連合で著名な家具会社を経営してきましたが、ヘクタールのニュースを聞いたときの私の恐ろしいことに、私の家族経営の核となる考えは恥知らずに盗まれたようです。これらの悪魔のようなヘクタールによって。そのプラットフォームの金庫室に閉じ込められた証拠?があると確信していますが、それを手に入れるにはあなたの助けが必要です。駅が金庫室を保護し、破壊する必要があります！」</text>
+			<choice hidden="true">
+				<text>同意。</text>
+				<event>
+					<text>Astridが主張したように、プラットフォームにアクセスするには、最初にHektarステーションを取り出す必要があります。戦う準備をしなさい！</text>
+					<ship load="SHIP_HEKTAR_IKEA" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>却下。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="HEKTAR_IKEA_WIN">
+    <text>「キャプテンをやった！さあ、この金庫を開けて真実を見つけよう！」</text>
+    <choice hidden="true">
+        <text>ボールトを開きます。</text>
+        <event>
+            <text>少し苦労した後、金庫を開けて入ります。中には、「Carle Hektar」によって署名された、さまざまな文書や乱雑に書かれた手紙があります。アストリッドは、連邦が設立される前の何年も前に、カールがヘクタールの最初の創設者であったと説明しています。</text>
+            <choice hidden="true">
+                <text>継続する...</text>
+                <event>
+                    <text>ついに、アストリッドは彼が探しているものを見つけます。読むジャーナルエントリ。 「今日、私は地球を訪れました。私は常に人間の文化を愛していました。私の旅行で、家具会社を所有するこの素敵な紳士に会いました。ナメクジが家をめったに提供しないと彼に言ったとき、彼はショックを受けました！そして、若者は私にくれました私が決して忘れない最も素晴らしいアイデア。彼は私が自分で家具会社を始めるべきだと言った！私はその男にすべてを負っている。」</text>
+                    <choice hidden="true">
+                        <text>継続する...</text>
+                        <event>
+                            <text>アストリッドは言葉を失ったようだ。 「私は...ええと...」彼は喉をすっきりさせます。 「まあ、私はあなたの助けをあなたに払ったほうがいいと思います。私は今バスルームで泣きに行くつもりです。」</text>
+                            <weapon name="RANDOM" />
+                        </event>
+                    </choice>
+                </event>
+            </choice>
+        </event>
+    </choice>
+</event>
+
+<event name="NEBULA_HEKTAR_PATENT" unique="true">
+	<text>ヘクタール船とゾルタン船は、商標をめぐって、ある種の対立状態にあるように見えます。それが非常に熱くなっているように見えることを除いて、あなたは彼らの議論についてこれ以上洞察を輝かせているようには見えません。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>ヘクタールの船に介入して助けてください。</text>
+		<event>
+			<text>あなたはゾルタン船と交戦します。</text>
+			<ship load="SHIP_HEKTAR_PATENT_ZOLTAN" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ゾルタンに介入して助けてください。</text>
+		<event>
+			<text>あなたはヘクタール船と交戦します。</text>
+			<ship load="SHIP_HEKTAR_PATENT_HEKTAR" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>競合を無視します。</text>
+		<event>
+			<text>あなたはすぐに飛び去ります。すぐに、両方の船がお互いに発砲します。</text>
+			<choice hidden="true">
+				<text>ストレージを確認してください。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+<eventList name="NEBULA_HOSTILE_HEKTAR">
+	<event load="NEBULA_ENCOUNTER_HEKTAR" />
+</eventList>
+
+<event name="NEBULA_ENCOUNTER_HEKTAR">
+	<environment type="nebula" />
+	<text load="TEXT_ENCOUNTER_HEKTAR" />
+	<ship load="SHIP_HEKTAR_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_HEKTAR">
+	<text>お気づきのように、Hektarの全従業員の最も顕著な特徴は、彼らの極端な欲望です。近くの特に貪欲なナメクジの1人は、あなたの船の一部を欲しがっているように見え、攻撃します！</text>
+	<text>ヘクタールの船が近づき、あなたに対する成功の確率を比較検討します。船が攻撃するので、どうやら彼らは彼らを上位にランク付けしています！</text>
+	<text>「両方とも本物にしよう。あなたはあなたの借金を返済することは決してないだろう。</text>
+	<text>ヘクタール船が近くにあります。彼らの船長は元気に手を振ってあなたを歓迎します。突然、タイマーが切れます。 「ああ、くだらない、私の休憩は終わった。ごめんなさい、今私は仕事をしてあなたを奪わなければならない。」</text>
+	<text>「私が奪うすべてのsssshipに対してボーナスを得るのを知っていましたか？Hektarからではなく、お金からあなたのゴミをsssellingします。さあ、あなたの貨物をください！」</text>
+</textList>
+
+
+<event name="NEBULA_SYLVANHOME" unique="true">
+	<preventQuest />
+	<text>ここの雲はいつもより厚く、激しい嵐が続いています。あなたは何かを見つけることを望んでぶらぶらと歩き回り、最終的には近くを漂流している非常に小さなヘクタールの鞘に出くわします。何をしても、スキャンはシェルを貫通できません。</text>
+	<environment type="storm" />
+	<choice hidden="true">
+		<text>アプローチ。</text>
+		<event>
+			<text>ポッドに近づくと、パスコードが付いた金属製のドアで保護されていることがわかります。下部には単に「S.H.の財産」と書かれています。構造の完全性を損なうことなくそれを壊す方法はありません。セキュリティシステムは非常に高度であるため、反乱軍の艦隊が到着する前に突破できるとは思えません。これを明らかに構築した人は誰でも、人々が自分のものをいじりたくないのです。</text>
+			<choice hidden="true" req="salt">
+				<text>（オビン）オビンはこれが何であるかを知っているようです。</text>
+				<event load="NEBULA_SYLVANHOME_OPEN" />
+			</choice>
+			<choice hidden="true" req="unique_sylvan">
+				<text>（シルバン）シルバンには何か言いたいことがあるようです。</text>
+				<event>
+					<text>シルバンはポッドを一瞬見ますが、立ち止まります。 「ねえ、sssstrangerを気にしないでください。私の悪い。私のとりとめのないことを無視してください...」</text>
+					<choice hidden="true" req="salt">
+						<text>（オビン）オビンはこれが何であるかを知っているようです。</text>
+						<event load="NEBULA_SYLVANHOME_OPEN" />
+					</choice>
+					<choice hidden="true">
+						<text>やるべきことは何もないと思います。</text>
+						<event>
+							<text>これは非常に奇妙な目撃であり、ここに非常に重要な何かがあるかどうか疑問に思わざるを得ません。しかし、今日、謎は解かれません。少なくともここではありません。</text>
+							<choice hidden="true">
+								<text>ストレージを確認してください。</text>
+								<event load="STORAGE_CHECK" />
+							</choice>
+							<choice hidden="true">
+								<text>何もしない。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>やるべきことは何もないと思います。</text>
+				<event>
+					<text>これは非常に奇妙な目撃であり、ここに非常に重要な何かがあるかどうか疑問に思わざるを得ません。しかし、今日、謎は解かれません。少なくともここではありません。</text>
+					<choice hidden="true">
+						<text>ストレージを確認してください。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice hidden="true">
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>やるべきことは何もないと思います。</text>
+		<event>
+			<text>これは非常に奇妙な目撃であり、ここに非常に重要な何かがあるかどうか疑問に思わざるを得ません。しかし、今日、謎は解かれません。少なくともここではありません。</text>
+			<choice hidden="true">
+				<text>ストレージを確認してください。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="NEBULA_SYLVANHOME_OPEN">
+	<text>オビンはあなたを通り過ぎて、パスコードまで歩きます。彼はあなたが認識できない一連の数字を入力し、驚いたことにポッドが開きます！あなたは肩をすくめるオビンをちらっと見ます。 「S.H.;これはシルバンのイニシャルです。彼はすべてに同じパスワードを使用するという悪い癖があるので、試してみることにしました...」</text>
+	<choice hidden="true">
+		<text>入る。</text>
+		<event>
+			<text>ポッドの内部は、あらゆる種類の奇妙な装飾が施されています。濃い紫色のシーツが付いた散らかったベッドは、長年の友情から明らかな摩耗を伴うぬいぐるみの配列を隠します。装飾の多くは奇妙に子供っぽく見えますが、事後に追加されたように見えるいくつかの外れ値があります。オビンはひざまずいて、「アヌラック」という名前が刻まれた、大きな目のシンボルが付いだ?ネックレスである小さな小物を手に取ります。</text>
+			<choice hidden="true">
+				<text>あれは何でしょう？</text>
+				<event>
+					<text>オビンはネックレスを慎重に元の場所に戻します。 「私たちの古くからの友人からの贈り物です。」彼は立ち止まり、部屋を見回します。 「私はこの場所が何であるかを知っています。シルバンはそれについて私に話しました。彼が両親から逃げる必要があるときはいつでも、そして後に彼の兄弟に彼はここに来るでしょう。これは家から離れた彼の家になりました：彼は時々訪問し続けました。EHGとの対決の後、彼は私を一度ここに連れてきました。」オビンはベッドとその隣のナメクジに合わせた奇妙な化学防護服をちらっと見ます。 「ふむ。いい思い出だ」</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>壁に固定された地図が見つかるまで、特に何も探しずに部屋の中を歩き回り、これまでに見たことのない星系を示します。あらゆる種類の奇妙なラベルが散らばっていて、1つの付箋に自分の地図にマークした座標が付いています。ここで他に何も役に立たないように思われるので、もう一度やり直して、後ろのドアを閉めます。</text>
+							<quest event="NEXUS_PORTAL" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+</FTL>
