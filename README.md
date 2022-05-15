@@ -3,13 +3,12 @@ FTL: Faster Than Light の overhaul mod である [Multiverse 5.2.3](https://sub
 
 ## インストールに必要なもの
 * FTL: Faster Than Light 本体
-* Arsenal+ English Translation のインストールに必要なもの
-    * [Slipstream Mod Manager](https://subsetgames.com/forum/viewtopic.php?f=12&t=17102)
-      (動作には Java (JRE) が必要。Windows なら [こちら](https://www.java.com/ja/download/ie_manual.jsp) ）
-    * [Hyperspace 1.0.3](https://subsetgames.com/forum/viewtopic.php?f=11&t=35095)
-    * [Multiverse 5.2.3](https://subsetgames.com/forum/viewtopic.php?f=11&t=35332)
-    * [JPMod.ftl](https://www.axfc.net/u/3899086.zip)
-      (Hyperspaceの導入により正式な日本語対応バージョン以前に戻すため、そのバージョンでの日本語パッチが必要です)
+* [Slipstream Mod Manager](https://subsetgames.com/forum/viewtopic.php?f=12&t=17102)
+   (動作には Java (JRE) が必要。Windows なら [こちら](https://www.java.com/ja/download/ie_manual.jsp) ）
+* [Hyperspace 1.0.3](https://subsetgames.com/forum/viewtopic.php?f=11&t=35095)
+* [Multiverse 5.2.3](https://subsetgames.com/forum/viewtopic.php?f=11&t=35332)
+* [JPMod.ftl](https://www.axfc.net/u/3899086.zip)
+  (Hyperspaceの導入により正式な日本語対応バージョン以前に戻すため、そのバージョンでの日本語パッチが必要です)
 * [本パッチ](https://github.com/AyKo/ftl-multiverse-japanese-patch/raw/main/FTL-Multiverse_5.2.3_hotfix.jp-patch.zip)
 
 ## インストール
