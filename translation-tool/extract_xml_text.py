@@ -7,6 +7,7 @@ import os
 import xml.etree.ElementTree as ET
 import glob
 import re
+import sys
 
 # 翻訳で変な変換されないように、特殊な意味をもつ文字を変換するテーブル
 special_char_transtable_encode = str.maketrans({
@@ -23,6 +24,10 @@ special_char_transtable_encode = str.maketrans({
     "™":"👆",  # upgraded
 })
 
+tag = "text"
+if len(sys.argv) > 1:
+    tag = sys.argv[1]
+
 # data ディレクトリのすべてのファイルを対象にして..
 text_list = set()
 for file in  glob.glob("./data/*"):
@@ -36,7 +41,7 @@ for file in  glob.glob("./data/*"):
         continue
     root = tree.getroot()
     # <text>タグを探して..
-    for texttag in root.findall('.//desc'):
+    for texttag in root.findall('.//' + tag):
         if not texttag.text:
             continue
         # 行頭の空白文字は削除し..

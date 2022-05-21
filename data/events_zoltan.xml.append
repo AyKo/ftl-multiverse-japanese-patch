@@ -137,7 +137,7 @@
 		</item_modify>
 	</event>
 	<event>
-		<text>あなたの爆発物は、「洞窟」が実際には水面下のバンカーのネットワークにある秘密の基地であることを明らかにしています。中の誰もが死んでいます。最近、カマキリが明らかにここを通り抜けました。ゾルタンは高度な船の兵器を研究していたようです。あなたは彼らのより良い例の1つをあなたの船に戻します。</text>
+		<text>あなたの爆発物は、「洞窟」が実際には水面下のバンカーのネットワークにある秘密の基地であることを明らかにしています。中の誰もが死んでいます。最近、マンティスが明らかにここを通り抜けました。ゾルタンは高度な船の兵器を研究していたようです。あなたは彼らのより良い例の1つをあなたの船に戻します。</text>
 		<autoReward level="RANDOM">weapon</autoReward>
 		<item_modify>
 			<item type="missiles" min="-1" max="-1" />
@@ -251,7 +251,7 @@
 </textList>
 
 <event name="ZOLTAN_MANTIS" unique="true">
-	<text>あなたは破裂したゾルタン貨物船からの最後の放送を拾いました：「カマキリ、彼らはここにいます、お願いします-」あなたは港の船首からの火事によって中断されました！</text>
+	<text>あなたは破裂したゾルタン貨物船からの最後の放送を拾いました：「マンティス、彼らはここにいます、お願いします-」あなたは港の船首からの火事によって中断されました！</text>
 	<ship load="SHIP_MANTIS_FIGHT" hostile="true" />
 	<choice hidden="true">
 		<text>継続する...</text>
@@ -297,7 +297,7 @@
 		<event load="ZOLTAN_CHECKPOINT_SUBMIT" />
 	</choice>
 	<choice req="cloaking" hidden="true">
-		<text>（マント）マントをかぶって、こっそり通り過ぎてみてください。</text>
+		<text>（クローク）クロークをかぶって、こっそり通り過ぎてみてください。</text>
 		<event load="ZOLTAN_CHECKPOINT_CLOAK" />
 	</choice>
 	<choice req="doors" lvl="2" hidden="true">
@@ -660,13 +660,13 @@
 </event>  
 
 <event name="DISTRESS_ZOLTAN_MANTIS" unique="true">
-	<text>あなたのジャンプは、カマキリの海賊が小惑星のフィールドに入るときに、ゾルタンの警備船を妨害します。彼らはあなたにメッセージを送ります、「ここでのあなたの存在は引き続き容認されます-しかし、邪魔しないでください。」</text>
+	<text>あなたのジャンプは、マンティスの海賊が小惑星のフィールドに入るときに、ゾルタンの警備船を妨害します。彼らはあなたにメッセージを送ります、「ここでのあなたの存在は引き続き容認されます-しかし、邪魔しないでください。」</text>
 	<environment type="asteroid" />
 	<distressBeacon />
 	<choice hidden="true">
-		<text>カマキリの船を妨害して救ってください。</text>
+		<text>マンティスの船を妨害して救ってください。</text>
 		<event>
-			<text>時々あなたは弱者に賭けなければなりません-たとえ弱者がカマキリの軍艦であるというまれな場合でさえ。あなたは小惑星フィールドの中心に向けて出発し、そこでゾルタンと交戦します。</text>
+			<text>時々あなたは弱者に賭けなければなりません-たとえ弱者がマンティスの軍艦であるというまれな場合でさえ。あなたは小惑星フィールドの中心に向けて出発し、そこでゾルタンと交戦します。</text>
 			<environment type="asteroid" />
 			<ship load="SHIP_ZOLTAN_SAVE_MANTIS1" hostile="true" />
 			<choice hidden="true">
@@ -678,7 +678,7 @@
 	<choice hidden="true">
 		<text>ゾルタンの船を妨害し、助けてください。</text>
 		<event>
-			<text>あなたはゾルタンを追い越し、小惑星帯でカマキリの船に追いつきます。友達を作る時間です。</text>
+			<text>あなたはゾルタンを追い越し、小惑星帯でマンティスの船に追いつきます。友達を作る時間です。</text>
 			<environment type="asteroid" />
 			<ship load="SHIP_ZOLTAN_SAVE_MANTIS2" hostile="true" />
 			<choice hidden="true">
@@ -1111,7 +1111,7 @@
 </eventList>
 
 <event name="CAPITAL_FREE_REACTOR" unique="true">
-	<text>あなたはZoltanエンジニアでいっぱいの船に迎えられます。彼らは親切にもあなたの原子炉を無料でアップグレードすることを申し出ます。</text>
+	<text>あなたはZoltanエンジニアでいっぱいの船に迎えられます。彼らは親切にもあなたのリアクターを無料でアップグレードすることを申し出ます。</text>
 	<upgrade amount="1" system="reactor" />
 </event>
 
@@ -1355,16 +1355,16 @@
 </eventList>
 
 <event name="CAPITAL_FREEMANTIS_FRIENDLY" unique="true">
-	<text>フリーマンティスとゾルタンはうまくやっていないので、これまでのところフリーマンティスがゾルタンの宇宙に船で行くのを見るのは心配です。平和維持者の国境警備隊からの船が巨大なカマキリ船とドッキングしましたが、これは何の意味もありません。</text>
+	<text>フリーマンティスとゾルタンはうまくやっていないので、これまでのところフリーマンティスがゾルタンの宇宙に船で行くのを見るのは心配です。平和維持者の国境警備隊からの船が巨大なマンティス船とドッキングしましたが、これは何の意味もありません。</text>
 	<ship load="SHIP_ZOLTAN_FREEMANTIS_FRIENDLY" hostile="false" />
 	<choice>
 		<text>同様に搭乗して、何が起こっているかを確認してください。</text>
 		<event>
-			<text>あなたは船に足を踏み入れただけで、無防備なカマキリの武将を地面に激しく蹴っている平和維持者を見つけました。</text> 
+			<text>あなたは船に足を踏み入れただけで、無防備なマンティスの武将を地面に激しく蹴っている平和維持者を見つけました。</text> 
 			<choice hidden="true">
-				<text>ゾルタンをカマキリから引き離します。</text>
+				<text>ゾルタンをマンティスから引き離します。</text>
 				<event>
-					<text>あなたはゾルタンをつかみ、自由なカマキリから引き離します。彼らはあなたを追い払い、「あなたは一体何をしているのですか？あなたの貴重な連邦が今できることは、外国の問題に干渉することだけですよね？私はあなたをあなたの神の気の置けない場所に置きます！」ゾルタンは部下に攻撃を命じる！</text>
+					<text>あなたはゾルタンをつかみ、自由なマンティスから引き離します。彼らはあなたを追い払い、「あなたは一体何をしているのですか？あなたの貴重な連邦が今できることは、外国の問題に干渉することだけですよね？私はあなたをあなたの神の気の置けない場所に置きます！」ゾルタンは部下に攻撃を命じる！</text>
 					<ship hostile="true" /> 
 					<choice hidden="true">
 						<text>継続する...</text>
@@ -1390,7 +1390,7 @@
 			<choice hidden="true" req="ZOLTAN_DELETER">
 				<text>（Zoltan Deleter）やめた。</text>
 				<event>
-					<text>平和維持者の存在を消すのに一発しかかかりません。あなたは彼らの足元に自由なカマキリを助けます。 「フェデレーションに感謝します。ここに来るのは友達を作るだけですが、ゾルタンは私たちを信頼していません。私はあなたと一緒に来て、とてもフレンドリーです。」</text>
+					<text>平和維持者の存在を消すのに一発しかかかりません。あなたは彼らの足元に自由なマンティスを助けます。 「フェデレーションに感謝します。ここに来るのは友達を作るだけですが、ゾルタンは私たちを信頼していません。私はあなたと一緒に来て、とてもフレンドリーです。」</text>
 					<crewMember amount="1" class="mantis_warlord" />
 				</event>
 			</choice>
@@ -1412,7 +1412,7 @@
 	</choice>
 </event>
 <event name="CAPITAL_FREEMANTIS_FRIENDLY_REASON_ZOLTAN">
-	<text>「あなたは何をしているのですか？これは本当に平和を保っていますか？省は合法的な正義を表しています、それでもここであなたは無防備なカマキリを攻撃しています！これはあなたが軍に申し込んだものですか？」ピースキーパーは一瞬動揺します。 「私は-あなたとは何の関係もないことに関与しようとしないでください、フェデレーション！」ゾルタンはもっと言い始めますが、ゾルタンが気を散らしている間に床から這い出たカマキリによってすぐに二人にスライスされます。ピースキーパーの船が何かがおかしいことに気付く前に、あなたは急いで船に戻りますが、手遅れです。あなたは船から脱出しますが、ゾルタンのチームがあなたの船に乗っています！</text>
+	<text>「あなたは何をしているのですか？これは本当に平和を保っていますか？省は合法的な正義を表しています、それでもここであなたは無防備なマンティスを攻撃しています！これはあなたが軍に申し込んだものですか？」ピースキーパーは一瞬動揺します。 「私は-あなたとは何の関係もないことに関与しようとしないでください、フェデレーション！」ゾルタンはもっと言い始めますが、ゾルタンが気を散らしている間に床から這い出たマンティスによってすぐに二人にスライスされます。ピースキーパーの船が何かがおかしいことに気付く前に、あなたは急いで船に戻りますが、手遅れです。あなたは船から脱出しますが、ゾルタンのチームがあなたの船に乗っています！</text>
 	<crewMember amount="1" class="mantis_warlord" />
 	<boarders min="2" max="3" class="zoltan_peacekeeper" />
 	<choice>
@@ -1451,7 +1451,7 @@
 				</event>
 			</choice>
 			<choice hidden="true" req="cloaking">
-				<text>（クローキング）みんなが気を散らしている間、いくつかの建物をマントで略奪します。</text>
+				<text>（クローキング）みんなが気を散らしている間、いくつかの建物をクロークで略奪します。</text>
 				<event>
 					<text>あなたは急降下して、出発する前にできるだけ早くいくつかの物資を集めます。</text>
 					<autoReward level="RANDOM">stuff</autoReward>
@@ -2604,7 +2604,7 @@
 			<choice hidden="true">
 				<text>同意し、彼らを手放します。</text>
 				<event>
-					<text>あなたの乗組員はさようならを振る。僧侶たちはあなたに同情し、どんな難しい決断があったに違いないかを理解します。慰めとして、彼らはあなたの船体を修理し、あなたの原子炉を無料でアップグレードします。</text>
+					<text>あなたの乗組員はさようならを振る。僧侶たちはあなたに同情し、どんな難しい決断があったに違いないかを理解します。慰めとして、彼らはあなたの船体を修理し、あなたのリアクターを無料でアップグレードします。</text>
 					<upgrade amount="2" system="reactor" />
 					<damage amount="-5" />
 					<removeCrew>
@@ -2614,7 +2614,7 @@
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>ごみ。</text>
+				<text>拒否する。</text>
 				<event>
 					<text>あなたは乗組員を慰め、任務がより重要であり、あなたがこの現実を救ったときに彼らは僧侶に戻ることができると説明します。</text>
 				</event>
@@ -2654,7 +2654,7 @@
 		</event>
 	</choice>
 	<choice>
-		<text>ごみ。</text>
+		<text>拒否する。</text>
 		<event load="MONK_BEGGAR_REFUSE" />
 	</choice>
 </event>
@@ -2667,7 +2667,7 @@
 		<crewMember amount="1" class="zoltan_monk" />
 	</event>
 	<event>
-		<text>「ありがとうございます。あなたはとても親切です。私はあまり持っていませんが、昔は原子炉について1つか2つ知っていました。たぶん、あなたの仕事をすることができるかもしれません。」</text>
+		<text>「ありがとうございます。あなたはとても親切です。私はあまり持っていませんが、昔はリアクターについて1つか2つ知っていました。たぶん、あなたの仕事をすることができるかもしれません。」</text>
 		<upgrade amount="1" system="reactor" />
 	</event>
 </eventList>
@@ -2840,7 +2840,7 @@
 </textList>
 
 <event name="NEBULA_ENCOUNTER_MONK_MANTIS" unique="true">
-	<text>近くのカマキリ船でおしゃべりをします。 「それを見てください、彼は僧侶ではありません。船上に良いものがなければなりません、私たちはそれらを取ります。」周りに他の船がないので、彼らがあなたを参照していると仮定するのは安全です！</text>
+	<text>近くのマンティス船でおしゃべりをします。 「それを見てください、彼は僧侶ではありません。船上に良いものがなければなりません、私たちはそれらを取ります。」周りに他の船がないので、彼らがあなたを参照していると仮定するのは安全です！</text>
 	<ship load="SHIP_MANTIS_FIGHT" hostile="true" /> 
 	<environment type="nebula" />
 	<choice hidden="true">
@@ -2912,9 +2912,9 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>カマキリ。</text>
+		<text>マンティス。</text>
 		<event>
-			<text>「あなたは挑戦が好きです。だからそれでいいのです！」ワームホールが形成され、混乱した怒っているカマキリの船があなたに向かって急いでいます！</text>
+			<text>「あなたは挑戦が好きです。だからそれでいいのです！」ワームホールが形成され、混乱した怒っているマンティスの船があなたに向かって急いでいます！</text>
 			<ship load="SHIP_ZOLTAN_RIFT_MANTIS" hostile="true" />
 			<choice hidden="true">
 				<text>継続する...</text>
@@ -3709,7 +3709,7 @@
 		</choice>
 	</event>
 	<event>
-		<text>惑星の表面に近づくと、船体はゆっくりと修復し始めます。しかし、船のいたるところに違反が発生しています。すべてのバラにはとげがあります...</text>
+		<text>惑星の表面に近づくと、船体はゆっくりと修復し始めます。しかし、船のいたるところに破損が発生しています。すべてのバラにはとげがあります...</text>
 		<damage amount="-2" system="random" effect="breach" />
 		<damage amount="-2" system="random" effect="breach" />
 		<damage amount="-2" system="random" effect="breach" />
@@ -3881,7 +3881,7 @@
 		</choice>
 	</event>
 	<event>
-		<text>惑星の表面に近づくと、船体はゆっくりと修復し始めます。しかし、船のいたるところに違反が発生しています。すべてのバラにはとげがあります...</text>
+		<text>惑星の表面に近づくと、船体はゆっくりと修復し始めます。しかし、船のいたるところに破損が発生しています。すべてのバラにはとげがあります...</text>
 		<damage amount="-2" system="random" effect="breach" />
 		<damage amount="-2" system="random" effect="breach" />
 		<damage amount="-2" system="random" effect="breach" />
@@ -3906,7 +3906,7 @@
 </eventList>
 
 <event name="GREAT_EYE_BREACH_TEST"> 
-	<text>惑星の表面に近づくと、船体はゆっくりと修復し始めます。しかし、船のいたるところに違反が発生しています。すべてのバラにはとげがあります...</text>
+	<text>惑星の表面に近づくと、船体はゆっくりと修復し始めます。しかし、船のいたるところに破損が発生しています。すべてのバラにはとげがあります...</text>
 	<damage amount="-2" system="random" effect="breach" />
 	<damage amount="-2" system="random" effect="breach" />
 	<damage amount="-2" system="random" effect="breach" />
