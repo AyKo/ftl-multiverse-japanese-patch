@@ -11,7 +11,7 @@
 		<event load="STORAGE_CHECK_LEARN" />
 	</choice>
 	<choice hidden="true">
-		<text>乗組員に相談してください。</text>
+		<text>クルーに相談してください。</text>
 		<event load="STORAGE_CHECK_CREW" />
 	</choice>
 	<choice hidden="true">
@@ -92,7 +92,7 @@
 		<event load="STORAGE_CHECK_LEARN" />
 	</choice>
 	<choice hidden="true">
-		<text>乗組員に相談してください。</text>
+		<text>クルーに相談してください。</text>
 		<event load="STORAGE_CHECK_CREW" />
 	</choice>
 	<choice hidden="true">
@@ -140,9 +140,9 @@
 <event name="STORAGE_CHECK_LEARN">
 	<text>さまざまな機会に、ストレージを確認し、船内でさまざまなアクションを実行するオプションが提供されます。これは、店舗への訪問、探索されたビーコンの再訪問、イベントとのやり取りを行わないことを選択した場合などに発生する可能性があります。最初は圧倒されるように見えるかもしれませんが、最終的にはシステムに慣れるでしょう。内部アップグレードまたはオンム?ードラボについては、それぞれのタブの下にあるデータベースエントリにアクセスしてください。</text>
 	<choice hidden="true">
-		<text>乗組員と話すことについて学びます。</text>
+		<text>クルーと話すことについて学びます。</text>
 		<event>
-			<text>ここでは、船に乗っている乗組員のタイプと話すことができます。ほとんどの乗組員は独自の対話のセットを持っており、それはちょっとした伝承、ユーモア、そして時にはさまざまな秘密のヒントを提供します。乗組員をスキャンして、統計やその他の特性の詳細を提供することもできます。一部の乗組員、特にエリートは、特定のシステムをより安価にアップグレードするなだ?の特別なやり取りも行っています。</text>
+			<text>ここでは、船に乗っているクルーのタイプと話すことができます。ほとんどのクルーは独自の対話のセットを持っており、それはちょっとした伝承、ユーモア、そして時にはさまざまな秘密のヒントを提供します。クルーをスキャンして、統計やその他の特性の詳細を提供することもできます。一部のクルー、特にエリートは、特定のシステムをより安価にアップグレードするなだ?の特別なやり取りも行っています。</text>
 			<choice>
 				<text>戻る。</text>
 				<event load="STORAGE_CHECK" />
@@ -152,7 +152,7 @@
 	<choice hidden="true">
 		<text>ミッションレポートについて学びます。</text>
 		<event>
-			<text>ここでは、実行中の成果とそれらに関連する伝承エントリを表示できます。ミッションレポートは、敗北したボス、遭遇したレネゲード、発見された戦利品アイテム、および採用されたユニークな乗組員を追跡します。ミッションレポートは実際的なメリットはありませんが、旅の途中で何をしたかについての洞察を提供することができます。</text>
+			<text>ここでは、実行中の成果とそれらに関連する伝承エントリを表示できます。ミッションレポートは、敗北したボス、遭遇したレネゲード、発見された戦利品アイテム、および採用されたユニークなクルーを追跡します。ミッションレポートは実際的なメリットはありませんが、旅の途中で何をしたかについての洞察を提供することができます。</text>
 			<choice>
 				<text>戻る。</text>
 				<event load="STORAGE_CHECK" />
@@ -8921,7 +8921,7 @@
 
 
 <event name="STORAGE_CHECK_LAB_INSTALL">
-	<text>オンボードラボを使用して、空のビーコンで乗組員のアップグレードをインストールできます。レベル2のMedbayを使用してラボを無料でインストールできます。それ以外の場合は、追加のリソースを使用する必要があります。</text>
+	<text>オンボードラボを使用して、空のビーコンでクルーのアップグレードをインストールできます。レベル2のMedbayを使用してラボを無料でインストールできます。それ以外の場合は、追加のリソースを使用する必要があります。</text>
 	<choice hidden="true" req="FEDERATION_DATABASE">
 		<text>[フェデレーションデータベース]オンボードラボについて学びます。</text>
 		<event load="STORAGE_CHECK_LAB_LEARN" />
@@ -8961,7 +8961,7 @@
 </event>
 
 <event name="STORAGE_CHECK_LAB_UPGRADE">
-	<text>ラボをアップグレードすると、乗組員の特定のサブタイプにバフを適用する乗組員のセカンダリアップグレードにアクセスできるようになります。
+	<text>ラボをアップグレードすると、クルーの特定のサブタイプにバフを適用するクルーのセカンダリアップグレードにアクセスできるようになります。
 レベル3Medbayでは、アップグレードを無料でインストールできます。</text>
 	<choice req="medbay" lvl="3" blue="true" hidden="true">
 		<text>（Adv. Medbay）アップグレードを無料でインストールします。</text>
@@ -8997,11 +8997,11 @@
 </event>
 
 <event name="STORAGE_CHECK_LAB_LEARN">
-	<text>オンボードラボをインストールすると、種や特定の乗組員タイプの変更をインストールできます。その種の修正をインストールできるようにするには、その種の乗組員が少なくとも1人必要です。特に明記されていない限り、すべての変更は遡及的に適用され、変更がインストールされた後に獲得した乗組員に適用されます。ラボの変更には、プライマリとセカンダリの2つの形式があります。</text>
+	<text>オンボードラボをインストールすると、種や特定のクルータイプの変更をインストールできます。その種の修正をインストールできるようにするには、その種のクルーが少なくとも1人必要です。特に明記されていない限り、すべての変更は遡及的に適用され、変更がインストールされた後に獲得したクルーに適用されます。ラボの変更には、プライマリとセカンダリの2つの形式があります。</text>
 	<choice hidden="true">
 		<text>一次変更について学びます。</text>
 		<event>
-			<text>一次変更は、特定の種のすべての乗組員に適用されます。ただし、種ごとにインストールできるプライマリ変更は1つだけであり、変更をアンインストールすることはできません。それぞれの種には、プライマリアップグレードのオプションが正確に3つあります。これらはすべて、ラボがインストールされていて、その種の少なくとも1人の乗組員がいる限り利用できます。</text>
+			<text>一次変更は、特定の種のすべてのクルーに適用されます。ただし、種ごとにインストールできるプライマリ変更は1つだけであり、変更をアンインストールすることはできません。それぞれの種には、プライマリアップグレードのオプションが正確に3つあります。これらはすべて、ラボがインストールされていて、その種の少なくとも1人のクルーがいる限り利用できます。</text>
 			<choice>
 				<text>戻る。</text>
 				<event load="STORAGE_CHECK" />
@@ -9011,7 +9011,7 @@
 	<choice hidden="true">
 		<text>ラボのアップグレードと二次的な変更について学びます。</text>
 		<event>
-			<text>ラボをインストールしたら、もう一度アップグレードして、二次的な変更のロックを解除できます。一次改造とは異なり、二次改造は特定の乗組員タイプにのみ適用されます。乗組員のタイプに複数のセカンダリMODがない場合は、同じ種の下に複数のセカンダリをインストールできます。セカンダリをインストールするために、そのサブタイプの乗組員は必要ありません。</text>
+			<text>ラボをインストールしたら、もう一度アップグレードして、二次的な変更のロックを解除できます。一次改造とは異なり、二次改造は特定のクルータイプにのみ適用されます。クルーのタイプに複数のセカンダリMODがない場合は、同じ種の下に複数のセカンダリをインストールできます。セカンダリをインストールするために、そのサブタイプのクルーは必要ありません。</text>
 			<choice>
 				<text>戻る。</text>
 				<event load="STORAGE_CHECK" />
@@ -9129,7 +9129,7 @@
 	</choice>
 	<choice req="LAB_HUMAN_INTUITION" lvl="1" max_group="0" blue="false" hidden="true">
 		<text>現在インストールされているもの：NaturalIntuition。
-[新しい人間の乗組員はレベル2のスキルから始まります。]</text>
+[新しい人間のクルーはレベル2のスキルから始まります。]</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice req="pilot" lvl="1" max_group="0" blue="false" hidden="true">
@@ -9162,7 +9162,7 @@
 	</choice>
 	<choice req="LAB_MEDIC_OATH" lvl="1" max_group="4" blue="false" hidden="true">
 		<text>Sec [Med]：ヒポクラテスの誓い。 [アップグレードはすでにインストールされています]
-[衛生兵は攻撃しませんが、近くの味方の乗組員に95％の危険耐性を与えます。]</text>
+[衛生兵は攻撃しませんが、近くの味方のクルーに95％の危険耐性を与えます。]</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice req="LAB_MEDIC_OATH" lvl="0" max_group="4" blue="false" hidden="true">
@@ -9171,7 +9171,7 @@
 	</choice>
 	<choice req="LAB_ENGINEER_DRONES" lvl="1" max_group="5" blue="false" hidden="true">
 		<text>Sec [Eng]：フィールドトレーニング。 [アップグレードはすでにインストールされています]
-[エンジニアはデフォルトの速度で修理しますが、乗組員のドローンを6hp / sで回復し、修理/戦闘を15％バフします。]</text>
+[エンジニアはデフォルトの速度で修理しますが、クルーのドローンを6hp / sで回復し、修理/戦闘を15％バフします。]</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice req="LAB_ENGINEER_DRONES" lvl="0" max_group="5" blue="false" hidden="true">
@@ -9237,7 +9237,7 @@
 </event>
 <event name="STORAGE_CHECK_LAB_HUMAN_INTUITION">
     <text>NaturalIntuitionの変更を実行しようとしています。
-[効果：新しい人間の乗組員は、すべてのスキルで常にレベル2になります。]
+[効果：新しい人間のクルーは、すべてのスキルで常にレベル2になります。]
 
 [警告：これをインストールすると、ヒューマンクルーのプライマリアップグレードをインストールできなくなります。このmodを非アクティブ化することもできなくなります。]</text>
     <choice hidden="true">
@@ -9263,7 +9263,7 @@
 </event>
 <event name="STORAGE_CHECK_LAB_MEDIC_OATH">
 	<text>ヒポクラテスの誓いの修正をインストールしようとしています。
-[効果：あなたのメディックは戦う能力を失いますが、同じ部屋にいる味方の乗組員（彼ら自身を含む）に95％の危険に対する抵抗力を与える保護オーラを与えます。]
+[効果：あなたのメディックは戦う能力を失いますが、同じ部屋にいる味方のクルー（彼ら自身を含む）に95％の危険に対する抵抗力を与える保護オーラを与えます。]
 
 [警告：これはMedicCrewにのみ影響します。後で他のセカンダリmodとプライマリmodをインストールできるようになります。]</text>
 	<choice hidden="true" req="LAB_UPGRADE" lvl="1" max_group="0" blue="false">
@@ -9294,7 +9294,7 @@
 </event>
 <event name="STORAGE_CHECK_LAB_ENGINEER_DRONES">
 	<text>フィールドトレーニングの変更をインストールしようとしています。
-[効果：エンジニアは修理ボーナスを失いますが、乗組員のドローンを5hp / sで回復し、戦闘ダメージと修理速度を15％バフします。]
+[効果：エンジニアは修理ボーナスを失いますが、クルーのドローンを5hp / sで回復し、戦闘ダメージと修理速度を15％バフします。]
 
 [警告：これはエンジニアクルーにのみ影響します。後で他のセカンダリmodとプライマリmodをインストールできるようになります。]</text>
 	<choice hidden="true" req="LAB_UPGRADE" lvl="1" max_group="0" blue="false">
@@ -9328,12 +9328,12 @@
 	<text>次のラボメニューを表示しています：[ENGI]</text>
 	<choice req="LAB_ENGI_COMBAT" lvl="1" max_group="0" blue="false" hidden="true">
 		<text>現在インストールされているもの：戦闘システム。
-[エンギの乗組員は標準の戦闘ダメージと10の体力を得るが、修理速度の25％を失う。]</text>
+[エンギのクルーは標準の戦闘ダメージと10の体力を得るが、修理速度の25％を失う。]</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice req="LAB_ENGI_EFFICIENCY" lvl="1" max_group="0" blue="false" hidden="true">
 		<text>現在インストールされているもの：NaniteEfficiency。
-[エンギの乗組員は15％の修理速度を得る。]</text>
+[エンギのクルーは15％の修理速度を得る。]</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice req="LAB_ENGI_ADAPT" lvl="1" max_group="0" blue="false" hidden="true">
@@ -9380,7 +9380,7 @@
 	</choice>
 	<choice req="LAB_DEFENDER_REPAIRS" lvl="1" max_group="5" blue="false" hidden="true">
 		<text>Sec [Defense]：優先順位の割り当て。 [アップグレードはすでにインストールされています]
-[防御側は敵の乗組員と戦うことはなくなりましたが、敵が部屋にいる間に修復することができます。]</text>
+[防御側は敵のクルーと戦うことはなくなりましたが、敵が部屋にいる間に修復することができます。]</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice req="LAB_DEFENDER_REPAIRS" lvl="0" max_group="5" blue="false" hidden="true">
@@ -9482,7 +9482,7 @@
 	<text>ユニファイドコロニーの変更をインストールしようとしています。
 [効果：分離主義者は、ナノモードにいる間は通常の速度で回復できますが、ドアを段階的に通過する能力を失います。]
 
-[警告：これは分離主義者の乗組員にのみ影響します。後で他のセカンダリmodとプライマリmodをインストールできるようになります。]</text>
+[警告：これは分離主義者のクルーにのみ影響します。後で他のセカンダリmodとプライマリmodをインストールできるようになります。]</text>
 	<choice hidden="true" req="LAB_UPGRADE" lvl="1" max_group="0" blue="false">
 		<text>変更をインストールします。 [コスト：25スクラップ、2ドローン]</text>
 		<event>
@@ -9511,7 +9511,7 @@
 </event>
 <event name="STORAGE_CHECK_LAB_DEFENDER_REPAIRS">
 	<text>優先度の再割り当ての変更をインストールしようとしています。
-[効果：防御側は敵の乗組員と戦うことはなくなりましたが、敵が部屋にいる間に修復することができます。]
+[効果：防御側は敵のクルーと戦うことはなくなりましたが、敵が部屋にいる間に修復することができます。]
 
 [警告：これはディフェンダークルーにのみ影響します。後で他のセカンダリmodとプライマリmodをインストールできるようになります。]</text>
 	<choice hidden="true" req="LAB_UPGRADE" lvl="1" max_group="0" blue="false">
@@ -9550,7 +9550,7 @@
 	</choice>
 	<choice req="LAB_ZOLTAN_SHIELD" lvl="1" max_group="0" blue="false" hidden="true">
 		<text>現在インストールされているもの：ハードライトシールド。
-[ゾルタンは部屋にいる他の乗組員とドローンをシールドし、半分のダメージを与えますが、他の乗組員と直接戦うことはできません。]</text>
+[ゾルタンは部屋にいる他のクルーとドローンをシールドし、半分のダメージを与えますが、他のクルーと直接戦うことはできません。]</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice req="LAB_ZOLTAN_EMITTER" lvl="1" max_group="0" blue="false" hidden="true">
@@ -9633,7 +9633,7 @@
 </event>
 <event name="STORAGE_CHECK_LAB_ZOLTAN_SHIELD">
 	<text>Hard-LightShieldingモディフィケーションをインストールしようとしています。
-[効果：ゾルタンは部屋にいる他の乗組員とドローン（自分自身を除く）をシールドし、半分のダメージを与えますが、他の乗組員と直接戦うことはできません。]
+[効果：ゾルタンは部屋にいる他のクルーとドローン（自分自身を除く）をシールドし、半分のダメージを与えますが、他のクルーと直接戦うことはできません。]
 
 [警告：これをインストールすると、Zoltanクルーのプライマリアップグレードをインストールできなくなります。このmodを非アクティブ化することもできなくなります。]</text>
 	<choice hidden="true">
@@ -9897,7 +9897,7 @@
 	</choice>
 	<choice req="LAB_HIVE_SLASH" lvl="1" max_group="5" blue="false" hidden="true">
 		<text>Sec [クローク]：クロースラッシュ。 [アップグレードはすでにインストールされています]
-[通常のマンティスは、部屋にいるすべての敵の乗組員に15のダメージを与えるスラッシュ能力を獲得します。]</text>
+[通常のマンティスは、部屋にいるすべての敵のクルーに15のダメージを与えるスラッシュ能力を獲得します。]</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice req="LAB_SUZERAIN_SLAVES" lvl="1" max_group="6" blue="false" hidden="true">
@@ -10000,7 +10000,7 @@
 </event>
 <event name="STORAGE_CHECK_LAB_HIVE_SLASH">
 	<text>ClawSlashモディフィケーションをインストールしようとしています。
-[効果：通常のマンティスは、部屋にいるすべての敵の乗組員に15のダメージを与えるスラッシュ能力を獲得します。ジャンプごとに2回しか使用できません。]
+[効果：通常のマンティスは、部屋にいるすべての敵のクルーに15のダメージを与えるスラッシュ能力を獲得します。ジャンプごとに2回しか使用できません。]
 
 [警告：これは標準のマンティスにのみ影響します。後で他のセカンダリmodとプライマリmodをインストールできるようになります。]</text>
 	<choice hidden="true" req="LAB_UPGRADE" lvl="1" max_group="0" blue="false">
@@ -10395,12 +10395,12 @@
 	</choice>
 	<choice req="LAB_SLUG_BUFF" lvl="1" max_group="0" blue="false" hidden="true">
 		<text>現在インストールされている：神経強化。
-[ナメクジは他の船の乗組員を感知する能力を失いますが、戦闘、妨害、修理速度のために25％のブーストを獲得します。]</text>
+[ナメクジは他の船のクルーを感知する能力を失いますが、戦闘、妨害、修理速度のために25％のブーストを獲得します。]</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice req="LAB_SLUG_MIND" lvl="1" max_group="0" blue="false" hidden="true">
 		<text>現在インストールされているもの：テレパシーシナジー。
-[あなたのスラッグの乗組員は、味方の乗組員にMCの免疫を与え、同じ部屋の敵の乗組員からそれを取り消します。]</text>
+[あなたのスラッグのクルーは、味方のクルーにMCの免疫を与え、同じ部屋の敵のクルーからそれを取り消します。]</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice req="pilot" lvl="1" max_group="0" blue="false" hidden="true">
@@ -10464,7 +10464,7 @@
 </event>
 <event name="STORAGE_CHECK_LAB_SLUG_BUFF">
 	<text>NeuralRedirectionモディフィケーションをインストールしようとしています。
-[効果：ナメクジは他の船の乗組員を感知する能力を失いますが、戦闘、妨害、修理速度が25％向上します。]
+[効果：ナメクジは他の船のクルーを感知する能力を失いますが、戦闘、妨害、修理速度が25％向上します。]
 
 [警告：これをインストールすると、Slugクルーのプライマリアップグレードをインストールできなくなります。このmodを非アクティブ化することもできなくなります。]</text>
 	<choice hidden="true">
@@ -10491,7 +10491,7 @@
 </event>
 <event name="STORAGE_CHECK_LAB_SLUG_MIND">
 	<text>TelepathicSynergiesモディフィケーションをインストールしようとしています。
-[効果：スラッグの乗組員と同じ部屋にいる味方の乗組員はMC耐性を獲得します。同じ部屋にいる敵の乗組員は、MC耐性を持っていれば、MC耐性を失います。]
+[効果：スラッグのクルーと同じ部屋にいる味方のクルーはMC耐性を獲得します。同じ部屋にいる敵のクルーは、MC耐性を持っていれば、MC耐性を失います。]
 
 [警告：これをインストールすると、Slugクルーのプライマリアップグレードをインストールできなくなります。このmodを非アクティブ化することもできなくなります。]</text>
 	<choice hidden="true">
@@ -10778,7 +10778,7 @@
 	</choice>
 	<choice req="LAB_LEECH_PARASITE" lvl="1" max_group="0" blue="false" hidden="true">
 		<text>現在インストールされているもの：寄生依存性。
-[ヒルの最大体力は60少なく、ダメージは4分の1ですが、部屋にいる他のすべての敵のヒル以外の乗組員から3hp/sを盗みます。]</text>
+[ヒルの最大体力は60少なく、ダメージは4分の1ですが、部屋にいる他のすべての敵のヒル以外のクルーから3hp/sを盗みます。]</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice req="pilot" lvl="1" max_group="0" blue="false" hidden="true">
@@ -10870,7 +10870,7 @@
 </event>
 <event name="STORAGE_CHECK_LAB_LEECH_PARASITE">
 	<text>ParasiticalDependenciesモディフィケーションをインストールしようとしています。
-[効果：リーチの最大体力は60少なく、デフォルトではダメージが4分の1になりますが、部屋にいる他のすべての敵の非リーチの乗組員から3hp/sを盗みます。]
+[効果：リーチの最大体力は60少なく、デフォルトではダメージが4分の1になりますが、部屋にいる他のすべての敵の非リーチのクルーから3hp/sを盗みます。]
 
 [警告：これをインストールすると、Leechクルーのプライマリアップグレードをインストールできなくなります。このmodを非アクティブ化することもできなくなります。]</text>
 	<choice hidden="true">
@@ -10905,7 +10905,7 @@
 	</choice>
 	<choice req="LAB_LANIUS_METAL" lvl="1" max_group="0" blue="false" hidden="true">
 		<text>現在インストールされている：選択的金属加工。
-[ラニウスの修理と妨害は30％速くなりますが、乗組員のダメージは30％少なくなります。]</text>
+[ラニウスの修理と妨害は30％速くなりますが、クルーのダメージは30％少なくなります。]</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice req="LAB_LANIUS_HEALTH" lvl="1" max_group="0" blue="false" hidden="true">
@@ -10975,7 +10975,7 @@
 </event>
 <event name="STORAGE_CHECK_LAB_LANIUS_METAL">
 	<text>SelectiveMetalworkingモディフィケーションをインストールしようとしています。
-[効果：Laniusの修理と妨害は30％速くなりますが、乗組員のダメージは30％少なくなります。]
+[効果：Laniusの修理と妨害は30％速くなりますが、クルーのダメージは30％少なくなります。]
 
 [警告：これをインストールすると、Laniusクルーのプライマリアップグレードをインストールできなくなります。このmodを非アクティブ化することもできなくなります。]</text>
 	<choice hidden="true">
@@ -11045,7 +11045,7 @@
 	</choice>
 	<choice req="LAB_GHOST_RESIST" lvl="1" max_group="0" blue="false" hidden="true">
 		<text>現在インストールされている：非肉体主義。
-[ゴーストは50％の戦闘ダメージ耐性を獲得しますが、乗組員にダメージを与える能力を失います。]</text>
+[ゴーストは50％の戦闘ダメージ耐性を獲得しますが、クルーにダメージを与える能力を失います。]</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice req="pilot" lvl="1" max_group="0" blue="false" hidden="true">
@@ -11150,7 +11150,7 @@
 </event>
 <event name="STORAGE_CHECK_LAB_GHOST_RESIST">
 	<text>Non-Corporealismモディフィケーションをインストールしようとしています。
-[効果：ゴーストは戦闘ダメージ耐性が50％増加しますが、乗組員にダメージを与える能力を失います。]
+[効果：ゴーストは戦闘ダメージ耐性が50％増加しますが、クルーにダメージを与える能力を失います。]
 
 [警告：これをインストールすると、Ghostクルーのプライマリアップグレードをインストールできなくなります。このmodを非アクティブ化することもできなくなります。]</text>
 	<choice hidden="true" req="EX_LAB_GHOST_RESIST" lvl="0" blue="false" max_group="0">
@@ -11677,7 +11677,7 @@
 	</choice>
 	<choice req="LAB_ANCIENT_ONEPUNCH" lvl="1" max_group="0" blue="false" hidden="true">
 		<text>現在インストールされているもの：イコライザー。
-[オベリスクは5倍の戦闘ダメージを得るが、部屋にいる他のすべての敵の乗組員も3倍のダメージを得る。]</text>
+[オベリスクは5倍の戦闘ダメージを得るが、部屋にいる他のすべての敵のクルーも3倍のダメージを得る。]</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice req="pilot" lvl="1" max_group="0" blue="false" hidden="true">
@@ -11717,7 +11717,7 @@
 	<text>死亡率イニシアチブの変更をインストールしようとしています。
 [効果：オベリスクは火と窒息に対する耐性を失いますが、体力が50増加し、戦闘ダメージが25％増加します。]
 
-[警告：これをインストールすると、オベリスクの乗組員のプライマリアップグレードをインストールできなくなります。このmodを非アクティブ化することもできなくなります。]</text>
+[警告：これをインストールすると、オベリスクのクルーのプライマリアップグレードをインストールできなくなります。このmodを非アクティブ化することもできなくなります。]</text>
 	<choice hidden="true">
 		<text>変更をインストールします。 [コスト：40スクラップ、2燃料2ドローン]</text>
 		<event>
@@ -11745,7 +11745,7 @@
 	<text>AdvancedNeuralComplexモディフィケーションをインストールしようとしています。
 [効果：オベリスクは隣接する部屋を見ることができ、マインドコントロールに抵抗し、スタンの影響を受けません。]
 
-[警告：これをインストールすると、オベリスクの乗組員のプライマリアップグレードをインストールできなくなります。このmodを非アクティブ化することもできなくなります。]</text>
+[警告：これをインストールすると、オベリスクのクルーのプライマリアップグレードをインストールできなくなります。このmodを非アクティブ化することもできなくなります。]</text>
 	<choice hidden="true">
 		<text>Install the modification. [Cost: 25~, 3|]</text>
 		<event>
@@ -11770,9 +11770,9 @@
 </event>
 <event name="STORAGE_CHECK_LAB_ANCIENT_ONEPUNCH">
 	<text>イコライザーの変更をインストールしようとしています。
-[効果：オベリスクは5倍の戦闘ダメージを得るが、部屋にいる他のすべての敵の乗組員も3倍のダメージを得る。部屋に複数のオベリスクを積み重ねることはありません。]
+[効果：オベリスクは5倍の戦闘ダメージを得るが、部屋にいる他のすべての敵のクルーも3倍のダメージを得る。部屋に複数のオベリスクを積み重ねることはありません。]
 
-[警告：これをインストールすると、オベリスクの乗組員のプライマリアップグレードをインストールできなくなります。このmodを非アクティブ化することもできなくなります。]</text>
+[警告：これをインストールすると、オベリスクのクルーのプライマリアップグレードをインストールできなくなります。このmodを非アクティブ化することもできなくなります。]</text>
 	<choice hidden="true" req="EX_LAB_ANCIENT_ONEPUNCH" lvl="0" blue="false" max_group="0">
 		<text>変更をインストールします。 [コスト：35スクラップ、4ミサイル、4ドローン]</text>
 		<event>
@@ -11911,7 +11911,7 @@
 </event>
 <event name="STORAGE_CHECK_LAB_COGNITIVE_POWER">
 	<text>モバイルバッテリーの変更をインストールしようとしています。
-[効果：自動モードでは、コグニティブは追加のパワーを提供し、3hp/sで敵の乗組員に受動的にダメージを与えます。通常モードと解放モードの間のクールダウンが10％増加します。]
+[効果：自動モードでは、コグニティブは追加のパワーを提供し、3hp/sで敵のクルーに受動的にダメージを与えます。通常モードと解放モードの間のクールダウンが10％増加します。]
 
 [警告：これをインストールすると、Cognitiveクルーのプライマリアップグレードをインストールできなくなります。このmodを非アクティブ化することもできなくなります。]</text>
 	<choice hidden="true">
@@ -12511,7 +12511,7 @@
 </event>
 <event name="STORAGE_CHECK_SYSTEM_TECH_LIFEFORM">
 	<text>LifeformScannerアップグレードをインストールしようとしています。
-[効果：センサーがダウンしている場合でも、敵の乗組員の位置が常に表示されます]</text>
+[効果：センサーがダウンしている場合でも、敵のクルーの位置が常に表示されます]</text>
 	<choice req="reactor" lvl="1" max_group="0" blue="false" hidden="true">
 		<text>アップグレードを実行します。 [コスト：20スクラップ、2ドローン]</text>
 		<event>
@@ -12547,7 +12547,7 @@
 </event>
 <event name="STORAGE_CHECK_SYSTEM_TECH_RESPIRATOR">
 	<text>レスピレーターのアップグレードをインストールしようとしています。
-[効果：乗組員は酸素がないことで半分のダメージを受ける]</text>
+[効果：クルーは酸素がなくても半分のダメージしか受けません]</text>
 	<choice req="reactor" lvl="1" max_group="0" blue="false" hidden="true">
 		<text>アップグレードを実行します。 [コスト：60スクラップ]</text>
 		<event>
@@ -12581,8 +12581,8 @@
 	<event />
 </event>
 <event name="STORAGE_CHECK_SYSTEM_TECH_NOPHASE">
-	<text>EmancipationGrillsをインストールしようとしています。
-[効果：どのような種類の乗組員も、自分の乗組員を含め、自分の船のドアを段階的に通過することはできなくなります。]</text>
+	<text>解放グリルをインストールしようとしています。
+[効果：自機のクルーも含め、あらゆる種類のクルーが自機のドアからフェイズスルーできなくなります。]</text>
 	<choice max_group="0" blue="false" hidden="true">
 		<text>アップグレードを実行します。 [コスト：30スクラップ、2燃料]</text>
 		<event>
@@ -13073,7 +13073,7 @@
 </event>
 <event name="STORAGE_CHECK_SYSTEM_SHIELD_STUN">
     <text>電気絶縁アップグレードをインストールしようとしています。
-[効果：シールドルームにいる間、乗組員はスタンの影響を受けません。]</text>
+[効果：シールドルームにいる間、クルーはスタンの影響を受けません。]</text>
     <choice hidden="true">
         <text>アップグレードを実行します。 [コスト：20スクラップ、2燃料]</text>
         <event>
@@ -13232,7 +13232,7 @@
 </event>
 <event name="STORAGE_CHECK_SYSTEM_MIND_BUFF">
 	<text>CerebralOverchargeアップグレードをインストールしようとしています。
-[効果：MCに電力が供給されている間、味方の乗組員はダメージを修復して戦闘するために15％のバフを獲得し、2倍の速さで回復します。]</text>
+[効果：MCに電力が供給されている間、味方のクルーはダメージを修復して戦闘するために15％のバフを獲得し、2倍の速さで回復します。]</text>
 	<choice req="mind" lvl="1" max_group="0" blue="false" hidden="true">
 		<text>アップグレードを実行します。 [コスト：30スクラップ、2ドローン]</text>
 		<event>
@@ -13268,7 +13268,7 @@
 </event>
 <event name="STORAGE_CHECK_SYSTEM_MIND_IMMUNITY">
 	<text>Tinfoilアレイのアップグレードをインストールしようとしています。
-[効果：MCが完全にパワーアップしている間、連合軍の乗組員はどの船でも完全なMC耐性と隣接する視界を獲得します。]</text>
+[効果：MCが完全にパワーアップしている間、連合軍のクルーはどの船でも完全なMC耐性と隣接する視界を獲得します。]</text>
 	<choice req="mind" lvl="3" max_group="0" blue="false" hidden="true">
 		<text>アップグレードを実行します。 [コスト：65スクラップ、3燃料]</text>
 		<event>
@@ -13369,7 +13369,7 @@
 </event>
 <event name="STORAGE_CHECK_SYSTEM_HACK_STUN">
 	<text>NeuralDisruptorアップグレードをインストールしようとしています。
-[効果：ハッキングパルスの間、乗組員はハッキングされた部屋で気絶します]</text>
+[効果：ハッキングパルスの間、クルーはハッキングされた部屋で気絶します]</text>
 	<choice req="hacking" lvl="1" max_group="0" blue="false" hidden="true">
 		<text>アップグレードを実行します。 [コスト：60スクラップ、2ドローン]</text>
 		<event>
@@ -13475,7 +13475,7 @@
 </event>
 <event name="STORAGE_CHECK_SYSTEM_DRONE_SPEED">
 	<text>ドローンブースターのアップグレードをインストールしようとしています。
-[効果：乗組員のドローンは、移動が2倍になり、ダメージの戦闘/妨害、速度の修復/消滅、および該当する場合は乗組員の回復が50％向上します。]</text>
+[効果：クルーのドローンは、移動が2倍になり、ダメージの戦闘/妨害、速度の修復/消滅、および該当する場合はクルーの回復が50％向上します。]</text>
 	<choice req="drones" lvl="3" max_group="0" blue="false" hidden="true">
 		<text>アップグレードを実行します。 [コスト：30スクラップ、1燃料、5ドローン]</text>
 		<event>
@@ -13572,7 +13572,7 @@
 </event>
 <event name="STORAGE_CHECK_SYSTEM_TELEPORTER_HEAL">
 	<text>ReconstructiveTeleporterをインストールしようとしています。
-[効果：乗組員はテレポートするたびに完全に回復し、テレポーターレベル4とは互換性がありません]</text>
+[効果：クルーはテレポートするたびに完全に回復し、テレポーターレベル4とは互換性がありません]</text>
 	<choice req="teleporter" lvl="2" max_lvl="3" max_group="0" blue="false" hidden="true">
 		<text>アップグレードを実行します。 [コスト：70スクラップ、3燃料]</text>
 		<event>
@@ -13839,7 +13839,7 @@
 </event>
 <event name="STORAGE_CHECK_SYSTEM_MEDBAY_NANO">
 	<text>Med-botDispersalをインストールしようとしています。
-[効果：メドベイに電力が供給されている間、乗組員は現在のメドベイレベルの25％の速度で船のどこでも回復します。]</text>
+[効果：メドベイに電力が供給されている間、クルーは現在のメドベイレベルの25％の速度で船のどこでも回復します。]</text>
 	<choice req="medbay" lvl="1" max_lvl="3" max_group="0" blue="false" hidden="true">
 		<text>アップグレードを実行します。 [コスト：50スクラップ、3ドローン]</text>
 		<event>
@@ -13879,7 +13879,7 @@
 </event>
 <event name="STORAGE_CHECK_SYSTEM_MEDBAY_SPEED">
 	<text>覚醒剤をインストールしようとしています。
-[効果：メドベイに動力が供給されている間、乗組員はメドベイの動力レベルごとにさらに25％の移動速度を得る]</text>
+[効果：メドベイに動力が供給されている間、クルーはメドベイの動力レベルごとにさらに25％の移動速度を得る]</text>
 	<choice req="medbay" lvl="1" max_group="0" blue="false" hidden="true">
 		<text>アップグレードを実行します。 [コスト：25スクラップ、2燃料]</text>
 		<event>
@@ -13915,7 +13915,7 @@
 </event>
 <event name="STORAGE_CHECK_SYSTEM_MEDBAY_RESISTANCE">
 	<text>安全ブランケットを取り付けようとしています。
-[効果：メドベイにいる間、乗組員は火事や窒息によるダメージを受けません。]</text>
+[効果：メドベイにいる間、クルーは火事や窒息によるダメージを受けません。]</text>
 	<choice req="medbay" lvl="1" max_group="0" blue="false" hidden="true">
 		<text>アップグレードを実行します。 [コスト：20スクラップ]</text>
 		<event>
@@ -13957,7 +13957,7 @@
 </event>
 <event name="STORAGE_CHECK_SYSTEM_CLONEBAY_LEVEL4">
 	<text>クローンベイをレベル4にアップグレードしようとしています。
-[効果：インスタントクローニング、すべてのジャンプを完全にするために乗組員を癒します。 DNAバンクとは互換性がありません。]</text>
+[効果：インスタントクローニング、すべてのジャンプを完全にするためにクルーを癒します。 DNAバンクとは互換性がありません。]</text>
 	<choice req="UPG_CLONEBAY_DNA" lvl="0" max_group="0" blue="false" hidden="true">
 		<text>アップグレードを実行します。 [コスト：165スクラップ、2ドローン]</text>
 		<event>
@@ -13984,7 +13984,7 @@
 </event>
 <event name="STORAGE_CHECK_SYSTEM_CLONEBAY_DNA">
 	<text>BackupDNABanksをインストールしようとしています。
-[効果：システムがオフ、ハッキング、または壊れている場合でも、乗組員はクローンストレージで安全です。]</text>
+[効果：システムがオフ、ハッキング、または壊れている場合でも、クルーはクローンストレージで安全です。]</text>
 	<choice req="clonebay" lvl="2" max_group="0" blue="false" hidden="true">
 		<text>アップグレードを実行します。 [コスト：45スクラップ、3燃料]</text>
 		<event>
@@ -14031,7 +14031,7 @@
 <event name="STORAGE_CHECK_CLONE_CANNON">
 	<text>何をしたいですか？</text>
 	<choice req="CLONE_CANNON" hidden="true" blue="false">
-		<text>大砲に新しい乗組員をアップロードします。</text>
+		<text>大砲に新しいクルーをアップロードします。</text>
 		<event>
 			<text>大砲に誰を入れたいですか？ [各オプションの後に追加の確認が与えられます]</text>
 			<choice req="ORCHID_KIDS" hidden="true" blue="false">
@@ -14073,7 +14073,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="unique_tyrdeo_bird">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14105,7 +14105,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="obelisk">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14137,7 +14137,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="LIST_VARIANT_COGNITIVE">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14169,7 +14169,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="mantis_bishop">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14201,7 +14201,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="orchid_chieftain">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14233,7 +14233,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="slug_clansman">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14265,7 +14265,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="rock_commando">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14297,7 +14297,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="rock_crusader">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14329,7 +14329,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="crystal">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14361,7 +14361,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="crystal_liberator">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14393,7 +14393,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="rock_cultist">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14425,7 +14425,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="engi_defender">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14457,7 +14457,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="zoltan_devotee">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14489,7 +14489,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="human_engineer">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14521,7 +14521,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="easter_coomer">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14553,7 +14553,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="easter_tommy">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14585,7 +14585,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="engi">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14617,7 +14617,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="phantom">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14649,7 +14649,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="phantom_alpha">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14681,7 +14681,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="phantom_goul">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14713,7 +14713,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="phantom_goul_alpha">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14745,7 +14745,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="phantom_mare">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14777,7 +14777,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="phantom_mare_alpha">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14809,7 +14809,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="phantom_wraith">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14841,7 +14841,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="phantom_wraith_alpha">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14873,7 +14873,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="spider_hatch">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14905,7 +14905,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="human">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14937,7 +14937,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="lanius">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -14969,7 +14969,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="lanius_augmented">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15001,7 +15001,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="mantis">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15033,7 +15033,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="mantis_free">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15065,7 +15065,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="human_medic">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15097,7 +15097,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="zoltan_monk">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15129,7 +15129,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="orchid">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15161,7 +15161,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="orchid_vampweed">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15193,7 +15193,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="rock_outcast">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15225,7 +15225,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="zoltan_peacekeeper">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15257,7 +15257,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="unique_queen">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15289,7 +15289,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="easter_angel">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15321,7 +15321,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="shell_radiant">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15353,7 +15353,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="zoltan_martyr">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15385,7 +15385,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="unique_devorak">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15417,7 +15417,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="rock">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15449,7 +15449,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="easter_brick">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15481,7 +15481,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="slug_saboteur">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15513,7 +15513,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="slug_ranger">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15545,7 +15545,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="crystal_sentinel">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15577,7 +15577,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="LIST_VARIANT_SEPARATIST">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15609,7 +15609,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="shell">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15641,7 +15641,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="shell_guardian">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15673,7 +15673,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="shell_mechanic">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15705,7 +15705,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="shell_scientist">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15737,7 +15737,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="slug">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15769,7 +15769,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="LIST_VARIANT_HEKTAR">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15801,7 +15801,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="human_soldier">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15833,7 +15833,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="spider">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15865,7 +15865,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="mantis_suzerain">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15897,7 +15897,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="mantis_warlord">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15929,7 +15929,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="symbiote">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15961,7 +15961,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="spider_weaver">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -15993,7 +15993,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="lanius_welder">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -16025,7 +16025,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="zoltan">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -16057,7 +16057,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="leech">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -16089,7 +16089,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="leech_ampere">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -16121,7 +16121,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="pony">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -16153,7 +16153,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="pony_tamed">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -16185,7 +16185,7 @@
 							<remove name="CLONE_CANNON" />
 							<removeCrew class="ponyc">
 								<clone>false</clone>
-								<text>彼らは大砲の中にいるので、あなたの乗組員はあなたの船に複製することはできません。</text>
+								<text>彼らは大砲の中にいるので、あなたのクルーはあなたの船に複製することはできません。</text>
 							</removeCrew>
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -16237,9 +16237,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="obelisk">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16266,9 +16266,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="cognitive">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16295,9 +16295,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="lanius_augmented">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16324,9 +16324,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="mantis_bishop">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16353,9 +16353,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="orchid_chieftain">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16382,9 +16382,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="slug_clansman">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16411,9 +16411,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="rock_commando">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16440,9 +16440,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="rock_crusader">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16469,9 +16469,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="crystal">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16498,9 +16498,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="crystal_liberator">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16527,9 +16527,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="rock_cultist">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16556,9 +16556,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="engi_defender">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16585,9 +16585,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="zoltan_devotee">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16614,9 +16614,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="human_engineer">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16643,9 +16643,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="engi">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16672,9 +16672,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="phantom">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16701,9 +16701,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="phantom_alpha">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16730,9 +16730,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="phantom_goul">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16759,9 +16759,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="phantom_goul_alpha">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16788,9 +16788,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="phantom_mare">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16817,9 +16817,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="phantom_mare_alpha">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16846,9 +16846,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="phantom_wraith">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16875,9 +16875,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="phantom_wraith_alpha">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16904,9 +16904,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="spider_hatch">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16933,9 +16933,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="pony">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16962,9 +16962,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="ponyc">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -16991,9 +16991,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="human">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17020,9 +17020,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="lanius">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17049,9 +17049,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="mantis">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17078,9 +17078,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="mantis_free">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17107,9 +17107,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="human_medic">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17136,9 +17136,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="zoltan_monk">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17165,9 +17165,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="orchid">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17194,9 +17194,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="rock_outcast">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17223,9 +17223,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="zoltan_peacekeeper">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17252,9 +17252,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="unique_queen">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17281,9 +17281,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="shell_radiant">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17310,9 +17310,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="zoltan_martyr">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17339,7 +17339,7 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
 							<text>幸いなことに、デボラックはクローンキャノンの効果に対するかなりの抵抗力を築き上げました。彼の短期記憶はおそらく非常に疑わしいでしょうが、少なくとも彼はまだ彼の名前を覚えています。</text>
 							<crewMember amount="1" class="unique_devorak">Devorak</crewMember>
@@ -17368,9 +17368,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="rock">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17397,9 +17397,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="slug_saboteur">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17426,9 +17426,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="slug_ranger">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17455,9 +17455,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="crystal_sentinel">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17484,9 +17484,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="engi_separatist">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17513,9 +17513,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="shell">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17542,9 +17542,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="shell_guardian">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17571,9 +17571,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="shell_mechanic">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17600,9 +17600,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="shell_scientist">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17629,9 +17629,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="slug">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17658,9 +17658,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="slug_hektar">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17687,9 +17687,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="human_soldier">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17716,9 +17716,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="spider">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17745,9 +17745,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="mantis_suzerain">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17774,9 +17774,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="mantis_warlord">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17803,9 +17803,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="symbiote">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17832,9 +17832,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="spider_weaver">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17861,9 +17861,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="lanius_welder">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17890,9 +17890,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="zoltan">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17919,9 +17919,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="orchid_vampweed">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17948,9 +17948,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="leech">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -17977,9 +17977,9 @@
 					<text>武器のリセットが完了しました。</text>
 					<weapon name="CLONE_CANNON" />
 					<choice hidden="true" req="clonebay">
-						<text>（クローンベイ）乗組員を復活させます。</text>
+						<text>（クローンベイ）クルーを復活させます。</text>
 						<event>
-							<text>あなたの乗組員の記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
+							<text>あなたのクルーの記憶はほぼ完全に消去されましたが、彼らは少なくとも連邦に忠実であり続けるのに十分な記憶を持っています。</text>
 							<crewMember amount="1" class="leech_ampere">Projectile</crewMember>
 							<choice>
 								<text>継続する...</text>
@@ -18110,11 +18110,11 @@
 <event name="STORAGE_CHECK_PROPHET">
 	<text>あなたは何のために目を求めますか？</text>
 	<choice hidden="true">
-		<text>乗組員のために祈ってください。 [このために、目は犠牲を要求します]</text>
+		<text>クルーのために祈ってください。 [このために、目は犠牲を要求します]</text>
 		<event>
-			<text>どんな乗組員のために祈ろうか？</text>
+			<text>どんなクルーのために祈ろうか？</text>
 			<choice>
-				<text>標準的な乗組員のために祈ってください。</text>
+				<text>標準的なクルーのために祈ってください。</text>
 				<event>
 					<text>目はあなたの資源を消費します...</text>
 					<item_modify>
@@ -18129,7 +18129,7 @@
 				</event>
 			</choice>
 			<choice>
-				<text>専門の乗組員のために祈ってください。</text>
+				<text>専門のクルーのために祈ってください。</text>
 				<event>
 					<text>目はあなたの資源を消費します...</text>
 					<item_modify>
@@ -18167,7 +18167,7 @@
 	<choice hidden="true">
 		<text>物資を祈る。</text>
 		<event>
-			<text>どんな乗組員のために祈ろうか？</text>
+			<text>どんなクルーのために祈ろうか？</text>
 			<choice>
 				<text>一枚のスクラップのために祈ってください。</text>
 				<event>
@@ -18241,111 +18241,111 @@
 </event>
 <eventList name="STORAGE_CHECK_PROPHET_CREW_REGULAR">
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="human">Servant</crewMember>
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="engi">Servant</crewMember>
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="zoltan">Servant</crewMember>
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="engi_separatist">Servant</crewMember>
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="orchid">Servant</crewMember>
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="mantis">Servant</crewMember>
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="rock">Servant</crewMember>
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="crystal">Servant</crewMember>
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="slug">Servant</crewMember>
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="phantom">Servant</crewMember>
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="lanius">Servant</crewMember>
 	</event>
 </eventList>
 <eventList name="STORAGE_CHECK_PROPHET_CREW_SPECIALIZED">
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="human_medic">Servant</crewMember>
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="human_engineer">Servant</crewMember>
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="zoltan_monk">Servant</crewMember>
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="zoltan_devotee">Servant</crewMember>
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="rock_outcast">Servant</crewMember>
 	</event>
 </eventList>
 <eventList name="STORAGE_CHECK_PROPHET_CREW_ELITE">
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="human_soldier">Servant</crewMember>
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="engi_defender">Servant</crewMember>
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="zoltan_peacekeeper">Servant</crewMember>
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="mantis_suzerain">Servant</crewMember>
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="rock_crusader">Servant</crewMember>
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="crystal_sentinel">Servant</crewMember>
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="orchid_chieftain">Servant</crewMember>
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="slug_saboteur">Servant</crewMember>
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="phantom">Servant</crewMember>
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は部屋で具体化します。</text>
+		<text>あなたの新しいクルーは部屋で具体化します。</text>
 		<crewMember amount="1" class="lanius_welder">Servant</crewMember>
 	</event>
 </eventList>
@@ -18378,7 +18378,7 @@
         <event load="STORAGE_CHECK_AUG_DRONE_CRAFTER" />
     </choice>
     <choice req="GHOST_DUPLICATOR">
-        <text>（ゴーストスプリッター）ゴーストを複製する（アルファゴースト以外の乗組員が必要）</text>
+        <text>（ゴーストスプリッター）ゴーストを複製する（アルファゴースト以外のクルーが必要）</text>
         <event load="STORAGE_CHECK_AUG_GHOST_DUPLICATOR" />
     </choice>
     <choice req="GHOST_SPAWNER">
@@ -18390,11 +18390,11 @@
         <event load="STORAGE_CHECK_AUG_MVBOSS_SPAWNER_LIST" />
     </choice>
     <choice req="SLUG_DUPLICATOR">
-        <text>（プレジャーポッド）人生の奇跡を体験してください。 （乗組員タイプの2つが必要です）</text>
+        <text>（プレジャーポッド）人生の奇跡を体験してください。 （クルータイプの2つが必要です）</text>
         <event load="STORAGE_CHECK_AUG_SLUG_DUPLICATOR" />
     </choice>
     <choice req="SLUG_DUPLICATOR_GHOST">
-        <text>（ホーンテッドポッド）人生の奇跡を体験してください。 （乗組員タイプの2つが必要です）</text>
+        <text>（ホーンテッドポッド）人生の奇跡を体験してください。 （クルータイプの2つが必要です）</text>
         <event load="STORAGE_CHECK_AUG_SLUG_DUPLICATOR_GHOST" />
     </choice>
     <choice req="GOLD_ARMOR">
@@ -19132,7 +19132,7 @@
 		<boarders min="2" max="3" class="phantom" />
 	</event>
 	<event>
-		<text>幽霊は混乱していますが、すぐに彼らの苦境に適応しているように見え、一部は陰謀から、一部は恐怖からあなたの乗組員に加わります。</text>
+		<text>幽霊は混乱していますが、すぐに彼らの苦境に適応しているように見え、一部は陰謀から、一部は恐怖からあなたのクルーに加わります。</text>
 		<crewMember amount="1" class="phantom" />
 	</event>
 	<event>
@@ -19140,7 +19140,7 @@
 		<boarders min="2" max="3" class="phantom_mare" />
 	</event>
 	<event>
-		<text>幽霊は混乱していますが、すぐに彼らの苦境に適応しているように見え、一部は陰謀から、一部は恐怖からあなたの乗組員に加わります。</text>
+		<text>幽霊は混乱していますが、すぐに彼らの苦境に適応しているように見え、一部は陰謀から、一部は恐怖からあなたのクルーに加わります。</text>
 		<crewMember amount="1" class="phantom_mare" />
 	</event>
 	<event>
@@ -19148,7 +19148,7 @@
 		<boarders min="2" max="3" class="phantom_goul" />
 	</event>
 	<event>
-		<text>幽霊は混乱していますが、すぐに彼らの苦境に適応しているように見え、一部は陰謀から、一部は恐怖からあなたの乗組員に加わります。</text>
+		<text>幽霊は混乱していますが、すぐに彼らの苦境に適応しているように見え、一部は陰謀から、一部は恐怖からあなたのクルーに加わります。</text>
 		<crewMember amount="1" class="phantom_goul" />
 	</event>
 	<event>
@@ -19156,7 +19156,7 @@
 		<boarders min="2" max="3" class="phantom_wraith" />
 	</event>
 	<event>
-		<text>幽霊は混乱していますが、すぐに彼らの苦境に適応しているように見え、一部は陰謀から、一部は恐怖からあなたの乗組員に加わります。</text>
+		<text>幽霊は混乱していますが、すぐに彼らの苦境に適応しているように見え、一部は陰謀から、一部は恐怖からあなたのクルーに加わります。</text>
 		<crewMember amount="1" class="phantom_wraith" />
 	</event>
 	
@@ -19165,7 +19165,7 @@
 		<boarders min="2" max="3" class="phantom" />
 	</event>
 	<event>
-		<text>幽霊は混乱していますが、すぐに彼らの苦境に適応しているように見え、一部は陰謀から、一部は恐怖からあなたの乗組員に加わります。</text>
+		<text>幽霊は混乱していますが、すぐに彼らの苦境に適応しているように見え、一部は陰謀から、一部は恐怖からあなたのクルーに加わります。</text>
 		<crewMember amount="1" class="phantom" />
 	</event>
 	<event>
@@ -19173,7 +19173,7 @@
 		<boarders min="2" max="3" class="phantom_mare" />
 	</event>
 	<event>
-		<text>幽霊は混乱していますが、すぐに彼らの苦境に適応しているように見え、一部は陰謀から、一部は恐怖からあなたの乗組員に加わります。</text>
+		<text>幽霊は混乱していますが、すぐに彼らの苦境に適応しているように見え、一部は陰謀から、一部は恐怖からあなたのクルーに加わります。</text>
 		<crewMember amount="1" class="phantom_mare" />
 	</event>
 	<event>
@@ -19181,7 +19181,7 @@
 		<boarders min="2" max="3" class="phantom_goul" />
 	</event>
 	<event>
-		<text>幽霊は混乱していますが、すぐに彼らの苦境に適応しているように見え、一部は陰謀から、一部は恐怖からあなたの乗組員に加わります。</text>
+		<text>幽霊は混乱していますが、すぐに彼らの苦境に適応しているように見え、一部は陰謀から、一部は恐怖からあなたのクルーに加わります。</text>
 		<crewMember amount="1" class="phantom_goul" />
 	</event>
 	<event>
@@ -19189,32 +19189,32 @@
 		<boarders min="2" max="3" class="phantom_wraith" />
 	</event>
 	<event>
-		<text>幽霊は混乱していますが、すぐに彼らの苦境に適応しているように見え、一部は陰謀から、一部は恐怖からあなたの乗組員に加わります。</text>
+		<text>幽霊は混乱していますが、すぐに彼らの苦境に適応しているように見え、一部は陰謀から、一部は恐怖からあなたのクルーに加わります。</text>
 		<crewMember amount="1" class="phantom_wraith" />
 	</event>
 	
 	<event>
-		<text>驚いたことに、ポータルからHauntのメンバーの1人が出てきました！しかし、彼らはあなたが最後に彼らと戦ったときよりもはるかに従順であり、あなたの乗組員に加わることをいとわないようです。</text>
+		<text>驚いたことに、ポータルからHauntのメンバーの1人が出てきました！しかし、彼らはあなたが最後に彼らと戦ったときよりもはるかに従順であり、あなたのクルーに加わることをいとわないようです。</text>
 		<crewMember amount="1" all_skills="1" class="gbeleanor">Ellebeneare</crewMember>
 	</event>
 	<event>
-		<text>驚いたことに、ポータルからHauntのメンバーの1人が出てきました！しかし、彼らはあなたが最後に彼らと戦ったときよりもはるかに従順であり、あなたの乗組員に加わることをいとわないようです。</text>
+		<text>驚いたことに、ポータルからHauntのメンバーの1人が出てきました！しかし、彼らはあなたが最後に彼らと戦ったときよりもはるかに従順であり、あなたのクルーに加わることをいとわないようです。</text>
 		<crewMember amount="1" all_skills="1" class="gbpsych">Psycadellius</crewMember>
 	</event>
 	<event>
-		<text>驚いたことに、ポータルからHauntのメンバーの1人が出てきました！しかし、彼らはあなたが最後に彼らと戦ったときよりもはるかに従順であり、あなたの乗組員に加わることをいとわないようです。</text>
+		<text>驚いたことに、ポータルからHauntのメンバーの1人が出てきました！しかし、彼らはあなたが最後に彼らと戦ったときよりもはるかに従順であり、あなたのクルーに加わることをいとわないようです。</text>
 		<crewMember amount="1" all_skills="1" class="gbscoleri">Socolarei</crewMember>
 	</event>
 	<event>
-		<text>驚いたことに、ポータルからHauntのメンバーの1人が出てきました！しかし、彼らはあなたが最後に彼らと戦ったときよりもはるかに従順であり、あなたの乗組員に加わることをいとわないようです。</text>
+		<text>驚いたことに、ポータルからHauntのメンバーの1人が出てきました！しかし、彼らはあなたが最後に彼らと戦ったときよりもはるかに従順であり、あなたのクルーに加わることをいとわないようです。</text>
 		<crewMember amount="1" all_skills="1" class="gbslimer">Slimer</crewMember>
 	</event>
 	<event>
-		<text>驚いたことに、ポータルからHauntのメンバーの1人が出てきました！しかし、彼らはあなたが最後に彼らと戦ったときよりもはるかに従順であり、あなたの乗組員に加わることをいとわないようです。</text>
+		<text>驚いたことに、ポータルからHauntのメンバーの1人が出てきました！しかし、彼らはあなたが最後に彼らと戦ったときよりもはるかに従順であり、あなたのクルーに加わることをいとわないようです。</text>
 		<crewMember amount="1" all_skills="1" class="gbvinz">Vinezaleon</crewMember>
 	</event>
 	<event>
-		<text>驚いたことに、ポータルからHauntのメンバーの1人が出てきました！しかし、彼らはあなたが最後に彼らと戦ったときよりもはるかに従順であり、あなたの乗組員に加わることをいとわないようです。</text>
+		<text>驚いたことに、ポータルからHauntのメンバーの1人が出てきました！しかし、彼らはあなたが最後に彼らと戦ったときよりもはるかに従順であり、あなたのクルーに加わることをいとわないようです。</text>
 		<crewMember amount="1" all_skills="1" class="gbzuul">Zulbazare</crewMember>
 	</event>
 </eventList>
@@ -20025,7 +20025,7 @@
 		<damage amount="10" />
 		<removeCrew>
 			<clone>false</clone>
-			<text>あなたの乗組員はクローンベイに現れません、そして彼らの記録は完全に一掃されたようです。彼らに起こったことは何でも元に戻すことはできません。</text>
+			<text>あなたのクルーはクローンベイに現れません、そして彼らの記録は完全に一掃されたようです。彼らに起こったことは何でも元に戻すことはできません。</text>
 		</removeCrew>
 		<item_modify steal="true">
 			<item type="scrap" min="-20" max="-20" />
@@ -20703,7 +20703,7 @@
 </eventList>
 
 <event name="STORAGE_CHECK_JOB_VORTIGON_CONVERT">
-	<text>どの乗組員を転向させたいですか？</text>
+	<text>どのクルーを転向させたいですか？</text>
 	<choice req="rock" hidden="true">
 		<text>Vortigonにロッククルーの1人を変換させます。</text>
 		<event load="STORAGE_CHECK_CREW_VORTIGON_CONVERT_ROCK" />
@@ -22103,10 +22103,10 @@
 			<choice>
 				<text>すべて[このために、目は人生の犠牲を要求します]</text>
 				<event>
-					<text>あなたの乗組員は目で消費され、永遠に消えてしまいます。船体はすぐに再生します。</text>
+					<text>あなたのクルーは目で消費され、永遠に消えてしまいます。船体はすぐに再生します。</text>
 					<removeCrew>
 						<clone>false</clone>
-						<text>あなたの乗組員は、彼らが目によって奪われたので、クローンを作ることはできません。</text>
+						<text>あなたのクルーは、彼らが目によって奪われたので、クローンを作ることはできません。</text>
 					</removeCrew> 
 					<damage amount="-999" />
 				</event>
@@ -22352,7 +22352,7 @@
 					
 					<triggeredEvent event="COMBAT_CHECK_JAM_WEAPONS_POWERDOWN" time="45" thisFight="true">
 						<triggeredEventBox load="DEFAULT_SMALL">
-							<tooltip>Your weapon jammer will expire in this amount of time.</tooltip>
+							<tooltip>武器妨害装置はこの時間内に期限切れになります。</tooltip>
 						</triggeredEventBox>
 						<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 					</triggeredEvent>
@@ -22375,7 +22375,7 @@
 			
 			<triggeredEvent event="COMBAT_CHECK_JAM_WEAPONS_POWERDOWN" time="45" thisFight="true">
 				<triggeredEventBox load="DEFAULT_SMALL">
-					<tooltip>Your weapon jammer will expire in this amount of time.</tooltip>
+					<tooltip>武器妨害装置はこの時間内に期限切れになります。</tooltip>
 				</triggeredEventBox>
 				<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 			</triggeredEvent>
@@ -22436,7 +22436,7 @@
 					
 					<triggeredEvent event="COMBAT_CHECK_JAM_SHIELDS_POWERDOWN" time="45" thisFight="true">
 						<triggeredEventBox load="DEFAULT_SMALL">
-							<tooltip>Your shield jammer will expire in this amount of time.</tooltip>
+							<tooltip>シールドジャマーはこの時間内に期限切れになります。</tooltip>
 						</triggeredEventBox>
 						<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 					</triggeredEvent>
@@ -22459,7 +22459,7 @@
 			
 			<triggeredEvent event="COMBAT_CHECK_JAM_SHIELDS_POWERDOWN" time="45" thisFight="true">
 				<triggeredEventBox load="DEFAULT_SMALL">
-					<tooltip>Your shield jammer will expire in this amount of time.</tooltip>
+					<tooltip>シールドジャマーはこの時間内に期限切れになります。</tooltip>
 				</triggeredEventBox>
 				<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 			</triggeredEvent>
@@ -22520,7 +22520,7 @@
 					
 					<triggeredEvent event="COMBAT_CHECK_JAM_ENGINES_POWERDOWN" time="45" thisFight="true">
 						<triggeredEventBox load="DEFAULT_SMALL">
-							<tooltip>Your engine jammer will expire in this amount of time.</tooltip>
+							<tooltip>エンジンジャマーはこの時間内に期限切れになります。</tooltip>
 						</triggeredEventBox>
 						<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 					</triggeredEvent>
@@ -22543,7 +22543,7 @@
 			
 			<triggeredEvent event="COMBAT_CHECK_JAM_ENGINES_POWERDOWN" time="45" thisFight="true">
 				<triggeredEventBox load="DEFAULT_SMALL">
-					<tooltip>Your engine jammer will expire in this amount of time.</tooltip>
+					<tooltip>エンジンジャマーはこの時間内に期限切れになります。</tooltip>
 				</triggeredEventBox>
 				<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 			</triggeredEvent>
@@ -22763,7 +22763,7 @@
 					
 					<triggeredEvent event="COMBAT_CHECK_JAM_HACK_POWERDOWN" time="30" thisFight="true">
 						<triggeredEventBox load="DEFAULT_SMALL">
-							<tooltip>Your hacking jammer will expire in this amount of time.</tooltip>
+							<tooltip>ハッキングジャマーはこの時間内に期限切れになります。</tooltip>
 						</triggeredEventBox>
 						<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 					</triggeredEvent>
@@ -22786,7 +22786,7 @@
 			
 			<triggeredEvent event="COMBAT_CHECK_JAM_HACK_POWERDOWN" time="30" thisFight="true">
 				<triggeredEventBox load="DEFAULT_SMALL">
-					<tooltip>Your hacking jammer will expire in this amount of time.</tooltip>
+					<tooltip>ハッキングジャマーはこの時間内に期限切れになります。</tooltip>
 				</triggeredEventBox>
 				<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 			</triggeredEvent>
@@ -22844,7 +22844,7 @@
 					
 					<triggeredEvent event="COMBAT_CHECK_JAM_CLOAK_POWERDOWN" time="30" thisFight="true">
 						<triggeredEventBox load="DEFAULT_SMALL">
-							<tooltip>Your cloaking jammer will expire in this amount of time.</tooltip>
+							<tooltip>あなたのクローキングジャマーはこの時間内に期限切れになります。</tooltip>
 						</triggeredEventBox>
 						<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 					</triggeredEvent>
@@ -22867,7 +22867,7 @@
 			
 			<triggeredEvent event="COMBAT_CHECK_JAM_CLOAK_POWERDOWN" time="30" thisFight="true">
 				<triggeredEventBox load="DEFAULT_SMALL">
-					<tooltip>Your cloaking jammer will expire in this amount of time.</tooltip>
+					<tooltip>あなたのクローキングジャマーはこの時間内に期限切れになります。</tooltip>
 				</triggeredEventBox>
 				<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 			</triggeredEvent>
@@ -22925,7 +22925,7 @@
 					
 					<triggeredEvent event="COMBAT_CHECK_JAM_TELEPORTER_POWERDOWN" time="30" thisFight="true">
 						<triggeredEventBox load="DEFAULT_SMALL">
-							<tooltip>Your teleporter jammer will expire in this amount of time.</tooltip>
+							<tooltip>テレポータージャマーはこの時間内に期限切れになります。</tooltip>
 						</triggeredEventBox>
 						<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 					</triggeredEvent>
@@ -22946,7 +22946,7 @@
 			
 			<triggeredEvent event="COMBAT_CHECK_JAM_TELEPORTER_POWERDOWN" time="30" thisFight="true">
 				<triggeredEventBox load="DEFAULT_SMALL">
-					<tooltip>Your teleporter jammer will expire in this amount of time.</tooltip>
+					<tooltip>テレポータージャマーはこの時間内に期限切れになります。</tooltip>
 				</triggeredEventBox>
 				<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 			</triggeredEvent>
@@ -22970,7 +22970,7 @@
 					
 					<triggeredEvent event="COMBAT_CHECK_JAM_MIND_POWERDOWN" time="30" thisFight="true">
 						<triggeredEventBox load="DEFAULT_SMALL">
-							<tooltip>Your Mind Control jammer will expire in this amount of time.</tooltip>
+							<tooltip>マインドコントロールジャマーはこの時間内に期限切れになります。</tooltip>
 						</triggeredEventBox>
 						<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 					</triggeredEvent>
@@ -22993,7 +22993,7 @@
 			
 			<triggeredEvent event="COMBAT_CHECK_JAM_MIND_POWERDOWN" time="30" thisFight="true">
 				<triggeredEventBox load="DEFAULT_SMALL">
-					<tooltip>Your Mind Control jammer will expire in this amount of time.</tooltip>
+					<tooltip>マインドコントロールジャマーはこの時間内に期限切れになります。</tooltip>
 				</triggeredEventBox>
 				<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 			</triggeredEvent>
@@ -23064,7 +23064,7 @@
 					
 					<triggeredEvent event="COMBAT_CHECK_JAM_REACTOR_POWERDOWN" time="45" thisFight="true">
 						<triggeredEventBox load="DEFAULT_SMALL">
-							<tooltip>Your EMP will expire in this amount of time.</tooltip>
+							<tooltip>EMPはこの時間内に期限切れになります。</tooltip>
 						</triggeredEventBox>
 						<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 					</triggeredEvent>
@@ -23087,7 +23087,7 @@
 			
 			<triggeredEvent event="COMBAT_CHECK_JAM_REACTOR_POWERDOWN" time="45" thisFight="true">
 				<triggeredEventBox load="DEFAULT_SMALL">
-					<tooltip>Your EMP will expire in this amount of time.</tooltip>
+					<tooltip>EMPはこの時間内に期限切れになります。</tooltip>
 				</triggeredEventBox>
 				<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 			</triggeredEvent>
@@ -23447,7 +23447,7 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="artillery" blue="false">
-		<text>砲兵（0小節に制限）。</text>
+		<text>大砲（0バーに制限）。</text>
 		<event>
 			<text>システムが正常に無効になりました。</text>
 			<status type="limit" target="player" system="artillery" amount="0" />
@@ -24492,7 +24492,7 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>武器をラッドモードに設定します。 [+30の乗組員のダメージ、50％の破損の可能性、乗組員のデバフ]</text>
+		<text>武器をラッドモードに設定します。 [+30のクルーのダメージ、50％の破損の可能性、クルーのデバフ]</text>
 		<event>
 			<text>武器の調整を開始します...</text>
 			<remove name="SHOTGUN_TOGGLE_FIRE" />
@@ -24536,7 +24536,7 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>武器をラッドモードに設定します。 [15人の乗組員のダメージ、50％の破損の可能性、乗組員のデバフ]</text>
+		<text>武器をラッドモードに設定します。 [15人のクルーのダメージ、50％の破損の可能性、クルーのデバフ]</text>
 		<event>
 			<text>武器の調整を開始します...</text>
 			<remove name="SHOTGUN_TOGGLE_ION" />
@@ -24560,7 +24560,7 @@
 </event>
 <event name="COMBAT_CHECK_TOGGLE_FLAK_TOXIC">
 	<text>武器をどのパワーに設定しますか？
-現在のモード：放射線[15人の乗組員のダメージ、50％の破損の可能性、乗組員のデバフ]</text>
+現在のモード：放射線[15人のクルーのダメージ、50％の破損の可能性、クルーのデバフ]</text>
 	<choice hidden="true">
 		<text>武器を発射モードに設定します。 [100％火災の可能性]</text>
 		<event>
@@ -26328,9 +26328,7 @@ Duskbringersは、悪名を馳せ始めた当初、省から盗まれた古い�
 		<text>フェデレーションクルーザー</text>
 		<event>
 			<text>クラス：フェデレーションクルーザー
-派閥：連盟
-
-予備的で時代遅れのケストレル巡洋艦の後継である、かつて未完成だった連邦巡洋艦のプロトタイプは、反乱軍に盗まれ、反乱軍の旗艦の悪名高い大砲を作るために利用された後、内戦中に回収されました。現在、大規模な生産では、これらの船のやや不幸な形は、砲兵器の手に負えない充電時間に対する広範な嫌悪にのみ恠?ずかしさを感じさせます。しかし、ユニバース0の豊かな富のおかげで、新しいモデルははるかに洗練された技術を備えており、これらの巡洋艦はマルチバース時代の他の最先端の船と競争することができました。</text>
+ケストレル巡洋艦の後継艦であり、かつて未完成だった連邦巡洋艦のプロトタイプは、反乱軍に奪われた後、内戦中に回収され、反乱軍旗艦の悪名高い大砲の製造に使用された。現在では大規模な生産が行われているが、これらの艦のやや不格好な形状は、大砲の扱いにくいチャージ時間にが嫌われているとともに、二次的な機能障害して語られる。しかし、ユニバース0の豊かな富のおかげで、新型はより洗練された技術を搭載し、多元宇宙時代の他の最新鋭艦と肩を並べることができるようになった。</text>
 			<choice>
 				<text>継続する...</text>
 				<event load="STORAGE_CHECK_STATUS" />
@@ -26480,7 +26478,7 @@ Duskbringersは、悪名を馳せ始めた当初、省から盗まれた古い�
 
 
 <event name="STORAGE_CHECK_STATUS_CREW">
-	<text>特別な乗組員を募集すると、ここに表示されます。</text>
+	<text>特別なクルーを募集すると、ここに表示されます。</text>
 	<choice hidden="true" req="ach_crew_haynes" lvl="1" blue="false">
 		<text>シャーロック・ヘインズ</text>
 		<event>
@@ -27094,21 +27092,21 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
     <loadEvent>STORAGE_CHECK_CREW_REAL</loadEvent>
 </event>
 <event name="STORAGE_CHECK_CREW_REAL">
-	<text>あなたは何人かの乗組員と話をするために周りを見回します。</text>
+	<text>あなたは何人かのクルーと話をするために周りを見回します。</text>
 	<choice req="LIST_CHECKCREW_HUMAN" blue="false" hidden="true">
-		<text>人間の乗組員を探します。</text>
+		<text>人間のクルーを探します。</text>
 		<event load="STORAGE_CHECK_CREW_LIST_HUMAN" />
 	</choice>
 	<choice req="LIST_CHECKCREW_ENGI" blue="false" hidden="true">
-		<text>エンギの乗組員を探してください。</text>
+		<text>エンギのクルーを探してください。</text>
 		<event load="STORAGE_CHECK_CREW_LIST_ENGI" />
 	</choice>
 	<choice req="LIST_CHECKCREW_ZOLTAN" blue="false" hidden="true">
-		<text>ゾルタンの乗組員を探してください。</text>
+		<text>ゾルタンのクルーを探してください。</text>
 		<event load="STORAGE_CHECK_CREW_LIST_ZOLTAN" />
 	</choice>
 	<choice req="LIST_CHECKCREW_MANTIS" blue="false" hidden="true">
-		<text>マンティスの乗組員を探します。</text>
+		<text>マンティスのクルーを探します。</text>
 		<event load="STORAGE_CHECK_CREW_LIST_MANTIS" />
 	</choice>
 	<choice req="LIST_CHECKCREW_ROCK" blue="false" hidden="true">
@@ -27116,15 +27114,15 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 		<event load="STORAGE_CHECK_CREW_LIST_ROCK" />
 	</choice>
 	<choice req="LIST_CHECKCREW_SLUG" blue="false" hidden="true">
-		<text>ナメクジの乗組員を探します。</text>
+		<text>ナメクジのクルーを探します。</text>
 		<event load="STORAGE_CHECK_CREW_LIST_SLUG" />
 	</choice>
 	<choice req="LIST_CHECKCREW_SHELL" blue="false" hidden="true">
-		<text>シェルの乗組員を探します。</text>
+		<text>シェルのクルーを探します。</text>
 		<event load="STORAGE_CHECK_CREW_LIST_SHELL" />
 	</choice>
 	<choice req="LIST_CHECKCREW_LEECH" blue="false" hidden="true">
-		<text>ヒルの乗組員を探してください。</text>
+		<text>ヒルのクルーを探してください。</text>
 		<event load="STORAGE_CHECK_CREW_LIST_LEECH" />
 	</choice>
 	<choice req="LIST_CHECKCREW_ORCHID" blue="false" hidden="true">
@@ -27136,7 +27134,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 		<event load="STORAGE_CHECK_CREW_LIST_GHOST" />
 	</choice>
 	<choice req="LIST_CHECKCREW_LANIUS" blue="false" hidden="true">
-		<text>ラニウスの乗組員を探します。</text>
+		<text>ラニウスのクルーを探します。</text>
 		<event load="STORAGE_CHECK_CREW_LIST_LANIUS" />
 	</choice>
 	<choice req="LIST_CHECKCREW_CRYSTAL" blue="false" hidden="true">
@@ -27144,15 +27142,15 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 		<event load="STORAGE_CHECK_CREW_LIST_CRYSTAL" />
 	</choice>
 	<choice req="LIST_CHECKCREW_MORPH" blue="false" hidden="true">
-		<text>モーフの乗組員を探します。</text>
+		<text>モーフのクルーを探します。</text>
 		<event load="STORAGE_CHECK_CREW_LIST_MORPH" />
 	</choice>
 	<choice req="LIST_CHECKCREW_ANCIENT" blue="false" hidden="true">
-		<text>オベリスクの乗組員を探します。</text>
+		<text>オベリスクのクルーを探します。</text>
 		<event load="STORAGE_CHECK_CREW_LIST_ANCIENT" />
 	</choice>
 	<choice req="LIST_CHECKCREW_MISC" blue="false" hidden="true">
-		<text>その他の乗組員を探します。</text>
+		<text>その他のクルーを探します。</text>
 		<event load="STORAGE_CHECK_CREW_LIST_MISC" />
 	</choice>
 	<choice>
@@ -27162,7 +27160,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 </event>
 
 <event name="STORAGE_CHECK_CREW_LIST_HUMAN">
-	<text>あなたは何人かの乗組員と話をするために周りを見回します。</text>
+	<text>あなたは何人かのクルーと話をするために周りを見回します。</text>
 	<choice req="human" blue="false" hidden="true">
 		<text>あなたの人間を探してください。</text>
 		<event load="STORAGE_CHECK_CREW_HUMAN" />
@@ -27218,7 +27216,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 </event>
 
 <event name="STORAGE_CHECK_CREW_LIST_ENGI">
-	<text>あなたは何人かの乗組員と話をするために周りを見回します。</text>
+	<text>あなたは何人かのクルーと話をするために周りを見回します。</text>
 	<choice req="engi" blue="false" hidden="true">
 		<text>あなたのエンギを探してください。</text>
 		<event load="STORAGE_CHECK_CREW_ENGI" />
@@ -27242,7 +27240,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 </event>
 
 <event name="STORAGE_CHECK_CREW_LIST_ZOLTAN">
-	<text>あなたは何人かの乗組員と話をするために周りを見回します。</text>
+	<text>あなたは何人かのクルーと話をするために周りを見回します。</text>
 	<choice req="zoltan" blue="false" hidden="true">
 		<text>あなたのゾルタンを探してください。</text>
 		<event load="STORAGE_CHECK_CREW_ZOLTAN" />
@@ -27274,7 +27272,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 </event>
 
 <event name="STORAGE_CHECK_CREW_LIST_MANTIS">
-	<text>あなたは何人かの乗組員と話をするために周りを見回します。</text>
+	<text>あなたは何人かのクルーと話をするために周りを見回します。</text>
 	<choice req="mantis" blue="false" hidden="true">
 		<text>あなたのマンティスを探してください。</text>
 		<event load="STORAGE_CHECK_CREW_MANTIS" />
@@ -27310,7 +27308,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 </event>
 
 <event name="STORAGE_CHECK_CREW_LIST_ROCK">
-	<text>あなたは何人かの乗組員と話をするために周りを見回します。</text>
+	<text>あなたは何人かのクルーと話をするために周りを見回します。</text>
 	<choice req="rock" blue="false" hidden="true">
 		<text>あなたのロックマンを探してください。</text>
 		<event load="STORAGE_CHECK_CREW_ROCK" />
@@ -27358,7 +27356,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 </event>
 
 <event name="STORAGE_CHECK_CREW_LIST_SLUG">
-	<text>あなたは何人かの乗組員と話をするために周りを見回します。</text>
+	<text>あなたは何人かのクルーと話をするために周りを見回します。</text>
 	<choice req="slug" blue="false" hidden="true">
 		<text>あなたのナメクジを探してください。</text>
 		<event load="STORAGE_CHECK_CREW_SLUG" />
@@ -27402,7 +27400,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 </event>
 
 <event name="STORAGE_CHECK_CREW_LIST_SHELL">
-	<text>あなたは何人かの乗組員と話をするために周りを見回します。</text>
+	<text>あなたは何人かのクルーと話をするために周りを見回します。</text>
 	<choice req="shell" blue="false" hidden="true">
 		<text>シェルを探してください。</text>
 		<event load="STORAGE_CHECK_CREW_SHELL" />
@@ -27434,7 +27432,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 </event>
 
 <event name="STORAGE_CHECK_CREW_LIST_LEECH">
-	<text>あなたは何人かの乗組員と話をするために周りを見回します。</text>
+	<text>あなたは何人かのクルーと話をするために周りを見回します。</text>
 	<choice req="unique_tyrdeo" blue="false" hidden="true">
 		<text>Tyrdeoを探してください。</text>
 		<event load="STORAGE_CHECK_CREW_TYRDEO" />
@@ -27450,7 +27448,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 </event>
 
 <event name="STORAGE_CHECK_CREW_LIST_ORCHID">
-	<text>あなたは何人かの乗組員と話をするために周りを見回します。</text>
+	<text>あなたは何人かのクルーと話をするために周りを見回します。</text>
 	<choice req="orchid" blue="false" hidden="true">
 		<text>あなたのオーキドゥを探してください。</text>
 		<event load="STORAGE_CHECK_CREW_ORCHID" />
@@ -27466,7 +27464,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 </event>
 
 <event name="STORAGE_CHECK_CREW_LIST_GHOST">
-	<text>あなたは何人かの乗組員と話をするために周りを見回します。</text>
+	<text>あなたは何人かのクルーと話をするために周りを見回します。</text>
 	<choice req="phantom" blue="false" hidden="true">
 		<text>ファントムを探してください。</text>
 		<event load="STORAGE_CHECK_CREW_PHANTOM" />
@@ -27510,7 +27508,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 </event>
 
 <event name="STORAGE_CHECK_CREW_LIST_LANIUS">
-	<text>あなたは何人かの乗組員と話をするために周りを見回します。</text>
+	<text>あなたは何人かのクルーと話をするために周りを見回します。</text>
 	<choice req="lanius" blue="false" hidden="true">
 		<text>あなたのラニウスを探してください。</text>
 		<event load="STORAGE_CHECK_CREW_LANIUS" />
@@ -27538,7 +27536,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 </event>
 
 <event name="STORAGE_CHECK_CREW_LIST_CRYSTAL">
-	<text>あなたは何人かの乗組員と話をするために周りを見回します。</text>
+	<text>あなたは何人かのクルーと話をするために周りを見回します。</text>
 	<choice req="crystal" blue="false" hidden="true">
 		<text>あなたのクリスタルを探してください。</text>
 		<event load="STORAGE_CHECK_CREW_CRYSTAL" />
@@ -27559,7 +27557,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 </event>
 
 <event name="STORAGE_CHECK_CREW_LIST_ANCIENT">
-	<text>あなたは何人かの乗組員と話をするために周りを見回します。</text>
+	<text>あなたは何人かのクルーと話をするために周りを見回します。</text>
 	<choice req="obelisk" blue="false" hidden="true">
 		<text>あなたのオベリスクを探してください。</text>
 		<event load="STORAGE_CHECK_CREW_ANCIENT" />
@@ -27587,7 +27585,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 </event>
 
 <event name="STORAGE_CHECK_CREW_LIST_MISC">
-	<text>あなたは何人かの乗組員と話をするために周りを見回します。</text>
+	<text>あなたは何人かのクルーと話をするために周りを見回します。</text>
 	<choice req="salt" blue="false" hidden="true">
 		<text>オビンを探してください。</text>
 		<event load="STORAGE_CHECK_CREW_SALT" />
@@ -27639,7 +27637,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 </event>
 
 <event name="STORAGE_CHECK_CREW_LIST_MORPH">
-	<text>あなたは何人かの乗組員と話をするために周りを見回します。</text>
+	<text>あなたは何人かのクルーと話をするために周りを見回します。</text>
 	<choice req="LIST_CHECKCREW_MORPH_ONLY" blue="false" hidden="true">
 		<text>あなたのモーフを探してください。</text>
 		<event load="STORAGE_CHECK_CREW_MORPH" />
@@ -28208,14 +28206,14 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	</choice>
 </event>
 <textList name="TEXT_CREW_TALK_ENGINEER">
-	<text>あなたのエンジニアは、すべての乗組員をドローンに置き換える必要があると考えています。彼らも話をするのはずっと面倒ではありません。主に彼らが話さないからです。</text>
+	<text>あなたのエンジニアは、すべてのクルーをドローンに置き換える必要があると考えています。彼らも話をするのはずっと面倒ではありません。主に彼らが話さないからです。</text>
 	<text>あなたのエンジニアは、ドローンの部品を使うことはドローンの力の価値のある価格であると考えています。</text>
 	<text>エンジニアは、目を閉じて焦げた肌を後で洗い流すのではなく、溶接中にマスクを着用したいと思うことがあります。</text>
 	<text>あなたのエンジニアはあなたの船が退屈に見えると思っており、もっと派手なライトが必要です。</text>
 	<text>あなたのエンジニアは、プロトタイプの歩哨配備システムに取り組んでいます。船上での使用を検討するには、完成にはほど遠いです。</text>
 	<text>あなたのエンジニアは、レンチを武器としてテストダミーとの戦闘を練習するのに忙しいです。</text>
 	<text>このミッションが終わった後、エンジニアはストリーマーになることを検討しています。これは、現在のキャリアよりもはるかに高額であるためです。</text>
-	<text>あなたのエンジニアはあなたが彼らの古い雇用主よりはるかによく支払うとあなたに言います。乗組員に何も支払わないので、あなたは混乱しています。</text>
+	<text>あなたのエンジニアはあなたが彼らの古い雇用主よりはるかによく支払うとあなたに言います。クルーに何も支払わないので、あなたは混乱しています。</text>
 	<text>エンジニアはどこにも見つかりません。船のコンピューターは、腕をロボットの腕に交換する勇気を奮い立たせようとして忙しいことを知らせます。</text>
 	<text>あなたのエンジニアはあなたと話そうとしますが、彼らが凍結誘導分散ベータトロンドライブの重要性について話し始めた後、あなたは迷子になります。</text>
 	<text>あなたのエンジニアは、エリートとエンジニアのものがロゴを持っているのに、なぜ標準の反乱軍の船がロゴを持っていないのか疑問に思います。</text>
@@ -28265,15 +28263,15 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 <textList name="TEXT_CREW_TALK_MEDIC">
 	<text>あなたの医者は、彼らが実際に医師免許を取得したことがないことを気にしないことを望んでいます。</text>
 	<text>あなたの医者は医療爆弾の複雑さを高く評価し、船の技術にもっと投資するように要求します。</text>
-	<text>あなたの医者は、乗組員の安全に関しては、後でいつでもパッチを当てることができるので、助けになるときはいつでも危険を冒すことを勧めます。</text>
+	<text>あなたの医者は、クルーの安全に関しては、後でいつでもパッチを当てることができるので、助けになるときはいつでも危険を冒すことを勧めます。</text>
 	<text>あなたの医者はクローンベイを軽蔑し、「怠惰な人々のためのメッドベイ」と呼んでいます。</text>
 	<text>あなたの医者は、実行されるべき科学があるとき、道徳や戦争を気にしません。</text>
 	<text>あなたの衛生兵は、彼らが軍用船での作業のために配備されたにもかかわらず、戦闘のために適切に訓練されなかったことを侮辱していると感じています。</text>
 	<text>あなたの医者は彼らのユニフォームの十字架が異なる色で来たことを望みます。</text>
 	<text>あなたの医者は彼らが実際に彼らの帽子の下に髪を持っていることを約束します。</text>
 	<text>あなたの医者は、伝統的な医療倫理が単なる障害であることに気づきます。</text>
-	<text>あなたの衛生兵は、再び逃げる前に、乗組員の魂を売ったことを簡単に謝罪します。あなたはとても混乱しています。</text>
-	<text>あなたの医者はあなたが適切に使用する方法について残りの乗組員を訓練するようにアドバイスします...彼らは文の途中で止まり、部屋から出て行き、あなたを困惑させます。</text>
+	<text>あなたの衛生兵は、再び逃げる前に、クルーの魂を売ったことを簡単に謝罪します。あなたはとても混乱しています。</text>
+	<text>あなたの医者はあなたが適切に使用する方法について残りのクルーを訓練するようにアドバイスします...彼らは文の途中で止まり、部屋から出て行き、あなたを困惑させます。</text>
 	<text>あなたの医者は、いつか銀河系のすべての知性のある人種に手術を行う機会があることを望んでいます。</text>
 	<text>あなたの医者はあなたにデオドラントのスティックを手渡し、あなたがそれをもっと頻繁に使い始めるようにアドバイスします。</text>
 	<text>あなたの医者はロックマンの仲間が彼らに同行することを望んでいます。さらに良いのは、おそらくミニガンです。</text>
@@ -28320,7 +28318,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="engines" blue="false" lvl="2" max_group="0">
 		<text>エンジンをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="engines" />
 			<item_modify>
 				<item type="scrap" min="-15" max="-15" />
@@ -28330,7 +28328,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="engines" blue="false" lvl="3" max_group="0">
 		<text>エンジンをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="engines" />
 			<item_modify>
 				<item type="scrap" min="-25" max="-25" />
@@ -28340,7 +28338,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="engines" blue="false" lvl="4" max_group="0">
 		<text>エンジンをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="engines" />
 			<item_modify>
 				<item type="scrap" min="-45" max="-45" />
@@ -28350,7 +28348,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="engines" blue="false" lvl="5" max_group="0">
 		<text>エンジンをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="engines" />
 			<item_modify>
 				<item type="scrap" min="-55" max="-55" />
@@ -28381,10 +28379,10 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたの兵士はあなたがドアをもっとアップグレードする必要があると考えています。彼によると、ドアを制御する彼はスペースを制御します。</text>
 	<text>あなたの兵士は星雲が嫌いで、ナメクジが嫌いです。幽霊は大丈夫ですが、スパイ操作でユニークな利点を提供します。</text>
 	<text>あなたの兵士は外国人排斥者として識別されることを望んでいませんが、彼はエイリアンの周りで非常に不安です。</text>
-	<text>あなたの兵士は、エアロックが誤動作していない限り、訓練を受けていない乗組員を射線に乗せないようにアドバイスしています。</text>
+	<text>あなたの兵士は、エアロックが誤動作していない限り、訓練を受けていないクルーを射線に乗せないようにアドバイスしています。</text>
 	<text>あなたの兵士は、戦闘以外で死ぬことは失望だと考えています。</text>
-	<text>あなたの兵士は、ドローンがいくつかの状況でユニークな利点を提供できると考えていますが、テレポーターと適切な乗組員のチームで何も問題が発生することはありません。</text>
-	<text>あなたの兵士は、よく訓練された兵士だけの乗組員が旗艦に対するあなたの最善の防御になると考えています。</text>
+	<text>あなたの兵士は、ドローンがいくつかの状況でユニークな利点を提供できると考えていますが、テレポーターと適切なクルーのチームで何も問題が発生することはありません。</text>
+	<text>あなたの兵士は、よく訓練された兵士だけのクルーが旗艦に対するあなたの最善の防御になると考えています。</text>
 </textList>
 
 
@@ -28408,8 +28406,8 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ [人間]サブタイプ？ [はい]
 サブタイプの詳細：一意
 ステータス：体力200、修理と消火の速度1.5倍、移動速度1.25倍、戦闘ダメージ1.5倍、火と窒息のダメージ50％。最大のスキルレベルを持っています。
-オーラ：近くの味方の乗組員に25％のボーナス移動速度を与えます。
-能力（20秒のクールダウン、5秒の持続時間）：あなたの乗組員を結集し、2.5倍の戦闘ダメージと移動速度、および2倍の修理速度を与えます。船全体をカバーします。</text>
+オーラ：近くの味方のクルーに25％のボーナス移動速度を与えます。
+能力（20秒のクールダウン、5秒の持続時間）：あなたのクルーを結集し、2.5倍の戦闘ダメージと移動速度、および2倍の修理速度を与えます。船全体をカバーします。</text>
 	<choice>
 		<text>継続する...</text>
 		<event load="STORAGE_CHECK" />
@@ -28425,7 +28423,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 <textList name="TEXT_CREW_TALK_TULLY">
 	<text>タリーは最後の戦いを恐れています。彼は以前に旗艦のホログラフィック画像を見ただけであり、彼はその栄光を直接目撃するのを待ちきれません。そしてそれも破壊しなさい。</text>
 	<text>「言わなければならないのは、これは品揃えの豊富な船の1つです。自分の船とほぼ同じです。残念ながら、反乱軍によって破壊されました。」</text>
-	<text>「これはあなたが持っている非常によく訓練された乗組員です。私はいつか宇宙0の訓練施設を訪問しなければなりません。」</text>
+	<text>「これはあなたが持っている非常によく訓練されたクルーです。私はいつか宇宙0の訓練施設を訪問しなければなりません。」</text>
 	<text>「反乱軍がほとんど脅威にさらされていない現実に住んでいるのはどういうことかしら。これが終わった後、私は他のもっと平和な現実を訪ねるつもりだ。」</text>
 	<text>タリーは、銀河系の反乱軍を追い払う以外に何も望んでいません。</text>
 	<text>「反乱軍の犯罪が罰せられることはありませんが、私たちは公正を保ち、起訴している間だけ忘れないでください。このようなことを二度と起こさせてはなりません。」</text>
@@ -28478,7 +28476,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 <textList name="TEXT_CREW_TALK_JERRY">
 	<text>ジェリーはあなたに彼が本当にあなたを尊敬していると言います。それはおそらく本当に安っぽく聞こえますが、彼は気にしません。</text>
 	<text>ジェリーは自分の部屋で踊るのに忙しい。彼はあなたを彼に招待しますが、あなたには他にやるべきことがあります。</text>
-	<text>ジェリーは他の乗組員にカードタワーの作り方を教えています。残念ながら、船にはカードがなかったので、彼らは想像力を駆使しています。</text>
+	<text>ジェリーは他のクルーにカードタワーの作り方を教えています。残念ながら、船にはカードがなかったので、彼らは想像力を駆使しています。</text>
 	<text>ジェリーは枕を使って狙いを定めています。これまでのところ、彼はシングルショットを打っていません。これは、彼が今夜眠りたいのであれば、おそらく良いことです。</text>
 	<text>ジェリーは敬虔な平和主義者ではありませんが、通常は戦闘に参加するのが好きではありません。</text>
 	<text>ジェリーは、船のオーディオライブラリにもっと大きな音楽データベースがあればいいのにと思います。または、本当にどんな音楽でも。</text>
@@ -28563,7 +28561,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ [人間]サブタイプ？ [はい]
 サブタイプの詳細：一意
 統計：83％の火と窒息のダメージを受ける。戦闘ダメージx1.5、移動速度x0.6、妨害速度x3、戦闘から受けるダメージの50％。
-10倍の速度で発砲するガトリングガンを装備し、乗組員を迅速かつ迅速に開いたドアを爆破します。</text>
+10倍の速度で発砲するガトリングガンを装備し、クルーを迅速かつ迅速に開いたドアを爆破します。</text>
 	<choice>
 		<text>継続する...</text>
 		<event load="STORAGE_CHECK" />
@@ -28610,9 +28608,9 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>ジェリー（馬）の詳細
 種族？ [人間]サブタイプ？ [はい]
 サブタイプの詳細：一意
-ステータス：300ヘルス、83％の火と窒息のダメージを受ける。 x2の戦闘ダメージ、x4.0の移動速度、x5の妨害速度、戦闘から受けた50％のダメージ、友好的な乗組員3hp/sを回復します。
-死ぬと爆発し、15のイオンダメージと1500の乗組員ダメージを与えます。友好的な乗組員やあなたの船を傷つけだ?せん。
-20倍の速度で発砲するガトリングガンを装備し、乗組員を迅速かつ迅速に開いたドアを爆破します。</text>
+ステータス：300ヘルス、83％の火と窒息のダメージを受ける。 x2の戦闘ダメージ、x4.0の移動速度、x5の妨害速度、戦闘から受けた50％のダメージ、友好的なクルー3hp/sを回復します。
+死ぬと爆発し、15のイオンダメージと1500のクルーダメージを与えます。友好的なクルーやあなたの船を傷つけだ?せん。
+20倍の速度で発砲するガトリングガンを装備し、クルーを迅速かつ迅速に開いたドアを爆破します。</text>
 	<choice>
 		<text>継続する...</text>
 		<event load="STORAGE_CHECK" />
@@ -28749,7 +28747,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたのエンギはあなたをぎこちなく抱きしめ、ほとんどすぐに謝罪します。それは、何人かの人間がそれを実行しているのを見て、他の誰かにそれを試してみたかったと主張しています。</text>
 	<text>あなたのエンギはあなたがあなたの機器をよりよく世話する必要がある方法についてあなたに講義します。</text>
 	<text>あなたのエンギは、友情の概念は存在しないと説明していますが、存在する場合、あなたはおそらくその友人になるでしょう。</text>
-	<text>あなたのエンギは酸素の不必要な使用について不平を言い、他の乗組員は呼吸を少なくすることを勧めます。</text>
+	<text>あなたのエンギは酸素の不必要な使用について不平を言い、他のクルーは呼吸を少なくすることを勧めます。</text>
 	<text>エンギに、たくさんの小さなナノボットで構成されているとはどういう感じかを尋ねます。あなたのエンギはあなたが何を意味するのかわからず、多くの細胞で構成されていることについて同じように尋ねます。</text>
 	<text>あなたのエンギは、その友人の何人かが以前にマンティスハイブによって奴隷として連れて行かれたと説明しています。お悔やみを申し上げますが、エンギはそれほど動揺していないようです。あなたはそれが動揺する可能性があるかどうかさえわかりません。</text>
 	<text>あなたのエンギは小さなエイリアンの植物に水をやっているようです。植物を踏むのではないかと恐れて、近づかないように注意して命令します。</text>
@@ -28803,7 +28801,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="drones" blue="false" lvl="3" max_group="0">
 		<text>ドローンベイをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="drones" />
 			<item_modify>
 				<item type="scrap" min="-20" max="-20" />
@@ -28813,7 +28811,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="drones" blue="false" lvl="4" max_group="0">
 		<text>ドローンベイをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="drones" />
 			<item_modify>
 				<item type="scrap" min="-35" max="-35" />
@@ -28823,7 +28821,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="drones" blue="false" lvl="5" max_group="0">
 		<text>ドローンベイをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="drones" />
 			<item_modify>
 				<item type="scrap" min="-45" max="-45" />
@@ -28848,7 +28846,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたのディフェンダーは、船を保護するためにもっと多くのディフェンスドローンが必要だと考えています。</text>
 	<text>あなたのディフェンダーは、ハーモニーがディフェンダーとしての目的を果たすために選んだと説明しています。連邦が救われる限り、ハーモニーはあなたの船に加わることを許します。最も可能性が高い。</text>
 	<text>あなたのディフェンダーは、船の改良を伴わない限り、話をしたくありません。</text>
-	<text>あなたのディフェンダーは、乗組員の睡眠スケジュールは不要だと考えています。</text>
+	<text>あなたのディフェンダーは、クルーの睡眠スケジュールは不要だと考えています。</text>
 	<text>あなたの擁護者は、民間船との戦いを避けるようにあなたに忠告します。護身術または慈悲の殺害のみを承認します。</text>
 	<text>あなたの体型も変えることができないので、あなたのディフェンダーはあなたがあなたの細胞を制御するプログラムを持っているかどうか疑問に思います。</text>
 	<text>あなたのディフェンダーは、シミュレーションである現実が文字通り1つによって制御されているため、あまりにも遠すぎるとは考えていません。</text>
@@ -28862,7 +28860,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたのディフェンダーはあなたが技術をハッキングすることにもっと投資するようにアドバイスします。</text>
 	<text>あなたのディフェンダーは、すべてのエンギには使用が許可されていないステレオシステムが組み込まれていることを通知します。なぜそれがあなたにこれを言っているのか理解できません。</text>
 	<text>あなたはディフェンダーと三目並べのゲームをプレイしようとします。当然のことながら、あなたはいつも縛ることになります。あなたのディフェンダーは、なぜ勝てないのか理解していません。</text>
-	<text>あなたのディフェンダーはあなたにすべての乗組員のシールド技術を与えるようにアドバイスします。</text>
+	<text>あなたのディフェンダーはあなたにすべてのクルーのシールド技術を与えるようにアドバイスします。</text>
 </textList>
 
 
@@ -28908,11 +28906,11 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたは分離主義者をひざまずいて地面を見つめています。いくつか質問した後、あなたはそのナノボットの1つが壊れていて、それのために葬式を行っていることを知りました。</text>
 	<text>あなたは分離主義者と話そうとしますが、それは気にしないことをあなたに知らせるためにあなたを邪魔します。</text>
 	<text>あなたはあなたの分離主義者を見つけようとしますが、それはあなたから離れ続けます。あなたは最終的にあきらめます。</text>
-	<text>あなたの分離主義者は、あなたがすべての乗組員をドローンに置き換えることを望んでいます。</text>
+	<text>あなたの分離主義者は、あなたがすべてのクルーをドローンに置き換えることを望んでいます。</text>
 	<text>あなたの分離主義者は、あなたがあなたの意志に反してエアロックを押し出されたことがあるかどうか尋ねます。万が一に備えて、頭を振って数歩後退します。</text>
 	<text>あなたの分離主義者は、古い地球の詩に魅了されました。それはそれが書いた詩を書くスクリプトでそれが生成したいくつかの詩からあなたに数行を読みます。</text>
 	<text>あなたの分離主義者は、あなたが自分で人工知能を作成したことがあるかどうか尋ねます。あなたがノーと言うとき、それはハフして立ち去ります。</text>
-	<text>あなたの分離主義者はあなたに彼らを動機付けるためにあなたの乗組員に侮辱を叫ぶ球形ロボットのためのドローン概略図を提供します。船のデータベースに入力する前に、彼らに感謝し、回路図面を焼きます。</text>
+	<text>あなたの分離主義者はあなたに彼らを動機付けるためにあなたのクルーに侮辱を叫ぶ球形ロボットのためのドローン概略図を提供します。船のデータベースに入力する前に、彼らに感謝し、回路図面を焼きます。</text>
 	<text>分離主義者は、船のデータベースに組み込まれている辞書をダウンロードできるかどうかを尋ねます。これは許可されています。</text>
 	<text>あなたの分離主義者は存在の無益さについて不平を言います。</text>
 	<text>あなたの分離主義者は、どのようにスペースをもっと空にするべきかについて考えます。</text>
@@ -28941,9 +28939,9 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ [エンギ]サブタイプ？ [はい]
 サブタイプの詳細：一意
 ステータス：ヘルス115、移動速度x1.4、修理速度x0.4。戦闘で80％のダメージを受け、窒息で50％のダメージを受け、火で40％のダメージを受け、マインドコントロールの影響を受けません。スキルを20％速く学習します。
-能力（20秒のクールダウン、25秒の持続時間）：一時的に自分自身を含む部屋のすべての友好的な乗組員を保護します。シールドされた乗組員は、戦闘によるダメージを90％減らし、修理を4倍速くします。また、マインドコントロールに対する免疫を獲得します（すでに進行中の場合、効果を停止しません）。
+能力（20秒のクールダウン、25秒の持続時間）：一時的に自分自身を含む部屋のすべての友好的なクルーを保護します。シールドされたクルーは、戦闘によるダメージを90％減らし、修理を4倍速くします。また、マインドコントロールに対する免疫を獲得します（すでに進行中の場合、効果を停止しません）。
 能力クールダウンタイプ：ジャンプ時に補充します。
-オーラ：同じ部屋にいるフレンドリーな乗組員は50％速く修理します。</text>
+オーラ：同じ部屋にいるフレンドリーなクルーは50％速く修理します。</text>
 	<choice>
 		<text>継続する...</text>
 		<event load="STORAGE_CHECK" />
@@ -28990,7 +28988,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ [ゾルタン]サブタイプ？ [いいえ]
 サブタイプの詳細：遺伝的、標準
 統計：75ヘルス、1パワーを提供します。
-死ぬと：敵の乗組員に15のダメージ</text>
+死ぬと：敵のクルーに15のダメージ</text>
 	<choice>
 		<text>継続する...</text>
 		<event load="STORAGE_CHECK" />
@@ -29012,12 +29010,12 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたのゾルタンは愚かな質問はないとあなたに言いますが、迷惑な質問はたくさんあります。</text>
 	<text>あなたは純粋なエネルギーで作られているとはどういうことかを尋ねます。あなたのゾルタンは笑って、それが98％のエネルギーだけで構成されていることをあなたに知らせます。</text>
 	<text>あなたのゾルタンは、あなたがあなたの船にあまりにも多くのビームを持つことは決してできないと考えています。</text>
-	<text>あなたのゾルタンは敵の乗組員を殺害する倫理に疑問を投げかけ、誰もがうまくやっていけることを願っています。</text>
+	<text>あなたのゾルタンは敵のクルーを殺害する倫理に疑問を投げかけ、誰もがうまくやっていけることを願っています。</text>
 	<text>あなたのゾルタンはあなたと政治を含む会話を始めようとしますが、あなたは彼らにあなたがあなたの宿舎でやるべき重要なことを隠していることを保証します。</text>
 	<text>あなたのゾルタンは、エンギの船をできるだけ殺さないようにしたいと思っています。しかし、反逆者を殺すことは理解できます。</text>
 	<text>あなたのゾルタンは、ゾルタン部門でのダスクブリンガー蜂起について懸念を表明しています。あなたは、反乱が処理されると、連邦が支援できるようになることを彼らに保証しようとします。</text>
 	<text>あなたのゾルタンは、銀河系の4つのより攻撃的な種族の間に連合がどのように形成されたかに興味があります。</text>
-	<text>あなたのゾルタンはあなたが乗組員の間で適切な衛生状態を強制することを奨励します。</text>
+	<text>あなたのゾルタンはあなたがクルーの間で適切な衛生状態を強制することを奨励します。</text>
 	<text>あなたのゾルタンは、彼が一生をかけて平和主義を実践している僧侶を常に尊敬しているとあなたに言います。</text>
 	<text>あなたのゾルタンはあなたがもっと頻繁に歯を磨くことを望んでいます。</text>
 	<text>あなたのゾルタンは、なぜ彼が人型に限定されなければならないのか理解していませんが、自分自身を再形成することはできません。</text>
@@ -29047,7 +29045,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ [ゾルタン]サブタイプ？ [はい]
 サブタイプの詳細：非遺伝子、エリート
 ステータス：体力65、戦闘ダメージx1.25、受けた戦闘ダメージ0.65x、2パワーを提供
-死亡時：敵の乗組員に30のダメージ、システム（敵またはプレイヤーの船の両方）に1つのイオンダメージ</text>
+死亡時：敵のクルーに30のダメージ、システム（敵またはプレイヤーの船の両方）に1つのイオンダメージ</text>
 	<choice>
 		<text>継続する...</text>
 		<event load="STORAGE_CHECK" />
@@ -29062,7 +29060,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
     <choice req="reactor" blue="false" max_lvl="14" max_group="0">
         <text>リアクターをアップグレードします。</text>
         <event>
-            <text>あなたの乗組員はリアクターを正常にアップグレードすることができます。</text>
+            <text>あなたのクルーはリアクターを正常にアップグレードすることができます。</text>
             <upgrade amount="1" system="reactor" />
             <item_modify>
                 <item type="scrap" min="-15" max="-15" />
@@ -29072,7 +29070,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
     <choice req="reactor" blue="false" max_lvl="19" max_group="0">
         <text>リアクターをアップグレードします。</text>
         <event>
-            <text>あなたの乗組員はリアクターを正常にアップグレードすることができます。</text>
+            <text>あなたのクルーはリアクターを正常にアップグレードすることができます。</text>
             <upgrade amount="1" system="reactor" />
             <item_modify>
                 <item type="scrap" min="-20" max="-20" />
@@ -29094,22 +29092,22 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 </event>
 <textList name="TEXT_CREW_TALK_PEACE">
 	<text>あなたのピースキーパーはあなたにドロップダウンして20回の腕立て伏せをするように命令し、あなたがキャプテンであることを彼らに思い出させると、彼らはドロップダウンして代わりにあなたに40を与えます。</text>
-	<text>あなたのピースキーパーは、食べ物を手に入れるのを待っている間、他の乗組員をまっすぐに立たせようとして忙しいです。</text>
+	<text>あなたのピースキーパーは、食べ物を手に入れるのを待っている間、他のクルーをまっすぐに立たせようとして忙しいです。</text>
 	<text>あなたのピースキーパーは、イオンのダメージを防ぐためにそれらをシールドに入れることを提案します。</text>
 	<text>あなたのピースキーパーは彼らの称号に皮肉を見いださず、それについてあなたに話すことを拒否します。</text>
 	<text>あなたのピースキーパーは、起こりうるあらゆる議論の船の仲介者として自分自身を選びます。</text>
 	<text>あなたのピースキーパーは、ゾルタンが4つの異なる配色を持つ唯一のレースであることを誇っています。</text>
 	<text>あなたのピースキーパーは、彼らの日常生活と優れた自己衛生に誇りを持っています。</text>
-	<text>あなたのピースキーパーは、自動化された船が乗組員を危険にさらすことなく連邦を管理する優れた方法であると考えています。</text>
+	<text>あなたのピースキーパーは、自動化された船がクルーを危険にさらすことなく連邦を管理する優れた方法であると考えています。</text>
 	<text>あなたのピースキーパーは彼らの説明を無視するようにあなたに警告します、そして彼らは絶対にあなたを歯で蹴ることはありません。</text>
-	<text>あなたのピースキーパーは、あなたが残りの乗組員をよりよくコントロールすることを提案します。</text>
+	<text>あなたのピースキーパーは、あなたが残りのクルーをよりよくコントロールすることを提案します。</text>
 	<text>あなたの平和維持者は、彼らがゾルタンの首都の市民を見守る仕事をしているので、あなたが任務を急ぐことを望んでいます。</text>
 	<text>あなたのピースキーパーは、海賊の一族に対して大量虐殺を実行する方法をブレインストーミングするのに忙しいです。</text>
 	<text>コンピューターは、システムへの電力供給が長すぎるために失神した後、ピースキーパーが自分の宿舎で昏睡状態になっていることを通知します。</text>
 	<text>あなたのピースキーパーは、ピースキーパーの船の目のシンボルがグレートアイを表していると説明しています。グレートアイは、ゾルタンの領土の目に似た巨大な星雲の近くに構築されたモノリスです。モノリスがどこから来たのか誰も知りません。</text>
 	<text>あなたのピースキーパーの好きな色は緑です。そこに驚きはありません。</text>
 	<text>あなたのピースキーパーは、標準的なゾルタン船が民間船と軍用船の両方に使用されており、時には2隻が同時に使用されていると説明しています。</text>
-	<text>彼らがあなたの乗組員に加わる前に、あなたのピースキーパーは昇進に近づいていました。または少なくとも、彼らは主張します。</text>
+	<text>彼らがあなたのクルーに加わる前に、あなたのピースキーパーは昇進に近づいていました。または少なくとも、彼らは主張します。</text>
 	<text>あなたのピースキーパーは、ポリティカルコンパステストを受けるのに忙しいです。</text>
 </textList>
 
@@ -29132,8 +29130,8 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 サブタイプの詳細：非遺伝的、標準
 統計：戦ったり妨害したりすることはできません。
 継承された統計：75ヘルス、1パワーを提供します。
-死について：敵の乗組員に15のダメージと4秒のスタン
-能力（27秒のクールダウン）：自分を除く部屋のすべての乗組員に数十のスタン。
+死について：敵のクルーに15のダメージと4秒のスタン
+能力（27秒のクールダウン）：自分を除く部屋のすべてのクルーに数十のスタン。
 能力クールダウンタイプ：ジャンプ時に補充します。</text>
 	<choice>
 		<text>継続する...</text>
@@ -29159,7 +29157,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたの僧侶は、敵を殺すのではなく、敵と交渉しようとすることを提案します。</text>
 	<text>あなたの僧侶は、僧侶の船のデザインがゾルタンの配色の中で最もクールだと考えています。</text>
 	<text>あなたの僧侶は、彼らが戦いをしている間、他の人々の後ろに隠れることに恥を感じません。</text>
-	<text>あなたの僧侶はあなたが彼らを臆病者と呼ぶことについて他の乗組員に講義することを要求します。</text>
+	<text>あなたの僧侶はあなたが彼らを臆病者と呼ぶことについて他のクルーに講義することを要求します。</text>
 	<text>あなたの僧侶はローブの中で機動性が難しいと感じており、時にはそれをもっと軽いものと交換できることを望んでいます。</text>
 	<text>あなたの僧侶は、船でイオン技術を使用している他の僧侶に警告し、一見無害に見えるイオン兵器でさえ殺すことができると主張します。</text>
 	<text>あなたの僧侶はロックの人々の宗教的性質と彼らの信仰への献身を賞賛しています。</text>
@@ -29187,8 +29185,8 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 サブタイプの詳細：非遺伝的、標準
 統計：戦闘と修理のスキルを20％速く学習します
 継承された統計：75ヘルス、1パワーを提供
-死ぬと：敵の乗組員に15のダメージ
-能力（8秒のクールダウン）：即座に自己を殺し、死の効果を引き起こします。また、部屋のすべての乗組員に15の追加ダメージと3秒間のスタンを与えます。
+死ぬと：敵のクルーに15のダメージ
+能力（8秒のクールダウン）：即座に自己を殺し、死の効果を引き起こします。また、部屋のすべてのクルーに15の追加ダメージと3秒間のスタンを与えます。
 能力クールダウンタイプ：ジャンプ時にリセットします。</text>
 	<choice>
 		<text>継続する...</text>
@@ -29220,7 +29218,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたの信者はまだ悲鳴を聞くことができます。彼らはこれ以上詳しく説明しません。</text>
 	<text>あなたの信者は、任務が終わるまであなた自身の暗殺を企てないことを約束します。</text>
 	<text>あなたの信者は、連盟の配色がいかに嫌なものであるかについて非常に長い間話します。</text>
-	<text>あなたの信者は、他の乗組員が神風特攻隊の爆発を起こす前に、戦闘中に他の乗組員を部屋から移動させるようにアドバイスします。</text>
+	<text>あなたの信者は、他のクルーが神風特攻隊の爆発を起こす前に、戦闘中に他のクルーを部屋から移動させるようにアドバイスします。</text>
 </textList>
 
 
@@ -29246,8 +29244,8 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 サブタイプの詳細：非遺伝子、エリート
 統計：戦闘と修理のスキルを20％速く学習し、クローン作成でスキルを失うことはありません
 継承された統計：75ヘルス、1パワーを提供
-死ぬと：敵の乗組員に15のダメージ
-能力（7秒のクールダウン）：3秒間続くクールダウンを開始し、移動できなくなります。爆発すると即座に自殠?し、死の効果を引き起こします。また、部屋のすべての乗組員に30の追加ダメージと5秒間のスタンを与えます。
+死ぬと：敵のクルーに15のダメージ
+能力（7秒のクールダウン）：3秒間続くクールダウンを開始し、移動できなくなります。爆発すると即座に自殠?し、死の効果を引き起こします。また、部屋のすべてのクルーに30の追加ダメージと5秒間のスタンを与えます。
 能力クールダウンタイプ：ジャンプ時にリセットします。</text>
 	<choice>
 		<text>継続する...</text>
@@ -29259,7 +29257,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="clonebay" blue="false" lvl="1" max_group="0">
 		<text>クローンベイをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="clonebay" />
 			<item_modify>
 				<item type="scrap" min="-30" max="-30" />
@@ -29269,7 +29267,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="clonebay" blue="false" lvl="2" max_group="0">
 		<text>クローンベイをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="clonebay" />
 			<item_modify>
 				<item type="scrap" min="-45" max="-45" />
@@ -29291,19 +29289,19 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 </event>
 <textList name="TEXT_CREW_TALK_RADICAL">
 	<text>あなたの殉教者は、連邦船での作業に驚くほど大丈夫です。 Duskbringerのブラバドの多くは、実際には見せるだけのものだと思います。</text>
-	<text>あなたの殉教者は彼らの行進を練習していますが、他の乗組員は彼らが通り過ぎるときに殉教者からの叫びと敬礼によって絶えず混乱しています。</text>
+	<text>あなたの殉教者は彼らの行進を練習していますが、他のクルーは彼らが通り過ぎるときに殉教者からの叫びと敬礼によって絶えず混乱しています。</text>
 	<text>あなたの殉教者はまっすぐに立ち、あなたが通り過ぎるときに敬礼します。あなたは彼らにそれが必要ではないことを何度か伝えようとしました、しかし明らかに古い習慣を壊すのは難しいです。</text>
-	<text>あなたの殉教者はあなたのために働くことははるかに有利であると告白します、それは主に彼らが数秒早く誤って隊形を離れたときにあなたが乗組員を足で撃たないからです。</text>
+	<text>あなたの殉教者はあなたのために働くことははるかに有利であると告白します、それは主に彼らが数秒早く誤って隊形を離れたときにあなたがクルーを足で撃たないからです。</text>
 	<text>あなたの殉教者は彼らの爆弾パックを最適化してクールダウンをさらに短縮し、彼らがさらに効率的な自殺殺人者になることを望んでいます。</text>
 	<text>あなたの殉教者は彼らのローブにアイロンをかけています。あなたが見ている間、彼らは彼らが何年にもわたって獲得した様々なバッジの意味を説明します。</text>
-	<text>あなたの殉教者は、他の乗組員の1人を怒らせる、特にエッジの効いた冗談を言います。あなたはほとんどあなたの手で戦いをすることになりますが、なんとか双方を落ち着かせることができます。</text>
+	<text>あなたの殉教者は、他のクルーの1人を怒らせる、特にエッジの効いた冗談を言います。あなたはほとんどあなたの手で戦いをすることになりますが、なんとか双方を落ち着かせることができます。</text>
 	<text>あなたの殉教者は最近連邦をより受け入れるようになりましたが、それでも彼らの船の配色は嫌です。</text>
 	<text>あなたの殉教者は、彼らが連邦よりも反乱を軽蔑しています。ダスクブリンガーの指導者たちはヴァンスと同盟を結んでいたかもしれませんが、あなたの殉教者は反乱をまったく信用していません。</text>
 	<text>あなたの殉教者は、なぜ「国会議事堂」という単語をAではなくOでつづるべきかについてあなたと長い会話をします。</text>
 	<text>あなたは殉教者を見つけることができないので、あなたは彼らの四分の一を調べます、そこであなたはいくつかの偽の歯ブラシの口ひげと頭蓋骨が付いている黒い帽子を見つけます。</text>
 	<text>あなたの殉教者は、運動する筋肉のないエネルギーの存在であるにもかかわらず、体調を維持することが非常に重要であると感じています。</text>
 	<text>あなたの殉教者は誰が何を言っても気にしません、彼らは常に殉教者のユニフォームがそこにある中で最も悪いお尻であると思います。</text>
-	<text>あなたの殉教者は、彼らが船から追い出されるか、乗組員の1人によって殺害されるまで、彼らが話すジョークがどれほど不快になるのか疑問に思います。あなたは彼らに見つけようとしないように勧めます。</text>
+	<text>あなたの殉教者は、彼らが船から追い出されるか、クルーの1人によって殺害されるまで、彼らが話すジョークがどれほど不快になるのか疑問に思います。あなたは彼らに見つけようとしないように勧めます。</text>
 	<text>あなたの殉教者は偶然彼らのローブにつまずき、そしてあなたの前で彼らの膝の上でつまずき、あなたの前に「優雅さ」の兆候を示したことに対して許しを請う。</text>
 	<text>あなたの殉教者は彼らの外見を完成させるために古い地球のピストルまたはナイフを手に入れることを望んでいます。または多分戦車。</text>
 </textList>
@@ -29342,13 +29340,13 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたのマンティスはあなたを友達だと思っています。彼らの心の友情は、あなたが一緒に殺す敵の数によって決まります。</text>
 	<text>あなたのマンティスは、シャワーの水を血液に置き換えることを検討するかどうか尋ねます。あなたは拒否します。</text>
 	<text>あなたのマンティスは彼らが完璧な英語を話すことをあなたに保証します。よくわかりませんが、彼らと議論するよりはよく知っています。</text>
-	<text>あなたのマンティスは、彼らが良い自由な乗組員を作るので、あなたにもっと多くの奴隷を雇うことを勧めます。</text>
+	<text>あなたのマンティスは、彼らが良い自由なクルーを作るので、あなたにもっと多くの奴隷を雇うことを勧めます。</text>
 	<text>あなたのマンティスは、あなたがもっと戦闘訓練セッションを開くためにあなた自身にそれを取ることを望んでいます。</text>
 	<text>あなたのマンティスは、あなたが自分をよく訓練された戦士だと思っているかどうか尋ねます。マンティスが退屈して立ち去る前に、頭の中で数分間どのように答えるべきかについて議論します。</text>
 	<text>あなたのマンティスは、彼らが最初に生まれてから何人のエイリアンを殺したかについて自慢します。あなたは神経質にうなずきます。</text>
 	<text>あなたはマンティスが壁の爪を研いでいるのを見つけます。あなたは再考する前にそれを叱責し始めます。</text>
 	<text>あなたはマンティスにハイブでの生活について尋ねます。かつて、あなたはあなたのマンティスの個人的な側面を見て、彼らはハイブでの彼らの苦難とそれとその兄弟たちが受けた残忍な非人道的な扱いについての長い詳細な物語をあなたに話します。</text>
-	<text>あなたのマンティスは、死んだ皮膚と汚れの自然な層が有機的な保護層を作り始めるので、あなたの乗組員があまり入浴するのをやめたいと思っています。</text>
+	<text>あなたのマンティスは、死んだ皮膚と汚れの自然な層が有機的な保護層を作り始めるので、あなたのクルーがあまり入浴するのをやめたいと思っています。</text>
 	<text>あなたのマンティスは床に酸の大きな水たまりをハックします。彼らは謝罪し、そしてぐらつきます。あなたは水たまりを注意深く歩き回り、後でそれをきれいにするために精神的なメモをします。</text>
 	<text>あなたのマンティスは、彼らが修理で彼らの無能さで無能であると決して感じないと説明します。とにかく、それが奴隷の目的です。</text>
 	<text>あなたはあなたがすでに答えを知っていると思って、彼らが頭脳またはブラウンを好むかどうかあなたのマンティスに尋ねます。しかし、驚いたことに、マンティスは頭脳を言いますが、頭脳がなければ、マンティスの血まみれの混乱を片付ける価値のないエンギ奴隷は存在しないだろうと説明します。</text>
@@ -29394,7 +29392,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	</choice>
 </event>
 <textList name="TEXT_CREW_TALK_FREEMANTIS">
-	<text>あなたのフリーマンティスは、より多くの合成フェロモンを生産するために彼らの宿舎に小さな実験室を設置しました。彼らが乗組員に加わって以来、これまでに73を超える火災警報器が作動しました。</text>
+	<text>あなたのフリーマンティスは、より多くの合成フェロモンを生産するために彼らの宿舎に小さな実験室を設置しました。彼らがクルーに加わって以来、これまでに73を超える火災警報器が作動しました。</text>
 	<text>あなたは彼らのフェロモンを使うことが本当に安全であるかどうかについてあなたのマンティスに質問します。あなたのフリーマンティスは肩をすくめる以外に何も提供していません。</text>
 	<text>あなたのフリーマンティスは、船のライトがどれほど明るいかについて不平を言います。彼らはまた、色付きのサングラスとテーラードマンティスパーカーへの投資を開始しました。</text>
 	<text>あなたのマンティスはあなたを積極的に抱きしめ、あなたを床に叩きつけます。彼らが最終的に手放して満足して立ち去る前に、あなたは彼らがあなたに取り付けられた状態であなた自身を橋に引き戻さなければなりません。</text>
@@ -29477,7 +29475,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ [マンティス]サブタイプ？ [はい]
 サブタイプの詳細：非遺伝子、エリート
 統計：戦闘ダメージx2.0、移動速度x1.65、受けた戦闘ダメージの0.7x
-能力（25クールダウン、10秒間）：部屋にいる仲間のマンティスの乗組員のフェロモン効果をアクティブにします。実際の能力とスタックしませんが、クールダウンもリセットしません。標準のハイブマンティスはフリーマンティス効果を使用します。
+能力（25クールダウン、10秒間）：部屋にいる仲間のマンティスのクルーのフェロモン効果をアクティブにします。実際の能力とスタックしませんが、クールダウンもリセットしません。標準のハイブマンティスはフリーマンティス効果を使用します。
 能力クールダウンタイプ：ジャンプ時に補充します。</text>
 	<choice>
 		<text>継続する...</text>
@@ -29525,7 +29523,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>KAZAAAKPLETHKILIKの詳細
 種族？ [マンティス]サブタイプ？ [はい]
 サブタイプの詳細：非遺伝子、エリート
-統計：2.5倍の戦闘ダメージ、部屋にいるすべての味方の乗組員の戦闘ダメージが15％減少します。
+統計：2.5倍の戦闘ダメージ、部屋にいるすべての味方のクルーの戦闘ダメージが15％減少します。
 継承された統計：x0.5修復速度、x1.2移動速度
 能力（10秒のクールダウン）：次の攻撃のダメージを20倍にします。
 能力クールダウンタイプ：ジャンプ時に補充します。</text>
@@ -29555,7 +29553,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたの自動操縦装置はフリッツに乗っているようです。設定をいじくり回しますが、次のジャンプを正しく計算できないようです。カズが部屋に入って、デバイスをいじり、いくつかの数字を打ち、そして立ち去るとき、あなたはあきらめようとしています。コンピューターがビープ音を鳴らしてルートを修正します。カズはあなたの平均的なマンティスよりも本当に賢いかもし゠?ません。</text>
 	<text>カズはハイブのフェロモンの使用について不平を言っています。 「私たちは不自然な調合のためにマンティスを嘲笑していますが、ハイブは何年も同じことをしています。物質はそれほど強力ではありません、はい、しかし中毒はまだ壊滅的です。私はそれに多くの友人を失っています。」</text>
 	<text>「反乱がいつ敗北したかを理解しているといいのですが、カズは狩りに戻らなければなりません。しかし、私たちが再び会う場合は、私があなたを楽にするだろうとは思わないでください！私は再戦で常にうまくやっています。</text>
-	<text>ほとんどの乗組員はできる限り睡眠をとろうとしていますが、カズはまだ船をさまよっているようです。 「眠るのは、背中を刺されたときの時間です。カズは、この会社でもチャンスを逃しません。幸い、私の種類は脳の半分だけで眠ることができます。そのため、カズは時々とても眠ります。いつも半分眠っています。」</text>
+	<text>ほとんどのクルーはできる限り睡眠をとろうとしていますが、カズはまだ船をさまよっているようです。 「眠るのは、背中を刺されたときの時間です。カズは、この会社でもチャンスを逃しません。幸い、私の種類は脳の半分だけで眠ることができます。そのため、カズは時々とても眠ります。いつも半分眠っています。」</text>
 	<text>カズはダイニングルームからプレートをつかもうとしますが、それを床に落とします。 「くそっ！愚かな爪はスライスするだけでいい。エンギは私のお尻を不道徳に奴隷にしている。もっと不道徳なまま、マンティスの人々はくそったれを拾おうとして苦しんでいる！」</text>
 </textList>
 
@@ -29593,7 +29591,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="teleporter" blue="false" lvl="1" max_group="0">
 		<text>テレポーターをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="teleporter" />
 			<item_modify>
 				<item type="scrap" min="-25" max="-25" />
@@ -29603,7 +29601,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="teleporter" blue="false" lvl="2" max_group="0">
 		<text>テレポーターをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="teleporter" />
 			<item_modify>
 				<item type="scrap" min="-50" max="-50" />
@@ -29626,7 +29624,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 <textList name="TEXT_CREW_TALK_SUZZY">
 	<text>あなたのスゼラインは、彼らがハイブに戻ってトレーニングコンパウンドの1つに戻る必要がないことを望んでいます。</text>
 	<text>あなたのスゼラインは、慈悲を示すことは弱さのしるしであると考えています。彼らはまた、弱い人々は根絶されるべきだと考えています。</text>
-	<text>あなたのスゼラインは、乗組員がより高濃度のフェロモンにさらされることで利益を得るだろうと考えています。</text>
+	<text>あなたのスゼラインは、クルーがより高濃度のフェロモンにさらされることで利益を得るだろうと考えています。</text>
 	<text>あなたのスゼラインはあなたがもっと爆弾を買うべきだと考えています。</text>
 	<text>あなたのスゼラインはあなたがより多くの奴隷に投資することを望んでいます。彼らによると、奴隷制は退屈な肉体労働を処理するための最良の方法です。</text>
 	<text>あなたのスゼラインは海賊にとって大きな嫌悪感を持っています。それは彼らの潜在的な犠牲者のすべてを盗んだことで彼らを非難します。</text>
@@ -29636,7 +29634,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたのスゼラインは、彼らがかつてマンティスの女王に恋をしたことを告白します。彼らが忠誠心を交換していなかったならば、彼らがその仲間の一人になるまで彼らの道を歩むことができ、そして最終的には斬首される可能性さえわずかにありました。</text>
 	<text>Suzerainは、将来の搭乗操作を制御できるようにすることを要求しています。</text>
 	<text>あなたのスゼラインは、あなたが眼球を食べようとしたことがあるかどうか尋ねます。彼らはあなたのためにあなたの船に乗船する次の人から何人かを引き裂くことを約束します。</text>
-	<text>あなたのスゼラインは、敵の頸静脈を適切にスライスする方法を乗組員に教えることをお勧めします。</text>
+	<text>あなたのスゼラインは、敵の頸静脈を適切にスライスする方法をクルーに教えることをお勧めします。</text>
 	<text>あなたのスゼラインは、連盟に参加することはこれまでのところ大きな失望であったと告白していますが、ハイブに戻るには遅すぎます。</text>
 	<text>あなたのスゼラインは彼らがあなたを好きだと思っていますが、彼らはまだ完全には決定していません。</text>
 	<text>あなたのスゼラインは、あなたが戦いから決して後退しないことを望んでいます。</text>
@@ -29680,7 +29678,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="teleporter" blue="false" lvl="1" max_group="0">
 		<text>テレポーターをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="teleporter" />
 			<item_modify>
 				<item type="scrap" min="-25" max="-25" />
@@ -29690,7 +29688,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="teleporter" blue="false" lvl="2" max_group="0">
 		<text>テレポーターをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="teleporter" />
 			<item_modify>
 				<item type="scrap" min="-50" max="-50" />
@@ -29820,7 +29818,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたの追放者は、彼らが洗い流さない塗料を誤って使用したことをあなたに打ち明けます。今、彼らはそれと一緒に暮らす必要があります。</text>
 	<text>時々あなたの追放者は彼らの胸に火の爆弾を縛ることが良い考えであるかどうか疑問に思います。</text>
 	<text>あなたの追放者は、連邦が銃殺隊や拷問ダンジョンを含まない、より立派な法廷を持っていることを望んでいます。</text>
-	<text>あなたの追放者は、あなたの乗組員に加わることが海賊の一族の1人が提供できるものよりも優れているかどうか疑問に思います。</text>
+	<text>あなたの追放者は、あなたのクルーに加わることが海賊の一族の1人が提供できるものよりも優れているかどうか疑問に思います。</text>
 	<text>あなたの追放者は、彼らが追放されるずっと前に始まった彼ら自身の種に対する深い恨みを持っています。</text>
 	<text>あなたは、異常に大量の爆発物を持ち歩いているアウトキャストを捕まえます。あなたは彼らに重要な部屋から離れるように忠告します。</text>
 	<text>あなたの追放者は、船の外面に海賊塗料の新しいコートを塗ることを提案しています。</text>
@@ -29871,8 +29869,8 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>「神権政治は、人々が教会ではなくカジノですべてのお金を浪費していたため、ギャンブルを禁止しました。私がスロットをプレイし、良い時間。"</text>
 	<text>トゥコがまだ彼の部屋にぶら下がっているネックレスの周りに小さな青い破片を持っているのを見てあなたは驚いています。これらは伝統的にクリソリズムの宗教的なシンボルですが、トゥコはそれが彼の祖母からの贈り物だったと説明しています。 「あの古いコウモリはカッコウでしたが、彼女は長老たちをとても嫌っていました。ロストサンズでさえ彼女を恐れていたでしょう。信じられないほどの女性。私は彼女の何かを運ぶことを光栄に思います。」</text>
 	<text>あなたはTucoにそんなに飲むことについて警告します。戦闘中に二日酔いをすることはあまりうまくいかない傾向があります。それでも、ロックマンは拒否します。彼は現実に直面するよりも酔って死ぬほうがいい。</text>
-	<text>あなたはトゥコが彼の駅で眠っているのを見つけます。あなたは彼を起こそうとしますが、彼は動揺しません。彼が目を覚まし、壁にぶつかるほど激しく叩き、「異常な大きさの齧歯」について血まみれの殺人を叫んだとき、あなたは彼を死んだと診断しようとしています。</text>
-	<text>トゥコがアルコール依存症のエピソードを持っていないときはいつでも、彼は彼のタイトルを共有する元海賊の乗組員の話をすることによって時間を過ごすのが好きです。ストーリーがシームレスに移動する数十のTucosの違いを思い出そうとして、ひどく混乱することがあります。</text>
+	<text>あなたはトゥコが彼のステーションで眠っているのを見つけます。あなたは彼を起こそうとしますが、彼は動揺しません。彼が目を覚まし、壁にぶつかるほど激しく叩き、「異常な大きさの齧歯」について血まみれの殺人を叫んだとき、あなたは彼を死んだと診断しようとしています。</text>
+	<text>トゥコがアルコール依存症のエピソードを持っていないときはいつでも、彼は彼のタイトルを共有する元海賊のクルーの話をすることによって時間を過ごすのが好きです。ストーリーがシームレスに移動する数十のTucosの違いを思い出そうとして、ひどく混乱することがあります。</text>
 	<text>トゥコは、バッドランズに住んでいた日々を懐かしく思っています。追放者は部外者とあまり交流しませんが、遊牧民と定住者の両方のさまざまな氏族内で途方もない協力があります。</text>
 	<text>「私はまだそれらのろくでなしが私をスカイドリフターから追い出したとは信じられません。あなたは酔った大暴れを1つ持っていて、突然あなたは敷地内で許可されません！パンジー。」</text>
 	<text>あなたはTucoがさまざまな衣装を試し、より脅威的な衣装を見つけようとしているのを見つけます。現在、彼はドレスとティアラを着ているので、彼はちょっと焦点を失っているようです。</text>
@@ -29880,7 +29878,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>通常のアウトキャストのピンクとは異なり、なぜ彼が自分自身を黄色に塗ることを選んだのか、トゥコに尋ねます。 「なに？どんなバカな質問なの？黄色が好きだからやってる。本当にもっと深いものを期待してたの？」</text>
 	<text>トゥコは、パラディンがヴラチョスIVの抗議者たちに降り立った日を嘆きます。数百人の悲劇的な死や彼自身の逮捕のためではなく、彼が追放されるのではなく、それらの嫌いな人を顔に殴る必要があったからです。</text>
 	<text>トゥコは一度もロストサンズと一緒に働くことを考えたことはありません。 「アリアドネが悪意を持っているとは思わないが、彼女のビジョンも実用的ではないと思う。神権政治の支配を争っている人が多すぎる。独立した民主主義のビジョンは安全ではない。何が起こっても、私は」 m二度と戻らない。私は欲しい酒をすべて持っているので、NOBODYはそれを私から奪うつもりだ〠?」</text>
-	<text>Tucoは、クラシックロックのギャンブルと飲酒のゲームをプレイする方法を乗組員に教えようとします。明日はうまくいきませんが、酔っ払ったトゥコと議論する意味はありません。</text>
+	<text>Tucoは、クラシックロックのギャンブルと飲酒のゲームをプレイする方法をクルーに教えようとします。明日はうまくいきませんが、酔っ払ったトゥコと議論する意味はありません。</text>
 </textList>
 
 
@@ -29902,7 +29900,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 サブタイプの詳細：非遺伝的、標準
 統計：火を65％速く消します。
 継承された統計：175ヘルス、x0.5移動速度。耐火ダメージ、50％のスタン耐性。
-オーラ：近くの敵の乗組員から火の免疫を取り除き、彼らの火の脆弱性を30％増加させます。
+オーラ：近くの敵のクルーから火の免疫を取り除き、彼らの火の脆弱性を30％増加させます。
 能力（1秒のクールダウン、3回のチャージ）：現在の部屋で火を起だ?します。
 能力クールダウンタイプ：ジャンプ時に補充し、すべてのチャージを回復します。</text>
 	<choice>
@@ -29925,7 +29923,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>アリアドネの宿舎は、数々のトロフィー、さまざまな装飾品、武器、ローブで飾られています。乾燥した血痕のかすかな赤い水しぶきと戦闘によるダメージのように見えるものは、これらのアイテムがすべてかつては別の人々のものであったことを示唆しています。しかし、彼らに何が起こったのかを推測するのに天才は必要ありません。</text>
 	<text>革命的なリーダーにとって、アリアドネはロストサンズについてひどくおしゃべりではないようです。確かに、彼女は頻繁に長老たちについてゴミを話すことができるあらゆる機会を利用しますが、彼女によると、ロストサンズは「自慢する価値のあるもの」ではありません。彼女は、彼らは運動ではないと主張します-彼らはすべて奪われた自然の権利の現れです。あなたは彼女がこの気候で反逆者と呼ばれるのが好きではないのではないかと疑っています。誰だろう？</text>
 	<text>あなたはアリアドネが彼女の部屋で忙しく、床の大部分を覆っている巨大な星図の前を歩き回っています。船の周りからランダムに並べられたオブジェクトのいくつかのピースがチェスのトークンのように配置され、ホログラフィック注釈がいたるところに急いで走り書きされました。あなたの船に乗っていても、彼女の絶え間ない執拗な計画は決して止まらないようです。</text>
-	<text>Ariadneが他の乗組員と一緒に食事をすることはめったになく、代わりに、現在の体重を維持するのに十分な非常に少量を摂取していることに気づきました。それに加えて、彼女は他の乗組員からの贈り物を受け取ることはなく、何も借りることを要求することはなく、常に自分のステーションを見つけたときと同じ状態のままにします。彼女は彼女が許しているよりもいくつかの問題を抱えているか、または単に王女としての彼女の過去の人生に大きな罪悪感を感じています。または、おそらく両方。</text>
+	<text>Ariadneが他のクルーと一緒に食事をすることはめったになく、代わりに、現在の体重を維持するのに十分な非常に少量を摂取していることに気づきました。それに加えて、彼女は他のクルーからの贈り物を受け取ることはなく、何も借りることを要求することはなく、常に自分のステーションを見つけたときと同じ状態のままにします。彼女は彼女が許しているよりもいくつかの問題を抱えているか、または単に王女としての彼女の過去の人生に大きな罪悪感を感じています。または、おそらく両方。</text>
 	<text>「失われた太陽はカルトだと言う人もいます。皮肉なことに、私たちが有毒な精神的信念と激しく戦うことを考えると、私たちがカルトだったら、ある種の儀式で私たちを侮辱する人々を犠牲にするでしょう。しかし、そうではないので、私は通常、生きたまま燃やすことで落ち着きます。風変わりである必要はありません。」</text>
 	<text>時々アリアドネは...非常に極端になることがありますが、あなたは彼女の使命の目的とそれに対する彼女の献身を賞賛しなければなりません。しかし、あなたはおそらくそれらの公開処刑のすべてで彼女と協力しなければならないでしょう。彼女が聖職者に対して虐殺をしていなければ、連邦はもっと優雅になるでしょう。</text>
 	<text>Ariadneは、ChrysolismがOrchidsやLeechesなどの他の種に広がった方法を嘆いています。 「それは信じられないことです。もともとはロックの人々を操作することだけを目的とした教義であり、神権政治の外で数え切れないほどの無実の人々に採用されてきました。神権政治の影響は計り知れず、悲惨な結果をもたらします。異端審問が行ったすべての損害。」</text>
@@ -30005,7 +30003,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ 【クリスタル】サブタイプ？ [はい]
 サブタイプの詳細：一意
 ステータス：体力150、移動速度x0.7、窒息により30％のダメージを受ける
-死ぬと：敵の乗組員に15のダメージを与え、部屋を封鎖する
+死ぬと：敵のクルーに15のダメージを与え、部屋を封鎖する
 能力（28秒のクールダウン、12秒の持続時間）：部屋をロックダウンします。ロックダウンがアクティブな間、戦闘から50％のダメージを受け、3hp / sで回復し、部屋の敵からフェージングプロパティを削除し、部屋の味方にフェージングプロパティを付与します。
 能力クールダウンタイプ：ジャンプ時に補充します。</text>
 	<choice>
@@ -30030,11 +30028,11 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>ルーウェンは彼の腕から金色の破片を引き抜き、それをあなたに渡します。 「私たちの伝統では、これは健康と保護の願いを象徴しています。危険が迫った場合、これを敵の喉に突っ込むことができます。」</text>
 	<text>ルーウェンには、いつか訪れたい場所がまだたくさんあります。王朝は、その芸術とその軍事力の両方のために、彼らの科学的進歩の範囲を目撃するシェル、そして彼らがおかしな話をするので自由なマンティス。</text>
 	<text>ルーウェンは、さまざまな種に適切に対処することに苦労しています。彼はかつて、ナメクジのアドバイスを受けて、マンティス・スゼラインを「5つ目の死体ハンパー」と呼んだ後、生命を脅かす状況に陥りました。 「ナメクジを絶対に信用しないように誰もが私に警告する理由がわかりました。」</text>
-	<text>ルーウェンが貨物室から自分の宿舎に「壊れやすい」と記された箱を運んでいるのを見つけます。彼が最初にあなたの乗組員に加わったときに彼が乗せたものです。 「これは、私の友人、Ryapelです。これは、Crystalsがジオードの成長を加速するために使用する化学刺激剤です。周囲に十分注意してください。非結晶生物学に不快な副作用を引き起こす可能性があります。」</text>
+	<text>ルーウェンが貨物室から自分の宿舎に「壊れやすい」と記された箱を運んでいるのを見つけます。彼が最初にあなたのクルーに加わったときに彼が乗せたものです。 「これは、私の友人、Ryapelです。これは、Crystalsがジオードの成長を加速するために使用する化学刺激剤です。周囲に十分注意してください。非結晶生物学に不快な副作用を引き起こす可能性があります。」</text>
 	<text>ルーウェンは、マンティスのカラフルな文化を賞賛しています。 「これらの昆虫型が非常に敵対的であることは本当に残念です。私の人々はどんな形のダンスも練習していません。彼らが最初の機会に私の臓器を確実に収穫するのでなければ、彼らから学びたいと思いました。」</text>
-	<text>ルーウェンは、危険な世界のアルキレアの洞窟内に建てられた神聖な金庫の古代のクリスタルの伝説を乗組員と共有しています。アルキレアへの旅行は帝国によって禁じられていましたが、彼らの秘密の故郷は今や放棄されており、ルーウェンはいつか誰かが最終的に神話を試してみるのではないかと考えています。</text>
+	<text>ルーウェンは、危険な世界のアルキレアの洞窟内に建てられた神聖な金庫の古代のクリスタルの伝説をクルーと共有しています。アルキレアへの旅行は帝国によって禁じられていましたが、彼らの秘密の故郷は今や放棄されており、ルーウェンはいつか誰かが最終的に神話を試してみるのではないかと考えています。</text>
 	<text>ルーウェンは、彼があなたを「エイリアン」と呼んだとき、まだ悩んでいるようです。 「本当に、とても申し訳ありません。それは私とはとても違っています、私は...それは私を中に引き裂くだけです！」あなたは彼にそれについて心配しないように言います、しかしそれは彼をあまり落ち着かせないようです。</text>
-	<text>ルーウェンは常に冒険のためのものでした。アンバサダーとしての彼の仕事の前に、彼はロッククリスタル帝国の縁にある新しい入植地の乗組員に加わるためにサインアップすることを熱望していました。それから、あなたが知っている、クライオスリープが起こり、彼は数世紀後に目が覚めました。</text>
+	<text>ルーウェンは常に冒険のためのものでした。アンバサダーとしての彼の仕事の前に、彼はロッククリスタル帝国の縁にある新しい入植地のクルーに加わるためにサインアップすることを熱望していました。それから、あなたが知っている、クライオスリープが起こり、彼は数世紀後に目が覚めました。</text>
 	<text>ルーウェンは、何か重要なことが起こっているときはいつでも、レネゲードが常にちょうど間に合うように到着するように見える信じられないほど劇的なタイミングについて述べています。彼のステーションが破壊されそうになり、連邦ヒーローがちょうど間に合うように彼を救ったとき、同じことが彼に起こりました。</text>
 </textList>
 
@@ -30056,8 +30054,8 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ 【クリスタル】サブタイプ？ [はい]
 サブタイプの詳細：一意
 ステータス：体力150、移動速度x0.7、窒息により30％のダメージを受ける
-死ぬと：敵の乗組員に15のダメージを与え、部屋を封鎖する
-能力（30秒のクールダウン、12秒の持続時間）：部屋をロックダウンします。ロックダウンがアクティブな間、近くの味方の乗組員の能力は80％速くクーム?ダウンします。
+死ぬと：敵のクルーに15のダメージを与え、部屋を封鎖する
+能力（30秒のクールダウン、12秒の持続時間）：部屋をロックダウンします。ロックダウンがアクティブな間、近くの味方のクルーの能力は80％速くクーム?ダウンします。
 能力クールダウンタイプ：ジャンプ時に補充します。</text>
 	<choice>
 		<text>継続する...</text>
@@ -30097,8 +30095,8 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 サブタイプの詳細：一意
 統計：クローン作成でスキルを失うことはなく、2つのパワーを提供し、0.9倍の戦闘ダメージを受けます
 継承された統計：75ヘルス
-死ぬと：敵の乗組員に15のダメージ
-能力（3秒のクールダウン）：自己破壊を開始し、即座に自己を殺し、死の効果を引き起こします。また、追加の45人の乗組員のダメージと数十のスタンを与え、部屋のすべてのゾルタンも同様に爆発させます。
+死ぬと：敵のクルーに15のダメージ
+能力（3秒のクールダウン）：自己破壊を開始し、即座に自己を殺し、死の効果を引き起こします。また、追加の45人のクルーのダメージと数十のスタンを与え、部屋のすべてのゾルタンも同様に爆発させます。
 能力クールダウンタイプ：ジャンプ時にリセットします。</text>
 	<choice>
 		<text>継続する...</text>
@@ -30113,7 +30111,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	</choice>
 </event>
 <textList name="TEXT_CREW_TALK_DEVORAK">
-	<text>あなたはデボラクが他の何人かの乗組員と一緒に座って、彼の戦争努力の物語を語っているのを見つけます。彼らの大多数は連邦に反対していますが、それでもかなり面白いです。</text>
+	<text>あなたはデボラクが他の何人かのクルーと一緒に座って、彼の戦争努力の物語を語っているのを見つけます。彼らの大多数は連邦に反対していますが、それでもかなり面白いです。</text>
 	<text>Devorakは、自分を殺して後でクローンを作成することで、ほぼすべての状況を解決できると考えています。あなたはそれが一般的に良いアドバイスだとは思わない。</text>
 	<text>デボラックは、もしあなたが彼を移動式電源のみに変えたら、彼はあなたを殺し、あなたの死体をエアロックから投げ出し、そして船を盗んで去るだろうと警告している。</text>
 	<text>デボラックは、胸を撃たれて1時間後にそれを理解するのではなく、物事を感じることができるときに戻ることができることを望むことがあります。</text>
@@ -30121,7 +30119,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>Devorakは、意のままに内破する能力がないことをお詫びします。彼に会うことで、あまり羨ましがらないことを願っています。</text>
 	<text>デボラックは、すべての反逆者が地獄に行くことができると考えています。連盟と一緒にサイディングすることがその夢を実現するために必要なことであり、そう思われる場合は、そうさせてください。</text>
 	<text>デボラックは、反乱で休戦をとったことを後悔している。今、彼はその決定を振り返り、どうしてこんなばかげたトリックに落ちたのだろうと思った。</text>
-	<text>Devorakは、乗組員にダメージを与える武器の必要性を理解していますが、実際の乗組員が殺害ストライキを行わない限り、臆病者だと感じています。</text>
+	<text>Devorakは、クルーにダメージを与える武器の必要性を理解していますが、実際のクルーが殺害ストライキを行わない限り、臆病者だと感じています。</text>
 	<text>デボラックには、一瞬のうちに共有できる戦争の終わりの話はないようです。</text>
 	<text>デボラックは、彼が省の平和維持者だったときのことを思い出します。それは最も魅力的な仕事ではありませんでしたが、彼は人々を歯で蹴るために報酬を得るのを逃しています。彼はまだそうしていますが、それは非営利目的のためです。</text>
 	<text>Devorakは、彼に関する連邦データベースのエントリを嘲笑し、彼が「明白」であると想定したであろういくつかの欠陥と欠落している情報の大きな塊を指摘しました。</text>
@@ -30168,7 +30166,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたがヴォルティゴンに近づくと、彼は威嚇するように笑い始めます。わからない、あなたはゆっくりと部屋から出て、後ろのドアを閉めます。</text>
 	<text>ヴォルティゴンはローブの色を変えるべきかどうかを考えるのに忙しい。</text>
 	<text>ヴォルティゴンは彼の名前がいかにクールかを自慢し、あなたの「哀れな」名前を侮辱します。彼によると、名前の長さが最も重要です。</text>
-	<text>Vortigonは、他の連邦船の乗組員があなたよりも多くのスタイルとクラスを持っていることを望んでいます。</text>
+	<text>Vortigonは、他の連邦船のクルーがあなたよりも多くのスタイルとクラスを持っていることを望んでいます。</text>
 	<text>ヴォルティゴンはある種の奇妙な儀式で進行中のようです。彼が悪魔を召喚していない限り、あなたはそれで大丈夫です。</text>
 	<text>Vortigonは、Crystalline Homeworldsを去った今、彼が自分のカルトに変換できる他の生命体は何かと考えています。</text>
 	<text>ヴォルティゴンは、あなたが嫌だと感じることを何度も何度も明らかにしています。なぜこの男を船に乗せたのですか？</text>
@@ -30178,7 +30176,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>Vortigonは遅いのが嫌いです。彼はまた彼のクロークにつまずくことを嫌う。そういえば、彼は多くのことを嫌っているようです。</text>
 	<text>ヴォルティゴンはいつかゾルタン大臣に会いたいと思っています。彼は、ゾルタン種族が彼のカルトに素晴らしい追加をするだろうと考えています。</text>
 	<text>Vortigonは、EmberHolyTextsの別の章を書くのに忙しい。</text>
-	<text>ヴォルティゴンは、すべての乗組員に彼の経典を暗記することを義務付けるように要求します。あなたは拒否します。</text>
+	<text>ヴォルティゴンは、すべてのクルーに彼の経典を暗記することを義務付けるように要求します。あなたは拒否します。</text>
 	<text>ヴォルティゴンは彼の聖典からランダムに詩を引用し、その背後にある重要性を説明しようとします。</text>
 </textList>
 
@@ -30219,7 +30217,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="weapons" blue="false" lvl="2" max_group="0">
 		<text>武器をアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="weapons" />
 			<item_modify>
 				<item type="scrap" min="-20" max="-20" />
@@ -30229,7 +30227,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="weapons" blue="false" lvl="3" max_group="0">
 		<text>武器をアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="weapons" />
 			<item_modify>
 				<item type="scrap" min="-35" max="-35" />
@@ -30239,7 +30237,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="weapons" blue="false" lvl="4" max_group="0">
 		<text>武器をアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="weapons" />
 			<item_modify>
 				<item type="scrap" min="-45" max="-45" />
@@ -30249,7 +30247,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="weapons" blue="false" lvl="5" max_group="0">
 		<text>武器をアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="weapons" />
 			<item_modify>
 				<item type="scrap" min="-70" max="-70" />
@@ -30279,7 +30277,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたの十字軍はエイリアンの頭蓋骨のコレクションを開始しました。あなたは彼らがどこから来たのかわからないし、あなたは尋ねたがらない。</text>
 	<text>あなたの十字軍はあなたにロックマン聖典から彼らのお気に入りの一節を読みます。それは、燃えるような槍で駆け抜け、すべてのロックの人々が見ることができるように展示された3人の人間の異端者についての長く恐ろしい話です。</text>
 	<text>あなたの十字軍は、より多くのミサイルランチャーの設置を勧めています。</text>
-	<text>あなたの十字軍は、他の乗組員の1人をダンベルとして使用して運動するのに忙しいです。</text>
+	<text>あなたの十字軍は、他のクルーの1人をダンベルとして使用して運動するのに忙しいです。</text>
 	<text>あなたの十字軍は地質学者を非常に恐れています。</text>
 	<text>あなたの十字軍は彼らの生涯で多くのクリスタルに会いました、そしてクリスタルの種類の驚異は彼らを驚かせることを決してやめません。</text>
 	<text>あなたの十字軍は、ロックエルダーの管理下で彼らの人生の非常に長い年月を過ごした後、もはや真実を確信していません。</text>
@@ -30309,7 +30307,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ [Uhhhhhhhhhhh]サブタイプ？ [おそらく？]
 サブタイプの詳細：一意
 統計：体力175、移動速度x0.5。耐火性、85％のスタン耐性。現在のシステムに1つの電力を供給します。
-死ぬと：敵の乗組員に15のダメージ</text>
+死ぬと：敵のクルーに15のダメージ</text>
 	<choice>
 		<text>継続する...</text>
 		<event load="STORAGE_CHECK" />
@@ -30361,8 +30359,8 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>ソルトマンの詳細
 種族？ [ソルトマン]サブタイプ？ [いいえ]
 サブタイプの詳細：一意
-ステータス：最大体力250、移動速度x0.6、窒息ダメージ70％。同じ部屋にいるすべての乗組員の回復は33％遅くなります。
-能力（20秒のクールダウン、15秒の持続時間）：近くのすべての乗組員にダメージを与えます。敵は4hp/sを失い、味方は2hp / sを失い、いずれかの側のナメクジはさらに4hp/sを失います。
+ステータス：最大体力250、移動速度x0.6、窒息ダメージ70％。同じ部屋にいるすべてのクルーの回復は33％遅くなります。
+能力（20秒のクールダウン、15秒の持続時間）：近くのすべてのクルーにダメージを与えます。敵は4hp/sを失い、味方は2hp / sを失い、いずれかの側のナメクジはさらに4hp/sを失います。
 能力クールダウンタイプ：ジャンプ時に補充します。</text>
 	<choice>
 		<text>継続する...</text>
@@ -30430,7 +30428,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたのコマンドーはあなたにロックマンが優れた種であることをあなたに知らせます、しかし他のエイリアンのいくつかはかなりきちんとしている、と彼は推測します。</text>
 	<text>あなたのコマンドーは彼の宿舎でライターで遊んでいます。あなたは彼を叱責しますが、彼はあなたに殺人的なまぶしさを与え、あなたは去ります。</text>
 	<text>Commandoは、インターホンの音量を大きくする必要があると考えています。</text>
-	<text>あなたのコマンドーは、すべての乗組員が着るユニフォームが必要だと考えています。</text>
+	<text>あなたのコマンドーは、すべてのクルーが着るユニフォームが必要だと考えています。</text>
 	<text>あなたはコマンドーの帽子を褒め称えます。彼はしかめっ面します。</text>
 	<text>コマンドーと会話するのは難しく、彼らは自分で何も考えようとはしません。</text>
 	<text>あなたの司令官は、顔に人を殴る芸術には非常に特殊なスキルセットが必要であることをあなたに知らせます。</text>
@@ -30459,7 +30457,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ [シェル]サブタイプ？ [いいえ]
 サブタイプの詳細：遺伝的、標準
 統計：戦闘で90％のダメージを受け、窒息ダメージで200％のダメージを受けます。
-能力（5秒のクールダウン、26秒の持続時間）：-50の自己体力、1つのシステムダメージ（敵船のみ）、部屋の敵の乗組員に15のダメージ。その後、2hp/sで失われた体力を回復します。
+能力（5秒のクールダウン、26秒の持続時間）：-50の自己体力、1つのシステムダメージ（敵船のみ）、部屋の敵のクルーに15のダメージ。その後、2hp/sで失われた体力を回復します。
 能力要件：最低55ヘル゠?
 能力クールダウンタイプ：ジャンプ時に補充します。</text>
 	<choice>
@@ -30484,7 +30482,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたのシェルは、彼らの目が彼らの進化的デザインの非常に大きな欠陥になるという大きなギャップを見つけます。</text>
 	<text>あなたのシェルはしばしばどこでも転がらなければならない目がくらむようになります。</text>
 	<text>あなたのシェルは、彼らがテレパシーまたは他の種類のマインドパワーを持っていることを望みます。</text>
-	<text>あなたのシェルは、なぜ彼らの船の有毒ガスが友好的な乗組員に影響を与えないように見えるのか疑問に思います。</text>
+	<text>あなたのシェルは、なぜ彼らの船の有毒ガスが友好的なクルーに影響を与えないように見えるのか疑問に思います。</text>
 	<text>あなたのシェルは科学が魅力的であると感じており、彼らが念頭に置いている研究プロジェクトをあなたが承認することを望んでいます。</text>
 	<text>あなたのシェルは、アンチハル兵器にもっと投資することを提案しています。</text>
 	<text>あなたのシェルは神経毒の匂いが本当に好きです。あなたが同意しないとき、彼らは非常に驚いているようです。</text>
@@ -30514,8 +30512,8 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ [シェル]サブタイプ？ [はい]
 サブタイプの詳細：遺伝的、標準
 継承された統計：200％の窒息ダメージ、戦闘から90％のダメージを受ける
-能力（18秒のクールダウン、13秒の持続時間）：-50セルフヘルス、近くの友好的な乗組員に完全な回復を提供します。その後、4hp/sで失われた体力を回復します。
-能力要件：最低55健康、フレンドリーな乗組員が部屋にいる必要があります
+能力（18秒のクールダウン、13秒の持続時間）：-50セルフヘルス、近くの友好的なクルーに完全な回復を提供します。その後、4hp/sで失われた体力を回復します。
+能力要件：最低55健康、フレンドリーなクルーが部屋にいる必要があります
 能力クールダウンタイプ：ジャンプ時に補充します。</text>
 	<choice>
 		<text>継続する...</text>
@@ -30570,7 +30568,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 サブタイプの詳細：遺伝的、標準
 統計：戦闘で70％のダメージを受ける
 継承された統計：窒息ダメージ200％
-能力（10秒のクールダウン、15秒の持続時間）：-75自己体力、敵の乗組員とシステムに2つのシステムダメージと30の乗組員ダメージを与えます。その後、15秒間自己を強化し、すべてのソースから30％のダメージを受けます。
+能力（10秒のクールダウン、15秒の持続時間）：-75自己体力、敵のクルーとシステムに2つのシステムダメージと30のクルーダメージを与えます。その後、15秒間自己を強化し、すべてのソースから30％のダメージを受けます。
 能力要件：最低80ヘルス
 能力クールダウンタイプ：ジャンプ時に補充します。</text>
 	<choice>
@@ -30602,8 +30600,8 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 サブタイプの詳細：遺伝的、エリート
 統計：窒息ダメージ500％。
 継承された統計：戦闘から90％のダメージを受ける
-死ぬと：敵の乗組員に15のダメージを与え、破損を作成します
-能力（1秒のクールダウン、3秒の持続時間）：-15の自己体力、1のシステムダメージ（敵船のみ）、近くの敵の乗組員に15のダメージ。そだ?後、3秒で6hpを回復します。
+死ぬと：敵のクルーに15のダメージを与え、破損を作成します
+能力（1秒のクールダウン、3秒の持続時間）：-15の自己体力、1のシステムダメージ（敵船のみ）、近くの敵のクルーに15のダメージ。そだ?後、3秒で6hpを回復します。
 能力要件：最低20ヘルス
 能力クールダウンタイプ：ジャンプ時に補充します。</text>
 	<choice>
@@ -30620,7 +30618,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="shields" blue="false" lvl="2" max_group="0">
 		<text>シールドをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="shields" />
 			<item_modify>
 				<item type="scrap" min="-15" max="-15" />
@@ -30630,7 +30628,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="shields" blue="false" lvl="3" max_group="0">
 		<text>シールドをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="shields" />
 			<item_modify>
 				<item type="scrap" min="-25" max="-25" />
@@ -30640,7 +30638,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="shields" blue="false" lvl="4" max_group="0">
 		<text>シールドをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="shields" />
 			<item_modify>
 				<item type="scrap" min="-35" max="-35" />
@@ -30650,7 +30648,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="shields" blue="false" lvl="5" max_group="0">
 		<text>シールドをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="shields" />
 			<item_modify>
 				<item type="scrap" min="-55" max="-55" />
@@ -30675,11 +30673,11 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたのRadiantは、髪の毛が抜け始めたら、すぐに医師の診察を受けて放射線治療を受けることを警告しています。</text>
 	<text>あなたのラディアントは、ラディアントレースはもともとシェルによって遺伝子操作されたと説明していますが、現在、すべての将来のラディアントは複製によって作られています。</text>
 	<text>あなたのラディアントによると、シェルは遺伝子科学を完成させ、遺伝子プールから最も不利な遺伝子を消去しました。</text>
-	<text>あなたのラディアントは、敵の乗組員を誘拐するためにマインドコントロールとテレポーターの組み合わせを提案しています。</text>
+	<text>あなたのラディアントは、敵のクルーを誘拐するためにマインドコントロールとテレポーターの組み合わせを提案しています。</text>
 	<text>あなたのラディアントはフレーバーに基づいてあなたの好きな毒素が何であるかを尋ねますが、それらがすべてあなたにとって致命的であることをすぐに思い出します。</text>
 	<text>シェルサイエンスは、超強力なハイブリッドを作成し、シェルの種類で知られている致命的な病気を治療するのに十分な距離にありますが、あなたのラディアントは、シェルが実際のシェルなしでどのように見えるかをまだ知らないと言います。</text>
-	<text>あなたのラディアントは、すべての乗組員が彼らのように目的地に転がったらそれは陽気だと思います。</text>
-	<text>あなたのRadiantは、すべての乗組員のために化学防護服に投資することを奨励しています。宇宙は、自分たちのような放射性物質がたくさんある危険な場所です。</text>
+	<text>あなたのラディアントは、すべてのクルーが彼らのように目的地に転がったらそれは陽気だと思います。</text>
+	<text>あなたのRadiantは、すべてのクルーのために化学防護服に投資することを奨励しています。宇宙は、自分たちのような放射性物質がたくさんある危険な場所です。</text>
 	<text>あなたが盲目になるのが好きでない限り、あなたのラディアントはその目を直接見つめることに対して警告します。</text>
 	<text>あなたのRadiantは、シェル文化は訪問者に無害な実験を可能にすることを説明していますが、残念ながら、この慣習は他の多くの派閥ではうまく行きませんでした。</text>
 	<text>あなたのRadiantは、それが利用可能な最もクールな名前の1つを持っていると考えています。鼻の上のゾルタンやエッジの効いたロストサンズよりもはるかに優れています。</text>
@@ -30708,8 +30706,8 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ [シェル]サブタイプ？ [はい]
 サブタイプの詳細：一意
 継承された統計：200％の窒息ダメージ、戦闘から90％のダメージを受ける
-能力（18秒のクールダウン、13秒の持続時間）：-50セルフヘルス、部屋の他のすべての乗組員に完全な回復を提供します。その後、失われた体力を6hp/sで回復します。再生中、75％の窒息耐性を獲得し、4hp/sで近くの味方の乗絠?員をヒールします。
-能力要件：最低55健康、フレンドリーな乗組員が部屋にいる必要があります
+能力（18秒のクールダウン、13秒の持続時間）：-50セルフヘルス、部屋の他のすべてのクルーに完全な回復を提供します。その後、失われた体力を6hp/sで回復します。再生中、75％の窒息耐性を獲得し、4hp/sで近くの味方の乗絠?員をヒールします。
+能力要件：最低55健康、フレンドリーなクルーが部屋にいる必要があります
 能力クールダウンタイプ：ジャンプ時に補充します。</text>
 	<choice>
 		<text>継続する...</text>
@@ -30761,7 +30759,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 サブタイプの詳細：一意
 統計：x2.5スタンの脆弱性。
 継承された統計：5秒の遅延で6.4hp/sで再生成します。敵のシステムに立っている間、敵のシステムから1つのパワーを排出します。
-能力（20秒のクールダウン、15秒の持続時間）：現在のシステムから一時的にすべての電力を消費しますが、戦闘ダメージが半分になり、動かなくなります。連合軍の乗組員は、Tyrdeoが現在排出しているシステムを妨害することはできません。
+能力（20秒のクールダウン、15秒の持続時間）：現在のシステムから一時的にすべての電力を消費しますが、戦闘ダメージが半分になり、動かなくなります。連合軍のクルーは、Tyrdeoが現在排出しているシステムを妨害することはできません。
 能力要件：システムは部屋にある必要があります。
 能力クールダウンタイプ：ジャンプ時に補充します。</text>
 	<choice>
@@ -30777,7 +30775,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	</choice>
 </event>
 <textList name="TEXT_CREW_TALK_TYRDEO">
-	<text>他の乗組員の何人かは、ティルデオの鳴き鳥からの不快な音についてあなたに不平を言います、しかしあなたが彼らに対処することができる前に、リーチは前にジャンプして彼らの手に掛かります。これはすぐに前例を設定します-鳥についてこれ以上不平を言うことはありません。</text>
+	<text>他のクルーの何人かは、ティルデオの鳴き鳥からの不快な音についてあなたに不平を言います、しかしあなたが彼らに対処することができる前に、リーチは前にジャンプして彼らの手に掛かります。これはすぐに前例を設定します-鳥についてこれ以上不平を言うことはありません。</text>
 	<text>あなたは誰か（そして誰が誰であるかは明らかです）が船の周りにティルデオの絵をぶら下げていることに気づきます。あなたは通常それらを捨てるでしょう、しかしそれらは非常によくできています。この男は庭師ではなかったのですか？</text>
 	<text>ティルデオは、オーキッドの人々が彼が彼らの人々に彼の芸術を実践することを気にするかどうか疑問に思います。彼が誤ってヴァンプウィードとの戦争を開始しなかった場合、彼はペダルスタイリングの新しいトレンドを作成することさえ試みることができました。</text>
 	<text>時々、ティルデオは彼が決して政治に巻き込まれたことがないことを望みます。残念ながら、ヒルはガーデニングをあまり気にしませんが、代わりの方法は糞の農家になりました。</text>
@@ -30788,7 +30786,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>Tyrdeoの部屋には、おそらく彼の王冠を保持するための枕が入った小さなガラスの陳列ケースがあります。しかし、彼は現在それを着ているので、代わりに防腐処理された肉の塊をプレースホルダーとして置いているようです。</text>
 	<text>あなたはティルデオが窒息しているカフェテリアに突入します。彼の紫色の肌はさらに深い紫色に変わります。やがて彼はなんとか物体を取り除くことができ、フォークとナイフの嵐が彼から流れ出てきます。それがすべての行方不明の道具が行った場所だと思います。</text>
 	<text>ティルデオはあなたをすり抜け、元大統領のオルティスの解体についてヒルのフォークソングを元気にハミングします。</text>
-	<text>Tyrdeoは、他の乗組員にやる気を起こさせるスピーチをするのが好きなことがよくあります。彼らは通常自己達成的であり、まっすぐな嘘でいっぱいですが、それは重要な考えです、あなたは推測します。</text>
+	<text>Tyrdeoは、他のクルーにやる気を起こさせるスピーチをするのが好きなことがよくあります。彼らは通常自己達成的であり、まっすぐな嘘でいっぱいですが、それは重要な考えです、あなたは推測します。</text>
 	<text>どういうわけか、ティルデオは船の船内トイレに接続された特別な真空装置の中に閉じ込められていることに気づきました。通常、あなたは彼を少しの間そこに置いておくでしょうが、そうすることは異常に残酷に思えます。しかし、彼を解放するタスクを割り当てることもそうです...</text>
 	<text>ティルデオは、故郷の惑星の軌道に投棄された気密ボックスの中に彼の貴重な鳴き鳥を見つけたと説明します。空から落ちたときに頭を殴られ、不可逆的な脳損傷を引き起こしたが、鳥はどういうわけか生き残った。</text>
 	<text>ティルデオは彼が偉大な大統領になったとあなたに保証します。確かに、彼はいくつかの間違いを犯しましたが、Eargenの歴史の中ですべての大統領の中で、彼は最もスタイルのある人でした。スタイルポイントがすべてです。</text>
@@ -30813,7 +30811,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 サブタイプの詳細：一意
 ステータス：体力100、移動速度x0.7、戦闘で70％のダメージを受ける
 継承された統計：x1.5スタンの脆弱性、1つの電力消費、5秒の遅延で6.4hp/sで再生成。
-オーラ：仲間のリーチクルーのパワードレインを2倍にします。また、部屋にいる味方の乗組員にスタン免疫を付与しますが、代わりに部屋にいるすべての味方の乗組員に対してより長く気絶します。</text>
+オーラ：仲間のリーチクルーのパワードレインを2倍にします。また、部屋にいる味方のクルーにスタン免疫を付与しますが、代わりに部屋にいるすべての味方のクルーに対してより長く気絶します。</text>
 	<choice>
 		<text>継続する...</text>
 		<event load="STORAGE_CHECK" />
@@ -30858,7 +30856,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>スラッグの詳細
 種族？ [ナメクジ]サブタイプ？ [いいえ]
 サブタイプの詳細：遺伝的、標準
-統計：テレパシー（隣接する部屋を見る、マインドコントロールの影響を受けない）、敵の乗組員を検出する</text>
+統計：テレパシー（隣接する部屋を見る、マインドコントロールの影響を受けない）、敵のクルーを検出する</text>
 	<choice>
 		<text>継続する...</text>
 		<event load="STORAGE_CHECK" />
@@ -30872,8 +30870,8 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	</choice>
 </event>
 <textList name="TEXT_CREW_TALK_SLUG">
-	<text>あなたのナメクジは笑って、あなたが話すことができる前に気にしないようにあなたに言います。テレパシーの乗組員がいることは非常に迷惑になる可能性があります。</text>
-	<text>あなたのスラッグはあなたが乗組員に強制する行動規則のいくつかを削除することを望みます。さらに好ましいのは、それらすべてです。</text>
+	<text>あなたのナメクジは笑って、あなたが話すことができる前に気にしないようにあなたに言います。テレパシーのクルーがいることは非常に迷惑になる可能性があります。</text>
+	<text>あなたのスラッグはあなたがクルーに強制する行動規則のいくつかを削除することを望みます。さらに好ましいのは、それらすべてです。</text>
 	<text>あなたは、ストレージベイからスクラップを盗もうとしているスラッグを捕まえます。</text>
 	<text>あなたのスラッグは、船中に残されたスライムトレイルについて心からお詫びします。</text>
 	<text>あなたのナメクジは、敵の船を殺すためのより創造的な方法を考える必要があると考えています。</text>
@@ -30911,8 +30909,8 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ [ナメクジ]サブタイプ？ [はい]
 サブタイプの詳細：非遺伝的、標準
 統計：移動速度x0.85、戦闘で受けるダメージの90％
-継承された統計：テレパシー（隣接する部屋を見て、マインドコントロールの影響を受けない）、敵の乗組員を検出します。
-能力（32秒のクールダウン、6秒の持続時間）：短い遅延で、自分を除く部屋のすべての乗組員に30のダム?ージを与えます。一時的にクロークを着せ、移動を無効にし、妨害、戦闘、修理を行いますが、すべてのソースから受けるダメージを40％に減らします。
+継承された統計：テレパシー（隣接する部屋を見て、マインドコントロールの影響を受けない）、敵のクルーを検出します。
+能力（32秒のクールダウン、6秒の持続時間）：短い遅延で、自分を除く部屋のすべてのクルーに30のダム?ージを与えます。一時的にクロークを着せ、移動を無効にし、妨害、戦闘、修理を行いますが、すべてのソースから受けるダメージを40％に減らします。
 能力クールダウンタイプ：ジャンプ時に補充します。</text>
 	<choice>
 		<text>継続する...</text>
@@ -30933,7 +30931,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたのクランズマンは、医療施設のない船が好きではありません。特にミサイルを消費する武器しか持たない搭乗者。</text>
 	<text>あなたのクランズマンは、ギルドの船よりも優れた配色を見つけるようにあなたに挑戦します。あなたが少しの間躊躇するとき、彼らはあなたが諦めたと思い込み、自己勝利を宣言します。</text>
 	<text>あなたのクランズマンは、他の生き物の体であったものを身に着けることについて非常に奇妙に感じることがありますが、それをやめるには十分ではありません。</text>
-	<text>あなたのクランズマンは、常に乗組員を殺すために行くようにあなたにアドバイスします。</text>
+	<text>あなたのクランズマンは、常にクルーを殺すために行くようにあなたにアドバイスします。</text>
 	<text>あなたのクランズマンは時々良いホラー映画を空想します。それがどのように関連しているかはわかりませんが、それは何かです。</text>
 	<text>あなたのクランズマンは彼らの狩猟用ライフルを磨くのに忙しい。彼らがこれを戦闘で使用するのを見たことがないので、これは非常に奇妙だと思います。</text>
 	<text>あなたのクランズマンは彼らの過去からの素晴らしい狩猟物語であなたを楽しませようとします、しかしあなたは本当に気にしません。</text>
@@ -30965,8 +30963,8 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ [ナメクジ]サブタイプ？ [はい]
 サブタイプの詳細：非遺伝子、エリート
 統計：戦闘ダメージx1.5、移動速度x0.60、戦闘によるダメージ80％、システムを妨害することはできません。
-継承された統計：テレパシー（隣接する部屋を見て、マインドコントロールの影響を受けない）、敵の乗組員を検出します。
-能力（30秒のクールダウン、12秒の持続時閠?）：部屋のすべての敵の乗組員に12秒のスタン、現在のシステムに1イオンのダメージ、短い遅延。一時的にクロークし、移動と修理を無効にしますが、すべてのソースからのダメージを25％削減します。それでも攻撃できますが、1倍のダメージしか与えません。
+継承された統計：テレパシー（隣接する部屋を見て、マインドコントロールの影響を受けない）、敵のクルーを検出します。
+能力（30秒のクールダウン、12秒の持続時閠?）：部屋のすべての敵のクルーに12秒のスタン、現在のシステムに1イオンのダメージ、短い遅延。一時的にクロークし、移動と修理を無効にしますが、すべてのソースからのダメージを25％削減します。それでも攻撃できますが、1倍のダメージしか与えません。
 能力クールダウンタイプ：ジャンプを続けます。</text>
 	<choice>
 		<text>継続する...</text>
@@ -30987,7 +30985,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたのレンジャーはあなたにスクエアダンスの仕方を教えようとしますが、うまくいきません。主な理由は、彼らには足がなく、何をすべきかについての指示を与えていないからです。</text>
 	<text>あなたのレンジャーは、彼らが「銀河系で最高のヘッドハンター」のために7歳のときに獲得したメダルをあなたに示します。 7歳のときに何をしていたかはよく覚えていませんが、確かにそうではありませんでした。</text>
 	<text>あなたのレンジャーは彼らの失われた帽子を必死に探しており、それなしでは彼らは完全ではないと不平を言っています。</text>
-	<text>あなたのレンジャーは、死んだ乗組員の死体を貨物室に保管して、後でターゲット練習として使用するように要求します。</text>
+	<text>あなたのレンジャーは、死んだクルーの死体を貨物室に保管して、後でターゲット練習として使用するように要求します。</text>
 	<text>あなたのレンジャーは、悪名高いアンチバイオビームのハンドヘルドバージョンを入手したいと考えています。弾薬のコストはかなりの額になりますが、ダメージは現在のライフルよりはるかに大きくなります。</text>
 	<text>あなたのレンジャーは、EGGが走るロデオの間に彼らがエクイノイドに乗ろうとした時のことを思い出します。彼らの粘液が接着剤として働いているにもかかわらず、物事はあまりうまくいきませんでした。</text>
 	<text>あなたのレンジャーはあなたにあなたの好きなカントリーソングが何であるかを尋ねます。レンジャーが熱くなり、「故郷へ帰りたい、田舎道」が生き物によってこれまでに考案された中で最高の曲であるとプッシュしようとするまで、あなたはそれについて簡単な会話をします。</text>
@@ -31017,8 +31015,8 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ [ナメクジ]サブタイプ？ [はい]
 サブタイプの詳細：非遺伝子、エリート
 統計：1.5倍の妨害ダメージ
-継承された統計：テレパシー（隣接する部屋を見て、マインドコントロールの影響を受けない）、敵の乗組員を検出します。
-能力（40秒のクールダウン、20秒の持続時間）：クローク。クロークされている間：ドアを無視し、x0.4の速度で移動し、すべてのソースからのすべてのダメージに対して完全に無防備です。乗組員と戦うことはできませんが、3.0倍の妨害速度が得られます。近くの敵ごとに0.5倍の妨害速度ボーナスを失います。
+継承された統計：テレパシー（隣接する部屋を見て、マインドコントロールの影響を受けない）、敵のクルーを検出します。
+能力（40秒のクールダウン、20秒の持続時間）：クローク。クロークされている間：ドアを無視し、x0.4の速度で移動し、すべてのソースからのすべてのダメージに対して完全に無防備です。クルーと戦うことはできませんが、3.0倍の妨害速度が得られます。近くの敵ごとに0.5倍の妨害速度ボーナスを失います。
 能力クールダウンタイプ：ジャンプを続けます。</text>
 	<choice>
 		<text>継続する...</text>
@@ -31030,7 +31028,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="hacking" blue="false" lvl="1" max_group="0">
 		<text>ハッキングをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="hacking" />
 			<item_modify>
 				<item type="scrap" min="-30" max="-30" />
@@ -31040,7 +31038,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="hacking" blue="false" lvl="2" max_group="0">
 		<text>ハッキングをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="hacking" />
 			<item_modify>
 				<item type="scrap" min="-60" max="-60" />
@@ -31065,7 +31063,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>Saboteurは、なぜハッキング、マインドコントロール、クローキング以外のシステムを使用するのか疑問に思います。</text>
 	<text>あなたの妨害工作員は人間の頭蓋骨を飲み干すのに忙しい。あなたはまだそれにいくらかの血を見ることができます。</text>
 	<text>あなたのサボターは、この任務が終わった後の彼の支払いを楽しみにしています。彼はそれを利用可能な最も高価なスラッグプレジャークルーズに費やします。</text>
-	<text>あなたの妨害工作員は、なぜそれがあなたが持っている最も重要な乗組員であるかを説明します。</text>
+	<text>あなたの妨害工作員は、なぜそれがあなたが持っている最も重要なクルーであるかを説明します。</text>
 	<text>あなたはあなたの妨害工作員が換気塔に隠れているのを見つけます。</text>
 	<text>あなたの妨害工作員は火の列にいることを嫌い、敵の後ろに忍び寄って彼らを刺すことを好みます。</text>
 	<text>あなたの妨害工作員は、一連の旧地球のスパイ映画に出くわしました。彼は特にボンドと呼ばれる男のものを楽しんでいます。</text>
@@ -31102,8 +31100,8 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ [ナメクジ]サブタイプ？ [はい]
 サブタイプの詳細：一意
 統計：3.0倍の妨害ダメージ、ドアを無視します。
-継承された統計：テレパシー（隣接する部屋を見て、マインドコントロールの影響を受けない）、敵の乗組員を検出します。
-能力（45秒のクールダウン、22秒の持続時間）：ブリーチ爆弾をクロークして展開します。ブリーチ爆弾は、3つのシステムダメージ、45の乗組員ダメージ（敵のみ）、1秒間のスタンを行い、ブリーチを作成します。クロークされている間、全速力で移動し、すべてのソースからのすべてのダメージに対して完全に無防備です。乗組員と戦ったり修理したりすることはできませんが、妨害速度が5.0倍になります。
+継承された統計：テレパシー（隣接する部屋を見て、マインドコントロールの影響を受けない）、敵のクルーを検出します。
+能力（45秒のクールダウン、22秒の持続時間）：ブリーチ爆弾をクロークして展開します。ブリーチ爆弾は、3つのシステムダメージ、45のクルーダメージ（敵のみ）、1秒間のスタンを行い、ブリーチを作成します。クロークされている間、全速力で移動し、すべてのソースからのすべてのダメージに対して完全に無防備です。クルーと戦ったり修理したりすることはできませんが、妨害速度が5.0倍になります。
 能力クールダウンタイプ：ジャンプ時に補充します。</text>
 	<choice>
 		<text>継続する...</text>
@@ -31156,8 +31154,8 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ [ナメクジ]サブタイプ？ [はい]
 サブタイプの詳細：一意
 統計：x3.0の回復速度。隣接する味方の搭乗員を2hp/sで回復します。
-継承された統計：テレパシー（隣接する部屋を見て、マインドコントロールの影響を受けない）、敵の乗組員を検出します。
-能力（50秒のクールダウン、20秒の持続時間）：部屋にいるすべての敵の乗組員を20秒間気絶させます。スタンがアクティブな間、テレパシーを失います。
+継承された統計：テレパシー（隣接する部屋を見て、マインドコントロールの影響を受けない）、敵のクルーを検出します。
+能力（50秒のクールダウン、20秒の持続時間）：部屋にいるすべての敵のクルーを20秒間気絶させます。スタンがアクティブな間、テレパシーを失います。
 能力クールダウンタイプ：ジャンプを続けます。</text>
 	<choice>
 		<text>継続する...</text>
@@ -31208,7 +31206,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>従業員の詳細
 種族？ [ナメクジ]サブタイプ？ [はい]
 サブタイプの詳細：一意
-継承された統計：テレパシー（隣接する部屋を見て、マインドコントロールの影響を受けない）、敵の乗組員を検出します。
+継承された統計：テレパシー（隣接する部屋を見て、マインドコントロールの影響を受けない）、敵のクルーを検出します。
 自動機能：通常モードとボックスモードを切り替えます。
 能力要件（通常）：20hp未満でアクティブになります。
 能力要件（ボックス）：50hp以上でアクティブになります。
@@ -31257,7 +31255,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ [ナメクジ]サブタイプ？ [はい]
 サブタイプの詳細：一意
 統計：パッシブソースからは回復できません。
-継承された統計：テレパシー（隣接する部屋を見て、マインドコントロールの影響を受けない）、敵の乗組員を検出します。
+継承された統計：テレパシー（隣接する部屋を見て、マインドコントロールの影響を受けない）、敵のクルーを検出します。
 能力：通常モードとボックスモードを切り替えます。
 能力要件（通常）：50hp未満である必要があります。
 能力要件（ボックス）：50hpを超えると自動的にアクティブになります。
@@ -31311,8 +31309,8 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ [ナメクジ]サブタイプ？ [はい]
 サブタイプの詳細：一意
 ステータス：体力250、戦闘ダメージx1.5、火と窒息から10％のダメージを受ける。最大のスキルレベルを持っています。クローン作成によってスキルが失われることはありません。
-継承された統計：テレパシー（隣接する部屋を見て、マインドコントロールの影響を受けない）、敵の乗組員を検几?します。
-能力（45クールダウン）：ブリーチ、イオン、およびロックダウン爆弾を配備します。 （30人の乗組員のダメージ、2つのシステムのダメージ、5秒間のスタン、3つのイオンのダメージ。フレンドリーファイアはありませんが、システムをイオン化できます。）
+継承された統計：テレパシー（隣接する部屋を見て、マインドコントロールの影響を受けない）、敵のクルーを検几?します。
+能力（45クールダウン）：ブリーチ、イオン、およびロックダウン爆弾を配備します。 （30人のクルーのダメージ、2つのシステムのダメージ、5秒間のスタン、3つのイオンのダメージ。フレンドリーファイアはありませんが、システムをイオン化できます。）
 能力クールダウンタイプ：ジャンプを続けます。</text>
 	<choice>
 		<text>継続する...</text>
@@ -31332,8 +31330,8 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>シルバンは、他の反逆者との出会いについても、自分自身との出会いの可能性についても詳しく説明しません。奇妙なことに、彼には通常、伝えるべき話がたくさんあります。</text>
 	<text>シルバンは船のどこにも見つかりませんが、彼が自分の宿舎にいるのではないかと疑っています。残念ながら、彼の許可があっても、あえてその部屋に足を踏み入れることはありません。あなたが単に見ることを意図されていないいくつかのこと。</text>
 	<text>しばらくの間、シルバンが自分の宿舎を離れるのを見つけ、床に奇妙な形のオブロイドの物体を見つけます。シルバンはあなたに目を向け、単に「答えたくない質問を投げつけないでください、sssstranger」と言います。</text>
-	<text>シルバンは、神話上の獣、隠されたセクター、とらえどころのない傭兵の幻想的な物語で他の乗組員を頻繁に楽しませます。あなたは彼にこれらの物語の信憑性について尋ねます、そして彼はそれらのほとんどが構成されていることを認めます。 「Ssssometimesss、ssstranger、作り上げられたssstory isssは、真実よりも草むらしやすいです。」</text>
-	<text>あなたはシルバンが他の乗組員から離れた橋で喫煙しているのを見つけます。彼がそうしているのを見るのは奇妙ですが、少なくとも彼はプライベートでそれをする礼儀を持っています。</text>
+	<text>シルバンは、神話上の獣、隠されたセクター、とらえどころのない傭兵の幻想的な物語で他のクルーを頻繁に楽しませます。あなたは彼にこれらの物語の信憑性について尋ねます、そして彼はそれらのほとんどが構成されていることを認めます。 「Ssssometimesss、ssstranger、作り上げられたssstory isssは、真実よりも草むらしやすいです。」</text>
+	<text>あなたはシルバンが他のクルーから離れた橋で喫煙しているのを見つけます。彼がそうしているのを見るのは奇妙ですが、少なくとも彼はプライベートでそれをする礼儀を持っています。</text>
 	<text>あえて入ることはないでしょうが、シルバンが船のトイレの中で話しているのが聞こえます。彼は「sssstranger」のさまざまな言い方をしているようです。</text>
 	<text>「Sssstranger、Darth Plagueis the Wisssseの話を聞いたことがありますか？いいえ？ああ、残念です。ssssomethingelssseを期待して、何が問題なのですか？」</text>
 	<text>「あなたがSsstrangerを知っているJussstssso、あなたは私がこれまでに会うことの喜びまたは不満を持っていたすべてのssstrangersの中で私のお気に入りのssstrangerです！」あなたはそれが褒め言葉だと思いますが、あなたは完全に確信していません。</text>
@@ -31362,7 +31360,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ 【オーキドゥ】サブタイプ？ [いいえ]
 サブタイプの詳細：遺伝的、標準
 統計：火による175％のダメージ、窒息による80％のダメージ、0.5oxy/sで酸素を補充します。
-オーラ：同じ部屋にいる友好的な乗組員は、最大20％の体力と回復速度、および20％の修理速度を獲得します。</text>
+オーラ：同じ部屋にいる友好的なクルーは、最大20％の体力と回復速度、および20％の修理速度を獲得します。</text>
 	<choice>
 		<text>継続する...</text>
 		<event load="STORAGE_CHECK" />
@@ -31379,10 +31377,10 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたのオーキドゥは、連邦セクターでの植物の残虐行為を防ぐための請願を開始したいと考えています。</text>
 	<text>あなたのオーキドゥは、生命維持システムが過大評価されていると考えています。</text>
 	<text>あなたのオーキドゥはあなたがそれらを貸すことができる余分な水があるかどうか尋ねます。</text>
-	<text>あなたのオーキドゥは通常のミサイルランチャーに嫌悪感を示し、より多くのカーネルランチャーを入手するように要求します。</text>
+	<text>あなたのオーキドゥは通常のミサイルランチャーに嫌悪感を示し、より多くの種のランチャーを入手するように要求します。</text>
 	<text>あなたのオーキドゥは火に対するその極端な恐れについて話します。</text>
 	<text>あなたのオーキドゥは、船の人工照明だけでなく、本物の日光を待ち望んでいます。</text>
-	<text>あなたのオーキドゥは、他の乗組員に催眠術をかける彼らに対するあなたの規則について不平を言います。</text>
+	<text>あなたのオーキドゥは、他のクルーに催眠術をかける彼らに対するあなたの規則について不平を言います。</text>
 	<text>あなたのオーキドゥはその四分の一をブドウの木で飾るのに忙しいです。</text>
 	<text>あなたのオーキドゥは、なぜあなたが船の不要な部屋のすべてを通気しないのか疑問に思います。</text>
 	<text>あなたのオーキドゥはそれがもっと強かったことを望みます。</text>
@@ -31419,7 +31417,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ 【オーキドゥ】サブタイプ？ [はい]
 サブタイプの詳細：遺伝的、エリート
 ステータス：体力130、火によるダメージ300％、窒息の影響を受けない、2oxy/sで酸素を補充します。
-オーラ：同じ部屋にいる友好的な乗組員は、最大25％の体力と回復速度を獲得し、窒息の影響を受けません。</text>
+オーラ：同じ部屋にいる友好的なクルーは、最大25％の体力と回復速度を獲得し、窒息の影響を受けません。</text>
 	<choice>
 		<text>継続する...</text>
 		<event load="STORAGE_CHECK" />
@@ -31430,7 +31428,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="oxygen" blue="false" lvl="1" max_group="0">
 		<text>ライフサポートをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="oxygen" />
 			<item_modify>
 				<item type="scrap" min="-20" max="-20" />
@@ -31440,7 +31438,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="oxygen" blue="false" lvl="2" max_group="0">
 		<text>ライフサポートをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="oxygen" />
 			<item_modify>
 				<item type="scrap" min="-45" max="-45" />
@@ -31450,7 +31448,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="oxygen" blue="false" lvl="3" max_group="0">
 		<text>ライフサポートをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="oxygen" />
 			<item_modify>
 				<item type="scrap" min="-65" max="-65" />
@@ -31481,12 +31479,12 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたのチーフテンは、部族のドラムのセットを（不十分に）演奏しようとしています。</text>
 	<text>あなたのチーフテンは、プライベートな場所でさまざまな世界からのエイリアンの植物のコレクションを開始しました。</text>
 	<text>あなたのチーフテンは、オーキドゥの船のイチゴの配色が一番好きです。</text>
-	<text>チーフテンは、標準の弾薬の代わりにカーネルを使用することをお勧めします。</text>
+	<text>チーフテンは、標準の弾薬の代わりに種を使用することをお勧めします。</text>
 	<text>あなたのチーフテンは、エイリアンのデザインの小さな装飾品を葉に掛け始めました。あなたはオーキドゥのファッションを理解することは決してないでしょうが、少なくともそれは彼らを幸せにします。</text>
 	<text>あなたのチーフテンは、植物であるにもかかわらず、その生物学が非常に複雑であるため、オーキドゥは光合成から完全に自分自身を維持することはできないと説明しています。これが彼らが肉食性になるように進化した理由です。</text>
 	<text>あなたの首長は庭の政治について会話しようとしますが、あなたは興味がありません。</text>
 	<text>あなたのチーフテンはめったに話さないので、良い会話をしません。</text>
-	<text>あなたのチーフテンは、他の乗組員がそれを「観葉植物」と呼んでいると不平を言っています。これが何を意味するのかはわかりませんが、蔑称的であると想定しています。</text>
+	<text>あなたのチーフテンは、他のクルーがそれを「観葉植物」と呼んでいると不平を言っています。これが何を意味するのかはわかりませんが、蔑称的であると想定しています。</text>
 	<text>あなたのチーフテンは、人々がそれを「フリー酸素パワーバー」と呼ぶのをやめることを望んでいます</text>
 	<text>あなたのチーフテンは樹液が滴る傷を包帯で包むのに忙しい。</text>
 </textList>
@@ -31525,7 +31523,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたのゴーストがドアをすり抜ける能力はあなたに関係しています。もう一度シールを確認する時が来たのかもしれません...</text>
 	<text>あなたのゴーストは、あなたが船を一体に保つことがどれほどうまくできたかに感銘を受けています。彼らはあなたに心配しないように言います。船が爆発した場合、あなたが爆発しなくても、彼らは生き続けます。</text>
 	<text>あなたのゴーストは、船が十分に混雑していないと考えています。他の誰かと肩をぶつけずに船の中を移動することが不可能になるまで、彼は満足しません。</text>
-	<text>あなたのゴーストは、AIホログラムを乗組員として持つのがクールかどうか疑問に思います。あなたはそれが信じられないほどつまらなくて退屈だと思います。それが決して起こらない理由です。おそらく。</text>
+	<text>あなたのゴーストは、AIホログラムをクルーとして持つのがクールかどうか疑問に思います。あなたはそれが信じられないほどつまらなくて退屈だと思います。それが決して起こらない理由です。おそらく。</text>
 	<text>あなたのゴーストは、あなたの船にゴーストが多すぎることは決してないだろうとコメントしています。</text>
 	<text>あなたはあなたのゴーストに追いつくことを試みます、しかしあなたがそれらを開くことができる前に彼らはいつもドアをすり抜けることができます。</text>
 	<text>あなたの幽霊は彼の四分の一の壁からペンキをはがそうとしているので、彼はそれがとても慣れている船の快適な内部を見ることができます。</text>
@@ -31638,7 +31636,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ [ゴースト]サブタイプ？ [はい]
 サブタイプの詳細：遺伝的、標準
 統計：体力80、サボタージュ速度1.3倍、移動速度x0.8、窒息や火の影響を受けず、ドアを無視します。
-定期的な能力（20秒のクールダウン）：現在のシステムを2バーでイオン化し、部屋にいるすべての乗組員を自分以外のすべての乗組員を7秒間気絶させます。
+定期的な能力（20秒のクールダウン）：現在のシステムを2バーでイオン化し、部屋にいるすべてのクルーを自分以外のすべてのクルーを7秒間気絶させます。
 能力クールダウンタイプ：ジャンプを続けます。</text>
 	<choice>
 		<text>継続する...</text>
@@ -31840,7 +31838,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 サブタイプの詳細：遺伝的、標準
 統計：110ヘルス、2倍の妨害速度。
 継承された統計：x0.8のmovespeedは、窒息や火の影響を受けず、ドアを無視します。
-定期的な能力（15秒のクールダウン）：現在のシステムを2バーでイオン化し、部屋のすべての乗組員を7秒間スタンさせます。
+定期的な能力（15秒のクールダウン）：現在のシステムを2バーでイオン化し、部屋のすべてのクルーを7秒間スタンさせます。
 能力クールダウンタイプ：ジャム?プを続けます。</text>
 	<choice>
 		<text>継続する...</text>
@@ -31874,7 +31872,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 サブタイプの詳細：一意
 ステータス：体力80、サボタージュ速度の3.0倍、戦闘で75％のダメージを受ける
 継承された統計：窒息や火の影響を受けず、ドアを無視します。
-必殺技：標準の戦闘ダメージはありませんが、戦闘中は毎秒、敵の乗組員に5 hpを与え、同じ部屋の味方の乗組員を2hp回復する攻撃をトリガーします。</text>
+必殺技：標準の戦闘ダメージはありませんが、戦闘中は毎秒、敵のクルーに5 hpを与え、同じ部屋の味方のクルーを2hp回復する攻撃をトリガーします。</text>
 	<choice>
 		<text>継続する...</text>
 		<event load="STORAGE_CHECK" />
@@ -31937,7 +31935,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたのラニウスは、スクラップが素晴らしい栄養価の高い食事になることをあなたに納得させようとします。</text>
 	<text>あなたのラニウスは会話をする方法がわかりません。あなたの議論は主にあなたが質問をすることで構成されており、それは通常あなたが尋ねたことにはまったく関係のない一言の答えで答えます。</text>
 	<text>あなたのラニウスは、もしそれが殺されたら、その死体を溶かして金属に変え、それをフラックキャノンに変えることを要求します。</text>
-	<text>あなたのラニウスは、なぜあなたが酸素を止めないのかと尋ねます。あなたは他の乗組員が呼吸する必要があることを説明しようとしますが、それは理解していません。</text>
+	<text>あなたのラニウスは、なぜあなたが酸素を止めないのかと尋ねます。あなたは他のクルーが呼吸する必要があることを説明しようとしますが、それは理解していません。</text>
 	<text>あなたのLaniusは包括的な言語で話そうとはせず、代わりにあなたの翻訳者が変換し始めることさえできない文字化けした音を出します。</text>
 	<text>この任務が終わったら、あなたのラニウスは遊牧生活に戻りたいと思っています。</text>
 	<text>あなたのラニウスは、それが人間間の友情の象徴であることを理解して、あなたの手を振ることができるかどうか尋ねます。鋭い刃の腕を慎重に振りますが、それでもカットされてしまいます。</text>
@@ -31948,7 +31946,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたのラニウスは、それが食べるためのスクラップがある限り、それが良い面であるか悪い面であるかを気にしません。</text>
 	<text>あなたのラニウスは忠誠心を理解していません。それはそれを与えている人は誰でも従うでしょう。あなたは、ラニウスが反乱軍と交渉することを決して許さないように心に留めておきます。</text>
 	<text>あなたのラニウスは、なぜそんなに多くの人がその種を嫌うのか理解していません。</text>
-	<text>Laniusは、呼吸器が故障した場合に備えて、他の乗組員から遠ざけるようにアドバイスしています。</text>
+	<text>Laniusは、呼吸器が故障した場合に備えて、他のクルーから遠ざけるようにアドバイスしています。</text>
 	<text>あなたのラニウスは、なぜあなたが宇宙服を着ないのかと尋ねます。自分で答えがわからない。</text>
 	<text>あなたのラニウスは話すことを気にしません。完全にじっと座っている状態に戻る前に、何か食べるものがあるかどうかを簡単に尋ねます。</text>
 	<text>あなたのラニウスは、あなたがサルベージミッションにより多くの時間を費やして、より多くのがらくたを食べるようになることを望んでいます。</text>
@@ -32057,7 +32055,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>油そそがれた者は、任務が放棄された場合、貨物室のすべてのものにディブを呼びかけます。</text>
 	<text>油そそがれた者は、彼らの宿舎で液体マグマの素敵なグラスを楽しんでいます。あなたはそれらに侵入しないことに決めます。</text>
 	<text>油そそがれた者は彼らの刃を研ぐのに忙しい。彼らはあなたがプロセスが終了するまであなたがこれ以上近づくことを思いとどまらせます。</text>
-	<text>あなたは、燃料電池を再び行動に巻き込んだ後、彼らがあなたの乗組員に加わって以来、30回目の燃料電池を食べることについて油そそがれた者に警告していることに気づきます。</text>
+	<text>あなたは、燃料電池を再び行動に巻き込んだ後、彼らがあなたのクルーに加わって以来、30回目の燃料電池を食べることについて油そそがれた者に警告していることに気づきます。</text>
 	<text>油そそがれた者は、自分自身を説明するための新しい同義語を考えており、シソーラスはほとんど役に立たないことがわかりました。</text>
 	<text>油そそがれた者は、その体に沿って詰まっている光を取り除く方法や、そもそもどのようにしてそこに着いたのかわかりません。</text>
 </textList>
@@ -32154,7 +32152,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたの溶接工は、密室での作業に快適さを見出しています。他の種族が同じように感じず、鋭いスパイクに押し付けられることを熱望していないのは残念です。</text>
 	<text>あなたの溶接工は彼らの体に沿ってスパイクを鋭くするのに援助を要求します。あなたはぎこちなく支援することに同意します。</text>
 	<text>あなたの溶接工は、錆びた接合部を潤滑するためにオイルまたはグリースを要求します。</text>
-	<text>あなたの溶接工はあなたの軍事力と敵の船を食べるためにFlakランチャーから乗組員を発射することを含まない戦略を採用するあなたの能力を褒め称えます。</text>
+	<text>あなたの溶接工はあなたの軍事力と敵の船を食べるためにFlakランチャーからクルーを発射することを含まない戦略を採用するあなたの能力を褒め称えます。</text>
 	<text>あなたの溶接工は、あなたのような船に乗るという行動を逃すでしょうが、ラニウスレースの次の大量冬眠を楽しみにしています。</text>
 	<text>あなたの溶接工は、ラニウスが酸素を排出する方法の背後にある科学を説明することを拒否します。</text>
 	<text>あなたの溶接工は、その酸素排出能力の効率を誇りに思っており、それを打ち負かすにはオーキドゥの完全な分隊が必要であると主張しています。</text>
@@ -32211,7 +32209,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたのクリスタルは、自分の艦隊を指揮するのはどういうことか疑問に思います。</text>
 	<text>あなたのクリスタルは、元のクリスタルホームワールドに大量に侵入して以来、反乱に反対しています。</text>
 	<text>あなたのクリスタルは、いつか自分の作りたてのクリスタルから船全体を作ってみたいと思っています。</text>
-	<text>あなたのクリスタルは、あなたがあなたの乗組員をさらに多様化する必要があると考えています。</text>
+	<text>あなたのクリスタルは、あなたがあなたのクルーをさらに多様化する必要があると考えています。</text>
 	<text>あなたのクリスタルはあなたがそれに話しかけないように丁寧に要求します。</text>
 	<text>あなたのクリスタルは、適切なマナーが銀河系で最も重要なことだと考えています。</text>
 	<text>あなたのクリスタルは、失われた太陽がそれを彼らの拠点に変える前に、ロックセイクリッドグラウンドでその種を崇拝しているすべての神社を見逃していると密かに告白します。</text>
@@ -32239,7 +32237,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ 【クリスタル】サブタイプ？ [はい]
 サブタイプの詳細：非遺伝子、エリート
 ステータス：体力135、移動速度x0.65、窒息耐性60％。
-死ぬと：敵の乗組員に15のダメージを与え、部屋をロックダウンします
+死ぬと：敵のクルーに15のダメージを与え、部屋をロックダウンします
 能力（5秒のクールダウン、12秒の持続時間）：現在の部屋をロックダウンします。 7ダメージを受け、1アビリティチャージを使用します。
 能力要件：体力は20以上でなければなりません
 能力クールダウンタイプ：ジャンプ時に4チャージを補充します。 8回の充電が可能です。</text>
@@ -32260,7 +32258,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="doors" blue="false" lvl="1" max_group="0">
 		<text>ドアをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="doors" />
 			<item_modify>
 				<item type="scrap" min="-30" max="-30" />
@@ -32270,7 +32268,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice req="doors" blue="false" lvl="2" max_group="0">
 		<text>ドアをアップグレードします。</text>
 		<event>
-			<text>乗組員はシステムを正常にアップグレードできます。</text>
+			<text>クルーはシステムを正常にアップグレードできます。</text>
 			<upgrade amount="1" system="doors" />
 			<item_modify>
 				<item type="scrap" min="-45" max="-45" />
@@ -32319,7 +32317,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 <event name="STORAGE_CHECK_CREW_A55_SCAN">
 	<text>A5540L3の詳細
 ブループリント？ [医者]
-ステータス：150ヘルス、1.5x戦闘ダメージ、x0.6移動速度、ドローンベイでx2.0速度で自己修復、2hp / sで味方の乗組員を回復、lvl2効率でシステムを操作できます。</text>
+ステータス：150ヘルス、1.5x戦闘ダメージ、x0.6移動速度、ドローンベイでx2.0速度で自己修復、2hp / sで味方のクルーを回復、lvl2効率でシステムを操作できます。</text>
 	<choice>
 		<text>継続する...</text>
 		<event load="STORAGE_CHECK" />
@@ -32333,7 +32331,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	</choice>
 </event>
 <textList name="TEXT_CREW_TALK_A55">
-	<text>A55は、ドクタードローンの有用性について他の乗組員と議論しています。明らかに、彼はそれらに対して非常に偏った見方をしています。</text>
+	<text>A55は、ドクタードローンの有用性について他のクルーと議論しています。明らかに、彼はそれらに対して非常に偏った見方をしています。</text>
 	<text>「ヨホホ、フィドルディーディー、海賊であることは103です！」 A55は、階段のセットにつまずいてエンジンルームに衝突する前に、これを叫んで通り過ぎました。</text>
 	<text>A55は、濡れても崩壊しない紙の帽子を優先して、いつ紙の帽子を捨てることができるのか疑問に思います。</text>
 	<text>「Perg、いつ！Las。I have。Died？N...Ld。Ir...YoHoHo。」ロールスオイ兄弟。</text>
@@ -32366,7 +32364,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ [モーフ]サブタイプ？ [いいえ]
 サブタイプの詳細：遺伝的、標準
 統計：45健康、窒息の影響を受けない
-他の遺伝的、物理的な乗組員のタイプを模倣して、25％少ない健康と窒息の免疫で統計を取得できます。模倣された乗組員のタイプはすべて、プレイヤーが制御できます。</text>
+他の遺伝的、物理的なクルーのタイプを模倣して、25％少ない健康と窒息の免疫で統計を取得できます。模倣されたクルーのタイプはすべて、プレイヤーが制御できます。</text>
 	<choice>
 		<text>継続する...</text>
 		<event load="STORAGE_CHECK" />
@@ -32467,7 +32465,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 		</event>
 	</choice>
 	<choice req="LIST_CREW_MORPH_FREEMANTIS" hidden="true">
-		<text>（無料マンティス乗組員）無料マンティスの形を取ります。</text>
+		<text>（無料マンティスクルー）無料マンティスの形を取ります。</text>
 		<event>
 			<text>あなたのモーフは新しい形に変わります。</text>
 			<transformRace class="blob">blobfreemantis</transformRace>
@@ -32506,7 +32504,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 		</event>
 	</choice>
 	<choice req="LIST_CREW_MORPH_LIZARD" hidden="true">
-		<text>（トカゲの乗組員）トカゲの形を取ります。</text>
+		<text>（トカゲのクルー）トカゲの形を取ります。</text>
 		<event>
 			<text>あなたのモーフは新しい形に変わります。</text>
 			<transformRace class="blob">bloblizard</transformRace>
@@ -32519,7 +32517,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 		</event>
 	</choice>
 	<choice req="LIST_CREW_MORPH_MANTIS" hidden="true">
-		<text>（マンティスの乗組員）マンティスの形を取ります。</text>
+		<text>（マンティスのクルー）マンティスの形を取ります。</text>
 		<event>
 			<text>あなたのモーフは新しい形に変わります。</text>
 			<transformRace class="blob">blobmantis</transformRace>
@@ -32597,7 +32595,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 		</event>
 	</choice>
 	<choice req="LIST_CREW_MORPH_SLUG" hidden="true">
-		<text>（ナメクジの乗組員）ナメクジの形を取ります。</text>
+		<text>（ナメクジのクルー）ナメクジの形を取ります。</text>
 		<event>
 			<text>あなたのモーフは新しい形に変わります。</text>
 			<transformRace class="blob">blobslug</transformRace>
@@ -32610,7 +32608,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 		</event>
 	</choice>
 	<choice req="spider_hatch" hidden="true">
-		<text>（孵化したばかりの乗組員）孵化したばかりの形を取ります。</text>
+		<text>（孵化したばかりのクルー）孵化したばかりの形を取ります。</text>
 		<event>
 			<text>あなたのモーフは新しい形に変わります。</text>
 			<transformRace class="blob">blobhatch</transformRace>
@@ -32678,7 +32676,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>モーフを半分にカットすると、2つの別々のモーフが作成されるのか、それとも単に殺されるのか疑問に思います。あなたは非常に好奇心が強いですが、それを危険にさらす気はありません。</text>
 	<text>モーフの解剖学は本当にあなたにとって謎です。あなたが知る限り、彼らは血液、臓器、神経系を持っていませんが、知性のある生き物です。それでも、これは純粋なエネルギー、ガス、そして何兆ものナノボットでできている存在の銀河です。灰色の無定形の塊はあなたの心配の最も少ないです。</text>
 	<text>モーフが敵対的な非知性の生き物ではないことを嬉しく思います。貨物倉に侵入したエイリアンの生き物の塚をむさぼり食うのを見るからです。</text>
-	<text>乗組員が船の周りに残したさまざまなゴミが、船の周りを転がるときにモーフに付着し始めました。あなたはそれがかなり苦痛でなければならないことを想像するでしょう、しかしモーフは気にしないようです。彼らが痛みを感じることができるかどうかさえわかりません。</text>
+	<text>クルーが船の周りに残したさまざまなゴミが、船の周りを転がるときにモーフに付着し始めました。あなたはそれがかなり苦痛でなければならないことを想像するでしょう、しかしモーフは気にしないようです。彼らが痛みを感じることができるかどうかさえわかりません。</text>
 	<text>あなたは自分のモーフが何を考えているのか疑問に思います。あなたは彼らが彼らと同じくらい賢いと考えることができなければならないと思います、しかし正直にあなたは見当がつかないのです。</text>
 	<text>あなたはモーフがどのように機能するのかという謎を知りたいという好奇心で死にかけていますが、残念ながらその謎はいつまでも解決されないでしょう。</text>
 </textList>
@@ -32705,7 +32703,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ [モーフ]サブタイプ？ [はい]
 サブタイプの詳細：遺伝的、標準
 統計：55健康、窒息の影響を受けない
-他のロボット乗組員タイプを模倣して、15％少ない体力と窒息耐性で統計を取得できます。模倣された乗組員のタイプはすべて、プレイヤーが制御できます。</text>
+他のロボットクルータイプを模倣して、15％少ない体力と窒息耐性で統計を取得できます。模倣されたクルーのタイプはすべて、プレイヤーが制御できます。</text>
 	<choice>
 		<text>継続する...</text>
 		<event load="STORAGE_CHECK" />
@@ -32993,7 +32991,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 種族？ [モーフ]サブタイプ？ [はい]
 サブタイプの詳細：遺伝的、エリート
 統計：60健康、窒息の影響を受けない
-他の体のエリートクルータイプを模倣して、25％少ない体力と窒息免疫で統計を取得できます。模倣された乗組員のタイプはすべて、プレイヤーが制御できます。</text>
+他の体のエリートクルータイプを模倣して、25％少ない体力と窒息免疫で統計を取得できます。模倣されたクルーのタイプはすべて、プレイヤーが制御できます。</text>
 	<choice>
 		<text>継続する...</text>
 		<event load="STORAGE_CHECK" />
@@ -33088,7 +33086,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 		</event>
 	</choice>
 	<choice req="LIST_CREW_SOLDIER" hidden="true">
-		<text>（兵士の乗組員）兵士の形を取ります。</text>
+		<text>（兵士のクルー）兵士の形を取ります。</text>
 		<event>
 			<text>あなたのモーフは新しい形に変わります。</text>
 			<transformRace class="gold">goldsoldier</transformRace>
@@ -33234,7 +33232,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice>
 		<text>モーフを1つ作成します。</text>
 		<event>
-			<text>OOJ MAJOOは震え、乗組員のために新しいブロブを吐き出します。</text>
+			<text>OOJ MAJOOは震え、クルーのために新しいブロブを吐き出します。</text>
 			<crewMember amount="1" class="blob">Morph</crewMember>
 			<item_modify>
 				<item type="fuel" min="-3" max="-3" />
@@ -33245,7 +33243,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice>
 		<text>テクノパスを1つ作成します。</text>
 		<event>
-			<text>OOJ MAJOOは震え、乗組員のために新しいブロブを吐き出します。</text>
+			<text>OOJ MAJOOは震え、クルーのために新しいブロブを吐き出します。</text>
 			<crewMember amount="1" class="techno">Morph</crewMember>
 			<item_modify>
 				<item type="fuel" min="-1" max="-1" />
@@ -33256,7 +33254,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<choice>
 		<text>3つのモーフを作成します。</text>
 		<event>
-			<text>OOJ MAJOOは震え、乗組員のために3つの新しいブロブを吐き出します。</text>
+			<text>OOJ MAJOOは震え、クルーのために3つの新しいブロブを吐き出します。</text>
 			<crewMember amount="3" class="blob">Morph</crewMember>
 			<item_modify>
 				<item type="fuel" min="-9" max="-9" />
@@ -33309,13 +33307,13 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたのオベリスクは、世界を5Dで認識していると説明しています。あなたはもっと学びたいと思っていますが、メンタルヘルスを恐れています。</text>
 	<text>あなたはオベリスクに母国語でいくつかのフレーズを説明させようとします。それはあなたの前頭葉を水たまりに減らしたくないので、拒否します。</text>
 	<text>あなたのオベリスクは、なぜあなたが翻訳者をあなたと一緒に運ぶのではなく、単にあなたの脳にインストールしないのか疑問に思います。</text>
-	<text>あなたのオベリスクは、あなたが真空中で生き残ることができないことを笑い、それが反応しないとき、エアロックからそれ自身を排出することによってさらに自慢しようとします。あなたは彼らを引き戻すのを助けるために乗組員全員を集める必要があります。</text>
+	<text>あなたのオベリスクは、あなたが真空中で生き残ることができないことを笑い、それが反応しないとき、エアロックからそれ自身を排出することによってさらに自慢しようとします。あなたは彼らを引き戻すのを助けるためにクルー全員を集める必要があります。</text>
 	<text>あなたのオベリスクは、なぜあなたが肉付きの良い体をそんなに好きなのか理解していません。</text>
 	<text>あなたのオベリスクは、六角形に対する病的な恐怖があると説明しています。理由はわかりません。</text>
 	<text>オベリスクは、現在のすべての武器をさらに優れた武器に置き換える必要があると考えています。オベリスクテックを使用することをお勧めします。</text>
 	<text>あなたのオベリスクは、なぜあなたが人工惑星を構築してそれを反乱軍の旗艦にパチンコで打たないのかと尋ねます。それはそれを破壊するためのはるかに興味深く価値のある方法になると思います。</text>
 	<text>あなたのオベリスクは、銀河系の段階で異なる種の間の幅広い多様性に興味を持っています。あなたがすべて絶滅するまでどれくらいかかるのだろうか。</text>
-	<text>あなたのオベリスクは、乗組員が眠る時間を減らし、作成するように説得しようとしている現実のシミュレーションに取り組む時間を増やす必要があると考えています。</text>
+	<text>あなたのオベリスクは、クルーが眠る時間を減らし、作成するように説得しようとしている現実のシミュレーションに取り組む時間を増やす必要があると考えています。</text>
 	<text>あなたのオベリスクは、どういうわけかあなたの船に侵入することができた昆虫を必死に叩きますが、それはその立方体で行方不明になり続けます。</text>
 </textList>
 
@@ -33415,7 +33413,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたのコグニティブは、あなたが死んだ場合、その周りの船が無限の空間の真空の中を漂うので、それは永遠にここに浮かんでいるとあなたに伝えます。そのために死なないでください。</text>
 	<text>あなたのコグニティブは、船がプロジェクターリングを必要とせずに動き回れるように、船にハードライトエミッターを設置したことを望みます。</text>
 	<text>あなたのコグニティブは、それが別の形で表示されることを望んでいます。最初のセクターの問題、私は正しいですか？</text>
-	<text>あなたの認知は、あなたが好きではなく、他の乗組員が好きではなく、生きているのが好きではないと言います。確かにエッジの効いたものですが、少なくともそれは率直で正直です。</text>
+	<text>あなたの認知は、あなたが好きではなく、他のクルーが好きではなく、生きているのが好きではないと言います。確かにエッジの効いたものですが、少なくともそれは率直で正直です。</text>
 	<text>あなたの認知は、知性は祝福ではなく呪いであると考えています。</text>
 	<text>あなたのコグニティブは、ハーモニーの後の最初のプロトタイプコグニティブのいくつかについて何かを言及し始め、シグモンドやアテナのような名前をリストします。しかし、突然止まります。 「お詫び申し上げます。これは、あまりにもわかりにくい参照である可能性があります」。</text>
 	<text>あなたはその「四分の一」にコグニティブを見つけます。それはそれ自身のために取った供給クローゼットにもっと匹敵します。それは純粋な混乱の中で着色されたタイルで作られた小さな立方体を研究しているようです。あなたはそれがこれまでに何かに困惑しているのを見たことがありません。</text>
@@ -33470,7 +33468,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>あなたのコグニティブは、あなたが死んだ場合、その周りの船が無限の空間の真空の中を漂うので、それは永遠にここに浮かんでいるとあなたに伝えます。そのために死なないでください。</text>
 	<text>あなたのコグニティブは、船がプロジェクターリングを必要とせずに動き回れるように、船にハードライトエミッターを設置したことを望みます。</text>
 	<text>あなたのコグニティブは、それが別の形で表示されることを望んでいます。最初のセクターの問題、私は正しいですか？</text>
-	<text>あなたの認知は、あなたが好きではなく、他の乗組員が好きではなく、生きているのが好きではないと言います。確かにエッジの効いたものですが、少なくともそれは率直で正直です。</text>
+	<text>あなたの認知は、あなたが好きではなく、他のクルーが好きではなく、生きているのが好きではないと言います。確かにエッジの効いたものですが、少なくともそれは率直で正直です。</text>
 	<text>あなたの認知は、知性は祝福ではなく呪いであると考えています。</text>
 	<text>あなたのコグニティブは、ハーモニーの後の最初のプロトタイプコグニティブのいくつかについて何かを言及し始め、シグモンドやアテナのような名前をリストします。しかし、突然止まります。 「お詫び申し上げます。これは、あまりにもわかりにくい参照である可能性があります」。</text>
 	<text>あなたはその「四分の一」にコグニティブを見つけます。それはそれ自身のために取った供給クローゼットにもっと匹敵します。それは純粋な混乱の中で着色されたタイルで作られた小さな立方体を研究しているようです。あなたはそれがこれまでに何かに困惑しているのを見たことがありません。</text>
@@ -33528,8 +33526,8 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>「ウィザーがこれらを読んだとき、どう思うかしら。もちろん、彼がそれらを読んだと仮定すると。」彼がウィザーだと思っていたので、どう答えたらいいのかわからない。</text>
 	<text>ウィザーは、タイムトラベルの複雑さとパラドックスの危険性について不平を言っています。彼は誤って自分自身に挨拶したので、彼はすでにいくつかの現実を破壊しました。</text>
 	<text>ウィザーは、別のタイムラインでYouTuberになると考えています。あなたはあなたの頭をうなずきます、しかしあなたはユーチューブが何であるかを知りません。</text>
-	<text>ウィザーは、自分の能力を使って他の乗組員と競争することを奨励しています。実用的というわけではありませんが、数秒間は楽しいです。</text>
-	<text>ウィザーは、乗組員が死んだときになぜ死体が消えるのか疑問に思います。それらが取られている場合、それではどのような目的で...？</text>
+	<text>ウィザーは、自分の能力を使って他のクルーと競争することを奨励しています。実用的というわけではありませんが、数秒間は楽しいです。</text>
+	<text>ウィザーは、クルーが死んだときになぜ死体が消えるのか疑問に思います。それらが取られている場合、それではどのような目的で...？</text>
 	<text>Witherは、Discordに参加することをお勧めします。 Discordが何であるかはわかりませんが、知っている場合、招待リンクはおそらくサブセットフォーラムのModカテゴリのMultiverseページにあります。あなたが知っていることではありません。</text>
 	<text>ウィザーは、かつて「MLGプロ」というフレーズをあえて口にしたと主張している。あなたもその音が嫌いで、それが何を意味するのかさえわかりません。</text>
 	<text>ウィザーは、彼の対話のすべてがあなたの頭を越えた場合、謝罪します。あなたはそれを理解するのに十分な文化を持っていません。</text>
@@ -33555,8 +33553,8 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 サブタイプの詳細：一意
 ステータス：体力120、修理速度x0.5、戦闘後7秒で4hp/sで再生します。システムスキルを30％遅く学習しますが、戦闘/修理スキルを30％速く学習します。
 継承された統計：戦闘ダメージx1.2、移動速度x0.9
-オーラ：自分自身と近くのすべての味方の乗組員に2倍の回復速度を与えます。
-定期的な能力（10秒のクールダウン）：部屋の味方の乗組員に25hpを回復します。</text>
+オーラ：自分自身と近くのすべての味方のクルーに2倍の回復速度を与えます。
+定期的な能力（10秒のクールダウン）：部屋の味方のクルーに25hpを回復します。</text>
 	<choice>
 		<text>継続する...</text>
 		<event load="STORAGE_CHECK" />
@@ -33572,7 +33570,7 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 <textList name="TEXT_CREW_TALK_GUNTPUT">
 	<text>ガントプットは、エンギについてどう感じるかわからない。一方では、それらは本質的に生きている機械です。一方、それらは他の生物学的実体と同じように機能します。多くのことと同じように、彼はそれについて心配するのをやめることにしました。</text>
 	<text>ハンドヘルドレーザーを探していますが、どこにも見つかりません。本能的に、Guntputがあなたの銃を再び隠しているのを見つけたゴミ箱をチェックします。</text>
-	<text>Guntputは、乗組員をナイフと槍の使用に移行するように説得しようとします。彼は槍が現代の鎧に対して効果的ではないことを理解していないようです。</text>
+	<text>Guntputは、クルーをナイフと槍の使用に移行するように説得しようとします。彼は槍が現代の鎧に対して効果的ではないことを理解していないようです。</text>
 	<text>ガントプットはあなたの周りで踊り始め、彼の手で唱えたり拍手したりします。彼はかなりばかげているように見えますが、彼は悪魔の憑依からあなたを救ったと主張しています。あなたはそのために彼の言葉を受け入れる必要があるでしょう。</text>
 	<text>ガントプットは先週脱皮した皮膚で作ったコートをあなたに渡します。嫌ですが、それでもいいジェスチャーです。</text>
 	<text>あなたはGuntputが窓の外を見つめ、光景を眺めているのを見つけます。彼は現代の技術を避けているかもしれませんが、宇宙の美しさは誰にも否定できません。</text>
@@ -33582,10 +33580,10 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 	<text>照明スイッチがどのように機能するかをGuntputに説明するのに少し時間がかかり、宇宙船に乗って松明とランタンを使用することがなぜ良い考えではないのかを説明するためにさらに40分かかります。</text>
 	<text>Guntputはあなたを脇に置き、マップ上のエリアを指して、そこに行かないように指示します。理由はわかりませんが、彼が喜んでそれについてあなたに話すのは、「骨をむしゃむしゃ食べたくないのなら行かないでください。彼は待って、潜んでいます」ということだけです。</text>
 	<text>あなたは彼のマスクをつけずに彼の部屋でリラックスしているガントプットを捕まえます。彼の平らなサイクロピアントカゲが野外で顔を出しているのを見るのは奇妙です。彼は首を回転させて目をあなたに向けます。これはあなたがすぐに去るのをとても不安にさせる動きです。</text>
-	<text>残りの乗組員は、ガントプットが長いポールで頭を殴り、部族のナンセンスを言っていることについてあなたに不平を言っています。あなたはそれについて彼に立ち向かおうとします、しかし彼が繰り返しあなたを頭にぶつけているのであなたはほとんど言葉を出すことができません。</text>
+	<text>残りのクルーは、ガントプットが長いポールで頭を殴り、部族のナンセンスを言っていることについてあなたに不平を言っています。あなたはそれについて彼に立ち向かおうとします、しかし彼が繰り返しあなたを頭にぶつけているのであなたはほとんど言葉を出すことができません。</text>
 	<text>あなたはガントプットを探し回っていますが、どこにも彼を見つけることができません。防犯カメラをチェックするためにホロパッドを引き抜くと、Guntputが突然充電を開始し、タブレットを奪い、「タブレットが悪い！いいえ、いいえ！」と叫びます。</text>
 	<text>あなたはガントプットの実際の年齢について尋ねようとしますが、彼は率直な答えを与えることができないようです。彼は「もっとよく知るのに十分な年齢だ」とあなたに言うだけで満足しているようです。</text>
-	<text>部屋の反対側に立ってあなたを見つめているガントプットを除いて、あなたは現在ほとんどの乗組員がリラックスしているラウンジに足を踏み入れます。トカゲが瞬きできないことは知っていますが、彼はあなたの魂を直接見つめているようです。彼が突然離陸する前に、これはさらに数分間続き、通気孔に急いで逃げます。</text>
+	<text>部屋の反対側に立ってあなたを見つめているガントプットを除いて、あなたは現在ほとんどのクルーがリラックスしているラウンジに足を踏み入れます。トカゲが瞬きできないことは知っていますが、彼はあなたの魂を直接見つめているようです。彼が突然離陸する前に、これはさらに数分間続き、通気孔に急いで逃げます。</text>
 </textList>
 
 
@@ -33607,8 +33605,8 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 サブタイプの詳細：一意
 ステータス：体力135、戦闘後7秒で3hp/sで再生します。システムスキルを30％遅く学習しますが、戦闘/修理スキルを30％速く学習します。
 継承された統計：戦闘ダメージx1.2、移動速度x0.9
-オーラ：自分自身と近くのすべての味方の乗組員に25％の耐火性を与えます。
-能力（20秒のクールダウン、25秒の持続時間）：部屋にいるすべての友好的な乗組員に2倍の修理と妨害速度を提供しますが、彼らの最大体力を25％低下させます。</text>
+オーラ：自分自身と近くのすべての味方のクルーに25％の耐火性を与えます。
+能力（20秒のクールダウン、25秒の持続時間）：部屋にいるすべての友好的なクルーに2倍の修理と妨害速度を提供しますが、彼らの最大体力を25％低下させます。</text>
 	<choice>
 		<text>継続する...</text>
 		<event load="STORAGE_CHECK" />
@@ -33624,14 +33622,14 @@ Metyuntは彼の民の裏切り者であり、臆病者です。ヘクタール�
 <textList name="TEXT_CREW_TALK_METYUNT">
 	<text>Metyuntの部屋は使用済みのスポイトでいっぱいです。彼はあなたが空のボトルをすべて見ているのを見つけますが、「私の舌はもはや私の目を濡らすのに十分なほど保湿されていないので、目薬を使用する必要があります。私は盲目になりません。今、私の部屋から地獄を出してください。 。」</text>
 	<text>Metyuntが船の周りを追いかけているときに、彼のクリップボードに走り書きしているのを見つけます。時々、彼はあなたを止めて、褒め言葉を与えたり、「不適切なステップ」を修正したりします。</text>
-	<text>Metyuntがあなたの代わりに残りの乗組員に指示を与えていることに気づきます。あなたは彼に忠告しようとしますが、彼は生産性の向上に関するいくつかのランダムな統計を吐き出し、あなたが他に何も言うことができない前に急いで逃げます。</text>
-	<text>Metyuntは、両手を胸に近づけて、あなたの宿舎にそっと這い回ります。 「キャプテン、私は...レイズを交渉してもいいですか？」あなたはあなたの乗組員が任務を終えるまで給料が支払われないことを説明しようとします。それは彼が「彼が快適なもの」であるために彼を賃金システムに切り替えるようにあなたを説得しようとすることにつながります。</text>
+	<text>Metyuntがあなたの代わりに残りのクルーに指示を与えていることに気づきます。あなたは彼に忠告しようとしますが、彼は生産性の向上に関するいくつかのランダムな統計を吐き出し、あなたが他に何も言うことができない前に急いで逃げます。</text>
+	<text>Metyuntは、両手を胸に近づけて、あなたの宿舎にそっと這い回ります。 「キャプテン、私は...レイズを交渉してもいいですか？」あなたはあなたのクルーが任務を終えるまで給料が支払われないことを説明しようとします。それは彼が「彼が快適なもの」であるために彼を賃金システムに切り替えるようにあなたを説得しようとすることにつながります。</text>
 	<text>あなたはメティウントを探しに行きますが、彼が船の周りの2本の後ろ足で、平らな顔が天井を上に向けて歩いているのを見つけたらジャンプします。彼はあなたが彼を見ていることに気づいたとき、四つん這いに戻って飛び降ります。</text>
 	<text>あなたは彼の宿舎でメティウントをチェックしますが、彼は周りにいません。好奇心から、あなたは彼の貴重なクリップボードを見てみますが、落書きと異星人の性器の絵しか見えません。また、髪のスタイリング方法についての非常に厄介なコメントもあります。</text>
 	<text>Metyuntの部屋から大きなドキドキする音が聞こえます。あなたはドアを開けると、大音量のナメクジのポップミュージックで爆破されます。驚いたことに、Metyuntはタブレットに手を伸ばし、音楽をクラシックに切り替えてから、ドアを閉めました。</text>
 	<text>あなたは地上遠征中に船に乗った厄介な昆虫についてメティウントに不平を言います。彼はあなたを奇妙に見て、彼がそれを世話することができるかどうかぎこちなく尋ねるようにあなたに促します。 「あなたは……虫を食べて欲しいですか？気づいたかどうかはわかりませんが、私は兄弟のような単純な原始人ではありません。普通の食べ物を食べます。虫よけスプレーを使ってください。」</text>
 	<text>Metyuntが船の壁の1つを見つめ、動かないのを見つけます。あなたは彼が死んでいるかもしれないと恐れます、しかし彼はただ彼を煩わせないようにあなたに言います。彼はペンキの乾燥を想像しています。それは魅惑的な娯楽です。</text>
-	<text>Metyuntは、船の他の要素への支出を支援するために、他の乗組員の賃金を削減するようアドバイスしています。あなたは、任務が再び終わるまで誰も報酬を受け取らないことを彼に思い出させることを検討しますが、それに反対することを決定します。</text>
+	<text>Metyuntは、船の他の要素への支出を支援するために、他のクルーの賃金を削減するようアドバイスしています。あなたは、任務が再び終わるまで誰も報酬を受け取らないことを彼に思い出させることを検討しますが、それに反対することを決定します。</text>
 </textList>
 
 
@@ -33977,7 +33975,7 @@ x2.2移動速度-&gt;x1.6移動速度
 
 
 <event name="STORAGE_CHECK_CREW_REPAIR_HULL_1_GENERIC">
-	<text>乗組員には非常に長い時間がかかり、非常に非効率的です。ただし、修理を行っても、修理を行わないよりはましです。</text>
+	<text>クルーには非常に長い時間がかかり、非常に非効率的です。ただし、修理を行っても、修理を行わないよりはましです。</text>
 	<damage amount="-3" />
 	<modifyPursuit amount="2" />
 	<item_modify>
@@ -33985,7 +33983,7 @@ x2.2移動速度-&gt;x1.6移動速度
 	</item_modify>
 </event>
 <event name="STORAGE_CHECK_CREW_REPAIR_HULL_2_GENERIC">
-	<text>乗組員には長い時間がかかり、非常に非効率的です。ただし、修理を行っても、修理を行わないよりはましです。</text>
+	<text>クルーには長い時間がかかり、非常に非効率的です。ただし、修理を行っても、修理を行わないよりはましです。</text>
 	<damage amount="-3" />
 	<modifyPursuit amount="1" />
 	<item_modify>
@@ -33993,7 +33991,7 @@ x2.2移動速度-&gt;x1.6移動速度
 	</item_modify>
 </event>
 <event name="STORAGE_CHECK_CREW_REPAIR_HULL_4_GENERIC">
-	<text>乗組員には長い時間がかかります。ただし、修理を行っても、修理を行わないよりはましです。</text>
+	<text>クルーには長い時間がかかります。ただし、修理を行っても、修理を行わないよりはましです。</text>
 	<damage amount="-7" />
 	<modifyPursuit amount="1" />
 	<item_modify>
@@ -34001,7 +33999,7 @@ x2.2移動速度-&gt;x1.6移動速度
 	</item_modify>
 </event>
 <event name="STORAGE_CHECK_CREW_REPAIR_HULL_6_GENERIC">
-	<text>乗組員には長い時間がかかります。ただし、修理を行っても、修理を行わないよりはましです。</text>
+	<text>クルーには長い時間がかかります。ただし、修理を行っても、修理を行わないよりはましです。</text>
 	<damage amount="-12" />
 	<modifyPursuit amount="1" />
 	<item_modify>
@@ -34009,7 +34007,7 @@ x2.2移動速度-&gt;x1.6移動速度
 	</item_modify>
 </event>
 <event name="STORAGE_CHECK_CREW_REPAIR_HULL_8_GENERIC">
-	<text>あなたの大規模な乗組員は、船体をすばやく修理することができます。ただし、修理を行っても、修理を行わないよりはましです。</text>
+	<text>あなたの大規模なクルーは、船体をすばやく修理することができます。ただし、修理を行っても、修理を行わないよりはましです。</text>
 	<damage amount="-15" />
 	<item_modify>
 		<item type="scrap" min="-20" max="-20" />
@@ -34018,7 +34016,7 @@ x2.2移動速度-&gt;x1.6移動速度
 
 
 <event name="STORAGE_CHECK_CREW_REPAIR_HULL_1_GOOD">
-	<text>乗組員には非常に長い時間がかかり、非常に非効率的です。ただし、修理を行っても、修理を行わないよりはましです。</text>
+	<text>クルーには非常に長い時間がかかり、非常に非効率的です。ただし、修理を行っても、修理を行わないよりはましです。</text>
 	<damage amount="-3" />
 	<modifyPursuit amount="2" />
 	<item_modify>
@@ -34026,7 +34024,7 @@ x2.2移動速度-&gt;x1.6移動速度
 	</item_modify>
 </event>
 <event name="STORAGE_CHECK_CREW_REPAIR_HULL_2_GOOD">
-	<text>乗組員には長い時間がかかり、非常に非効率的です。ただし、修理を行っても、修理を行わないよりはましです。</text>
+	<text>クルーには長い時間がかかり、非常に非効率的です。ただし、修理を行っても、修理を行わないよりはましです。</text>
 	<damage amount="-3" />
 	<modifyPursuit amount="1" />
 	<item_modify>
@@ -34034,7 +34032,7 @@ x2.2移動速度-&gt;x1.6移動速度
 	</item_modify>
 </event>
 <event name="STORAGE_CHECK_CREW_REPAIR_HULL_4_GOOD">
-	<text>乗組員には長い時間がかかります。ただし、修理を行っても、修理を行わないよりはましです。</text>
+	<text>クルーには長い時間がかかります。ただし、修理を行っても、修理を行わないよりはましです。</text>
 	<damage amount="-7" />
 	<modifyPursuit amount="1" />
 	<item_modify>
@@ -34042,7 +34040,7 @@ x2.2移動速度-&gt;x1.6移動速度
 	</item_modify>
 </event>
 <event name="STORAGE_CHECK_CREW_REPAIR_HULL_6_GOOD">
-	<text>乗組員には長い時間がかかります。ただし、修理を行っても、修理を行わないよりはましです。</text>
+	<text>クルーには長い時間がかかります。ただし、修理を行っても、修理を行わないよりはましです。</text>
 	<damage amount="-12" />
 	<modifyPursuit amount="1" />
 	<item_modify>
@@ -34050,7 +34048,7 @@ x2.2移動速度-&gt;x1.6移動速度
 	</item_modify>
 </event>
 <event name="STORAGE_CHECK_CREW_REPAIR_HULL_8_GOOD">
-	<text>あなたの大規模な乗組員は、船体をすばやく修理することができます。ただし、修理を行っても、修理を行わないよりはましです。</text>
+	<text>あなたの大規模なクルーは、船体をすばやく修理することができます。ただし、修理を行っても、修理を行わないよりはましです。</text>
 	<damage amount="-15" />
 	<item_modify>
 		<item type="scrap" min="-15" max="-15" />
@@ -34059,7 +34057,7 @@ x2.2移動速度-&gt;x1.6移動速度
 
 
 <event name="STORAGE_CHECK_CREW_REPAIR_HULL_1_BAD">
-	<text>乗組員には非常に長い時間がかかり、非常に非効率的です。ただし、修理を行っても、修理を行わないよりはましです。</text>
+	<text>クルーには非常に長い時間がかかり、非常に非効率的です。ただし、修理を行っても、修理を行わないよりはましです。</text>
 	<damage amount="-2" />
 	<modifyPursuit amount="2" />
 	<item_modify>
@@ -34067,7 +34065,7 @@ x2.2移動速度-&gt;x1.6移動速度
 	</item_modify>
 </event>
 <event name="STORAGE_CHECK_CREW_REPAIR_HULL_2_BAD">
-	<text>乗組員には長い時間がかかり、非常に非効率的です。ただし、修理を行っても、修理を行わないよりはましです。</text>
+	<text>クルーには長い時間がかかり、非常に非効率的です。ただし、修理を行っても、修理を行わないよりはましです。</text>
 	<damage amount="-2" />
 	<modifyPursuit amount="1" />
 	<item_modify>
@@ -34075,7 +34073,7 @@ x2.2移動速度-&gt;x1.6移動速度
 	</item_modify>
 </event>
 <event name="STORAGE_CHECK_CREW_REPAIR_HULL_4_BAD">
-	<text>乗組員には長い時間がかかります。ただし、修理を行っても、修理を行わないよりはましです。</text>
+	<text>クルーには長い時間がかかります。ただし、修理を行っても、修理を行わないよりはましです。</text>
 	<damage amount="-5" />
 	<modifyPursuit amount="1" />
 	<item_modify>
@@ -34083,7 +34081,7 @@ x2.2移動速度-&gt;x1.6移動速度
 	</item_modify>
 </event>
 <event name="STORAGE_CHECK_CREW_REPAIR_HULL_6_BAD">
-	<text>乗組員には長い時間がかかります。ただし、修理を行っても、修理を行わないよりはましです。</text>
+	<text>クルーには長い時間がかかります。ただし、修理を行っても、修理を行わないよりはましです。</text>
 	<damage amount="-8" />
 	<modifyPursuit amount="1" />
 	<item_modify>
@@ -34091,7 +34089,7 @@ x2.2移動速度-&gt;x1.6移動速度
 	</item_modify>
 </event>
 <event name="STORAGE_CHECK_CREW_REPAIR_HULL_8_BAD">
-	<text>あなたの大規模な乗組員は、船体をすばやく修理することができます。ただし、修理を行っても、修理を行わないよりはましです。</text>
+	<text>あなたの大規模なクルーは、船体をすばやく修理することができます。ただし、修理を行っても、修理を行わないよりはましです。</text>
 	<damage amount="-12" />
 	<item_modify>
 		<item type="scrap" min="-20" max="-20" />
@@ -34099,35 +34097,35 @@ x2.2移動速度-&gt;x1.6移動速度
 </event>
 
 <event name="STORAGE_CHECK_CREW_MAP_2_GENERIC">
-	<text>それはあなたの乗組員にとって困難な仕事ですが、多くの掘り下げの後、彼らはセクターに関する多くの情報を見つけて包括的な地図を編集することができます。</text>
+	<text>それはあなたのクルーにとって困難な仕事ですが、多くの掘り下げの後、彼らはセクターに関する多くの情報を見つけて包括的な地図を編集することができます。</text>
 	<modifyPursuit amount="2" />
 	<reveal_map />
 </event>
 <event name="STORAGE_CHECK_CREW_MAP_4_GENERIC">
-	<text>それはあなたの乗組員にとって困難な仕事ですが、多くの掘り下げの後、彼らはセクターに関する多くの情報を見つけて包括的な地図を編集することができます。</text>
+	<text>それはあなたのクルーにとって困難な仕事ですが、多くの掘り下げの後、彼らはセクターに関する多くの情報を見つけて包括的な地図を編集することができます。</text>
 	<modifyPursuit amount="1" />
 	<reveal_map />
 </event>
 <event name="STORAGE_CHECK_CREW_MAP_8_GENERIC">
-	<text>あなたの大勢の乗組員は、セクターに関する情報を簡単に見つけることができます。多くの掘り下げの後、彼らはセクターに関する多くの情報を見つけて、包括的な地図を編集することができます。</text>
+	<text>あなたの大勢のクルーは、セクターに関する情報を簡単に見つけることができます。多くの掘り下げの後、彼らはセクターに関する多くの情報を見つけて、包括的な地図を編集することができます。</text>
 	<reveal_map />
 </event>
 
 
 <event name="STORAGE_CHECK_CREW_SCRAP_1_GENERIC">
-	<text>あなたの乗組員は貨物室のがらくたを掘り下げます。それらはそれほど長くはかかりませんが、再利用できるいくつかの部品を回収します。</text>
+	<text>あなたのクルーは貨物室のがらくたを掘り下げます。それらはそれほど長くはかかりませんが、再利用できるいくつかの部品を回収します。</text>
 	<item_modify>
 		<item type="scrap" min="0" max="3" />
 	</item_modify>
 </event>
 <event name="STORAGE_CHECK_CREW_SCRAP_2_GENERIC">
-	<text>あなたの乗組員は貨物室のがらくたを掘り下げます。それらはそれほど長くはかかりませんが、再利用できるいくつかの部品を回収します。</text>
+	<text>あなたのクルーは貨物室のがらくたを掘り下げます。それらはそれほど長くはかかりませんが、再利用できるいくつかの部品を回収します。</text>
 	<item_modify>
 		<item type="scrap" min="0" max="5" />
 	</item_modify>
 </event>
 <event name="STORAGE_CHECK_CREW_SCRAP_4_GENERIC">
-	<text>あなたの乗組員は貨物室のがらくたを掘り下げます。それらはそれほど長くはかかりませんが、再利用できるいくつかの部品を回収します。</text>
+	<text>あなたのクルーは貨物室のがらくたを掘り下げます。それらはそれほど長くはかかりませんが、再利用できるいくつかの部品を回収します。</text>
 	<item_modify>
 		<item type="scrap" min="2" max="9" />
 		<item type="fuel" min="0" max="1" />
@@ -34136,7 +34134,7 @@ x2.2移動速度-&gt;x1.6移動速度
 	</item_modify>
 </event>
 <event name="STORAGE_CHECK_CREW_SCRAP_6_GENERIC">
-	<text>あなたの乗組員は貨物室のがらくたを掘り下げます。それらはそれほど長くはかかりませんが、再利用できるいくつかの部品を回収します。</text>
+	<text>あなたのクルーは貨物室のがらくたを掘り下げます。それらはそれほど長くはかかりませんが、再利用できるいくつかの部品を回収します。</text>
 	<item_modify>
 		<item type="scrap" min="4" max="12" />
 		<item type="fuel" min="0" max="1" />
@@ -34145,7 +34143,7 @@ x2.2移動速度-&gt;x1.6移動速度
 	</item_modify>
 </event>
 <event name="STORAGE_CHECK_CREW_SCRAP_8_GENERIC">
-	<text>あなたの乗組員は貨物室のがらくたを掘り下げます。それらはそれほど長くはかかりませんが、再利用できるいくつかの部品を回収します。</text>
+	<text>あなたのクルーは貨物室のがらくたを掘り下げます。それらはそれほど長くはかかりませんが、再利用できるいくつかの部品を回収します。</text>
 	<item_modify>
 		<item type="scrap" min="5" max="16" />
 		<item type="fuel" min="0" max="2" />
@@ -34156,21 +34154,21 @@ x2.2移動速度-&gt;x1.6移動速度
 
 
 <event name="STORAGE_CHECK_CREW_SCRAP_1_GOOD">
-	<text>あなたの乗組員は貨物室のがらくたを掘り下げます。それらはそれほど長くはかかりませんが、再利用できるいくつかの部品を回収します。</text>
+	<text>あなたのクルーは貨物室のがらくたを掘り下げます。それらはそれほど長くはかかりませんが、再利用できるいくつかの部品を回収します。</text>
 	<item_modify>
 		<item type="scrap" min="0" max="4" />
 		<item type="fuel" min="0" max="1" />
 	</item_modify>
 </event>
 <event name="STORAGE_CHECK_CREW_SCRAP_2_GOOD">
-	<text>あなたの乗組員は貨物室のがらくたを掘り下げます。それらはそれほど長くはかかりませんが、再利用できるいくつかの部品を回収します。</text>
+	<text>あなたのクルーは貨物室のがらくたを掘り下げます。それらはそれほど長くはかかりませんが、再利用できるいくつかの部品を回収します。</text>
 	<item_modify>
 		<item type="scrap" min="0" max="6" />
 		<item type="fuel" min="0" max="1" />
 	</item_modify>
 </event>
 <event name="STORAGE_CHECK_CREW_SCRAP_4_GOOD">
-	<text>あなたの乗組員は貨物室のがらくたを掘り下げます。それらはそれほど長くはかかりませんが、再利用できるいくつかの部品を回収します。</text>
+	<text>あなたのクルーは貨物室のがらくたを掘り下げます。それらはそれほど長くはかかりませんが、再利用できるいくつかの部品を回収します。</text>
 	<item_modify>
 		<item type="scrap" min="2" max="10" />
 		<item type="fuel" min="0" max="1" />
@@ -34179,7 +34177,7 @@ x2.2移動速度-&gt;x1.6移動速度
 	</item_modify>
 </event>
 <event name="STORAGE_CHECK_CREW_SCRAP_6_GOOD">
-	<text>あなたの乗組員は貨物室のがらくたを掘り下げます。それらはそれほど長くはかかりませんが、再利用できるいくつかの部品を回収します。</text>
+	<text>あなたのクルーは貨物室のがらくたを掘り下げます。それらはそれほど長くはかかりませんが、再利用できるいくつかの部品を回収します。</text>
 	<item_modify>
 		<item type="scrap" min="4" max="13" />
 		<item type="fuel" min="0" max="2" />
@@ -34188,7 +34186,7 @@ x2.2移動速度-&gt;x1.6移動速度
 	</item_modify>
 </event>
 <event name="STORAGE_CHECK_CREW_SCRAP_8_GOOD">
-	<text>あなたの乗組員は貨物室のがらくたを掘り下げます。それらはそれほど長くはかかりませんが、再利用できるいくつかの部品を回収します。</text>
+	<text>あなたのクルーは貨物室のがらくたを掘り下げます。それらはそれほど長くはかかりませんが、再利用できるいくつかの部品を回収します。</text>
 	<item_modify>
 		<item type="scrap" min="5" max="18" />
 		<item type="fuel" min="0" max="2" />

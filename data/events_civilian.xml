@@ -91,7 +91,7 @@
 			<choice hidden="true">
 				<text>それを売るには？</text>
 				<event>
-					<text>「しかし、誰に？たくさんのカスパロフが作られました。この特定のモデルは、私のような熱心な歴史家や船の愛好家以外には興味がありません。問題はありません。私の要求。それらの泥棒を追い詰めて、カスパロフを確保してください。私はしていません。」特定の報酬を念頭に置いてください、しかし私たちは何かを解決できると確信しています。あなたの価格に名前を付だ?てください。」</text>
+					<text>「しかし、誰に対して？　カスパロフはたくさん作られた。この特別なモデルは、私のような熱心な歴史家や船舶マニア以外には興味がないだろう。そんなことより 私の要求は、その泥棒を追い詰めてカスパロフを確保することです。報酬は特に考えていないが、何か解決できると思う。値段を言いなさい」</text>
 					<choice hidden="true">
 						<text>その古いチョウゲンボウはどうですか？</text>
 						<event>
@@ -159,8 +159,8 @@
 <event name="KESTREL_UNLOCK_PIRATE">
 	<beaconType id="map_icon_thieves" global="true">
 		<color r="167" g="167" b="150" a="1" />
-		<unvisitedTooltip>Location of the thieves.</unvisitedTooltip>
-		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<unvisitedTooltip>泥棒の場所。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
 	
@@ -261,8 +261,8 @@
 <event name="KESTREL_UNLOCK_RINGSHIP">
 	<beaconType id="map_icon_ring" global="true">
 		<color r="167" g="167" b="150" a="1" />
-		<unvisitedTooltip>The location of the stolen 'Kasparov'.</unvisitedTooltip>
-		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<unvisitedTooltip>盗まれた「カスパロフ」の場所。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
 	<preventFleet />
@@ -419,7 +419,7 @@
 	<choice hidden="true">
 		<text>地獄はこれですか？これらのけちなろくでなしを殺しましょう。</text>
 		<event>
-			<text>これらの価格は事実上盗難です。あなたは駅を攻撃します。</text>
+			<text>これらの価格は事実上盗難です。あなたはステーションを攻撃します。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
 				<text>継続する...</text>
@@ -488,7 +488,7 @@
 </event>
 
 <event name="COREWORLDS_FREE_CREW" unique="true">
-	<text>巨大な船体の破損によってひどく損傷した民間のシャトルが、必死にあなたを歓迎します。彼らは、海賊からかろうじて逃げることができたと説明しています。彼らは乗組員を別の船に移す必要があります。</text>
+	<text>巨大な船体の破損によってひどく損傷した民間のシャトルが、必死にあなたを歓迎します。彼らは、海賊からかろうじて逃げることができたと説明しています。彼らはクルーを別の船に移す必要があります。</text>
 	<ship load="SHIP_CIVILIAN_SHUTTLE_DAMAGED" hostile="false" />
 	<status type="limit" target="enemy" system="teleporter" amount="0" />
 	<choice hidden="true">
@@ -528,7 +528,7 @@
 		<autoReward level="LOW">standard</autoReward>
 	</event>
 	<event>
-		<text>民間人はあなたの助けにとても感謝しています。ほとんどの人が最寄りの駅に降車することに同意しますが、そのうちの1人は何らかの変化を待ち望んでいます。彼らはあなたの乗組員に加わることを申し出ます。</text>
+		<text>民間人はあなたの助けにとても感謝しています。ほとんどの人が最寄りのステーションに降車することに同意しますが、そのうちの1人は何らかの変化を待ち望んでいます。彼らはあなたのクルーに加わることを申し出ます。</text>
 		<crewMember amount="1" />
 	</event>
 	<event>
@@ -545,16 +545,16 @@
 </eventList>
 <eventList name="COREWORLDS_FREE_CREW_BOARD_CALLOUT">
 	<event>
-		<text>あなたは武器を指摘し、ブラスターが同じことをする前に素早くブラスターを引きます。民間人はパニックに陥り、彼らはローブの中の人が彼らのボディーガードであると説明しようとします。あなたは謝罪しますが、あなたの発疹の行動は彼らの損害を与えました。民間人はしぶしぶ貨物室に入り、近くの駅に降ろすまで乗組員と話すことを拒否します。近くの駅で彼らは簡単だ?感謝し、できるだけ早く出発します。</text>
+		<text>あなたは武器を指摘し、ブラスターが同じことをする前に素早くブラスターを引きます。民間人はパニックに陥り、彼らはローブの中の人が彼らのボディーガードであると説明しようとします。あなたは謝罪しますが、あなたの発疹の行動は彼らの損害を与えました。民間人はしぶしぶ貨物室に入り、近くのステーションに降ろすまでクルーと話すことを拒否します。近くのステーションで彼らは簡単だ?感謝し、できるだけ早く出発します。</text>
 	</event>
 	<event>
-		<text>あなたはレーザーを引き、ローブを着た「民間人」を見下ろします。残りの民間人とあなたの乗組員は同じことをします、そして今あなたはかなり不安定な状況にいることに気づきます。 「じゃあ、船長、これが策略だったと思ってくれて拍手喝采しなければならない。スクラップをくれ。さもないと、みんなが消えてしまう-」あなたは頭を撃ち落として彼を切り落とした。 。淠?沌が続き、あなたは他の海賊から船を守る準備をします。</text>
+		<text>あなたはレーザーを引き、ローブを着た「民間人」を見下ろします。残りの民間人とあなたのクルーは同じことをします、そして今あなたはかなり不安定な状況にいることに気づきます。 「じゃあ、船長、これが策略だったと思ってくれて拍手喝采しなければならない。スクラップをくれ。さもないと、みんなが消えてしまう-」あなたは頭を撃ち落として彼を切り落とした。 。淠?沌が続き、あなたは他の海賊から船を守る準備をします。</text>
 		<boarders min="2" max="4" class="random" />
 	</event>
 </eventList>
 <eventList name="COREWORLDS_FREE_CREW_BOARD_IGNORE">
 	<event>
-		<text>幸いなことに、何も起こらないようです。あなたは最寄りの駅に民間人を降ろし、そこで彼らはあなたに感謝し、支払います。</text>
+		<text>幸いなことに、何も起こらないようです。あなたは最寄りのステーションに民間人を降ろし、そこで彼らはあなたに感謝し、支払います。</text>
 		<autoReward level="HIGH">standard</autoReward>
 	</event>
 	<event>
@@ -573,7 +573,7 @@
 		<autoReward level="LOW">standard</autoReward>
 	</event>
 	<event>
-		<text>民間人はあなたの助けにとても感謝しています。ほとんどの人が最寄りの駅に降車することに同意しますが、そのうちの1人は何らかの変化を待ち望んでいます。彼らはあなたの乗組員に加わることを申し出ます。</text>
+		<text>民間人はあなたの助けにとても感謝しています。ほとんどの人が最寄りのステーションに降車することに同意しますが、そのうちの1人は何らかの変化を待ち望んでいます。彼らはあなたのクルーに加わることを申し出ます。</text>
 		<crewMember amount="1" />
 	</event>
 	<event>
@@ -764,7 +764,7 @@
 <textList name="TEXT_ENCOUNTER_MILITIA_COREWORLDS">
 	<text>民間船の残骸が近くに漂っていますが、その一部を救助することを考える前に、民兵船はあなたを攻撃者と間違え、民間人に復讐する準備をしています。</text>
 	<text>あなたはこのビーコンで民兵の船との身元確認についていくつかの問題に巻き込まれ、物事が紛争のポイントに熱くなってから間もなくです！</text>
-	<text>このビーコンにいる軍人は、あなたの乗組員の1人を重い恵みを持った悪名高い海賊と間違えているようです。乗組員を引き渡すのではなく、戦う準備をします。</text>
+	<text>このビーコンにいる軍人は、あなたのクルーの1人を重い恵みを持った悪名高い海賊と間違えているようです。クルーを引き渡すのではなく、戦う準備をします。</text>
 	<text>あなたは民間人との戦いに参加しないように努めますが、時には民間人があなたとの戦いに参加します。どういうわけかあなたはここで民兵の船を怒らせました、そしてそれはすでに攻撃に動いています。</text>
 </textList>
 
@@ -891,7 +891,7 @@
 	<autoReward level="LOW">standard</autoReward>
 </event>
 <event name="COREWORLDS_MINING_OPS_KILL">
-	<text>鉱山船の乗組員が死んでいると、船内に燃料の大きな店があります。</text>
+	<text>鉱山船のクルーが死んでいると、船内に燃料の大きな店があります。</text>
 	<autoReward level="HIGH">fuel</autoReward>
 </event>
 
@@ -1000,7 +1000,7 @@
 	</choice>
 </event>
 <event name="COREWORLDS_SUZERAIN_CARAVAN_GIFT">
-	<text>護衛艦はあなたが最初に気付いたよりもはるかに多くのダメージを受けました。彼らの生命維持は戦いの間に失敗し、彼らの乗組員は窒息死した。幸いなことに、輸送機関はまだ生きています、そして彼らはあなたに感謝として彼らの貨物のいくらかを与えます。</text>
+	<text>護衛艦はあなたが最初に気付いたよりもはるかに多くのダメージを受けました。彼らの生命維持は戦いの間に失敗し、彼らのクルーは窒息死した。幸いなことに、輸送機関はまだ生きています、そして彼らはあなたに感謝として彼らの貨物のいくらかを与えます。</text>
 	<autoReward level="HIGH">item</autoReward>
 </event>
 
@@ -1009,7 +1009,7 @@
 	<preventQuest />
 	<beaconType id="map_icon_earth" global="false">
 		<color r="105" g="157" b="76" a="1.0" />
-		<unvisitedTooltip>This is Earth, the Homeworld of the Human race.</unvisitedTooltip>
+		<unvisitedTooltip>これが人類の故郷、地球です。</unvisitedTooltip>
 	</beaconType>
 	<text>あなたはあまりにもなじみのある惑星を発見しました。それはAntiquumTerraeであり、人類の故郷であり起源であるOldEarthと呼ばれることがよくあります。地球の大部分は洪水に見舞われましたが、いくつかの大規模で人口密度の高い都市が残っています。</text>
 	<img back="BACKGROUND_EARTH" planet="PLANET_INVISIBLE" />
@@ -1099,7 +1099,7 @@
 	</quest>
 	<beaconType id="map_icon_barrel" global="true">
 		<color r="255" g="255" b="255" a="1.0" />
-		<unvisitedTooltip>This is the location of the Gatling Barrel.</unvisitedTooltip>
+		<unvisitedTooltip>これはガトリングバレルの場所です。</unvisitedTooltip>
 	</beaconType>
 	<text>あなたは小さな月の忙しいマンティスのウォーキャンプに到着しました。数隻の船が水面に横たわっていましたが、最大のものは宗主国であり、ガトリングバレルが保持されている場所は間違いありません。</text>
 	<img planet="PLANET_MOONS" />
@@ -1114,7 +1114,7 @@
 					<choice hidden="true">
 						<text>それなら私たちはそれを取る必要があります！</text>
 						<event>
-							<text>マンティスは叫び声を上げて通話を終了し、スゼライン船が生き返ります。それはあなたに会うために上昇します。あなたが推測しなければならなかった場合、「とげのある棒」はその船に保持されており、それを手に入れるには乗組員を空にする必要があります。</text>
+							<text>マンティスは叫び声を上げて通話を終了し、スゼライン船が生き返ります。それはあなたに会うために上昇します。あなたが推測しなければならなかった場合、「とげのある棒」はその船に保持されており、それを手に入れるにはクルーを空にする必要があります。</text>
 							<ship load="SHIP_MANTIS_BARREL" hostile="true" />
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -1125,13 +1125,13 @@
 				</event>
 			</choice>
 			<choice hidden="true" req="LIST_CREW_MANTIS">
-				<text>（マンティスの乗組員）バレルのために交渉します。</text>
+				<text>（マンティスのクルー）バレルのために交渉します。</text>
 				<event>
 					<text>「いや！いや！いや！誰だか気にしない！シュー！ここでは歓迎されない」マンティスの罵倒にもかかわらず、残っている唯一の選択肢は彼からそれを取ることです。</text>
 					<choice hidden="true">
 						<text>攻撃！</text>
 						<event>
-							<text>マンティスは叫び声を上げて通話を終了し、スゼライン船が生き返ります。それはあなたに会うために上昇します。あなたが推測しなければならなかった場合、「とげのある棒」はその船に保持されており、それを手に入れるには乗組員を空にする必要があります。</text>
+							<text>マンティスは叫び声を上げて通話を終了し、スゼライン船が生き返ります。それはあなたに会うために上昇します。あなたが推測しなければならなかった場合、「とげのある棒」はその船に保持されており、それを手に入れるにはクルーを空にする必要があります。</text>
 							<ship load="SHIP_MANTIS_BARREL" hostile="true" />
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -1168,7 +1168,7 @@
 	</quest>
 	<beaconType id="map_icon_body" global="true">
 		<color r="255" g="255" b="255" a="1.0" />
-		<unvisitedTooltip>This is the location of the Gatling Base.</unvisitedTooltip>
+		<unvisitedTooltip>これはガトリングベースの場所です。</unvisitedTooltip>
 	</beaconType>
 	<text>このビーコンの墓地はあなたが期待したものではありません。不気味なフィールドや暗くて嵐の沼地の惑星ではなく、倒れた兵士の墓で飾られた素敵な平らな草のパッチのように見えます。あなたが本当にこれらの人々を奪って墓に行きたいかどうかはわかりません。</text>
 	<choice hidden="true">
@@ -1189,7 +1189,7 @@
 			<choice hidden="true">
 				<text>ジャクソンニューマンを掘り起こす。</text>
 				<event>
-					<text>あなたは自分が正しかったことを見つけるために掘り始めます！墓の中にはガトリングベースがあります！乗組員に船に運んでもらいます。</text>
+					<text>あなたは自分が正しかったことを見つけるために掘り始めます！墓の中にはガトリングベースがあります！クルーに船に運んでもらいます。</text>
 					<weapon name="PART_GATLING_BASE" />
 					<choice hidden="true">
 						<text>継続する...</text>
@@ -1258,7 +1258,7 @@
 	</quest>
 	<beaconType id="map_icon_augment" global="true">
 		<color r="255" g="255" b="255" a="1.0" />
-		<unvisitedTooltip>This is the location of the Pre-Igniter tech.</unvisitedTooltip>
+		<unvisitedTooltip>これは、Pre-Igniter技術の場所です。</unvisitedTooltip>
 	</beaconType>
 	<text>あなたはビーコンを周回している装甲密輸局を見つけ、数隻の小さな船に懇願します。ビーコンを保護している民兵の群れにもかかわらず、彼らがここで活動できるのは驚くべきことですが、これはあなたが探している場所です。</text>
 	<ship load="SHIP_SMUGGLER_PREIGNITE" hostile="false" />
@@ -1290,7 +1290,7 @@
 			<choice hidden="true">
 				<text>力を入れてください！</text>
 				<event>
-					<text>あなたはこれらの密輸業者に何も支払うつもりはありません！あなたは武器を上げて攻撃します。駅に近づくと、買い物をしている他の数隻の船が散らばっています。</text>
+					<text>あなたはこれらの密輸業者に何も支払うつもりはありません！あなたは武器を上げて攻撃します。ステーションに近づくと、買い物をしている他の数隻の船が散らばっています。</text>
 					<ship hostile="true" />
 					<choice hidden="true">
 						<text>継続する...</text>
@@ -1301,7 +1301,7 @@
 			<choice>
 				<text>とにかく行きましょう。</text>
 				<event>
-					<text>あなたは駅を無視して飛び去ります。</text>
+					<text>あなたはステーションを無視して飛び去ります。</text>
 					<choice>
 						<text>船に乗って何かをしなさい。</text>
 						<event load="STORAGE_CHECK" />
@@ -1351,13 +1351,13 @@
 		<event>
 			<text>「MultiverssseTravellerにとって素晴らしいsssship！民兵が彼らのランクの中でsssspeciessを受け入れたと聞いたとき、私は狩りに行くことがどんなに素晴らしい機会であるかを悟りました！しかし、あなたがここにいるので、おそらくあなたは寄付するsssspecimensを持っていますか？非常によく支払うでしょう！」</text>
 			<choice>
-				<text>ストローを引いて、ナメクジに乗組員を与えます。</text>
+				<text>ストローを引いて、ナメクジにクルーを与えます。</text>
 				<event>
-					<text>ナメクジはあなたの乗組員を彼らの船の蹴りと叫びに戻します。 「これは素晴らしいトロフィーを作るでしょう！あなたのためのSssome ssscrap、良いssssir。」</text>
+					<text>ナメクジはあなたのクルーを彼らの船の蹴りと叫びに戻します。 「これは素晴らしいトロフィーを作るでしょう！あなたのためのSssome ssscrap、良いssssir。」</text>
 					<autoReward level="HIGH">scrap_only</autoReward>
 					<removeCrew>
 						<clone>false</clone>
-						<text>あなたの乗組員はすぐに死ぬ可能性がありますが、殺人ハンターに彼らをあきらめた後、彼らをクローンすることは良い考えではないと思います。</text>
+						<text>あなたのクルーはすぐに死ぬ可能性がありますが、殺人ハンターに彼らをあきらめた後、彼らをクローンすることは良い考えではないと思います。</text>
 					</removeCrew>
 				</event>
 			</choice>
@@ -1504,11 +1504,11 @@
 					<choice hidden="true">
 						<text>継続する...</text>
 						<event>
-							<text>「ロックメン政府の宗教的迫害は、他の種族の不当な扱いにつながる野蛮主義の唯一の例ではありません。マンティスに戻って、マンティスの種族は長年、彼らの卓越性の使用のためにエンギ種族を奴隷にしてきました。マンティスの種族は、その解剖学的構造のために、電子機器で正確な作業を行うことができないことがよくありますが、その爪は時々ドライバーや他の道具の代わりだ?機能することが知られています。 2つの機能的に反対の種族。同様の二重性はあまり見られませんが、実際には岩ではないが硬い外観のためにロックマンの耐火性のために、オーキッドとロックマンの乗組員を一緒に混合することの利点についてコメントする人もいます。 「」</text>
+							<text>「ロックマン政府の宗教迫害だけでなく......蛮族主義が他民族を不当に扱った例もあります。マンティスの話に戻りますが、マンティス族は長年にわたり、修理に長けているエンギ族を奴隷にしてきました。マンティス族はその構造上、電子機器の精密な作業ができないことが多いが、彼らの爪がドライバーや他の工具の代わりとして機能することは時々知られている。このように、機能的に正反対の2つの種族の違いを比較することは興味深い。同様の二元性はあまり見られないが、ロックマンの外見は硬いため、実際には岩ではないが、火に強いという性質から、オーキッドとロックマンのクルーを混ぜることの利点についてコメントしている者もいる。」</text>
 							<choice hidden="true">
 								<text>継続する...</text>
 								<event>
-									<text>「しかし、オーキドゥは実際にはシェルでよりよく機能する可能性があると言っても過言ではありません。シェルは酸素に依存しているため、自然に植物とペアになります。単一のオーキドゥが生命維持システムを効果的に置き換えることができるのは科学的な驚異です。多くの生物学者は、偶然にもシェルであることが多く、オーキドゥの生物学を研究しようと試みてきました。気づいていないかもしれだ?い人のために、シェルのレースは、時折さえ、科学研究に重点を置いてきました。観光客を誘拐したり、船を訪ねて、痛みを伴わずにすばやくテストを実行したりすることで、ロックマンやマンティスなどの理解度の低い種について多くの文化的誤解が生じています。理由：エキゾチックハンターギルドとして知られるスラッグ愛好家の一団が結成されました。その特定の目的は、希少または知性のある生き物を狩ることです。相続人の装甲能力。」</text>
+									<text>「しかし、酸素を必要とするシェルとオーキッドの相性は抜群で、オーキッドは植物と共存できる。たった一輪のオーキッドが、長期間にわたって生命維持装置の代わりを務めることができるのは、科学的にも不思議なことである。多くの生物学者が、その多くが偶然にもシェルであることから、オーキッドの生物学を研究しようと試みています。ご存じないかもしれないが、シェル族は科学的研究に重きを置いており、時には観光客や訪問船を拉致して、苦痛を伴わない迅速なテストを行うことさえある。そのため、ロックマンやマンティスのような理解の浅い種族とは、多くの文化的誤解を生んでいる。また、ナメクジはシェルに特別な関心を抱いている。ナメクジの一族はエキゾチック・ハンター・ギルドと呼ばれ、希少生物または樹木を持つ生物を狩ることを目的としている。シェルは、その鎧のような能力から、彼らの主要なターゲットである。」</text>
 									<choice hidden="true">
 										<text>継続する...</text>
 										<event>
@@ -1615,7 +1615,7 @@
 <textList name="TEXT_ENCOUNTER_MILITIA">
 	<text>民間船の残骸が近くに漂っていますが、その一部を救助することを考える前に、民兵船はあなたを攻撃者と間違え、民間人に復讐する準備をしています。</text>
 	<text>あなたはこのビーコンで民兵の船との身元確認についていくつかの問題に巻き込まれ、物事が紛争のポイントに熱くなってから間もなくです！</text>
-	<text>このビーコンにいる軍人は、あなたの乗組員の1人を重い恵みを持った悪名高い海賊と間違えているようです。乗組員を引き渡すのではなく、戦う準備をします。</text>
+	<text>このビーコンにいる軍人は、あなたのクルーの1人を重い恵みを持った悪名高い海賊と間違えているようです。クルーを引き渡すのではなく、戦う準備をします。</text>
 	<text>あなたは民間人との戦いに参加しないように努めますが、時には民間人があなたとの戦いに参加します。どういうわけかあなたはここで民兵の船を怒らせました、そしてそれはすでに攻撃に動いています。</text>
 </textList>
 <event name="ENCOUNTER_MILITIA_STATION" unique="true">
@@ -1644,7 +1644,7 @@
 </event>
 
 <event name="ENCOUNTER_MILITIA_ELITE" unique="true">
-	<text>CDEG船は、民兵隊の中で最も致命的なもののいくつかであり、正当な理由があります。高度な訓練を受けた乗組員を誇るこれらの船は、戦闘で混乱することはありません。あなたにとって残念なことに、ここの船はあなたを脅威とみなし、攻撃します！</text>
+	<text>CDEG船は、民兵隊の中で最も致命的なもののいくつかであり、正当な理由があります。高度な訓練を受けたクルーを誇るこれらの船は、戦闘で混乱することはありません。あなたにとって残念なことに、ここの船はあなたを脅威とみなし、攻撃します！</text>
 	<ship load="SHIP_MILITIA_ELITE_FIGHT" hostile="true" />
 	<choice hidden="true">
 		<text>継続する...</text>
@@ -1698,7 +1698,7 @@
 </textList>
 
 <event name="ENCOUNTER_MILITIA_ESCORT" unique="true">
-	<text>かつて民兵の輸送機関だった場所の廃墟が近くに漂っています。民兵の護衛、彼らの乗組員は混乱して恐れ、あなたを攻撃者と間違え、彼ら自身を守る準備をします！あなたは彼らを歓迎しようとしますが、彼らは反応しません、そしてこれからの唯一の方法は戦いをすることであるように見えます。</text>
+	<text>かつて民兵の輸送機関だった場所の廃墟が近くに漂っています。民兵の護衛、彼らのクルーは混乱して恐れ、あなたを攻撃者と間違え、彼ら自身を守る準備をします！あなたは彼らを歓迎しようとしますが、彼らは反応しません、そしてこれからの唯一の方法は戦いをすることであるように見えます。</text>
 	<ship load="SHIP_MILITIA_ESCORTFIGHT" hostile="true" />
 	<choice hidden="true">
 		<text>継続する...</text>
@@ -1757,7 +1757,7 @@
 </textList>
 
 <event name="MILITIA_DEPOT" unique="true">
-	<text>近くには、旅行者に物資を提供しているミリティア駅があります。</text>
+	<text>近くには、旅行者に物資を提供しているミリティアステーションがあります。</text>
 	<ship load="SHIP_MILITIA_DEPOT" hostile="false" />
 	<choice>
 		<text>IDを送信して、いくつかの物資を入手してください。</text>
@@ -1766,7 +1766,7 @@
 		</event>
 	</choice>
 	<choice req="human_soldier">
-		<text>（兵士の乗組員）より多くの物資を要求します。</text>
+		<text>（兵士のクルー）より多くの物資を要求します。</text>
 		<event>
 			<autoReward level="HIGH">stuff</autoReward>
 		</event>
@@ -1819,7 +1819,7 @@
 			<triggeredEvent event="MILITIA_TRAINIES_WIN" thisFight="true" clearOnJump="true" time="60.0">
 				<triggeredEventBox load="DEFAULT_TIMER" pos="combat">
 					<warning time="10.0" flash="true" />
-					<tooltip>The training exercise will end in this much time. Make sure not to kill anyone until then!</tooltip>
+					<tooltip>トレーニング演習はこれだけの時間で終了します。それまでは誰も殺さないように注意してください！</tooltip>
 				</triggeredEventBox>
 				<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 			</triggeredEvent>
@@ -1880,7 +1880,7 @@
 	<choice hidden="true" req="zoltan_monk">
 		<text>（モンククルー）反逆者たちの暴力的なやり方を恥じてください。</text>
 		<event>
-			<text>あなたの僧侶は次の30分間、反乱軍を野蛮な方法で侮辱し、民間人を守ることによってのみ義務を果たしている男性を攻撃します。反乱軍は、床がすすり泣くのに何人かしわくちゃになっていることをとても恥じています。特に感動した1人の個人があなたの乗組員に加わることを申し出、残りは軍人を放っておくことに同意します。</text>
+			<text>あなたの僧侶は次の30分間、反乱軍を野蛮な方法で侮辱し、民間人を守ることによってのみ義務を果たしている男性を攻撃します。反乱軍は、床がすすり泣くのに何人かしわくちゃになっていることをとても恥じています。特に感動した1人の個人があなたのクルーに加わることを申し出、残りは軍人を放っておくことに同意します。</text>
 			<crewMember amount="1" class="human" />
 		</event>
 	</choice>
@@ -1892,9 +1892,9 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="CREW_FIREARMS">
-		<text>（武器庫）乗組員とボードを武装させます。</text>
+		<text>（武器庫）クルーとボードを武装させます。</text>
 		<event>
-			<text>あなたの乗組員が歯に武装しているのを見ると、反乱軍はすぐにパニックに陥ります。彼らは、低賃金の民兵船が駅を救出しようとすることだけを期待していたようです。彼らは降伏し、軍人を解放します。ほとんどの人は反乱軍を処理するために後ろに留まりますが、1人の兵士があなたに加わりたいと思っています！</text>
+			<text>あなたのクルーが歯に武装しているのを見ると、反乱軍はすぐにパニックに陥ります。彼らは、低賃金の民兵船がステーションを救出しようとすることだけを期待していたようです。彼らは降伏し、軍人を解放します。ほとんどの人は反乱軍を処理するために後ろに留まりますが、1人の兵士があなたに加わりたいと思っています！</text>
 			<crewMember amount="1" class="human" />
 		</event>
 	</choice>
@@ -1915,7 +1915,7 @@
 </event>
 <eventList name="MILITIA_RECRUITMENT_TALK">
 	<event>
-		<text>反乱軍はわざわざあなたの言うことを聞きません。あなたが彼らの船と戦っている間、彼らはあなたに乗るために乗組員のチームを送ります。</text>
+		<text>反乱軍はわざわざあなたの言うことを聞きません。あなたが彼らの船と戦っている間、彼らはあなたに乗るためにクルーのチームを送ります。</text>
 		<boarders min="2" max="3" class="rebel" />
 		<ship hostile="true" />
 		<choice hidden="true">
@@ -1924,7 +1924,7 @@
 		</choice>
 	</event>
 	<event>
-		<text>反乱軍はあなたのスピーチを聞くために一歩後退します。彼らが武器を置くまで、あなたはそれがうまくいかないと思います。民間人を攻撃することを恥じて、彼らは彼らの船に戻り、駅を出発します。軍人はあなたに感謝し、彼らを支援するためにあなたに支払います。</text>
+		<text>反乱軍はあなたのスピーチを聞くために一歩後退します。彼らが武器を置くまで、あなたはそれがうまくいかないと思います。民間人を攻撃することを恥じて、彼らは彼らの船に戻り、ステーションを出発します。軍人はあなたに感謝し、彼らを支援するためにあなたに支払います。</text>
 		<autoReward level="MED">standard</autoReward>
 	</event>
 </eventList>
@@ -1968,7 +1968,7 @@
 	</choice>
 </event>
 <event name="MILITIA_KERNALS_SAVE">
-	<text>オーキドゥはあなたの援助に感謝します。彼らは、カーネル兵器をこのセクターの民兵船に販売するために送られたと説明しています。あなたの助けの支払いとして、彼らは無料でそれを提供します。</text>
+	<text>オーキドゥはあなたの援助に感謝します。彼らは、種の兵器をこのセクターの民兵船に販売するために送られたと説明しています。あなたの助けの支払いとして、彼らは無料でそれを提供します。</text>
 	<weapon name="GIFTLIST_KERNEL" />
 </event>
 
@@ -1999,7 +1999,7 @@
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>彼らが彼らの乗組員の1人を奴隷として降伏することを要求する。</text>
+				<text>彼らが彼らのクルーの1人を奴隷として降伏することを要求する。</text>
 				<event>
 					<text>軍人には選択肢がほとんどありませんが、あなたの要求に屈することです。</text>
 					<crewMember amount="1" class="random" />
@@ -2010,7 +2010,7 @@
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>駅を破壊し、残骸を略奪します。</text>
+				<text>ステーションを破壊し、残骸を略奪します。</text>
 				<event>
 					<text>ご想像のとおり、民兵の前哨基地はほとんど防御せず、すぐに破壊されます。</text>
 					<autoReward level="MED">standard</autoReward>
@@ -2160,7 +2160,7 @@
 					<choice hidden="true" req="hacking" lvl="2">
 						<text>（Upg. Hacking）ダメージが増える前に、自動発送を無効にします。</text>
 						<event>
-							<text>オートシップをすぐにシャットダウンします。破壊された船の乗組員はすぐに避難し、わずかな命が失われます。ミリティアメンありがとうございます。</text>
+							<text>オートシップをすぐにシャットダウンします。破壊された船のクルーはすぐに避難し、わずかな命が失われます。ミリティアメンありがとうございます。</text>
 							<autoReward level="MED">standard</autoReward>
 						</event>
 					</choice>
@@ -2178,11 +2178,11 @@
 	<choice hidden="true">
 		<text>シーンを調査します。</text>
 		<event>
-			<text>民兵の1人は、駅にドッキングするときに抗議しようとしますが、古い地球のデザインの小さな木製のパイプから喫煙している緑色の服を着た人間によって遮断されます。 「ああ、多元宇宙旅行者、え？私はシャーロック・ヘインズです。私は地球から来ましたが、それ以来、私は民兵に加わりました。現在、私はSDMの探偵として働いていますが、かなり厄介な事件に見舞われました。おそらくあなたは助けるかもしれませんか？」</text>
+			<text>民兵の1人は、ステーションにドッキングするときに抗議しようとしますが、古い地球のデザインの小さな木製のパイプから喫煙している緑色の服を着た人間によって遮断されます。 「ああ、多元宇宙旅行者、え？私はシャーロック・ヘインズです。私は地球から来ましたが、それ以来、私は民兵に加わりました。現在、私はSDMの探偵として働いていますが、かなり厄介な事件に見舞われました。おそらくあなたは助けるかもしれませんか？」</text>
 			<choice hidden="true">
 				<text>何を手伝いますか？</text>
 				<event>
-					<text>「もちろん謎です！昨夜、この駅でヘンリー・コールマンという名前の男が射殺されました。彼は反乱軍の陰謀に関する重要な情報を持っていたと思われますが、何が起こったのかはわかりません。この駅には4人の職員がおり、この犯罪の後、現在は3人しか残っていません。殺人の前後24時間、この駅に停泊している船はありません。これは1つのことだけを意味します。」</text>
+					<text>「もちろん謎です！昨夜、このステーションでヘンリー・コールマンという名前の男が射殺されました。彼は反乱軍の陰謀に関する重要な情報を持っていたと思われますが、何が起こったのかはわかりません。このステーションには4人の職員がおり、この犯罪の後、現在は3人しか残っていません。殺人の前後24時間、このステーションに停泊している船はありません。これは1つのことだけを意味します。」</text>
 					<choice hidden="true">
 						<text>どっち？</text>
 						<event>
@@ -2210,16 +2210,16 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="unique_haynes">
-		<text>（ヘインズ）駅に連絡する。</text>
+		<text>（ヘインズ）ステーションに連絡する。</text>
 		<event>
-			<text>もう一方の駅に乗っているヘインズは連絡を受け取り、もう一方の端にいる自分の鏡像をショックで見つめているだけです。 「私、聞いてください。トムでした。彼は対人地雷を使ってヘンリーを撃ちました。どちらも反乱軍のスパイです。彼はダニエルからドローンコントロールの使い方を学びました。無駄にする時間はありません。反乱軍の攻撃が差し迫っています。写真を撮ってください。いいですね。乗って、保存する格納庫があります。」</text>
+			<text>もう一方のステーションに乗っているヘインズは連絡を受け取り、もう一方の端にいる自分の鏡像をショックで見つめているだけです。 「私、聞いてください。トムでした。彼は対人地雷を使ってヘンリーを撃ちました。どちらも反乱軍のスパイです。彼はダニエルからドローンコントロールの使い方を学びました。無駄にする時間はありません。反乱軍の攻撃が差し迫っています。写真を撮ってください。いいですね。乗って、保存する格納庫があります。」</text>
 			<variable name="ach_crew_haynes" op="set" val="1" />
 			<crewMember amount="1" class="unique_haynes">Sherlock Haynes</crewMember>
 			<quest event="DETECTIVE_HANGARATTACK" />
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>駅を無視します。</text>
+		<text>ステーションを無視します。</text>
 		<event>
 			<text>ここで何か重要なことが起こったことは明らかですが、それはあなたには関係ありません。</text>
 			<choice>
@@ -2237,7 +2237,7 @@
 	<loadEvent ignoreUnique="true">DETECTIVE_EVIDENCE_MENU</loadEvent>
 </event>
 <event name="DETECTIVE_EVIDENCE_MENU">
-	<text>あなたは駅のロビーに立ち、周囲を観察します。
+	<text>あなたはステーションのロビーに立ち、周囲を観察します。
 [好きな順序で何度でも調査できるようになります。]</text>
 	<choice hidden="true">
 		<text>シャーロックまたは容疑者の1人に話しかけてください。</text>
@@ -2350,14 +2350,14 @@
 	</choice>
 </event>
 <event name="DETECTIVE_ACCUSE_SHERLOCK">
-	<text>あなたは容疑者に向かって長い一歩を踏み出し、次に旋回してシャーロックに指を向けます。 「ええと、あなたは私を非難しているのですか？あなたは私がこの日までこの駅にいなかったことに気づいていますよね？</text>
+	<text>あなたは容疑者に向かって長い一歩を踏み出し、次に旋回してシャーロックに指を向けます。 「ええと、あなたは私を非難しているのですか？あなたは私がこの日までこのステーションにいなかったことに気づいていますよね？</text>
 	<choice hidden="true">
 		<text>キラーが言うこととまったく同じように聞こえます！</text>
 		<event>
-			<text>突然、ライトが消え、ブラスターの火が部屋から鳴り響き、乗組員の1人が倒れるのが聞こえます。ライトが再び点灯したとき、容疑者とバックアップの援軍はすでに逃げています。シャーロックはあなたに向かって叫びます。 「くそっ！今、本当の容疑者は逃げ出した！逃げろ、ここで殺人者が緩んでいるのはもはや安全ではない！」</text>
+			<text>突然、ライトが消え、ブラスターの火が部屋から鳴り響き、クルーの1人が倒れるのが聞こえます。ライトが再び点灯したとき、容疑者とバックアップの援軍はすでに逃げています。シャーロックはあなたに向かって叫びます。 「くそっ！今、本当の容疑者は逃げ出した！逃げろ、ここで殺人者が緩んでいるのはもはや安全ではない！」</text>
 			<removeCrew>
 				<clone>false</clone>
-				<text>クローンベイで乗組員のバイタルサインを確認しましたが、キラーがウイルスを配備して、外出中にウイルスを遮断していることがわかりました。あなたはそれを通常の状態に戻しますが、あなたの乗組員は永久に去っています。</text>
+				<text>クローンベイでクルーのバイタルサインを確認しましたが、キラーがウイルスを配備して、外出中にウイルスを遮断していることがわかりました。あなたはそれを通常の状態に戻しますが、あなたのクルーは永久に去っています。</text>
 			</removeCrew>
 		</event>
 	</choice>
@@ -2454,10 +2454,10 @@
 	</choice>
 </event>
 <event name="DETECTIVE_WRONG">
-	<text>突然、ライトが消え、ブラスターの火が部屋から鳴り響き、乗組員の1人が倒れるのが聞こえます。ライトが再び点灯したとき、容疑者とバックアップの援軍はすでに逃げています。シャーロックはあなたに向かって叫びます。 「くそっ！殺人犯は逃げ出した！逃げろ、殺人犯が逃げるのはもう安全ではない！」</text>
+	<text>突然、ライトが消え、ブラスターの火が部屋から鳴り響き、クルーの1人が倒れるのが聞こえます。ライトが再び点灯したとき、容疑者とバックアップの援軍はすでに逃げています。シャーロックはあなたに向かって叫びます。 「くそっ！殺人犯は逃げ出した！逃げろ、殺人犯が逃げるのはもう安全ではない！」</text>
 	<removeCrew>
 		<clone>false</clone>
-		<text>クローンベイで乗組員のバイタルサインを確認しましたが、キラーがウイルスを配備して、外出中にウイルスを遮断していることがわかりました。あなたはそれを通常の状態に戻しますが、あなたの乗組員は永久に去っています。</text>
+		<text>クローンベイでクルーのバイタルサインを確認しましたが、キラーがウイルスを配備して、外出中にウイルスを遮断していることがわかりました。あなたはそれを通常の状態に戻しますが、あなたのクルーは永久に去っています。</text>
 	</removeCrew>
 </event>
 <textList name="TEXT_SHERLOCK_TALK"> 
@@ -2517,7 +2517,7 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>トムに駅での仕事について聞いてください。</text>
+		<text>トムにステーションでの仕事について聞いてください。</text>
 		<event>
 			<text>「私は重要なシステムを管理しています。農場に戻って、さまざまな機器の操作方法を学ぶ必要がありました。その知識がステーションの管理にどれほど役立つかは信じられないほどです。シールドと生命維持の維持を手伝い、新しい部品を購入します。何かが壊れたときはいつでも店で。」</text>
 			<choice hidden="true">
@@ -2650,7 +2650,7 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>駅での彼女の仕事についてエイミーに聞いてください。</text>
+		<text>ステーションでの彼女の仕事についてエイミーに聞いてください。</text>
 		<event>
 			<text>「私たちがその神の対人ドローンを手に入れるまで、国境警備隊として働いていました。私はほぼ毎日海賊を歯で蹴っていましたが、今では一日中ボタンを押すその気の毒な武器室に辞任しています！」</text>
 			<choice hidden="true">
@@ -2662,7 +2662,7 @@
 	<choice hidden="true">
 		<text>犠牲者についてエイミーに聞いてください。</text>
 		<event>
-			<text>「ヘンリー？ハァッ、半分の時間、彼がここにいることに気づかなかった。いつもそんなに多くの時間を彼の部屋に辞任し、食べ物か水のためだけに出てきた。彼が死んでも変わらない。 「この駅での生活については残念です。ここはとても退屈です。」</text>
+			<text>「ヘンリー？ハァッ、半分の時間、彼がここにいることに気づかなかった。いつもそんなに多くの時間を彼の部屋に辞任し、食べ物か水のためだけに出てきた。彼が死んでも変わらない。 「このステーションでの生活については残念です。ここはとても退屈です。」</text>
 			<choice hidden="true">
 				<text>継続する...</text>
 				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
@@ -2676,7 +2676,7 @@
 			<choice hidden="true">
 				<text>トム。</text>
 				<event>
-					<text>「トムはそのようなプッシュオーバーです。彼はいつもここでの生活がどれほど素晴らしいかについて口論しています。この駅に住むのは良いことではありません、私はあなたに言います！それでも...トムは誰かを殺しますか？考えられない...彼が本当に良い人でない限り少なくとも俳優。」</text>
+					<text>「トムはそのようなプッシュオーバーです。彼はいつもここでの生活がどれほど素晴らしいかについて口論しています。このステーションに住むのは良いことではありません、私はあなたに言います！それでも...トムは誰かを殺しますか？考えられない...彼が本当に良い人でない限り少なくとも俳優。」</text>
 					<choice hidden="true">
 						<text>継続する...</text>
 						<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
@@ -2771,7 +2771,7 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>ダニエルに駅での仕事について聞いてください。</text>
+		<text>ダニエルにステーションでの仕事について聞いてください。</text>
 		<event>
 			<text>「私は船上エンジニアです。ついに他の人たちにドローンベイとアンチパーソンドローンの設置について話し合った後、それ以来、彼らのメンテナンスを行っています。」</text>
 			<choice hidden="true">
@@ -2865,7 +2865,7 @@
 	</choice>
 </event>
 <event name="DETECTIVE_TALK_DANIEL_EVIDENCE_DRONE">
-	<text>「もちろんです。ドローン技術が装備されるまで、船や駅は完成していません。トムが尋ねた後もかなりの時間をそこで過ごしてきましたが、私はほとんどの時間をシステムでの作業に費やしています。ドローンの操作に関するレッスンをしてくれました。」</text>
+	<text>「もちろんです。ドローン技術が装備されるまで、船やステーションは完成していません。トムが尋ねた後もかなりの時間をそこで過ごしてきましたが、私はほとんどの時間をシステムでの作業に費やしています。ドローンの操作に関するレッスンをしてくれました。」</text>
 	<variable name="loc_evidence_thomlie" op="set" val="1" />
 	<choice hidden="true">
 		<text>継続する...</text>
@@ -2944,7 +2944,7 @@
 	</choice>
 </event>
 <event name="DETECTIVE_SYSTEM_WEAPONS">
-	<text>兵器システムを検査します。部屋の周りにはいくつかの装身具が置かれ、エイミーの名前が書かれた小さな鞄も置かれていました。これは彼女のいつもの駅に違いない。</text>
+	<text>兵器システムを検査します。部屋の周りにはいくつかの装身具が置かれ、エイミーの名前が書かれた小さな鞄も置かれていました。これは彼女のいつものステーションに違いない。</text>
 	<choice hidden="true">
 		<text>継続する...</text>
 		<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
@@ -2968,7 +2968,7 @@
 							<choice hidden="true">
 								<text>彼を平手打ち。</text>
 								<event>
-									<text>あなたはトムを顔に叩きつけます。 「オーケー、話そう！私はこのセクターを監視するために派遣された休眠中のエージェントだった。しばらくの間、反乱軍はこのセクターに侵入し、民兵の格納庫と兵器を包囲する計画を立てていた。私が駐屯していた同じ駅に乗ったのは、別の覆面反乱軍のスパイであるヘンリーでしたが、彼はその老人ブラウンに執着しすぎていました。 、彼は弱くなり、狙撃しようとしていました。私はその臆病者を殺すことによって反乱の安全を確保しました！」</text>
+									<text>あなたはトムを顔に叩きつけます。 「オーケー、話そう！私はこのセクターを監視するために派遣された休眠中のエージェントだった。しばらくの間、反乱軍はこのセクターに侵入し、民兵の格納庫と兵器を包囲する計画を立てていた。私が駐屯していた同じステーションに乗ったのは、別の覆面反乱軍のスパイであるヘンリーでしたが、彼はその老人ブラウンに執着しすぎていました。 、彼は弱くなり、狙撃しようとしていました。私はその臆病者を殺すことによって反乱の安全を確保しました！」</text>
 									<choice hidden="true">
 										<text>継続する...</text>
 										<event>
@@ -2992,7 +2992,7 @@
 	<triggeredEvent event="DETECTIVE_HANGARATTACK_FAILURE" time="100" thisFight="true" clearOnJump="true">
 		<triggeredEventBox load="DEFAULT_TIMER" pos="combat">
 			<warning time="10.0" flash="true" />
-			<tooltip>The shield reactor will be disabled in this amount of time. Be sure to defeat the Dreadnaught before the time runs out.</tooltip>
+			<tooltip>この時間内にシールドリアクターは無効になります。時間がなくなる前に、必ずドレッドノートを倒してください。</tooltip>
 		</triggeredEventBox>
 		<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 	</triggeredEvent>
@@ -3005,7 +3005,7 @@
 		</choice>
 	</destroyed>
 	<deadCrew>
-		<text>ドレッドノートは乗組員が空になりました。船は惑星の表面に落下し、途中で数隻の船を取り出します。幸いなことに、発電機は衝撃によるダメージをほとんど受けません。</text>
+		<text>ドレッドノートはクルーが空になりました。船は惑星の表面に落下し、途中で数隻の船を取り出します。幸いなことに、発電機は衝撃によるダメージをほとんど受けません。</text>
 		<autoReward level="HIGH">standard</autoReward>
 		<choice hidden="true">
 			<text>継続する...</text>	
@@ -3027,8 +3027,8 @@
 	</quest>
 	<beaconType id="map_icon_hangar" global="true">
 		<color r="84" g="201" b="30" a="1.0" />
-		<unvisitedTooltip>The Militia's hangar.</unvisitedTooltip>
-		<visitedTooltip>Visited location.</visitedTooltip>
+		<unvisitedTooltip>民兵のハンガー。</unvisitedTooltip>
+		<visitedTooltip>訪問した場所。</visitedTooltip>
 	</beaconType>
 	<text>手遅れのようです。すでに、反乱軍が侵略を始めているようです。遠くには、大規模な民兵の船が自軍に発砲しているが、これはたった1つのことを意味している。反乱軍はすでに船を占領しており、攻撃を主導するためにそれを使用しています！</text>
 	<img back="BACK_EVENT_HANGAR" planet="PLANET_INVISIBLE" />

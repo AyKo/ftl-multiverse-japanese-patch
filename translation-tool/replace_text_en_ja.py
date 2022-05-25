@@ -63,7 +63,7 @@ special_char_transtable_decode = str.maketrans({
     "👆":"™",  # upgraded
 })
 
-tag_list = ['.//text', './/desc', './/power', './/secretDescription']
+tag_list = ['.//text', './/desc', './/power', './/secretDescription', './/tooltip', './/visitedTooltip', './/unvisitedTooltip']
 
 translate_map = dict()
 translate_file = open(translate_filename, mode='r', encoding="utf8", errors='ignore')

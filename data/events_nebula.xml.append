@@ -6,8 +6,8 @@
 	<beaconType id="map_icon_unexplored" global="false">
 		<color r="186" g="101" b="191" a="1.0" />
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
-		<unvisitedTooltip>An unvisited location.</unvisitedTooltip>
-		<visitedTooltip>This is the exit beacon. Go here to travel to the next sector.</visitedTooltip>
+		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
+		<visitedTooltip>これが出口ビーコンです。次のセクターに移動するには、ここにアクセスしてください。</visitedTooltip>
 	</beaconType>
 	<text>セクター外の出口ビーコンを発見しました。 FTLドライブが充電されると、このセクターを離れることができます。</text>
 	<choice hidden="true">
@@ -28,8 +28,8 @@
 	<beaconType id="map_icon_unexplored" global="false">
 		<color r="186" g="101" b="191" a="1.0" />
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
-		<unvisitedTooltip>An unvisited location.</unvisitedTooltip>
-		<visitedTooltip>This is the exit beacon. Go here to travel to the next sector.</visitedTooltip>
+		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
+		<visitedTooltip>これが出口ビーコンです。次のセクターに移動するには、ここにアクセスしてください。</visitedTooltip>
 	</beaconType>
 	<text>セクター外の出口ビーコンを発見しました。 FTLドライブが充電されると、このセクターを離れることができます。</text>
 	<choice hidden="true">
@@ -263,7 +263,7 @@
 </event>
 
 <event name="NEBULA_TRADER" unique="true">
-	<text>理由はわかりませんが、このビーコンは明らかに観光地です。小さな駅の船の1つが取引を提供しています。</text>
+	<text>理由はわかりませんが、このビーコンは明らかに観光地です。小さなステーションの船の1つが取引を提供しています。</text>
 	<environment type="nebula" />
 	<choice>
 		<text>トレード。</text>
@@ -330,7 +330,7 @@
 	<choice hidden="true">
 		<text>それらを攻撃します。</text>
 		<event>
-			<text>この駅は不潔な海賊によって運営されており、盗まれた可能性があります。あなたは彼らを殺すことによって正義を行うでしょう。</text>
+			<text>このステーションは不潔な海賊によって運営されており、盗まれた可能性があります。あなたは彼らを殺すことによって正義を行うでしょう。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
 				<text>継続する...</text>
@@ -355,7 +355,7 @@
 </event>
 
 <event name="STORM_PLATFORM" unique="true">
-	<text>近くには休眠中のナメクジのセラフォーミングステーションがあります。イオンストームが始まったとき、彼らは漠然としたガスを収穫していたに違いありません、そして今、駅に避難しました。その隣には、保護されていないプラットフォームがあります。</text>
+	<text>近くには休眠中のナメクジのセラフォーミングステーションがあります。イオンストームが始まったとき、彼らは漠然としたガスを収穫していたに違いありません、そして今、ステーションに避難しました。その隣には、保護されていないプラットフォームがあります。</text>
 	<ship load="SHIP_SLUG_CEALSTATION_STORM" hostile="false" />
 	<environment type="storm" />
 	<choice hidden="true">
@@ -405,15 +405,15 @@
 		<autoReward level="HIGH">stuff</autoReward>
 	</event>
 	<event>
-		<text>船の墓場の中には、比較的手つかずのように見える船が1隻あります。船上で無意識の乗客を見つけ、船に戻します。目を覚ますと、彼らは感謝の気持ちであなたの乗組員に加わることを申し出ます。</text>	
+		<text>船の墓場の中には、比較的手つかずのように見える船が1隻あります。船上で無意識の乗客を見つけ、船に戻します。目を覚ますと、彼らは感謝の気持ちであなたのクルーに加わることを申し出ます。</text>	
 		<crewMember amount="1" />
 		<autoReward level="LOW">standard</autoReward>
 	</event>
 	<event>
-		<text>乗組員が難破船を探して船から離れている間、2つの船体が互いに衝突し、乗組員のテザーを壊します。誰かがノックアウトされ、ガス状の雲に無力に浮かんでいるので、あなたは反応する時間がありません...</text>
+		<text>クルーが難破船を探して船から離れている間、2つの船体が互いに衝突し、クルーのテザーを壊します。誰かがノックアウトされ、ガス状の雲に無力に浮かんでいるので、あなたは反応する時間がありません...</text>
 		<removeCrew>
 			<clone>true</clone>
-			<text>幸いなことに、あなたの乗組員はクローンベイが彼らを復活させるのに十分なほど船の近くにいました。</text>
+			<text>幸いなことに、あなたのクルーはクローンベイが彼らを復活させるのに十分なほど船の近くにいました。</text>
 		</removeCrew>
 		<autoReward level="LOW">standard</autoReward>
 	</event>
@@ -428,7 +428,7 @@
 </eventList>
 <eventList name="STORM_ITEMS_PILOTING">
 	<event>
-		<text>船の墓場の中には、比較的手つかずのように見える船が1隻あります。船上で無意識の乗客を見つけ、船に連れ戻します。目を覚ますと、彼らは感謝の気持ちであなたの乗組員に加わることを申し出ます。</text>	
+		<text>船の墓場の中には、比較的手つかずのように見える船が1隻あります。船上で無意識の乗客を見つけ、船に連れ戻します。目を覚ますと、彼らは感謝の気持ちであなたのクルーに加わることを申し出ます。</text>	
 		<crewMember amount="1" />
 		<autoReward level="LOW">standard</autoReward>
 	</event>
@@ -441,7 +441,7 @@
 		<autoReward level="LOW">weapon</autoReward>
 	</event>
 	<event>
-		<text>あなたのパイロットは慎重に残骸を探検します、しかし嵐はその犠牲を払っています。乗組員は誰もが死んでから長い間、浮かんでいる破片は修理できないほど焦げています。</text>
+		<text>あなたのパイロットは慎重に残骸を探検します、しかし嵐はその犠牲を払っています。クルーは誰もが死んでから長い間、浮かんでいる破片は修理できないほど焦げています。</text>
 	</event>
 </eventList>
 
@@ -725,7 +725,7 @@
 				<event />
 			</choice>
 			<choice hidden="true" req="LIST_CREW_SLUG">
-				<text>（ナメクジの乗組員）「あなたは触手を叩くような不満の中で、sssomeoneのためにたくさんのtrasssshを話します。」</text>
+				<text>（ナメクジのクルー）「あなたは触手を叩くような不満の中で、sssomeoneのためにたくさんのtrasssshを話します。」</text>
 				<event>
 					<text>「なんてこった、あなたはそれらの不潔な生き物の一人をあなたの船に住まわせたのですか？あなたは恥ずべきことです！」</text>
 					<ship load="SHIP_PIRATE_REBEL" hostile="true" />
@@ -993,7 +993,7 @@
 	<text>事前の反乱軍の自動化された船は、小さな反乱軍の宇宙ステーションの近くに配置されたままです。ただし、センサーが機能していなければ、内部に何があるかを判断することはできません。</text>
 	<ship load="SHIP_AUTO_ITEM" hostile="false" />
 	<choice>
-		<text>自動化された船を攻撃して駅に到着します。</text>
+		<text>自動化された船を攻撃してステーションに到着します。</text>
 		<event>
 			<text>あなたは自動化された船に従事する準備をします。</text>
 			<ship hostile="true" />
@@ -1024,7 +1024,7 @@
 	<choice req="cloaking" lvl="2" max_group="0" hidden="true">
 		<text>（改善されたクローキング）ステルスを使用して宇宙ステーションにアクセスします。</text>
 			<event>
-			<text>あなたは船に首尾よく忍び寄り、気づかれずに駅にアクセスしました。</text>
+			<text>あなたは船に首尾よく忍び寄り、気づかれずにステーションにアクセスしました。</text>
 			<choice hidden="true">
 				<text>継続する...</text>
 				<event load="DEFENSE_ITEM_LIST" />
@@ -1052,7 +1052,7 @@
 </event>
 <eventList name="NEBULA_AUTO_DEFENSE_ITEM_CLOAK"> 
 	<event>
-		<text>あなたは船に首尾よく忍び寄り、気づかれずに駅にアクセスしました。</text>
+		<text>あなたは船に首尾よく忍び寄り、気づかれずにステーションにアクセスしました。</text>
 		<choice hidden="true">
 			<text>継続する...</text>
 			<event load="DEFENSE_ITEM_LIST" />
@@ -1115,7 +1115,7 @@
 	<choice req="teleporter" hidden="true"> 
 		<text>（テレポーター）テレポーターで彼らのライフサインをロックします。</text>
 		<event>
-			<text>あなたは連邦の乗組員を乗せます。 1人は喜んであなたの乗組員に加わり、残りは次の駅に降ろされるのを待ちます。</text>
+			<text>あなたは連邦のクルーを乗せます。 1人は喜んであなたのクルーに加わり、残りは次のステーションに降ろされるのを待ちます。</text>
 			<crewMember amount="1" />
 			<autoReward level="MED">scrap_only</autoReward>
 		</event>
@@ -1186,7 +1186,7 @@
 	<ship load="SHIP_MANTIS_FIGHT" hostile="false" />
 	<environment type="nebula" />
 	<choice>
-		<text>次回はありません。火！</text>
+		<text>次の機会はない。攻撃準備！</text>
 		<event>
 			<text>あなたは戦う準備をします。</text>
 			<ship hostile="true" />
@@ -1322,7 +1322,7 @@
 	<choice req="LIST_CREW_ANCIENT_ALL" hidden="true">
 		<text>（オベリスククルー）あなたのクルーは必死にあなたに何かを言う必要があります。</text>
 		<event>
-			<text>あなたの乗組員は、下の惑星の構造は、惑星に厳格な検疫を実施することを目的とした巨大な対空砲であると説明しています。どういうわけかそれは何千年もの間機能し続けており、彼らの助けを借りてあなたは安全に近づくことができるように遠隔で砲兵を一時的に非アクティブにします。</text>
+			<text>あなたのクルーは、下の惑星の構造は、惑星に厳格な検疫を実施することを目的とした巨大な対空砲であると説明しています。どういうわけかそれは何千年もの間機能し続けており、彼らの助けを借りてあなたは安全に近づくことができるように遠隔で大砲を一時的に非アクティブにします。</text>
 			<choice hidden="true">
 				<text>継続する...</text>
 				<event load="WATER_PLANET_LAND" />
@@ -1421,21 +1421,21 @@
 	<choice hidden="true" req="teleporter">
 		<text>（テレポーター）機内の民間人をビームします。</text>
 		<event>
-			<text>機内で検出された生命の痕跡は1つだけですが、テレポーターでそれらをビームバックします。民間人は、海賊との遭遇が彼らの生命維持の破損と技術的な機能不全につながったと説明します。漠然としたガスが彼らの船に吸い込まれ、乗組員は全員窒息しました。彼らが唯一の生存者であり、彼らの船は無価値である今、彼らはあなたの船に乗って働くことを申し出ます。</text>
+			<text>機内で検出された生命の痕跡は1つだけですが、テレポーターでそれらをビームバックします。民間人は、海賊との遭遇が彼らの生命維持の破損と技術的な機能不全につながったと説明します。漠然としたガスが彼らの船に吸い込まれ、クルーは全員窒息しました。彼らが唯一の生存者であり、彼らの船は無価値である今、彼らはあなたの船に乗って働くことを申し出ます。</text>
 			<crewMember amount="1" />
 		</event>
 	</choice>
 	<choice hidden="true" req="LIFE_SCANNER">
 		<text>（ライフスキャナー）民間人をロックし、すぐに救助します。</text>
 		<event>
-			<text>ライフサインが1つしか検出されないため、ほとんど手遅れになっているようです。それでも、あなたは彼らをあなたの船に戻すために急いでいます。民間人は、海賊との遭遇が彼らの生命維持の破損と技術的な機能不全につながったと説明します。漠然としたガスが彼らの船に吸い込まれ、乗組員は全員窒息しました。彼らが唯一の生存者であり、彼らの船は無価値である今、彼らはあなたの船に乗って働くことを申し出ます。</text>
+			<text>ライフサインが1つしか検出されないため、ほとんど手遅れになっているようです。それでも、あなたは彼らをあなたの船に戻すために急いでいます。民間人は、海賊との遭遇が彼らの生命維持の破損と技術的な機能不全につながったと説明します。漠然としたガスが彼らの船に吸い込まれ、クルーは全員窒息しました。彼らが唯一の生存者であり、彼らの船は無価値である今、彼らはあなたの船に乗って働くことを申し出ます。</text>
 			<crewMember amount="1" />
 		</event>
 	</choice>
 	<choice hidden="true" req="BLUELIST_CREW_NO2">
-		<text>（嫌気性の乗組員）あなたの乗組員を助けに送ってください。</text>
+		<text>（嫌気性のクルー）あなたのクルーを助けに送ってください。</text>
 		<event>
-			<text>窒息を恐れることなく、嫌気性の乗組員を派遣して支援します。民間人は、海賊との遭遇が彼らの生命維持の破損と技術的な機能不全につながったと説明します。漠然としたガスが彼らの船に吸い込まれ、乗組員は全員窒息しました。彼らが唯一の生存者であり、彼らの船は無価値である今、彼らはあなたの船に乗って働くことを申し出ます。</text>
+			<text>窒息を恐れることなく、嫌気性のクルーを派遣して支援します。民間人は、海賊との遭遇が彼らの生命維持の破損と技術的な機能不全につながったと説明します。漠然としたガスが彼らの船に吸い込まれ、クルーは全員窒息しました。彼らが唯一の生存者であり、彼らの船は無価値である今、彼らはあなたの船に乗って働くことを申し出ます。</text>
 			<crewMember amount="1" />
 		</event>
 	</choice>
@@ -1456,17 +1456,17 @@
 </event>
 <eventList name="NEBULA_DISTRESS_DEATH_BY_GAS_RESCUE">
 	<event>
-		<text>あなたは民間人とドッキングし、彼らの船に乗り込み、漠然としたガスで厚い内部を見つけます。あなたは生存者を見つけるために急いでいます、しかしそれはほとんどがそれを成し遂げなかったようです。すべての乗組員は、それ以上の犠牲者を出すことなく、なんとか船に戻ることができます。</text>
+		<text>あなたは民間人とドッキングし、彼らの船に乗り込み、漠然としたガスで厚い内部を見つけます。あなたは生存者を見つけるために急いでいます、しかしそれはほとんどがそれを成し遂げなかったようです。すべてのクルーは、それ以上の犠牲者を出すことなく、なんとか船に戻ることができます。</text>
 	</event>
 	<event>
-		<text>民間船の内部は、欠陥のある生命維持システムによって彼らの船に吸い込まれた、漠然としたガスで厚くなっています。生存者はいないようで、乗組員が船に戻ったとき、そのうちの1人が行方不明になっています。彼らは雲の中で失われ、窒息死したと考えられます。</text>
+		<text>民間船の内部は、欠陥のある生命維持システムによって彼らの船に吸い込まれた、漠然としたガスで厚くなっています。生存者はいないようで、クルーが船に戻ったとき、そのうちの1人が行方不明になっています。彼らは雲の中で失われ、窒息死したと考えられます。</text>
 		<removeCrew>
 			<clone>true</clone>
-			<text>幸いなことに、あなたの疑惑が正しかったかどうかに関係なく、あなたの乗組員はすでにクローンベイによって復活する過程にあります。</text>
+			<text>幸いなことに、あなたの疑惑が正しかったかどうかに関係なく、あなたのクルーはすでにクローンベイによって復活する過程にあります。</text>
 		</removeCrew>
 	</event>
 	<event>
-		<text>生命維持システムの機能不全と船体の破損が原因で、漠然としたガスが民間船に吸い込まれたようです。ほとんどの乗組員はすでに窒息しているように見えますが、1人の生存者が残っています。</text>
+		<text>生命維持システムの機能不全と船体の破損が原因で、漠然としたガスが民間船に吸い込まれたようです。ほとんどのクルーはすでに窒息しているように見えますが、1人の生存者が残っています。</text>
 		<crewMember amount="1" />
 	</event>
 </eventList>

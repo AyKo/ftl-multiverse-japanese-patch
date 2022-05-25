@@ -159,8 +159,8 @@
 	<preventQuest />
 	<beaconType id="map_icon_vault" global="true">
 		<color r="0" g="255" b="36" a="1.0" />
-		<unvisitedTooltip>The location of the Ancient cache.</unvisitedTooltip>
-		<visitedTooltip>Explored location. Location of the Ancient cache.</visitedTooltip>
+		<unvisitedTooltip>エンシェントキャッシュの場所。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。エンシェントキャッシュの場所。</visitedTooltip>
 	</beaconType>
 	<text>キャッシュに到着しました。ドレッドノートが遠くに迫っていますが、その特徴を理解するには遠すぎます。予想通り、船を排除せずに、惑星の側面に彫られた巨大な金庫室に似たキャッシュにアクセスすることは不可能です。</text>
 	<img back="BACKGROUND" planet="PLANET_ANCIENT_VAULT" />
@@ -238,7 +238,7 @@
 	</choice>
 </event>
 <event name="ANCSECTOR_DREAD_AI">
-	<text>ドレッドノートに乗っている乗組員は全員死んでいますが、船は戦い続けています。なんらかのAIモードが付いているはずです！</text>
+	<text>ドレッドノートに乗っているクルーは全員死んでいますが、船は戦い続けています。なんらかのAIモードが付いているはずです！</text>
 	<ship hostile="true" />
 	<choice hidden="true">
 		<text>私たちは戦い続けなければなりません！</text>
@@ -292,7 +292,7 @@
 </event>
 
 <event name="START_BEACON_ANCIENT">
-	<text>あなたはぼんやりと床から身を引いた。船のカメラは、他の乗組員のほとんどが同じことをしていて、眠りから目覚めていることを示しています。動揺していないように見える唯一の人は、あなたをチェックするのを急いでいるAenwitheです。 「私たちは大丈夫ですが、今は注意すべきことがいくつかあります。反乱軍が今のところ私たちを追跡できるかどうかは疑わしいですが、だ?なたが疑うように本当にあなたを追跡している場合、彼らは最終的に追いつくでしょう。さらに、このセクターは警備艦によって保護されている可能性が非常に高いです。もしそうなら、彼らが無傷で私たちを通過させるとは思えません。」</text>
+	<text>あなたはぼんやりと床から身を引いた。船のカメラは、他のクルーのほとんどが同じことをしていて、眠りから目覚めていることを示しています。動揺していないように見える唯一の人は、あなたをチェックするのを急いでいるAenwitheです。 「私たちは大丈夫ですが、今は注意すべきことがいくつかあります。反乱軍が今のところ私たちを追跡できるかどうかは疑わしいですが、だ?なたが疑うように本当にあなたを追跡している場合、彼らは最終的に追いつくでしょう。さらに、このセクターは警備艦によって保護されている可能性が非常に高いです。もしそうなら、彼らが無傷で私たちを通過させるとは思えません。」</text>
 	<variable name="loc_unique_sectors" op="add" val="1" />
 	<modifyPursuit amount="-10" />
 	<ship load="SHIP_ANCIENT_GUARD" hostile="false" />
@@ -322,7 +322,7 @@
 	<autoReward level="HIGH">standard</autoReward>
 </event>
 <event name="GUARD_ANCIENT_DEADCREW">
-	<text>オベリスクガードを倒しました。乗組員があなたを止めるために乗船していなくても、あなたは彼らの貨物を調査することができます。あなたは船に持ち帰るための武器を見つけ、彼らの船体をスクラップするために移動します。</text>
+	<text>オベリスクガードを倒しました。クルーがあなたを止めるために乗船していなくても、あなたは彼らの貨物を調査することができます。あなたは船に持ち帰るための武器を見つけ、彼らの船体をスクラップするために移動します。</text>
 	<autoReward level="HIGH">standard</autoReward>
 	<weapon name="GIFTLIST_ANCIENT" />
 </event>
@@ -598,7 +598,7 @@
         <crewMember amount="1" class="obelisk" />
     </event>
     <event>
-        <text>最初はオベリスクはかき混ぜられません。後で使用するためにオベリスクを保管場所に保管することを検討してください。しかし、あなたがそれを動かし始めると、それはあなたの盾を破壊するレーザーを突然活性化して発射します！あなたはブラスターを引きますが、オベリスクはすでに落ち着いています。 「ああ、私の悪い。あなたの装備について本当に申し訳ありません。私があなたの乗組員に加わることを要求してもかまわないことを願っていますか？それは永遠に宇宙を漂うひどく退屈です、そして私は一度の行動を望みます。」</text>
+        <text>最初はオベリスクはかき混ぜられません。後で使用するためにオベリスクを保管場所に保管することを検討してください。しかし、あなたがそれを動かし始めると、それはあなたの盾を破壊するレーザーを突然活性化して発射します！あなたはブラスターを引きますが、オベリスクはすでに落ち着いています。 「ああ、私の悪い。あなたの装備について本当に申し訳ありません。私があなたのクルーに加わることを要求してもかまわないことを願っていますか？それは永遠に宇宙を漂うひどく退屈です、そして私は一度の行動を望みます。」</text>
         <damage amount="8" system="shields" effect="fire" />
         <choice hidden="true">
             <text>継続する...</text>
@@ -1244,7 +1244,7 @@
 </event>
 
 <event name="START_BEACON_ROYAL">
-	<text>今回は、少なくとも壁にもたれかかっていることに気づきました。他の乗組員のほとんども同様にうまくいきました、そしていつものようにAenwitheは完全に動揺していません。 「私たちはここにいます。幸いなことに、抵抗はすでに警備員を取り除いてセクターを封鎖しました。それでは、この爆弾を作ってみましょう。」</text>
+	<text>今回は、少なくとも壁にもたれかかっていることに気づきました。他のクルーのほとんども同様にうまくいきました、そしていつものようにAenwitheは完全に動揺していません。 「私たちはここにいます。幸いなことに、抵抗はすでに警備員を取り除いてセクターを封鎖しました。それでは、この爆弾を作ってみましょう。」</text>
 	<variable name="loc_unique_sectors" op="add" val="1" />
 	<customFleet right="true" firing="false" autoDarkening="true">CUSTOM_FLEET_ANCIENT</customFleet>
 	<changeBackground>BACK_SECTOR_ROYAL</changeBackground>
@@ -1326,8 +1326,8 @@
 	<preventQuest />
 	<beaconType id="map_icon_palace" global="true">
 		<color r="255" g="0" b="228" a="1.0" />
-		<unvisitedTooltip>The location of the Ancient Palace.</unvisitedTooltip>
-		<visitedTooltip>Explored location. Location of the Ancient Palace.</visitedTooltip>
+		<unvisitedTooltip>古代の宮殿の場所。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。古代宮殿の場所。</visitedTooltip>
 	</beaconType>
 	<text>LiythkykYukに到着しました。船の下には、巨大な巡洋艦が前後に移動する広大な街並みがあります。とても緑です...多分緑すぎます。しかし、それは問題ではありません、うまくいけば、あなたはここに長く滞在しないでしょう。</text>
 	<img back="BACK_EVENT_ROYAL_PALACE" planet="PLANET_INVISIBLE" />
@@ -1418,7 +1418,7 @@
 													<choice hidden="true">
 														<text>継続する...</text>
 														<event>
-															<text>あなたはすぐにあなたの乗組員と再編成します。その乗組員の最新のメンバーにはE自身が含まれています。最も心配なのは、ヴァンスの突然の到着ではなく、彼が言ったことです。彼がパラゴンが何であるかを知っているなら、それは彼がそれを構築して爆発させる方法も知っていると思われます。さらに悪いことに、フラッグシップが飛び去るのを見ると、彼のMVドライブの高庠?な分析は、彼が1つの特定の現実を念頭に置いていることを示しています。ヴァンスがそこにたどり着くことができれば、彼はその現実全体を一掃し、すべての現実にわたって連邦全体を酷評することができます！</text>
+															<text>あなたはすぐにあなたのクルーと再編成します。そのクルーの最新のメンバーにはE自身が含まれています。最も心配なのは、ヴァンスの突然の到着ではなく、彼が言ったことです。彼がパラゴンが何であるかを知っているなら、それは彼がそれを構築して爆発させる方法も知っていると思われます。さらに悪いことに、フラッグシップが飛び去るのを見ると、彼のMVドライブの高庠?な分析は、彼が1つの特定の現実を念頭に置いていることを示しています。ヴァンスがそこにたどり着くことができれば、彼はその現実全体を一掃し、すべての現実にわたって連邦全体を酷評することができます！</text>
 															<crewMember amount="1" all_skills="2" class="obelisk_royal">E</crewMember>
 															<choice hidden="true">
 																<text>継続する...</text>
@@ -1733,7 +1733,7 @@
 				<event load="ROYAL_ZOO_PURCHASE" />
 			</choice>
 			<choice hidden="true">
-				<text>あなたのよりエキゾチックな乗組員の1人を売ることを申し出てください。</text>
+				<text>あなたのよりエキゾチックなクルーの1人を売ることを申し出てください。</text>
 				<event>
 					<text>「はい！あなたは私のために誰を持っているでしょうか？」</text>
 					<choice req="lanius_augmented">
@@ -1742,7 +1742,7 @@
 							<text>「ああ、なんて素晴らしい標本だ。これは私の他の生き物の中でとても素敵に見えるだろう。この支払いをしてください。」</text>
 							<removeCrew class="lanius_augmented">
 								<clone>false</clone>
-								<text>乗組員を売却したばかりなので、乗組員のクローンを作成することはできません。</text>
+								<text>クルーを売却したばかりなので、クルーのクローンを作成することはできません。</text>
 							</removeCrew>
 							<item_modify>
 								<item type="scrap" min="70" max="70" />
@@ -1755,7 +1755,7 @@
 							<text>「ああ、なんて素晴らしい標本だ。これは私の他の生き物の中でとても素敵に見えるだろう。この支払いをしてください。」</text>
 							<removeCrew class="unique_anointed">
 								<clone>false</clone>
-								<text>乗組員を売却したばかりなので、乗組員のクローンを作成することはできません。</text>
+								<text>クルーを売却したばかりなので、クルーのクローンを作成することはできません。</text>
 							</removeCrew>
 							<item_modify>
 								<item type="scrap" min="120" max="120" />
@@ -1768,7 +1768,7 @@
 							<text>「ああ、なんて素晴らしい標本だ。これは私の他の生き物の中でとても素敵に見えるだろう。この支払いをしてください。」</text>
 							<removeCrew class="spider">
 								<clone>false</clone>
-								<text>乗組員を売却したばかりなので、乗組員のクローンを作成することはできません。</text>
+								<text>クルーを売却したばかりなので、クルーのクローンを作成することはできません。</text>
 							</removeCrew>
 							<item_modify>
 								<item type="scrap" min="30" max="30" />
@@ -1781,7 +1781,7 @@
 							<text>「ああ、なんて素晴らしい標本だ。これは私の他の生き物の中でとても素敵に見えるだろう。この支払いをしてください。」</text>
 							<removeCrew class="spider_weaver">
 								<clone>false</clone>
-								<text>乗組員を売却したばかりなので、乗組員のクローンを作成することはできません。</text>
+								<text>クルーを売却したばかりなので、クルーのクローンを作成することはできません。</text>
 							</removeCrew>
 							<item_modify>
 								<item type="scrap" min="45" max="45" />
@@ -1794,7 +1794,7 @@
 							<text>「ああ、なんて素晴らしい標本だ。これは私の他の生き物の中でとても素敵に見えるだろう。この支払いをしてください。」</text>
 							<removeCrew class="unique_queen">
 								<clone>false</clone>
-								<text>乗組員を売却したばかりなので、乗組員のクローンを作成することはできません。</text>
+								<text>クルーを売却したばかりなので、クルーのクローンを作成することはできません。</text>
 							</removeCrew>
 							<item_modify>
 								<item type="scrap" min="100" max="100" />
@@ -1807,7 +1807,7 @@
 							<text>「ああ、なんて素晴らしい標本だ。これは私の他の生き物の中でとても素敵に見えるだろう。この支払いをしてください。」</text>
 							<removeCrew class="pony">
 								<clone>false</clone>
-								<text>乗組員を売却したばかりなので、乗組員のクローンを作成することはできません。</text>
+								<text>クルーを売却したばかりなので、クルーのクローンを作成することはできません。</text>
 							</removeCrew>
 							<item_modify>
 								<item type="scrap" min="45" max="45" />
@@ -1820,7 +1820,7 @@
 							<text>「ああ、なんて素晴らしい標本だ。これは私の他の生き物の中でとても素敵に見えるだろう。この支払いをしてください。」</text>
 							<removeCrew class="symbiote">
 								<clone>false</clone>
-								<text>乗組員を売却したばかりなので、乗組員のクローンを作成することはできません。</text>
+								<text>クルーを売却したばかりなので、クルーのクローンを作成することはできません。</text>
 							</removeCrew>
 							<item_modify>
 								<item type="scrap" min="125" max="125" />
@@ -1833,7 +1833,7 @@
 							<text>「ああ、なんて素晴らしい標本だ。これは私の他の生き物の中でとても素敵に見えるだろう。この支払いをしてください。」</text>
 							<removeCrew class="mantis_bishop">
 								<clone>false</clone>
-								<text>乗組員を売却したばかりなので、乗組員のクローンを作成することはできません。</text>
+								<text>クルーを売却したばかりなので、クルーのクローンを作成することはできません。</text>
 							</removeCrew>
 							<item_modify>
 								<item type="scrap" min="130" max="130" />
@@ -1846,7 +1846,7 @@
 							<text>「ああ、なんて素晴らしい標本だ。これは私の他の生き物の中でとても素敵に見えるだろう。この支払いをしてください。」</text>
 							<removeCrew class="shell_radiant">
 								<clone>false</clone>
-								<text>乗組員を売却したばかりなので、乗組員のクローンを作成することはできません。</text>
+								<text>クルーを売却したばかりなので、クルーのクローンを作成することはできません。</text>
 							</removeCrew>
 							<item_modify>
 								<item type="scrap" min="100" max="100" />
@@ -1859,7 +1859,7 @@
 							<text>「ああ、なんて素晴らしい標本だ。これは私の他の生き物の中でとても素敵に見えるだろう。この支払いをしてください。」</text>
 							<removeCrew class="lanius_welder">
 								<clone>false</clone>
-								<text>乗組員を売却したばかりなので、乗組員のクローンを作成することはできません。</text>
+								<text>クルーを売却したばかりなので、クルーのクローンを作成することはできません。</text>
 							</removeCrew>
 							<item_modify>
 								<item type="scrap" min="100" max="100" />
@@ -1878,7 +1878,7 @@
 						</event>
 					</choice>
 					<choice hidden="true" req="">
-						<text>気にしないでください、私はむしろ何人かの乗組員を買いたいです。</text>
+						<text>気にしないでください、私はむしろ何人かのクルーを買いたいです。</text>
 						<event load="ROYAL_ZOO_PURCHASE" />
 					</choice>
 					<choice hidden="true" req="">
@@ -1896,7 +1896,7 @@
 	<choice hidden="true">
 		<text>これは日陰です、できる限り今すぐ攻撃してください！</text>
 		<event>
-			<text>ロイヤルが乗組員をいじくり回すつもりはありません。戦いに備える！</text>
+			<text>ロイヤルがクルーをいじくり回すつもりはありません。戦いに備える！</text>
 			<ship hostile="true" />
 			<choice hidden="true">
 				<text>継続する...</text>
@@ -2148,11 +2148,11 @@
 					<choice hidden="true">
 						<text>自分で続けてください。</text>
 						<event>
-							<text>あなたは声を無視して前進します。もう少し長く、それは再び話します。 「あなたが自分自身を歓迎したくないのは明らかです。侵入防止システムをアクティブにします。」突然、レーザーが壁から出てきて、乗組員の1人が溶けてしまいました。さらに悪いことに、2つのコグニティブが具体化してあなたの乗組員を追いかけます！</text>
+							<text>あなたは声を無視して前進します。もう少し長く、それは再び話します。 「あなたが自分自身を歓迎したくないのは明らかです。侵入防止システムをアクティブにします。」突然、レーザーが壁から出てきて、クルーの1人が溶けてしまいました。さらに悪いことに、2つのコグニティブが具体化してあなたのクルーを追いかけます！</text>
 							<boarders min="2" max="2" class="cognitive" />
 							<removeCrew>
 								<clone>true</clone>
-								<text>幸いなことに、あなたの乗組員はすでに船にクローンを戻し、認知的侵入者と戦う準備ができています。</text>
+								<text>幸いなことに、あなたのクルーはすでに船にクローンを戻し、認知的侵入者と戦う準備ができています。</text>
 							</removeCrew>
 						</event>
 					</choice>
@@ -2198,7 +2198,7 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_MANTIS">
-		<text>（マンティスの乗組員）それはフリーマンティス方言です。</text>
+		<text>（マンティスのクルー）それはフリーマンティス方言です。</text>
 		<event>
 			<text>反乱軍の船に連絡を送り、しばらくするとカメラが飛び出します。船は今や親しみやすい見た目のマンティスによって操縦されていることがわかります。 「こんにちは！はい、氏族の方言に慣れていない船で反乱軍の翻訳者を元気にしています。栄光の連邦のために反乱軍を捕まえることを期待して、艦隊を追跡しました！多くは成功していますが、セクターは怖いです。大きな立方体の船が行き来し、多くを殺します。キューブから死ぬことを望んでいます。」</text>
 			<crewMember amount="1" class="mantis_warlord" all_skills="2">Ken</crewMember>
@@ -2610,7 +2610,7 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_HUMAN">
-		<text>（人間の乗組員）反乱軍の船のふりをします。</text>
+		<text>（人間のクルー）反乱軍の船のふりをします。</text>
 		<event load="ROYAL_MFK_OUTPOST_HUMAN" />
 	</choice>
 	<choice hidden="true">
@@ -2693,11 +2693,11 @@
 	<choice hidden="true">
 		<text>船にドッキングして調査します。</text>
 		<event>
-			<text>格納庫湾に入ると、オベリスクの船がたくさん残っていますが、驚くほど乗組員がいないことがわかります。船内には大きな警報が鳴り、見えなくても危険を意味します。</text>
+			<text>格納庫湾に入ると、オベリスクの船がたくさん残っていますが、驚くほどクルーがいないことがわかります。船内には大きな警報が鳴り、見えなくても危険を意味します。</text>
 			<choice hidden="true">
 				<text>見続ける。</text>
 				<event>
-					<text>すべての乗組員がどこに行ったかを見つけるのにそれほど時間はかかりません。船の片側での大規模な破損により、それらのかなりの部分が吸い出され、船の北部全体が真空になりました！ベントエリアを避けてコントロールルームに向かいます。コントロールルームでは、ロイヤルが船のコントロールのためにコグニティブと戦っています。</text>
+					<text>すべてのクルーがどこに行ったかを見つけるのにそれほど時間はかかりません。船の片側での大規模な破損により、それらのかなりの部分が吸い出され、船の北部全体が真空になりました！ベントエリアを避けてコントロールルームに向かいます。コントロールルームでは、ロイヤルが船のコントロールのためにコグニティブと戦っています。</text>
 					<choice hidden="true">
 						<text>コグニティブを撃ちます。</text>
 						<event>

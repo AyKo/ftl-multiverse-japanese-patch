@@ -16,8 +16,8 @@
 	<preventBossFleet />
 	<beaconType id="map_icon_cronch" global="true">
 		<color r="66" g="255" b="0" a="1.0" />
-		<unvisitedTooltip>These are the coordinates you found at the Harmony Link.</unvisitedTooltip>
-		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<unvisitedTooltip>これらは、ハーモニーリンクで見つけた座標です。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
 	</beaconType>
 	<text>マップにマークされた座標に到着しました。以前と同じように、はるかに小さいが類似した立方体の船の残骸に気づきます。ただし、前回との主な違いは、場所を除いて、これまでに見たことのない色の3つの巨大なラニウス船です。</text>
 	<ship load="SHIP_AUGMENTED_INTRO" hostile="false" />
@@ -85,8 +85,8 @@
 	<preventQuest />
 	<beaconType id="map_icon_anointed" global="true">
 		<color r="255" g="0" b="230" a="1.0" />
-		<unvisitedTooltip>The location of the augmented leader, the Anointed.</unvisitedTooltip>
-		<visitedTooltip>Visited location.</visitedTooltip>
+		<unvisitedTooltip>増強されたリーダー、Anointedの場所。</unvisitedTooltip>
+		<visitedTooltip>訪問した場所。</visitedTooltip>
 	</beaconType>
 	<variable name="loc_anointed" op="set" val="1" />
 	<text>出口に到着しました...</text>
@@ -372,7 +372,7 @@
 </event>
 
 <event name="ANOINTED_DEADCREW">
-    <text>巡洋艦の乗組員は無力化されました。あなたは船を検査し、残骸を集めるために移動します。</text>
+    <text>巡洋艦のクルーは無力化されました。あなたは船を検査し、残骸を集めるために移動します。</text>
    <variable name="ach_boss_augcruiser" op="set" val="1" />
 	<autoReward level="HIGH">weapon</autoReward>
     <choice hidden="true">
@@ -412,7 +412,7 @@
 	<choice hidden="true">
 		<text>彼に船体を食べさせてください。</text>
 		<event>
-			<text>ラニウスはシャトルを閉じて飛ばし、底から出て、あなたのところに滑り込みます。彼は船体のごく一部を付着させて液化し始めます。それはほとんど何もありません、あなたが予想したよりはるかに少ないです、しかしラニウスは感謝していて、あなたの乗組員に加わることさえ申し出ます。</text>
+			<text>ラニウスはシャトルを閉じて飛ばし、底から出て、あなたのところに滑り込みます。彼は船体のごく一部を付着させて液化し始めます。それはほとんど何もありません、あなたが予想したよりはるかに少ないです、しかしラニウスは感謝していて、あなたのクルーに加わることさえ申し出ます。</text>
 			<crewMember amount="1" class="lanius_augmented" />
 			<damage amount="2" effect="breach" system="room" />
 		</event>
@@ -790,7 +790,7 @@
 				</event>
 			</choice>
 			<choice hidden="true" req="LIST_VARIANT_SEPARATIST">
-				<text>（分離主義者の乗組員）「あなたの使命は[非常に]重要です。しかし、私たちの使命も重要です。要求：物資。」</text>
+				<text>（分離主義者のクルー）「あなたの使命は[非常に]重要です。しかし、私たちの使命も重要です。要求：物資。」</text>
 				<event>
 					<text>あなたの分離主義者はあなたの使命を他のエンギに説明します。 「このリクエストは受け入れられます。今すぐ物資を転送します。」</text>
 					<autoReward level="MED">stuff</autoReward>
@@ -905,7 +905,7 @@
 		<autoReward level="HIGH">stuff</autoReward>
 	</event>
 	<event>
-		<text>スキャンによると、船の生命維持装置はある程度の損傷を受けていますが、十字軍の乗組員はまだ搭乗しています。</text>
+		<text>スキャンによると、船の生命維持装置はある程度の損傷を受けていますが、十字軍のクルーはまだ搭乗しています。</text>
 		<choice hidden="true">
 			<text>彼らが弱い間に彼らを攻撃してください！</text>
 			<event>

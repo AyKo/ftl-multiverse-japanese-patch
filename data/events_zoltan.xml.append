@@ -91,7 +91,7 @@
 			<choice hidden="true">
 				<text>継続する...</text>
 				<event>
-					<text>あなたのドローンは、広大な洞窟ネットワークと発掘の証拠を発見します。真下に埋もれていると、まだ一生懸命働いているゾルタンの科学者がいます。彼はあなたに彼の同僚全員が長い間死んでいると言います。あなたは質問をせず、彼をあなたの乗組員に参加させることを申し出ることにしました。</text>
+					<text>あなたのドローンは、広大な洞窟ネットワークと発掘の証拠を発見します。真下に埋もれていると、まだ一生懸命働いているゾルタンの科学者がいます。彼はあなたに彼の同僚全員が長い間死んでいると言います。あなたは質問をせず、彼をあなたのクルーに参加させることを申し出ることにしました。</text>
 					<crewMember amount="1" class="zoltan" />
 				</event>
 			</choice>
@@ -445,7 +445,7 @@
 	<choice>
 		<text>離れる。</text>
 		<event>
-			<text>あなたは彼の船を取り戻すことを拒否しますが、それでも彼を次の駅に降ろすことを申し出ます。ゾルタンは不満を持っていますが、同じように近くのスターベースに案内します。</text>
+			<text>あなたは彼の船を取り戻すことを拒否しますが、それでも彼を次のステーションに降ろすことを申し出ます。ゾルタンは不満を持っていますが、同じように近くのスターベースに案内します。</text>
 			<choice>
 				<text>船に乗って何かをしなさい。</text>
 				<event load="STORAGE_CHECK" />
@@ -507,7 +507,7 @@
 </eventList>
 
 <event name="ZOLTAN_CREW_SCAN" unique="true">
-	<text>ビーコンの周囲に設置されたZoltanセキュリティチェックポイントに到着します。 「旅行船、あなたは帝国の逃亡者を特定するために乗組員のプロファイリングに提出します。」</text>
+	<text>ビーコンの周囲に設置されたZoltanセキュリティチェックポイントに到着します。 「旅行船、あなたは帝国の逃亡者を特定するためにクルーのプロファイリングに提出します。」</text>
 	<choice hidden="true">
 		<text>あなたはこのナンセンスのための時間がありません。攻撃！</text>
 		<event>
@@ -524,9 +524,9 @@
 		<event load="ZOLTAN_CREW_SCAN_LIST" />
 	</choice>
 	<choice hidden="true" req="LIST_CREW_SLUG">
-		<text>（ナメクジの乗組員）あなたのナメクジにあなたを手放すように彼らに話してもらいます。</text>
+		<text>（ナメクジのクルー）あなたのナメクジにあなたを手放すように彼らに話してもらいます。</text>
 		<event>
-			<text>あなたは警備員に船とドッキングする許可を与えますが、彼らが乗船する前に、あなたの乗組員はゆっくりと前進して彼らに会います。あなたが言うことができる限り、言葉は交換されませんでした、しかし警備員はあなたにいくつかの物資を提供して、船がチェックアウトすると言います。質問しないのが最善です。</text>
+			<text>あなたは警備員に船とドッキングする許可を与えますが、彼らが乗船する前に、あなたのクルーはゆっくりと前進して彼らに会います。あなたが言うことができる限り、言葉は交換されませんでした、しかし警備員はあなたにいくつかの物資を提供して、船がチェックアウトすると言います。質問しないのが最善です。</text>
 			<autoReward level="MED">fuel_only</autoReward>
 		</event>
 	</choice>
@@ -537,7 +537,7 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="mind">
-		<text>（マインドコントロール）警備員に、彼らが今日あなたの乗組員をすでにチェックしたと信じさせます。</text>
+		<text>（マインドコントロール）警備員に、彼らが今日あなたのクルーをすでにチェックしたと信じさせます。</text>
 		<event>
 			<text>警備員の船長がビデオ画面に表示されます。「すぐに友達に戻ってください。もう時間を無駄にする必要はありません。ここで、これらの予備の燃料キャニスターを持って、任務を遂行してください。」あなたの船は通過するためにクリアされます。</text>
 			<autoReward level="MED">fuel_only</autoReward>
@@ -546,24 +546,24 @@
 </event>
 <eventList name="ZOLTAN_CREW_SCAN_LIST">
 	<event>
-		<text>ゾルタンのセキュリティスタッフがあなたの船に乗り込み、乗組員の顔をスキャンしてコンピューターに取り込みます。不確実性のいくつかの緊張した瞬間の後、彼らはあなたの船が通過するのを許します。</text>
+		<text>ゾルタンのセキュリティスタッフがあなたの船に乗り込み、クルーの顔をスキャンしてコンピューターに取り込みます。不確実性のいくつかの緊張した瞬間の後、彼らはあなたの船が通過するのを許します。</text>
 	</event>
 	<event>
-		<text>ゾルタンのセキュリティスタッフがあなたの船に乗り込み、乗組員の顔をコンピューターにスキャンし始めます。突然アラームが鳴り、ゾルタンがあなたの乗組員の1人に跳躍します！ 「この人は、Utter Villainyの5回の起訴で指名手配されています！彼らを私たちに降伏させてください！」</text>
+		<text>ゾルタンのセキュリティスタッフがあなたの船に乗り込み、クルーの顔をコンピューターにスキャンし始めます。突然アラームが鳴り、ゾルタンがあなたのクルーの1人に跳躍します！ 「この人は、Utter Villainyの5回の起訴で指名手配されています！彼らを私たちに降伏させてください！」</text>
 		<choice hidden="true">
-			<text>乗組員をあきらめます。</text>
+			<text>クルーをあきらめます。</text>
 			<event>
 				<text>難しい呼びかけですが、ここではゾルタン法が支配しています。その上、それはいつも少しずるいようでした。</text>
 				<removeCrew>
 					<clone>false</clone>
-					<text>残念ながら、あなたの乗組員は無傷で連れ去られたので、あなたのクローンベイは彼らを取り戻すことができませんでした。</text>
+					<text>残念ながら、あなたのクルーは無傷で連れ去られたので、あなたのクローンベイは彼らを取り戻すことができませんでした。</text>
 				</removeCrew>
 			</event>
 		</choice>
 		<choice hidden="true">
 			<text>拒否して戦う。</text>
 			<event>
-				<text>誰かを置き去りにするつもりはありません。敵の警備員を乗せて駅から離れます。残念ながら、彼らは混乱の中であなたの武器システムを妨害することができます。出発の時間です！</text>
+				<text>誰かを置き去りにするつもりはありません。敵の警備員を乗せてステーションから離れます。残念ながら、彼らは混乱の中であなたの武器システムを妨害することができます。出発の時間です！</text>
 				<ship load="SHIP_ZOLTAN_CREW_SCAN" hostile="true" />
 				<boarders min="2" max="4" class="zoltan" />
 				<status type="divide" target="player" system="weapons" amount="2" />
@@ -593,7 +593,7 @@
 	<choice hidden="true">
 		<text>彼らが誰を売りに出しているのか見てみましょう。</text>
 		<event>
-			<text>「連邦政府、え？あなたは私を捕まえれば、少し余分なもので戦闘機を使うことができる仲間のように見えます。かなり手頃な料金で、見事なゾルタンの戦士はどのように聞こえますか？あなたの乗組員？」</text> 
+			<text>「連邦政府、え？あなたは私を捕まえれば、少し余分なもので戦闘機を使うことができる仲間のように見えます。かなり手頃な料金で、見事なゾルタンの戦士はどのように聞こえますか？あなたのクルー？」</text> 
 			<choice>
 				<text>ゾルタンを購入します。</text>
 				<event>
@@ -696,7 +696,7 @@
 </event>
 
 <event name="DISTRESS_ZOLTAN_SHELL" unique="true">
-	<text>あなたは、舵を取っている人がいない、動きの鈍いゾルタン貨物船を見つけるために到着します。乗組員に何が起こったのかは謎ですが、機会を無駄にするのは残念です。</text>
+	<text>あなたは、舵を取っている人がいない、動きの鈍いゾルタン貨物船を見つけるために到着します。クルーに何が起こったのかは謎ですが、機会を無駄にするのは残念です。</text>
 	<distressBeacon />
 	<autoReward level="RANDOM">standard</autoReward>
 	<choice>
@@ -738,7 +738,7 @@
 	<choice req="LIST_CREW_ZOLTAN_CAPITAL">
 		<text>（Zoltan Crew）彼の公式文書を提示し、入場料を支払います。</text>
 		<event>
-			<text>彼らはあなたの乗組員が公民であることを宣言するIDをスキャンし、彼らの料金を徴収し、あなたを通過させます。</text>
+			<text>彼らはあなたのクルーが公民であることを宣言するIDをスキャンし、彼らの料金を徴収し、あなたを通過させます。</text>
 			<item_modify>
 				<item type="scrap" min="-10" max="-10" />
 			</item_modify> 
@@ -1038,7 +1038,7 @@
 </eventList>
 
 <event name="NEBULA_ZOLTAN_ROCK" unique="true">
-	<text>この星雲は、恐ろしいロックの乗組員がゾルタン国境警察から避難している隠れ場所であることが判明しました。彼らはあなたが彼らのコーディネイトと一緒に去る危険を冒して、発砲する準備ができていないようです！</text>
+	<text>この星雲は、恐ろしいロックのクルーがゾルタン国境警察から避難している隠れ場所であることが判明しました。彼らはあなたが彼らのコーディネイトと一緒に去る危険を冒して、発砲する準備ができていないようです！</text>
 	<environment type="nebula" />
 	<ship load="SHIP_ROCK_GENERIC" hostile="true" />
 	<choice hidden="true">
@@ -1154,7 +1154,7 @@
 </eventList>
 
 <event name="CAPITAL_CREW_STUDY" unique="true">
-	<text>ゾルタンの研究施設に到着します。彼らは、彼らがうっ滞睡眠と長期のFTL旅行による遺伝的歪みを研究していると言います。彼らはあなたの乗組員が数回のスキャンを受ける時間があるかどうか尋ねます。</text>
+	<text>ゾルタンの研究施設に到着します。彼らは、彼らがうっ滞睡眠と長期のFTL旅行による遺伝的歪みを研究していると言います。彼らはあなたのクルーが数回のスキャンを受ける時間があるかどうか尋ねます。</text>
 	<choice hidden="true">
 		<text>彼らの研究に参加してください。</text>
 		<event load="ZOLTAN_CREW_STUDY_LIST" />
@@ -1176,7 +1176,7 @@
 	<choice hidden="true" req="medbay" lvl="3">
 		<text>（高度なメドベイ）彼らにあなたの医療記録を渡してください。</text>
 		<event>
-			<text>「ありがとうございます。FTL旅行中の乗組員の健康に関する大量のデータを受け取ることは期待していませんでした。ご迷惑をおかけしましたことをお詫び申し上げます。」</text>
+			<text>「ありがとうございます。FTL旅行中のクルーの健康に関する大量のデータを受け取ることは期待していませんでした。ご迷惑をおかけしましたことをお詫び申し上げます。」</text>
 			<drone name="RANDOM" />
 			<autoReward level="LOW">stuff</autoReward>
 		</event>
@@ -1198,11 +1198,11 @@
 </event>
 <eventList name="ZOLTAN_CREW_STUDY_LIST">
 	<event>
-		<text>あなたの乗組員は、ゾルタンが彼らの読書をするために静かに並んでいます。しばらくすると、プロセスが完了します。彼らはあなたに連絡します、「私たちの研究に参加してくれてありがとう。固い生地といくつかのスクラップから作られたこれらの小さなケーキを受け入れてください。」</text>
+		<text>あなたのクルーは、ゾルタンが彼らの読書をするために静かに並んでいます。しばらくすると、プロセスが完了します。彼らはあなたに連絡します、「私たちの研究に参加してくれてありがとう。固い生地といくつかのスクラップから作られたこれらの小さなケーキを受け入れてください。」</text>
 		<autoReward level="LOW">scrap_only</autoReward>
 	</event>
 	<event>
-		<text>あなたの乗組員は、ゾルタンが彼らの読書をするために静かに並んでいます。しばらくすると、プロセスが完了します。彼らはあなたに連絡します、「私たちの研究に参加してくれてありがとう。固い生地といくつかのスクラップから作られたこれらの小さなケーキを受け入れてください。」</text>
+		<text>あなたのクルーは、ゾルタンが彼らの読書をするために静かに並んでいます。しばらくすると、プロセスが完了します。彼らはあなたに連絡します、「私たちの研究に参加してくれてありがとう。固い生地といくつかのスクラップから作られたこれらの小さなケーキを受け入れてください。」</text>
 		<autoReward level="LOW">scrap_only</autoReward>
 	</event>
 	<event>
@@ -1806,12 +1806,12 @@
 	</choice>
 </event>
 <event name="QUEST_CAPITAL_LANIUS_CORE_STATION">
-	<text>座標はあなたを通常のゾルタン駅に導きました。コアが必要な場合は、最初に住民を排除する必要があります。</text>
+	<text>座標はあなたを通常のゾルタンステーションに導きました。コアが必要な場合は、最初に住民を排除する必要があります。</text>
 	<ship load="SHIP_ZOLTAN_CORE_STATION" hostile="false" />
 	<choice hidden="true">
 		<text>攻撃！</text>
 		<event>
-			<text>あなたは武器を武装させ、ゾルタン駅に近づきます。</text>
+			<text>あなたは武器を武装させ、ゾルタンステーションに近づきます。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
 				<text>継続する...</text>
@@ -1835,7 +1835,7 @@
 	</choice>
 </event>
 <event name="QUEST_CAPITAL_LANIUS_CORE_DUSKBRINGER">
-	<text>コーディネートはあなたをDuskbringer船に導きました！彼らはあなたが連邦の船であることを即座に検出して攻撃します。どちらの方法でも彼らと戦う必要がありますが、コアが必要な場合は、彼らの乗組員を殺す必要があります。</text>
+	<text>コーディネートはあなたをDuskbringer船に導きました！彼らはあなたが連邦の船であることを即座に検出して攻撃します。どちらの方法でも彼らと戦う必要がありますが、コアが必要な場合は、彼らのクルーを殺す必要があります。</text>
 	<ship load="SHIP_ZOLTAN_CORE_DUSKBRINGER" hostile="true" />
 	<choice hidden="true">
 		<text>継続する...</text>
@@ -1860,7 +1860,7 @@
 	<choice hidden="true" req="zoltan_monk">
 		<text>（モンククルー）コアについて彼らと交渉します。</text>
 		<event>
-			<text>あなたの僧侶の乗組員はあなたに彼らのコアを与えるように他の人を説得することができたようです。</text>
+			<text>あなたの僧侶のクルーはあなたに彼らのコアを与えるように他の人を説得することができたようです。</text>
 			<choice hidden="true">
 				<text>継続する...</text>
 				<event load="QUEST_CAPITAL_LANIUS_CORE_OBTAIN" />
@@ -2071,7 +2071,7 @@
 	</deadCrew>
 </ship>
 <event name="OSMIA_RAID_ESCAPE">
-	<text>乗組員が非常に少なくなったため、船は現在逃げようとしているようです。この種の行動はあまり見られませんが、Alltaから連絡があります。 「その船を逃がさないでください！テロリストが再編成できないようにする必要があります！」</text>
+	<text>クルーが非常に少なくなったため、船は現在逃げようとしているようです。この種の行動はあまり見られませんが、Alltaから連絡があります。 「その船を逃がさないでください！テロリストが再編成できないようにする必要があります！」</text>
 	<clearTriggeredEvent name="OSMIA_ESCAPE_TRIGGER" /> 
 	<escape />
 	<choice hidden="true">
@@ -2197,8 +2197,8 @@
 <event name="OSMIA_UNLOCK_QUEST">
 	<beaconType id="map_icon_osmia" global="true">
 		<color r="255" g="85" b="75" a="1.0" />
-		<unvisitedTooltip>Location of the terrorists.</unvisitedTooltip>
-		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<unvisitedTooltip>テロリストの場所。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
 	</beaconType>
 	<preventQuest />
 	<preventFleet />
@@ -2328,8 +2328,8 @@
 <event name="OSMIA_LAB">
 	<beaconType id="map_icon_secretlab" global="true">
 		<color r="255" g="85" b="75" a="1.0" />
-		<unvisitedTooltip>Location of the secret Ministry Lab.</unvisitedTooltip>
-		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<unvisitedTooltip>秘密の省研究所の場所。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
 	</beaconType>
 	<preventQuest />
 	<preventFleet />
@@ -2394,13 +2394,13 @@
 			<choice hidden="true">
 				<text>オスミアンがうっ滞ポッドを動かすのを手伝ってください。</text>
 				<event>
-					<text>あなたの乗組員は急いで助けに駆けつけ、ポッドを保持コンパートメントから外し、待機中のオスミアン輸送船に運びます。タイマーが刻々と過ぎていくと、制限時間よりもはるかに大きな問題があることに気付きます。すべての標本に十分なスペースがありません。マルキも気づき、がっかりします。 「私たちは今何をしますか？複数の旅行のための十分な時間がありません！」</text>
+					<text>あなたのクルーは急いで助けに駆けつけ、ポッドを保持コンパートメントから外し、待機中のオスミアン輸送船に運びます。タイマーが刻々と過ぎていくと、制限時間よりもはるかに大きな問題があることに気付きます。すべての標本に十分なスペースがありません。マルキも気づき、がっかりします。 「私たちは今何をしますか？複数の旅行のための十分な時間がありません！」</text>
 					<choice hidden="true">
 						<text>私たちはそれらを置き去りにしなければなりません！</text>
 						<event load="OSMIAN_LEAVE" />
 					</choice>
 					<choice hidden="true" req="BLUELIST_CREW_STRONG">
-						<text>（強力な乗組員）いくつかのポッドを船に運びます。</text>
+						<text>（強力なクルー）いくつかのポッドを船に運びます。</text>
 						<event>
 							<text>他の輸送機関が満員の場合、唯一の選択肢は、チャンバーを自分の船に積み込むことです。あなたはできるだけ多くを持ち帰りますが、マルキが他の船にもっと多くのコンテナを収めようとして無益に駆け回っていることに気づかずにはいられません。</text>
 							<augment name="ZOLTAN_SPAWNER" />
@@ -2422,7 +2422,7 @@
 	</choice>
 </event>
 <event name="OSMIAN_LEAVE">
-	<text>「あなたは気が狂っていますか？私たちは彼らを置き去りにするためだけにここまで来たのではありません！私たちはできるだけ多くの人を救出する必要があります！」あなたはそれらすべてを動かすのにおそらく十分な時間がないことを説明しようとしますが、マルキは耳を傾けません。最終的に、残りのオスミアンが逃げるとき、あなたは力で彼をあなたの船に引き戻すことだ?できます。すべての標本を保存することはできず、科学者は運命にありますが、少なくともすべてのオスミアンとあなたの乗組員は安全にそれを取り除くことができました。</text>
+	<text>「正気か？　彼らを置き去りにするためにここまで来たんじゃない。できるだけ多くの人を救わなければならない！"」　全員を移動させる時間はないと説明するが、マルキは聞く耳を持たない。結局、力ずくで彼を自分の船に引きずり戻し、残りのオスマン人が逃げ出すのに成功する。あなたはすべての標本を救うことができず、科学者たちは絶望的な状況に陥ったが、少なくともオスマン人とあなたのクルーは全員無事に脱出することができた。」</text>
 	<choice hidden="true">
 		<text>継続する...</text>
 		<event>
@@ -2579,7 +2579,7 @@
 		</event>
 	</choice>
 	<choice>
-		<text>いいえ、これ以上乗組員は必要ありません。</text>
+		<text>いいえ、これ以上クルーは必要ありません。</text>
 		<event>
 			<text>「ああ……わかった」通話を終了して続行します。</text>
 			<choice>
@@ -2600,23 +2600,23 @@
 	<choice hidden="true">
 		<text>ツアーに同意します。</text>
 		<event>
-			<text>「ツアー」は、ツアーではなく、僧侶の宗教についての長い説教になります。あなたはそれがかなり退屈だと思いますが、あなたの乗組員の一人は確信しています。驚いたことに、彼らは後ろに留まって僧侶に加わりたいと思っています！</text>
+			<text>「ツアー」は、ツアーではなく、僧侶の宗教についての長い説教になります。あなたはそれがかなり退屈だと思いますが、あなたのクルーの一人は確信しています。驚いたことに、彼らは後ろに留まって僧侶に加わりたいと思っています！</text>
 			<choice hidden="true">
 				<text>同意し、彼らを手放します。</text>
 				<event>
-					<text>あなたの乗組員はさようならを振る。僧侶たちはあなたに同情し、どんな難しい決断があったに違いないかを理解します。慰めとして、彼らはあなたの船体を修理し、あなたのリアクターを無料でアップグレードします。</text>
+					<text>あなたのクルーはさようならを振る。僧侶たちはあなたに同情し、どんな難しい決断があったに違いないかを理解します。慰めとして、彼らはあなたの船体を修理し、あなたのリアクターを無料でアップグレードします。</text>
 					<upgrade amount="2" system="reactor" />
 					<damage amount="-5" />
 					<removeCrew>
 						<clone>false</clone>
-						<text>彼らは死んでいないので、あなたはあなたの乗組員を複製することはできません。</text>
+						<text>彼らは死んでいないので、あなたはあなたのクルーを複製することはできません。</text>
 					</removeCrew>
 				</event>
 			</choice>
 			<choice hidden="true">
 				<text>拒否する。</text>
 				<event>
-					<text>あなたは乗組員を慰め、任務がより重要であり、あなたがこの現実を救ったときに彼らは僧侶に戻ることができると説明します。</text>
+					<text>あなたはクルーを慰め、任務がより重要であり、あなたがこの現実を救ったときに彼らは僧侶に戻ることができると説明します。</text>
 				</event>
 			</choice>
 		</event>
@@ -2734,7 +2734,7 @@
 			<choice hidden="true">
 				<text>それらに5発のミサイルを与えます。</text>
 				<event>
-					<text>「あなたの贈り物はありがたいです。この感謝の印を受け取ってください。」あなたはスクラップかおそらく燃料を期待していますが、代わりにゴーストの乗組員があなたの船で実体化します！</text>
+					<text>「あなたの贈り物はありがたいです。この感謝の印を受け取ってください。」あなたはスクラップかおそらく燃料を期待していますが、代わりにゴーストのクルーがあなたの船で実体化します！</text>
 					<item_modify>
 						<item type="missiles" min="-5" max="-5" />
 					</item_modify>
@@ -2744,7 +2744,7 @@
 			<choice hidden="true">
 				<text>それらに10発のミサイルを与えます。</text>
 				<event>
-					<text>「意外と大量の弾薬。この感謝の印を受け入れてください。」あなたはスクラップかおそらく燃料を期待していますが、代わりにゴーストの乗組員があなたの船で実体化します！</text>
+					<text>「意外と大量の弾薬。この感謝の印を受け入れてください。」あなたはスクラップかおそらく燃料を期待していますが、代わりにゴーストのクルーがあなたの船で実体化します！</text>
 					<item_modify>
 						<item type="missiles" min="-10" max="-10" />
 					</item_modify>
@@ -3395,8 +3395,8 @@
 	<preventFleet />
 	<beaconType id="map_icon_peace" global="true">
 		<color r="84" g="201" b="30" a="1.0" />
-		<unvisitedTooltip>The location of the Monk's brethren.</unvisitedTooltip>
-		<visitedTooltip>This was the location of the Monk's 'brethren'.</visitedTooltip>
+		<unvisitedTooltip>僧侶の兄弟の場所。</unvisitedTooltip>
+		<visitedTooltip>これは、僧侶の「兄弟」の場所でした。</visitedTooltip>
 	</beaconType>
 	<text>平和を愛する僧侶が指定した場所に到着しますが、近くにあるのはエリート反乱軍の船だけです。 「私たちはあなたを見つけました！あなたは今度は逃げません！」</text>
 	<ship load="SHIP_PEACE_QUEST_REBEL" hostile="false" />
@@ -3480,7 +3480,7 @@
 		</event>
 	</choice>
 	<choice>
-		<text>乗組員に依頼してください。</text>
+		<text>クルーに依頼してください。</text>
 		<event>
 			<crewMember amount="1" class="zoltan_peacekeeper" all_skills="2">Envoy</crewMember>
 		</event>
@@ -3499,8 +3499,8 @@
 	<preventQuest />
 	<beaconType id="map_icon_eye" global="true">
 		<color r="223" g="200" b="200" a="1.0" />
-		<unvisitedTooltip>The location of the great eye, a giant monolith worshipped by the Zoltans.</unvisitedTooltip>
-		<visitedTooltip>The location of the great eye, a giant monolith worshipped by the Zoltans.</visitedTooltip>
+		<unvisitedTooltip>ゾルタンが崇拝する巨大な一枚岩である大きな目の場所。</unvisitedTooltip>
+		<visitedTooltip>ゾルタンが崇拝する巨大な一枚岩である大きな目の場所。</visitedTooltip>
 	</beaconType>
 	<text>グレートアイに近づくと、突然裂け目が開き、スクラップの塊があなたに向かって急いで来ます。幸いなことに、それは船体からわずかに跳ね返るだけで、あなたはそれをすくい上げます。あなたはそれがどこから来たのか分かりませんが、あなたはスクラップを取ります。</text>
 	<img back="BACK_EVENT_EYE" planet="PLANET_UNPOPULATED_TERRA" />
@@ -3517,8 +3517,8 @@
 	<preventQuest />
 	<beaconType id="map_icon_eye" global="true">
 		<color r="223" g="200" b="200" a="1.0" />
-		<unvisitedTooltip>The location of the great eye, a giant monolith worshipped by the Zoltans.</unvisitedTooltip>
-		<visitedTooltip>The location of the great eye, a giant monolith worshipped by the Zoltans.</visitedTooltip>
+		<unvisitedTooltip>ゾルタンが崇拝する巨大な一枚岩である大きな目の場所。</unvisitedTooltip>
+		<visitedTooltip>ゾルタンが崇拝する巨大な一枚岩である大きな目の場所。</visitedTooltip>
 	</beaconType>
 	<text>あなたはグレートアイを発見しました！場所は遠くにある巨大な目の形をした星雲にちなんで名付けられましたが、本当の魅力は、近くの惑星に緑色のライトが置かれている巨大な直方体のモノリスです。このビーコンは、この場所に毎年巡礼する観光客とゾルタンの両方がよく訪れる場所です。</text>
 	<img back="BACK_EVENT_EYE" planet="PLANET_UNPOPULATED_TERRA" />
@@ -3689,15 +3689,15 @@
 		<modifyPursuit amount="-1" />
 	</event>
 	<event>
-		<text>ささやきがあなたを取り囲み、未知の富の約束であなたを落ち着かせます。あなたがしなければならないのは選択をすることです...あなたの報酬を受け取るために乗組員を犠牲にするか、強いままで衝動に抵抗してください。</text>
+		<text>ささやきがあなたを取り囲み、未知の富の約束であなたを落ち着かせます。あなたがしなければならないのは選択をすることです...あなたの報酬を受け取るためにクルーを犠牲にするか、強いままで衝動に抵抗してください。</text>
 		<choice hidden="true">
 			<text>犠牲を払ってください。</text>
 			<event>
-				<text>精神的に挑戦を受け入れるとすぐに、短剣があなたの手に現れます。あなたは最も近い乗組員を引きずって、狂った血の欲望で彼らを刺します。あなたはすぐに気を失い、目を覚まして船がスクラップや物資でいっぱいになっているのを見つけます。</text>
+				<text>精神的に挑戦を受け入れるとすぐに、短剣があなたの手に現れます。あなたは最も近いクルーを引きずって、狂った血の欲望で彼らを刺します。あなたはすぐに気を失い、目を覚まして船がスクラップや物資でいっぱいになっているのを見つけます。</text>
 				<autoReward level="HIGH">item</autoReward>
 				<removeCrew>
 					<clone>false</clone>
-					<text>彼らの死は単に刺し傷であるにもかかわらず、あなたの乗組員の死は不可逆的であるように思われます。</text>
+					<text>彼らの死は単に刺し傷であるにもかかわらず、あなたのクルーの死は不可逆的であるように思われます。</text>
 				</removeCrew>
 			</event>
 		</choice>
@@ -3728,15 +3728,15 @@
 		<crewMember amount="1" />
 	</event>
 	<event>
-		<text>あなたは、乗組員の1人が咳をして、地面に倒れるときに喉をつかんで紫色に変わるのを見るように向きを変えます。ゆっくりと、彼らの皮膚は剥がれ始め、彼らの体は溶けて、再び完全に異なる形に再形成するだけです。</text>
+		<text>あなたは、クルーの1人が咳をして、地面に倒れるときに喉をつかんで紫色に変わるのを見るように向きを変えます。ゆっくりと、彼らの皮膚は剥がれ始め、彼らの体は溶けて、再び完全に異なる形に再形成するだけです。</text>
 		<transformRace>random</transformRace>
 	</event>
 	
 	<event>
-		<text>近づくと、色の万華鏡がビュースクリーンに表示され、乗組員の1人が逆に急速に老化し始め、最終的には無になります。彼らが物理的な存在を超越し、単にそれから追い出されるのではないことを願いましょう。</text>
+		<text>近づくと、色の万華鏡がビュースクリーンに表示され、クルーの1人が逆に急速に老化し始め、最終的には無になります。彼らが物理的な存在を超越し、単にそれから追い出されるのではないことを願いましょう。</text>
 		<removeCrew>
 			<clone>false</clone>
-			<text>あなたはあなたのクローンベイをチェックしますが、それは休眠状態にあります。あなたの乗組員に起こったことは何でも不可逆的でなければなりません。</text>
+			<text>あなたはあなたのクローンベイをチェックしますが、それは休眠状態にあります。あなたのクルーに起こったことは何でも不可逆的でなければなりません。</text>
 		</removeCrew>
 	</event>
 	
@@ -3861,15 +3861,15 @@
 		<modifyPursuit amount="-1" />
 	</event>
 	<event>
-		<text>ささやきがあなたを取り囲み、未知の富の約束であなたを落ち着かせます。あなたがしなければならないのは選択をすることです...あなたの報酬を受け取るために乗組員を犠牲にするか、強いままで衝動に抵抗してください。</text>
+		<text>ささやきがあなたを取り囲み、未知の富の約束であなたを落ち着かせます。あなたがしなければならないのは選択をすることです...あなたの報酬を受け取るためにクルーを犠牲にするか、強いままで衝動に抵抗してください。</text>
 		<choice hidden="true">
 			<text>犠牲を払ってください。</text>
 			<event>
-				<text>精神的に挑戦を受け入れるとすぐに、短剣があなたの手に現れます。あなたは最も近い乗組員を引きずって、狂った血の欲望で彼らを刺します。あなたはすぐに気を失い、目を覚まして船がスクラップや物資でいっぱいになっているのを見つけます。</text>
+				<text>精神的に挑戦を受け入れるとすぐに、短剣があなたの手に現れます。あなたは最も近いクルーを引きずって、狂った血の欲望で彼らを刺します。あなたはすぐに気を失い、目を覚まして船がスクラップや物資でいっぱいになっているのを見つけます。</text>
 				<autoReward level="HIGH">item</autoReward>
 				<removeCrew>
 					<clone>false</clone>
-					<text>彼らの死は単に刺し傷であるにもかかわらず、あなたの乗組員の死は不可逆的であるように思われます。</text>
+					<text>彼らの死は単に刺し傷であるにもかかわらず、あなたのクルーの死は不可逆的であるように思われます。</text>
 				</removeCrew>
 			</event>
 		</choice>
@@ -3900,7 +3900,7 @@
 		<crewMember amount="1" />
 	</event>
 	<event>
-		<text>あなたは、乗組員の1人が咳をして、地面に倒れるときに喉をつかんで紫色に変わるのを見るように向きを変えます。ゆっくりと、彼らの皮膚は剥がれ始め、彼らの体は溶けて、再び完全に異なる形に再形成するだけです。</text>
+		<text>あなたは、クルーの1人が咳をして、地面に倒れるときに喉をつかんで紫色に変わるのを見るように向きを変えます。ゆっくりと、彼らの皮膚は剥がれ始め、彼らの体は溶けて、再び完全に異なる形に再形成するだけです。</text>
 		<transformRace>random</transformRace>
 	</event>
 </eventList>

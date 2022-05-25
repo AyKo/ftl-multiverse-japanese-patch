@@ -177,7 +177,7 @@
 </eventList>
 
 <event name="ENCOUNTER_PIRATE_NO_ESCAPE" unique="true">
-	<text>到着すると、画面が警告とともに点灯します。近くの海賊は高度なハッキングツールを持っているようで、彼らはあなたのエンジンをシャットダウンしようとしました。あなたの乗組員はなんとか彼らをかろうじて操作可能に保つことができ、あなたは攻撃に移ります。</text>
+	<text>到着すると、画面が警告とともに点灯します。近くの海賊は高度なハッキングツールを持っているようで、彼らはあなたのエンジンをシャットダウンしようとしました。あなたのクルーはなんとか彼らをかろうじて操作可能に保つことができ、あなたは攻撃に移ります。</text>
 	<ship load="SHIP_PIRATE_NO_ESCAPE" hostile="true" />
 	<choice hidden="true">
 		<text>継続する...</text>
@@ -470,7 +470,7 @@
 		<choice hidden="true">
 			<text>船を破壊し、救助します。</text>
 			<event>
-				<text>あなたは船から有用なものをすべて取り除き、助けが到着することを期待するためにその乗組員を残します。</text>
+				<text>あなたは船から有用なものをすべて取り除き、助けが到着することを期待するためにそのクルーを残します。</text>
 				<autoReward level="LOW">standard</autoReward>
 			</event>
 		</choice>
@@ -483,7 +483,7 @@
 		</choice>
 	</event>
 	<event>
-		<text>あなたは遅すぎた。船体の破損により、海賊との戦闘中に乗組員の酸素が奪われました。あなたはあなたができることを救います。</text>
+		<text>あなたは遅すぎた。船体の破損により、海賊との戦闘中にクルーの酸素が奪われました。あなたはあなたができることを救います。</text>
 		<autoReward level="MED">scrap_only</autoReward>
 	</event>
 	<event>
@@ -849,23 +849,23 @@
 	</choice>
 </event>
 <event name="DEAD_CREW_SLAVER_DEADSLAVES">
-	<text>あなたは貨物倉に多くの奴隷を見つけます。あなたはより多くの乗組員を使うことができますが、それはこのような奴隷を連れて行くことについてあなたに前向きに反映されません。</text>
+	<text>あなたは貨物倉に多くの奴隷を見つけます。あなたはより多くのクルーを使うことができますが、それはこのような奴隷を連れて行くことについてあなたに前向きに反映されません。</text>
 	<choice hidden="true">
-		<text>マンティスがあなたの乗組員に加わることを要求しますが、残りを解放します。</text>
+		<text>マンティスがあなたのクルーに加わることを要求しますが、残りを解放します。</text>
 		<event>
 			<text>マンティスがいる檻をこじ開けて、地面に倒れるだけにします。ああ、そうだね...</text>
 			<autoReward level="MED">standard</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>ロックマンがあなたの乗組員に加わることを要求しますが、残りを解放します。</text>
+		<text>ロックマンがあなたのクルーに加わることを要求しますが、残りを解放します。</text>
 		<event>
 			<text>あなたはロックマンが入っている檻をこじ開けて、彼らが地面に倒れるだけです。ああ、そうだね...</text>
 			<autoReward level="MED">standard</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>エンギがあなたの乗組員に加わることを要求しますが、残りを解放します。</text>
+		<text>エンギがあなたのクルーに加わることを要求しますが、残りを解放します。</text>
 		<event>
 			<text>エンギが入っているケージをこじ開けて、地面に倒れるだけにします。ああ、そうだね...</text>
 			<autoReward level="MED">standard</autoReward>
@@ -922,7 +922,7 @@
 </event>
 <eventList name="SLAVER_BETRAYAL_BUY">
 	<event>
-		<text>奴隷商人は、何の拘束もなく、異常に手付かずの奴隷を連れてきます。奴隷が船に戻るとすぐに、「奴隷」は隠されたブラスターを明らかにし、あなたの乗組員をオンにします！トリックでした！</text>
+		<text>奴隷商人は、何の拘束もなく、異常に手付かずの奴隷を連れてきます。奴隷が船に戻るとすぐに、「奴隷」は隠されたブラスターを明らかにし、あなたのクルーをオンにします！トリックでした！</text>
 		<boarders min="1" max="1" class="random" />
 		<item_modify>
 			<item type="scrap" min="-35" max="-35" />
@@ -1210,11 +1210,11 @@
 	
 
 <event name="SMUGGLER_UNLOCK_1" unique="true">
-	<text>あなたは乗組員を乗せます。増援が到着するまで長くはかからないでしょうが、すぐにいくつかのことに気づきます。</text>
+	<text>あなたはクルーを乗せます。増援が到着するまで長くはかからないでしょうが、すぐにいくつかのことに気づきます。</text>
 	<choice hidden="true">
 		<text>左側に座標のある地図があります。</text>
 		<event>
-			<text>あなたの乗組員は地図をつかみ、ある種の密輸船の造船所のように見える座標を書き留めてください。</text>
+			<text>あなたのクルーは地図をつかみ、ある種の密輸船の造船所のように見える座標を書き留めてください。</text>
 			<reveal_map />
 			<quest event="SMUGGLER_UNLOCK_2" />
 			<choice>
@@ -1250,7 +1250,7 @@
 	<choice hidden="true">
 		<text>さらに調査します。</text>
 		<event>
-			<text>駅を守っている船が少ないことにショックを受け、抗議することなく簡単に入ることができます。以前の警備員と同じモデル、反乱軍の砲艦の初期のプロトタイプなど、認識できない船のデザインがいくつかあります。そのうちの1隻は運用可能であり、他の船の部品から作られた大型の巡洋艦サイズの船を保護しています。</text>
+			<text>ステーションを守っている船が少ないことにショックを受け、抗議することなく簡単に入ることができます。以前の警備員と同じモデル、反乱軍の砲艦の初期のプロトタイプなど、認識できない船のデザインがいくつかあります。そのうちの1隻は運用可能であり、他の船の部品から作られた大型の巡洋艦サイズの船を保護しています。</text>
 			<ship load="SHIP_SMUGGLER_GUNBOAT_BOSS" hostile="false" />
 			<choice hidden="true">
 				<text>船を攻撃して巡洋艦に到達します。</text>
@@ -1305,11 +1305,11 @@
 			<choice hidden="true">
 				<text>彼の申し出を受け入れて船に乗りなさい。</text>
 				<event>
-					<text>フェデレーション格納庫に戻るために船の再プログラミングに取り掛かると、内部から大きなカチッという音がします。あなたが反応する前に、爆発は船全体を消費し、あなたの乗組員の1人を殺します！あなたはスラッグから最後の連絡を受け取ります。 「あなたは船長を知っているべきです、決して海賊を押しつぶさないでください。今、私のsssshipyardから出てください。」</text>
+					<text>フェデレーション格納庫に戻るために船の再プログラミングに取り掛かると、内部から大きなカチッという音がします。あなたが反応する前に、爆発は船全体を消費し、あなたのクルーの1人を殺します！あなたはスラッグから最後の連絡を受け取ります。 「あなたは船長を知っているべきです、決して海賊を押しつぶさないでください。今、私のsssshipyardから出てください。」</text>
 					<damage amount="5" effect="fire" system="random" />
 					<removeCrew>
 						<clone>true</clone>
-						<text>幸いなことに、あなたの乗組員はクローン湾によって復活することができますが、爆弾によって破壊された船については同じことは言えません。</text>
+						<text>幸いなことに、あなたのクルーはクローン湾によって復活することができますが、爆弾によって破壊された船については同じことは言えません。</text>
 					</removeCrew>
 				</event>
 			</choice>
@@ -1728,11 +1728,11 @@
 			<choice hidden="true">
 				<text>同意。</text>
 				<event>
-					<text>「ああ、いいね。あなたは理にかなった人だ。私の少佐がここで私を見たのなら……おやおや」彼は首をこすりながら神経質に笑う。 「言ってやるが、船に余計なスペースはないだろうね？たとえば、新しい乗組員の場合は」</text>
+					<text>「ああ、いいね。あなたは理にかなった人だ。私の少佐がここで私を見たのなら……おやおや」彼は首をこすりながら神経質に笑う。 「言ってやるが、船に余計なスペースはないだろうね？たとえば、新しいクルーの場合は」</text>
 					<choice>
 						<text>もちろん。</text>
 						<event>
-							<text>彼の顔は明るくなります。 「ほんと？一緒に来てもらえませんか？」あなたはうなずき、彼は喜びでジャンプします。 「私はすぐに自分のものをつかみます。」彼はすぐに乗船し、乗組員に別れを告げた。 「あなたは本当に私をしっかりとやっています、もし私が私の船にとどまっていたなら、私はここにいることで確かに非難されたでしょう。」</text>
+							<text>彼の顔は明るくなります。 「ほんと？一緒に来てもらえませんか？」あなたはうなずき、彼は喜びでジャンプします。 「私はすぐに自分のものをつかみます。」彼はすぐに乗船し、クルーに別れを告げた。 「あなたは本当に私をしっかりとやっています、もし私が私の船にとどまっていたなら、私はここにいることで確かに非難されたでしょう。」</text>
 							<crewMember amount="1" class="human">Calvin</crewMember>
 						</event>
 					</choice>
@@ -1856,7 +1856,7 @@
 </event>
 
 <event name="STATION_SICK_MARKET" unique="true">
-	<text>目立たない駅がここに掲載されています。おそらく、より多くの人が集まる場所で利益を上げようとしている正直なトレーダーです。</text>
+	<text>目立たないステーションがここに掲載されています。おそらく、より多くの人が集まる場所で利益を上げようとしている正直なトレーダーです。</text>
 	<ship load="SHIP_STATIONS_GENERIC" hostile="false" />
 	<choice hidden="true">
 		<text>彼らが取引したいかどうかを確認するために彼らに連絡してください。</text>
@@ -1876,14 +1876,14 @@
 			<choice hidden="true" req="NANO_MEDBAY">
 				<text>（ナノボット）船にナノボットを氾濫させます。</text>
 				<event>
-					<text>キャプテンはそれが何を意味するのかよくわかりませんが、とにかくあなたにそれをさせてくれます。しばらくすると、乗組員全員の状態がはるかに良くなりました。 「それがどんなブードゥーの魔法だったのかはわかりませんが、気分がいいです。見返りにいくらかの支払いを提供する場合にのみ正しいのです。」</text>
+					<text>キャプテンはそれが何を意味するのかよくわかりませんが、とにかくあなたにそれをさせてくれます。しばらくすると、クルー全員の状態がはるかに良くなりました。 「それがどんなブードゥーの魔法だったのかはわかりませんが、気分がいいです。見返りにいくらかの支払いを提供する場合にのみ正しいのです。」</text>
 					<autoReward level="MED">standard</autoReward>
 				</event>
 			</choice>
 			<choice req="BLUELIST_BOMBS_HEAL">
 				<text>（ヒーリングボム）ヒーリングボムを使用します。</text>
 				<event>
-					<text>ステーションの乗組員は、最初は攻撃を受けていることに怯えていますが、すぐにあなたの回復バーストが彼らの状態を改善しているだけであることに気づきます。 「こんなに変わったものは見たことがない。このような事態が二度と起こらないように、私たちに売ってくれませんか？」</text>
+					<text>ステーションのクルーは、最初は攻撃を受けていることに怯えていますが、すぐにあなたの回復バーストが彼らの状態を改善しているだけであることに気づきます。 「こんなに変わったものは見たことがない。このような事態が二度と起こらないように、私たちに売ってくれませんか？」</text>
 					<item_modify>
 						<item type="missiles" min="-3" max="-3" />
 					</item_modify>
@@ -1935,9 +1935,9 @@
 		</event>
 	</choice>
 	<choice>
-		<text>駅を無視します。</text>
+		<text>ステーションを無視します。</text>
 		<event>
-			<text>あなたは駅と取引することを望んでいません。</text>
+			<text>あなたはステーションと取引することを望んでいません。</text>
 			<choice>
 				<text>船に乗って何かをしなさい。</text>
 				<event load="STORAGE_CHECK" />
@@ -2090,11 +2090,11 @@
 </eventList>
 
 <event name="SLAVER_LANIUS_SLAVE" unique="true">
-	<text>非常に荒涼としたシステムにあるビーコンに入ります。これは、FTLの移動にとってより重要なシステム間のギャップを埋めるための中間のウェイポイントとしてのみ使用されます。ここには、ビーコンの上にある唯一の民間ステーション以外はほとんどありません。ビーコンに到着してしばらくすると、駅に停泊している黒と赤のペンキを塗った黒い船に迎えられます。</text>
+	<text>非常に荒涼としたシステムにあるビーコンに入ります。これは、FTLの移動にとってより重要なシステム間のギャップを埋めるための中間のウェイポイントとしてのみ使用されます。ここには、ビーコンの上にある唯一の民間ステーション以外はほとんどありません。ビーコンに到着してしばらくすると、ステーションに停泊している黒と赤のペンキを塗った黒い船に迎えられます。</text>
 	<choice>
 		<text>継続する。</text>
 		<event>
-			<text>船長は咳をし、「酸素なしで生きるだけでなく、積極的に空気を呼吸不能にすることができる奇跡的な金属の男を手に入れました。しかし、私たちの船の生命維持システムは、その信じられないほどの品質を1年以上維持することはできません。短期間なので、私たちはこの惨めなシステムのこの駅で立ち往生しています。私たちの金属の男を買うことに同意してください、そして私たちはあなたに一生の取引をします。」</text>
+			<text>船長は咳をし、「酸素なしで生きるだけでなく、積極的に空気を呼吸不能にすることができる奇跡的な金属の男を手に入れました。しかし、私たちの船の生命維持システムは、その信じられないほどの品質を1年以上維持することはできません。短期間なので、私たちはこの惨めなシステムのこのステーションで立ち往生しています。私たちの金属の男を買うことに同意してください、そして私たちはあなたに一生の取引をします。」</text>
 			<ship load="SHIP_SLAVER_ALL" hostile="false" /> 
 			<choice>
 				<text>Laniusを購入します。</text>
@@ -2134,7 +2134,7 @@
 			<choice req="mind" hidden="true">
 				<text>（マインドコントロール）ラニウスを寄付するように彼らを説得します。</text>
 				<event>
-					<text>あなたのマインドコントロールシステムは、奴隷の船長に、より収益性の高いビーコンに向けて出発できるように、ラニウスを無料で提供するように簡単に説得することができます。ラニウスは、マインドコントロールの効果がなくなる前に、小さなシャトルで船に向かってすばやく排出されます。彼らがだまされたことに気づき、奴隷商人は駅から離れて武器をパワーアップしだ?す。</text>
+					<text>あなたのマインドコントロールシステムは、奴隷の船長に、より収益性の高いビーコンに向けて出発できるように、ラニウスを無料で提供するように簡単に説得することができます。ラニウスは、マインドコントロールの効果がなくなる前に、小さなシャトルで船に向かってすばやく排出されます。彼らがだまされたことに気づき、奴隷商人はステーションから離れて武器をパワーアップしだ?す。</text>
 					<crewMember amount="1" class="lanius">Laythe</crewMember>
 					<ship hostile="true" /> 
 					<choice hidden="true">
@@ -2155,7 +2155,7 @@
 		<event load="SLAVER_DRIFTER_HAIL" />
 	</choice>
 	<choice hidden="true">
-		<text>調査のために何人かの乗組員を送ってください。</text>
+		<text>調査のために何人かのクルーを送ってください。</text>
 		<event load="SLAVER_DRIFTER_CREW" />
 	</choice>
 	<choice hidden="true" req="BLUELIST_DRONES_BOARDING">
@@ -2183,7 +2183,7 @@
 		<choice hidden="true">
 			<text>船をスクラップします。</text>
 			<event>
-				<text>元の乗組員が死んでいると確信して、あなたは外側の船体をこすり始めます。しかし、プロセスの途中で武器が不思議なことにオンラインになり、船内での無気力なシャッフルが聞こえます。</text>
+				<text>元のクルーが死んでいると確信して、あなたは外側の船体をこすり始めます。しかし、プロセスの途中で武器が不思議なことにオンラインになり、船内での無気力なシャッフルが聞こえます。</text>
 				<autoReward level="LOW">standard</autoReward>
 				<ship hostile="true" /> 
 				<choice hidden="true">
@@ -2207,11 +2207,11 @@
 	</event>
 </eventList>
 <event name="SLAVER_DRIFTER_CREW">
-	<text>あなたの乗組員はしぶしぶ奴隷船に乗り込みます。何が起こっているかを教えてくれるので、通信はしばらく安定していますが、突然、すべてが静的になります。数分後、船はオンラインになり、攻撃します！</text>
+	<text>あなたのクルーはしぶしぶ奴隷船に乗り込みます。何が起こっているかを教えてくれるので、通信はしばらく安定していますが、突然、すべてが静的になります。数分後、船はオンラインになり、攻撃します！</text>
 	<ship hostile="true" /> 
 	<removeCrew>
 		<clone>true</clone>
-		<text>あなたはあなたの乗組員がクローンベイからつまずくのを見て驚いています。彼らはあなたに幽霊について何かを話します、しかしあなたは差し迫った暴行のために聞く時間があまりありません。</text>
+		<text>あなたはあなたのクルーがクローンベイからつまずくのを見て驚いています。彼らはあなたに幽霊について何かを話します、しかしあなたは差し迫った暴行のために聞く時間があまりありません。</text>
 	</removeCrew>
 	<choice hidden="true">
 		<text>継続する...</text>
@@ -2240,7 +2240,7 @@
 	</choice>
 </event>
 <event name="SLAVER_DRIFTER_DESTROYED">
-	<text>元の乗組員に何が起こったのかわからないかもしれませんが、少なくとも幽霊船は他の誰にも迷惑をかけません。船体をスクラップします。</text>
+	<text>元のクルーに何が起こったのかわからないかもしれませんが、少なくとも幽霊船は他の誰にも迷惑をかけません。船体をスクラップします。</text>
 	<autoReward level="MED">standard</autoReward>
 </event>
 <event name="SLAVER_DRIFTER_KILL">
@@ -2561,7 +2561,7 @@
 </eventList>
 
 <event name="QUEST_SMUGGLER_RAID_START" unique="true">
-	<text>近くの月を周回する密輸業者の駅周辺の交通に気づきました。あなたは彼らの通信に耳を傾け、傭兵の仕事の申し出を聞きます。</text>
+	<text>近くの月を周回する密輸業者のステーション周辺の交通に気づきました。あなたは彼らの通信に耳を傾け、傭兵の仕事の申し出を聞きます。</text>
 	<ship load="SHIP_GENERIC" hostile="false" /> 
 	<choice hidden="true">
 		<text>詳細についてはお問い合わせください。</text>
@@ -2583,7 +2583,7 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>駅を無視します。</text>
+		<text>ステーションを無視します。</text>
 		<event>
 			<text>あなたは傭兵として自分を売りに行くつもりはありません。あなたには基準があります。</text>
 			<choice>
@@ -2883,9 +2883,9 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>駅を無視します。</text>
+		<text>ステーションを無視します。</text>
 		<event>
-			<text>あなたは駅とは何の関係もありません。</text>
+			<text>あなたはステーションとは何の関係もありません。</text>
 			<choice>
 				<text>船に乗って何かをしなさい。</text>
 				<event load="STORAGE_CHECK" />
@@ -3093,13 +3093,13 @@
 	<preventQuest />
 	<beaconType id="map_icon_hacker" global="false">
 		<color r="73" g="151" b="195" a="1.0" />
-		<unvisitedTooltip>Uyo%Heav#Ton@Sdtviie!Stih*Anecbo</unvisitedTooltip>
-		<visitedTooltip>Explored location. A hacker cache was located here.</visitedTooltip>
+		<unvisitedTooltip>Uyo％Heav＃Ton @ Sdtviie！Stih * Anecbo</unvisitedTooltip>
+		<visitedTooltip>探索された場所。ここにハッカーのキャッシュがありました。</visitedTooltip>
 	</beaconType>
 	<text>ここでの奇妙な文字化けしたビーコンのソースは、ハッカー放送局のようです。これは、ラジオを妨害しているステーションの1つである必要があります。</text>
 	<ship load="SHIP_HACKER_BROADCAST" hostile="false" />
 	<choice hidden="true">
-		<text>駅を攻撃します。</text>
+		<text>ステーションを攻撃します。</text>
 		<event>
 			<text>あなたは武器を上げて放送局と交戦します。システムが変動していることに気づきました。システムには複数の戦闘増強装置が搭載されている必要があります。</text>
 			<ship hostile="true" />
@@ -3140,7 +3140,7 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>駅を無視します。</text>
+		<text>ステーションを無視します。</text>
 		<event>
 			<text>あなたはハッカーステーションを攻撃することを危険にさらすことをいとわない。</text>
 			<choice>
@@ -3210,7 +3210,7 @@
 		</choice>
 	</event>
 	<event>
-		<text>キャッシュの中には、非アクティブ化されたEngiがあり、おそらくスレーブとして保持されています。あなたはそれをあなたの船に戻す力を与えます、そしてそれはあなたの乗組員に仕える準備ができて再び活性化します。</text>
+		<text>キャッシュの中には、非アクティブ化されたEngiがあり、おそらくスレーブとして保持されています。あなたはそれをあなたの船に戻す力を与えます、そしてそれはあなたのクルーに仕える準備ができて再び活性化します。</text>
 		<crewMember amount="1" class="engi" />
 		<choice hidden="true" req="loc_hackerstation" max_lvl="2" max_group="0" blue="false">
 			<text>継続する...</text>
@@ -3278,8 +3278,8 @@
 	<preventQuest />
 	<beaconType id="map_icon_hacker" global="false">
 		<color r="73" g="151" b="195" a="1.0" />
-		<unvisitedTooltip>Uyo%Heav#Ton@Sdtviie!Stih*Anecbo</unvisitedTooltip>
-		<visitedTooltip>Explored location. A hacker cache was located here.</visitedTooltip>
+		<unvisitedTooltip>Uyo％Heav＃Ton @ Sdtviie！Stih * Anecbo</unvisitedTooltip>
+		<visitedTooltip>探索された場所。ここにハッカーのキャッシュがありました。</visitedTooltip>
 	</beaconType>
 	<text>出口ビーコンがハッカーによってここに隠されていたようです！ Atlasは接続されませんが、何かが信号をブロックしているようです...</text>
 	<ship load="SHIP_HACKER_BROADCAST_FAKE" hostile="false" />
@@ -3299,8 +3299,8 @@
 	<preventQuest />
 	<beaconType id="map_icon_exit_hacker" global="true">
 		<color r="50" g="255" b="0" a="1" />
-		<unvisitedTooltip>This is the real exit beacon. Go here to travel to the next sector.</unvisitedTooltip>
-		<visitedTooltip>This is the real exit beacon.</visitedTooltip>
+		<unvisitedTooltip>これが実際の出口ビーコンです。次のセクターに移動するには、ここにアクセスしてください。</unvisitedTooltip>
+		<visitedTooltip>これが実際の出口ビーコンです。</visitedTooltip>
 	</beaconType>
 	<text>出口ビーコンがハッカーによってここに隠されていたようです！ Atlasは接続されませんが、何かが信号をブロックしているようです...</text>
 	<ship load="SHIP_HACKER_BROADCAST_FAKE" hostile="false" />
@@ -3340,7 +3340,7 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>申し訳ありませんが、これ以上乗組員は必要ありません。</text>
+		<text>申し訳ありませんが、これ以上クルーは必要ありません。</text>
 		<event>
 			<text>あなたは民間人に謝罪し、あなたの使命を遂行します。</text>
 			<choice>
@@ -3356,7 +3356,7 @@
 </event>
 
 <event name="HACKER_CIVILIAN_STATION" unique="true">
-	<text>「船！誰も私たちを見つけるとは思わなかった。大隊のハッカーがここを通り抜けて私たちの駅を略奪した。私たちは物資が不足していて、彼らなしではビジネスを行うことができない。私たちを売ってくれませんか？スクラップはありませんが、他の方法で支払いを提供することはできます。」</text>
+	<text>「船！誰も私たちを見つけるとは思わなかった。大隊のハッカーがここを通り抜けて私たちのステーションを略奪した。私たちは物資が不足していて、彼らなしではビジネスを行うことができない。私たちを売ってくれませんか？スクラップはありませんが、他の方法で支払いを提供することはできます。」</text>
 	<ship load="SHIP_CIVILIAN_STATION" hostile="false" /> 
 	<choice>
 		<text>彼らに燃料を与えなさい。</text>
@@ -3442,13 +3442,13 @@
 	<choice>
 		<text>船を点検します。</text>
 		<event>
-			<text>民兵の船は、最近の戦闘であった可能性が高いものから、いくらかのダメージを受けました。乗組員は生きていますが、彼らは恐れてセクターから逃げようとしています。</text>
+			<text>民兵の船は、最近の戦闘であった可能性が高いものから、いくらかのダメージを受けました。クルーは生きていますが、彼らは恐れてセクターから逃げようとしています。</text>
 			<ship load="SHIP_MILITIA_GENERIC" hostile="false" />
 			<status type="limit" target="enemy" system="engines" amount="2" />
 			<status type="loss" target="enemy" system="shields" amount="2" />
 			<status type="limit" target="enemy" system="doors" amount="0" />
 			<choice hidden="true">
-				<text>彼らの乗組員を護衛することを申し出なさい。</text>
+				<text>彼らのクルーを護衛することを申し出なさい。</text>
 				<event load="HACKED_MILITIA_CREW" />
 			</choice>
 			<choice hidden="true">
@@ -3488,7 +3488,7 @@
 </event>
 <eventList name="HACKED_MILITIA_CREW">
 	<event>
-		<text>民兵はあなたの申し出に警戒していますが、最終的には諦めます。民間人を保護するための別の方法を提供することを期待して、乗組員に加わることを申し出る人もいます。</text>
+		<text>民兵はあなたの申し出に警戒していますが、最終的には諦めます。民間人を保護するための別の方法を提供することを期待して、クルーに加わることを申し出る人もいます。</text>
 		<crewMember amount="1" class="human" />
 	</event>
 	<event>
@@ -3775,11 +3775,11 @@
 </event>
 <eventList name="HACKER_CIVILIAN_WRECK_TRAP_SALVAGE">
 	<event>
-		<text>残骸の中に爆弾が仕掛けられているのに気づいたとき、あなたは船の内部を略奪し始めます！それは爆発し、あなたの乗組員の1人を殺します。間違いなく罠を仕掛けたハッカーが攻撃したとき、あなたは船に後退します。</text>
+		<text>残骸の中に爆弾が仕掛けられているのに気づいたとき、あなたは船の内部を略奪し始めます！それは爆発し、あなたのクルーの1人を殺します。間違いなく罠を仕掛けたハッカーが攻撃したとき、あなたは船に後退します。</text>
 		<ship load="SHIP_HACKER" hostile="true" />
 		<removeCrew>
 			<clone>true</clone>
-			<text>幸いなことに、あなたのクローンベイは、乗組員が爆破される可能性があるときはいつでも準備ができています。</text>
+			<text>幸いなことに、あなたのクローンベイは、クルーが爆破される可能性があるときはいつでも準備ができています。</text>
 		</removeCrew>
 		<choice hidden="true">
 			<text>継続する...</text>
@@ -4001,7 +4001,7 @@
 	<choice hidden="true">
 		<text>継続する...</text>
 		<event>
-			<text>ほとんどの軍人は攻撃を生き延びなかったようです。孤独な生存者、彼らの船長は、あなたの乗組員に加わることを申し出ます。</text>
+			<text>ほとんどの軍人は攻撃を生き延びなかったようです。孤独な生存者、彼らの船長は、あなたのクルーに加わることを申し出ます。</text>
 			<crewMember amount="1" class="human" pilot="1" />
 		</event>
 	</choice>
@@ -4037,7 +4037,7 @@
 		<text>（テレポーター）テレポーターで彼らのライフサインをロックします。</text>
 		<event>
 			<ship load="SHIP_FED_GENERIC" hostile="false" />
-			<text>あなたは連邦の乗組員を乗せます。 1人は喜んであなたの乗組員に加わり、残りは次の駅に降ろされるのを待ちます。</text>
+			<text>あなたは連邦のクルーを乗せます。 1人は喜んであなたのクルーに加わり、残りは次のステーションに降ろされるのを待ちます。</text>
 			<crewMember amount="1" />
 			<autoReward level="MED">scrap_only</autoReward>
 		</event>

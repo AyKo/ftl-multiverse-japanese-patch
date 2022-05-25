@@ -209,8 +209,8 @@
 	<preventQuest />
 	<beaconType id="map_icon_reinforcements" global="true" req="LOOT_COMPASS">
 		<color r="200" g="55" b="82" a="1" />
-		<unvisitedTooltip>An unvisited location.</unvisitedTooltip>
-		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
 	<text>ご想像のとおり、カルティストの船は、武器を武装させ、船長を非常に不快にさせながら、死んだ警備員に復讐するために近づいています。</text>
@@ -366,8 +366,8 @@
 	<preventQuest />
 	<beaconType id="map_icon_key" global="true">
 		<color r="0" g="210" b="255" a="1.0" />
-		<unvisitedTooltip>The location of the Waystone Key.</unvisitedTooltip>
-		<visitedTooltip>Explored location.</visitedTooltip>
+		<unvisitedTooltip>ウェイストーンキーの場所。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。</visitedTooltip>
 	</beaconType>
 	<text>Ruwenによって指定された座標に到着しました。</text>
 	<img back="BACK_EVENT_EMBERCHURCH" planet="NONE" />
@@ -579,7 +579,7 @@
 	</choice>
 </event>
 <event name="VORTIGON_DEADCREW">
-	<text>Vortigonの乗組員の巡洋艦を空にしました。船の残りは簡単に拾うことができます。</text>
+	<text>Vortigonのクルーの巡洋艦を空にしました。船の残りは簡単に拾うことができます。</text>
 	<autoReward level="HIGH">standard</autoReward>
 	<choice hidden="true">
 		<text>継続する...</text>
@@ -639,7 +639,7 @@
 </eventList>
 
 <event name="ORIGINS_FREECREW" unique="false">
-	<text>焼けた民間船が近くを漂流しているのを見て驚いています。彼らはカルティストに襲われた観光客であり、生き残った人はほとんどいなかったようです。残りの乗組員の1人を歓迎します。</text>
+	<text>焼けた民間船が近くを漂流しているのを見て驚いています。彼らはカルティストに襲われた観光客であり、生き残った人はほとんどいなかったようです。残りのクルーの1人を歓迎します。</text>
 	<crewMember amount="1" class="zoltan" />
 </event>
 
@@ -667,7 +667,7 @@
 						<event load="CULTIST_MOURNING_GUESS" />
 					</choice>
 					<choice hidden="true" req="LIST_CREW_SLUG">
-						<text>（ナメクジの乗組員）あなたのナメクジの答えを持っています。</text>
+						<text>（ナメクジのクルー）あなたのナメクジの答えを持っています。</text>
 						<event>
 							<text>あなたのナメクジはテレパシーであり、近くの他のカルト信者の心からそれを読むことによって答えを知っています。</text>
 							<choice hidden="true">
@@ -978,7 +978,7 @@
 		<autoReward level="MED">scrap_only</autoReward>
 	</event>
 	<event>
-		<text>結晶船はひどく損傷しています。数少ない生存者の1人があなたの乗組員に加わることを要求します。</text>
+		<text>結晶船はひどく損傷しています。数少ない生存者の1人があなたのクルーに加わることを要求します。</text>
 		<crewMember amount="1" class="crystal" />
 	</event>
 </eventList>
@@ -1298,19 +1298,19 @@
 </event>
 <eventList name="CULTIST_PIRATE_BURN_RESCUE">
 	<event>
-		<text>あなたの乗組員は海賊を救おうと急いで乗り込みます。幸いなことに、生存者の1人を含め、誰もがそれを生き返らせています。</text>
+		<text>あなたのクルーは海賊を救おうと急いで乗り込みます。幸いなことに、生存者の1人を含め、誰もがそれを生き返らせています。</text>
 		<crewMember amount="1" />
 	</event>
 	<event>
-		<text>あなたの乗組員は海賊を救おうと急いで乗り込みます。チームは生存者の1人と一緒に戻りますが、乗組員の1人が行方不明です。チームは、彼らが炎に巻き込まれ、それを生き生きとさせなかったと報告しています。</text>
+		<text>あなたのクルーは海賊を救おうと急いで乗り込みます。チームは生存者の1人と一緒に戻りますが、クルーの1人が行方不明です。チームは、彼らが炎に巻き込まれ、それを生き生きとさせなかったと報告しています。</text>
 		<crewMember amount="1" />
 		<removeCrew>
 			<clone>true</clone>
-			<text>幸いなことに、クローンベイが乗組員を戻さないようにするには、炎がいくらかかかるでしょう。</text>
+			<text>幸いなことに、クローンベイがクルーを戻さないようにするには、炎がいくらかかかるでしょう。</text>
 		</removeCrew>
 	</event>
 	<event>
-		<text>海賊はそれをしなかったようです。あなたの乗組員は手ぶらで戻ります。</text>
+		<text>海賊はそれをしなかったようです。あなたのクルーは手ぶらで戻ります。</text>
 	</event>
 </eventList>
 

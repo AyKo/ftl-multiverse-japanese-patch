@@ -217,7 +217,7 @@
 <textList name="TEXT_ENCOUNTER_REBEL">
 	<text>反逆者が画面に表示され、長い紙を広げます。彼は眼鏡をかけ、読み始めます。 「あなたのための詩。アヘム、死ぬ。」</text>
 	<text>あなたの船は歓迎されます。 「ついにあなたを見つけました。死ぬ準備をしてください！」</text>
-	<text>小さな反乱軍の船が小さな駅に停泊しています。あなたは低く横たわろうとしますが、それはあなたを見つけます。武器をパワーアップ！</text>
+	<text>小さな反乱軍の船が小さなステーションに停泊しています。あなたは低く横たわろうとしますが、それはあなたを見つけます。武器をパワーアップ！</text>
 	<text>反乱軍の船がこの地域を巡視しています。あなたが到着するとすぐにそれはその攻撃を開始します。</text>
 	<text>反乱軍の船があなたを歓迎します：「連邦のクズ野郎！私たちはこれを長い間待っていました！」</text>
 	<text>「申し訳ありませんが、これは個人的なことではありませんが、注文中です。」という送信が届きます。反乱軍の船の武器は熱くなります。</text>
@@ -248,7 +248,7 @@
 	</choice>
 </event>
 <textList name="BOARDERS_REBEL_SHIP" unique="false">
-	<text>近くの反乱軍の駅から「私たちの空間を通り抜ける内臓がたくさんあります。それを差し上げます」というメッセージが届きます。彼は「彼らの乗組員を殺しなさい、私はその船を無傷で欲しい」と命令を出すようになります。</text>
+	<text>近くの反乱軍のステーションから「私たちの空間を通り抜ける内臓がたくさんあります。それを差し上げます」というメッセージが届きます。彼は「彼らのクルーを殺しなさい、私はその船を無傷で欲しい」と命令を出すようになります。</text>
 	<text>テレポーターのはっきりとした兆候を聞くと同時に、センサーが反乱軍の船の到着を警告します。船内から誰かが「死ぬ準備はできていますか？昇進の準備ができています！」と罵倒するのが聞こえます。</text>
 	<text>「こんにちはキャプテン」という着信メッセージは、将校の服を着た反逆者が言います。 「あなたが自分を引き返すのはとても寛大です。搭乗する準備をしてください。静かに来てください。私たちは寛大かもしれません。」</text>
 	<text>低帯域チャネルでメッセージを受信します。 「最後の連盟の友達のように、あなたは囲まれています。もう死んでしまいます。」敵があなたの船にテレポートしました！</text>
@@ -448,7 +448,7 @@
 	<choice req="teleporter" hidden="true">
 		<text>（テレポーター）検出を回避するために、ステーションに直接ビームを当てます。</text>
 		<event>
-			<text>搭乗すると、乗組員は長距離スキャナーのアーカイブ情報にアクセスしてダウンロードできるようになります。マップが更新されました。</text>
+			<text>搭乗すると、クルーは長距離スキャナーのアーカイブ情報にアクセスしてダウンロードできるようになります。マップが更新されました。</text>
 			<reveal_map />
 		</event>
 	</choice>
@@ -503,14 +503,14 @@
 </event>
 <eventList name="AUTO_DEFENSE_ITEM_CLOAK">
 	<event>
-		<text>船はエリア周辺をパトロールし、検出を回避しながら駅に首尾よく接近しました。</text>
+		<text>船はエリア周辺をパトロールし、検出を回避しながらステーションに首尾よく接近しました。</text>
 		<choice hidden="true">
 			<text>継続する...</text>
 			<event load="DEFENSE_ITEM_LIST" />
 		</choice>
 	</event>
 	<event>
-		<text>あなたが駅をスキャンするのに十分近づくことができる前に、自動化された船はあなたを検出し、攻撃するために移動します！</text>
+		<text>あなたがステーションをスキャンするのに十分近づくことができる前に、自動化された船はあなたを検出し、攻撃するために移動します！</text>
 		<ship hostile="true" />
 		<choice hidden="true">
 			<text>継続する...</text>
@@ -520,7 +520,7 @@
 </eventList>
 <eventList name="DEFENSE_ITEM_LIST">
 	<event>
-		<text>駅は放棄されたか、きれいに剥ぎ取られました。かなり長い間使われていなかったようです。何も役に立ちません。</text>
+		<text>ステーションは放棄されたか、きれいに剥ぎ取られました。かなり長い間使われていなかったようです。何も役に立ちません。</text>
 	</event>
 	<event>
 		<text>ステーションは明らかに、反乱軍の船にドローンシステムを装備するように設計されていました。機能している回路図が見つかります。</text>
@@ -531,7 +531,7 @@
 		<autoReward level="LOW">weapon</autoReward>
 	</event>
 	<event>
-		<text>駅は様々な資源の保管場所です。あなたは可能な限りすべてを救います。</text>
+		<text>ステーションは様々な資源の保管場所です。あなたは可能な限りすべてを救います。</text>
 		<autoReward level="MED">stuff</autoReward>
 	</event>
 </eventList>
@@ -540,7 +540,7 @@
 	<text>反乱軍の自動化された船は、反乱軍の前方レーダーステーションの近くで休眠状態にあります。</text>
 	<ship load="SHIP_AUTO_RADAR" hostile="false" />
 	<choice>
-		<text>駅に近づきます。</text>
+		<text>ステーションに近づきます。</text>
 		<event>
 			<text>船はパワーアップしてあなたをターゲットにします。</text>
 			<ship hostile="true" />
@@ -683,7 +683,7 @@
 </eventList>
 
 <event name="REBEL_DEFECTOR" unique="true">
-	<text>反乱軍の船がこのビーコンを巡視しており、すぐに交戦するようになります。乗組員が準備を整えるためにスクランブルをかけると、センサーが短距離テレポーター信号を検出します。侵入者が乗っています！</text>
+	<text>反乱軍の船がこのビーコンを巡視しており、すぐに交戦するようになります。クルーが準備を整えるためにスクランブルをかけると、センサーが短距離テレポーター信号を検出します。侵入者が乗っています！</text>
 	<ship load="SHIP_REBEL_FIGHT" hostile="true" />
 	<choice>
 		<text>継続する...</text>
@@ -702,7 +702,7 @@
 </event>
 <eventList name="REBEL_DEFECTOR_REJECT">
 	<event>
-		<text>あなたの恐れを知らない乗組員は侵入者を簡単に克服しますが、反乱軍の船はまだ対処する必要があります。</text>
+		<text>あなたの恐れを知らないクルーは侵入者を簡単に克服しますが、反乱軍の船はまだ対処する必要があります。</text>
 		<event load="COMBAT_CHECK" />
 	</event>
 	<event>
@@ -711,7 +711,7 @@
 		<event load="COMBAT_CHECK" />
 	</event>
 	<event>
-		<text>あなたが彼をあなたの乗組員に参加させるならば、彼はあなたを近くのスクラップの秘密のキャッシュに導くことを提案します。</text>
+		<text>あなたが彼をあなたのクルーに参加させるならば、彼はあなたを近くのスクラップの秘密のキャッシュに導くことを提案します。</text>
 		<choice hidden="true">
 			<text>しぶしぶ彼の提案を受け入れ、反乱軍の船と戦う。</text>
 			<event load="REBEL_DEFECTOR_HELP_2" />
@@ -739,32 +739,32 @@
 		<event load="COMBAT_CHECK" />
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は微笑んで、そして彼の手のひらの上で小さなリモートトリガーを明らかにします。より多くの侵入者が船にテレポートするにつれて、爆発が船の周りで急上昇します！</text>
+		<text>あなたの新しいクルーは微笑んで、そして彼の手のひらの上で小さなリモートトリガーを明らかにします。より多くの侵入者が船にテレポートするにつれて、爆発が船の周りで急上昇します！</text>
 		<boarders min="2" max="2" class="human_rebel" />
 		<damage amount="3" />
 		<event load="COMBAT_CHECK" />
 	</event>
 	<event>
-		<text>安心して頭がおかしい、あなたの新しい乗組員は反乱軍の船が攻撃するときに働くようになります。</text>
+		<text>安心して頭がおかしい、あなたの新しいクルーは反乱軍の船が攻撃するときに働くようになります。</text>
 		<crewMember amount="1" class="human" />
 		<event load="COMBAT_CHECK" />	
 	</event>
 	<event>
-		<text>安心して頭がおかしい、あなたの新しい乗組員は反乱軍の船が攻撃するときに働くようになります。</text>
+		<text>安心して頭がおかしい、あなたの新しいクルーは反乱軍の船が攻撃するときに働くようになります。</text>
 		<crewMember amount="1" class="human" />
 		<event load="COMBAT_CHECK" />	
 	</event>
 	<event>
-		<text>安心して頭がおかしい、あなたの新しい乗組員は反乱軍の船が攻撃するときに働くようになります。</text>
+		<text>安心して頭がおかしい、あなたの新しいクルーは反乱軍の船が攻撃するときに働くようになります。</text>
 		<crewMember amount="1" class="human" />
 		<event load="COMBAT_CHECK" />	
 	</event>
 	<event>
-		<text>反乱軍は割り当てられたステーションを利用し、突然向きを変えて最寄りの乗組員を罵倒します。非常警報！</text>
+		<text>反乱軍は割り当てられたステーションを利用し、突然向きを変えて最寄りのクルーを罵倒します。非常警報！</text>
 		<boarders min="1" max="1" class="human_rebel" />
 		<removeCrew>
 			<clone>true</clone>
-			<text>内臓を剥がされた乗組員のクローンは、復讐を求めてクローンベイから飛び出します。</text>
+			<text>内臓を剥がされたクルーのクローンは、復讐を求めてクローンベイから飛び出します。</text>
 		</removeCrew>
 	</event>
 </eventList>
@@ -777,36 +777,36 @@
 		<event load="COMBAT_CHECK" />
 	</event>
 	<event>
-		<text>あなたの新しい乗組員は微笑んで、そして彼の手のひらの上で小さなリモートトリガーを明らかにします。より多くの侵入者が船にテレポートするにつれて、爆発が船の周りで急上昇します！</text>
+		<text>あなたの新しいクルーは微笑んで、そして彼の手のひらの上で小さなリモートトリガーを明らかにします。より多くの侵入者が船にテレポートするにつれて、爆発が船の周りで急上昇します！</text>
 		<boarders min="2" max="2" class="human_rebel" />
 		<damage amount="2" />
 		<damage amount="1" system="pilot" />  
 		<event load="COMBAT_CHECK" />
 	</event>
 	<event>
-		<text>安心して頭がおかしい、あなたの新しい乗組員は反乱軍の船が攻撃するときに働くようになります。</text>
+		<text>安心して頭がおかしい、あなたの新しいクルーは反乱軍の船が攻撃するときに働くようになります。</text>
 		<crewMember amount="1" class="human" />
 		<quest event="REBEL_DEFECTOR_QUEST" />
 		<event load="COMBAT_CHECK" />
 	</event>
 	<event>
-		<text>安心して頭がおかしい、あなたの新しい乗組員は反乱軍の船が攻撃するときに働くようになります。</text>
+		<text>安心して頭がおかしい、あなたの新しいクルーは反乱軍の船が攻撃するときに働くようになります。</text>
 		<crewMember amount="1" class="human" />
 		<quest event="REBEL_DEFECTOR_QUEST" />
 		<event load="COMBAT_CHECK" />
 	</event>
 	<event>
-		<text>安心して頭がおかしい、あなたの新しい乗組員は反乱軍の船が攻撃するときに働くようになります。</text>
+		<text>安心して頭がおかしい、あなたの新しいクルーは反乱軍の船が攻撃するときに働くようになります。</text>
 		<crewMember amount="1" class="human" />
 		<quest event="REBEL_DEFECTOR_QUEST" />
 		<event load="COMBAT_CHECK" />
 	</event>
 	<event>
-		<text>反乱軍は割り当てられたステーションを利用し、突然向きを変えて最寄りの乗組員を罵倒します。非常警報！</text>
+		<text>反乱軍は割り当てられたステーションを利用し、突然向きを変えて最寄りのクルーを罵倒します。非常警報！</text>
 		<boarders min="1" max="1" class="human_rebel" />
 		<removeCrew>
 			<clone>true</clone>
-			<text>内臓を剥がされた乗組員のクローンは、復讐を求めてクローンベイから飛び出します。</text>
+			<text>内臓を剥がされたクルーのクローンは、復讐を求めてクローンベイから飛び出します。</text>
 		</removeCrew>
 	</event>
 </eventList>
@@ -1119,9 +1119,9 @@
 				<event>
 					<text>ステージの中央には、反乱軍のプロパガンダを映し出す3つの大画面に囲まれた、重要な反乱軍の政治家がいます。群衆からの歓声のすべてについて、彼が言っていることをかろうじて理解することができます。 「友人たち、そして友人たち、私たちは皆、反乱の勢力を祝うためにここに集まりました！多元宇宙の旅行者から私たちに贈られた新しい反乱軍の旗艦が連邦議会議事堂に到着したというニュースを受け取りました！連邦の日は数えられます、そしてすぐに反乱は起き上がり、その場所を占めるでしょう！」</text>
 					<choice hidden="true">
-						<text>政治家を暗殺するためにあなたの乗組員の1人を送ってください。</text>
+						<text>政治家を暗殺するためにあなたのクルーの1人を送ってください。</text>
 						<event>
-							<text>船を持ってきたらよかったのですが、今戻ったら手遅れかもしれません。ハンドヘルドスキャナーを使用して、見晴らしの良い場所を見つけ、乗組員の1人を準備に送ります。</text>
+							<text>船を持ってきたらよかったのですが、今戻ったら手遅れかもしれません。ハンドヘルドスキャナーを使用して、見晴らしの良い場所を見つけ、クルーの1人を準備に送ります。</text>
 							<choice hidden="true">
 								<text>継続する...</text>
 								<event load="REBELHOLD_SPEECH_ASSASINATE" />
@@ -1131,7 +1131,7 @@
 					<choice hidden="true" req="LIST_CREW_ELITE">
 						<text>（エリートクルー）政治家を暗殺するためにエリートを送ってください。</text>
 						<event>
-							<text>あなたの乗組員は素早く舞台裏に忍び込み、屋根に登り、ライフルを引きます。たった一発で、政治家の生命のない体が群衆の中に飛び込み、群衆に血を吹きかけます。あなたの乗組員は急いで戻ってきて、途中で追いかけようとしている2人の警備員を連れ出します。艦隊はあなたがここで引き起こしたすべての混乱に対処するのに忙しすぎて、おそらくしばらくの間あなたをフォローすることを気にしないでしょう。</text>
+							<text>あなたのクルーは素早く舞台裏に忍び込み、屋根に登り、ライフルを引きます。たった一発で、政治家の生命のない体が群衆の中に飛び込み、群衆に血を吹きかけます。あなたのクルーは急いで戻ってきて、途中で追いかけようとしている2人の警備員を連れ出します。艦隊はあなたがここで引き起こしたすべての混乱に対処するのに忙しすぎて、おそらくしばらくの間あなたをフォローすることを気にしないでしょう。</text>
 							<modifyPursuit amount="-2" />
 						</event>
 					</choice>
@@ -1169,18 +1169,18 @@
 </event>
 <eventList name="REBELHOLD_SPEECH_ASSASINATE">
 	<event>
-		<text>不審な時間が、乗組員からの応答なしに経過します。警備員のグループがステージに出てきたら、あなたは彼らに電話をかけようとしています。乗組員の傷ついた体を一緒に見ると心が落ちます。彼らは政治家に何かをささやき、政治家は「このクズ野郎は単純な手持ちのレーザーで私の命を奪おうとしたようだ！連邦は小さな銃が反乱を止めないことを知ることができない！」と訠?います。警備員があなたの乗組員を床に落とし、政治家は素早く古い地球のリボルバーを引き、頭を3回撃ちます。彼らがあなたを捕まえることができる前に、あなたはすぐにスタジアムから急いで出ます。</text>
+		<text>不審な時間が、クルーからの応答なしに経過します。警備員のグループがステージに出てきたら、あなたは彼らに電話をかけようとしています。クルーの傷ついた体を一緒に見ると心が落ちます。彼らは政治家に何かをささやき、政治家は「このクズ野郎は単純な手持ちのレーザーで私の命を奪おうとしたようだ！連邦は小さな銃が反乱を止めないことを知ることができない！」と訠?います。警備員があなたのクルーを床に落とし、政治家は素早く古い地球のリボルバーを引き、頭を3回撃ちます。彼らがあなたを捕まえることができる前に、あなたはすぐにスタジアムから急いで出ます。</text>
 		<removeCrew>
 			<clone>true</clone>
-			<text>幸いなことに、あなたが船に戻ったときまでに、あなたの乗組員はすでにクローンベイの部屋で待っていて、彼らの失敗と公開処刑について口を閉ざしています。</text>
+			<text>幸いなことに、あなたが船に戻ったときまでに、あなたのクルーはすでにクローンベイの部屋で待っていて、彼らの失敗と公開処刑について口を閉ざしています。</text>
 		</removeCrew>
 	</event>
 	<event>
-		<text>長い時間が経ち、あなたはさらに悪いことを恐れ始めます。突然、あなたは叫び声や叫び声さえ聞こえ、あなたの乗組員は群衆の中を突進し、続いて警備員のセットが戻ってきます。あなたは船に戻り、警備員が追跡します。</text>
+		<text>長い時間が経ち、あなたはさらに悪いことを恐れ始めます。突然、あなたは叫び声や叫び声さえ聞こえ、あなたのクルーは群衆の中を突進し、続いて警備員のセットが戻ってきます。あなたは船に戻り、警備員が追跡します。</text>
 		<boarders min="3" max="3" class="human_soldier" />
 	</event>
 	<event>
-		<text>乗組員を送り出した数分後、スタジアム全体に大きな音が響き渡ります。政治家の目は驚いて大きくなり、彼らはステージから群衆の中に飛び出します。場所全体が完全な混乱に陥り、民間人があらゆる方向に走っています。あなたの乗組員は急いで戻ってきます、そしてあなたはできるだけ早く船に戻ります。あなたが引き起こしたすべての混乱で、反乱軍はダメージコントロム?ルに多くの時間を費やす必要があります。あなたは艦隊がしばらくの間あなたをフォローすることに関心があるのではないかと疑っています。</text>
+		<text>クルーを送り出した数分後、スタジアム全体に大きな音が響き渡ります。政治家の目は驚いて大きくなり、彼らはステージから群衆の中に飛び出します。場所全体が完全な混乱に陥り、民間人があらゆる方向に走っています。あなたのクルーは急いで戻ってきます、そしてあなたはできるだけ早く船に戻ります。あなたが引き起こしたすべての混乱で、反乱軍はダメージコントロム?ルに多くの時間を費やす必要があります。あなたは艦隊がしばらくの間あなたをフォローすることに関心があるのではないかと疑っています。</text>
 		<modifyPursuit amount="-2" />
 	</event>
 </eventList>
@@ -1238,7 +1238,7 @@
 	<choice hidden="true">
 		<text>降伏を受け入れ、奴隷を解放します。</text>
 		<event>
-			<text>入植者はあなたの助けに感謝しています。コロニーに戻る時間がないので、最寄りの駅に降ろし、そこで彼らを助ける船を見つけることができます。あなたはあなたの援助に対して多額の報酬を受け取っています。</text>
+			<text>入植者はあなたの助けに感謝しています。コロニーに戻る時間がないので、最寄りのステーションに降ろし、そこで彼らを助ける船を見つけることができます。あなたはあなたの援助に対して多額の報酬を受け取っています。</text>
 			<autoReward level="HIGH">standard</autoReward>
 			<ship hostile="false" />
 		</event>
@@ -1253,12 +1253,12 @@
 	<autoReward level="MED">standard</autoReward>
 </event>
 <event name="DEAD_CREW_REBEL_PRISONBREAK">
-	<text>反乱軍の乗組員が乗船していなくても、囚人をチェックする前に船の外面をスクラップすることができます。</text>
+	<text>反乱軍のクルーが乗船していなくても、囚人をチェックする前に船の外面をスクラップすることができます。</text>
 	<autoReward level="MED">standard</autoReward>
 	<choice hidden="true">
 		<text>入植者を確認してください。</text>
 		<event>
-			<text>入植者はあなたの助けに感謝しています。コロニーに戻る時間がないので、最寄りの駅に降ろし、そこで彼らを助ける船を見つけることができます。あなたはあなたの援助に対して多額の報酬を受け取っています。</text>
+			<text>入植者はあなたの助けに感謝しています。コロニーに戻る時間がないので、最寄りのステーションに降ろし、そこで彼らを助ける船を見つけることができます。あなたはあなたの援助に対して多額の報酬を受け取っています。</text>
 			<autoReward level="HIGH">standard</autoReward>
 		</event>
 	</choice>
@@ -1269,7 +1269,7 @@
 </event>
 
 <event name="QUEST_REBEL_COLONY_PRISONBREAK_FINAL">
-	<text>あなたは再び刑務官を追跡しましたが、彼らはすでに乗組員をはるかに強力なMFKエース船に移しました。簡単な戦いではなく、降伏もありません。入植者を解放したい場合は、彼らの乗組員を殺さなければなりません。</text>
+	<text>あなたは再び刑務官を追跡しましたが、彼らはすでにクルーをはるかに強力なMFKエース船に移しました。簡単な戦いではなく、降伏もありません。入植者を解放したい場合は、彼らのクルーを殺さなければなりません。</text>
 	<ship load="SHIP_REBEL_PRISONBREAK_FINAL" hostile="false" />
 	<customFleet right="true" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
 	<choice hidden="true">
@@ -1290,7 +1290,7 @@
 	</choice>
 </event>
 <event name="QUEST_REBEL_COLONY_PRISONBREAK_FINAL_DEADCREW">
-	<text>反乱軍の乗組員が乗船していなくても、囚人をチェックする前に船の外面をスクラップすることができます。</text>
+	<text>反乱軍のクルーが乗船していなくても、囚人をチェックする前に船の外面をスクラップすることができます。</text>
 	<autoReward level="HIGH">standard</autoReward>
 	<choice hidden="true">
 		<text>入植者を確認してください。</text>
@@ -1323,7 +1323,7 @@
 					<choice hidden="true">
 						<text>旗艦と戦う。</text>
 						<event>
-							<text>これはあなたの主な使命と同じくらい重要かもしれません。船内の建設作業員の乗組員がすぐに避難し、よく訓練された人間の兵士に取って代わられるので、あなたは旗艦を攻撃するために移動します。</text>
+							<text>これはあなたの主な使命と同じくらい重要かもしれません。船内の建設作業員のクルーがすぐに避難し、よく訓練された人間の兵士に取って代わられるので、あなたは旗艦を攻撃するために移動します。</text>
 							<ship hostile="true" />
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -1411,7 +1411,7 @@
 	<modifyPursuit amount="-2" />
 </event>
 <event name="CONSTRUCTION_NORMAL_WIN">
-	<text>それはそれほど難しいことではなく、反乱軍に影響を与えることもありませんが、この船を殺すことは、銀河を恐怖に陥れる反乱軍の乗組員が1人少なくなることを意味します。援軍が来る前に、あなたはすぐに残骸をスクラップします。</text>
+	<text>それはそれほど難しいことではなく、反乱軍に影響を与えることもありませんが、この船を殺すことは、銀河を恐怖に陥れる反乱軍のクルーが1人少なくなることを意味します。援軍が来る前に、あなたはすぐに残骸をスクラップします。</text>
 	<autoReward level="LOW">standard</autoReward>
 </event>
 <event name="CONSTRUCTION_ELITE_WIN">
@@ -1470,7 +1470,7 @@
 	</choice>
 </event>
 <textList name="FREE_ITEMS_AUTO">
-	<text>あなたはシステムに到着し、すぐに近くの海賊船を発見します。不思議なことに、スキャンは船上に生命体がいないことを示しています。あなたは有用なものを何でも救い出しますが、前の乗組員の所在についての手がかりを見つけられません。</text>
+	<text>あなたはシステムに到着し、すぐに近くの海賊船を発見します。不思議なことに、スキャンは船上に生命体がいないことを示しています。あなたは有用なものを何でも救い出しますが、前のクルーの所在についての手がかりを見つけられません。</text>
 	<text>この放棄されたシステムにはあまり残っていません。ただし、スキャンにより、いくつかの回収可能な材料を備えた近くの採掘プラットフォームが明らかになります。</text>
 	<text planet="PLANET_GAS">忘れられた戦いからの破片はまだこのシステムのガス巨人を周回しています。それのいくつかはまだ使用できるかもしれません。</text>
 	<text>あなたは自動化された宇宙ステーションの残骸に遭遇します。それはほとんどきれいに選ばれましたが、あなたの使命を助けるいくつかの材料があるようです。</text>
@@ -1751,7 +1751,7 @@
 	<choice hidden="true">
 		<text>プラットフォームを無視します。</text>
 		<event>
-			<text>防衛システムがあなたを待っている可能性があります。あなたは駅を放棄します。</text>
+			<text>防衛システムがあなたを待っている可能性があります。あなたはステーションを放棄します。</text>
 			<choice>
 				<text>船に乗って何かをしなさい。</text>
 				<event load="STORAGE_CHECK" />
@@ -1765,7 +1765,7 @@
 </event>
 <eventList name="AUTO_FOREST_ATTACK">
 	<event>
-		<text>駅に近づくと、森の中の隠れ家から自動化された船が飛び出して攻撃！船があなたを追いかけるので、あなたは逃げることを余儀なくされます。</text>
+		<text>ステーションに近づくと、森の中の隠れ家から自動化された船が飛び出して攻撃！船があなたを追いかけるので、あなたは逃げることを余儀なくされます。</text>
 		<ship load="SHIP_AUTO_FIGHT" hostile="true" />
 		<choice hidden="true">
 			<text>継続する...</text>
@@ -1812,7 +1812,7 @@
 	</choice>
 </event>
 <event name="AUTO_ENGINEERS_SAVE_WIN">
-	<text>エンジニア船の状態は悪いです。 「私は...あなたが実際に助けてくれるとは思っていませんでした。船も乗組員もいません...何もありません。あなたの船に乗って仕事をしても害はないと思います。」</text> 
+	<text>エンジニア船の状態は悪いです。 「私は...あなたが実際に助けてくれるとは思っていませんでした。船もクルーもいません...何もありません。あなたの船に乗って仕事をしても害はないと思います。」</text> 
 	<crewMember amount="1" class="human_engineer" />
 </event>
 
@@ -2122,7 +2122,7 @@
 			<choice hidden="true">
 				<text>継続する...</text>
 				<event>
-					<text>「いいえ...十分なスペースがありません。これにフルクルーを収容することはできません。追加料金を支払う必要があります。」彼らは乗組員の1人を船上に向けます。</text>
+					<text>「いいえ...十分なスペースがありません。これにフルクルーを収容することはできません。追加料金を支払う必要があります。」彼らはクルーの1人を船上に向けます。</text>
 					<crewMember amount="1" class="phantom_wraith" />
 				</event>
 			</choice>
@@ -2240,8 +2240,8 @@
 <event name="AUTO_ENGINEER_MISTAKE_QUEST">
 	<beaconType id="map_icon_a55" global="true">
 		<color r="255" g="255" b="255" a="1.0" />
-		<unvisitedTooltip>Location of the rogue Rebel cognitive.</unvisitedTooltip>
-		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<unvisitedTooltip>不正な反乱軍の認知の場所。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
 	</beaconType>
 	<preventFleet />
 	<text>あなたはエンジニアによって与えられた座標に到着しました、しかし代わりにあなたは墜落したスターライナーが海賊でにぎわう大都市に変えられたのを見つけました。不正なAIを見つけるのに最適な場所ですが、検索するのは簡単ではありません。</text>
@@ -2305,7 +2305,7 @@
 			<choice hidden="true">
 				<text>戦う準備を！</text>
 				<event>
-					<text>不思議なことに、A55の巨大な船は、あなたが巡洋艦に乗るまであなたと戦おうとはしませんが、走っている間に乗組員を簡単に吹き飛ばしてしまう可能性があります。あなたはこれをさらに熟考する時間がありません、それは戦う時です！</text>
+					<text>不思議なことに、A55の巨大な船は、あなたが巡洋艦に乗るまであなたと戦おうとはしませんが、走っている間にクルーを簡単に吹き飛ばしてしまう可能性があります。あなたはこれをさらに熟考する時間がありません、それは戦う時です！</text>
 					<ship hostile="true" /> 
 					<choice hidden="true">
 						<text>継続する...</text>
@@ -2369,7 +2369,7 @@
 	<triggeredEvent event="AUTO_POWERCORE_ESCAPE" time="180" thisFight="true" clearOnJump="true">
 		<triggeredEventBox load="DEFAULT_TIMER" pos="combat">
 			<warning time="10.0" flash="true" />
-			<tooltip>The reactor will detonate in this much time. Nothing can stop this, so make sure to jump away or end the fight before it reaches 0!</tooltip>
+			<tooltip>反応器はこれだけの時間で爆発します。これを止めることはできないので、0に達する前に、ジャンプするか、戦闘を終了してください。</tooltip>
 		</triggeredEventBox>
 		<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 	</triggeredEvent>
@@ -2441,14 +2441,14 @@
 		<event>
 			<text>「あなたは私たちがただ去ることができると思いますか？ヴァンスの怒りに直面するよりも地獄を爆破する方が良い運命です！私は連邦と戦って死んで殉教者になりたいです-」エンジニアは別の警告によって遮断されます。 「警告：リアクターの不安定性が重大なレベルに達しました。破壊が差し迫っています。避難が義務付けられています。残り時間：未定です。繰り返し：リアクター-」メッセージはループし続け、良い警告のようです。確かに、爆発を止めるためにあなたができることは何もありませんか？</text>
 			<choice hidden="true">
-				<text>リアクターを修理するためにあなたの乗組員を送ってください、そしてすぐに！</text>
+				<text>リアクターを修理するためにあなたのクルーを送ってください、そしてすぐに！</text>
 				<event>
-					<text>パワーコアに近づき、乗組員を降ろします。彼らは火花を散らしているコントロールパネルに急いで入ります。ボタンは3つありますが、ラベルはほとんど判読できません。それらの1つを押すと、その日を節約できるかもしれませんが、どちらかはわかりません。</text>
+					<text>パワーコアに近づき、クルーを降ろします。彼らは火花を散らしているコントロールパネルに急いで入ります。ボタンは3つありますが、ラベルはほとんど判読できません。それらの1つを押すと、その日を節約できるかもしれませんが、どちらかはわかりません。</text>
 					<ship hostile="false" />
 					<choice hidden="true">
 						<text>大きな赤いものを押してください。</text>
 						<event>
-							<text>あなたの乗組員は保護ケーシングをひっくり返して開き、ボタンをできるだけ速く壊します。今、あなたはそれがうまくいったことを望むだけです...</text>
+							<text>あなたのクルーは保護ケーシングをひっくり返して開き、ボタンをできるだけ速く壊します。今、あなたはそれがうまくいったことを望むだけです...</text>
 							<choice hidden="true">
 								<text>継続する...</text>
 								<event load="AUTO_POWERCORE_SAVE" />
@@ -2458,7 +2458,7 @@
 					<choice hidden="true">
 						<text>小さな青いものを押します。</text>
 						<event>
-							<text>あなたの乗組員は保護ケーシングをひっくり返して開き、ボタンをできるだけ速く壊します。今、あなたはそれがうまくいったことを望むだけです...</text>
+							<text>あなたのクルーは保護ケーシングをひっくり返して開き、ボタンをできるだけ速く壊します。今、あなたはそれがうまくいったことを望むだけです...</text>
 							<choice hidden="true">
 								<text>継続する...</text>
 								<event load="AUTO_POWERCORE_SAVE" />
@@ -2468,7 +2468,7 @@
 					<choice hidden="true">
 						<text>四角い緑色のものを押してください。</text>
 						<event>
-							<text>あなたの乗組員は保護ケーシングをひっくり返して開き、ボタンをできるだけ速く壊します。今、あなたはそれがうまくいったことを望むだけです...</text>
+							<text>あなたのクルーは保護ケーシングをひっくり返して開き、ボタンをできるだけ速く壊します。今、あなたはそれがうまくいったことを望むだけです...</text>
 							<choice hidden="true">
 								<text>継続する...</text>
 								<event load="AUTO_POWERCORE_SAVE" />
@@ -2478,7 +2478,7 @@
 					<choice hidden="true" req="EXTRA_PREP">
 						<text>（緊急マニュアル）マニュアルを読んでください。</text>
 						<event>
-							<text>マニュアルをすばやくめくり、「Rebel Automated Power Core Explosion Prevention Protocols」のセクションの下に、赤いボタンを押すように明確に記載されていることを確認してください。あなたはこれを乗組員に中継します。乗組員は保護ケーシングをひっくり返して開き、ボタンをできるだけ速く壊します。</text>
+							<text>マニュアルをすばやくめくり、「Rebel Automated Power Core Explosion Prevention Protocols」のセクションの下に、赤いボタンを押すように明確に記載されていることを確認してください。あなたはこれをクルーに中継します。クルーは保護ケーシングをひっくり返して開き、ボタンをできるだけ速く壊します。</text>
 							<choice hidden="true">
 								<text>継続する...</text>
 								<event load="AUTO_POWERCORE_SAVE" />
@@ -2488,7 +2488,7 @@
 					<choice hidden="true" req="LIST_CREW_ENGINEER">
 						<text>（エンジンクルー）エンジニアに助けてもらってください。</text>
 						<event>
-							<text>エンジニアは思い出を深く調べ、各ボタンの重要性を説明したスタッフトレーニングの日を思い出します。赤いボタンが正しい解決策だったことを思い出して、あなたはこれを乗組員に中継します。乗組員は保護ケーシングをひっくり返して開き、ボタンをできるだけ速く壊します。</text>
+							<text>エンジニアは思い出を深く調べ、各ボタンの重要性を説明したスタッフトレーニングの日を思い出します。赤いボタンが正しい解決策だったことを思い出して、あなたはこれをクルーに中継します。クルーは保護ケーシングをひっくり返して開き、ボタンをできるだけ速く壊します。</text>
 							<choice hidden="true">
 								<text>継続する...</text>
 								<event load="AUTO_POWERCORE_SAVE" />
@@ -2551,7 +2551,7 @@
 	<triggeredEvent event="JERRY_QUEST_FAIL" time="60" thisFight="true">
 		<triggeredEventBox load="DEFAULT_TIMER" pos="combat">
 			<warning time="10.0" flash="true" />
-			<tooltip>If you do not defeat the MFK Ace in this amount of time, the transport will escape!</tooltip>
+			<tooltip>この時間内にMFKエースを倒さないと、トランスポートは脱出します！</tooltip>
 		</triggeredEventBox>
 		<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 	</triggeredEvent>
@@ -2880,7 +2880,7 @@
 	<triggeredEvent event="JERRY_HOME_FAIL" time="90" thisFight="true">
 		<triggeredEventBox load="DEFAULT_TIMER" pos="combat">
 			<warning time="10.0" flash="true" />
-			<tooltip>You have this much time to defeat the Auto-ship before the building is evacuated!</tooltip>
+			<tooltip>建物が空になる前に、オートシップを倒すのにこれだけの時間があります！</tooltip>
 		</triggeredEventBox>
 		<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 	</triggeredEvent>
@@ -2888,8 +2888,8 @@
 <event name="JERRY_HOME" unique="true">
 	<beaconType id="map_icon_estate" global="true">
 		<color r="248" g="196" b="55" a="1.0" />
-		<unvisitedTooltip>Location of the Wentworth Estate and Jerome's home.</unvisitedTooltip>
-		<visitedTooltip>Explored location. Nothing left of interest.</visitedTooltip>
+		<unvisitedTooltip>ウェントワースエステートとジェロームの家の場所。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
 	</beaconType>
 	<preventQuest />
 	<preventFleet />
@@ -3278,7 +3278,7 @@
 		</choice>
 	</event>
 	<event>
-		<text>あなたは駅に乗り込み、反乱軍が飛び出し、銃が引かれるだけです！ 「連邦の汚物、私たちはあなたがこれに陥るだろうと知っていました！あなたは私たちのセクターにあなたの道を壊し、私たちはあなたの顔に私たちの道を壊します！ハハ...ええと...それは私の頭の中でより良く聞こえました。逮捕中」</text>
+		<text>あなたはステーションに乗り込み、反乱軍が飛び出し、銃が引かれるだけです！ 「連邦の汚物、私たちはあなたがこれに陥るだろうと知っていました！あなたは私たちのセクターにあなたの道を壊し、私たちはあなたの顔に私たちの道を壊します！ハハ...ええと...それは私の頭の中でより良く聞こえました。逮捕中」</text>
 		<ship load="SHIP_REBEL_ELITE_FIGHT" hostile="true" />
 		<choice hidden="true">
 			<text>継続する...</text>
@@ -3309,7 +3309,7 @@
 				<event load="JERRY_COLONISTS_STEAL" />
 			</choice>
 			<choice hidden="true" req="LIST_CREW_HUMAN">
-				<text>（人間の乗組員）あなたの人間に反乱軍の人員のふりをして、物資を要求してもらいます。</text>
+				<text>（人間のクルー）あなたの人間に反乱軍の人員のふりをして、物資を要求してもらいます。</text>
 				<event>
 					<text>入植者たちはため息をついた。 「確かに、反乱のためだと思います。まもなく弾薬とスクラップの出荷が用意されます。」</text>
 					<autoReward level="MED">missiles</autoReward>
@@ -3661,10 +3661,10 @@
 		<crewMember amount="1" class="human_soldier">Tom</crewMember>
 	</event>
 	<event>
-		<text>反乱軍は感謝のファサードを付けます。彼がレーザーを引き出してあなたの乗組員の1人を爆破すると、それはすぐに粉々になります！彼は「永遠の反逆！」と叫びます。彼が見返りに撃たれる前に。あなたは彼の生命のない体をエアロックに引きずり込み、彼を無限の空間の真空に送り込みます。</text>
+		<text>反乱軍は感謝のファサードを付けます。彼がレーザーを引き出してあなたのクルーの1人を爆破すると、それはすぐに粉々になります！彼は「永遠の反逆！」と叫びます。彼が見返りに撃たれる前に。あなたは彼の生命のない体をエアロックに引きずり込み、彼を無限の空間の真空に送り込みます。</text>
 		<removeCrew>
 			<clone>true</clone>
-			<text>幸いなことに、殺された乗組員はすでにクローン作成プロセスを実行しています。</text>
+			<text>幸いなことに、殺されたクルーはすでにクローン作成プロセスを実行しています。</text>
 		</removeCrew>
 	</event>
 </eventList>
@@ -3674,7 +3674,7 @@
 		<crewMember amount="1" class="human_soldier">Tom</crewMember>
 	</event>
 	<event>
-		<text>反乱軍は感謝のファサードを付けます。彼がレーザーを引き出してあなたの乗組員の1人を撃とうとすると、すぐに粉々になります。幸いなことに、マインドコントロールは彼を止め、彼は床に落ちます。あなたは彼をエアロックから引きずり出すのを急いでいます。</text>
+		<text>反乱軍は感謝のファサードを付けます。彼がレーザーを引き出してあなたのクルーの1人を撃とうとすると、すぐに粉々になります。幸いなことに、マインドコントロールは彼を止め、彼は床に落ちます。あなたは彼をエアロックから引きずり出すのを急いでいます。</text>
 	</event>
 </eventList>
 
