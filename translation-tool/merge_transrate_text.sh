@@ -9,8 +9,8 @@
 
 # 2 を処理
 sort -u "$@" |
-sort -t '\t' -k 1,1 |
-while IFS='\t' read en ja; do
+sort -t $'\t' -k 1,1 |
+while IFS=$'\t' read en ja; do
     if [[ "$before_en" == "$en" ]]; then
         if [[ "$before_ja" == "" ]]; then
         fi
