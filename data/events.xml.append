@@ -850,7 +850,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 	</loadEventList>
 </event>
 <event name="START_BEACON_PREP">
-	<text>ゆっくりとハイパースピードを終了し、着陸に安全な速度に移行して、下のハンガーに近づきます。そこで、あなたの船は備蓄され、この外国の銀河に向かう準備ができています。</text>
+	<text>ゆっくりとハイパースピードを終了し、着陸に安全な速度に移行して、下の格納庫に近づきます。そこで、あなたの船は収容され、この外銀河に向かう準備ができています。</text>
 	<changeBackground>BACK_SECTOR_START</changeBackground>
 	<playSound>lightspeed</playSound>
 	<choice hidden="true">
@@ -858,12 +858,12 @@ MVをサポートするためにプレイしている船を更新したいが、
 		<event load="START_BEACON_PREP_OPTIONS" />
 	</choice>
 	<choice hidden="true" req="ANY_BOON">
-		<text>ハンガーオペレーターがあなたを歓迎します。</text>
+		<text>格納庫のオペレーターがあなたを歓迎します。</text>
 		<event load="START_BOON_MENU" />
 	</choice>
 </event>
 <event name="START_BEACON_PREP_OPTIONS">
-	<text>あなたは船に急いでいますが、出発する前にまだ少し時間があります。あなたはおそらく最後の1つをつかむ時間があるでしょう。</text>
+	<text>あなたは船に急いでいますが、出発する前にまだ少し時間があります。あなたはおそらく最後のなにか1つをつかむ時間があるでしょう。</text>
 	<choice hidden="true" lvl="0" max_group="0" req="NO_WEAPON" blue="false">
 		<text>武器をつかみます。</text>
 		<event>
@@ -956,7 +956,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 	</choice>
 </event>
 <event name="START_BEACON_PREP_SKIP">
-    <text>ゆっくりとハイパースピードを終了し、着陸に安全な速度に移行して、下のハンガーに近づきます。そこで、あなたの船は備蓄され、この外国の銀河に向かう準備ができています。</text>
+    <text>ゆっくりとハイパースピードを終了し、着陸に安全な速度に移行して、下の格納庫に近づきます。そこで、あなたの船は収容され、この外銀河に向かう準備ができています。</text>
 	<changeBackground>BACK_SECTOR_START</changeBackground>
 	<playSound>lightspeed</playSound>
 	<choice hidden="true">
@@ -964,7 +964,7 @@ MVをサポートするためにプレイしている船を更新したいが、
        <event load="START_BEACON_EXPLAIN_LOAD" />
     </choice>
 	<choice hidden="true" req="ANY_BOON">
-		<text>ハンガーオペレーターがあなたを歓迎します。</text>
+		<text>格納庫のオペレーターがあなたを歓迎します。</text>
 		<event load="START_BOON_MENU" />
 	</choice>
 </event>
@@ -1092,7 +1092,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 	<loadEvent>START_BEACON_EXPLAIN</loadEvent>
 </event>
 <event name="START_BEACON_EXPLAIN">
-	<text>ついに準備が整い、準備が整いました。ビーコンマップを見てください。艦隊が差し迫った脅威になるまでまだしばらく時間がかかるようですので、必要に応じて船で何かをするために時間を割くことができます。</text>
+	<text>ようやくスーツに身を包み、準備が整いました。ビーコンマップを見てください。艦隊が差し迫った脅威になるまでまだしばらく時間がかかるようですので、必要に応じて船で何かをするために時間を割くことができます。</text>
 	<choice hidden="true" req="prof_beacon_active" blue="true">
 		<text>奇妙なビーコンが近くにあります。アクティベートしますか？</text>
 		<event>
@@ -3039,7 +3039,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>30発のスクラップで10発のミサイルを売る。</text>
+		<text>30個のスクラップで10個のミサイルを売る。</text>
 		<event>
 			<text>「ありがとう、これは大いに役立つでしょう。」</text>
 			<item_modify>
@@ -3049,7 +3049,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 		</event>
 	</choice>
 		<choice hidden="true">
-		<text>45発のスクラップで15発のミサイルを売る。</text>
+		<text>45個のスクラップで15個のミサイルを売る。</text>
 		<event>
 			<text>「ありがとう、これは大いに役立つでしょう。」</text>
 			<item_modify>
@@ -3867,7 +3867,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 	<choice>
 		<text>民間船を助けてください。</text>
 		<event>
-			<text>あなたは武器をパワーアップし、海賊船と交戦します。</text>
+			<text>あなたは武器の電源を入れ、海賊船と交戦します。</text>
 			<ship load="SHIP_PIRATE_RESCUE" hostile="true" />
 			<choice hidden="true">
 				<text>継続する...</text>
@@ -4047,7 +4047,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 	<choice>
 		<text>連邦船を支援します。</text>
 		<event>
-			<text>あなたは武器をパワーアップし、反乱軍の船と交戦します。</text>
+			<text>あなたは武器の電源を入れ、反乱軍の船と交戦します。</text>
 			<ship load="SHIP_REBEL_VS_FEDERATION" hostile="true" />
 			<choice hidden="true">
 				<text>継続する...</text>
