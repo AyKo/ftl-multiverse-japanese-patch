@@ -28,12 +28,14 @@ FTL: Faster Than Light の overhaul mod である [Multiverse 5.2.3](https://sub
 [Hyperspace 1.0.3](https://subsetgames.com/forum/viewtopic.php?f=11&t=35095) をダウンロードしてください。
 ページを少し進めると Download と書かれている部分がありますのでダウンロードします。
 
-#### 4. Hyperspace の導入
+#### 4. Hyperspace の導入（FTLのバージョンダウン＋バイナリパッチ）
 前の項でダウンロードした FTL Hyperspace (1.0.3).zip を解凍します。解凍後、「Windows - Extract these files into where FTLGame.exe is」という名前のフォルダがありますので、その中のファイルをすべてFTLのインストールフォルダにコピーします。
 私の場合、インストールファルダは C:\Steam\steamapps\common\FTL Faster Than Light でした。
 
 コピー後、FTLのインストールフォルダで「downgrade.bat」を実行します。
-実行すると「FTLGame.exe」が古いバージョンに置き換わります。元のファイルは「FTLGame_orig.exe」として、一応残されています。
+FTL自体のバージョンダウンが必要で、これを実行すると「FTLGame.exe」が古いバージョンに置き換わります。元のファイルは「FTLGame_orig.exe」として、一応残されています。
+
+なお、Multiverse自体に Hyperspace.ftl が含まれているらしいので、こちらはいりません。
 
 #### 5. Multiverse の入手と格納
 [Multiverse 5.2.3](https://subsetgames.com/forum/viewtopic.php?f=11&t=35332) をダウンロードしてください。
