@@ -1,7 +1,7 @@
-# FTL MOD「Multiverse」の日本語パッチ(機械翻訳:すこし手作業で翻訳)
+# FTL MOD「Multiverse」の日本語パッチ(機械翻訳:ちょっと手作業で翻訳)
 FTL: Faster Than Light の overhaul mod である [Multiverse 5.2.3](https://subsetgames.com/forum/viewtopic.php?f=11&t=35332) への日本語パッチ(機械翻訳)です。 英語だとしんどくて機械翻訳で雰囲気だけでも・・と思って作りました。
 
-ただ、遊んでいて意味が通じなさ過ぎて気になった部分や、多分ヒロイン（？）のビームマスター・リア関連の部分は手作業で翻訳しました。
+ただ、遊んでいて意味が通じなさ過ぎて気になった部分、多分ヒロイン（？）のビームマスター・リア関連など、その他いくつかの部分は手作業で翻訳しました。
 
 ## インストールに必要なもの
 * FTL: Faster Than Light 本体
@@ -9,8 +9,7 @@ FTL: Faster Than Light の overhaul mod である [Multiverse 5.2.3](https://sub
    (動作には Java (JRE) が必要。Windows なら [こちら](https://www.java.com/ja/download/ie_manual.jsp) ）
 * [Hyperspace 1.0.3](https://subsetgames.com/forum/viewtopic.php?f=11&t=35095)
 * [Multiverse 5.2.3](https://subsetgames.com/forum/viewtopic.php?f=11&t=35332)
-* [JPMod.ftl](https://www.axfc.net/u/3899086.zip)
-  (Hyperspaceの導入により正式な日本語対応バージョン以前に戻すため、そのバージョンでの日本語パッチが必要です)
+* [FTL: Hyperspace 日本語化MOD](https://seesaawiki.jp/ftl/d/MOD#content_3_6_1)
 * [本パッチ](https://github.com/AyKo/ftl-multiverse-japanese-patch/raw/main/FTL-Multiverse_5.2.3_hotfix.jp-patch.zip)
 
 ## インストール
@@ -42,12 +41,15 @@ FTL: Faster Than Light の overhaul mod である [Multiverse 5.2.3](https://sub
 だいたい1/3くらいの場所に、DOWNLOAD MULTIVERSE BUILD - 5.2.3 HOTFIX と書かれている部分がありますので、その Google Drive と書かれたリンクの先にあります。
 FTL-Multiverse 5.2.3 hotfix.zip というファイルをダウンロードできますので、これを zip のまま Slipstream Mod Manager の mod フォルダに保存して下さい。
 
-#### 6. JPMod.ftl の入手と格納
-[JPMod.ftl](https://www.axfc.net/u/3899086.zip)をダウンロードしてください。FTL_JPMOD_180328.zip というファイルがダウンロードできます。
-これを解凍し JPMod.ftl というファイルを、Slipstream Mod Manager の mod フォルダに保存して下さい。
+#### 6. FTL: Hyperspace 日本語化MOD の入手と格納
+[FTL: Hyperspace 日本語化MOD](https://seesaawiki.jp/ftl/d/MOD#content_3_6_1)にいって、[Hyperspace-ja.ftl](https://drive.google.com/file/d/1VwBDaD3ztAgD4GGdXm_WdSwuyE-FDwoh/view?usp=sharing) と [JapaneseFonts.ftl](https://drive.google.com/file/d/18EZMhs6Z9iKncLx0kfaliAxHrrK_G6qK/view?usp=sharing) をダウンロードしてください。
 
-### 7. 日本語パッチ（機械翻訳）の入手と格納
-本ページから [日本語パッチ(機械翻訳)](https://github.com/AyKo/ftl-multiverse-japanese-patch/raw/main/FTL-Multiverse_5.2.3_hotfix.jp-patch.zip) をダウンロードします。
+それぞれ、右上の <img src="doc/google_drive_download_icon.png" width="32"> でダウンロードできます。
+
+ダウンロードした２つのファイルを、Slipstream Mod Manager の mod フォルダに保存して下さい。
+
+### 7. 日本語パッチ（機械翻訳:ちょっと手作業で翻訳）の入手と格納
+本ページから [日本語パッチ(機械翻訳:ちょっと手作業で翻訳)](https://github.com/AyKo/ftl-multiverse-japanese-patch/raw/main/FTL-Multiverse_5.2.3_hotfix.jp-patch.zip) をダウンロードします。
 これを zip のまま Slipstream Mod Manager の mod フォルダに保存して下さい。
 
 ### 8. パッチの適用
@@ -59,18 +61,26 @@ Slipstream Mod Manager を起動し、必要な初期設定をおこなったら
 
 順番は：
 1. [FTL-Multiverse 5.2.3 hotfix]
-2. [JPMod]
+2. [Hyperspace-ja]
 3. [FTL-Multiverse_5.2.3_hotfix.jp-patch]
+4. [JapaneseFonts]
 
-必要な項目にチェックをしたら Patch ボタンをクリックします。クリックするとパッチの適用が始まります。うまくいくと、今すぐ起動するか？と問い合わせが表示されます。ここまでくればOKです。
+必要な項目にチェックをしたら Patch ボタンをクリックします。クリックするとパッチの適用が始まります。うまくいくと、今すぐ起動するか？的な問い合わせが表示されます。ここまでくればOKです。
 
-### 9. FTL Multiverse起動！
 ..と言いたいところですが、環境によっては上手く起動しないみたいです。
 私の環境のようにメモリが 4GByte してない場合は、そのままだと上手くいかないことがあるらしいです。
 
-私の場合 -opengl オプションをつけると起動できました。
+私の場合 -opengl オプションをつけて直接起動するとできました。
 私の環境の場合、Win+Rを押下後、
 
     "C:\Steam\steamapps\common\FTL Faster Than Light\FTLGame.exe" -opengl
 
 と入力すると起動できました。
+
+### 9. マルチバース起動！
+![Title1](doc/Multiverse-Title-01.png)
+
+よく条件は分からないのですが、タイトルが変わることもあるみたいです。
+1回だけですが↓が表示されました。Slugかな..かわいい..。
+![Title2](doc/Multiverse-Title-02.png)
+(※まだHyperspace-jaを入れないときの画像です)
