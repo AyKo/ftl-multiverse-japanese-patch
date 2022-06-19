@@ -82,5 +82,7 @@ Slipstream Mod Manager を起動し、必要な初期設定をおこなったら
 
 よく条件は分からないのですが、タイトルが変わることもあるみたいです。
 1回だけですが↓が表示されました。Slugかな..かわいい..。
+
 ![Title2](doc/Multiverse-Title-02.png)
+
 (※まだHyperspace-jaを入れないときの画像です)
