@@ -355,11 +355,11 @@
 </event>
 
 <event name="STORM_PLATFORM" unique="true">
-	<text>近くには休眠中のナメクジのセラフォーミングステーションがあります。イオンストームが始まったとき、彼らは漠然としたガスを収穫していたに違いありません、そして今、ステーションに避難しました。その隣には、保護されていないプラットフォームがあります。</text>
+	<text>近くには休眠中のスラッグのセラフォーミングステーションがあります。イオンストームが始まったとき、彼らは漠然としたガスを収穫していたに違いありません、そして今、ステーションに避難しました。その隣には、保護されていないプラットフォームがあります。</text>
 	<ship load="SHIP_SLUG_CEALSTATION_STORM" hostile="false" />
 	<environment type="storm" />
 	<choice hidden="true">
-		<text>ナメクジが隠れている間にプラットフォームを襲撃します。</text>
+		<text>スラッグが隠れている間にプラットフォームを襲撃します。</text>
 		<event load="STORM_PLATFORM_LIST" />
 	</choice>
 	<choice>
@@ -368,11 +368,11 @@
 	</choice>
 </event><eventList name="STORM_PLATFORM_LIST">
 	<event>
-		<text>ナメクジはあなたを止めるのに無力です。あなたはプラットフォームからあなたができるすべてを取ります。</text>	
+		<text>スラッグはあなたを止めるのに無力です。あなたはプラットフォームからあなたができるすべてを取ります。</text>	
 		<autoReward level="MED">stuff</autoReward>
 	</event>
 	<event>
-		<text>ナメクジはあなたに彼らの物資を持って逃げさせることに興味がありません。ステーションは武器と攻撃を強化します！</text>
+		<text>スラッグはあなたに彼らの物資を持って逃げさせることに興味がありません。ステーションは武器と攻撃を強化します！</text>
 		<ship hostile="true" />
 		<choice hidden="true">
 			<text>継続する...</text>
@@ -392,7 +392,7 @@
 		<event />
 	</choice>
 	<choice req="pilot" lvl="2" hidden="true">
-		<text>（水先案内）水先案内に水先案内を注意深く行ってもらいます。</text>
+		<text>（Piloting）パイロットに注意深くデブリを探索させます。</text>
 		<event load="STORM_ITEMS_PILOTING" />
 	</choice>
 	<environment type="storm" />
@@ -527,7 +527,7 @@
 </event>
 
 <event name="NEBULA_ENCOUNTER_SUN" unique="true">
-    <text>ここの星雲は、生まれたばかりの星に凝縮しているようです。それはかなりの光景です...しかしまた非常に致命的です。ナメクジの船は星を賞賛していますが、それを見てあなたは代わりに攻撃することにしました！</text>
+    <text>ここの星雲は、生まれたばかりの星に凝縮しているようです。それはかなりの光景です...しかしまた非常に致命的です。スラッグの船は星を賞賛していますが、それを見てあなたは代わりに攻撃することにしました！</text>
     <ship load="SHIP_SLUG_FIGHT" hostile="true" />
     <img back="BACK_EVENT_LIGHTNEBULA" planet="NONE" />
     <status type="loss" target="player" system="sensors" amount="1" />
@@ -677,7 +677,7 @@
 		</choice>
 	</event>
 	<event>
-		<text>ナメクジの船は、ライバルであるロック船に勝利しました。彼らは別の戦いを放棄するものではないので、彼らはすぐにあなたにロックして攻撃します。</text>
+		<text>スラッグの船は、ライバルであるロック船に勝利しました。彼らは別の戦いを放棄するものではないので、彼らはすぐにあなたにロックして攻撃します。</text>
 		<ship load="SHIP_SLUG_DUEL_ROCK" hostile="true" />
 		<choice hidden="true">
 			<text>継続する...</text>
@@ -685,7 +685,7 @@
 		</choice>
 	</event>
 	<event>
-		<text>ゴースト船は、ライバルであるナメクジ船に勝利しました。彼らは別の戦いを放棄するものではないので、彼らはすぐにあなたにロックして攻撃します。</text>
+		<text>ゴースト船は、ライバルであるスラッグ船に勝利しました。彼らは別の戦いを放棄するものではないので、彼らはすぐにあなたにロックして攻撃します。</text>
 		<ship load="SHIP_GHOST_DUEL_SLUG" hostile="true" />
 		<choice hidden="true">
 			<text>継続する...</text>
@@ -708,7 +708,7 @@
 	<choice hidden="true">
 		<text>聞く。</text>
 		<event>
-			<text>「このセクターは友好的な場所ではありません。理由はわかりますか？ナメクジ。不潔な野郎、サンドバッグを作る以外は何の役にも立ちません。私たちのために何人かを殺すことに興味がありますか？」</text>
+			<text>「このセクターは友好的な場所ではありません。理由はわかりますか？スラッグ。不潔な野郎、サンドバッグを作る以外は何の役にも立ちません。私たちのために何人かを殺すことに興味がありますか？」</text>
 			<choice hidden="true">
 				<text>承認。</text>
 				<event>
@@ -725,7 +725,7 @@
 				<event />
 			</choice>
 			<choice hidden="true" req="LIST_CREW_SLUG">
-				<text>（ナメクジのクルー）「あなたは触手を叩くような不満の中で、sssomeoneのためにたくさんのtrasssshを話します。」</text>
+				<text>（スラッグのクルー）「あなたは触手を叩くような不満の中で、sssomeoneのためにたくさんのtrasssshを話します。」</text>
 				<event>
 					<text>「なんてこった、あなたはそれらの不潔な生き物の一人をあなたの船に住まわせたのですか？あなたは恥ずべきことです！」</text>
 					<ship load="SHIP_PIRATE_REBEL" hostile="true" />
@@ -753,7 +753,7 @@
 	</choice>
 </event>
 <event name="NEBULA_SLUG_HUNTER_WIN">
-	<text>あなたはナメクジの船を倒しました。海賊はあなたが船を解体し終えるのを待っています。</text>
+	<text>あなたはスラッグの船を倒しました。海賊はあなたが船を解体し終えるのを待っています。</text>
 	<autoReward level="MED">standard</autoReward>
 	<choice hidden="true">
 		<text>継続する...</text>

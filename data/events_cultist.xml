@@ -3,7 +3,7 @@
 
 	
 <event name="START_ORIGINS">
-	<text>あなたは元のCrystalHomeworldsに到着しました、そしてすでにあなたは観光客と「開拓者」の残忍な侵入の余波を見ることができます。結晶構造の骨格は、侵入ビーコンが懸念される惑星の表面に点在しています...</text>
+	<text>あなたは元のCrystalHomeworldsに到着しました、そしてすでにあなたは観光客と「開拓者」の残忍な侵入の余波を見ることができます。クリスタル構造の骨格は、侵入ビーコンが懸念される惑星の表面に点在しています...</text>
 	<ship load="SHIP_GUARD_CULTIST" hostile="false" />
 	<changeBackground>BACK_SECTOR_CRYSTAL_HOME</changeBackground>
 	<playSound>lightspeed</playSound>
@@ -19,7 +19,7 @@
 
 	
 <event name="START_ORIGINS_RUWEN">
-	<text>あなたは元のCrystalHomeworldsに到着しました、そしてすでにあなたは観光客と「開拓者」の残忍な侵入の余波を見ることができます。結晶構造の骨格は、侵入ビーコンが懸念される惑星の表面に点在しています...
+	<text>あなたは元のCrystalHomeworldsに到着しました、そしてすでにあなたは観光客と「開拓者」の残忍な侵入の余波を見ることができます。クリスタル構造の骨格は、侵入ビーコンが懸念される惑星の表面に点在しています...
 
 開発者からのメモ：
 このセクター/クエストラインは過渡期にあります。特定の要素/ダイアログは意味をなさない場合があります。後の（できればすぐに）アップデートでやり直されます。ただし、現在のクエストライン/ロック解除は、少なくとも当面は以前と同じように機能するはずです。</text>
@@ -242,7 +242,7 @@
 	<choice hidden="true" req="loc_waystone" lvl="1" max_group="0" blue="false">
 		<text>ウェイストーンを調べます。</text>
 		<event>
-			<text>デバイスを構成する結晶技術は、完全に異質ではないにしても、魅力的です。</text>
+			<text>デバイスを構成するクリスタル技術は、完全に異質ではないにしても、魅力的です。</text>
 			<choice hidden="true" req="unique_ruwen" lvl="1" max_group="0" blue="false">
 				<text>ルーウェンと話してください。</text>
 				<event>
@@ -667,9 +667,9 @@
 						<event load="CULTIST_MOURNING_GUESS" />
 					</choice>
 					<choice hidden="true" req="LIST_CREW_SLUG">
-						<text>（ナメクジのクルー）あなたのナメクジの答えを持っています。</text>
+						<text>（スラッグのクルー）あなたのスラッグの答えを持っています。</text>
 						<event>
-							<text>あなたのナメクジはテレパシーであり、近くの他のカルト信者の心からそれを読むことによって答えを知っています。</text>
+							<text>あなたのスラッグはテレパシーであり、近くの他のカルト信者の心からそれを読むことによって答えを知っています。</text>
 							<choice hidden="true">
 								<text>継続する...</text>
 								<event load="CULTIST_MOURNING_CORRECT" />
@@ -913,7 +913,7 @@
 
 <textList name="TEXT_ORIGINS_ATTACKERS">
 	<text planet="PLANET_POPULATED_SMALL">まだ数人のCrystallineの人々をホストしている近くの惑星が攻撃を受けているようです！</text>
-	<text>結晶性の船は、この苦痛のビーコンの源です。彼らは攻撃を受けているようです！</text>
+	<text>クリスタルの船が、この救難信号の源です。彼らは攻撃を受けているようです！</text>
 	<text>クリスタルの船があなたを歓迎し、彼らを追いかけている敵対的な船から彼らを守るように要求します。</text>
 </textList>
 <event name="ORIGINS_ATTACKERS">
@@ -926,7 +926,7 @@
 	<choice>
 		<text>遭難ビーコンを無視します。</text>
 		<event>
-			<text>あなたは苦痛のビーコンの源から自分自身を遠ざけます。</text>
+			<text>あなたは救難信号の源から自分自身を遠ざけます。</text>
 			<choice>
 				<text>船に乗って何かする。</text>
 				<event load="STORAGE_CHECK" />
@@ -978,7 +978,7 @@
 		<autoReward level="MED">scrap_only</autoReward>
 	</event>
 	<event>
-		<text>結晶船はひどく損傷しています。数少ない生存者の1人があなたのクルーに加わることを要求します。</text>
+		<text>クリスタル船はひどく損傷しています。数少ない生存者の1人があなたのクルーに加わることを要求します。</text>
 		<crewMember amount="1" class="crystal" />
 	</event>
 </eventList>
@@ -1244,7 +1244,7 @@
 		<event load="COMBAT_CHECK" />
 	</choice>
 	<choice hidden="true" req="unique_vortigon">
-		<text>（ヴォルティゴン）やめろ！この船は、大祭司からここを航行する許可を得ています。</text>
+		<text>（Vortigon）やめろ！この船は、大祭司からここを航行する許可を得ています。</text>
 		<event>
 			<text>カルティストは一時停止し、すぐに謝罪します。ヴォルティゴンの怒りを恐れて、彼らはいくつかの物資を手渡し、許しを請う。</text>
 			<ship hostile="false" />
@@ -1271,10 +1271,10 @@
 	</choice>
 </event>
 <textList name="TEXT_ENCOUNTER_ORIGINS_CRYSTAL">
-	<text>結晶船がこのビーコンの周りを移動しています。クリスタルの領土であるはずのクリスタルよりも多くのカルトを見ると問題があることは知っていますが、クリスタルの船が攻撃的になるまで、それについて考える時間はありません。</text>
-	<text>このセクターの結晶性の人々の元々の人口は、カルト主義者の侵入以来、端を発しているようです。ここの船が一目であなたを攻撃するほど、何も考えずにあなたを攻撃します！</text>
+	<text>クリスタル船がこのビーコンの周りを移動しています。クリスタルの領土であるはずのクリスタルよりも多くのカルトを見ると問題があることは知っていますが、クリスタルの船が攻撃的になるまで、それについて考える時間はありません。</text>
+	<text>このセクターのクリスタルの人々の元々の人口は、カルト主義者の侵入以来、端を発しているようです。ここの船が一目であなたを攻撃するほど、何も考えずにあなたを攻撃します！</text>
 	<text>「あなたは私たちのセクター、連邦に侵入しています！私たちには対処するのに十分なカルトがいます、あなたはここにいることはできません！」あなたはクリスタル船で推論しようとしますが、彼らは聞くことを超えています。</text>
-	<text>結晶の船が近づき、武器が引き抜かれます。あなたは彼らを怒らせるためにあなたが何をしたのか分かりませんが、あなたは戦わなければならないように見えます。</text>
+	<text>クリスタルの船が近づき、武器が引き抜かれます。あなたは彼らを怒らせるためにあなたが何をしたのか分かりませんが、あなたは戦わなければならないように見えます。</text>
 </textList>
 
 <event name="CULTIST_PIRATE_BURN" unique="true">
@@ -1329,7 +1329,7 @@
 		<event load="COMBAT_CHECK" />
 	</choice>
 	<choice hidden="true" req="unique_vortigon">
-		<text>（ヴォルティゴン）やめろ！この船は、大祭司からここを航行する許可を得ています。</text>
+		<text>（Vortigon）やめろ！この船は、大祭司からここを航行する許可を得ています。</text>
 		<event>
 			<text>カルティストは一時停止し、すぐに謝罪します。ヴォルティゴンの怒りを恐れて、彼らはいくつかの物資を手渡し、許しを請う。</text>
 			<ship hostile="false" />
@@ -1339,7 +1339,7 @@
 </event>
 
 <event name="ENCOUNTER_ORIGINS_CRYSTAL_ASTEROID" unique="true">
-	<text>おそらく狂気のカルト信者から隠れようとしている結晶性の船が、ここの小惑星のフィールドに避難しました。彼らはあなたが彼らを狩っていると思っているようです、なぜなら彼らはあなたにチャンスを与えず、あなたが飛び込むとすぐに攻撃するからです！</text>
+	<text>おそらく狂気のカルト信者から隠れようとしているクリスタルの船が、ここの小惑星のフィールドに避難しました。彼らはあなたが彼らを狩っていると思っているようです、なぜなら彼らはあなたにチャンスを与えず、あなたが飛び込むとすぐに攻撃するからです！</text>
 	<ship load="SHIP_CRYSTAL_FIGHT" hostile="true" />
 	<environment type="asteroid" />
 	<choice hidden="true">
