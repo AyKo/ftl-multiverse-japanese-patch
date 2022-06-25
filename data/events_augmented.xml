@@ -98,7 +98,7 @@
 			<choice>
 				<text>継続する...</text>
 				<event>
-					<text>「あなたは私が聞いた連邦船です。あなたが古代の生き物の1つを持ってきたと理解しています。私はあなたからそれを手頃な価格で購入します。」</text>
+					<text>「おぬしは噂の連邦船だな。古代生物の一種を持ち込んでいるそうだな。それを買い取ろう、適正価格でな」</text>
 					<choice>
 						<text>それを売る。</text>
 						<event>
@@ -114,15 +114,15 @@
 					<choice>
 						<text>彼女が最初にそれを何に使うつもりか尋ねてください。</text>
 						<event>
-							<text>「食べ物は当然です。私の食事は非常に複雑です。これら、特に生きているものを手に入れるのは難しいです。彼はおいしいおやつを作りますが、私は庶民よりも王室を好みます...」</text>
+							<text>「当然、食料だ。わらわの食事は、とても複雑なのだ。特に生きているものは手に入れるのが難しい。彼は旨いつまみになる。まあ、わらわは平民より王族の方が好きなのだがな..」</text>
 							<choice hidden="true">
 								<text>拒否します、私たちはこの生き物に別の生き物を食べさせるつもりはありません！</text>
 								<event>
-									<text>「それで、あなたは申し出を断っていますか？最も残念です。おそらくあなたにとって価格が低すぎますか？私はそれを公正に上げます。」</text>
+									<text>「申し出を断るのか？ 残念だな、価格が安いのか？ 値上げをしてやろう」</text>
 									<choice hidden="true">
 										<text>あなたの決定をしっかりと握ってください。</text>
 										<event>
-											<text>「あなたは本当に頑固です。罰金、最終的な申し出はありません。あなたは私に生き物を与えないので、私はそれを自分で取ります！」</text>
+											<text>「おぬしは頑固だな。いいだろう、最後の提案は無しだ。おぬしにその気がなくとも、わらわが奪ってやろう！」</text>
 											<ship hostile="true" />
 											<choice hidden="true">
 												<text>継続する...</text>
@@ -165,7 +165,7 @@
 	<choice req="loc_anointed" lvl="1" max_group="0" hidden="true" blue="false"> 
 		<text>継続する...</text>
 		<event>
-			<text>アノインテッドの船はもうなくなったようですが、反乱軍の艦隊がビーコンを支配しています！あなたはあなたの方法を戦わなければならないでしょう！</text>
+			<text>Anointedの船はもうなくなったようですが、反乱軍の艦隊がビーコンを支配しています！あなたはあなたの方法を戦わなければならないでしょう！</text>
 			<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
 			<environment type="PDS" target="player" />
 			<ship load="SHIP_REBEL_FLEET_S" hostile="true" />
@@ -189,7 +189,7 @@
 </event>
 
 <event name="ANOINTED_SURRENDER">
-	<text>「わかりました、あなたは勝ちます。あなたは生き物を維持するかもしれません、死ぬ価値はありません。これを取り、私たちをここに残してください。攻撃をお詫びします。」</text>
+	<text>「わかった、おぬしの勝ちだ。生き物は持っていてくれ、死ぬほどまでの価値はない。襲撃は謝罪する。これを持って、とっとと行け」</text>
 	<choice>
 		<text>彼女の降伏を受け入れます。</text>
 		<event load="ANOINTED_SURRENDER_ACCEPT" />
@@ -217,7 +217,7 @@
 			<choice hidden="true">
 				<text>彼女を連れて行くことを申し出てください。</text>
 				<event>
-					<text>「ああ、できませんでした。申し訳ありませんが、ここで忙しいです。私の人生は非常に困難です。体の材料は非常に不安定で、常にもっと食べる必要があります。それがないと、私は腐敗し、死にます。非常に苦痛です。」</text>
+					<text>「それは出来ない。悪いが忙しい。わらわの命をつなぐのは非常に厄介なのだ。体の材料は非常に不安定で、常に多くのものを摂取する必要がある。そうでないと、わらわは衰え死んでしまう。とても苦しいのだ、おぬしにわかるだろうか？」</text>
 					<checkCargo />
 					<choice hidden="true">
 						<text>継続する...</text>
@@ -227,7 +227,7 @@
 					<choice hidden="true" req="ANCIENT_LASER">
 						<text>彼女に古代のレーザーを提供して食べさせてください。</text>
 						<event>
-							<text>「これは高品質の技術です。幸運にもこれを見つける必要があります。申し分なく、これは今のように機能します。非常に好奇心が強く、目覚めたときに何が起こるかを見たいです！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
 							<remove name="ANCIENT_LASER" />
 							<crewMember amount="1" combat="2" class="unique_anointed">Anointed</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -236,7 +236,7 @@
 					<choice hidden="true" req="ANCIENT_BEAM">
 						<text>彼女に餌を与えるために古代のビームを提供します。</text>
 						<event>
-							<text>「これは高品質の技術です。幸運にもこれを見つける必要があります。申し分なく、これは今のように機能します。非常に好奇心が強く、目覚めたときに何が起こるかを見たいです！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
 							<remove name="ANCIENT_BEAM" />
 							<crewMember amount="1" combat="2" class="unique_anointed">Anointed</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -245,7 +245,7 @@
 					<choice hidden="true" req="ANCIENT_FOCUS">
 						<text>彼女に餌を与えるために古代のピンポイントを提供します。</text>
 						<event>
-							<text>「これは高品質の技術です。幸運にもこれを見つける必要があります。申し分なく、これは今のように機能します。非常に好奇心が強く、目覚めたときに何が起こるかを見たいです！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
 							<remove name="ANCIENT_FOCUS" />
 							<crewMember amount="1" combat="2" class="unique_anointed">Anointed</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -254,7 +254,7 @@
 					<choice hidden="true" req="ANCIENT_FOCUS_2">
 						<text>彼女に古代のピンポイントMkを提供します。餌をやるII。</text>
 						<event>
-							<text>「これは高品質の技術です。幸運にもこれを見つける必要があります。申し分なく、これは今のように機能します。非常に好奇心が強く、目覚めたときに何が起こるかを見たいです！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
 							<remove name="ANCIENT_FOCUS_2" />
 							<crewMember amount="1" combat="2" class="unique_anointed">Anointed</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -263,7 +263,7 @@
 					<choice hidden="true" req="ANCIENT_MISSILES">
 						<text>彼女に古代ミサイルランチャーを提供して食べさせてください。</text>
 						<event>
-							<text>「これは高品質の技術です。幸運にもこれを見つける必要があります。申し分なく、これは今のように機能します。非常に好奇心が強く、目覚めたときに何が起こるかを見たいです！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
 							<remove name="ANCIENT_MISSILES" />
 							<crewMember amount="1" combat="2" class="unique_anointed">Anointed</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -272,7 +272,7 @@
 					<choice hidden="true" req="ANCIENT_BOMB">
 						<text>彼女に古代爆弾発射装置を提供して食べさせてください。</text>
 						<event>
-							<text>「これは高品質の技術です。幸運にもこれを見つける必要があります。申し分なく、これは今のように機能します。非常に好奇心が強く、目覚めたときに何が起こるかを見たいです！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
 							<remove name="ANCIENT_BOMB" />
 							<crewMember amount="1" combat="2" class="unique_anointed">Anointed</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -281,7 +281,7 @@
 					<choice hidden="true" req="ANCIENT_STUN">
 						<text>彼女に古代の平和維持者を養うように申し出なさい。</text>
 						<event>
-							<text>「これは高品質の技術です。幸運にもこれを見つける必要があります。申し分なく、これは今のように機能します。非常に好奇心が強く、目覚めたときに何が起こるかを見たいです！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
 							<remove name="ANCIENT_STUN" />
 							<crewMember amount="1" combat="2" class="unique_anointed">Anointed</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -290,7 +290,7 @@
 					<choice hidden="true" req="ANCIENT_COMBAT_LASER">
 						<text>彼女に餌を与えるために古代のレーザードローンを提供します。</text>
 						<event>
-							<text>「これは高品質の技術です。幸運にもこれを見つける必要があります。申し分なく、これは今のように機能します。非常に好奇心が強く、目覚めたときに何が起こるかを見たいです！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
 							<remove name="ANCIENT_COMBAT_LASER" />
 							<crewMember amount="1" combat="2" class="unique_anointed">Anointed</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -299,7 +299,7 @@
 					<choice hidden="true" req="ANCIENT_COMBAT_ION">
 						<text>彼女に古代のイオンドローンを提供して食べさせてください。</text>
 						<event>
-							<text>「これは高品質の技術です。幸運にもこれを見つける必要があります。申し分なく、これは今のように機能します。非常に好奇心が強く、目覚めたときに何が起こるかを見たいです！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
 							<remove name="ANCIENT_COMBAT_ION" />
 							<crewMember amount="1" combat="2" class="unique_anointed">Anointed</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -308,7 +308,7 @@
 					<choice hidden="true" req="ANCIENT_COMBAT_MISSILE">
 						<text>彼女に古代ミサイルドローンを提供して食べさせてください。</text>
 						<event>
-							<text>「これは高品質の技術です。幸運にもこれを見つける必要があります。申し分なく、これは今のように機能します。非常に好奇心が強く、目覚めたときに何が起こるかを見たいです！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
 							<remove name="ANCIENT_COMBAT_MISSILE" />
 							<crewMember amount="1" combat="2" class="unique_anointed">Anointed</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -317,7 +317,7 @@
 					<choice hidden="true" req="ANCIENT_DEFENSE_1">
 						<text>彼女に古代の監視者ドローンを提供して食べさせてください。</text>
 						<event>
-							<text>「これは高品質の技術です。幸運にもこれを見つける必要があります。申し分なく、これは今のように機能します。非常に好奇心が強く、目覚めたときに何が起こるかを見たいです！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
 							<remove name="ANCIENT_DEFENSE_1" />
 							<crewMember amount="1" combat="2" class="unique_anointed">Anointed</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -326,7 +326,7 @@
 					<choice hidden="true" req="MENDER">
 						<text>彼女に餌を与えるために古代の修理人を提供します。</text>
 						<event>
-							<text>「これは高品質の技術です。幸運にもこれを見つける必要があります。申し分なく、これは今のように機能します。非常に好奇心が強く、目覚めたときに何が起こるかを見たいです！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
 							<remove name="MENDER" />
 							<crewMember amount="1" combat="2" class="unique_anointed">Anointed</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -335,7 +335,7 @@
 					<choice hidden="true" req="DIRECTOR">
 						<text>彼女に古代の監督を養うように申し出なさい。</text>
 						<event>
-							<text>「これは高品質の技術です。幸運にもこれを見つける必要があります。申し分なく、これは今のように機能します。非常に好奇心が強く、目覚めたときに何が起こるかを見たいです！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
 							<remove name="DIRECTOR" />
 							<crewMember amount="1" combat="2" class="unique_anointed">Anointed</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -344,7 +344,7 @@
 					<choice hidden="true" req="ATOM_DEFEND">
 						<text>彼女に古代の噴霧器を提供して食べさせてください。</text>
 						<event>
-							<text>「これは高品質の技術です。幸運にもこれを見つける必要があります。申し分なく、これは今のように機能します。非常に好奇心が強く、目覚めたときに何が起こるかを見たいです！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
 							<remove name="ATOM_DEFEND" />
 							<crewMember amount="1" combat="2" class="unique_anointed">Anointed</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -353,7 +353,7 @@
 					<choice hidden="true" req="ATOM_BOARDER">
 						<text>彼女に古代の噴霧器を提供して食べさせてください。</text>
 						<event>
-							<text>「これは高品質の技術です。幸運にもこれを見つける必要があります。申し分なく、これは今のように機能します。非常に好奇心が強く、目覚めたときに何が起こるかを見たいです！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
 							<remove name="ATOM_BOARDER" />
 							<crewMember amount="1" combat="2" class="unique_anointed">Anointed</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -378,7 +378,7 @@
     <choice hidden="true">
         <text>継続する...</text>
         <event>
-            <text>船を検査すると、Anointedが地面に崩壊します。彼女はあなたが近づくようにジェスチャーをし、あなたの手に奇妙な見た目のデバイスをたたきます。彼女は「これはアクティベーターキーです。燃料触媒とともに古代を起こします... h-hibernationから、ここに大きな謎があります...私の中断の間違いがあります。あなたはそれを解決します、私は確信しています...「それで、彼女は地面に落ち、死んだ。</text>
+            <text>船を点検していると、地面で朽ち果てているAnointedを見つける。彼女はあなたに近づくよう身振りをし、奇妙な形の装置をあなたの手に叩きつけた。彼女は「これはアクティベーター・キーだ。燃料触媒と一緒に使えば、古代人を冬眠から..目覚めさせることができるだろう。これには大きな謎があるのだ...邪魔をしたのはわらわのミスだ。おぬしならきっと解けるだろう...」。そう言って、彼女は地面に倒れ、死んだ。</text>
             <hiddenAug>ANCIENT_ACTIVATOR</hiddenAug>
         </event>
     </choice>
