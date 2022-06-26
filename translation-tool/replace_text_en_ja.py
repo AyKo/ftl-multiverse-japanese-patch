@@ -89,7 +89,7 @@ for file in  glob.glob("./data/*"):
         for texttag in root.findall(tag):
             if not texttag.text:
                 continue
-            text = re.sub(r'\n[ \t]*', '\n', texttag.text)
+            text = re.sub(r'\n[ \t]*', '\n', texttag.text).replace('\t', '')
             text = text.translate(special_char_transtable_encode)
             if text in translate_map:
                 texttag.text = translate_map[text].translate(special_char_transtable_decode)
