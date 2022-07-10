@@ -71,27 +71,27 @@
 <event name="CURA_TASK_MENU">
 	<text>タスクの難易度を選択してください。オプションを選択するたびに、使用可能なタスクがランダム化されます。</text>
 	<choice hidden="true" req="CURA_EASY_TASKS" lvl="0" max_group="0" blue="false">
-		<text>簡単なタスクを表示します。</text>
+		<text>初級タスクを表示します。</text>
 		<event load="CURA_TASKS_EASY" />
 	</choice>
 	<choice hidden="true" req="CURA_EASY_TASKS" lvl="1" max_group="0" blue="false">
-		<text>利用できる簡単なタスクはありません。</text>
+		<text>利用できる初級タスクはありません。</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true" req="CURA_MEDIUM_TASKS" lvl="0" max_group="1" blue="false">
-		<text>中間タスクを表示します。</text>
+		<text>中級タスクを表示します。</text>
 		<event load="CURA_TASKS_MEDIUM" />
 	</choice>
 	<choice hidden="true" req="CURA_MEDIUM_TASKS" lvl="1" max_group="1" blue="false">
-		<text>利用可能な中間タスクはありません。</text>
+		<text>利用可能な中級タスクはありません。</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true" req="CURA_HARD_TASKS" lvl="0" max_group="2" blue="false">
-		<text>ハードタスクを表示します。</text>
+		<text>上級タスクを表示します。</text>
 		<event load="CURA_TASKS_HARD" />
 	</choice>
 	<choice hidden="true" req="CURA_HARD_TASKS" lvl="1" max_group="2" blue="false">
-		<text>利用可能なハードタスクはありません。</text>
+		<text>利用可能な上級タスクはありません。</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="false" req="CURA_HARD_TASKS_COMPLETED" lvl="1" max_group="3" blue="true">
@@ -107,27 +107,27 @@
 <event name="CURA_TASK_MENU_NOSPECIAL">
 	<text>タスクの難易度を選択してください。オプションを選択するたびに、使用可能なタスクがランダム化されます。</text>
 	<choice hidden="true" req="CURA_EASY_TASKS" lvl="0" max_group="0" blue="false">
-		<text>簡単なタスクを表示します。</text>
+		<text>初級タスクを表示します。</text>
 		<event load="CURA_TASKS_EASY" />
 	</choice>
 	<choice hidden="true" req="CURA_EASY_TASKS" lvl="1" max_group="0" blue="false">
-		<text>利用できる簡単なタスクはありません。</text>
+		<text>利用できる初級タスクはありません。</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true" req="CURA_MEDIUM_TASKS" lvl="0" max_group="1" blue="false">
-		<text>中間タスクを表示します。</text>
+		<text>中級タスクを表示します。</text>
 		<event load="CURA_TASKS_MEDIUM" />
 	</choice>
 	<choice hidden="true" req="CURA_MEDIUM_TASKS" lvl="1" max_group="1" blue="false">
-		<text>利用可能な中間タスクはありません。</text>
+		<text>利用可能な中級タスクはありません。</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true" req="CURA_HARD_TASKS" lvl="0" max_group="2" blue="false">
-		<text>ハードタスクを表示します。</text>
+		<text>上級タスクを表示します。</text>
 		<event load="CURA_TASKS_HARD" />
 	</choice>
 	<choice hidden="true" req="CURA_HARD_TASKS" lvl="1" max_group="2" blue="false">
-		<text>利用可能なハードタスクはありません。</text>
+		<text>利用可能な上級タスクはありません。</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	
@@ -140,7 +140,7 @@
 <event name="CURA_TASK_COMPLETION_MENU" unique="true">
 	<text>受け入れられたタスクをどの程度難易度で確認したいですか？</text>
 	<choice hidden="false">
-		<text>簡単なタスク。</text>
+		<text>初級タスク。</text>
 		<event>
 			<text>[承認されたタスク：簡単]</text>
 			<choice hidden="true" req="TASK_SCHOOLID" lvl="1" blue="false">
@@ -164,7 +164,7 @@
 		</event>
 	</choice>
 	<choice hidden="false">
-		<text>中間タスク。</text>
+		<text>中級タスク。</text>
 		<event>
 			<text>[承認されたタスク：中級]</text>
 			<choice hidden="true">
@@ -176,7 +176,7 @@
 		</event>
 	</choice>
 	<choice hidden="false">
-		<text>ハードタスク。</text>
+		<text>上級タスク。</text>
 		<event>
 			<text>[承認されたタスク：ハード]</text>
 			<choice hidden="true">
@@ -252,12 +252,12 @@
 </event>
 
 <event name="CURA_SCHOOLID_PREVIEW">
-	<text>[簡単なタスク-アーティファクト名:スクールID]
+	<text>[初級タスク-アーティファクト名:スクールID]
 説明:ユニオンの子どもたちは、教育期間中にIDを付与されていることを知った。これらのIDには有用な情報や写真が含まれている可能性がある。古いIDが残っている可能性のあるデータサーバーを特定した、回収を依頼する。
 要件: データサーバーを取得する。
 推奨事項:非暴力的な方法で接触するための準備をせよ。
 
-Payment: 中スクラップ + リソース.</text>
+報酬：中スクラップ + リソース.</text>
 	<choice hidden="false">
 		<text>仕事を引き受けます。</text>
 		<event>
@@ -424,12 +424,12 @@ Payment: 中スクラップ + リソース.</text>
 </event>
 
 <event name="CURA_DRAWING_PREVIEW">
-	<text>[簡単なタスク-アーティファクト名：CHILDHOOD DRAWING]
+	<text>[初級タスク-アーティファクト名：子供の頃の絵]
 説明：ウェントワース氏が所有していた古い図面が人手に渡り、ここにたどり着いたという証拠を発見した。この絵は初期の行動パターンを示すもので、初期のオフセットから始まっている。回収せよ。
 要件：図面を取得する。難しいことは何もない。
 推奨事項：迅速に行いなさい。
 
-支払い：中スクラップ+リソース。</text>
+報酬：中スクラップ+リソース。</text>
 	<choice hidden="false">
 		<text>仕事を引き受けます。</text>
 		<event>
@@ -551,12 +551,12 @@ Payment: 中スクラップ + リソース.</text>
 </event>
 
 <event name="CURA_CRUSH_PREVIEW">
-	<text>[簡単なタスク-アーティファクト名：最初のクラッシュの声]
+	<text>[初級タスク-アーティファクト名：最初のクラッシュの声]
 説明：思春期のミスター・ウェントワースが夢中になった相手を特定した。彼女からの証言が欲しい。聞き取りをせよ。
 要件：ペレス夫人にミスター・ウェントワースについてインタビューすること。彼女を殺すな！ レネゲイドのことは知っている。
 推奨事項：どんな質問をすればいいのか、しっかり把握しておくこと。
 
-支払い：中スクラップ+リソース。</text>
+報酬：中スクラップ+リソース。</text>
 	<choice hidden="false">
 		<text>仕事を引き受けます。</text>
 		<event>
@@ -683,12 +683,12 @@ Payment: 中スクラップ + リソース.</text>
 </event>
 
 <event name="CURA_TOILET_PREVIEW">
-	<text>[簡単なタスク-アーティファクト名：中古トイレ]
+	<text>[初級タスク-アーティファクト名：中古トイレ]
 説明：ウェントワース氏の古い家の1つからトイレを追跡した。まだDNAの痕跡が残っている可能性がある。私はそれらを集めなければならない。そうだ、トイレから糞便をこすり落とすこと。私の方法を疑うな。
 要件：DNAトレースを収集する。
 推奨事項：スクラップを手に入れるか、使う準備をせよ。
 
-支払い：中スクラップ+リソース。</text>
+報酬：中スクラップ+リソース。</text>
 	<choice hidden="false">
 		<text>仕事を引き受けます。</text>
 		<event>
@@ -878,12 +878,12 @@ Payment: 中スクラップ + リソース.</text>
 </event>
 
 <event name="CURA_PLUSHIE_PREVIEW">
-	<text>[簡単なタスク-アーティファクト名：MR. SNUGGLE BUGGLES]
+	<text>[初級タスク-アーティファクト名：ミスター・スナッグル・バグルス]
 説明：ウェントワース氏は以前、「ミスター・スナッグル・バグルス」という鳥類（アンティキウム・テラエの種、ケストレルと思われる）のぬいぐるみを所有していたことが、既成の証拠から判明した。今は別の家族が持っている。引き取ること。
 要件：ミスター・スナッグル・バグルスを無傷で回収する。
 推奨事項：モラルを忘れろ。子供から盗むのは仕事のうちだ。正しいものを手に入れること。
 
-支払い：中スクラップ+リソース。</text>
+報酬：中スクラップ+リソース。</text>
 	<choice hidden="false">
 		<text>仕事を引き受けます。</text>
 		<event>
@@ -1021,7 +1021,7 @@ Payment: 中スクラップ + リソース.</text>
 要件：写真を取得する。
 推奨事項：ピートを脅かす準備をするか、彼の狂った話を聞く準備をせよ。
 
-支払い：高スクラップ +リソース。</text>
+報酬：高スクラップ +リソース。</text>
 	<choice hidden="false">
 		<text>仕事を引き受けます。</text>
 		<event>
@@ -1148,7 +1148,7 @@ Payment: 中スクラップ + リソース.</text>
 要件：グリース・スウィズラーに会い、データスティックを取得する。
 推奨事項：データの信頼性を確認する準備をせよ。
 
-支払い：高スクラップ +リソース。</text>
+報酬：高スクラップ +リソース。</text>
 	<choice hidden="false">
 		<text>仕事を引き受けます。</text>
 		<event>
@@ -1251,12 +1251,12 @@ Payment: 中スクラップ + リソース.</text>
 </event>
 
 <event name="CURA_SURVIVOR_PREVIEW">
-	<text>[中間タスク-アーティファクト名：SURVIVOR TESTIMONIAL]
+	<text>[中級タスク-アーティファクト名：生存者の声]
 説明：ウェントワース氏が運営するキャンプ内での捕獲と尋問を生き延びた連邦-マンティス戦争の退役軍人の1人の場所を追跡した。彼は右の爪を失っていますが、「ターキペット」は貴重な情報源を証明するものかもしれない。彼を見つけて聞き込みをせよ。
 要件：ウェントワース氏についてターキペットに取材する。彼を殺すな。レネゲートらは概ねそうであるからな。
 推奨事項：どのような質問をすればよいかを確認しておくこと。コンプライアンスを強制する準備をする。
 
-支払い：高スクラップ+リソース。</text>
+報酬：高スクラップ+リソース。</text>
 	<choice hidden="false">
 		<text>仕事を引き受けます。</text>
 		<event>
@@ -1364,7 +1364,7 @@ Payment: 中スクラップ + リソース.</text>
 要件：結婚式の写真を取得し、潜在的な暗殺者を処理する。
 推奨事項：戦う準備をせよ。
 
-支払い：高スクラップ +リソース。</text>
+報酬：高スクラップ +リソース。</text>
 	<choice hidden="false">
 		<text>仕事を引き受けます。</text>
 		<event>
@@ -1455,12 +1455,12 @@ Payment: 中スクラップ + リソース.</text>
 </event>
 
 <event name="CURA_WILL_PREVIEW">
-	<text>[中間タスク-アーティファクト名：WILL]
+	<text>[中級タスク-アーティファクト名：遺書]
 説明：ウェントワース氏の両親が残した遺書のコピーを保管しているユニオンバンクの場所を特定した。何が書かれているかは想像がつくが、遺書の全容を知ることで、彼の過去がもっとわかるかもしれない。この書類を手に入れろ。
 要件：ウェントワース氏の両親の遺書を取得します。
 推奨事項：ウェントワース氏のアカウントの最新のセキュリティパスワードをデコードした。覚えておくことを推奨する： 7G!O3a0p6n
 
-支払い：高スクラップ+リソース。</text>
+報酬：高スクラップ+リソース。</text>
 	<choice hidden="false">
 		<text>仕事を引き受けます。</text>
 		<event>
@@ -1576,12 +1576,12 @@ Payment: 中スクラップ + リソース.</text>
 </event>
 
 <event name="CURA_SCANDAL_PREVIEW">
-	<text>[中間タスク-アーティファクト名：新聞]
+	<text>[中級タスク-アーティファクト名：新聞]
 説明：不思議なことに、ユニオン市民の中には、いまだにニュースを印刷した紙パンフレットを取引している人がいるようだ。正直なところ、私はこれを子供じみたものだと思うが、ウェントワース氏と彼の右腕であるサイラ・ブラックのスキャンダルを記したある記事を発見した。この記事の真偽を確かめるのにこの新聞はその手始めとなる。ユニオンの老人は、この地区の端っこに住んでいるようだ。
 要件：新聞を取得する。
 推奨事項：老人の芝生を踏まないようにせよ。
 
-支払い：高スクラップ+リソース。</text>
+報酬：高スクラップ+リソース。</text>
 	<choice hidden="false">
 		<text>仕事を引き受けます。</text>
 		<event>
@@ -1700,12 +1700,12 @@ Payment: 中スクラップ + リソース.</text>
 </event>
 
 <event name="CURA_TORTURE_PREVIEW">
-	<text>[ハードタスク-アーティファクト名：POW REPORT]
+	<text>[上級タスク-アーティファクト名：捕虜レポート]
 説明：ウェントワース氏が連邦-マンティス戦争中に収容されていた捕虜収容所の所長は、情報を抽出するために使用された措置の詳細な報告を残したようだ。それらとウェントワース氏に残した影響を研究しようとしている。所長ポイケンパルを追跡し、彼のレポートを取得せよ。
 要件：ポイケンパルのレポートを取得する。
 推奨事項：ポイケンパルを生存させることが重要な場合がある。標準的なレベルの医療システムか、医療スタッフのクルーを準備することを推奨する。
 
-支払い：高スクラップ+リソース。
+報酬：高スクラップ+リソース。
 ボーナス報酬：Antique Harpoon Gun</text>
 	<choice hidden="false">
 		<text>仕事を引き受けます。</text>
@@ -1847,12 +1847,12 @@ Payment: 中スクラップ + リソース.</text>
 </event>
 
 <event name="CURA_OUTPOST_PREVIEW">
-	<text>[ハードタスク - アーティファクト名：ジャーナル]
+	<text>[上級タスク - アーティファクト名：ジャーナル]
 説明：私はついに、フェデレーションの初期の時代からのウェントワース氏の古いジャーナルの座標を見つけた。近くの氷の惑星の下にある放棄されたバンカーに保管されており、その上に大きなフェデレーションの前哨基地が建設されている。回収するのが難しい可能性がある。もちろん、私ではなく、汝がこれをおこなう理由なのだが。便利屋としてそのジャーナルを改修せよ。
 要件：ヴァンスのジャーナルを取得する。
 推奨事項：連邦の血を流す覚悟をせよ。
 
-支払い：高スクラップ +リソース。
+報酬：高スクラップ +リソース。
 ボーナス報酬：Projector</text>
 	<choice hidden="false">
 		<text>仕事を引き受けます。</text>
@@ -1959,12 +1959,12 @@ Payment: 中スクラップ + リソース.</text>
 </event>
 
 <event name="CURA_SHIP_PREVIEW">
-	<text>[ハードタスク-アーティファクト名：巡洋艦]
+	<text>[上級タスク-アーティファクト名：巡洋艦]
 説明：ウェントワース氏は、ヘパエスタスの現CEOである田中秀雄の父から、家族間で贈られたヘパエスタスの自家用巡洋艦を使っていた。今や、ユニバース1でより大きな船に乗れるようになったが、この巡洋艦の残骸は近くの老朽化したヘファエスタスの造船所に放置されたままだが、忌まわしきゴーストがはびこっている。私はまだ船をスキャンするために近づくことができない：ヴァガボンドの侵入を片付けろ。
 要件：造船所を確保する。ああ、言っておくが、あなたのための設計図はない。
 推奨事項：ゴーストが採用する可能性のある防御を粉砕する準備をせよ。
 
-支払い：高スクラップ+リソース。
+報酬：高スクラップ+リソース。
 ボーナス報酬：Lightweight Emancipation Grid</text>
 	<choice hidden="false">
 		<text>仕事を引き受けます。</text>
@@ -2116,12 +2116,12 @@ Payment: 中スクラップ + リソース.</text>
 </event>
 
 <event name="CURA_DUSK_PREVIEW">
-	<text>[ハードタスク-アーティファクト名：オーディオログ]
+	<text>[上級タスク-アーティファクト名：オーディオログ]
 説明：反乱軍とダスクブリンガーの間で友好的な取り決めがなされていた頃、ウェントワース氏は悪名高い戦争ヒーロー／テロリストのデヴォラック「ザ・デスレス」ラライと会談したことがあるはずだ。近くの基地にその記録があるはずだが、簡単には手に入らないだろう。それでも、あなたなら何とかできると信じている。私の期待を裏切らないように努力せよ。
 要件：オーディオログを取得する。
 推奨事項：
 大きなダメージを与えずにステーションを確保する。ダスクブリンガーは、死んでもあきらめない。
-支払い：高スクラップ+リソース。
+報酬：高スクラップ+リソース。
 ボーナス報酬：Martyr Vests</text>
 	<choice hidden="false">
 		<text>仕事を引き受けます。</text>
@@ -2252,12 +2252,12 @@ Payment: 中スクラップ + リソース.</text>
 </event>
 
 <event name="CURA_CONTRACT_PREVIEW">
-	<text>[ハードタスク-アーティファクト名：契約]
+	<text>[上級タスク-アーティファクト名：契約]
 説明：近くのアルカディアの前哨基地は、C.I.C.A.プロジェクトlを開始した契約の物理的なコピーを保管していたようだ。アルカディアンの技術者が協力的である可能性は低いため、今回ばかりは普段の野蛮なレネゲードの手口でこの対決を始めることを推奨する。破壊しても気にする必要はない。重大な船体の故障の場合、重要なデータを含む回復ポッドは投棄され、後でサービスドローンによって収集される。交渉で時間を無駄にするな。
 要件：ドキュメントを取得します。
 推奨事項：情けをかける必要はない。
 
-支払い：高スクラップ+リソース。
+報酬：高スクラップ+リソース。
 ボーナス報酬：Arcadian OmniDrone</text>
 	<choice hidden="false">
 		<text>仕事を引き受けます。</text>
@@ -2367,7 +2367,7 @@ Payment: 中スクラップ + リソース.</text>
 要件：AIコアを取得する。
 推奨事項：汝の戦利品を楽しめ、レネゲード。
 
-支払い：高スクラップ+リソース。
+報酬：高スクラップ+リソース。
 ボーナス報酬：巡洋艦の回路図</text>
 	<choice hidden="false">
 		<text>仕事を引き受けます。</text>
