@@ -1113,7 +1113,7 @@
 <textList name="TEXT_STORE_AUTO_HOSTILE">
 	<text>自動化された反乱軍の船が小さな市場で発砲しました。おそらく彼らが連邦政府と取引していたためです！</text>
 	<text>小さな交易所から遭難信号を受信します。 「助けて！私たちの自動化された船は暴走し、私たちを攻撃しています！」</text>
-	<text>近くの自動車船から闇市場が炎上しているのに気づきました。反乱軍でさえ海賊に満足していないようです。</text>
+	<text>近くのオートシップから闇市場が炎上しているのに気づきました。反乱軍でさえ海賊に満足していないようです。</text>
 </textList>
 
 <ship name="SHIP_PIRATE_STORE" auto_blueprint="LIST_SHIPS_PIRATE_ALL">
@@ -2119,7 +2119,7 @@
     <choice hidden="true">
 		<text>IDをスキャンします。</text>
 		<event>
-			<text>Auto-shipは、あなたを登録済みの連邦船として認識し、その取引メニューを開きます。</text>
+			<text>オートシップは、あなたを登録済みの連邦船として認識し、その取引メニューを開きます。</text>
 			<store>STORE_NOCREW</store>
 			<choice>
 				<text>店。</text>
@@ -4950,7 +4950,7 @@
 	<beaconType id="map_icon_store_rebel" global="false">
 		<color r="215" g="175" b="175" a="1" />
 	</beaconType>
-	<text>反乱軍のエンジニアは他の反乱軍ほど積極的であるとは限りません。幸い、ここにいるのは聞いたことがあるようです。実際、彼らは自動車船の修理に必要なスクラップと交換しようとしているようです。</text>
+	<text>反乱軍のエンジニアは他の反乱軍ほど積極的であるとは限りません。幸い、ここにいるのは聞いたことがあるようです。実際、彼らはオートシップの修理に必要なスクラップと交換しようとしているようです。</text>
 	<ship load="SHIP_ENGINEER" hostile="false" />
 	<choice hidden="true">
 		<text>同意。</text>
@@ -5029,21 +5029,21 @@
 	<choice hidden="true" req="LIST_CREW_ENGINEER">
 		<text>（エンジニアクルー）あなたと取引するために自動船を再配線します。</text>
 		<event>
-			<text>幸い、Auto-shipにハッキングして、フェデレーションIDを受け入れるように再構成することができます。</text>
+			<text>幸い、オートシップにハッキングして、フェデレーションIDを受け入れるように再構成することができます。</text>
 			<store>STORE_AUTO</store>
 		</event>
 	</choice>
 	<choice hidden="true" req="hacking" lvl="1" max_lvl="2">
 		<text>（ハッキング）あなたと取引するために自動船を再配線します。</text>
 		<event>
-			<text>幸い、Auto-shipにハッキングして、フェデレーションIDを受け入れるように再構成することができます。</text>
+			<text>幸い、オートシップにハッキングして、フェデレーションIDを受け入れるように再構成することができます。</text>
 			<store>STORE_AUTO</store>
 		</event>
 	</choice>
 	<choice hidden="true" req="hacking" lvl="3">
-		<text>（Adv. Hacking）Auto-shipを再配線してあなたと取引します。</text>
+		<text>（Adv. Hacking）オートシップを再配線してあなたと取引します。</text>
 		<event>
-			<text>幸い、Auto-shipにハッキングして、フェデレーションIDを受け入れるように再構成することができます。また、反乱軍の船が通信するときに船を爆発させるように設定することで、艦隊に少しプレゼントを残します。</text>
+			<text>幸い、オートシップにハッキングして、フェデレーションIDを受け入れるように再構成することができます。また、反乱軍の船が通信するときに船を爆発させるように設定することで、艦隊に少しプレゼントを残します。</text>
 			<modifyPursuit amount="-2" />
 			<store>STORE_AUTO</store>
 		</event>
@@ -5076,7 +5076,7 @@
 </event>
 <eventList name="STOREEVENT_AUTO_VENDER_SCAN">
 	<event>
-		<text>Auto-shipはそれに落ちていないようです。 IDを送信するとすぐに、船は代わりに自分の船をスキャンし、それを連邦として認識して攻撃します。</text>
+		<text>オートシップはそれに落ちていないようです。 IDを送信するとすぐに、船は代わりに自分の船をスキャンし、それを連邦として認識して攻撃します。</text>
 		<ship hostile="true" />
 		<choice hidden="true">
 			<text>継続する...</text>
@@ -5950,7 +5950,7 @@
 	<choice hidden="true">
 		<text>ストアを無視します。</text>
 		<event>
-			<text>固執することにはあまり意味がありません。 「悪魔」はとにかくあなたにとって新しいものではありません、そして自動車船は準備するべき最悪のレベルの脅威ではありません。</text>
+			<text>固執することにはあまり意味がありません。 「悪魔」はとにかくあなたにとって新しいものではありません、そしてオートシップは準備するべき最悪のレベルの脅威ではありません。</text>
 			<choice>
 				<text>船に乗って何かする。</text>
 				<event load="STORAGE_CHECK" />
@@ -10028,7 +10028,7 @@
 </event>
 <textList name="EMPTY_AUTO">
 	<text>放棄された造船所は遠くにあります。救済する価値はないようです。</text>
-	<text>かつては自動車船だったものの空の殻が近くに漂い、海賊による帰還地点をはるかに超えて廃棄されました。</text>
+	<text>かつてはオートシップだったものの空の殻が近くに漂い、海賊による帰還地点をはるかに超えて廃棄されました。</text>
 	<text>このビーコンは驚くほど空で、反乱軍がまだオートテックで破壊していない数少ないビーコンの1つです。</text>
 	<text>造船所の自動化された広がりはまだこのビーコンに達していないようです。</text>
 	<text>このビーコンでのいくつかの遠い足場を除いて、それは興味のあるものを何も欠いています。</text>
