@@ -284,7 +284,96 @@
 <eventList name="NEBULA_UNIQUE_DYNCAP">
 	<event load="NEBULA_DISTRESS_DYNCAP_GRANDFATHER" />
 	<event load="NEBULA_DYNCAP_HACKERBID" />
+	<event load="NEBULA_DYNCAP_OCCUPIED" />
 </eventList>
+
+<event name="NEBULA_DYNCAP_OCCUPIED" unique="true">
+	<text>星雲の違いを見分けるのは難しいかもしれませんが、ここでは何かが明らかにずれています。雲の切れ間からいくつかの明るい光があなたを大規模なダイナスティ採掘コロニーへと導きます。この植民地は、古くて老朽化し た船団の周りに緩く結合された構造で構築されています.交通量が多いか、少なくとも活動の兆候が見られると予想されますが、コロニーはほとんど休眠状態です。さらに奇妙なことに、Duskbringer 船の艦隊もコロニーを取り囲んでいます。ここで何が起こっているのでしょうか？</text>
+	<img back="BACK_EVENT_LIGHTNEBULA" planet="NONE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<customFleet right="false" firing="false" autoDarkening="true">CUSTOM_FLEET_ANCIENT_WRECKAGE</customFleet>
+	<choice hidden="true">
+		<text>アプローチ。</text>
+		<event>
+			<text>コロニー全体で唯一無防備に見える着陸パッドに着陸します。負担の大きい宇宙服を着て、減圧された廊下を不快によろよろ歩いていると、非常によく武装した適切なダスクブリンガーのパトロールが何人か行ったり来たりしていることに気づきます。</text>
+			<choice hidden="true">
+				<text>Duskbringer コマンドを検索します。</text>
+				<event>
+					<text>人に見つからないように路地をくぐり、パトロールに従います。最終的に、かつては誇らしげなファントムが所有していた司令官のオフィスを見つけます。 「レネゲード、私の植民地に? うーん、私が思っていたよりも可能性が高い. ガスバッグでいっぱいのこの見捨てられた場所に来るほど愚かな人が他にいないとは思わなかった. ? それはどんな侮辱ですか? 確かに、私たちは息をするためにこれらの大きな醜いスーツを着なければなりませんが、少なくとも私たちの生物学は熱気で構成されていません!」
+
+ダスクブリンガーはニヤリと笑い、椅子にもたれかかる。 「しかし、私は夢中になっています。あなたはまだ撃っていないので、あなたは平和だと思います。だから、あなたがそれをする気があるなら...私は申し出があります。私たちは数週間前にこの植民地を取りました.王朝のオード供給の一部を確保するという希望. それは素晴らしく行きました, これらのいまいましいファントムがチームを組み始めたことを除いて. 今, 王朝はヴァガボンドのヒットマンを送って私たちをねじ込みます, 私たちがすぐに去ることを望んでいます.このような劣った種に. ふむ. 王朝は何十年も前に全盛期を迎えていた. しかし今は新しい輝かしい帝国の時だ. ゾルタンが運営する. しかしそれを実現するには、まずこのエーテルが行くような武器が必要です.インテルは、隠れた艦隊が攻撃の絶好の機会を待っていることを示唆しています。彼らのリーダーを排除してください。私が補償します。」</text>
+					<ship load="SHIP_DYNASTY_OCCUPIED" hostile="false" />
+					<choice hidden="true">
+						<text>ゴーストと戦ってください。</text>
+						<event>
+							<text>このようにダスクブリンガーを支援することが連邦にどのように反映されるかはわかりませんが、王朝も連邦の味方ではありません. 「代償」があなたの使命に役立つなら、それでいいのです。</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>拒否して去ります。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>コロニーのリーダーを探します。</text>
+				<event>
+					<text>あなたは路地の 1 つに身を潜め、いくつかの建物の中をチェックしてみます。やがて、廃倉庫の中に建てられた隠れ家らしきものを発見。 「この管理ゾーンに来るのは誰ですか? あなたはダスクブリンガーですか? それとも同胞かヴァガボンドですか? これらの部分であなたの名前とビジネスを述べてください!」あなたは自分がレネゲードであることをファントムに知らせ、嘘をつく理由はありません。 「ハーク、レネゲード? 私はそのような威厳のない実体とスペースを共有することにうんざりしているはずです... しかし、あなたはこの正当な目的に最も役立つかもしれません. ゾルタンの脅威はこの土地を支配し、エーテルの最も重要な資産を押収しました. ! あなたがそのような装備を敵の手に渡すことを望まないのであれば、甘い正義を実行するためのコースを作成することをお勧めします. あなたの選択はあなた次第ですが、時間は常に刻々と過ぎています.</text>
+					<ship load="SHIP_DUSK_OCCUPIED" hostile="false" />
+					<choice hidden="true">
+						<text>ダスクブリンガーと戦う。</text>
+						<event>
+							<text>ファントムの言うことが真実であり、そうでないと仮定する理由がないなら、ダスクブリンガーに大量のオードを奪わせることはできません!戦いの準備をしなさい！</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>ファントムを占領軍に報告する。</text>
+						<event>
+							<text>最初はあなたが敵対的であると仮定しますが、Duskbringers と話すことができれば、彼らはあなたに対して少し冷たくはないにしても、かなり満足しているように見えます. 「よし、レネゲードは賢明になり、優れた力を台無しにしないことを学んだ。あなたは賢い。いまいましい王朝は、私たちをからかうためだけにヴァガボンド一族と協力し始めた。この機能不全の種族が同意できる唯一のことは、彼らが他の誰にもイーサーを公平に分けてほしくありません。あなたのトラブルとよりクリーンな精神状態のために、何らかの報酬を用意できると思います。」</text>
+							<autoReward level="HIGH">standard</autoReward>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>ファントムを無視して立ち去る。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>コロニーを避けてください。</text>
+		<event>
+			<text>Duskbringers が Dynasty スペースに存在する理由が何であれ、あなたは何らかの方法で関与したくありません.</text>
+			<choice hidden="true">
+				<text>ストレージを確認してください。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="DYNCAP_OCCUPIED_GHOSTS">
+	<text>戦いによって引き起こされた混乱の間に、王朝とヴァガボンドの船の連合軍がダスクブリンガーの防御を突破し、彼らを荷造りしたようです.コロニーに戻ると、生き残ったゴーストたちが祝っています。 「あなたは最もエレガントに打撃を与えました、レネゲード。連邦があなたの雇用を求める理由がわかりました。あなたは混乱しているかもしれません、そうです、スペクトラルやヴァガボンドのようなものがここに加わった理由について、そうです、しかし私たちの種のすべての闘争のために少なくとも、正気で合理的な存在であれば、自爆攻撃を仕掛けるネオファシストは祖先の神聖な技術を振るうに値しないと考えることができます。どうか、私たちの最も優れた兵士の 1 人を受け入れてください。彼らは見事にあなたに仕えます。」</text>
+	<crewMember amount="1" all_skills="1" class="LIST_CREW_ALPHA">Dismadius</crewMember>
+</event>
+<event name="DYNCAP_OCCUPIED_DUSK">
+	<text>王朝艦隊のリーダーが連れ去られると、残りの部隊は散らばって混乱し、ダスクブリンガーが簡単に彼らを捕まえることができます. 「よくやったレネゲード。敵の戦闘を称賛するつもりはないが、君はスキルを持っている。嘘はつかない、感心している。この連邦でたらめにうんざりしていると思ったら、結局、多元宇宙をより良い場所にしたいなら、ダスクブリンガーズに電話してみませんか? 私たちは愚かではありません。</text>
+	<autoReward level="MED">item</autoReward>
+</event>
 
 <event name="NEBULA_DYNCAP_HACKERBID" unique="true">
 	<text>あなたはここでスラッグハッカーの船に遭遇する準備ができていませんでしたが、彼らは数人の海賊とリーパー船でさえある種のオークションを行っているようです！</text>
@@ -293,7 +382,7 @@
 	<choice hidden="true">
 		<text>お問い合わせください。</text>
 		<event>
-			<text>ハッカーはあなたを紹介するために彼のカウントを一時停止します。 「なぜ、私はあなたが見たものとは違った技術を発明しました。不要なバックアップ電源だけで動作する自動操縦装置を完全に無効にするか、2つのリアクターバーだけで完全に停止することができます！これらの王朝の人々は本当にそれを望んでいます。入札する場合は、少なくとも15ssscrapで入場する必要があります。」</text>
+			<text>ハッカーはあなたを紹介するためにカウントを一時停止します。 「なんと、私はあなたが見たことのない技術の断片を発明しました。重要でないバックアップ電源だけで作動するオートパイロットを完全に無効にするか、原子炉バー 2 つだけで完全にオフにすることができます!これらの王朝の人々は本当にそれを望んでいるようです.入札するなら、少なくとも 30 ssscrap でエントリーする必要があります。」</text>
 			<choice hidden="true">
 				<text>入札を入力してください。</text>
 				<event>
@@ -301,16 +390,16 @@
 					<choice>
 						<text>継続する...</text>
 						<event>
-							<text>スラッグは番号を取り消し始め、最終的に王朝は価格を上げます。
-現在の価格：15スクラップ。</text>
+							<text>スラグは番号をキャンセルし始め、最終的に王朝は価格を引き上げます。
+現在の価格: 30 スクラップ。</text>
 							<choice>
-								<text>20に上げます。</text>
+								<text>35に上げます。</text>
 								<event>
-									<text>まだかなり低いです。ファントムはほぼ即座に上昇します。
-現在の価格：20スクラップ。</text>
+									<text>それでもかなり低い。 Phantoms はほぼ即座にレイズします。
+現在の価格: 35 スクラップ。</text>
 									<choice>
-										<text>25に上げます。</text>
-										<event load="DYNCAP_HACKERBID_25" />
+										<text>40に上げます。</text>
+										<event load="DYNCAP_HACKERBID_40" />
 									</choice>
 									<choice>
 										<text>終了する。</text>
@@ -347,373 +436,10 @@
 		</event>
 	</choice>
 </event>
-<eventList name="DYNCAP_HACKERBID_25">
-	<event>
-		<text>あなたがそれをまだそれほど低くして歩いている方法はありません。エンジンジャマーは実質的に同じことをしますが、45スクラップの場合はさらに悪くなります。王朝は再び立ち上がる。
-現在の価格：25スクラップ。</text>
-		<choice>
-			<text>30に上げます。</text>
-			<event load="DYNCAP_HACKERBID_30" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>あなたがそれをまだそれほど低くして歩いている方法はありません。エンジンジャマーは実質的に同じことをしますが、45スクラップの場合はさらに悪くなります。王朝は再び立ち上がる。
-現在の価格：25スクラップ。</text>
-		<choice>
-			<text>30に上げます。</text>
-			<event load="DYNCAP_HACKERBID_30" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>あなたがそれをまだそれほど低くして歩いている方法はありません。エンジンジャマーは実質的に同じことをしますが、45スクラップの場合はさらに悪くなります。王朝は再び立ち上がる。
-現在の価格：25スクラップ。</text>
-		<choice>
-			<text>30に上げます。</text>
-			<event load="DYNCAP_HACKERBID_30" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>あなたがそれをまだそれほど低くして歩いている方法はありません。エンジンジャマーは実質的に同じことをしますが、45スクラップの場合はさらに悪くなります。王朝は再び立ち上がる。
-現在の価格：25スクラップ。</text>
-		<choice>
-			<text>30に上げます。</text>
-			<event load="DYNCAP_HACKERBID_30" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>あなたがそれをまだそれほど低くして歩いている方法はありません。エンジンジャマーは実質的に同じことをしますが、45スクラップの場合はさらに悪くなります。王朝は再び立ち上がる。
-現在の価格：25スクラップ。</text>
-		<choice>
-			<text>30に上げます。</text>
-			<event load="DYNCAP_HACKERBID_30" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>あなたがそれをまだそれほど低くして歩いている方法はありません。エンジンジャマーは実質的に同じことをしますが、45スクラップの場合はさらに悪くなります。王朝は再び立ち上がる。
-現在の価格：25スクラップ。</text>
-		<choice>
-			<text>30に上げます。</text>
-			<event load="DYNCAP_HACKERBID_30" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>あなたがそれをまだそれほど低くして歩いている方法はありません。エンジンジャマーは実質的に同じことをしますが、45スクラップの場合はさらに悪くなります。王朝は再び立ち上がる。
-現在の価格：25スクラップ。</text>
-		<choice>
-			<text>30に上げます。</text>
-			<event load="DYNCAP_HACKERBID_30" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>あなたがそれをまだそれほど低くして歩いている方法はありません。エンジンジャマーは実質的に同じことをしますが、45スクラップの場合はさらに悪くなります。王朝は再び立ち上がる。
-現在の価格：25スクラップ。</text>
-		<choice>
-			<text>30に上げます。</text>
-			<event load="DYNCAP_HACKERBID_30" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>あなたがそれをまだそれほど低くして歩いている方法はありません。エンジンジャマーは実質的に同じことをしますが、45スクラップの場合はさらに悪くなります。王朝は再び立ち上がる。
-現在の価格：25スクラップ。</text>
-		<choice>
-			<text>30に上げます。</text>
-			<event load="DYNCAP_HACKERBID_30" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>多分それはあなたが諦めていないか、彼らがやめたので彼らが準備をしていなかったことをゴーストに告げるあなたの目の激しい表情です。ハッカーはあなたに勝者を宣言します。 「じゃあ、賞金を払って！」</text>
-		<choice>
-			<text>支払い。</text>
-			<event>
-				<item_modify>
-					<item type="scrap" min="-25" max="-25" />
-				</item_modify>
-				<augment name="COMBAT_PILOT_JAMMER" />
-			</event>
-		</choice>
-		<choice>
-			<text>ええと、できません。</text>
-			<event>
-				<text>スラッグは激怒し、すぐに戦闘を開始します！あなたはその増強を得ていないようです...</text>
-				<ship hostile="true" /> 
-				<choice hidden="true">
-					<text>継続する...</text>
-					<event load="COMBAT_CHECK" />
-				</choice>
-			</event>
-		</choice>
-	</event>
-</eventList>
-<eventList name="DYNCAP_HACKERBID_30">
-	<event>
-		<text>今回は、バックグラウンドの海賊の1人が代わりに立ち上がる前に、王朝の船にはチャンスさえありません。入札は継続するようです。
-現在の価格：30スクラップ。</text>
-		<choice>
-			<text>35に上げます。</text>
-			<event load="DYNCAP_HACKERBID_35" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>今回は、バックグラウンドの海賊の1人が代わりに立ち上がる前に、王朝の船にはチャンスさえありません。入札は継続するようです。
-現在の価格：30スクラップ。</text>
-		<choice>
-			<text>35に上げます。</text>
-			<event load="DYNCAP_HACKERBID_35" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>今回は、バックグラウンドの海賊の1人が代わりに立ち上がる前に、王朝の船にはチャンスさえありません。入札は継続するようです。
-現在の価格：30スクラップ。</text>
-		<choice>
-			<text>35に上げます。</text>
-			<event load="DYNCAP_HACKERBID_35" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>今回は、バックグラウンドの海賊の1人が代わりに立ち上がる前に、王朝の船にはチャンスさえありません。入札は継続するようです。
-現在の価格：30スクラップ。</text>
-		<choice>
-			<text>35に上げます。</text>
-			<event load="DYNCAP_HACKERBID_35" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>今回は、バックグラウンドの海賊の1人が代わりに立ち上がる前に、王朝の船にはチャンスさえありません。入札は継続するようです。
-現在の価格：30スクラップ。</text>
-		<choice>
-			<text>35に上げます。</text>
-			<event load="DYNCAP_HACKERBID_35" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>今回は、バックグラウンドの海賊の1人が代わりに立ち上がる前に、王朝の船にはチャンスさえありません。入札は継続するようです。
-現在の価格：30スクラップ。</text>
-		<choice>
-			<text>35に上げます。</text>
-			<event load="DYNCAP_HACKERBID_35" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>今回は、バックグラウンドの海賊の1人が代わりに立ち上がる前に、王朝の船にはチャンスさえありません。入札は継続するようです。
-現在の価格：30スクラップ。</text>
-		<choice>
-			<text>35に上げます。</text>
-			<event load="DYNCAP_HACKERBID_35" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>今回は、バックグラウンドの海賊の1人が代わりに立ち上がる前に、王朝の船にはチャンスさえありません。入札は継続するようです。
-現在の価格：30スクラップ。</text>
-		<choice>
-			<text>35に上げます。</text>
-			<event load="DYNCAP_HACKERBID_35" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>今回は、バックグラウンドの海賊の1人が代わりに立ち上がる前に、王朝の船にはチャンスさえありません。入札は継続するようです。
-現在の価格：30スクラップ。</text>
-		<choice>
-			<text>35に上げます。</text>
-			<event load="DYNCAP_HACKERBID_35" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>多分それはあなたが諦めていないか、彼らがやめたので彼らが準備をしていなかったことをゴーストに告げるあなたの目の激しい表情です。ハッカーはあなたに勝者を宣言します。 「じゃあ、賞金を払って！」</text>
-		<choice>
-			<text>支払い。</text>
-			<event>
-				<item_modify>
-					<item type="scrap" min="-30" max="-30" />
-				</item_modify>
-				<augment name="COMBAT_PILOT_JAMMER" />
-			</event>
-		</choice>
-		<choice>
-			<text>ええと、できません。</text>
-			<event>
-				<text>スラッグは激怒し、すぐに戦闘を開始します！あなたはその増強を得ていないようです...</text>
-				<ship hostile="true" /> 
-				<choice hidden="true">
-					<text>継続する...</text>
-					<event load="COMBAT_CHECK" />
-				</choice>
-			</event>
-		</choice>
-	</event>
-</eventList>
-<eventList name="DYNCAP_HACKERBID_35">
-	<event>
-		<text>王朝の船は挫折しますが、再び上昇します。
-現在の価格：35スクラップ。</text>
-		<choice>
-			<text>40に上げます。</text>
-			<event load="DYNCAP_HACKERBID_40" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>王朝の船は挫折しますが、再び上昇します。
-現在の価格：35スクラップ。</text>
-		<choice>
-			<text>40に上げます。</text>
-			<event load="DYNCAP_HACKERBID_40" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>王朝の船は挫折しますが、再び上昇します。
-現在の価格：35スクラップ。</text>
-		<choice>
-			<text>40に上げます。</text>
-			<event load="DYNCAP_HACKERBID_40" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>王朝の船は挫折しますが、再び上昇します。
-現在の価格：35スクラップ。</text>
-		<choice>
-			<text>40に上げます。</text>
-			<event load="DYNCAP_HACKERBID_40" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>王朝の船は挫折しますが、再び上昇します。
-現在の価格：35スクラップ。</text>
-		<choice>
-			<text>40に上げます。</text>
-			<event load="DYNCAP_HACKERBID_40" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>王朝の船は挫折しますが、再び上昇します。
-現在の価格：35スクラップ。</text>
-		<choice>
-			<text>40に上げます。</text>
-			<event load="DYNCAP_HACKERBID_40" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>多分それはあなたが諦めていないか、彼らがやめたので彼らが準備をしていなかったことをゴーストに告げるあなたの目の激しい表情です。ハッカーはあなたに勝者を宣言します。 「じゃあ、賞金を払って！」</text>
-		<choice>
-			<text>支払い。</text>
-			<event>
-				<item_modify>
-					<item type="scrap" min="-35" max="-35" />
-				</item_modify>
-				<augment name="COMBAT_PILOT_JAMMER" />
-			</event>
-		</choice>
-		<choice>
-			<text>ええと、できません。</text>
-			<event>
-				<text>スラッグは激怒し、すぐに戦闘を開始します！あなたはその増強を得ていないようです...</text>
-				<ship hostile="true" /> 
-				<choice hidden="true">
-					<text>継続する...</text>
-					<event load="COMBAT_CHECK" />
-				</choice>
-			</event>
-		</choice>
-	</event>
-</eventList>
 <eventList name="DYNCAP_HACKERBID_40">
-	<event>
-		<text>ゴーストは欲求不満になり始めていますが、彼らは容赦しません。
-現在の価格：40スクラップ。</text>
+	<event name="DYNCAP_HACKERBID_40_BID">
+		<text>そんなに低いままで立ち去るなんてありえません。 Engine Jammer は実質的に同じことを行いますが、45 スクラップの場合はさらに悪化します。王朝は再び上昇します。
+現在の価格: 40 スクラップ。</text>
 		<choice>
 			<text>45に上げます。</text>
 			<event load="DYNCAP_HACKERBID_45" />
@@ -723,42 +449,14 @@
 			<event />
 		</choice>
 	</event>
-	<event>
-		<text>ゴーストは欲求不満になり始めていますが、彼らは容赦しません。
-現在の価格：40スクラップ。</text>
-		<choice>
-			<text>45に上げます。</text>
-			<event load="DYNCAP_HACKERBID_45" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>ゴーストは欲求不満になり始めていますが、彼らは容赦しません。
-現在の価格：40スクラップ。</text>
-		<choice>
-			<text>45に上げます。</text>
-			<event load="DYNCAP_HACKERBID_45" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
-	<event>
-		<text>ゴーストは欲求不満になり始めていますが、彼らは容赦しません。
-現在の価格：40スクラップ。</text>
-		<choice>
-			<text>45に上げます。</text>
-			<event load="DYNCAP_HACKERBID_45" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
+	<event load="DYNCAP_HACKERBID_40_BID" />
+	<event load="DYNCAP_HACKERBID_40_BID" />
+	<event load="DYNCAP_HACKERBID_40_BID" />
+	<event load="DYNCAP_HACKERBID_40_BID" />
+	<event load="DYNCAP_HACKERBID_40_BID" />
+	<event load="DYNCAP_HACKERBID_40_BID" />
+	<event load="DYNCAP_HACKERBID_40_BID" />
+	<event load="DYNCAP_HACKERBID_40_BID" />
 	<event>
 		<text>多分それはあなたが諦めていないか、彼らがやめたので彼らが準備をしていなかったことをゴーストに告げるあなたの目の激しい表情です。ハッカーはあなたに勝者を宣言します。 「じゃあ、賞金を払って！」</text>
 		<choice>
@@ -784,7 +482,7 @@
 	</event>
 </eventList>
 <eventList name="DYNCAP_HACKERBID_45">
-	<event>
+	<event name="DYNCAP_HACKERBID_45_BID">
 		<text>これで、エンジンジャマーの価格と一致します。これは確かにもっと価値がありますが、それでもかなりのスクラップです...
 現在の価格：45スクラップ。</text>
 		<choice>
@@ -796,18 +494,14 @@
 			<event />
 		</choice>
 	</event>
-	<event>
-		<text>これで、エンジンジャマーの価格と一致します。これは確かにもっと価値がありますが、それでもかなりのスクラップです...
-現在の価格：45スクラップ。</text>
-		<choice>
-			<text>50に上げます。</text>
-			<event load="DYNCAP_HACKERBID_50" />
-		</choice>
-		<choice>
-			<text>終了する。</text>
-			<event />
-		</choice>
-	</event>
+	<event load="DYNCAP_HACKERBID_45_BID" />
+	<event load="DYNCAP_HACKERBID_45_BID" />
+	<event load="DYNCAP_HACKERBID_45_BID" />
+	<event load="DYNCAP_HACKERBID_45_BID" />
+	<event load="DYNCAP_HACKERBID_45_BID" />
+	<event load="DYNCAP_HACKERBID_45_BID" />
+	<event load="DYNCAP_HACKERBID_45_BID" />
+	<event load="DYNCAP_HACKERBID_45_BID" />
 	<event>
 		<text>多分それはあなたが諦めていないか、彼らがやめたので彼らが準備をしていなかったことをゴーストに告げるあなたの目の激しい表情です。ハッカーはあなたに勝者を宣言します。 「じゃあ、賞金を払って！」</text>
 		<choice>
@@ -832,13 +526,133 @@
 		</choice>
 	</event>
 </eventList>
-<event name="DYNCAP_HACKERBID_50">
+<eventList name="DYNCAP_HACKERBID_50">
+	<event name="DYNCAP_HACKERBID_50_BID">
+		<text>王朝の船はよろめきますが、再び上昇します。
+現在の価格: 50 スクラップ。</text>
+		<choice>
+			<text>55まで上げる。</text>
+			<event load="DYNCAP_HACKERBID_55" />
+		</choice>
+		<choice>
+			<text>終了する。</text>
+			<event />
+		</choice>
+	</event>
+	<event load="DYNCAP_HACKERBID_50_BID" />
+	<event load="DYNCAP_HACKERBID_50_BID" />
+	<event load="DYNCAP_HACKERBID_50_BID" />
+	<event load="DYNCAP_HACKERBID_50_BID" />
+	<event load="DYNCAP_HACKERBID_50_BID" />
+	<event>
+		<text>多分それはあなたが諦めていないか、彼らがやめたので彼らが準備をしていなかったことをゴーストに告げるあなたの目の激しい表情です。ハッカーはあなたに勝者を宣言します。 「じゃあ、賞金を払って！」</text>
+		<choice>
+			<text>支払い。</text>
+			<event>
+				<item_modify>
+					<item type="scrap" min="-50" max="-50" />
+				</item_modify>
+				<augment name="COMBAT_PILOT_JAMMER" />
+			</event>
+		</choice>
+		<choice>
+			<text>ええと、できません。</text>
+			<event>
+				<text>スラッグは激怒し、すぐに戦闘を開始します！あなたはその増強を得ていないようです...</text>
+				<ship hostile="true" /> 
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<eventList name="DYNCAP_HACKERBID_55">
+	<event name="DYNCAP_HACKERBID_55_BID">
+		<text>ゴーストたちはイライラし始めていますが、容赦しません。
+現在の価格: 55 スクラップ。</text>
+		<choice>
+			<text>60まで上げる。</text>
+			<event load="DYNCAP_HACKERBID_60" />
+		</choice>
+		<choice>
+			<text>終了する。</text>
+			<event />
+		</choice>
+	</event>
+	<event load="DYNCAP_HACKERBID_55_BID" />
+	<event load="DYNCAP_HACKERBID_55_BID" />
+	<event load="DYNCAP_HACKERBID_55_BID" />
+	<event>
+		<text>多分それはあなたが諦めていないか、彼らがやめたので彼らが準備をしていなかったことをゴーストに告げるあなたの目の激しい表情です。ハッカーはあなたに勝者を宣言します。 「じゃあ、賞金を払って！」</text>
+		<choice>
+			<text>支払い。</text>
+			<event>
+				<item_modify>
+					<item type="scrap" min="-55" max="-55" />
+				</item_modify>
+				<augment name="COMBAT_PILOT_JAMMER" />
+			</event>
+		</choice>
+		<choice>
+			<text>ええと、できません。</text>
+			<event>
+				<text>スラッグは激怒し、すぐに戦闘を開始します！あなたはその増強を得ていないようです...</text>
+				<ship hostile="true" /> 
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<eventList name="DYNCAP_HACKERBID_60">
+	<event name="DYNCAP_HACKERBID_60_BID">
+		<text>今回は王朝の船には、背後にいる海賊の 1 人が代わりにレイズする前にチャンスさえありません。入札は続くようです。
+現在の価格: 60 スクラップ。</text>
+		<choice>
+			<text>65まで上げる。</text>
+			<event load="DYNCAP_HACKERBID_65" />
+		</choice>
+		<choice>
+			<text>終了する。</text>
+			<event />
+		</choice>
+	</event>
+	<event load="DYNCAP_HACKERBID_60_BID" />
+	<event>
+		<text>多分それはあなたが諦めていないか、彼らがやめたので彼らが準備をしていなかったことをゴーストに告げるあなたの目の激しい表情です。ハッカーはあなたに勝者を宣言します。 「じゃあ、賞金を払って！」</text>
+		<choice>
+			<text>支払い。</text>
+			<event>
+				<item_modify>
+					<item type="scrap" min="-60" max="-60" />
+				</item_modify>
+				<augment name="COMBAT_PILOT_JAMMER" />
+			</event>
+		</choice>
+		<choice>
+			<text>ええと、できません。</text>
+			<event>
+				<text>スラッグは激怒し、すぐに戦闘を開始します！あなたはその増強を得ていないようです...</text>
+				<ship hostile="true" /> 
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<event name="DYNCAP_HACKERBID_65">
 	<text>ついに、ゴーストはあきらめ、他の海賊は誰も移動することを気にしません。あなたが勝ったように見えます！ハッカーはあなたに勝者を宣言します。 「じゃあ、賞金を払って！」</text>
 	<choice>
 		<text>支払い。</text>
 		<event>
 			<item_modify>
-				<item type="scrap" min="-50" max="-50" />
+				<item type="scrap" min="-65" max="-65" />
 			</item_modify>
 			<augment name="COMBAT_PILOT_JAMMER" />
 		</event>
@@ -868,6 +682,27 @@
 		<text>（スラッグのクルー）ゴーストの考えを確認してください。</text>
 		<event>
 			<text>「それは彼が実際にはこのssssuppossedDessssiusssの祖父ではないことは明らかです。それにもかかわらず、彼はそれが彼自身であると本当に信じているようにssseemsします。陽気なsssad。」</text>
+			<choice hidden="true">
+				<text>アルファにあなたが彼を信じていると伝えてください。</text>
+				<event load="DYNCAP_GRANDFATHER_BELIEVE" />
+			</choice>
+			<choice hidden="true">
+				<text>彼にはできないことを彼に説明してみてください。</text>
+				<event>
+					<text>「あなたは私に質問しますか？私は憤慨しています！」ゴーストがいきなり攻撃！</text>
+					<ship load="SHIP_GHOST_ELITE" hostile="true" /> 
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="BLUELIST_CREW_SNAIL">
+		<text>(テレパシー シェル) ゴーストの思考を確認します。</text>
+		<event>
+			<text>「彼がデシウスの祖父ではないことは明らかです。それにもかかわらず、彼は自分自身でそれを本当に信じているようです。陽気で悲しいです。」</text>
 			<choice hidden="true">
 				<text>アルファにあなたが彼を信じていると伝えてください。</text>
 				<event load="DYNCAP_GRANDFATHER_BELIEVE" />
@@ -962,7 +797,7 @@
 </eventList>
 
 
-<eventList name="NEBULA_HOSTILE_DYNASTY">
+<eventList name="NEBULA_HOSTILE_DYNCAP">
 	<event load="NEBULA_ENCOUNTER_DYNASTY" />
 	<event load="NEBULA_ENCOUNTER_DYNASTY_ELITE" />
 	<event load="NEBULA_ENCOUNTER_DYNASTY_HOSTAGE" />
@@ -982,7 +817,7 @@
 </event>
 
 
-<eventList name="NEBULA_DISTRESS_DYNASTY">
+<eventList name="NEBULA_DISTRESS_DYNCAP">
 	<event load="NEBULA_DISTRESS_DYNASTY_ENGINEER" />
 	<event load="NEBULA_DISTRESS_DYNASTY_MONSTER" />
 </eventList>
@@ -1322,15 +1157,15 @@
         <event>
             <text>あなたは船に乗り込み、それが酸素でいっぱいであることに驚いた。壁の周りにはさまざまな小さな装身具がぶら下がっています。 「これらは私の貴重な作品です。1つ気になりますか？スクラップは10個だけです...」</text>
             <choice hidden="true">
-                <text>トーテムオブウォー[+10％の武器発射速度]を購入します。</text>
+                <text>トーテム オブ ウォー [+8% 武器の発砲率] を購入します。</text>
                 <event load="NEBULA_DYNASTY_TRINKETS_WAR" />
             </choice>
             <choice hidden="true">
-                <text>スピードのエンブレムを購入する[+20％のクルーのスピード]。</text>
+                <text>速度のエンブレムを購入 [+20% 乗組員の移動速度、+20% FTL 再充電率]。</text>
                 <event load="NEBULA_DYNASTY_TRINKETS_SPEED" />
             </choice>
             <choice hidden="true">
-                <text>不屈のインゴットを購入する[+20％シールドチャージスピード]。</text>
+                <text>インゴット オブ フォーティチュード [+20% シールド チャージ速度、+20% システム サボタージュ耐性] を購入します。</text>
                 <event load="NEBULA_DYNASTY_TRINKETS_SHIELD" />
             </choice>
             <choice hidden="true">
@@ -1385,7 +1220,7 @@
 		<event>
 			<text>「私たちは悪魔を捕まえました！ハーク、それでもそれは話しません。悪獣を話しなさい、話しなさい！プライムリーパーの命令によって、私たちはあなたがたに話すことを要求します！」</text>
 			<choice hidden="true">
-				<text>それはオートシップです...</text>
+				<text>それはオートシップ...</text>
 				<event>
 					<text>ゴーストの「頭」はあなたに向かって回転します。 「え？何の文字化けを話しますか？」</text>
 					<choice hidden="true">
@@ -1460,7 +1295,7 @@
 </eventList>
 
 <event name="NEBULA_DYNASTY_SMUGGLER" unique="true">
-	<text>飛び込んだ数分後、黒い密輸船が星雲から流れ出てきます。これらのゴーストの風はまだです。王朝、もっとDyNASTYのようです！私は正しいですか？そうですか？ええ、わかりました。とにかく、私たちは「不当に入手した」武器でいっぱいの船を運んでいます。通り抜けてください。近くにセキュリティチェックポイントがあります。それを取り出すか、「納得させて」通過させてください。スパイシーな新しい武器が用意されています。取引しますか？」</text>
+	<text>あなたが飛び込んだ数分後、黒い密輸船が星雲から漂流してきます。これらのゴーストの風はまだ. Dynasty, もっと DyNASTY のように! そうですか? そうですか? はい、わかりました. とにかく、私たちは「非倫理的に入手した」武器でいっぱいの貨物を運んでいます.通過させてください。近くにセキュリティ チェックポイントがあります。それを取り出すか、「説得」して通過させてください。スパイシーな新しい武器を用意しています。取引しますか?」</text>
 	<environment type="nebula" />
 	<choice hidden="true">
 		<text>チェックポイントをチェックしてください。</text>
@@ -1813,7 +1648,7 @@
 	<choice hidden="true">
 		<text>エンジニアを追跡してみてください。</text>
 		<event>
-			<text>近くのシステムを探索すると、いくつかの船が停泊している王朝のステーションに行くことができます。エンジニアの1人がきらめく電化された刃を備えたギロチン装置に向かって護衛されている間、いくつかのゴーストの中には嫉妬しています。彼らはあなたを見つけて、あなたに訴えかけるような一瞥を与え、彼らを助けるように静かにあなたに懇願します。</text>
+			<text>近くの星系を探索すると、いくつかの船が停泊しているダイナスティ ステーションにたどり着きます。内部では、エンジニアの1人が、きらめく電化された刃を持つギロチン装置に向かって護衛されている間、数人のゴーストが嘲笑しています。彼らはあなたを見つけて、あなたに懇願するような一瞥をし、静かに助けを求めます。</text>
 			<ship load="SHIP_DYNASTY_STATION_ENGINEER" hostile="false" />
 			<choice hidden="true">
 				<text>エンジニアを支援します。</text>
@@ -2882,7 +2717,7 @@
 </event>
 <eventList name="NEBULA_GHOST_ESCORT_DESTINATION">
 	<event>
-		<text>あなたは目的地に到着しますが、ゴースト船はすでにここにいます。あなたは脅威を排除している間、民間人に立ち向かうように合図します。</text>
+		<text>目的地に到着しましたが、幽霊船がすでに到着しています。脅威を排除している間、民間人に撤退するように合図します。</text>
 		<ship load="SHIP_GHOST_ESCORT" hostile="true" />
 		<choice hidden="true">
 			<text>継続する...</text>
@@ -3138,7 +2973,7 @@
 <event name="VAGABOND_STORM" unique="true">
 	<text>このビーコンは、北のはるか遠くにある星雲以外のすぐ近くの星雲の近くにはないかもしれませんが、近くの惑星に大きなヴァガボンドキャンプが設置されています。簡単なスキャンは、住民が素早く動き回っていることを示しています。</text>
 	<img planet="PLANET_UNPOPULATED_TERRA" />
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="1">
 		<text>アプローチ。</text>
 		<event>
 			<text>惑星に着陸するとき、あなたはゴーストに邪魔されませんが、キャンプに近づくと、ゴーストの1人があなたを止めます。 「なぜあなたは来たのですか？大きな北の嵐が毎分近くに漂います！それらの電界は私たちのコンピューターを壊滅させます。私たちはあなたがすぐに去ることをお勧めします！」</text>
@@ -3193,6 +3028,10 @@
 				</event>
 			</choice>
 		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="0" max_lvl="0">
+		<text>搭載された船の AI は、追加の乗組員なしでキャンプに近づくことを許可しません。多くの自動船が貪欲なゴーストによって失われています。このセキュリティ対策により、この数値がこれ以上高くなることはありません。</text>
+		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true">
 		<text>最初にキャンプに呼びかけます。</text>
@@ -3276,7 +3115,7 @@
 			<choice hidden="true">
 				<text>継続する...</text>
 				<event>
-					<text>「反乱軍だと思ってるんだろう？ 違うぞ！ 俺たちは傭兵だ。連盟からこのデカブツを倒すために送りこまれたんだ。バガボンド族、特にゴジオデオンと名乗るバカが率いるハウンツと呼ばれる一派の手中にあることが判明したのだ。協力してくれれば賞金を山分けする。どうだ？」</text>
+					<text>「反乱軍だと思ってるんだろう？ 違うぞ！ 俺たちは傭兵だ。連盟からこのデカブツを倒すために送りこまれたんだ。ヴァガボンド族、特にゴジオデオンと名乗るバカが率いるハウンツと呼ばれる一派の手中にあることが判明したのだ。協力してくれれば賞金を山分けする。どうだ？」</text>
 					<choice hidden="true">
 						<text>同意。</text>
 						<event>
@@ -3354,6 +3193,11 @@
 			</choice>
 		</event>
 	</choice>
+</event>
+<event name="UNLOCK_GHOST_DAMAGE">
+	<text>あなたはあなたの仲間、ゴーストハンターが通り過ぎて飛んでいるのに気づきます。彼らの武器はフラグシップに対して多くのことをすることができませんでしたが、彼らのサルボはついにフラグシップのエンジンに入り、彼らをシャットダウンしました。ただし、テレポーターの署名は、あなたが再び搭乗したことを示しています。</text>
+	<boarders min="3" max="3" class="phantom_goul" />
+	<enemyDamage amount="2" system="engines" />
 </event>
 <event name="UNLOCK_GHOST_QUEST_WIN">
 	<text>多くの伝説を聞いた巨大な船は、エンジンの爆発によって炎上して爆発する前に、ついに最後の地震を起こします。旗艦とそれとのヴァガボンドは死んでいます...またもや。</text>

@@ -3,7 +3,7 @@
 
 	
 <event name="START_ORIGINS">
-	<text>あなたは元のCrystalHomeworldsに到着しました、そしてすでにあなたは観光客と「開拓者」の残忍な侵入の余波を見ることができます。クリスタル構造の骨格は、侵入ビーコンが懸念される惑星の表面に点在しています...</text>
+	<text>元の Crystal Homeworlds に到着し、すでに観光客と「開拓者」の残忍な侵略の余波を見ることができます。結晶構造の骨格が惑星の表面に点在しており、その進入ビーコンは非常に接近しています...</text>
 	<ship load="SHIP_GUARD_CULTIST" hostile="false" />
 	<changeBackground>BACK_SECTOR_CRYSTAL_HOME</changeBackground>
 	<playSound>lightspeed</playSound>
@@ -676,6 +676,16 @@
 							</choice>
 						</event>
 					</choice>
+					<choice hidden="true" req="BLUELIST_CREW_SNAIL">
+						<text>(テレパシー シェル) シェルに答えてもらいます。</text>
+						<event>
+							<text>テレパシーの才能に恵まれたあなたのシェルは、近くにいる他のカルト信者の心から答えを読み取ることで答えを知っています。</text>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="CULTIST_MOURNING_CORRECT" />
+							</choice>
+						</event>
+					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" req="rock_cultist">
@@ -818,7 +828,7 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_ENGINEER">
-		<text>（エンジニア）エンジニアに助けてもらってください。</text>
+		<text>(エンジニア クルー) エンジニアに手伝ってもらいます。</text>
 		<event>
 			<text>あなたのエンジニアは不平を言います、xenosで働くことに満足していません。それでも、彼らは同意し、カルト信者に援助を提供します。しばらくして、彼らは浮かぶ寺院のアイデアのデザインを描きました。教団は喜んでいるようで、感謝の気持ちであなたに支払います。</text>
 			<autoReward level="MED">fuel</autoReward>
@@ -854,11 +864,11 @@
 		<event>
 			<text>あなたは近づいて耳を傾けます。 「私はあなたに言っています、それは琥珀ではなく琥珀を言います！ここを見てください、再生15：6で！」 「いいえ、それはタイプミスです。もしそれが実際に琥珀であることが意図されていたら、私たち自身を「永遠の琥珀のカルト」と名付けるためにそのような問題を経験したと思いますか？」</text>
 			<choice>
-				<text>聞き続けてください。</text>
+				<text>聞き続ける。</text>
 				<event>
 					<text>「ハァッ、あなたが言うタイプミス？それが琥珀であることを意図していたことは明らかです。私たちの大祭司の船を見てください;それは琥珀の色です！」 「あなたはばかです！琥珀は赤ではありません、琥珀はオレンジです！あなたは色盲でなければなりません、あなたはばかです！」</text>
 					<choice hidden="true">
-						<text>聞き続けてください。</text>
+						<text>聞き続ける。</text>
 						<event>
 							<text>あなたはカルティストが彼らの会話に魅了されて、しばらくの間前後に議論するのを聞きます。しかし、ついに彼らはあなたに気づきます。 「ああ、あなたはどれくらい聞いていますか？ああ、気にしないでください。確かにあなたは私たちの両方のポイントを聞いたので、あなたが正しいと思うことを教えてください！」</text>
 							<modifyPursuit amount="1" />
@@ -1287,7 +1297,11 @@
 </event>
 <event name="CULTIST_PIRATE_BURN_SHIP">
 	<text>スキャンは、海賊船の非常にかすかな生命の痕跡を拾います。それらを保存するのに遅すぎることはないかもしれませんが、それは危険です。</text>
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>支援する乗組員がいないため、ドッキングはオプションではありません。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>海賊に乗り込み、救助します。</text>
 		<event load="CULTIST_PIRATE_BURN_RESCUE" />
 	</choice>

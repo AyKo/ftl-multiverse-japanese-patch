@@ -32,6 +32,7 @@
 	<event load="ZOLTAN_FREE_AUGMENT" />
 	<event load="ZOLTAN_FREE_MAP" />
 	<event load="ZOLTAN_ODD_MOON" />
+	<event load="ZOLTAN_FASCISM" />
 	
 	<event load="FIND_DRONE" />
 	<event load="FREE_ITEMS" />
@@ -40,6 +41,41 @@
 	<event load="REPAIR_STATION" />
 	<event load="TRADER_CIV" />
 </eventList>
+
+<event name="ZOLTAN_FASCISM" unique="true">
+	<text>近くにくすぶっているいくつかの残骸がゾルタン船によって観測されており、その船長は公開通信で話しています。最初は、彼があなたに話しかけていることに気付くまで、彼はやみくもに独り言を言っていると思います。 「くそーダスクブリンガー、あまりにも無意味な流血。これはすべて人類のせいで、この銀河をファシズムのような病んだイデオロギーで感染させている。反乱軍がいなければ、そのような不吉な考えが私たちの平和な種族に届くことはなかった.」</text>
+	<choice hidden="true">
+		<text>それは...正しく聞こえません。</text>
+		<event>
+			<text>「ああ、しかしそうです!それは、戦時中の経済でポケットを並べ、言論の自由を抑圧するために、ジンゴイストと偽の愛国者によって同様に使用される、腹から生まれたイデオロギーです。それは知性主義の嘲笑であり、優生学機械の歯車です。」この男は間違っていませんが、彼の話し方から、彼が少し妄想的である可能性があることがわかります.</text>
+			<choice hidden="true">
+				<text>ファシストが嫌いなら、反乱軍で私たちを助けてくれませんか?</text>
+				<event>
+					<text>ゾルタンが独り言を呟く。 「反乱軍と戦うのは無駄な努力です。ファシズムという病気はすでに銀河系に感染しており、治療法はありません。しかし、あなたは若く、希望に満ちているようです。おそらく、新しい世代の正しい心のある個人が、私たちの政治の方向性を正すことができるでしょう。」ゾルタンが装備を送ってくれます。 「私は南北戦争以来、これにしがみついていました。私はもう兵士ではありません。私はそれを必要としません。それを持って、ファシストに荷物を送ってください!」</text>
+					<weapon name="RANDOM" />
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_MEDICAL">
+				<text>(医療班) 彼の精神状態を調べる.</text>
+				<event>
+					<text>あなたの乗組員はゾルタンにさまざまな質問をし始め、精神的不安定の明らかな兆候を探ろうとします.結論として、彼は初期の認知機能低下を経験しているようです。これは、Zoltan シャーシのまれな誤動作であり、不安定な思考パターンと不規則な発話を引き起こす可能性があります。しかし、彼に病院を見つけるよう説得しようとしても、彼はさらに混乱するだけのようです.不思議なことに、彼はあなたが原子炉のチューンアップを求めていると思い、同意します。</text>
+					<upgrade amount="1" system="reactor" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>ゾルタンのことは放っておけ。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice req="LIST_CREW_HUMAN" hidden="true">
+		<text>(Human Crew) ファシズムの発明に単独で責任があることをお詫びします。</text>
+		<event>
+			<text>ゾルタンが頷く。 「人類は、政治的混乱と利己主義で発酵した、有害な考えだけの種です。あなたは、この銀河系を『民主主義』や『フェミニズム』などの党派的な概念で永遠に台無しにしました。それは私をうんざりさせます。私たちはかつて純粋な人種でした。人間は好戦的な種族であり、より大きな欲を操作することによってのみ制御できることが知られています. これを持って、二度と戻らないでください.この男が妄想的であることは明らかですが、無料のスクラップは気にしません。</text>
+			<autoReward level="HIGH">scrap_only</autoReward>
+		</event>
+	</choice>
+</event>
 
 <event name="ZOLTAN_FREE_AUGMENT" unique="true">
 	<text>ゾルタンアカデミーは、ビーコンの境界のすぐ外側にドッキングされています。彼らは喜んであなたに彼らの労働の成果を示し、あなたと一緒に家に持ち帰るための何かを提供します。</text>
@@ -113,7 +149,7 @@
 	<event>
 		<text>チームが月面の壊れやすい層を突破して隠された洞窟に入ることができるように見えます。</text>
 		<choice hidden="true">
-			<text>いくつかの爆発物を爆発させて表面を突破しようとします。 [ミサイル：-1]</text>
+			<text>地表を突破するために爆発物を爆発させようとします。 [-1ミサイル]</text>
 			<event load="ZOLTAN_ODD_MOON_EXPLOSION" />
 		</choice>
 		<choice>
@@ -365,6 +401,7 @@
 	<event load="ZOLTAN_LIFERAFT" />
 	<event load="ZOLTAN_SCIENCE_DOCK" />
 	<event load="ZOLTAN_CREW_SCAN" />
+	<event load="DUSK_YOUNG" />
 
 	<event load="REFUGEE_NO_DISTRESS" />
 	
@@ -519,9 +556,23 @@
 			</choice>
 		</event>
 	</choice>
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>プロファイリングに送信します。</text>
 		<event load="ZOLTAN_CREW_SCAN_LIST" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>プロファイリングに送信します。</text>
+		<event>
+			<text>誰も乗船していないことを考えると、このプロセスは非常に迅速であることがわかります。機内で何かをする時間はまだあります。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_SLUG">
 		<text>（スラッグのクルー）あなたのスラッグにあなたを手放すように彼らに話してもらいます。</text>
@@ -719,7 +770,7 @@
 	<event load="QUEST_CREWDEAD_START" />
 </eventList>
 
-<event name="ZOLTAN_TRADE_HUB" unique="true">   
+<event name="ZOLTAN_TRADE_HUB" unique="true">    
 	<text>あなたはゾルタンの貿易と供給のハブに来ます-彼らが正しい文書を持っていれば、疲れた旅行者が必要とするすべてのものです。</text>
 	<choice hidden="true">
 		<text>説得を試みる。</text>
@@ -727,6 +778,16 @@
 	</choice>	
 	<choice hidden="true" req="teleporter" lvl="1">
 		<text>（テレポーター）民間デッキに直接ビームします。</text>
+		<event>
+			<text>メインコンコースの暗い隅で再実体化し、安心して調査を行うことができます。</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="ZOLTAN_TRADE_HUB_SUCCESS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LOCKED_GLOBAL_TELEPORT">
+		<text>(中央テレポート) 民間の甲板に直接ビームします。</text>
 		<event>
 			<text>メインコンコースの暗い隅で再実体化し、安心して調査を行うことができます。</text>
 			<choice hidden="true">
@@ -1174,7 +1235,7 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="medbay" lvl="3">
-		<text>（高度なメドベイ）彼らにあなたの医療記録を渡してください。</text>
+		<text>(Adv. Medbay) 彼らにあなたの医療記録を渡してください。</text>
 		<event>
 			<text>「ありがとうございます。FTL旅行中のクルーの健康に関する大量のデータを受け取ることは期待していませんでした。ご迷惑をおかけしましたことをお詫び申し上げます。」</text>
 			<drone name="RANDOM" />
@@ -1332,7 +1393,6 @@
 
 
 <eventList name="NEUTRAL_CAPITAL_UNIQUE">
-	<event load="CAPITAL_DEBATE" />
 	<event load="CAPITAL_REVOLT" />
 	<event load="CAPITAL_FREEMANTIS_FRIENDLY" />
 	
@@ -1505,58 +1565,6 @@
 		<damage amount="5" />
 	</event>
 </eventList>
-
-<event name="CAPITAL_DEBATE" unique="true">
-	<text>ゾルタンとダスクブリンガーの船は、あなたが識別できないトピックについて激しい議論に巻き込まれているようです。</text>
-	<choice hidden="true">
-		<text>彼らに連絡し、それらに質問します。</text>
-		<event>
-			<text>2隻の船はあなたの存在に対処することさえ気にせず、議論を続けます。彼らは大文字の正しいつづりについて議論しているようで、ゾルタンはAでつづられていると言い、ダスクブリンガーはOでつづられていると言っています。</text>
-			<choice hidden="true">
-				<text>Aで綴られています。</text>
-				<event>
-					<text>連邦船を攻撃するためにダスクブリンガーを運転するのにそれほど時間はかかりません、そして彼らはまさにそれをし始めます。おびえたゾルタンの船が飛び去る。</text>
-					<ship load="SHIP_DUSK_FIGHT" hostile="true" />
-					<choice hidden="true">
-						<text>継続する...</text>
-						<event load="COMBAT_CHECK" />
-					</choice>
-				</event>
-			</choice>
-			<choice hidden="true">
-				<text>Oで綴られています。</text>
-				<event>
-					<text>ダスクブリンガーの船長は笑うが、ゾルタンはひどく気分を害しているようだ。彼らの武器はオンラインになり、ダスクブリンガーは飛び去るので、彼らはあなたを助ける義務を感じる必要はありません。</text>
-					<ship load="SHIP_ZOLTAN_FIGHT" hostile="true" />
-					<choice hidden="true">
-						<text>継続する...</text>
-						<event load="COMBAT_CHECK" />
-					</choice>
-				</event>
-			</choice>
-			<choice hidden="true">
-				<text>本当に、それは文脈に依存します。</text>
-				<event>
-					<text>2人のゾルタンは、議論を続ける前に、あなたを一瞥します。あなたはそれが去るのに良い時期だと思います。</text>
-				</event>
-			</choice>
-		</event>
-	</choice>
-	<choice hidden="true">
-		<text>それらを無視します。</text>
-		<event>
-			<text>あなたは2隻の船を彼らの議論に任せ、あなたの任務を続けます。</text>
-			<choice>
-				<text>船に乗って何かする。</text>
-				<event load="STORAGE_CHECK" />
-			</choice>
-			<choice>
-				<text>何もしない。</text>
-				<event />
-			</choice>
-		</event>
-	</choice>
-</event>
 
 
 <eventList name="DISTRESS_BEACON_CAPITAL">
@@ -1857,7 +1865,7 @@
 			</choice>
 		</event>
 	</choice>
-	<choice hidden="true" req="zoltan_monk">
+	<choice hidden="true" req="LIST_CREW_MONK">
 		<text>（モンククルー）コアについて彼らと交渉します。</text>
 		<event>
 			<text>あなたの僧侶のクルーはあなたに彼らのコアを与えるように他の人を説得することができたようです。</text>
@@ -2252,7 +2260,7 @@
 	<choice hidden="true">
 		<text>省はあなたがダスクブリンガーに変装したと言いました。</text>
 		<event>
-			<text>「それは嘘だと思います。多くの人の1人です。ご覧のとおり、私たちはあなたが知っているのと同じ意味でゾルタンではありません。連邦のずっと前に、私たちすべてのゾルタンはこのように見えました。当時、私たちは蒸していました。星間時代に向けて全力で前進し、多くの競合国の最初のものとなるように駆り立てられました。しかし、この競争は悲劇に変わり、核のホロコーストが差し迫っていました。オスミアは全滅し、生存者は惑星から逃げることを余儀なくされました。ほぼ何世紀にもわたってオスミアは私たちの手の届かないところに、私たちの失敗を厳粛に思い出させます。」</text>
+			<text>「残念ながらそれは嘘です。たくさんあるうちの 1 つです。ご覧のとおり、私たちはあなたが知っているのと同じ意味でのゾルタンではありません。連邦ができるずっと前から、私たちゾルタンはみなこのように見えていました。当時、私たちは蒸し暑かったです」星間時代に向けて全力で前進し、多くの競合する国家の中で最初の国家となるように駆り立てられました. しかし、この競争は茶番劇に変わり、核のホロコーストが差し迫っていました. オスミアは全滅し、生存者は惑星から逃げることを余儀なくされました. ほぼ何世紀にもわたって、オスミアは私たちの手の届かないところで、私たちの失敗を厳粛に思い起こさせます。」</text>
 			<choice hidden="true">
 				<text>継続する...</text>
 				<event>
@@ -2264,11 +2272,11 @@
 							<choice hidden="true">
 								<text>待ってください、でもこれは何世紀も前ではなかったのですか？ルーメイは今もどのように担当していますか？</text>
 								<event>
-									<text>「これは確かにずっと前のことですが、すぐにあなたの質問に対する答えにたどり着きます。ルメイのリーダーシップの下で、コーデックスのサイズはほぼ2倍になり、施行はさらに厳しくなりました。ルーメイがポーンとして彼の近くにそれらを保つことができるように省の席を与えられました。エーテルとグレートアイの間の接続のために、これらのハードライトフォームも宗教的な重要性を帯びたので、ルーメイ自身が彼を確保するために変容しました技術がすぐによく研究されるようになると、裕福なエリート、司祭、そして最終的には庶民でさえそのような手続きをする余裕ができました。変革を正常化し、実施し始めました。」</text>
+									<text>「これは確かにかなり前のことですが、すぐにあなたの質問に対する答えにたどり着きます。Lumei のリーダーシップの下で、コデックスのサイズはほぼ 2 倍になり、施行はさらに厳しくなりました。オスミアンの探検家は、依然として大衆から高い尊敬の念を抱いていましたが、ルメイがポーンとして彼の近くにそれらを保つことができるように省の席を与えられた. エーテルとグレートアイとの関係のために、これらのハードライトの形も宗教的な意味を帯びていたので、ルメイ自身が彼の技術がよりよく研究されるようになると、裕福なエリート、司祭、そして最終的には一般の人々でさえもそのような手順を実行できるようになりました. 変身者の優位性が定着し、この分裂がゾルタンの間に分裂を引き起こすのではないかと恐れた省正常化し、変容を強制し始めました。」</text>
 									<choice hidden="true">
 										<text>継続する...</text>
 										<event>
-											<text>「ほとんどの断固とした非形質転換体は自然の原因で死亡し、より新しい「進歩的な」考え方が定着しました。7歳以上のすべてのゾルタンはすぐにハードライトシャーシに移行することになりました。皮肉なことに、省が触れるのに苦労した唯一の場所は、オスミア自体。最初のホロコーストを生き延びた荒れ地の間の領土の支配権を握り、非形質転換者のグループがそこに定着しました。最終的に、省はあきらめ、残りのゾルタンからオスミアの重要性を消すために努力を費やしました-他の知性のある生命の最近の発見によって何かが容易になりました。そして、それが私たちオスミアンの最初の人になった方法です。省は銀河が私たちの存在を忘れ、私たちが自然に死ぬことを望んでいます。」</text>
+											<text>「頑固な非変身者のほとんどは自然の原因で死亡し、より新しい「進歩的な」考え方が定着しました.7歳以上のゾルタンはすべて、すぐにハードライトシャーシに移行する必要がありました.省が触れるのに苦労した唯一の場所は、皮肉なことに、 , オスミア自体. 非変身者のグループがそこに定着し、最初のホロコーストを生き延びた荒れ地の間の領土の支配権を握った. 最終的に省はあきらめ、残りのゾルタンからオスミアの重要性を消すことに努力を費やした. - 他の知的生命体が最近発見されたことで、何かが容易になりました. そして、それが私たちオスミアンの最初の誕生です. 省は、銀河が私たちの存在を忘れ、私たちが自然に死ぬことを望んでいます.</text>
 											<choice hidden="true">
 												<text>それで、あなたが私たちに必要としたのは何ですか？</text>
 												<event load="OSMIA_UNLOCK_QUESTION" />
@@ -2285,7 +2293,7 @@
 	</choice>
 </event>
 <event name="OSMIA_UNLOCK_QUESTION">
-	<text>「ええ、私たちが首都にいた理由を説明するのが最善だと思います。何かを尋ねる前に...ほら、オスミアに避難していない私たちの種類がいくつか残っています。彼らは捕らえられました省によって、ハードライトフォームの予期せぬ大変動の失敗の場合に備えて、「プロトコル3」の下で秘密の研究所に閉じ込められたままにされました。罪のない人生、そして古代の忘れられた歴史のタイムカプセル。私たちは首都を襲撃し、捕虜を解放することを強制したかったのですが、ご覧のとおり、それは計画どおりに機能しませんでした。」</text>
+	<text>「はい、まあ、あなたに何かを尋ねる前に、なぜ私たちが王都にいたのかを説明するのが最善だと思います..ハードライトフォームの予期せぬ大変動の失敗の場合に備えて、「プロトコル3」の下で秘密の研究所に閉じ込められています. 私たちは、それらの数百が数世紀前から閉じ込められている可能性が高いと推定しています.無実の生命、そして忘れられた古代の歴史のタイムカプセル. 私たちは首都を襲撃し、捕虜を強制的に解放することを望んでいましたが、ご覧のとおり、計画どおりにはうまくいきませんでした.</text>
 	<choice hidden="true">
 		<text>おっと。申し訳ありません。</text>
 		<event>
@@ -2340,7 +2348,7 @@
 		<aggressive>1</aggressive>
 	</quest>
 	<img back="BACK_EVENT_SECRETLAB" planet="PLANET_INVISIBLE" />
-	<text>ここがその場所であることに疑いの余地はありません。不吉な姿がすぐに現れただけで、これが通常の秘密基地ではないことは明らかです。オスミアンによれば、セキュリティは厳しくなければならず、検出されずに近づくことは避けられません。</text>
+	<text>これがその場所であることに疑いの余地はありません。すぐに邪悪な外観から、これが普通の秘密基地ではないことは明らかです - もしあったとしても.オスミアンによると、セキュリティは厳重でなければならず、検出されずに近づくことは不可能です。</text>
 	<choice hidden="true">
 		<text>近づけます。</text>
 		<event>
@@ -2431,7 +2439,7 @@
 			<choice hidden="true">
 				<text>そこには連邦の科学者もいました。なんで？</text>
 				<event>
-					<text>「あなたは連邦が私たちのことを知らなかったと思いますか？彼らは私たちが危険な脅威をすべて説明したと確信しています。そうすれば、私たちが別の内戦を始めようとしたなら、連邦はheしないでしょうしかし、ミニストリーに隣接してください。しかし、それはポイントに加えています。私はそれほど厳しいはずではありません。私たちは皆を救うことはできませんでした。私たちはまだ何十人もの人々を救いました。歴史を失いました。しかし、私の人々のリーダーとして、私はそのような結果のために私たちを準備することができませんでした。私はオスミアに戻ることができません。私はあなたが私のサービスを受け入れることを謙虚に要求します、キャプテン。」</text>
+					<text>「連邦は私たちのことを知らなかったと思いますか? 彼らは私たちが危険な脅威であると他のすべての人に説明したに違いありません. そうすれば、私たちが別の内戦を開始しようとした場合、連邦は躊躇しません.省の側に立つ. しかし、それは重要なことではありません... 私はそれほど厳しいことをすべきではありません. 私たちは全員を救ったわけではありません.しかし、私の民の指導者として、私はそのような結果に備えることができませんでした.オスミアに戻ることはできません.キャプテン、あなたが私のサービスを受け入れることを謙虚にお願いします.</text>
 					<crewMember amount="1" all_skills="2" class="zoltan_osmian">Malki</crewMember>
 				</event>
 			</choice>
@@ -2561,11 +2569,136 @@
 
 
 <eventList name="NEBULA_ITEM_MONK">
+	<event load="NEBULA_MONK_GRAVE" />
 	<event load="NEBULA_MONK_STRANDED_FED" />
 	<event load="NEBULA_MONK_FREE_CREW" />
 	<event load="NEBULA_MONK_BEGGAR" />
 	<event load="NEBULA_MONK_GHOST" />
 	<event load="NEBULA_MONK_CONVERT" />
+</eventList>
+
+<event name="NEBULA_MONK_GRAVE" unique="true">
+	<text>このビーコンにはまだ星雲が存在しますが、近くの月からの奇妙な測定値に気付かずにはいられません。これらから、船がそこに着陸したと推測できますが、どのような船かはわかりません。</text>
+	<img back="BACK_EVENT_LIGHTNEBULA" planet="PLANET_MOONS" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>土地。</text>
+		<event>
+			<text>月に近づくと、表面にダスクブリンガーの船を見つけることができます。おそらくあなたのより良い判断にもかかわらず、あなたはとにかく着陸することに決め、船に向かって道をたどります.到着すると、小さな石の配置と、それらの上にひざまずいて泣いている鎧のゾルタンが見つかります。</text>
+			<ship load="SHIP_DUSK_GENERIC" hostile="false" />
+			<choice hidden="true">
+				<text>何が悪いのか尋ねてください。</text>
+				<event>
+					<text>ゾルタンはあなたに向き直り、彼の落ち着きは取り乱した状態から乱れた怒りに変わります。 「反逆の豚？ここから出て行け、ここは神聖な場所だ！」あなたは武器をポケットに入れ、腕を上げて、あなたが平和であることを合図します.ゾルタンはため息をつき、マークのない墓を見つめることに戻ります。
+
+「連邦の歴史書は、連邦戦争へのゾルタンの関与について多くの物語を語っていません。ほとんどの人は、私たちがほとんどまたはまったく関与しなかったと信じていると思います。しかし、それ以上ではないにしても、何十万もの誇り高きゾルタンが命を落としましたフェドマンティス戦争、反異端審問、南北戦争で連邦と銀河のために戦った. そして、彼らは何の感謝を得るでしょうか? ここのマークのない墓、セクターのどこにもない真ん中のどこかの月にあります.修道士の訪問.そして省はそれでいい.彼らは、彼らの全体の一部として、それらの戦争への私たちの関与を人々が忘れることを望んでいます...「非暴力」アジェンダ.ゾルタンは墓から離れた地面に唾を吐きます。 「恥ずかしいです、本当に」</text>
+					<choice hidden="true">
+						<text>連邦の過ちをお詫びします。</text>
+						<event>
+							<text>ゾルタンが涙を拭う。 「ありがとう。あなたがどれほど本気で言っているのかはわかりませんが、感謝しています。私が急進派だと叫ぶことなく、私の話を聞いてくれる人に会うことはめったにありません。私は多くを提供することはできませんが、多分私には自分の過ちを埋め始めることができるものがあります。」</text>
+							<autoReward level="MED">standard</autoReward>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>ラスト スタンド中またはラスト スタンド後に魔法省が現れたことは一度もありません。</text>
+						<event>
+							<text>「あなたが歴史をほとんど理解していないことを本当に示しています。省は南北戦争中に連邦を支援するために軍隊を派遣しました-そして私たちは反乱軍よりも海賊を扱うどこにもないスペースの真ん中で僻地の前線で戦うために派遣されました.省はできませんでした.内政が混乱し、反乱軍が常に脅威であるときに軍隊を派遣し続ける余裕があるため、彼らはプラグを抜いた. そしてもちろん、戦争が終わったとき、ゾルタンは臆病者や裏切り者として描かれ、組織そのものに仕えることを望まなかった.見つけるのを手伝った。」ゾルタンはあなたから背を向け、再び墓を見つめます。他に追加するものが何もないので、あなたは去るのが最善だと判断します.</text>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>ノード 17 メモリアルはどうですか?</text>
+						<event>
+							<text>「ゾルタンについては一言も言及されていません。一人もいません。何百万人もの人間がいますが、ゾルタンもエンギも一人もいません。そして、それはなぜだと思いますか? それらの記念碑の請求書を支払ったのと同じ人々が、金持ちの怪しげなユニオンの卑劣な連中でした」戦前にウェントワースとゴルフをしていた.彼らはゾルタンに言及したくなかった.そして、彼らはそうしなかった.それが、デヴォラック・ザ・デスレスのような人々が連邦に背を向けた理由です.</text>
+							<choice hidden="true">
+								<text>彼らがあなたの歴史をどのように埋めたかは恥ずべきことです。</text>
+								<event>
+									<text>ゾルタンが涙を拭う。 「ありがとう。あなたがどれほど本気で言っているのかはわかりませんが、感謝しています。私が急進派だと叫ぶことなく、私の話を聞いてくれる人に会うことはめったにありません。私は多くを提供することはできませんが、多分私には自分の過ちを埋め始めることができるものがあります。」</text>
+									<autoReward level="MED">standard</autoReward>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>あなたはまだもっとできたはずです。</text>
+								<event>
+									<text>「何度も繰り返しますが、銀河系は自分自身がサイクルであることを証明しているようにしか見えません。人々が私の顔に唾を吐き、私が言うことすべてを無視するのであれば、なぜ私は過去の過ちを償おうとするのですか?こうあってほしい……ならこうさせて！」</text>
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true" req="unique_devorak">
+								<text>(デボラック) 「怒りのあまり、私たちは皆間違いを犯します。」</text>
+								<event>
+									<text>ダスクブリンガーは、デボラックがあなたの乗組員の中にいることに気付いたときにダブルテイクします。彼らはお互いに向かってお辞儀をします。 「ああ、デボラック！ 気がつかなかった」デボラックは彼を遮った。 「大丈夫です。私は人生で多くの過ちを犯してきました。私たちは皆、連邦に対して怒っていましたが、それには正当な理由がありました。しかし、怒りを暴力に変えてはなりません。抗議しなければなりませんが、抗議しなければなりません。平和的に. 流血がなければ、他にどのように進歩するでしょうか? これらは私たちが自分自身に教えなければならない教訓です.若いダスクブリンガーはまだ無言で、ドヴァンと自己紹介し、あなたの乗組員に加わるように要求します。</text>
+									<crewMember amount="1" class="zoltan_devotee">Dovan</crewMember>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>墓の1つに供物としてスクラップを残してください。</text>
+						<event>
+							<text>確かに奇妙な仕草ですが、限られたリソースでできる最善の方法です。 Duskbringer はそれを高く評価しているようです。彼は涙を拭いながら言った。彼は立ち上がって手を差し出す。 「その名はドヴァン。私は人生の暗い時期にダスクブリンガーズに加わった。省と連合の間の緊張が最高潮に達し、連邦に関するすべてが..暗いと感じた.フェデレーションは、そのすべての欠陥にもかかわらず、銀河を統合できる唯一のものです.ダスクブリンガー、反乱軍、それらのような組織...彼らはこの多元宇宙全体を引き裂こうとしているだけです.私があなたと一緒に行ってもよろしいですか?私の乗組員は知る必要はありません...」</text>
+							<crewMember amount="1" class="zoltan_devotee">Dovan</crewMember>
+							<item_modify>
+								<item type="scrap" min="-15" max="-15" />
+							</item_modify>
+						</event>
+					</choice>
+					<choice hidden="true" req="ORCHID_KIDS">
+						<text>(オーキドゥチルドレン) お墓に花を残して。</text>
+						<event>
+							<text>この状況に何が適切かを知っているあなたは、自分の船に戻ってオーキドゥの子供たちの死体を取りに行き、それらを墓の向こう側に散らします.最初、Duskbringer は、彼らが実際に何であるかを理解するまで、あなたが良いジェスチャーをしていると思います。 「グレートアイの名の下に何をしているのですか?! 何が悪いのですか!?」 Duskbringer は彼の船に戻り、すべての乗組員にすぐに発砲するように命じます。</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>彼の船を奪う。</text>
+				<event load="MONK_GRAVE_ROB" />
+			</choice>
+			<choice hidden="true">
+				<text>ダスクブリンガーを倒せ。</text>
+				<event>
+					<text>武器を抜き、Zoltan を遠くから撃ちます。彼はほぼ瞬時に死に、鎧だけに消えていきます。少し不必要だったと感じずにはいられませんが、元に戻すには遅すぎます。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>月を無視します。</text>
+		<event>
+			<text>あなたが知っている限り、これは罠かもしれません。近づかないほうがいい。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="MONK_GRAVE_ROB">
+	<event>
+		<text>残念なことに、船を強盗している最中に、Duskbringer があなたを見つけるために戻ってきて、警報を発します!戦闘の準備をしてください！</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+		</choice>
+	</event>
+	<event>
+		<text>あなたの乗組員はダスクブリンガー船に忍び込み、略奪します。あなたが取った予備の武器以外はあまり見つかりません。</text>
+		<weapon name="GIFTLIST_ENERGY" />
+	</event>
 </eventList>
 
 <event name="NEBULA_MONK_FREE_CREW" unique="true">
@@ -2597,7 +2730,7 @@
 <event name="NEBULA_MONK_CONVERT" unique="true">
 	<text>ゾルタン修道院がこのビーコンに建設されました。彼らはあなたを歓迎し、彼らの寺院のツアーを提供します。</text>
 	<environment type="nebula" />
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>ツアーに同意します。</text>
 		<event>
 			<text>「ツアー」は、ツアーではなく、僧侶の宗教についての長い説教になります。あなたはそれがかなり退屈だと思いますが、あなたのクルーの一人は確信しています。驚いたことに、彼らは後ろに留まって僧侶に加わりたいと思っています！</text>
@@ -2620,6 +2753,10 @@
 				</event>
 			</choice>
 		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>あなたにはもっと良いことがあります。</text>
+		<event load="OPTION_INVALID" />
 	</choice>
 	<choice>
 		<text>却下。</text>
@@ -2661,6 +2798,14 @@
 <eventList name="MONK_BEGGAR_PAY">
 	<event>
 		<text>「ああ、ありがとう、あなたはとても親切です。」彼は一言も言わずに光を放ちます。</text>
+		<choice>
+			<text>船に乗って何かする。</text>
+			<event load="STORAGE_CHECK" />
+		</choice>
+		<choice>
+			<text>何もしない。</text>
+			<event />
+		</choice>
 	</event>
 	<event>
 		<text>「ああ、ありがとう。あなたはとても親切です。たぶん私はあなたと一緒にいるでしょう...あなたはとても素敵な人のようです。」</text>
@@ -2673,7 +2818,15 @@
 </eventList>
 <eventList name="MONK_BEGGAR_REFUSE">
 	<event>
-		<text>「大丈夫です…わかりました」僧侶は一言も言わずに立ち去ります。</text>
+		<text>「わかりました……わかりました」僧侶は無言で立ち去ります。</text>
+		<choice>
+			<text>船に乗って何かする。</text>
+			<event load="STORAGE_CHECK" />
+			</choice>
+		<choice>
+			<text>何もしない。</text>
+			<event />
+		</choice>
 	</event>
 	<event>
 		<text>僧侶は直立し、すぐに数年若く見えます。彼はローブを脱ぎ捨て、ブラスターを明らかにします！ 「Tsktskキャプテン、あなたはもっと与えるべきだった！」さらに数人のゾルタンが現れ、海賊船が近づいてくる。</text>
@@ -3052,7 +3205,7 @@
 					</choice>
 				</event>
 			</choice>
-			<choice req="zoltan_monk" hidden="true">
+			<choice req="LIST_CREW_MONK" hidden="true">
 				<text>（モンククルー）モンクに呼びかけてもらう。</text>
 				<event>
 					<text>「ああ、私たちの一人。私はあなたの船体を修理するために自動化された船を送ります。良い一日を。」</text>
@@ -3229,8 +3382,8 @@
 		<text>は？</text>
 		<event>
 			<text>僧侶はため息をついた。 「それはことわざです。それは、道徳を欠いている人々と自分自身を関連付ける人が同様の苦境に陥ることを意味します。警告、それで私は自分の状況のために、連邦内に住んでいると言わなければなりません。」</text>
-			<choice hidden="true" req="zoltan_monk">
-				<text>（モンククルー）警告はよく進んでいますが、それ自体のリスクがないわけではありません。</text>
+			<choice hidden="true" req="LIST_CREW_MONK">
+				<text>(Monk Crew) 「警告はよくできていますが、それ自体にリスクがないわけではありません。」</text>
 				<event>
 					<text>他の僧侶はうなずき、2人は道徳的原則についての長い哲学的議論を開始します。彼らの言うことは一言も理解できませんが、あなたの僧侶があなたの知恵のもう一方を納得させ、彼らが乗って来たようです。</text>
 					<crewMember amount="1" repair="1" class="zoltan_monk" />
@@ -3529,9 +3682,13 @@
 </event>
 <event name="MONK_EYE_OPTIONS">
 	<text>モノリスには奇妙で予測不可能な力があると言われています。彼らと話をすることができる人は、待っている多くの不思議や恐怖を見つけるかもしれません。</text>
-	<choice hidden="true">	
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">	
 		<text>モノリスに話しかけ、あなたの運命を待ちます。</text>
 		<event load="GREAT_EYE_LIST" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">	
+		<text>モノリスと話すと跡形もなく消える存在の話を聞いたことがあります... 同じ運命に会うことに興味はありません.</text>
+		<event load="OPTION_INVALID" />
 	</choice>
 	<choice req="prof_eye_offering" lvl="0" max_lvl="0" blue="false">	
 		<text>グレートアイに捧げ物をしなさい。</text>
@@ -3549,7 +3706,7 @@
 			</choice>
 		</event>
 	</choice>
-	<choice hidden="true" req="zoltan_monk">	
+	<choice hidden="true" req="LIST_CREW_MONK">	
 		<text>（モンククルー）より良い報酬のチャンスを目で祈ってください。</text>
 		<event load="GREAT_EYE_LIST_GOOD" />
 	</choice>
@@ -3566,7 +3723,7 @@
 					<ship load="SHIP_ZOLTAN_ELITE_FIGHT" hostile="true" />
 					<choice hidden="true">
 						<text>継続する...</text>
-						<event load="COMBAT_CHECK" />
+						<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
 					</choice>
 				</event>
 			</choice>

@@ -16,6 +16,43 @@
 	<ship load="SHIP_FREEMANTIS_DROPSHIP" hostile="false" />
 	<status type="limit" target="enemy" system="teleporter" amount="0" />
 	<choice hidden="true">
+		<text>あなたの使命を説明してください。</text>
+		<event>
+			<text>あなたはフリーマンティスにあなたの使命を説明します、そして彼らはあなたを信じているようです。彼らはあなたが成功するのを助けることを期待していくつかのスクラップを転送します。</text>
+			<autoReward level="LOW">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="mantis_free">
+		<text>(Free Mantis Crew) あなたのミッションを説明してください。</text>
+		<event>
+			<text>そのうちの 1 つが既に搭載されているので、フリーマンティスが支援物資を集め始める前に説明を終える必要はありません。彼らは、あなたの成功に役立つことを期待して、いくつかのリソースを譲渡します。</text>
+			<autoReward level="MED">standard</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="mantis_warlord">
+		<text>(ウォーロード クルー) あなたの使命を説明してください。</text>
+		<event>
+			<text>ウォーロードが乗っているのを見るだけで、すぐに彼らを納得させることができます。フリーマンティスは、善意のしるしとしてあなたを助けるために、できるだけ多くの物資を集め始めます.</text>
+			<autoReward level="HIGH">standard</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_FREDDY">
+		<text>(フレディ) あなたの使命を説明してください。</text>
+		<event>
+			<text>彼らがあなたの船に誰が乗っているかを知ったとき、彼らのチームはダブルテイクをします. Free Mantis はあなたを助けるために物資を集め始め、そのうちの 1 人は、善意のしるしとして、あなたの任務を手伝ってくれることさえ望んでいます.</text>
+			<autoReward level="HIGH">standard</autoReward>
+			<crewMember amount="1" class="mantis_free" combat="2" />
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_tully">
+		<text>(タリー) あなたの使命を説明してください。</text>
+		<event>
+			<text>彼らがあなたの船に誰が乗っているかを知ったとき、彼らのチームはダブルテイクをします. Free Mantis はあなたを助けるために物資を集め始め、そのうちの 1 人は、善意のしるしとして、あなたの任務を手伝ってくれることさえ望んでいます.</text>
+			<autoReward level="HIGH">standard</autoReward>
+			<crewMember amount="1" class="mantis_free" combat="2" />
+		</event>
+	</choice>
+	<choice hidden="true">
 		<text>情報の共有を拒否します。</text>
 		<event>
 			<text>フリーマンティスハフのリーダー。 「それなら、私たちはあなたの船と情報を私たちのものとみなします。」</text>
@@ -25,13 +62,6 @@
 				<text>継続する...</text>
 				<event load="MORALITY_UPDATE_FREEMANTIS_FIGHT" />
 			</choice>
-		</event>
-	</choice>
-	<choice hidden="true">
-		<text>あなたの使命を説明してください。</text>
-		<event>
-			<text>あなたはフリーマンティスにあなたの使命を説明します、そして彼らはあなたを信じているようです。彼らはあなたが成功するのを助けることを期待していくつかのスクラップを転送します。</text>
-			<autoReward level="LOW">scrap_only</autoReward>
 		</event>
 	</choice>
 </event>
@@ -60,19 +90,19 @@
 							<choice>
 								<text>燃料を取りなさい。</text>
 								<event>
-									<autoReward level="LOW">fuel_only</autoReward>
+									<autoReward level="MED">fuel_only</autoReward>
 								</event>
 							</choice>
 							<choice>
 								<text>ミサイルを持っていきます。</text>
 								<event>
-									<autoReward level="LOW">missiles_only</autoReward>
+									<autoReward level="MED">missiles_only</autoReward>
 								</event>
 							</choice>
 							<choice>
 								<text>いくつかのドローンパーツを取ります。</text>
 								<event>
-									<autoReward level="LOW">droneparts_only</autoReward>
+									<autoReward level="MED">droneparts_only</autoReward>
 								</event>
 							</choice>
 						</event>
@@ -97,7 +127,20 @@
 						<text>エンギに状況を説明してください。</text>
 						<event>
 							<text>「感謝の気持ち、高い。感謝の気持ち、高い。シミュレートされた恐れ、低い。ありがとう。」エンギはあなたに支払いをして飛び去ります。フリーマンティスのキャプテンは肩をすくめて、試してくれてありがとう。</text>
-							<autoReward level="LOW">scrap_only</autoReward>
+							<autoReward level="MED">scrap_only</autoReward>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_HARMONY">
+				<text>(Engi 乗組員) 「あなたの懸念 u003d 当然です。ただし、フリーマンティスは連邦の同盟国です。」</text>
+				<event>
+					<text>あなたの Engi は、Free Mantis が彼らにとって脅威ではないことを彼らに納得させることができました。彼らはしぶしぶあなたを信じ、すぐにフリーマンティスの船があなたの両方に追いつきます. 「害？いいえ。この戦争は非常に厄介です。同盟は重要であり、最善の方法は、貿易などの相互に有益な協定によるものです。エンギは恐れていますが、約束します。害がないことを願っています。」</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>彼らの間に続くものは、確かにあなたが今まで見た中で最もぎこちないやり取りの1つです.ただし、どちらもあなたの支援に対してあなたに報酬を与え、エンギが飛び去った直後に. Free Mantis の船長も肩をすくめてあなたの元を去ります。</text>
+							<autoReward level="MED">standard</autoReward>
 						</event>
 					</choice>
 				</event>
@@ -176,7 +219,7 @@
 <eventList name="FREEMANTIS_EXECUTIONER_OFFICER">
 	<event>
 		<text>あなたは人間を目覚めさせます。彼は咳をし、そして立ち上がる。 「ありがとう。私は連邦のスパイとして働いていたが、フリーマンティスは私が働いていた反乱軍の船を攻撃してクルーを殺し、人質にした。私の命を救ってくれてありがとう。 。」マンティスはすでに船に乗っているので、これ以上話す時間はありません！</text>
-		<crewMember amount="1" combat="1" class="human">Briggs</crewMember>
+		<crewMember amount="1" combat="1" class="human_soldier">Briggs</crewMember>
 		<boarders min="2" max="3" class="mantis_free" />
 		<ship load="SHIP_FREEMANTIS_EXECUTIONER_SPY" hostile="true" /> 
 		<choice hidden="true">
@@ -198,7 +241,7 @@
 <eventList name="FREEMANTIS_EXECUTIONER_OFFICER_REWARD_REBEL">
 	<event>
 		<text>「...私の何年にもわたって、見知らぬ人を完全に救出し、船全体を危険にさらして、あなたが今やったことを誰かがやるのを見たことがありません。兄弟たちになりました。どうぞ、あなたのクルーに仕えさせてください。」</text>
-		<crewMember amount="1" all_skills="1" class="human">Briggs</crewMember>
+		<crewMember amount="1" all_skills="1" class="human_soldier">Briggs</crewMember>
 	</event> 
 	<event>
 		<text>反乱軍の船長は無関心に行動しようとしますが、彼は感謝していると言えます。 「私は今あなたの借金を抱えていると思います。あなたはまだ私の敵ですが、私は立派な男です。私は艦隊に誤った情報を与えます、それは彼らをしばらく遅らせるはずです。」</text>
@@ -238,7 +281,21 @@
 </eventList>
 
 <event name="ENCOUNTER_FREEMANTIS_CONFUSED" unique="true">
+	<loadEventList seeded="false" first="false" generate="true">
+		<event name="ENCOUNTER_FREEMANTIS_CONFUSED_NORMAL" req="REBEL_SHIP" lvl="0" max_lvl="0" />
+		<event name="ENCOUNTER_FREEMANTIS_CONFUSED_REBEL" req="REBEL_SHIP" lvl="1" />
+	</loadEventList>
+</event>
+<event name="ENCOUNTER_FREEMANTIS_CONFUSED_NORMAL">
 	<text>あなたはフリーマンティスの船に迎えられ、その船長はすぐにあなたをだまし始めます。 「反逆者のクズ野郎！あなたが私の氏族を台無しにした日を破滅させるでしょう！私は頭を取り除き、それを私の連邦の友人への贈り物として持ってきます！」彼は咆哮し、送信を終了します。彼らがあなたを反乱軍の船としてどのように混乱させたかはわかりませんが、この船から抜け出す方法はないようです。</text>
+	<ship load="SHIP_FREEMANTIS_FIGHT_NOSURRENDER" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="ENCOUNTER_FREEMANTIS_CONFUSED_REBEL">
+	<text>あなたはフリーマンティス船に歓迎され、その船長はすぐにあなたを中傷し始めます。 「反逆者のクズ！一族をめちゃくちゃにした日を後悔するぞ！首を外して、連邦の友達にプレゼントとして持っていくぞ！」彼は咆哮し、送信を終了します。フリーマンティスの領土で実際の反乱軍の船を飛ばすという素晴らしい考えを持っていたので、今回はあなた自身を責める必要はありません。</text>
 	<ship load="SHIP_FREEMANTIS_FIGHT_NOSURRENDER" hostile="true" /> 
 	<choice hidden="true">
 		<text>継続する...</text>
@@ -383,6 +440,16 @@
 				<text>（エンジニアクルー）パルサーがどのように機能するかをエンジニアに説明してもらいます。</text>
 				<event>
 					<text>あなたのエンジニアはフリーマンティスと一緒に座り、パルサーはただの星であり、たくさんの船は文字通りそれに対して何もできないことを説明するのに約30分かかります。</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="FREEMANTIS_PULSARRAID_EXPLAIN" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_SHELL_SCIENTIST">
+				<text>(Shell Scientist Crew) 科学者にパルサーの仕組みを説明してもらいます。</text>
+				<event>
+					<text>あなたのシェルはフリーマンティスの注目を集め、パルサーはただの星であり、多くの船が文字通りそれに対して何もできないことを説明するのにほぼ30分かかります.</text>
 					<choice hidden="true">
 						<text>継続する...</text>
 						<event load="FREEMANTIS_PULSARRAID_EXPLAIN" />
@@ -747,9 +814,13 @@
 
 <event name="QUEST_FREEMANTIS_MATE" unique="true">
 	<text>最初は何を見ているのかわかりませんが、2隻のマンティス船が高速で衝突した後のようです。最小限の電力シグネチャがあり、エンジンの1つが奇跡的にまだ実行されているようですが、誰かが実際に生きているかどうかはわかりません。</text>
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>残骸をスクラップします。</text>
 		<event load="FREEMANTIS_MATE_SCRAP" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>残骸をすべて自分で廃棄することはできません。</text>
+		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true">
 		<text>連絡してみてください。</text>
@@ -1121,7 +1192,7 @@
 			<choice hidden="true">
 				<text>継続する...</text>
 				<event>
-					<text>ゾルタンは実際には巨大な実験室の前に配置されているようです。 フリーマンティスがファクトリーを何に使用しているのかはわかりませんが、ゾルタンがファクトリーをターゲットにするのに十分高い優先度であることは明らかです。</text>
+					<text>どうやらゾルタンは巨大な実験室の前に駐留しているようだ。 Free Mantis が工場を何に使用しているかはわかりませんが、Zoltans が工場を標的にするのに十分な優先度であることは明らかです。</text>
 					<choice hidden="true">
 						<text>ゾルタンを攻撃せよ！</text>
 						<event>
@@ -1129,7 +1200,7 @@
 							<ship hostile="true" /> 
 							<choice hidden="true">
 								<text>継続する...</text>
-								<event load="COMBAT_CHECK" />
+								<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
 							</choice>
 						</event>
 					</choice>

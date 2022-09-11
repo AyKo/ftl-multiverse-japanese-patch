@@ -476,7 +476,7 @@
 			<choice hidden="true" req="teleporter">
 				<text>（Teleporter）それらをテレポートして戻します！</text>
 				<event>
-					<text>幸いなことに、時間内にすべてのクルーをテレポートすることができます。ドローンは、引き離すときに船に残されます。</text>
+					<text>幸いなことに、乗組員全員を時間内にテレポートすることができます。あなたが引き離すと、ドローンは船に置き去りにされます。</text>
 				</event>
 			</choice>
 		</event>
@@ -484,19 +484,19 @@
 	<choice hidden="true">
 		<text>ここにドローンがあります、それをつかんでください！</text>
 		<event>
-			<text>ドローンをつかみ、台座から持ち上げるとすぐに船内で警報が鳴ります。 2機のドローンが壁から出てきて、武器が準備され、クルーに向かって発砲します！</text>
+			<text>ドローンをつかみ、台座から持ち上げるとすぐに、船内でアラームが鳴ります。原子の形をしたドローンが壁から出てきて、武器が準備され、乗組員に向けて発砲します!</text>
 			<drone name="ANCIENT_COMBAT_LASER" />
 			<choice hidden="true">
 				<text>急いで船に戻ってください！</text>
 				<event>
 					<text>あなたのクルーは、ドローンに追われて船に戻ります。エアロックをすばやく密閉しようとしますが、残念ながらドローンがエアロックを搭載します。船を守る準備をしなさい！</text>
-					<boarders min="2" max="2" class="atom" />
+					<boarders min="1" max="1" class="atom" />
 				</event>
 			</choice>
 			<choice hidden="true" req="teleporter">
 				<text>（Teleporter）それらをテレポートして戻します！</text>
 				<event>
-					<text>幸いなことに、時間内にすべてのクルーをテレポートすることができます。ドローンは、引き離すときに船に残されます。</text>
+					<text>幸いなことに、乗組員全員を時間内にテレポートすることができます。あなたが引き離すと、ドローンは船に置き去りにされます。</text>
 				</event>
 			</choice>
 		</event>
@@ -520,7 +520,7 @@
 	<text>巨大な立方体の構造、おそらくステーションは、近くの星の引力に捕らえられ、ゆっくりと近づいています。ステーションの必然的な破壊は避けられませんが、乗っているものは何でも救助するのに十分な時間があるかもしれません。</text>
 	<customFleet right="false" firing="false" autoDarkening="true">CUSTOM_FLEET_ANCIENT_WRECKAGE</customFleet>
 	<environment type="sun" />
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>近づいてください。</text>
 		<event>
 			<text>あなたが近づくにつれて、環境は危険すぎて、打撃を受けずにこれをやり遂げることができないことが明らかになります。適切な防御がない限り、太陽フレアに耐える必要があります。</text>
@@ -545,6 +545,20 @@
 						<event />
 					</choice>
 				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>「警告: 危険な状態が検出されました。それ以上の準備をせずに調査することはお勧めできません。」</text>
+		<event>
+			<text>廃墟が提供しなければならないものは何でも努力する価値はありません。</text>
+			<choice hidden="true">
+				<text>ストレージを確認してください。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
 			</choice>
 		</event>
 	</choice>
@@ -815,7 +829,7 @@
 		<text>継続する...</text>
 		<event load="RUINS_SALVAGE_GHOSTWASTE_LIST" />
 	</choice>
-	<choice hidden="true" req="anointed">
+	<choice hidden="true" req="unique_anointed">
 		<text>（聖皇后）廃墟の言葉を翻訳してみてください。</text>
 		<event>
 			<text>「最善を尽くします。先祖の言葉はさびていることを念頭に置いていますが、要点は正しくなっています。立ち止まってください。」</text>

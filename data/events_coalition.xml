@@ -10,12 +10,12 @@
 </eventList>
 
 <event name="COALITION_FED_AUTO" unique="true">
-	<text>ここでフェデレーションオートシップを見てショックを受けました。 「この船は、連立戦線の兵士を救援するために連邦によって配備されました。一人で行くのは危険です。これを持っていってください。」</text>
+	<text>連邦のオートシップを見てショックを受けています。 「この船は、連合戦線の兵士を救援するために連邦によって配備されました。単独で行くのは危険です。これを持ってください。」</text>
 	<ship load="SHIP_FED_AUTO_COALITION" hostile="false" />
 	<choice>
 		<text>供給を受け入れます。</text>
 		<event>
-			<text>「幸運の船長。」オートシップは飛び去ります。</text>
+			<text>「幸運を祈ります。キャプテン」オートシップは飛び去ります。</text>
 			<autoReward level="MED">item</autoReward>
 		</event>
 	</choice>
@@ -70,12 +70,12 @@
 </eventList>
 
 <event name="COALITION_HEKTAR" unique="true">
-	<text>到着するとすぐに、耳から聞こえる大きな広告が船のステレオを爆破します。 「すべての買い物客に注意してください！HEKTAR INDUSTRIESSS ISSSは、新しいHEKTARブランドの軍事SSSUPPLYDEPOTSSSの到着を発表することを誇りに思っています。 ！」</text>
+	<text>到着するとすぐに、耳をつんざくような大音量の広告が船のステレオから流れます。 「すべての買い物客に注意してください! HEKTAR INDUSTRIESSS ISSS は、私たちの新しい HEKTAR ブランド軍事 SSSUPPLY DEPOTSSS の到着を発表できることを誇りに思っています。これは、すべての連合船 (または、USS にお金を提供する意思のある他の誰でも) に開かれています。 SSSO が来て、SSSSHOP SSSSHOP SSSSHOP! ！」</text>
 	<ship load="SHIP_HEKTAR_STATION" hostile="false" />
 	<choice hidden="true">
 		<text>入って「ショップショップショップ」。</text>
 		<event>
-			<text>「ああ、もう一人の頭の悪い馬鹿…まさか、そうだね。お金をくれるもう一人の頭の悪い馬鹿！ヘクタール・インダストリーズへようこそ！ここにあるものが気に入ったら、ヘクタール・メガを訪ねてみてください-将来的には市場に出回る時期が来る！」</text>
+			<text>「ああ、また頭の悪い馬鹿が… ダメだ、違うよ。お金をあげる頭のない馬鹿がまた来た！ ヘクタール産業へようこそ！ ここで見たものが気に入ったら、ヘクタールメガを訪問することを検討してください-いつか市場に出てください！」</text>
 			<store>STORE_HEKTAR_DEFAULT</store>
 		</event>
 	</choice>
@@ -92,7 +92,7 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_VARIANT_HEKTAR">
-		<text>（Hektarクルー）従業員割引をリクエストします。</text>
+		<text>（クルー）従業員割引をリクエストします。</text>
 		<event>
 			<text>「AHAHAHAHAHAHHAHAHAH！HAH！AHAH！ハァッ...おやおや。従業員の割引？あなたは愚かですか？ヘクタールは従業員の割引を与えません、それは従業員のマークアップを与えます！あなたは私からお金を盗もうとします、あなたはヒルです！」</text>
 			<ship hostile="true" />
@@ -103,7 +103,7 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_VARIANT_BILLY">
-		<text>（ビリー）Hektar（tm）ブランドの供給パッケージをリクエストします。</text>
+		<text>（ビリー）（tm）ブランドの供給パッケージをリクエストします。</text>
 		<event>
 			<text>ビリーが戻るまで、そしてヘクタールのパッケージがあなたの船倉に預けられた直後に、それはほんの数分かかります。大手企業のCEOを船に乗せるのはお金がかかると思います。</text>
 			<weapon name="HEKTAR_MODULAR_WEAPONS" />
@@ -113,7 +113,7 @@
 	<choice hidden="true">
 		<text>デポを攻撃します。</text>
 		<event>
-			<text>Hektarは、彼らの製品と同じくらい良いので、悪意のある企業です。彼らが今連合に売っているなら、彼らをシャットダウンするのはあなたの義務です。</text>
+			<text>は、彼らの製品と同じくらい良いので、悪意のある企業です。彼らが今連合に売っているなら、彼らをシャットダウンするのはあなたの義務です。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
 				<text>継続する...</text>
@@ -544,7 +544,7 @@
 	</choice>
 </event>
 <event name="COALITION_JAILER_DESTROY">
-	<text>看守は破壊されました。過剰なスクラップが残っている間、それは非常にありそうもなく、囚人は生き残りました。</text>
+	<text>看守は破壊されました。過剰なスクラップが残っている間、囚人が生き残った可能性は非常に低いです。</text>
 	<autoReward level="MED">standard</autoReward>
 </event>
 <event name="COALITION_JAILER_KILL">
@@ -1031,7 +1031,7 @@
 	<text>連合の誘拐犯がこのビーコンに隠れています。彼らはあなたを不吉に歓迎します、「あなたの死、旅行者を選んでください。あなたのクルーの一人による裏切り、または私たちの手による破壊？」</text>
 	<ship load="SHIP_COALITION_ABDUCTOR" hostile="false" />
 	<environment type="nebula" />
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="1">
 		<text>裏切り。</text>
 		<event>
 			<text>「面白い選択です。お楽しみください！」あなたのクルーの1人が完全に怒って座屈します。彼らはあなたを起訴し、誘拐犯のマインドコントロールによって敵対的になります。船はすぐに星雲に滑り込みます。</text>
@@ -1184,7 +1184,12 @@
 </event>
 
 <event name="NEBULA_COALITION_SQUABBLING" unique="true">
-	<text>近くのエリート連合船の乗組員の間で会話をします。 「馬鹿に言った、この場所の悪い考えに行く！」 「ああ、ssssshut up、nebulassssには何の問題もありません！」 「武器は校正する必要があります！ 「あなたたちはポップスと彼の3人のガールフレンドよりも主張しています！これが家に戻るよりも悪いとは信じられません...」</text>
+	<text>あなたは、近くにいる精鋭連合船の乗組員の会話に耳を傾けます。
+
+「ばか、この場所は悪い考えだ！」
+「おおっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっ！
+「武器を調整する必要があります!BAH!あなたの泣き言をすべてやめて、誰かが私を助けに来てください。」
+「君たちはポップスと彼の 3 人のガールフレンドよりも多くの口論をしている!これが家に帰るより悪いなんて信じられない...」</text>
 	<environment type="nebula" />
 	<choice hidden="true">
 		<text>チューンイン：星雲は隠れるために最適です。</text>
@@ -1588,6 +1593,13 @@
 			<quest event="COALITIONHOLD_CEALAFORMER_3" />
 		</event>
 	</choice>
+	<choice hidden="true" req="BLUELIST_CREW_SNAIL">
+		<text>(テレパシー シェル) シェルに船を追跡させます。</text>
+		<event>
+			<text>幸いなことに、シェルはジャンプのサインを検出できます。新しい座標をデータベースに入力します。</text>
+			<quest event="COALITIONHOLD_CEALAFORMER_3" />
+		</event>
+	</choice>
 	<choice hidden="true" req="ADV_SCANNERS">
 		<text>（長距離スキャナー）彼らの船を追跡します。</text>
 		<event>
@@ -1701,12 +1713,12 @@
 					<choice hidden="true">
 						<text>中を見ます。</text>
 						<event>
-							<text>秘密の部屋は、ある種の会議室であることがわかります。 4つの華やかな椅子の顔が大きなホロタブルを囲んでいます-1つは連立内の4つの派閥すべてのリーダーのためのものです。テーブルの後ろのドアは、大聖堂のような巨大な空間に通じています。調べるべきことはたくさんありますが、最初に最も明白なものに向かいます。プロトタイプの連立巡洋艦の未完成のフレームと設計図-連邦と反乱軍自身の高度な軍艦と競争するためのもの。設計図をスキャンしてから、それらに火をつけます。おそらくコピーがありますが、これによりCoalitionが少し後退するはずです。</text>
+							<text>秘密の部屋は、ある種の会議室であることが明らかになりました。 4 つの華やかな椅子が大きなホロテーブルを取り囲んでいます - 1 つは連合内の 4 つの派閥すべてのリーダー用です。テーブルの後ろのドアは、巨大な大聖堂のような空間に通じています。目を通さなければならないことがたくさんありますが、最初に最も明白なものに向かいます. Coalition 巡洋艦のプロトタイプの未完成のフレームと設計図 - 連邦と反乱軍の先進的な軍艦と競合するもの。設計図をスキャンしてから、それらに火をつけます。おそらくコピーはありますが、これはCoalitionを少し後退させるはずです.</text>
 							<unlockCustomShip silent="false">PLAYER_SHIP_COALITION</unlockCustomShip>
 							<choice hidden="true">
 								<text>部屋の残りの部分を見てください。</text>
 								<event>
-									<text>部屋の残りの部分には、最初のマルチバースドライブがリバースエンジニアリングされた容器と同様に、エーテルから作られたいくつかの古代の技術の遺跡でいっぱいです。テーブルには、異星人の象形文字の部分的な翻訳がある論文があり、「終末爆弾」、「現実のモノリスを変える現実」の奇妙で心配な説明、および片目のある立方体のロボットの絵を詳述しています。あなたは、アクアリアンの侵略の間に連合がいくつかの前駆者技術を回復したと聞いたが、あなたは彼らの研究がこれが詳細であるとは思わなかった。これらすべてを船に持ち帰る時間はありませんが、一見機能的な武器の1つをつかんで持ち込みます。</text>
+									<text>部屋の残りの部分は、最初のマルチバース ドライブがリバース エンジニアリングされた船のものと同様に、エーテルから作られた古代技術の遺跡で満たされています。テーブルの上には、エイリアンの象形文字の部分的な翻訳を含む紙があり、「終末の爆弾」、「現実を変えるモノリス」、および片目の立方体ロボットの図の奇妙で心配な説明が詳述されています。連合が水瓶座の侵略中にいくつかの前駆技術を回復したと聞いたが、彼らの研究がこれほど詳細であるとは知らなかった.これらすべてを船に持ち帰る時間はありませんが、機能しているように見える武器の1つを手に取り、持っていきます.</text>
 									<autoReward level="MED">stuff</autoReward>
 									<weapon name="ANCIENT_MISSILES" />
 								</event>

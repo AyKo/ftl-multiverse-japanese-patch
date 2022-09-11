@@ -41,12 +41,13 @@
 </event>
 <event name="LASTSTAND_WARP">
 	<loadEventList seeded="false" first="true" generate="true">
+		<event name="HOEDOWN_WARP" req="prof_dylan_counter" lvl="3" />
 		<event name="SET_DETERGENT" req="detergent_mode" lvl="1" />
 		<event name="LASTSTAND_WARP_REAL" req="detergent_mode" lvl="0" />
 	</loadEventList>
 </event>
 <event name="SET_DETERGENT">
-	<jumpEvent>DETERGENT_WIN</jumpEvent>
+	<jumpEvent loop="false">DETERGENT_WIN</jumpEvent>
 	<loadEvent>LASTSTAND_WARP_REAL</loadEvent>
 </event>
 <event name="HAS_VISITED_LASTSTAND">
@@ -62,7 +63,7 @@
 フェデレーションキャピタルはあなたの最終目的地です。反乱軍による包囲下で、この現実を救うためには、連邦基地を破壊する前に反乱軍の旗艦を殺さなければなりません。</text>
 	<queueEvent>HAS_VISITED_LASTSTAND</queueEvent>
 	<choice hidden="true" req="loc_laststand" lvl="1" max_group="0" blue="false">
-		<text>継続する...</text>
+		<text>超高速を終了します。</text>
 		<event load="TRUE_LAST_STAND_START_EMERGENCY" />
 	</choice>
 	<choice hidden="true" blue="false" req="challenge_level" lvl="3" max_group="0">
@@ -78,7 +79,7 @@
 		<event load="REROUTE_MENU_LASTSTAND" />
 	</choice>
 </event>
-<ship name="SHIP_LAST_STAND_START_EXTREME" auto_blueprint="MU_REBEL_PICKET_SELITE">
+<ship name="SHIP_LAST_STAND_START_EXTREME" auto_blueprint="MU_REBEL_PICKET_SELITE_EXIT">
 	<destroyed load="LAST_STAND_START_EXTREME_FINISH" />
 	<deadCrew load="LAST_STAND_START_EXTREME_FINISH" />
 	<crew>
@@ -87,6 +88,7 @@
 	</crew>
 </ship>
 <event name="TRUE_LAST_STAND_START_EMERGENCY">
+	<metaVariable name="juke_laststand" op="set" val="1" />
 	<changeBackground>BACK_EVENT_LASTSTAND</changeBackground>
 	<metaVariable name="prof_finalsector" op="add" val="1" />
 	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
@@ -141,11 +143,12 @@
 </event>
 <event name="TRUE_LAST_STAND_START">
 	<text>ついに連邦首都のノード17に到着しました。マルチバース技術が発見された現実であるユニバース0で、この紛争の話を聞いたことがあるでしょう。今、あなたはそれに参加しようとしています。ここでのあなたの行動は、この現実を救うか、破滅させるでしょう。</text>
+	<metaVariable name="juke_laststand" op="set" val="1" />
 	<metaVariable name="prof_finalsector" op="add" val="1" />
 	<customFleet right="false" firing="false" autoDarkening="false">CUSTOM_FLEET_FED</customFleet>
 	<changeBackground>BACK_EVENT_LASTSTAND</changeBackground>
 	<playSound>lightspeed</playSound>
-	<choice hidden="true" req="rep_general" lvl="-2147483648" max_lvl="7" max_group="0" blue="false">
+	<choice hidden="true" req="rep_general" lvl="-2147483648" max_lvl="3" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event>
 			<text>IDをすばやくスキャンすると、問題なくビーコンを通過できます。</text>
@@ -282,7 +285,7 @@
 			<choice hidden="true" max_group="1" req="SHIP_ZOLTAN" blue="false">
 				<text>フェデレーションコマンドに連絡してください。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「ゾルタンが現れるとは思っていなかった。彼らがちょうど1隻の船を運ぶことに専念していたことを知ってうれしい。」</text>
+					<text>ビデオスクリーンには、連邦とエンギの将校数名と、中央にいるタリー提督が映っている。 「ゾルタンが現れるとは思いませんでした。彼らがたった一隻の船を持ってくることに専念していたことを知ってうれしいです。」</text>
 					<choice hidden="true">
 						<text>継続する...</text>
 						<event load="LAST_STAND_START_2" />
@@ -499,10 +502,20 @@
 					</choice>
 				</event>
 			</choice>
-			<choice hidden="true" max_group="1" req="SHIP_CURA" blue="false">
+			<choice hidden="true" max_group="1" req="SHIP_AUTO" blue="false">
 				<text>フェデレーションコマンドに連絡してください。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。彼はあなたの船に乗り込むときに一歩後退します。 「それは……ええと……あなたが何者なのか、なぜユニバース0が自動化された船をレネゲートとして雇ったのかわかりませんが、あなたが何であれ、私たちの問題の解決策であるなら...私のゲストになりませんか？しかし、私はあなたに目を光らせていきます...」</text>
+					<text>ビデオスクリーンには、連邦とエンギの将校数名と、中央にいるタリー提督が映っている。彼はあなたの船に乗り込みながら一歩後退します。 「うーん…君が何者なのか、なぜ第0宇宙がレネゲードとして自動化された船を雇ったのかは分からないが、君が何であれ問題の解決策であるなら…私のゲストになってくれる？あなたを見守って…」</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="LAST_STAND_START_2" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" max_group="1" req="SHIP_TECH" blue="false">
+				<text>フェデレーションコマンドに連絡してください。</text>
+				<event>
+					<text>ビデオスクリーンには、連邦とエンギの将校数名と、中央にいるタリー提督が映っている。 「W.I. は連邦を支援するために船を派遣しましたか? 矛盾しているように思えますが、私ははるかに見知らぬレネゲードが以前にやってくるのを見てきました. 、 キャプテン。"</text>
 					<choice hidden="true">
 						<text>継続する...</text>
 						<event load="LAST_STAND_START_2" />
@@ -609,9 +622,19 @@
 					</choice>
 				</event>
 			</choice>
+			<choice hidden="true" max_group="1" req="SHIP_SIREN" blue="false">
+				<text>フェデレーションコマンドに連絡してください。</text>
+				<event>
+					<text>ビデオスクリーンには、連邦とエンギの将校数名と、中央にいるタリー提督が映っている。 「あなたの船... 私はこれまでにそのような種類のものを見たことがありません.明らかに、多元宇宙には私がまだ見ていない多くの秘密が残っています.私の言っていることを理解し、あなたが友好的であるなら、お願いします.私たちは奇妙に聞こえるかもしれませんが、私たちは皆、あなたを頼りにしています。」</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="LAST_STAND_START_2" />
+					</choice>
+				</event>
+			</choice>
 		</event>
 	</choice>
-	<choice hidden="true" req="rep_general" lvl="8" max_lvl="999" max_group="0" blue="false">
+	<choice hidden="true" req="rep_general" lvl="4" max_lvl="999" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event>
 			<text>IDをスキャンしますが、何かが間違っているように見えます。近くの連邦船が近づき、彼らの武器がオンラインであることに気付きます。あなたは船から連絡を受け取ります。 「あなたはここの旅でかなりの逃亡をしてきました。私は、連盟が彼らの記録に非常に多くの悪いマークを持つ人を支えることができないのではないかと心配しています。あなたが許しでショットを望むなら、旗艦を排除することは良い場所です始める。"そのメモでは、彼らは通信を削減します。</text>
@@ -791,6 +814,10 @@
 				<text>私たちは夜を捨て、収奪国家に民主主義に転向するよう説得しました。</text>
 				<event load="BOSS_NEGOTIATE_1" />
 			</choice>
+			<choice hidden="true" req="ach_boss_jack">
+				<text>連邦を組み立てようとするシンジケート攻撃を阻止することで、ダスクブリンガー運動の欠陥を明らかにしました。</text>
+				<event load="BOSS_NEGOTIATE_1" />
+			</choice>
 			<choice hidden="true">
 				<text>ええと、まあ...ええと...</text>
 				<event>
@@ -888,7 +915,8 @@
 																<text>継続する...</text>
 																<event>
 																	<text>そして、ジェリーはポニーにまたがります。「よし。これで準備完了です」</text>
-																	<unlockCustomShip silent="false">PLAYER_SHIP_PONY_3</unlockCustomShip>
+																	<achievement>ACH_JERRY_STEED</achievement>
+																	<achievement>ACH_JERRY_CRYSTALSTEED</achievement>
 																	<crewMember amount="1" class="unique_jerry_pony_crystal">ジェリー</crewMember>
 																	<choice hidden="true">
 																		<text>継続する...</text>
@@ -920,7 +948,7 @@
 																<text>継続する...</text>
 																<event>
 																	<text>そして、ジェリーはポニーにまたがります。「よし。これで準備完了です」</text>
-																	<unlockCustomShip silent="false">PLAYER_SHIP_PONY_3</unlockCustomShip>
+																	<achievement>ACH_JERRY_STEED</achievement>
 																	<crewMember amount="1" class="unique_jerry_pony">ジェリー</crewMember>
 																	<choice hidden="true">
 																		<text>継続する...</text>
@@ -976,21 +1004,29 @@
 
 <event name="BOSS_TEXT_3">
 	<text>あなたはそれが受けたダメージの量でどのように戦い続けることができるのかわからない。それは防御システムだけでなく...ある種の超兵器にも力を移しているように見えます。準備してください...これで終わりです！</text>
-	<status type="clear" target="player" system="sensors" amount="100" />
-	<choice hidden="true" req="loc_vance_betrayal" lvl="0" blue="false" max_group="0">
-		<text>継続する...</text>
-		<event load="COMBAT_CHECK_FLAGSHIP" />
-	</choice>
-	<choice hidden="true" req="loc_vance_betrayal" lvl="1" blue="false" max_group="0">
+	<choice hidden="true">
 		<text>継続する...</text>
 		<event>
-			<text>3回目に旗艦に近づくと、ASBショットが船を通過し、旗艦とほぼ衝突します。遠くで、反乱軍はお互いの間で向きを変えました。ヴァンスの裏切りの言葉が伝わったように見え、それは彼らの力に分裂を引き起こした。この最後のストレッチ中に追加の火力支援を期待してください！</text>
-			<environment type="PDS" target="enemy" />
-			<choice hidden="true">
-				<text>継続する...</text>
-				<event load="COMBAT_CHECK_FLAGSHIP" />
-			</choice>
+			<loadEventList seeded="false" first="true" generate="true" default="COMBAT_CHECK_FLAGSHIP">
+				<event name="BOSS_TEXT_3_GNOME" req="chaos_mode" lvl="1" />
+				<event name="BOSS_TEXT_3_VANCE" req="loc_vance_betrayal" lvl="1" />
+			</loadEventList>
 		</event>
+	</choice>
+</event>
+<event name="BOSS_TEXT_3_GNOME">
+	<achievement>ACH_GNOME_FAIL</achievement>
+	<playSound>gm_fail</playSound>
+	<loadEventList seeded="false" first="true" generate="true" default="COMBAT_CHECK_FLAGSHIP">
+		<event name="BOSS_TEXT_3_VANCE" req="loc_vance_betrayal" lvl="1" />
+	</loadEventList>
+</event>
+<event name="BOSS_TEXT_3_VANCE">
+	<text>3回目に旗艦に近づくと、ASBショットが船を通過し、旗艦とほぼ衝突します。遠くで、反乱軍はお互いの間で向きを変えました。ヴァンスの裏切りの言葉が伝わったように見え、それは彼らの力に分裂を引き起こした。この最後のストレッチ中に追加の火力支援を期待してください！</text>
+	<environment type="PDS" target="enemy" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK_FLAGSHIP" />
 	</choice>
 </event>
 	
@@ -1005,7 +1041,7 @@
 		<event load="BOSS_NEGOTIATE_2" />
 	</choice>
 	<choice hidden="true" req="ach_boss_autodread">
-		<text>私たちはあなた自身の自動化ドレッドノート級戦艦の1つからスペクトル王朝を救いました。</text>
+		<text>プライマル リーパーがあなたの攻撃の 1 つを撃退するのを助けることで、私たちはプライマル リーパーと同盟を結びました。</text>
 		<event load="BOSS_NEGOTIATE_2" />
 	</choice>
 	<choice hidden="true" req="ach_boss_clancruiser">
@@ -1041,8 +1077,12 @@
 		<text>SpectralWastelandsの元の旗艦を破壊しました。一度やったらまたやれる。</text>
 		<event load="BOSS_NEGOTIATE_3" />
 	</choice>
-	<choice hidden="true" req="ach_boss_mfkcruiser">
-		<text>旗艦ではありませんが、MFK巡洋艦を破壊しました。私たちは、反乱が私たちに投げかけるものなら何でも扱うことができます。</text>
+	<choice hidden="true" req="ach_boss_autodread">
+		<text>フラッグシップではありませんが、オート ドレッドノートを撃破しました。リベリオンが私たちに投げかけるものは何でも処理できます。</text>
+		<event load="BOSS_NEGOTIATE_3" />
+	</choice>
+	<choice hidden="true" req="ach_boss_cura">
+		<text>フラッグシップではありませんが、高度な W.I. オートクルーザーのプロトタイプを破壊しました。リベリオンが私たちに投げかけるものは何でも処理できます。</text>
 		<event load="BOSS_NEGOTIATE_3" />
 	</choice>
 	<choice hidden="true" req="ach_boss_mfkgunboat">
@@ -1298,7 +1338,7 @@
 <event name="BOSS_EGGMAN" unique="true">
     <text>反乱軍の艦隊が惑星の周りに集まり、その上にかなり人口の多い連邦の大都市が建設されました。艦隊のリーダーである、エンジニアの船に乗った、過度に丸みを帯びたほぼ卵形の男が、それに応じて集まった群衆に向かって叫んでいるようです。</text>
 	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
-    <img planet="PLANET_MOON" />
+    <img planet="PLANET_MOONS" />
     <choice hidden="true">
         <text>彼の暴言を聞いてください。</text>
         <event>
@@ -1405,9 +1445,13 @@
 					<augment name="PANDORA_BOX" />
 				</event>
 			</choice>
-			<choice hidden="true">
+			<choice hidden="true" blue="false" req="LIST_CHECK_ANY_CREW" lvl="1">
 				<text>今すぐ開いてください！</text>
 				<event load="STORAGE_CHECK_AUG_PANDORA_OPEN" />
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0">
+				<text>「警告: 未知の異常なアーティファクトが検出されました。[検疫] が予定されています。」</text>
+				<event load="OPTION_INVALID" />
 			</choice>
 		</event>
 	</choice>

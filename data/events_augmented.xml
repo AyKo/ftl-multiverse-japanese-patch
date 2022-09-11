@@ -178,7 +178,7 @@
 				<event load="FLEET_ESCAPE" />
 			</choice>
 			<choice hidden="true" req="LIST_CREW_JERRY">
-				<text>（ジェリー）こんにちは！</text>
+				<text>（ジェリー）「こんにちは！」</text>
 				<event>
 					<text load="TEXT_ENCOUNTER_REBEL_JERRY_HELLO" />
 					<ship hostile="false" /> 
@@ -679,12 +679,12 @@
 </event>
 
 <event name="AUGMENTED_GHOST" unique="true">
-    <text>近くの古代の船は通常よりもはるかに良い状態ですが、それだけではありません...スキャンはゴーストが船を支配していることを示しています！</text>
+    <text>近くのエンシェント船はいつもよりずっと良い状態ですが、それだけではありません... スキャンは、ヴァガボンドが船を支配していることを示しています!</text>
     <ship load="SHIP_GHOST_ANCIENT" hostile="false" />
     <choice hidden="true">
         <text>それらを攻撃してください、多分船は何か価値があります！</text>
         <event>
-            <text>ゴーストは船をあきらめないことを決意し、あなたの攻撃から身を守る準備をします。</text>
+            <text>船をあきらめないことを決意した放浪者たちは、あなたの攻撃から身を守る準備をしています。</text>
             <ship hostile="true" /> 
             <choice hidden="true">
                 <text>継続する...</text>
@@ -693,9 +693,9 @@
         </event>
     </choice>
     <choice hidden="true">
-        <text>ゴーストに連絡し、取引を申し出る。</text>
+        <text>放浪者を歓迎し、取引を申し出てください。</text>
         <event>
-            <text>ゴーストが応答を入力するのに時間がかかることを知って、メッセージを送信して応答を待ちます。 「こんにちは、あなたは認められています。私たちはこの新しい船を回収しましたが、燃料が不足しています。あなたが十分な量の燃料を持っているなら、私たちは取引します。」</text>
+            <text>メッセージを送信して応答を待ちます。翻訳者がゴーストの静的なノイズを適切に解読するのに時間がかかることを知っています。 「こんにちは、承知しました。この新しい船を回収しましたが、維持に必要なリソースが不足しています。燃料が多量にある場合は、商品の交換を受け付けます。」</text>
             <choice>
                 <text>彼らに少量の燃料を与えます。</text>
                 <event>
@@ -719,7 +719,7 @@
             <choice>
                 <text>彼らに大量の燃料を与えなさい。</text>
                 <event>
-                    <text>「これは大量の燃料です。あなたは私たちの最高の感謝を持っています。この武器を持っていってください、それはこの船の古い所有者のものでした。</text>
+                    <text>「これは大量の燃料です。感謝の意を表します。この武器を受け取ってください。この船の元居住者のものでした。それが誰であったとしてもです。」</text>
                     <item_modify>
                         <item type="fuel" min="-15" max="-15" />
                         <item type="scrap" min="40" max="40" />
@@ -730,15 +730,15 @@
             <choice>
                 <text>燃料を惜しまない。</text>
                 <event>
-                    <text>ゴーストからのさらなる応答を待ちますが、何も得られません。あなたは古代の船から引き離し、ゴーストを置き去りにします。</text>
+                    <text>ヴァガボンドからの応答を待ちますが、応答がありません。あなたは古代の船から離れ、幽霊を置き去りにしました。</text>
                 </event>
             </choice>
         </event>
     </choice>
     <choice hidden="true">
-        <text>ゴーストを無視します。</text>
+        <text>ヴァガボンドは無視してください。</text>
         <event>
-            <text>ゴーストが古代の船を確保することに成功した場合、彼らにとって良いことです。それはあなたが扱いたいガスの存在のバンドではありません。</text>
+            <text>放浪者がエンシェント船を確保できたのなら、彼らにとっては良いことです。それはあなたが対処したいガスの存在のバンドではありません.</text>
             <choice hidden="true">
                 <text>ストレージを確認してください。</text>
                 <event load="STORAGE_CHECK" />
@@ -866,7 +866,11 @@
 		<event load="AUGMENTED_INQUISITION_SCAN" />
 	</choice>
 	<choice hidden="true" req="LIST_CREW_SLUG">
-		<text>（スラッグクルー）最初に残骸をスキャンします。</text>
+		<text>(Slug Crew) まず生命体を確認してください。</text>
+		<event load="AUGMENTED_INQUISITION_SCAN" />
+	</choice>
+	<choice hidden="true" req="BLUELIST_CREW_SNAIL">
+		<text>(テレパシー シェル) まず、生命体を確認します。</text>
 		<event load="AUGMENTED_INQUISITION_SCAN" />
 	</choice>
 	<choice hidden="true">

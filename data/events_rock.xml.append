@@ -126,6 +126,13 @@
 			<text>あなたのスラッグは不平を言う。 「それはssssjussstssstupidpunです。」あなたのスラッグはロックマンへの答えを繰り返します。 「彼ら全員に欠点があるので...」ロックマンはあなたがそれを予測したことを眉をひそめ、送信をオフにします。</text>
 		</event>
 	</choice>
+	<choice req="BLUELIST_CREW_SNAIL" hidden="true">
+		<text>(テレパシー シェル) シェルに答えを予測させます。</text>
+		<event>
+			<text>あなたのシェルは嘲笑します。 「これは信じられないほど愛想の悪い試みです... コメディです。」あなたのシェルは、ロックマンへの答えを繰り返します。 「みんな欠点があるから…」ロックマンはそれを聞いて笑い、あなたのシェルが彼の心から答えを得たことに気づきませんでした。彼は、彼のふざけた態度に参加するために、あなたにいくつかのミサイルを贈らなければならないと感じています.</text>
+			<autoReward level="MED">missiles_only</autoReward>
+		</event>
+	</choice>
 </event>
 
 <event name="ROCK_CRYOBSESSION" unique="true">
@@ -218,7 +225,7 @@
 				<text>それらにクリスタルスキャッターを売る。</text>
 				<event>
 					<text>「ありがとうございました！これを使って神社を飾ります！」</text>
-					<remove name="CRYSTAL_CHARGEGUN" />
+					<remove name="CRYSTAL_SHOTGUN" />
 					<item_modify>
 						<item type="scrap" min="90" max="90" />
 					</item_modify>
@@ -320,36 +327,7 @@
 			</choice>
 		</event>
 	</choice>
-	<choice req="CRYSTAL_SHARDS" hidden="true">
-		<text>（クリスタルアーマー）船にはクリスタルアーマーがあります。</text>
-		<event>
-			<text>「すごい！そのような巧妙に作られた鎧。あなたがそれを私たちに売ってくれるとは思わないのですか？」</text>
-			<choice req="CRYSTAL_SHARDS" blue="false">
-				<text>それらに鎧を売る。</text>
-				<event>
-					<text>「ありがとうございました！これを使って神社を飾ります！」</text>
-					<remove name="CRYSTAL_SHARDS" />
-					<item_modify>
-						<item type="scrap" min="95" max="95" />
-					</item_modify>
-				</event>
-			</choice>
-			<choice hidden="true">
-				<text>私たちは何も売ることに興味がありません。</text>
-				<event>
-					<text>「ああ……なんて残念だ。まあ、あなたはそのようなエキゾチックな技術を使うことができてとても幸運だということを知っている必要がある！」</text>
-					<choice>
-						<text>船に乗って何かする。</text>
-						<event load="STORAGE_CHECK" />
-					</choice>
-					<choice>
-						<text>何もしない。</text>
-						<event />
-					</choice>
-				</event>
-			</choice>
-		</event>
-	</choice>
+	
 	<choice req="LIST_CREW_CRYSTAL" hidden="true">
 		<text>（クリスタルクルー）船にクリスタルが乗っています。</text>
 		<event>
@@ -659,16 +637,20 @@
 		<text>（スラッグのクルー）残骸を略奪している間、生命体をチェックし、船を監視してください。</text>
 		<event load="ROCK_LOOTING_SLUG" />
 	</choice>
+	<choice hidden="true" req="BLUELIST_CREW_SNAIL">
+		<text>(テレパシー シェル) 難破船を略奪している間、生命体を確認し、船に注意してください。</text>
+		<event load="ROCK_LOOTING_SLUG" />
+	</choice>
 </event>
 <eventList name="ROCK_LOOTING_STRIP">
 	<event>
 		<text>あなたは船からできることを救い出します。手術中は誰も気になりません。</text>
-		<autoReward level="low">standard</autoReward>
+		<autoReward level="LOW">standard</autoReward>
 	</event>
 	<event>
 		<text>あなたが船を救出している間、ロックパトロール船が飛び込みます。彼らはあなたに「不潔な海賊！死ぬ準備をしなさい！」とメッセージを送ります。あなたは自分の使命を説明することがあなたの必要性を彼らに納得させるのではないかと疑っています。</text>
 		<ship load="SHIP_ROCK_FIGHT" hostile="true" />
-		<autoReward level="low">standard</autoReward>
+		<autoReward level="LOW">standard</autoReward>
 		<choice hidden="true">
 			<text>継続する...</text>
 			<event load="COMBAT_CHECK" />
@@ -694,11 +676,11 @@
 <eventList name="ROCK_LOOTING_SLUG">
 	<event>
 		<text>あなたは船からできることを救い出します。近くに生物や船は検出されません。</text>
-		<autoReward level="low">standard</autoReward>
+		<autoReward level="LOW">standard</autoReward>
 	</event>
 	<event>
 		<text>あなたは救助活動を開始しますが、やがてあなたのクルーは船が近づいていることを警告します。彼らが射撃場に入る前にあなたは急いで去ります。</text>		
-		<autoReward level="low">standard</autoReward>
+		<autoReward level="LOW">standard</autoReward>
 	</event>
 </eventList>
 
@@ -869,8 +851,8 @@
 			<crewMember amount="1" class="rock_outcast" />
 		</event>
 	</choice>
-	<choice hidden="true" req="rock_commando">
-		<text>（ロスト・サンコマンドー）ロスト・サンのやり方を彼らに教えてください。</text>
+	<choice hidden="true" req="LIST_CREW_LOSTSUN">
+		<text>(ロストサンクルー) 彼らにロストサンのやり方を教えてください。</text>
 		<event>
 			<text>ロックのキャプテンは、ロスト・サンが過激なテロリストの集団だと以前に思っていたので驚いています。あなたの船が彼らから秘密を守らないことを保証し、彼はあなたのクルーに加わります。</text>
 			<crewMember amount="1" class="rock_outcast" />
@@ -929,9 +911,17 @@
 				<text>回避策を試みてください！</text>
 				<event>
 					<text>船の旋回円が広すぎて、地雷が船体に食い込んだ。あなたは今それを聞くことができ、鎧をかみ砕きます。</text>
-					<choice hidden="true">
+					<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="1">
 						<text>それを和らげるためにそこに誰かを送ってください。</text>
 						<event load="ROCK_STARSHIP_MINE_DEFUSE" />
+					</choice>
+					<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="0" max_lvl="0">
+						<text>周りに誰もいないので、あなたの唯一の選択肢は、あなたの死を辛抱強く待つことです.</text>
+						<event>
+							<text>武器が爆発します。すべてが暗くなり、船体から降り注ぐ炎に照らされた橋。あなたは火を消し、次に進む準備をします。</text>
+							<damage amount="5" />
+							<damage amount="1" system="room" effect="breach" />
+						</event>
 					</choice>
 					<choice hidden="true" req="BLUELIST_MISSILES_ALL">
 						<text>（ミサイル兵器）ミサイルを使用して制御爆破を試みます。</text>
@@ -969,7 +959,7 @@
 					<text>鉱山はあなたの船に穴を掘るのにさえ苦労しています。そのドリルは最終的に電力を使い果たして漂流し、今では無害になっています。</text>
 				</event>
 			</choice>
-			<choice hidden="true" req="BLUELIST_ENERGY_SHIELD">
+			<choice hidden="true" req="LIST_CHECK_ENERGY_SHIELD">
 				<text>（エネルギーシールド）あなたのシールドはあなたを守ります。</text>
 				<event>
 					<text>鉱山はあなたのエネルギーシールドを通過することができません。船体に触れることなく爆発します。</text>
@@ -985,7 +975,9 @@
 	</choice>
 	<choice hidden="true">
 		<text>難破船は無視してください。</text>
-		<event />
+		<event>
+			<text>調べる価値はありません。ビーコンには他の場所にも地雷が散らばっている可能性が高いため、ここに長く留まらないことにします。</text>
+		</event>
 	</choice>
 </event>
 <eventList name="ROCK_STARSHIP_MINE_DEFUSE">
@@ -1264,7 +1256,7 @@
 
 <event name="ROCK_NURSERY" unique="true">
 	<text>変動する生命の兆候は、近くのぼんやりとした、あばたのある月の表面近くで報告されています。これは、若者が自分たちの宗教に「順応」しているロック保育園のようです。ある種のクーデターがあり、生徒たちは大騒ぎしています。</text>
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>調査のために離れたチームを転送します。</text>
 		<event>
 			<text>あなたのアウェイチームは、学生と当局の間の戦闘を報告しています-一部の学生は反体制派の性格を持っていると見なされ、積極的に投獄されたようです。</text>
@@ -1289,7 +1281,11 @@
 				</event>
 			</choice>
 		</event>
-	</choice>		
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>狂信的な熱狂者や抑圧された学生に対抗するために必要なチームが不足しています。</text>
+		<event load="OPTION_INVALID" />
+	</choice>				
 	<choice hidden="true">
 		<text>離れる。</text>
 		<event>
@@ -1801,6 +1797,7 @@
 					<text>武器と予備のリソースを持っていきます。</text>
 					<event>
 						<text>あなたのクルーは彼らができることをつかみ、小惑星が衝突する前に船に戻ります。小惑星のフィールドから離れると、回復したものを確認します。</text>
+						<enemyDamage amount="999" />
 						<autoReward level="LOW">stuff</autoReward>
 						<weapon name="GIFTLIST_CRYSTAL" />
 					</event>
@@ -1808,7 +1805,8 @@
 				<choice hidden="true">
 					<text>スタシスチャンバーをつかみます。</text>
 					<event>
-						<text>小惑星が船に衝突する前に、クルーはポッドを船に引き戻し、クリスタルコーティングを粉砕して船を破壊します。</text>
+						<text>小惑星がステーションに激突し、クリスタル コーティングを粉々にする前に、乗組員はポッドを船に引きずり戻します。</text>
+						<enemyDamage amount="999" />
 						<choice hidden="true">
 							<text>継続する...</text>
 							<event>
@@ -1836,6 +1834,7 @@
 					<text>武器と予備のリソースを持っていきます。</text>
 					<event>
 						<text>あなたのクルーは彼らができることをつかみ、小惑星が衝突する前に船に戻ります。小惑星のフィールドから離れると、回復したものを確認します。</text>
+						<enemyDamage amount="999" />
 						<autoReward level="LOW">stuff</autoReward>
 						<weapon name="GIFTLIST_CRYSTAL" />
 					</event>
@@ -1843,7 +1842,8 @@
 				<choice hidden="true">
 					<text>スタシスチャンバーをつかみます。</text>
 					<event>
-						<text>小惑星が船に衝突する前に、クルーはポッドを船に引き戻し、クリスタルコーティングを粉砕して船を破壊します。</text>
+						<text>小惑星がステーションに激突し、クリスタル コーティングを粉々にする前に、乗組員はポッドを船に引きずり戻します。</text>
+						<enemyDamage amount="999" />
 						<choice hidden="true">
 							<text>継続する...</text>
 							<event>
@@ -1951,7 +1951,7 @@
 </event>
 
 <event name="ROCK_SUN_CHALLENGE" unique="true">
-	<text>あなたはすぐに堂々とした見た目のロック戦争船からメッセージを受け取ります。「あなたは『連邦を救う』ための船ですよね？そしてあなたはそのがらくたの塊で生き残ることを期待していますか？」</text>
+	<text>あなたはすぐに、堂々とした見た目のロック軍艦からメッセージを受け取ります。</text>
 	<ship load="SHIP_ROCK_SUN_CHALLENGE" hostile="false" />
 	<choice hidden="true">
 		<text>「私たちは彼らを救うか、試みて死ぬつもりです。」</text>
@@ -2026,7 +2026,7 @@
 				<event>
 					<text>マインドコントロールの影響下でさえ、2人がお互いに永遠に存在することに同意するためには多くの説得力が必要です。彼らの人生は永遠に変わりました、今では著しく良くなりました、彼らはあなたに感謝し、そしてあなたのクルーに加わるようにさえ頼みます。ロックステーションは何が起こったのか混乱していますが、リグはこれが彼の昏迷の正しい選択肢であると確信しているようで、ロックマンは彼を手放すことに同意します。</text>
 					<autoReward level="MED">standard</autoReward>
-					<crewMember amount="1" all_skills="1" class="symbiote">Tintan and Rig</crewMember>
+					<crewMember amount="1" all_skills="1" class="unique_symbiote">Tintan and Rig</crewMember>
 					<variable name="ach_crew_symbiote" op="set" val="1" />
 				</event>
 			</choice>
@@ -2046,7 +2046,7 @@
 						<event>
 							<text>ロックステーションの所有者は何が起こっているのか完全に困惑していますが、あなた、トニー、リグ、ティンタンが一緒に状況について話し合います。リグとティンタンはすぐにお互いから解放されることはないことが明らかになりますが、トニーの助けを借りれば、責任のあるスラッグを追跡して復讐することができるかもしれません。</text>
 							<variable name="ach_crew_symbiote" op="set" val="1" />
-							<crewMember all_skills="1" amount="1" class="symbiote">Tintan and Rig</crewMember>
+							<crewMember all_skills="1" amount="1" class="unique_symbiote">Tintan and Rig</crewMember>
 							<quest event="BUTT_BUDDIES" />
 						</event>
 					</choice>
@@ -2128,13 +2128,21 @@
 					<autoReward level="MED">scrap_only</autoReward>
 				</event>
 			</choice>
-			<choice hidden="true">
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="1">
 				<text>Stonewallを人質として使用し、さらに大きな報酬を得るための掘り出し物として使用してください。</text>
 				<event load="ROCK_HOMEWORLDS_VICTORY_HOSTAGE" />
 			</choice>
-			<choice hidden="true">
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="0" max_lvl="0">
+				<text>船の AI は、ストーンウォールを人質に取ることを提案します。残念ながら、このオプションを検討するための適切なチームがありません。</text>
+				<event load="OPTION_INVALID" />
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="1">
 				<text>私たちは変化を起こすためにここに来ました。今ストーンウォールを暗殺します。</text>
 				<event load="ROCK_HOMEWORLDS_VICTORY_KILL" />
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="0" max_lvl="0">
+				<text>あなたは変化を起こすためにここに来ました。ストーンウォールですべての武器を発射する。</text>
+				<event load="ROCK_HOMEWORLDS_VICTORY_KILL_AUTO" />
 			</choice>
 		</event>
 	</choice>
@@ -2149,6 +2157,12 @@
 		<autoReward level="HIGH">weapon</autoReward>
 		<choice hidden="true" req="medbay" lvl="2">
 			<text>（Upg. Medbay）クルーに医療援助を提供します。</text>
+			<event>
+				<text>幸いなことに、あなたのクルーは時間内に治療することができます。ミッションの成功を喜んで、あなたは街から離れます。</text>
+			</event>
+		</choice>
+		<choice hidden="true" req="LIST_CREW_MEDICAL">
+			<text>(医療乗務員) 乗組員に医療支援を提供します。</text>
 			<event>
 				<text>幸いなことに、あなたのクルーは時間内に治療することができます。ミッションの成功を喜んで、あなたは街から離れます。</text>
 			</event>
@@ -2172,6 +2186,23 @@
 		<text>とどまり、戦うのを手伝ってください。</text>
 		<event>
 			<text>それは激しい戦いであり、両側に大きな犠牲者が出ていますが、訓練を受けた軍のクルーと一緒に、民間人に有利な流れを揺るがすのを手伝ってください。戦いが確実に終わったら、民間人はあなたの助けに感謝します。ほとんどの人がストーンウォールの宮殿を支配するために行進しますが、マスターをオンにした十字軍の1人のロックが後ろに留まります。 「あなたは私たちにかなりの奉仕をしてくれました、そして私は感謝なしにこれを手放すことはできません。私たちの種類は最終的にこの抑圧から解放されるかもしれません、そしてこれは非常に良いスタートかもしれません。このような強力な積荷を持ってここを通過する連邦船には、彼らを待っている非常に重要な使命があり、彼らは得ることができるすべての人員を使うことができます。」</text>
+			<crewMember amount="1" all_skills="2" class="rock_crusader">Ihatsno</crewMember> 
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>今すぐ出発します。</text>
+		<event>
+			<text>うまくいけば、あなたがロックの人々の間で始めたこの新たに発見された希望の火花が、他の長老たちが送るはずの援軍によって窒息させられないでしょう。あなたはこれ以上あなたの任務を危険にさらすことはできないので、あなたはエンジンをパワーアップして街から飛び去ります。</text>
+		</event>
+	</choice>
+</event>
+<event name="ROCK_HOMEWORLDS_VICTORY_KILL_AUTO">
+	<text>船全体の武器の配列を狙い、ストーンウォールのスポットで自由に発砲します。それはかなり残忍な表示ですが、生き物の強大なタイタンはあなたの武器の弾幕の下で迅速に終了し、ロックの兵士は混乱に陥ります.長年の残忍な独裁者に対するあなたの勇敢な処刑を目の当たりにした見物人の大群は、反乱に駆り立てられ、兵士を倒すために殺到しています。</text>
+	<unlockCustomShip silent="false">PLAYER_SHIP_ROCKMAN</unlockCustomShip>
+	<choice hidden="true">
+		<text>とどまり、戦うのを手伝ってください。</text>
+		<event>
+			<text>これは激しい戦いであり、双方に多くの犠牲者が出ていますが、威嚇する自動巡洋艦が頭上に迫っているため、民間人に有利な方向に流れを変えることができます。戦いが確実に終わったら、民間人はあなたの助けに感謝します.ほとんどがストーンウォールの宮殿を支配するために行進しますが、マスターに背を向けたクルセイダーである1つのロックが遅れをとっています。 「あなたは私たちにかなりの奉仕をしてくれました。感謝なしにこれを手放すことはできません。私たちの種族はついにこの抑圧から解放されるかもしれません。これが始まりになる可能性が非常に高いです.私は後ろに留まり、戦い続けたいと思っていますが、私も知っています.これほど強力な装備を備えた連邦船がここを通過すると、非常に重要な任務が待っており、入手できる人員をすべて使用することができます。」</text>
 			<crewMember amount="1" all_skills="2" class="rock_crusader">Ihatsno</crewMember> 
 		</event>
 	</choice>
@@ -2412,7 +2443,7 @@
 	    </event>
     </choice>
 	<choice hidden="true" req="rock_commando">
-        <text>（コマンドークルー）サプライ品をリクエストします。</text>
+        <text>(ロスト・サンの乗組員) 物資を要求します。</text>
         <event>
 			<text>幸いなことに、リクルートセンターはロスト・サンの船が通過するための補給所を兼ねているようです。あなたのクルーの助けを借りて、あなたは簡単にセキュリティを通り抜けて、いくつかの物資と修理を受けることができます。</text>
 			<autoReward level="MED">standard</autoReward>
@@ -2572,7 +2603,7 @@
 </eventList>
 
 <event name="OUTCAST_PROPAGANDA" unique="true">
-	<text>SSLGによって設立された放送局は、ビーコンの近くに建設されており、その宣伝が新しい到着者に到達するのに十分な距離にあります。 「神政国家の時代は終わりました！ロック兄弟、あなたの聖典を書き留めて、私たちの両手を広げてクリスタルに参加してください！強大なロッククリスタル帝国の接近する日をもう一度歓迎してください！ロスト・サンも連邦もあなたに見せますちなみに、私たちだけがあなたを導くことができます！」</text>
+	<text>SSLG によって設立された放送局がビーコンの近くに建設されましたが、そのプロパガンダが新しい到着者に届くのにちょうど十分な距離です。 「神権政治の時代は終わった！ロックの兄弟よ、あなたの聖典を書き留め、両手を広げてクリスタルと合流せよ！強大なロッククリスタル帝国の到来をもう一度歓迎しよう！ロスト・サンも連邦もあなたを見せてくれない」道案内は私たちしかできません！」</text>
 	<ship load="SHIP_SSLG_STATION" hostile="false" />
 	<choice hidden="true">
         <text>連絡し、あなたの利益のために放送を使用するように要求してください。</text>
@@ -2590,10 +2621,9 @@
         <event>
 			<text>あなたはステーションの信号を制御し、それをあなた自身の船の到着のアナウンスに置き換えます-非常に異なる場所に。クリスタルは気づき、満足していませんが、うまくいけば、彼らがそれを修正するまでに、反乱軍はその言葉を理解しているでしょう。</text>
 			<modifyPursuit amount="-2" />
-			<ship hostile="true" />
 			<choice hidden="true">
 				<text>継続する...</text>
-				<event load="MORALITY_UPDATE_CRYSTAL_FIGHT" />
+				<event load="MORALITY_UPDATE_CRYSTAL" />
 			</choice>
 		</event>
     </choice>
@@ -2602,10 +2632,6 @@
         <event>
 			<text>悪意のあるウイルスをステーションのシステムに配備すると、放送が定期的に自分の船の到着のアナウンスに置き換えられます。これは非常に異なる場所にあります。クリスタルはしばらく気付かないはずなので、反乱軍がその言葉を理解してくれることを願っています。</text>
 			<modifyPursuit amount="-3" />
-			<choice hidden="true">
-				<text>継続する...</text>
-				<event load="MORALITY_UPDATE_CRYSTAL" />
-			</choice>
 		</event>
     </choice>
 	<choice hidden="true">
@@ -2753,6 +2779,19 @@
 					</choice>
 				</event>
 			</choice>
+			<choice hidden="true" req="unique_alkali">
+				<text>（アルカリ）「ハハハハハハハハハハハハハハハ...ハハハハハ... heh。」</text>
+				<event>
+					<text>スラグの眼柄が内側に曲がっているのは、苛立ちと困惑のしるしです。 「何がおかしくなったの? センスのあるボウリングボールにユーモアのセンスがあるとは知らなかった」
+
+アルカリはうなり声を上げようとしますが、彼は笑いに夢中です。 「ああ...それはただ...へぇ...あなたは小さな白衣を着てとてもかわいい...スラグの科学者ですか?ああ、あなたの種は私をどのようにクラックしますか.スラグは科学のことを何も知りません.進化のはしごの上に、科学的理解とそれを使用する尊厳はすべて私たちシェルに与えられました. しかし、私はあなたの楽しみを台無しにしたくありません. だから、続けて、あなたの小さな実験を続けてください.アルカリはスラグの頭を撫でる真似をします。スラグはうなり声を上げ、乗組員に攻撃を命じること以外は何も言いません。</text>
+					<ship load="SHIP_COALITION_GENERIC" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
 			<choice hidden="true" req="LIST_CREW_HUMAN">
 				<text>（ヒューマンクルー）「チームワークは夢をかなえる」</text>
 				<event>
@@ -2806,7 +2845,7 @@
 					<choice hidden="true">
 						<text>彼を断ち切り、去りなさい。</text>
 						<event>
-							<text>この変人と彼のライフストーリーを聞くのにこれ以上時間を無駄にすることはありません。あなたの方法をよりよく戦う！</text>
+							<text>この変人と彼の人生の話を聞いて、これ以上時間を無駄にすることはありません。戦い抜いた方がいいぞ！</text>
 							<ship hostile="true" />
 							<choice hidden="true">
 								<text>継続する...</text>
@@ -2819,7 +2858,7 @@
 			<choice hidden="true">
 				<text>彼を止めて、去ってみてください。</text>
 				<event>
-					<text>この変人と彼のライフストーリーを聞くのにこれ以上時間を無駄にすることはありません。あなたの方法をよりよく戦う！</text>
+					<text>この変人と彼の人生の話を聞いて、これ以上時間を無駄にすることはありません。戦い抜いた方がいいぞ！</text>
 					<ship hostile="true" />
 					<choice hidden="true">
 						<text>継続する...</text>
@@ -2832,7 +2871,7 @@
 	<choice hidden="true">
         <text>彼の話は長い話のように聞こえます。私たちはこれを通して戦うほうがよい。</text>
         <event>
-            <text>この変人と彼のライフストーリーを聞いて時間を無駄にすることはありません。あなたの方法をよりよく戦う！</text>
+            <text>この変人と彼の人生の話を聞いて時間を無駄にしているわけではありません。戦い抜いた方がいいぞ！</text>
             <ship hostile="true" />
 			<choice hidden="true">
 				<text>継続する...</text>
@@ -2843,7 +2882,7 @@
 </event>
 
 <event name="OUTCAST_CHUNGUS" unique="true">
-	<text>大きな戦艦の周りには、「生きた岩、唯一のチョン・ブンガルンを見に来てください」と書かれた看板が浮かんでいる船の群衆が集まっています。興奮したおしゃべりが異なる船の間で起こり、チョンが神政国家の支配から逃れることは不可能と思われる話を共有します。</text>
+	<text>巨大な戦艦の周りに大勢の船が集まっており、その横には「生きていた唯一のロックマン、チョン・ブンガルンを見に来てください！」と書かれた看板が浮かんでいます。興奮したおしゃべりがさまざまな船の間で行われ、Chung が神権政治の手から逃れることが不可能に思えたという話を共有します。</text>
 	<ship load="SHIP_OUTCAST_FAT" hostile="false" />
 	<choice>
         <text>入場料をお支払いください。</text>
@@ -2902,7 +2941,7 @@
 	<text>「おめでとうございます、あなたは私を打ち負かしました！私の秘密はあなたのものです！」チョンは武器をパワーダウンします。</text>
 	<clearTriggeredEvent name="BUNGALUNG_WIN" />
 	<choice hidden="true">
-        <text>戦いをやめなさい。</text>
+        <text>戦いをやめる。</text>
         <event>
             <text>チョンは前かがみになり、耳元でささやきます。 「私の秘密は、これです...私の胴回りです。」</text>
 			<clearTriggeredEvent name="BUNGALUNG_LOSE" />
@@ -2911,7 +2950,6 @@
 				<text>あなたの...何？</text>
 				<event>
 					<text>「ハハハ！私のガース！脂肪の層の上に層で保護されていたので、それらのダンバスは私の頭蓋骨を貫通できませんでした。今、このような良いスポーツであり、戦闘で私を初めて最高にしたので、これを持ってください！」</text>
-					<achievement silent="false">ACH_EVENT_CHUNG</achievement>
 					<autoReward level="HIGH">standard</autoReward>
 					<augment name="EX_LAB_ROCK_SKIN" />
 					<surrender />
@@ -2920,7 +2958,7 @@
         </event>
     </choice>
 	<choice hidden="true">
-        <text>とにかく戦い続けなさい。</text>
+        <text>とにかく戦い続ける。</text>
         <event>
             <text>「待って、待って-何してるの？！」</text>
         </event>
@@ -2953,6 +2991,13 @@
     </choice>
 	<choice hidden="true" req="teleporter" lvl="2">
         <text>（Upg. Teleporter）何人かの奴隷を解放しようと試みるために、クルーにビームを送ります。</text>
+        <event>
+			<text>あなたのクルーはキャンプにビームを送り、そこに留まっている奴隷の何人かを解放することに成功しました。あなたのクルーと奴隷は、奴隷が彼らを捕まえることができる直前にビームバックし、あなたは気付かれずに逃げます。</text>
+			<crewMember amount="1" />
+		</event>
+    </choice>
+	<choice hidden="true" req="LOCKED_GLOBAL_TELEPORT">
+        <text>(中央テレポート) 乗組員にビームインして、奴隷を解放しよう。</text>
         <event>
 			<text>あなたのクルーはキャンプにビームを送り、そこに留まっている奴隷の何人かを解放することに成功しました。あなたのクルーと奴隷は、奴隷が彼らを捕まえることができる直前にビームバックし、あなたは気付かれずに逃げます。</text>
 			<crewMember amount="1" />
@@ -3107,7 +3152,7 @@
 					<choice hidden="true" req="mind">
 						<text>（マインドコントロール）落ち着くように説得します。</text>
 						<event>
-							<text>2つのうちの1つをマインドコントロールすることしかできないので、より頑固であることが知られているクリスタルを選択します。クリスタルのトーンの突然の切り替えはロックマンを混乱させますが、彼は諦めません。結局、あなたはただあきらめて、それを切り取るように二人に言います、そして、彼らは最終的にあきらめているようです。追放者はすでにあなたに支払いをしましたが、彼らはあなたが流血なしで紛争を終わらせることができることにとても感銘を受けており、彼らは第二の報酬を提供します。</text>
+							<text>2つのうちの1つだけをマインドコントロールできます。より頑固であることが知られているCrystalsを選択します.突然のクリスタルの音色の変化にロックマンは戸惑うが、諦めようとしない。最終的にはあきらめて、2人にそれを切り取るように言うと、彼らは最終的にあきらめたようです.追放者たちはすでにあなたに報酬を支払っていますが、彼らはあなたが流血なしに紛争を終わらせることができたことにとても感銘を受け、2 度目の報酬を提供します。</text>
 							<augment name="RANDOM" />
 						</event>
 					</choice>

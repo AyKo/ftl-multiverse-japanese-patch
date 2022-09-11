@@ -56,9 +56,13 @@
 <event name="SALVAGE_DEFAULT_MINEFIELD">
 	<text>あなたのクルーは、放棄された地雷原に出くわしました。確かに疑わしいですが、大量の弾薬やスクラップの潜在的な発生源でもあります。ただし、クルーにとっては危険です。</text>
 	<variable name="loc_has_salvaged" op="set" val="1" />
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>リスクをとる。</text>
 		<event load="SALVAGE_DEFAULT_MINEFIELD_RISK" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>地雷原に送る犠牲的な乗組員はいません。</text>
+		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true" req="rock_crusader">
 		<text>あなたの十字軍は爆発物について多くのことを知っており、ヒットすることもできます。</text>
@@ -139,7 +143,7 @@
 			<drone name="BATTLETOG_DEFEND" />
 		</event>
 	</choice>
-	<choice hidden="true" req="BLUELIST_ENERGY_SHIELD">
+	<choice hidden="true" req="LIST_CHECK_ENERGY_SHIELD">
 		<text>（エナジーシールド）侵入者を恐れずにアプローチします。</text>
 		<event>
 			<text>幸い、EnergyShieldはプロセスを大幅に簡素化します。抵抗に対処することなく、回路図面を取得します。</text>
@@ -165,9 +169,13 @@
 <event name="SALVAGE_DEFAULT_PIRATES">
 	<text>ビーコンのすぐ近くの領域はほとんど得られませんが、システムをさらに深く掘り下げた後、非アクティブな海賊船のスキャンに遭遇することは以前にはありませんでした。</text>
 	<variable name="loc_has_salvaged" op="set" val="1" />
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>チームを送って、中にどんな戦利品が入っているかを確認します。</text>
 		<event load="SALVAGE_DEFAULT_PIRATES_LOOT" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>チームが不足しているため、チームを送信できません。</text>
+		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true">
 		<text>船体をスクラップします。</text>
@@ -208,6 +216,13 @@
 			<text>（Phasingクルー）中に忍び込みます。</text>
 			<event>
 				<text>あなたのクルーはドアをすり抜けて中に入ることができ、そこで彼らはすぐに解き放つ罠を見つけます。安全に入ることができたので、残りのクルーはできる限りのことを行います。</text>
+				<autoReward level="HIGH">standard</autoReward>
+			</event>
+		</choice>
+		<choice hidden="true" req="LIST_CREW_ROCK">
+			<text>(Rock Crew) 最初に自分の Rock を送ってください。</text>
+			<event>
+				<text>乗組員は簡単にドアを開けて中に入ることができますが、トラップに足を踏み入れた瞬間にトリガーされます! 「くそったれ、泥棒！」自動メッセージを叫び、続いて爆発します。幸いなことに、乗組員はひるんだだけのようで、まだ元気です。安全に入場できるようになったので、残りの乗組員はそれに続き、できる限りのことをします。</text>
 				<autoReward level="HIGH">standard</autoReward>
 			</event>
 		</choice>

@@ -121,10 +121,24 @@
 	<choice hidden="true" req="BLUELIST_WEAPONS_HEAVY">
 		<text>（ヘビーウェポン）銃を使用してください。</text>
 		<event>
-			<text>あなたの強力な武器は、クリスタルの巨大な破片を取り除き、粉砕し、あなたの離れたチームに降りて見てみるのに十分なスペースを残します。</text>
-			<choice hidden="true">
+			<text>あなたの強力な武器はクリスタルの巨大な破片を押しのけて粉砕し、離れたチームを下に降りて見てもらうのに十分なスペースを残します.</text>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="1">
 				<text>キャッシュを調査します。</text>
 				<event load="CRYSTAL_CACHE_LIST" />
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="0" max_lvl="0">
+				<text>これは火力の素晴らしい展示でしたが、誰がそこを調査するのでしょうか?</text>
+				<event>
+					<text>キャッシュを無視して、船内で何かをします。</text>
+					<choice>
+						<text>船に乗って何かする。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
 			</choice>
 		</event>
 	</choice>
@@ -162,9 +176,23 @@
 	</event>
 	<event>
 		<text>すべての可能性に反して、幸運なショットがクリスタルの既存の破壊を打ち、それを亀裂に合成し、障壁のセクション全体が崩壊するまで成長します！</text>
-		<choice hidden="true">
+		<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="1">
 			<text>キャッシュを調査します。</text>
 			<event load="CRYSTAL_CACHE_LIST" />
+		</choice>
+		<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="0" max_lvl="0">
+			<text>残念ながら、キャッシュを調査するために送る人がいないという事実は、運が良ければ変わることはありません。</text>
+			<event>
+				<text>キャッシュを無視して、船内で何かをします。</text>
+				<choice>
+					<text>船に乗って何かする。</text>
+					<event load="STORAGE_CHECK" />
+				</choice>
+				<choice>
+					<text>何もしない。</text>
+					<event />
+				</choice>
+			</event>
 		</choice>
 	</event>
 </eventList>
@@ -270,13 +298,21 @@
 
 <event name="CRYSTAL_HUMAN_TESTS" unique="true">
 	<text>クリスタル研究施設のように見える場所の近くに到着します。科学者はすぐにあなたにメッセージを送ります、「ああ！もう少し異星人。お願いします、私はこの銀河のすべての異なる種族についてたくさん聞いたので、あなたの生理機能に本当に興味があります！いくつかの簡単なテストを実行させていただけませんか？」</text>
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>クルーに対してテストを実行できるようにします。</text>
 		<event load="CRYSTAL_HUMAN_TESTS_ACCEPT" />
 	</choice>
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>科学者は他の場所で被験者を探す必要があります。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>拒否する。</text>
 		<event load="CRYSTAL_HUMAN_TESTS_REFUSE" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>拒否する。</text>
+		<event load="CRYSTAL_HUMAN_TESTS_REFUSE_AUTO" />
 	</choice>
 	<choice hidden="true" req="LIST_CREW_ROCK">
 		<text>（ロッククルー）ロックマンクルーを送ります。</text>
@@ -285,7 +321,7 @@
 			<autoReward level="MED">standard</autoReward>
 		</event>
 	</choice>
-		<choice hidden="true" req="salt">
+		<choice hidden="true" req="LIST_CREW_OBYN">
 		<text>（ソルトマンクルー）ソルトマンクルーを送ります。</text>
 		<event>
 			<text>「それは...？不可能...クリスタルとロックの種類の間に欠けているリンク！これは本当に素晴らしいです！あなたの種類の記録はほとんどありません。これらのスキャンから学ぶことがたくさんあるので、それらを分析する必要がありますできるだけ早く！どうぞ、これを持っていってください。」</text>
@@ -353,6 +389,19 @@
 		<choice hidden="true">
 			<text>継続する...</text>
 			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="CRYSTAL_HUMAN_TESTS_REFUSE_AUTO">
+	<event>
+		<text>「なるほど。それは残念です。次に遭遇する船は、科学の進歩に貢献できるかもしれません」</text>
+		<choice>
+			<text>船に乗って何かする。</text>
+			<event load="STORAGE_CHECK" />
+		</choice>
+		<choice>
+			<text>何もしない。</text>
+			<event />
 		</choice>
 	</event>
 </eventList>
@@ -447,7 +496,7 @@
 	</choice>
 </event>
 <textList name="TEXT_ENCOUNTER_CRYSTAL">
-	<text>あなたは彼らの外見から、水晶船、民間人または商人の艦隊の近くに到着します。あなたは1つをスキャンするために一時停止しますが、彼らはすぐに反応し、あなたを撃退するために護衛を送ります。戦闘する準備をしなさい！</text>
+	<text>あなたはクリスタル船の艦隊の近くに到着します。それらの外観から民間または商船です。あなたはスキャンするために一時停止しますが、彼らはすぐに反応し、あなたを撃退するために護衛を送ります.参加する準備をしてください！</text>
 	<text>ビーコンに到着すると、すぐに自動メッセージまたは何らかの警告が表示されます。翻訳者はその目的を認識できないようですが、しばらくするとアラームが鳴り、敵の船が飛び込みます！</text>
 	<text>「ハァッ。異星人でいっぱいのもう一つの価値のない工芸品のようです。あなたのメーカーに会う準備をしてください！」というメッセージが表示されます。武器のロックが検出されました。</text>
 	<text>クリスタルラインの船はあなたにメッセージを送ります、「私はあなたのような口径の異星人の船を見たことがありません！戦士として私はあなたに対して私のスキルをテストすることを要求します！」あなたが応答する前に、彼らは攻撃に移動します。</text>
@@ -1058,7 +1107,7 @@
 <event name="CRYSTAL_HELP_DIG" unique="true">
 	<text>大きなクリスタルの船がここの宇宙に浮かんでいます。彼らは「異星人？</text>
 	<ship load="SHIP_CRYSTAL_FIGHT_NOSURRENDER" hostile="false" />
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="1">
 		<text>クルーを助けに送ってください。</text>
 		<event>
 			<text>あなたは求められたとおりに行動し、クルーを惑星に派遣して支援します。彼らは大規模なCrystal発掘作業を発見し、これが数時間ではなく数日かかる作業であることがすぐに明らかになりました。</text>
@@ -1123,6 +1172,10 @@
 				</event>
 			</choice>
 		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0">
+		<text>余裕のある乗組員はいません。</text>
+		<event load="OPTION_INVALID" />
 	</choice>
 	<choice>
 		<text>拒否する。</text>
@@ -1261,7 +1314,7 @@
 </event>
 <eventList name="CRYSTALHOME_ZOLTENVOY_DELIVERY_GIFT">
 	<event>
-		<text>あなたは前哨基地を呼び、爆弾を届けます。内部のクリスタルは深く混乱していますが、ゾルタンの援軍が飛び込んでから間もなくです！あなたは誤解しているようです-ゾルタンはクリスタルを攻撃するためにここにいました！近づいてくる平和維持船は、あなたが彼らに対抗して攻撃していると思っているようです！</text>
+		<text>あなたは前哨基地に電話をかけ、爆弾を届けます。内部のクリスタルはひどく混乱していますが、間もなくゾルタンの援軍が飛び込みます!あなたは誤解しているようです - ゾルタンはクリスタルを攻撃するためにここにいました!近づいてくる平和維持船は、あなたが彼らに対抗していると思っているようで、攻撃しています!</text>
 		<ship load="SHIP_ZOLTENVOY_PEACE" hostile="true" /> 
 		<choice hidden="true">
 			<text>継続する...</text>
@@ -1269,7 +1322,7 @@
 		</choice>
 	</event>
 	<event>
-		<text>あなたは前哨基地を呼び、爆弾を届けます。クリスタルがあなたに感謝しているので、あなたは正しく理解したようです。ゾルタンを攻撃したものは何でも海賊だったに違いありません。おそらくこのあたりでよく見られるクリスタルの武器を使っていたのでしょう。納品を終えてくれてありがとう、Crystalsはあなたに見事に支払います。</text>
+		<text>あなたは前哨基地に電話をかけ、爆弾を届けます。正しく理解できたようですね。クリスタルがありがとうございます。ゾルタンを襲ったのは海賊だったに違いない。おそらくこの辺りでよく見かけるクリスタルの武器を使っていたのだろう。配達を終えたお礼として、クリスタルはあなたに多額の報酬を支払います。</text>
 		<autoReward level="HIGH">standard</autoReward>
 	</event>
 </eventList>

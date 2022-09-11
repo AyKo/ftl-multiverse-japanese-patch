@@ -85,6 +85,7 @@
 	<text>あなたは民間部門に到着しました。ここの民間人が運営する民兵は十分に有能ですが、彼らは見知らぬ人を少し疑っています。万が一に備えて、フェデレーションIDを用意しておいてください。</text>
 </textList>
 <event name="START_CIVILIAN">
+	<metaVariable name="juke_galactic" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -93,11 +94,11 @@
 	<ship load="SHIP_GUARD_CIVILIAN" hostile="false" />
 	<changeBackground>BACK_SECTOR_CIVILIAN</changeBackground>
 	<playSound>lightspeed</playSound>
-	<choice hidden="true" req="rep_general" lvl="-2147483648" max_lvl="4" max_group="0" blue="false">
+	<choice hidden="true" req="rep_general" lvl="-2147483648" max_lvl="1" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_CIVILIAN" />
 	</choice>
-	<choice hidden="true" req="rep_general" lvl="5" max_lvl="999" max_group="0" blue="false">
+	<choice hidden="true" req="rep_general" lvl="2" max_lvl="999" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_CIVILIAN_CRIMINAL" />
 	</choice>
@@ -194,6 +195,13 @@
 			<weapon name="MINELAUNCHER_2" />
 		</event>
 	</choice>
+	<choice req="unique_haynes" hidden="true">
+		<text>(ヘインズ) 物資を要求してください。</text>
+		<event>
+			<text>ヘインズがあなたの船に乗っているのを見ると、民兵はすぐに敬礼の姿勢を取り、物資を移送します。</text>
+			<autoReward level="HIGH">stuff</autoReward>
+		</event>
+	</choice>
 	<choice hidden="true">
 		<text>気が変わって警備員を放っておいてください。</text>
 		<event>
@@ -284,7 +292,13 @@
 	<noQuestText />
 	<removeHazards />
 	<text>民兵の警備員を殺すことによって、あなたは彼らにあなたを追跡するために援軍を派遣させたことは間違いありません。セクターを探索するときは、足元に注意してください。</text>
-	<quest event="REINFORCEMENTS_CIVILIAN" />
+	<quest event="REINFORCEMENTS_CIVILIAN">
+		<nebulaBeacon>true</nebulaBeacon>
+		<nextSector>false</nextSector>
+		<nebulaEvent>NEBULA_REINFORCEMENTS_CIVILIAN</nebulaEvent>
+		<createNebula>false</createNebula>
+		<aggressive>2</aggressive>
+	</quest>
 	<choice>
 		<text>船に乗って何かする。</text>
 		<event load="STORAGE_CHECK" />
@@ -310,6 +324,24 @@
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
+<event name="NEBULA_REINFORCEMENTS_CIVILIAN">
+	<preventQuest />
+	<beaconType id="map_icon_reinforcements" global="true" req="LOOT_COMPASS">
+		<color r="200" g="55" b="82" a="1" />
+		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<text>民兵の船が侵入して攻撃します！彼らの船長の目の復讐に満ちた表情に基づいて、これは間違いなくあなたを追い詰めるために警備員によって派遣された船です！</text>
+	<ship load="SHIP_CIVILIAN_REINFORCEMENTS" hostile="true" />
+	<img back="BACK_EVENT_LIGHTNEBULA" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<environment type="PDS" target="player" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
 
 	
 
@@ -329,9 +361,13 @@
 	<changeBackground>BACK_SECTOR_FEDERATION</changeBackground>
 	<playSound>lightspeed</playSound>
 	<remove name="HIDDEN DUMMY" />
-	<choice hidden="true">
+	<choice hidden="true" req="rep_general" lvl="-2147483648" max_lvl="2" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_FEDERATION" />
+	</choice>
+	<choice hidden="true" req="rep_general" lvl="3" max_lvl="999" max_group="0" blue="false">
+		<text>継続する...</text>
+		<event load="GUARD_FEDERATION_CRIMINAL" />
 	</choice>
 </event>
 
@@ -364,6 +400,21 @@
 			<choice>
 				<text>何もしない。</text>
 				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="GUARD_FEDERATION_CRIMINAL">
+	<text>ここで何かがおかしいようです。通常、連邦はあなたのような船に目を向けることはありませんが、今では警備船で疑わしいおしゃべりを聞いています.</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>あなたの実績が追いついてきたようです。警備員のクルーはあなたが犯している犯罪を十分に聞いており、彼らはあなたをセクターに入れるつもりはありません！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
@@ -476,11 +527,11 @@
 	<changeBackground>BACK_SECTOR_MILITIA</changeBackground>
 	<playSound>lightspeed</playSound>
 	<ship load="SHIP_GUARD_MILITIA" hostile="false" />
-	<choice hidden="true" req="rep_general" lvl="-2147483648" max_lvl="2" max_group="0" blue="false">
+	<choice hidden="true" req="rep_general" lvl="-2147483648" max_lvl="1" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_MILITIA" />
 	</choice>
-	<choice hidden="true" req="rep_general" lvl="3" max_lvl="999" max_group="0" blue="false">
+	<choice hidden="true" req="rep_general" lvl="2" max_lvl="999" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_MILITIA_CRIMINAL" />
 	</choice>
@@ -574,6 +625,13 @@
 			<text>「連邦の兵士！あなたは非常に重要な船であるに違いありません！この予備のマインランチャー以外に与えるものはほとんどないのではないかと思います。私自身はこれまで物事のファンではありませんでしたが、おそらくあなたはそれに役立つでしょう。 。」</text>
 			<autoReward level="HIGH">missiles</autoReward>
 			<weapon name="MINELAUNCHER_2" />
+		</event>
+	</choice>
+	<choice req="unique_haynes" hidden="true">
+		<text>(ヘインズ) 物資を要求してください。</text>
+		<event>
+			<text>ヘインズがあなたの船に乗っているのを見ると、民兵はすぐに敬礼の姿勢を取り、物資を移送します。</text>
+			<autoReward level="HIGH">stuff</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true">
@@ -705,6 +763,7 @@
 	<text>エンギスペースに到着しました。テクノロジーは長い間エンギ種族の政府の中心であり、彼らは自分の家族よりも科学を重視する傾向があります。</text>
 </textList>
 <event name="START_ENGI">
+	<metaVariable name="juke_harmony" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -714,11 +773,11 @@
 	<playSound>lightspeed</playSound>
 	<ship load="SHIP_GUARD_ENGI" hostile="false" />
 	<remove name="HIDDEN DUMMY" />
-	<choice hidden="true" req="rep_engi" lvl="-2147483648" max_lvl="3" max_group="0" blue="false">
+	<choice hidden="true" req="rep_engi" lvl="-2147483648" max_lvl="1" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_ENGI" />
 	</choice>
-	<choice hidden="true" req="rep_engi" lvl="4" max_lvl="999" max_group="0" blue="false">
+	<choice hidden="true" req="rep_engi" lvl="2" max_lvl="999" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_ENGI_CRIMINAL" />
 	</choice>
@@ -943,6 +1002,7 @@
 	<text>あなたは解放されたエンギセクターに入ったようです。それは、エンギハーモニーからの彼らの自由を祝うエンギ分離主義者で満たされるに違いありません。</text>
 </textList>
 <event name="START_SEPERATIST">
+	<metaVariable name="juke_separatist" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -974,6 +1034,7 @@
 	<text>あなたはここゾルタンの領土にある連邦のホームスペースから遠く離れており、当局にのれんが残っているかどうかは明らかではありません。それでも、あなたは前進しなければなりません。</text>
 </textList>
 <event name="START_ZOLTAN">
+	<metaVariable name="juke_ministry" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -983,11 +1044,11 @@
 	<playSound>lightspeed</playSound>
 	<ship load="SHIP_GUARD_ZOLTAN" hostile="false" />
 	<remove name="HIDDEN DUMMY" />
-	<choice hidden="true" req="rep_zoltan" lvl="-2147483648" max_lvl="2" max_group="0" blue="false">
+	<choice hidden="true" req="rep_zoltan" lvl="-2147483648" max_lvl="1" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_ZOLTAN" />
 	</choice>
-	<choice hidden="true" req="rep_zoltan" lvl="3" max_lvl="999" max_group="0" blue="false">
+	<choice hidden="true" req="rep_zoltan" lvl="2" max_lvl="999" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_ZOLTAN_CRIMINAL" />
 	</choice>
@@ -1068,7 +1129,7 @@
 			<autoReward level="LOW">stuff</autoReward>
 		</event>
 	</choice>
-	<choice req="zoltan_monk" hidden="true">
+	<choice req="LIST_CREW_MONK" hidden="true">
 		<text>（モンククルー）彼らをあなたにスクラップを与えるように仕向けます。</text>
 		<event>
 			<text>あなたの僧侶は、道徳と罪のない人生を送ることについて警備員に長いスピーチをします。どうやらそれはうまくいくようです、なぜならゾルタンのクルーは彼らが過去に犯したかもしれないどんな罪に対してもあなたの僧侶に体重を解放するために支払うのに十分な罪悪感を感じているからです。</text>
@@ -1128,7 +1189,7 @@
 </event>
 <eventList name="GUARD_ZOLTAN_THREATEN">
 	<event>
-		<text>ゾルタンは、少なくとも口頭ではなく、あなたの脅威に対応しようとはしません。代わりに、彼らは武器の電源を入れ、攻撃するために移動します！</text>
+		<text>ゾルタンは、少なくとも口頭では、あなたの脅威に対応しようとはしません。代わりに、彼らは武器をパワーアップして攻撃に移ります!</text>
 		<ship hostile="true" />
 		<choice hidden="true">
 			<text>継続する...</text>
@@ -1174,7 +1235,13 @@
 	<noQuestText />
 	<removeHazards />
 	<text>ゾルタンの警備員を殺すことで、あなたは間違いなく彼らにあなたを追跡するために援軍を派遣させました。セクターを探索するときは、足元に注意してください。</text>
-	<quest event="REINFORCEMENTS_ZOLTAN" />
+	<quest event="REINFORCEMENTS_ZOLTAN">
+		<nebulaBeacon>true</nebulaBeacon>
+		<nextSector>false</nextSector>
+		<nebulaEvent>NEBULA_REINFORCEMENTS_ZOLTAN</nebulaEvent>
+		<createNebula>false</createNebula>
+		<aggressive>2</aggressive>
+	</quest>
 	<choice>
 		<text>船に乗って何かする。</text>
 		<event load="STORAGE_CHECK" />
@@ -1200,6 +1267,24 @@
         <event load="COMBAT_CHECK" />
     </choice>
 </event>
+<event name="NEBULA_REINFORCEMENTS_ZOLTAN">
+	<preventQuest />
+	<beaconType id="map_icon_reinforcements" global="true" req="LOOT_COMPASS">
+		<color r="200" g="55" b="82" a="1" />
+		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<text>「すぐそこに立ち寄ってください！あなたは法の逃亡者であり、このセクターの警備艦の破壊を望んでいました！」近くのゾルタン船が攻撃のために移動します。</text>
+	<ship load="SHIP_ZOLTAN_REINFORCEMENTS" hostile="true" />
+	<img back="BACK_EVENT_LIGHTNEBULA" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<environment type="PDS" target="player" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
 
 	
 <textList name="TEXT_START_FREEMANTIS">
@@ -1208,6 +1293,7 @@
 	<text>フリーマンティスはゾルタンの領土の郊外に住んでいますが、あまり受け入れられていません。うまくいけば、あなたはあなたのマンティスの同盟国からの援助を見つけることができますが、どんなゾルタンにも戦闘する必要はありません。</text>
 </textList>
 <event name="START_FREEMANTIS">
+	<metaVariable name="juke_freemantis" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -1217,11 +1303,11 @@
 	<playSound>lightspeed</playSound>
 	<ship load="SHIP_GUARD_FREEMANTIS" hostile="false" />
 	<remove name="HIDDEN DUMMY" />
-	<choice hidden="true" req="rep_freemantis" lvl="-2147483648" max_lvl="3" max_group="0" blue="false">
+	<choice hidden="true" req="rep_freemantis" lvl="-2147483648" max_lvl="1" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_FREEMANTIS" />
 	</choice>
-	<choice hidden="true" req="rep_freemantis" lvl="4" max_lvl="999" max_group="0" blue="false">
+	<choice hidden="true" req="rep_freemantis" lvl="2" max_lvl="999" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_FREEMANTIS_CRIMINAL" />
 	</choice>
@@ -1442,6 +1528,7 @@
 	<text>クリスタルは彼の母星系を去って以来ずっと分裂してきました。連邦を探し求めた人もいれば、このような銀河の周りに新しいセクターを設立することを決定した人もいます。</text>
 </textList>
 <event name="START_CRYSTAL">
+	<metaVariable name="juke_crystal" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -1451,11 +1538,11 @@
 	<playSound>lightspeed</playSound>
 	<ship load="SHIP_GUARD_CRYSTAL" hostile="false" />
 	<remove name="HIDDEN DUMMY" />
-	<choice hidden="true" req="rep_crystal" lvl="-2147483648" max_lvl="2" max_group="0" blue="false">
+	<choice hidden="true" req="rep_crystal" lvl="-2147483648" max_lvl="1" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_CRYSTAL" />
 	</choice>
-	<choice hidden="true" req="rep_crystal" lvl="3" max_lvl="999" max_group="0" blue="false">
+	<choice hidden="true" req="rep_crystal" lvl="2" max_lvl="999" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_CRYSTAL_CRIMINAL" />
 	</choice>
@@ -1634,7 +1721,13 @@
 	<noQuestText />
 	<removeHazards />
 	<text>クリスタルガードを殺すことで、あなたは間違いなく彼らにあなたを追跡するために援軍を派遣させました。セクターを探索するときは、足元に注意してください。</text>
-	<quest event="REINFORCEMENTS_CRYSTAL" />
+	<quest event="REINFORCEMENTS_CRYSTAL">
+		<nebulaBeacon>true</nebulaBeacon>
+		<nextSector>false</nextSector>
+		<nebulaEvent>NEBULA_REINFORCEMENTS_CRYSTAL</nebulaEvent>
+		<createNebula>false</createNebula>
+		<aggressive>2</aggressive>
+	</quest>
 	<choice>
 		<text>船に乗って何かする。</text>
 		<event load="STORAGE_CHECK" />
@@ -1660,6 +1753,24 @@
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
+<event name="NEBULA_REINFORCEMENTS_CRYSTAL">
+	<preventQuest />
+	<beaconType id="map_icon_reinforcements" global="true" req="LOOT_COMPASS">
+		<color r="200" g="55" b="82" a="1" />
+		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<text>「部外者は、あなたが野蛮であることを知っていましたが、ここに移住したとき、あなたが私たちのセクターに侵入し、そのような暴力的な行為で私たちの道を脅かすとは思いもしませんでした！</text>
+	<ship load="SHIP_CRYSTAL_REINFORCEMENTS" hostile="true" />
+	<img back="BACK_EVENT_LIGHTNEBULA" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<environment type="PDS" target="player" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
 
 	
 <textList name="TEXT_START_ORCHID">
@@ -1667,6 +1778,7 @@
 	<text>あなたは、控えめでありながら友好的なオーキドゥの種族が住むセクターに入りました。彼らは内戦の激しい戦いを承認しませんが、可能な限り連邦を支援するために努力しました。</text>
 </textList>
 <event name="START_ORCHID">
+	<metaVariable name="juke_orchid" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -1676,11 +1788,11 @@
 	<playSound>lightspeed</playSound>
 	<ship load="SHIP_GUARD_ORCHID" hostile="false" />
 	<remove name="HIDDEN DUMMY" />
-	<choice hidden="true" req="rep_orchid" lvl="-2147483648" max_lvl="2" max_group="0" blue="false">
+	<choice hidden="true" req="rep_orchid" lvl="-2147483648" max_lvl="1" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_ORCHID" />
 	</choice>
-	<choice hidden="true" req="rep_orchid" lvl="3" max_lvl="999" max_group="0" blue="false">
+	<choice hidden="true" req="rep_orchid" lvl="2" max_lvl="999" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_ORCHID_CRIMINAL" />
 	</choice>
@@ -2028,11 +2140,11 @@
 		</choice>
 	</event>
 	<event>
-		<text>「あなたの人々は私たちを野蛮人と呼ぶほど勇気がありますが、あなたが野蛮人であることを証明するのはあなたの行動です！私が兄弟姉妹にもう一度会いたいのであれば、あなたの嫌なことに屈するほど親切ではなかったでしょう。脅威。"</text>
+		<text>「あなたの民はあえて私たちを野蛮人と呼んでいますが、あなたが野蛮人であることを証明するのはあなたの行動です! もし私が私の兄弟姉妹にもう一度会いたいと思っていなかったら、あなたの言葉に屈するほど親切ではなかったでしょう.忌まわしい脅し。」</text>
 		<autoReward level="LOW">stuff</autoReward>
 	</event>
 	<event>
-		<text>「あなたの人々は私たちを野蛮人と呼ぶほど勇気がありますが、あなたが野蛮人であることを証明するのはあなたの行動です！私が兄弟姉妹にもう一度会いたいのであれば、あなたの嫌なことに屈するほど親切ではなかったでしょう。脅威。"</text>
+		<text>「あなたの民はあえて私たちを野蛮人と呼んでいますが、あなたが野蛮人であることを証明するのはあなたの行動です! もし私が私の兄弟姉妹にもう一度会いたいと思っていなかったら、あなたの言葉に屈するほど親切ではなかったでしょう.忌まわしい脅し。」</text>
 		<autoReward level="LOW">stuff</autoReward>
 	</event>
 </eventList>
@@ -2106,6 +2218,7 @@
 	<text>シェルセクターに到着しました。シェルは可能な限り衝突を避けることを好み、彼らの船は通常非常によく保護されています。あなたが彼らと戦おうとする前に、あなたが彼らの防御を突破できることを確認してください。</text>
 </textList>
 <event name="START_SHELL">
+	<metaVariable name="juke_shell" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -2115,11 +2228,11 @@
 	<playSound>lightspeed</playSound>
 	<ship load="SHIP_GUARD_SHELL" hostile="false" />
 	<remove name="HIDDEN DUMMY" />
-	<choice hidden="true" req="rep_shell" lvl="-2147483648" max_lvl="2" max_group="0" blue="false">
+	<choice hidden="true" req="rep_shell" lvl="-2147483648" max_lvl="1" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_SHELL" />
 	</choice>
-	<choice hidden="true" req="rep_shell" lvl="3" max_lvl="999" max_group="0" blue="false">
+	<choice hidden="true" req="rep_shell" lvl="2" max_lvl="999" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_SHELL_CRIMINAL" />
 	</choice>
@@ -2296,6 +2409,7 @@
 		<nebulaBeacon>true</nebulaBeacon>
 		<nextSector>false</nextSector>
 		<nebulaEvent>NEBULA_REINFORCEMENTS_SHELL</nebulaEvent>
+		<createNebula>false</createNebula>
 		<aggressive>2</aggressive>
 	</quest>
 	<choice>
@@ -2356,7 +2470,7 @@
 	<choice hidden="true">
 		<text>あなたはモンゴメリー司令官ですか？</text>
 		<event>
-			<text>「なに？はい、でもどうやってその名前をつけたの？」彼は少し立ち止まります。 「彼らが私に来たと言った船ですか？神に感謝します、私たちは私たちのロバを私たちに手渡しています。ライト上院議員はブロードのためにC.D.E.G.を準備していませんでした、そして私たちは状況を制御することがほとんどできませんでした。」</text>
+			<text>「なに？はい、でもどうやってその名前をつけたの？」彼は一瞬立ち止まります。 「あなたは彼らが私に言った船ですか? 神に感謝します, 私たちはロバを私たちに手渡されています. ライト上院議員はブルードのためにEDCを準備していませんでした.</text>
 			<choice hidden="true">
 				<text>ここに別のレネゲートがいたと聞きました。どうしたの？</text>
 				<event>
@@ -2584,6 +2698,7 @@
     <text>このセクターは、自動反乱造船所の1つです。周りには足場と自動船が点在しており、その多くは休眠状態にあります。これはほとんどのセクターのようにはなりません。</text>
 </textList>
 <event name="START_AUTO">
+	<metaVariable name="juke_auto" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -2719,6 +2834,7 @@
 	<text>多くの点で、連立は反乱そのものよりもさらに危険です。それでも、あなたは前進し、このセクターから抜け出す方法を一枚で見つけなければなりません。</text>
 </textList>
 <event name="START_COALITION">
+	<metaVariable name="juke_coalition" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -2819,7 +2935,13 @@
 	<noQuestText />
 	<removeHazards />
 	<text>連合の警備員を殺すことによって、あなたは間違いなく彼らにあなたを追跡するために援軍を派遣させました。セクターを探索するときは、足元に注意してください。</text>
-	<quest event="REINFORCEMENTS_COALITION" />
+	<quest event="REINFORCEMENTS_COALITION">
+		<nebulaBeacon>true</nebulaBeacon>
+		<nextSector>false</nextSector>
+		<nebulaEvent>NEBULA_REINFORCEMENTS_COALITION</nebulaEvent>
+		<createNebula>false</createNebula>
+		<aggressive>2</aggressive>
+	</quest>
 	<choice>
 		<text>船に乗って何かする。</text>
 		<event load="STORAGE_CHECK" />
@@ -2845,6 +2967,24 @@
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
+<event name="NEBULA_REINFORCEMENTS_COALITION">
+	<preventQuest />
+	<beaconType id="map_icon_reinforcements" global="true" req="LOOT_COMPASS">
+		<color r="200" g="55" b="82" a="1" />
+		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<text>「私たちはあなたに連邦のクズ野郎を破壊します！あなたはここに来たことを後悔するでしょう！」敵対的な連立船が近づいてきて、あなたは彼らがただの死んだ警備員以上のものに怒っているのではないかと疑っています。</text>
+	<ship load="SHIP_COALITION_REINFORCEMENTS" hostile="true" />
+	<img back="BACK_EVENT_LIGHTNEBULA" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<environment type="PDS" target="player" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
 
 	
 <textList name="TEXT_START_ROCK">
@@ -2853,6 +2993,7 @@
 	<text>クリスタル種族の再出現以来、ロック政府はボロボロになっています。これがあなたの使命にとって何を意味するのか、あなたは確かに言うことはできません。</text>
 </textList>
 <event name="START_ROCK">
+	<metaVariable name="juke_theocracy" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -3029,6 +3170,7 @@
 	<text>ダスクブリンガーは、銀河が統治されるべき方法についての彼らの見解に同意しない人々に対処する彼らの急進的な方法で知られています。あなたがファシストのゾルタンの大君主に降伏する気がない限り、あなたはこのセクターを横断するときにあなたの後ろを見る必要があるでしょう。</text>
 </textList>
 <event name="START_DUSKBRINGER">
+	<metaVariable name="juke_dusk" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -3091,7 +3233,7 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="unique_devorak">
-		<text>（Devorak）ダスクブリンガーにあなたを助けるように説得してください。</text>
+		<text>（デボラック）ダスクブリンガーにあなたを助けるように説得してください。</text>
 		<event>
 			<text>「目で！あなたは素晴らしいデボラクを持っていますか？H-これはどうして可能ですか？N-いいえ、私はあえてそんなに献身的な男に質問しません。どうぞ、私たちが提供できるすべてのものを持っていってください。目があなたの明るい未来を見ることができますように旅行します。」</text>
 			<autoReward level="HIGH">weapon</autoReward>
@@ -3099,15 +3241,7 @@
 	</choice>
 	<choice hidden="true" req="mind">
 		<text>（マインドコントロール）ガードのゾルタンシールドはまだ機能しているので、マインドコントロールは機能しません。</text>
-		<event>
-			<text>いいえ</text>
-			<item_modify>
-				<item type="scrap" min="-999" max="-999" />
-				<item type="fuel" min="-999" max="-999" />
-				<item type="missiles" min="-999" max="-999" />
-				<item type="drones" min="-999" max="-999" />
-			</item_modify>
-		</event>
+		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true" req="cloaking">
 		<text>（クローク）クロークを着て脱出してみてください。</text>
@@ -3141,10 +3275,6 @@
 	<surrender min="5" max="6" load="GUARD_SIGNAL" />
 	<destroyed load="GUARD_DUSK_DESTROY" />
 	<deadCrew load="GUARD_DUSK_DEADCREW" />
-	<crew>
-		<crewMember type="zoltan" prop="0.80" />
-		<crewMember type="zoltan_devotee" prop="0.20" />	
-	</crew>
 </ship>
 
 <event name="GUARD_DUSK_DESTROY">
@@ -3173,7 +3303,13 @@
 	<noQuestText />
 	<removeHazards />
 	<text>ダスクブリンガーガードを殺すことによって、あなたは間違いなく彼らにあなたを追跡するために援軍を派遣させました。セクターを探索するときは、足元に注意してください。</text>
-	<quest event="REINFORCEMENTS_DUSK" />
+	<quest event="REINFORCEMENTS_DUSK">
+		<nebulaBeacon>true</nebulaBeacon>
+		<nextSector>false</nextSector>
+		<nebulaEvent>NEBULA_REINFORCEMENTS_DUSK</nebulaEvent>
+		<createNebula>false</createNebula>
+		<aggressive>2</aggressive>
+	</quest>
 	<choice>
 		<text>船に乗って何かする。</text>
 		<event load="STORAGE_CHECK" />
@@ -3191,8 +3327,26 @@
 		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>「あなたはここで望まれていません！あなたはあなたが歓迎されていないことを知っている私たちの領土に侵入しました、そしてあなたは私たちの警備員を殺しました！死ぬ準備をしてください！」</text>
+	<text>「レネゲード、あなたはここに歓迎されません! 連邦はゾルタン族の正当な運命に長い間干渉してきました. まもなくあなたの寿命は尽きるでしょう! あなたは警備船に乗って私たちの親族を殺しました.</text>
 	<ship load="SHIP_DUSK_REINFORCEMENTS" hostile="true" />
+	<environment type="PDS" target="player" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="NEBULA_REINFORCEMENTS_DUSK">
+	<preventQuest />
+	<beaconType id="map_icon_reinforcements" global="true" req="LOOT_COMPASS">
+		<color r="200" g="55" b="82" a="1" />
+		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<text>「レネゲード、あなたはここに歓迎されません! 連邦はゾルタン族の正当な運命に長い間干渉してきました. まもなくあなたの寿命は尽きるでしょう! あなたは警備船に乗って私たちの親族を殺しました.</text>
+	<ship load="SHIP_DUSK_REINFORCEMENTS" hostile="true" />
+	<img back="BACK_EVENT_LIGHTNEBULA" />
+	<status type="loss" target="player" system="sensors" amount="1" />
 	<environment type="PDS" target="player" />
 	<choice hidden="true">
 		<text>継続する...</text>
@@ -3207,6 +3361,7 @@
 	<text>あなたは、マンティスの生息地として知られている、チャートが不十分な空間の領域に入りました。ここには多くの友好的な顔、または少なくとも多くの生きている顔はありません。</text>
 </textList>
 <event name="START_MANTIS">
+	<metaVariable name="juke_hive" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -3376,6 +3531,7 @@
 </textList>
 
 <event name="START_GHOST_NOSHIP">
+	<metaVariable name="juke_haunted" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -3401,6 +3557,7 @@
 </event>
 
 <event name="START_GHOST_SHIP">
+	<metaVariable name="juke_haunted" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -3476,7 +3633,7 @@
 
 <event name="GUARD_GHOST_FOLLOWUP">
 	<noQuestText />
-	<removeHazards />
+	
 	<text>その場しのぎのヴァガボンドガードを殺すことで、おそらくここにいる他のクランを混乱させたでしょう。この後、彼らはおそらくあなたにそれほど満足しないでしょう。</text>
 	<quest event="REINFORCEMENTS_GHOST" />
 	<choice>
@@ -3506,6 +3663,7 @@
 
 	
 <event name="START_GHOSTWASTE">
+	<metaVariable name="juke_haunted" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -3608,8 +3766,7 @@
 </event>
 
 <event name="GUARD_GHOSTWASTE_FOLLOWUP">
-	<noQuestText />
-	<removeHazards />
+	
 	<text>ここでの王朝の存在が、警備員を殺した後に本当に反撃するのに十分強いのではないかと疑っています。うまくいけば、居住者のヴァガボンドもあまり問題を引き起こさないでしょう。</text>
 	<choice>
 		<text>船に乗って何かする。</text>
@@ -3700,11 +3857,11 @@
 </event>
 <event name="GUARD_PIRATE_DEADCREW">
 	<text>あなたは海賊の警備員を打ち負かしました。クルーがあなたを止めるために乗船していなくても、あなたは彼らの貨物を調査することができます。あなたは船に持ち帰るためのたくさんの物資を見つけて、彼らの船体をスクラップするために移動します。</text>
-	<autoReward level="MED">standard</autoReward>
+	<autoReward level="HIGH">scrap_only</autoReward>
 	<item_modify>
-		<item type="fuel" min="4" max="5" />
-		<item type="missiles" min="3" max="4" />
-		<item type="drones" min="2" max="3" />
+		<item type="fuel" min="5" max="5" />
+		<item type="missiles" min="4" max="4" />
+		<item type="drones" min="3" max="3" />
 	</item_modify>
 	<choice hidden="true">
 		<text>継続する...</text>
@@ -3720,7 +3877,13 @@
 	<noQuestText />
 	<removeHazards />
 	<text>海賊の警備員を殺すことによって、あなたは間違いなく彼らにあなたを追跡するために援軍を派遣させました。セクターを探索するときは、足元に注意してください。</text>
-	<quest event="REINFORCEMENTS_PIRATE" />
+	<quest event="REINFORCEMENTS_PIRATE">
+		<nebulaBeacon>true</nebulaBeacon>
+		<nextSector>false</nextSector>
+		<nebulaEvent>NEBULA_REINFORCEMENTS_PIRATE</nebulaEvent>
+		<createNebula>false</createNebula>
+		<aggressive>2</aggressive>
+	</quest>
 	<choice>
 		<text>船に乗って何かする。</text>
 		<event load="STORAGE_CHECK" />
@@ -3746,6 +3909,24 @@
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
+<event name="NEBULA_REINFORCEMENTS_PIRATE">
+	<preventQuest />
+	<beaconType id="map_icon_reinforcements" global="true" req="LOOT_COMPASS">
+		<color r="200" g="55" b="82" a="1" />
+		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<text>あなたは海賊船から連絡を受け取ります。 「これが個人的なことではないことを理解していただきたいのですが、あなたは私たちのガードを殺しました。それが許せない！」</text>
+	<ship load="SHIP_PIRATE_REINFORCEMENTS" hostile="true" />
+	<img back="BACK_EVENT_LIGHTNEBULA" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<environment type="PDS" target="player" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
 
 	
 <textList name="TEXT_START_SLUG">
@@ -3756,6 +3937,7 @@
 	<text>スラッグは、別の生物をテレパシーで感知する能力が視覚よりも重要である海洋惑星で開発されました。今日、彼らはこの能力を使って、彼らが住む星雲の深さを自由にナビゲートします。</text>
 </textList>
 <event name="START_SLUG">
+	<metaVariable name="juke_kleptocracy" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -3863,6 +4045,7 @@
 		<nebulaBeacon>true</nebulaBeacon>
 		<nextSector>false</nextSector>
 		<nebulaEvent>NEBULA_REINFORCEMENTS_SLUG</nebulaEvent>
+		<createNebula>false</createNebula>
 		<aggressive>2</aggressive>
 	</quest>
 	<choice>
@@ -3922,6 +4105,7 @@
 	<text>このセクターへの参入だけでも、あらゆる方向のフラック大砲にかろうじて適したがらくたが散らばっています。あなたはこれらのセクターが入っている完全な荒廃の状態の話を聞いたことがあります、しかしこれはまだショックとして来ます。ここで他に何があなたを待っているでしょうか？</text>
 </textList>
 <event name="START_LEECH_NORMAL">
+	<metaVariable name="juke_leech" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -3938,6 +4122,7 @@
 	</choice>
 </event>
 <event name="START_LEECH_COALITION">
+	<metaVariable name="juke_leech" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -4140,6 +4325,7 @@
 		<nebulaBeacon>true</nebulaBeacon>
 		<nextSector>false</nextSector>
 		<nebulaEvent>NEBULA_REINFORCEMENTS_LEECH</nebulaEvent>
+		<createNebula>false</createNebula>
 		<aggressive>2</aggressive>
 	</quest>
 	<choice>
@@ -4189,6 +4375,7 @@
 
 
 <event name="START_LEECHCAP">
+	<metaVariable name="juke_leech" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -4205,7 +4392,7 @@
 	</choice>
 </event>
 <ship name="SHIP_GUARD_LEECH_ELITE" auto_blueprint="MU_LEECH_GUARD_ELITE">
-	<surrender min="5" max="6" load="GUARD_SIGNAL" />
+	<surrender min="999" max="999" load="GUARD_SIGNAL" />
 	<destroyed load="GUARD_LEECHCAP_DESTROY" />
 	<deadCrew load="GUARD_LEECHCAP_DEADCREW" />
 	<crew>
@@ -4247,6 +4434,7 @@
 		<nebulaBeacon>true</nebulaBeacon>
 		<nextSector>false</nextSector>
 		<nebulaEvent>NEBULA_REINFORCEMENTS_LEECHCAP</nebulaEvent>
+		<createNebula>false</createNebula>
 		<aggressive>2</aggressive>
 	</quest>
 	<choice>
@@ -4380,7 +4568,7 @@
 </event>
 <eventList name="GUARD_DYNASTY_TALK">
 	<event>
-		<text>「地獄には憐れみがないので、ここにあげないでください。これらの門を通り抜けることを許すと、大パニックを引き起こします！私たちの一人であろうとなかろうと、あなたは私の目には気を配っていません！」</text>
+		<text>「地獄には慈悲など存在しないのだから、ここでそれを与えてはならないのですか? もしあなたの誰かがこの門を通り抜けるのを許したら、大パニックが起こるでしょう! 私たちの誰かであろうとなかろうと、あなたは私の目に気遣いの輝きを見ません!」</text>
 		<ship hostile="true" />
 		<choice hidden="true">
 			<text>継続する...</text>
@@ -4432,6 +4620,7 @@
 		<nebulaBeacon>true</nebulaBeacon>
 		<nextSector>false</nextSector>
 		<nebulaEvent>NEBULA_REINFORCEMENTS_DYNASTY</nebulaEvent>
+		<createNebula>false</createNebula>
 		<aggressive>2</aggressive>
 	</quest>
 	<choice>
@@ -4526,6 +4715,17 @@
 		<text>（スラッグのクルー）あなたのスラッグは民間人の間で苦痛を感じます。彼は私たちが武器を武装させるように忠告します。</text>
 		<event>
 			<text>あなたの沈黙に気づき、せっかちなハッカー船が近くで覆いを取ります。 「くそー、裏切り者のスラッグ！私たちのようなものの1つで、連邦のベッセルに取り組んでいますか？ヘレシー！」</text>
+			<ship load="SHIP_GUARD_HACKER" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="BLUELIST_CREW_SNAIL">
+		<text>(テレパシー シェル) あなたのシェルは民間人の苦痛を感知します。彼らは武器を装備するように勧めています。</text>
+		<event>
+			<text>あなたの沈黙に気づき、せっかちなハッカー船が近くでクロークを解除します。 「くそっ、汚らわしいシェル！ 俺たちの特徴を盗んで、連邦の船に乗り込むなんて！ 信じられないほど卑劣だ！」</text>
 			<ship load="SHIP_GUARD_HACKER" hostile="true" />
 			<choice hidden="true">
 				<text>継続する...</text>
@@ -5059,6 +5259,7 @@
 
 	
 <event name="START_NEBULA">
+	<metaVariable name="juke_unexplored" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -5098,6 +5299,7 @@
 
 	
 <event name="START_COREWORLDS">
+	<metaVariable name="juke_galactic" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -5107,11 +5309,11 @@
 	<ship load="SHIP_GUARD_CIVILIAN_COREWORLDS" hostile="false" />
 	<changeBackground>BACK_SECTOR_CIVILIAN</changeBackground>
 	<playSound>lightspeed</playSound>
-	<choice hidden="true" req="rep_general" lvl="-2147483648" max_lvl="4" max_group="0" blue="false">
+	<choice hidden="true" req="rep_general" lvl="-2147483648" max_lvl="1" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_CIVILIAN_COREWORLDS" />
 	</choice>
-	<choice hidden="true" req="rep_general" lvl="5" max_lvl="999" max_group="0" blue="false">
+	<choice hidden="true" req="rep_general" lvl="2" max_lvl="999" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_CIVILIAN_CRIMINAL" />
 	</choice>
@@ -5120,19 +5322,19 @@
 <event name="GUARD_CIVILIAN_COREWORLDS">
 	<text>あなたはすぐに警備員に歓迎されます。 「これは、連邦の民間代表を構成する銀河連合にとって不可欠なセクターです。私たちは、あなたが通過できるように、あなたの船の完全な身元調査とスキャンを実行する必要があります。」あなたはすでに連邦の船なので、通り過ぎるのに問題はないはずです。</text>
 	<status type="limit" target="enemy" system="teleporter" amount="0" />
-	<choice hidden="true" req="symbiote" lvl="0" max_group="0" blue="false">
+	<choice hidden="true" req="unique_symbiote" lvl="0" max_group="0" blue="false">
 		<text>検査を受けます。</text>
 		<event>
 			<text>やがて、あなたはチェックポイントの入り口に向かいます。あなたのクルーは、化学組成から胃の中身まですべてを検査するフルルームのスキャンマシンに1人ずつ連れて行かれます。あなたのクルーはあらゆる種類の間に合わせのクルーかもしれませんが、軍人は気にしていないようで、あなたは通り過ぎることが許されています。</text>
 		</event>
 	</choice>
-	<choice hidden="true" req="symbiote" lvl="1" max_group="0" blue="false">
+	<choice hidden="true" req="unique_symbiote" lvl="1" max_group="0" blue="false">
 		<text>検査を受けます。</text>
 		<event>
 			<text>やがて、あなたはチェックポイントの入り口に向かいます。あなたのクルーは、化学組成から胃の中身まですべてを検査するフルルームのスキャンマシンに1人ずつ連れて行かれます。あなたのシンビオートがゾルタン難民に密輸しようとしていると彼らが考える問題がいくつかありますが、あなたが複雑な状況を説明しようとした後、彼らはただあきらめて彼らを通り抜けさせます。残りのクルーはあらゆる種類の間に合わせのクルーかもしれませんが、軍人は気にしていないようで、あなたはすべて通過することができます。</text>
 		</event>
 	</choice>
-	<choice hidden="true" max_group="1">
+	<choice hidden="true" req="pilot" blue="false" max_group="1">
 		<text>検査を忘れて、チェックポイントを攻撃してください！</text>
 		<event>
 			<text>チェックポイントを簡単に通過できたかもしれませんが、代わりに攻撃することにしました。</text>
@@ -5146,8 +5348,16 @@
 	<choice hidden="true" req="LIST_CREW_MILITIA_ELITE_RANDOM_PLAYER">
 		<text>（兵士/ピースキーパークルー）フェデレーションIDをすばやく送信し、修理を依頼してください。</text>
 		<event>
-			<text>あなたのクルーがあなたを安全に導くのにそれほど時間はかかりません、そして少し余分な交渉で、彼らは民兵の船にあなたの船体を修理するように説得します。</text>
+			<text>乗組員がセキュリティを通過するのにそれほど時間はかかりません。少し余分な交渉を行って、民兵船に船体にパッチを当てるよう説得します。</text>
 			<damage amount="-7" />
+		</event>
+	</choice>
+	<choice req="unique_haynes" hidden="true">
+		<text>(ヘインズ) チェックポイントをスキップして助けを求めるように要求します。</text>
+		<event>
+			<text>ヘインズがセキュリティを通過するのにそれほど時間はかかりません。少し余分な交渉を行って、彼は民兵船にあなたの船体にパッチを当てて物資を移すよう説得します.</text>
+			<damage amount="-7" />
+			<autoReward level="MED">stuff</autoReward>
 		</event>
 	</choice>
 </event>
@@ -5219,6 +5429,7 @@
 
 	
 <event name="START_HARMONY">
+	<metaVariable name="juke_harmony" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -5229,11 +5440,11 @@
 	<changeBackground>BACK_SECTOR_ENGI</changeBackground>
 	<playSound>lightspeed</playSound>
 	<remove name="HIDDEN DUMMY" />
-	<choice hidden="true" req="rep_engi" lvl="-2147483648" max_lvl="3" max_group="0" blue="false">
+	<choice hidden="true" req="rep_engi" lvl="-2147483648" max_lvl="1" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_HARMONY" />
 	</choice>
-	<choice hidden="true" req="rep_engi" lvl="4" max_lvl="999" max_group="0" blue="false">
+	<choice hidden="true" req="rep_engi" lvl="2" max_lvl="999" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_ENGI_CRIMINAL" />
 	</choice>
@@ -5397,6 +5608,7 @@
 
 	
 <event name="START_CAPITAL">
+	<metaVariable name="juke_ministry" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -5407,11 +5619,11 @@
 	<playSound>lightspeed</playSound>
 	<ship load="SHIP_GUARD_ZOLTAN_CAPITAL" hostile="false" />
 	<remove name="HIDDEN DUMMY" />
-	<choice hidden="true" req="rep_zoltan" lvl="-2147483648" max_lvl="2" max_group="0" blue="false">
+	<choice hidden="true" req="rep_zoltan" lvl="-2147483648" max_lvl="1" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_ZOLTAN_CAPITAL" />
 	</choice>
-	<choice hidden="true" req="rep_zoltan" lvl="3" max_lvl="999" max_group="0" blue="false">
+	<choice hidden="true" req="rep_zoltan" lvl="2" max_lvl="999" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_ZOLTAN_CRIMINAL" />
 	</choice>
@@ -5527,7 +5739,13 @@
 	<noQuestText />
 	<removeHazards />
 	<text>ゾルタンの警備員を殺すことで、あなたは間違いなく彼らにあなたを追跡するために援軍を派遣させました。セクターを探索するときは、足元に注意してください。</text>
-	<quest event="REINFORCEMENTS_ZOLTAN_CAPITAL" />
+	<quest event="REINFORCEMENTS_ZOLTAN_CAPITAL">
+		<nebulaBeacon>true</nebulaBeacon>
+		<nextSector>false</nextSector>
+		<nebulaEvent>NEBULA_REINFORCEMENTS_ZOLTAN_CAPITAL</nebulaEvent>
+		<createNebula>false</createNebula>
+		<aggressive>2</aggressive>
+	</quest>
 	<choice>
 		<text>船に乗って何かする。</text>
 		<event load="STORAGE_CHECK" />
@@ -5553,9 +5771,28 @@
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
+<event name="NEBULA_REINFORCEMENTS_ZOLTAN_CAPITAL">
+	<preventQuest />
+	<beaconType id="map_icon_reinforcements" global="true" req="LOOT_COMPASS">
+		<color r="200" g="55" b="82" a="1" />
+		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<text>「すぐそこに立ち寄ってください！あなたは法の逃亡者であり、このセクターの警備艦の破壊を望んでいました！」近くのゾルタン船が攻撃のために移動します。</text>
+	<ship load="SHIP_CAPITAL_REINFORCEMENTS" hostile="true" />
+	<img back="BACK_EVENT_LIGHTNEBULA" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<environment type="PDS" target="player" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
 
 	
 <event name="START_HUNTGROUNDS">
+	<metaVariable name="juke_freemantis" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -5566,11 +5803,11 @@
 	<playSound>lightspeed</playSound>
 	<ship load="SHIP_GUARD_HUNTGROUNDS" hostile="false" />
 	<remove name="HIDDEN DUMMY" />
-	<choice hidden="true" req="rep_freemantis" lvl="-2147483648" max_lvl="4" max_group="0" blue="false">
+	<choice hidden="true" req="rep_freemantis" lvl="-2147483648" max_lvl="1" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_HUNTGROUNDS" />
 	</choice>
-	<choice hidden="true" req="rep_freemantis" lvl="5" max_lvl="999" max_group="0" blue="false">
+	<choice hidden="true" req="rep_freemantis" lvl="2" max_lvl="999" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_FREEMANTIS_CRIMINAL" />
 	</choice>
@@ -5666,6 +5903,17 @@
 					</removeCrew>
 				</event>
 			</choice>
+			<choice hidden="true" req="unique_anurak" blue="false">
+				<text>彼らにアヌラックを連れて行かせてください。</text>
+				<event>
+					<text>フリーマンティスは、ゾルタンのクルーを拘束し、船から引きずり出します。 「連邦船のクズ野郎を片付けてよかった！別のチェックが必要な場合は、立ち寄ってください。私たちがお手伝いします。」フリーマンティスは、「ゾルタンのダメージを補う」ためにスクラップをいくつか落とし、去ります。</text>
+					<autoReward level="HIGH">weapon</autoReward>
+					<removeCrew class="unique_devorak">
+						<clone>false</clone>
+						<text>ゾルタンがまだ生きている間は、クローンを作成することはできません。今のところ、少なくとも...</text>
+					</removeCrew>
+				</event>
+			</choice>
 			<choice hidden="true" req="mind">
 				<text>（マインドコントロール）これらはあなたが探しているゾルタンではありません。</text>
 				<event>
@@ -5674,7 +5922,7 @@
 			</choice>
 		</event>
 	</choice>
-	<choice hidden="true">
+	<choice hidden="true" req="pilot" blue="false">
 		<text>あなたの道を爆破してください！</text>
 		<event>
 			<text>あなたは平和的な解決の可能性を無視し、すぐにマンティスの船を破壊することにしました。</text>
@@ -5770,7 +6018,7 @@
 		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>あなたは自由マンティスが連邦の後に船を送るために彼らの中にそれを持っていたとは思わなかったが、彼らは持っているようだ。 「連邦、あなたは私たちを裏切った！今死ぬ！」</text>
+	<text>あなたはフリーマンティスが連邦の後に船を送るために彼らの中にそれを持っていたとは思わなかったが、彼らは持っているようだ。 「連邦、あなたは私たちを裏切った！今死ぬ！」</text>
 	<ship load="SHIP_HUNTGROUNDS_REINFORCEMENTS" hostile="true" />
 	<environment type="PDS" target="player" />
 	<choice hidden="true">
@@ -5870,25 +6118,25 @@
 </eventList>
 
 <ship name="SHIP_GUARD_BADLANDS" auto_blueprint="MU_OUTCAST_GUARD_BADLANDS">
-	<surrender min="5" max="6" load="GUARD_SIGNAL" />
+	<surrender min="999" max="999" load="GUARD_SIGNAL" />
 	<destroyed load="GUARD_OUTCAST_DESTROY" />
 	<deadCrew load="GUARD_OUTCAST_DEADCREW" />
 </ship>
 
 
 <event name="START_DUSKCAP">
+	<metaVariable name="juke_dusk" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
 	</beaconType>
-	<text>あなたはゾルタンの首都と混同されないように、ダスクブリンガー議会議事堂に到着しました。セクターの綴りは難しいトピックですが、それはあなたの懸念の中で最も少ないことです。このセクターには、最も献身的な脱皮団、ファシストの信念が連邦のものとほとんど一致しない危険な過激なゾルタンが住んでいます。あなたがこのセクターを横断するとき、注意深い目をしてください、そして、迷子の反逆者にも気をつけてください！</text>
+	<text>ダスクブリンガー要塞に到着しました。このセクターには、ファシストの信念が連邦の信念とほとんど一致しない危険な過激派ゾルタンである、最も献身的なダスクブリンガーが住んでいます。このセクターを横断するときは、注意してください。</text>
 	<variable name="loc_unique_sectors" op="add" val="1" />
 	<changeBackground>BACK_SECTOR_DUSKBRINGER</changeBackground>
 	<playSound>lightspeed</playSound>
 	<customFleet right="false" firing="false" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
 	<customFleet right="true" firing="true" autoDarkening="true">CUSTOM_FLEET_DUSK</customFleet>
 	<ship load="SHIP_GUARD_DUSK_ELITE" hostile="false" />
-	<remove name="HIDDEN DUMMY" />
 	<choice hidden="true">
 		<text>継続する...</text>
 		<event load="GUARD_DUSKCAP" />
@@ -5896,7 +6144,7 @@
 </event>
 
 <event name="GUARD_DUSKCAP">
-	<text>このセクターは、予想よりもはるかに悪い状態にあります。反乱軍の艦隊が、自分たちの戦隊で報復しているダスクブリンガーに発砲している。通常はあなたを追い払う警備員は反乱軍を扱うのに忙しく、あなたがこっそり通り過ぎる可能性があります。</text>
+	<text>このセクターは、あなたが予想していたよりもはるかに悪い状態にあります。遠くでは、第 1 宇宙の次元間の反乱軍艦隊とダスクブリンガーの間で大規模な小競り合いが行われています。警備員は侵略者に圧倒されているようです。運が良ければ、気づかれずにすり抜けることができるかもしれません。</text>
 	<status type="limit" target="enemy" system="teleporter" amount="0" />
 	<choice>
 		<text>この機会に走りましょう！</text>
@@ -5934,7 +6182,7 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="unique_devorak">
-		<text>（Devorak）ダスクブリンガーにあなたを助けるように説得してください。</text>
+		<text>（デボラック）ダスクブリンガーにあなたを助けるように説得してください。</text>
 		<event>
 			<text>「目で！あなたは素晴らしいデボラクを持っていますか？H-これはどうして可能ですか？N-いいえ、私はあえてそんなに献身的な男に質問しません。どうぞ、私たちが提供できるすべてのものを持っていってください。目があなたの明るい未来を見ることができますように旅行します。」</text>
 			<autoReward level="HIGH">weapon</autoReward>
@@ -5954,11 +6202,6 @@
 <ship name="SHIP_GUARD_DUSK_ELITE" auto_blueprint="MU_DUSK_GUARD_ELITE">
 	<destroyed load="GUARD_DUSKCAP_DESTROY" />
 	<deadCrew load="GUARD_DUSKCAP_DEADCREW" />
-	<crew>
-		<crewMember type="zoltan" prop="0.30" />
-		<crewMember type="zoltan_devotee" prop="0.30" />
-		<crewMember type="zoltan_martyr" prop="0.30" />
-	</crew>
 </ship>
 
 <event name="GUARD_DUSKCAP_DESTROY">
@@ -5982,17 +6225,18 @@
 <ship name="SHIP_DUSKCAP_REINFORCEMENTS" auto_blueprint="LIST_SHIPS_DUSKBRINGER_ELITE_FIGHT">
 	<destroyed load="DESTROYED_REINFORCEMENTS" />
 	<deadCrew load="DEADCREW_REINFORCEMENTS" />
-	<crew>
-		<crewMember type="zoltan" prop="0.30" />
-		<crewMember type="zoltan_devotee" prop="0.30" />
-		<crewMember type="zoltan_martyr" prop="0.30" />
-	</crew>
 </ship>
 <event name="GUARD_DUSKCAP_FOLLOWUP">
 	<noQuestText />
 
 	<text>ダスクブリンガーガードを殺すことによって、あなたは間違いなく彼らにあなたを追跡するために援軍を派遣させました。セクターを探索するときは、足元に注意してください。</text>
-	<quest event="REINFORCEMENTS_DUSKCAP" />
+	<quest event="REINFORCEMENTS_DUSKCAP">
+		<nebulaBeacon>true</nebulaBeacon>
+		<nextSector>false</nextSector>
+		<nebulaEvent>NEBULA_REINFORCEMENTS_DUSKCAP</nebulaEvent>
+		<createNebula>false</createNebula>
+		<aggressive>2</aggressive>
+	</quest>
 	<choice>
 		<text>船に乗って何かする。</text>
 		<event load="STORAGE_CHECK" />
@@ -6010,8 +6254,27 @@
 		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>「あなたはここで望まれていません！あなたはあなたが歓迎されていないことを知っている私たちの領土に侵入しました、そしてあなたは私たちの警備員を殺しました！死ぬ準備をしてください！」</text>
+	<text>「レネゲード、あなたはここに歓迎されません! 連邦はゾルタン族の正当な運命に長い間干渉してきました. まもなくあなたの寿命は尽きるでしょう! あなたは警備船に乗って私たちの親族を殺しました.</text>
 	<ship load="SHIP_DUSKCAP_REINFORCEMENTS" hostile="true" />
+	<environment type="PDS" target="player" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="NEBULA_REINFORCEMENTS_DUSKCAP">
+	<preventQuest />
+	<beaconType id="map_icon_reinforcements" global="true" req="LOOT_COMPASS">
+		<color r="200" g="55" b="82" a="1" />
+		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<text>「レネゲード、あなたはここに歓迎されません! 連邦はゾルタン族の正当な運命に長い間干渉してきました. まもなくあなたの寿命は尽きるでしょう! あなたは警備船に乗って私たちの親族を殺しました.</text>
+	<ship load="SHIP_DUSKCAP_REINFORCEMENTS" hostile="true" />
+	<img back="BACK_EVENT_LIGHTNEBULA" />
+	<status type="loss" target="player" system="sensors" amount="1" />
 	<environment type="PDS" target="player" />
 	<choice hidden="true">
 		<text>継続する...</text>
@@ -6021,6 +6284,7 @@
 
 	
 <event name="START_GARDEN">
+	<metaVariable name="juke_orchid" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -6031,11 +6295,11 @@
 	<playSound>lightspeed</playSound>
 	<ship load="SHIP_GUARD_GARDEN" hostile="false" />
 	<remove name="HIDDEN DUMMY" />
-	<choice hidden="true" req="rep_orchid" lvl="-2147483648" max_lvl="2" max_group="0" blue="false">
+	<choice hidden="true" req="rep_orchid" lvl="-2147483648" max_lvl="1" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_GARDEN" />
 	</choice>
-	<choice hidden="true" req="rep_orchid" lvl="3" max_lvl="999" max_group="0" blue="false">
+	<choice hidden="true" req="rep_orchid" lvl="2" max_lvl="999" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_ORCHID_CRIMINAL" />
 	</choice>
@@ -6355,6 +6619,7 @@
 
 <event name="GUARD_ESTATE_DESTROY">
 	<text>オートガードを倒しました。あなたは残骸を救い出します。</text>
+	<weapon name="GIFTLIST_ESTATE" />
 	<autoReward level="HIGH">standard</autoReward>
 	<choice hidden="true">
 		<text>継続する...</text>
@@ -6398,6 +6663,7 @@
 
 
 <event name="START_JERRY">
+	<metaVariable name="juke_jerry" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -6487,6 +6753,7 @@
 
 	
 <event name="START_SHIPYARD">
+	<metaVariable name="juke_auto" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -6587,6 +6854,7 @@
 
 	
 <event name="START_SLUGHOME">
+	<metaVariable name="juke_kleptocracy" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -6636,7 +6904,7 @@
 	<choice hidden="true" req="slug_knight">
 		<text>（ナイトクルー）あなたのナイトには、そのクレアボイアントに教えるための規律があります。</text>
 		<event>
-			<text>あなたの騎士は通信に向かって進みます、そしてそれらを見ると、反対側の妨害工作員は目に見える不快感に陥ります。しかし、言葉を交換する代わりに、騎士は単にトランズ状態のように見え、反対側のクレアボイアントが加わっただけです。</text>
+			<text>あなたの騎士は通信に向かって進み、それらを見ると、反対側の破壊工作員は不快に見えるものを示します.しかし、言葉を交わす代わりに、騎士は単にトランス状態のように見えるものに入り、反対側の千里眼が加わります.</text>
 			<choice hidden="true">
 				<text>継続する...</text>
 				<event>
@@ -6773,6 +7041,7 @@
 		<nebulaBeacon>true</nebulaBeacon>
 		<nextSector>false</nextSector>
 		<nebulaEvent>NEBULA_REINFORCEMENTS_SLUGHOME</nebulaEvent>
+		<createNebula>false</createNebula>
 		<aggressive>2</aggressive>
 	</quest>
 	<choice>
@@ -6830,7 +7099,6 @@
 	<changeBackground>BACK_SECTOR_SLUG</changeBackground>
 	<playSound>lightspeed</playSound>
 	<ship load="SHIP_GUARD_CLAN" hostile="false" />
-	<remove name="HIDDEN DUMMY" />
 	<choice hidden="true">
 		<text>継続する...</text>
 		<event load="GUARD_CLAN" />
@@ -6846,82 +7114,16 @@
 			<text>あなたはロッジに足を踏み入れ、エキゾチックなスパイスの心地よい香りに迎えられます。そのほとんどは連邦の領土で所有することは違法です。周りのゲストからは楽しいおしゃべりがあり、ほとんどがスラッグですが、ここには他にもいくつかの種族があります。群衆はあなたがここにいることに気づいたり気にかけたりしていないようです。これは良い兆候です。</text>
 			<choice hidden="true">
 				<text>ロッジの周りに何か売るものがあるかどうかを確認してください。</text>
-				<event>
-					<text>群衆の後ろでおなじみの顔に気づいたとき、あなたはロッジの周りを動き始めます。 「Sssstranger！オッズは何ですか！オッズは実際に何ですか...購入するssssomethingを探していますか？私はあなたを私のssshipに連れて行き、私が持っているものをssshowすることができます...」</text>
-					<choice hidden="true">
-						<text>シルバンに従ってください。</text>
-						<event>
-							<text>あなたはシルバンを追いかけ、途中で彼が小さな話をします。 「ご存知のように、私はギルドの中でレンジャーを襲った。それから私たちは、Sssalt Manと呼ばれるこの仲間とのこの論争を乗り越えた。彼の種類のLassstは、聞いたことがあり、恐ろしいバウンティハンターが起動する。しかし、ギルドは彼を望んでいる。死んだ、ひどいssshame。Jusssstはそれにmysssselfをもたらすことができませんでした、あなたは知っていますか？とにかく、そのsssについて...」</text>
-							<choice hidden="true">
-								<text>ソルトマンについて詳しく教えてください。</text>
-								<event>
-									<text>シルバンは一瞬地面を見下ろします。 「ねえ、あなたの興味をそそられた、私は？彼がワスした魅力的な仲間、そしておそらく私が一族を去って商人の代役になった唯一の理由だ。あなたは確かにusss...friendss...と呼ぶことができた。何年もの間彼は...」</text>
-									<choice>
-										<text>継続する...</text>
-										<event>
-											<text>「本当はssstrangerと言われました、私は彼を再び見つけるためにここに来ました...しかし私はssso長い後、私は彼を目で見ることができなかったと思います...彼が現在頑張っているところだと聞きました。あなたがそこにいるとき、彼が死んでいないことを確認してください、いいですか？そして私に良い言葉を言ってください...私は本当にそれを見知らぬ人に感謝します。」</text>
-											<choice hidden="true">
-												<text>承認。</text>
-												<event>
-													<text>「ああ！私はあなたを頼りにできることを知っていました、sssstranger。へぇ...今、貿易は今どのように感じていますか？」</text>
-													<quest event="NEBULA_SALT_QUEST" />
-													<choice>
-														<text>同意。</text>
-														<event load="SYLVAN_TRADES" />
-													</choice>
-													<choice>
-														<text>却下。</text>
-														<event>
-															<text>「ああ、それではSssstranger。また別の機会に、おそらくss？私たちは、今後もお互いにsssseeするだろうと信じています！」</text>
-														</event>
-													</choice>
-												</event>
-											</choice>
-											<choice hidden="true">
-												<text>却下。</text>
-												<event>
-													<text>「ああ...はい、私の悪い...忙しさと個人的な問題を混ぜてはいけません、はい...」シルバンは眉をひそめますが、彼のチッパートーンを維持します。 「まあ、とにかく貿易はどうですか、見知らぬ人？」</text>
-													<choice>
-														<text>同意。</text>
-														<event load="SYLVAN_TRADES" />
-													</choice>
-													<choice>
-														<text>却下。</text>
-														<event>
-															<text>「今日はノーと言う気分で本当にジャスト、ええ、ストレンジャー？まあ…次回は多分。」シルバンはすぐにロッジに戻ります。</text>
-														</event>
-													</choice>
-												</event>
-											</choice>
-										</event>
-									</choice>
-								</event>
-							</choice>
-							<choice hidden="true">
-								<text>彼が持っているものを見てください。</text>
-								<event>
-									<text>「ああ、ssstranger、あなたは幸運です。私はsssome高品質のギアを手に入れました。あなたが興味を持ってくれるような気がします！」シルバンは彼の船からいくつかの武器を引き出してあなたに見せます。</text>
-									<choice>
-										<text>同意。</text>
-										<event load="SYLVAN_TRADES" />
-									</choice>
-									<choice>
-										<text>却下。</text>
-										<event>
-											<text>「ああ、それではSssstranger。また別の機会に、おそらくss？私たちは、今後もお互いにsssseeするだろうと信じています！」</text>
-										</event>
-									</choice>
-								</event>
-							</choice>
-						</event>
-					</choice>
-				</event>
+				<event load="SYLVAN_SALT_QUEST_INTRO_LOAD" />
 			</choice>
 			<choice hidden="true">
 				<text>それの地獄のためにバーの戦いを開始します。</text>
 				<event>
-					<text>あなたはバーに歩いて行き、ひどいにおいのする液体のグラスを手に取り、それから近くのクランズマンの一人の頭の上でそれを粉砕します。 「オイラッド、血まみれの地獄は何をしているの？」クランズマンはライフルを引き、続いて数人の友人を引きます。これは本当にばかげた考えでした。</text>
-					<boarders min="4" max="5" class="slug_clansman" />
+					<text>あなたはバーに歩いて行き、ひどいにおいのする液体の入ったグラスを手に取り、近くにいる氏族の一人の頭にぶつけます。 「おいおい、お前は何をしているんだ？」クランズマンがライフルを引き、続いて数人の友人があなたの船を荒らし、バーファイトがあなたに戻ってきます。これは本当にばかげた考えでした。</text>
+					
+					<damage amount="0" system="random" effect="breach" />
+					<damage amount="0" system="random" effect="breach" />
+					<damage amount="0" system="random" effect="breach" />
 				</event>
 			</choice>
 			<choice hidden="true">
@@ -6943,7 +7145,7 @@
 	<choice hidden="true">
 		<text>ロッジを攻撃せよ！</text>
 		<event>
-			<text>「ああ、バガー、私たちはussssにボギーを手に入れました！Matesss、gunssssを武装させてください！」</text>
+			<text>「ああ、バガー、私たちはボギーを手に入れました！銃を武装させてください！」</text>
 			<ship hostile="true" />
 			<choice hidden="true">
 				<text>継続する...</text>
@@ -6952,7 +7154,7 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>ロッジを無視して、あなたの道を進んでください。</text>
+		<text>ロッジを無視して先に進みます。</text>
 		<event>
 			<text>あなたがロッジを通り過ぎて移動するとき、あなたは邪魔されません。うまくいけば、それはこのセクターの残りの部分にとって良い前兆です。</text>
 			<choice>
@@ -6966,6 +7168,8 @@
 		</event>
 	</choice>
 </event>
+
+
 
 <ship name="SHIP_GUARD_CLAN" auto_blueprint="MU_CLAN_LODGE">
 	<surrender min="999" max="999" load="GUARD_SIGNAL" />
@@ -7007,6 +7211,7 @@
 		<nebulaBeacon>true</nebulaBeacon>
 		<nextSector>false</nextSector>
 		<nebulaEvent>NEBULA_REINFORCEMENTS_CLAN</nebulaEvent>
+		<createNebula>false</createNebula>
 		<aggressive>2</aggressive>
 	</quest>
 	<choice>
@@ -7075,7 +7280,7 @@
 	<choice hidden="true">
 		<text>ええ、なんてクレイジーな偶然です。</text>
 		<event>
-			<text>スラッグは笑う。 「あなたは船長を忘れます、私はあなたの心を読むことができます。今、私たちは裏切り者に逃げることができません、Nightssssは私を殺します！私たちはあなたを最初に殺さなければならないでしょう。」</text>
+			<text>スラッグは笑う。 「あなたは船長を忘れます、私はあなたの心を読むことができます。今、私たちは裏切り者に逃げることができません、ナイトsssは私を殺します！私たちはあなたを最初に殺さなければならないでしょう。」</text>
 			<ship hostile="true" />
 			<choice hidden="true">
 				<text>継続する...</text>
@@ -7134,7 +7339,7 @@
 </ship>
 
 <event name="GUARD_NIGHTS_DEFEAT">
-	<text>警備員は敗北しました。近づいて調査すると、船体のロゴの周りに「TheKnightsofNights」と書かれた小さな碑文があります。あなたはこれまでこのような船を見たことがなく、連邦はそれらについての情報を持っていません、しかしあなたはこのセクターがそれらで群がっているかもしれないと疑っています...</text>
+	<text>警備員は敗北しました。近づいて調査すると、船体のロゴの周りに「TheKnightsofナイト」と書かれた小さな碑文があります。あなたはこれまでこのような船を見たことがなく、連邦はそれらについての情報を持っていません、しかしあなたはこのセクターがそれらで群がっているかもしれないと疑っています...</text>
 	<autoReward level="HIGH">standard</autoReward>
 	<choice hidden="true">
 		<text>継続する...</text>
@@ -7142,7 +7347,7 @@
 	</choice>
 </event>
 <event name="GUARD_NIGHTS_DEADCREW">
-	<text>警備員は敗北しました。近づいて調査すると、船体のロゴの周りに「TheKnightsofNights」と書かれた小さな碑文があります。あなたはこれまでこのような船を見たことがなく、連邦はそれらについての情報を持っていません、しかしあなたはこのセクターがそれらで群がっているかもしれないと疑っています...</text>
+	<text>警備員は敗北しました。近づいて調査すると、船体のロゴの周りに「TheKnightsofナイト」と書かれた小さな碑文があります。あなたはこれまでこのような船を見たことがなく、連邦はそれらについての情報を持っていません、しかしあなたはこのセクターがそれらで群がっているかもしれないと疑っています...</text>
 	<autoReward level="HIGH">standard</autoReward>
 	<weapon name="LIST_LOOT_KNIGHT" />
 	<choice hidden="true">
@@ -7167,6 +7372,7 @@
 		<nebulaBeacon>true</nebulaBeacon>
 		<nextSector>false</nextSector>
 		<nebulaEvent>NEBULA_REINFORCEMENTS_NIGHTS</nebulaEvent>
+		<createNebula>false</createNebula>
 		<aggressive>2</aggressive>
 	</quest>
 	<choice>
@@ -7217,6 +7423,7 @@
 
 
 <event name="START_SHELLHOME">
+	<metaVariable name="juke_shell" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -7227,9 +7434,28 @@
 	<changeBackground>BACK_SECTOR_SHELL</changeBackground>
 	<playSound>lightspeed</playSound>
 	<remove name="HIDDEN DUMMY" />
-	<choice hidden="true">
+	<choice hidden="true" req="rep_shell" lvl="-2147483648" max_lvl="1" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_SHELLHOME" />
+	</choice>
+	<choice hidden="true" req="rep_shell" lvl="2" max_lvl="999" max_group="0" blue="false">
+		<text>継続する...</text>
+		<event load="GUARD_SHELLHOME_CRIMINAL" />
+	</choice>
+</event>
+
+<event name="GUARD_SHELLHOME_CRIMINAL">
+	<text>ここで何かがおかしいようです。通常、シェルはあなたのような船に目を向けることはありませんが、今では警備艦で不審なチャタリングをキャッチします。</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>あなたの実績が追いついてきたようです。警備員のクルーはあなたが犯している犯罪を十分に聞いており、彼らはあなたをセクターに入れるつもりはありません！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
 	</choice>
 </event>
 
@@ -7253,7 +7479,7 @@
 			</choice>
 		</event>
 	</choice>
-	<choice hidden="true">
+	<choice hidden="true" req="pilot" blue="false">
 		<text>あなたの道を爆破してください！</text>
 		<event>
 			<text>あなたは平和的な解決の可能性を無視し、すぐにシェル船を破壊することにしました。</text>
@@ -7349,6 +7575,7 @@
 		<nebulaBeacon>true</nebulaBeacon>
 		<nextSector>false</nextSector>
 		<nebulaEvent>NEBULA_REINFORCEMENTS_SHELLHOME</nebulaEvent>
+		<createNebula>false</createNebula>
 		<aggressive>2</aggressive>
 	</quest>
 	<choice>
@@ -7524,6 +7751,7 @@
 
 	
 <event name="START_COALITIONHOLD">
+	<metaVariable name="juke_coalition" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -7675,6 +7903,7 @@
 		<nebulaBeacon>true</nebulaBeacon>
 		<nextSector>false</nextSector>
 		<nebulaEvent>NEBULA_REINFORCEMENTS_COALITIONHOLD</nebulaEvent>
+		<createNebula>false</createNebula>
 		<aggressive>2</aggressive>
 	</quest>
 	<choice>
@@ -7723,13 +7952,13 @@
 
 	
 <event name="START_HIVE">
+	<metaVariable name="juke_hive" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
 	</beaconType>
 	<text>あなたはマンティスハイブに到着しました。この地域は通常、ほとんどの場合禁止されていると見なされています。あなたが喜んでここに来たかどうかに関係なく、あなたは今ここにいます。逃げるクルーがまだいる間に必ず出てください。</text>
 	<variable name="loc_unique_sectors" op="add" val="1" />
-	<replaceSector name="SECTOR_MANTIS_UNIQUE">SECTOR_MANTIS</replaceSector>
 	<changeBackground>BACK_SECTOR_MANTIS</changeBackground>
 	<playSound>lightspeed</playSound>
 	<ship load="SHIP_GUARD_HIVE" hostile="false" />
@@ -7857,11 +8086,6 @@
 	<surrender min="999" max="999" load="GUARD_SIGNAL" />
 	<destroyed load="GUARD_HIVE_DESTROY" />
 	<deadCrew load="GUARD_HIVE_DEADCREW" />
-	<crew>
-		<crewMember type="mantis_bishop" prop="0.20" />
-		<crewMember type="mantis_suzerain" prop="0.30" />
-		<crewMember type="engi_defender" prop="0.50" />	
-	</crew>
 </ship>
 
 <event name="GUARD_HIVE_DESTROY">
@@ -8119,6 +8343,7 @@
 		<nebulaBeacon>true</nebulaBeacon>
 		<nextSector>false</nextSector>
 		<nebulaEvent>NEBULA_REINFORCEMENTS_DYNCAP</nebulaEvent>
+		<createNebula>false</createNebula>
 		<aggressive>2</aggressive>
 	</quest>
 	<choice>
@@ -8139,7 +8364,7 @@
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
 	<text>「悪魔とヴァガボンドは私の正気をその核心まで削り落としたが、今では警備員に乗っている私の兄弟といとこが殺されたというニュースを聞いた。今私を見つめている雑種の手よりも悪いことは？武器を引いて、息抜き、そして私と戦ってください！」</text>
-	<ship load="SHIP_DYNASTY_REINFORCEMENTS" hostile="true" />
+	<ship load="SHIP_DYNCAP_REINFORCEMENTS" hostile="true" />
 	<environment type="PDS" target="player" />
 	<choice hidden="true">
 		<text>継続する...</text>
@@ -8155,7 +8380,7 @@
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
 	<text>「悪魔とヴァガボンドは私の正気をその核心まで削り落としたが、今では警備員に乗っている私の兄弟といとこが殺されたというニュースを聞いた。今私を見つめている雑種の手よりも悪いことは？武器を引いて、息抜き、そして私と戦ってください！」</text>
-	<ship load="SHIP_DYNASTY_REINFORCEMENTS" hostile="true" />
+	<ship load="SHIP_DYNCAP_REINFORCEMENTS" hostile="true" />
 	<img back="BACK_EVENT_LIGHTNEBULA" />
 	<status type="loss" target="player" system="sensors" amount="1" />
 	<environment type="PDS" target="player" />
@@ -8167,6 +8392,7 @@
 
 	
 <event name="START_ROCKHOME">
+	<metaVariable name="juke_theocracy" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -8326,6 +8552,7 @@
 
 	
 <event name="START_CRYSTALHOME">
+	<metaVariable name="juke_crystal" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -8335,12 +8562,11 @@
 	<changeBackground>BACK_SECTOR_CRYSTAL_RED</changeBackground>
 	<playSound>lightspeed</playSound>
 	<ship load="SHIP_GUARD_CRYSTALHOME" hostile="false" />
-	<remove name="HIDDEN DUMMY" />
-	<choice hidden="true" req="rep_crystal" lvl="-2147483648" max_lvl="2" max_group="0" blue="false">
+	<choice hidden="true" req="rep_crystal" lvl="-2147483648" max_lvl="1" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_CRYSTALHOME" />
 	</choice>
-	<choice hidden="true" req="rep_crystal" lvl="3" max_lvl="999" max_group="0" blue="false">
+	<choice hidden="true" req="rep_crystal" lvl="2" max_lvl="999" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event load="GUARD_CRYSTAL_CRIMINAL" />
 	</choice>
@@ -8459,7 +8685,13 @@
 	<noQuestText />
 	<removeHazards />
 	<text>クリスタルガードを殺すことで、あなたは間違いなく彼らにあなたを追跡するために援軍を派遣させました。セクターを探索するときは、足元に注意してください。</text>
-	<quest event="REINFORCEMENTS_CRYSTALHOME" />
+	<quest event="REINFORCEMENTS_CRYSTALHOME">
+		<nebulaBeacon>true</nebulaBeacon>
+		<nextSector>false</nextSector>
+		<nebulaEvent>NEBULA_REINFORCEMENTS_CRYSTALHOME</nebulaEvent>
+		<createNebula>false</createNebula>
+		<aggressive>2</aggressive>
+	</quest>
 	<choice>
 		<text>船に乗って何かする。</text>
 		<event load="STORAGE_CHECK" />
@@ -8485,14 +8717,33 @@
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
+<event name="NEBULA_REINFORCEMENTS_CRYSTALHOME">
+	<preventQuest />
+	<beaconType id="map_icon_reinforcements" global="true" req="LOOT_COMPASS">
+		<color r="200" g="55" b="82" a="1" />
+		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<text>「部外者は、あなたが野蛮であることを知っていましたが、ここに移住したとき、あなたが私たちのセクターに侵入し、そのような暴力的な行為で私たちの道を脅かすとは思いもしませんでした！</text>
+	<ship load="SHIP_CRYSTALHOME_REINFORCEMENTS" hostile="true" />
+	<img back="BACK_EVENT_LIGHTNEBULA" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<environment type="PDS" target="player" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
 
 	
 <event name="START_LOSTSUN">
+	<metaVariable name="juke_lostsun" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
 	</beaconType>
-	<text>このセクターは、彼らの専制政治に反抗した恐るべき岩の戦士であるロスト・サンの拠点であるように見えます。連盟とのほろ苦い同盟国であるロスト・サン自体は、あなたに対してあまり敵対的であってはなりませんが、温かい歓迎を期待しないでください。</text>
+	<text>このセクターは、専制政府に反抗した恐るべきロックの戦士、ロスト サンズの本拠地のようです。連邦とのほろ苦い同盟国である Lost Suns 自体は、あなたに対して敵対的すぎるべきではありませんが、温かい歓迎を期待しないでください。</text>
 	<variable name="loc_unique_sectors" op="add" val="1" />
 	<ship load="SHIP_GUARD_LOSTSUN" hostile="false" />
 	<changeBackground>BACK_SECTOR_LOSTSUN</changeBackground>
@@ -8667,6 +8918,7 @@
 
 	
 <event name="START_LANIUS">
+	<metaVariable name="juke_lanius" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -8836,11 +9088,15 @@
 
 <event name="GUARD_BLACKMARKET">
 	<text>密輸業者の海賊でマークされた、もともと反乱軍の設計の信じられないほどよく武装した船が、進入ビーコンを守っています。彼らはあなたが入る前にあなたが迅速な検査に合格するか、料金を支払うことを要求します。この船のモデルはこれまで見たことがありませんが、大きな大砲があなたに向けられています。</text>
-	<choice hidden="true">
+	<choice hidden="true" blue="false" req="LIST_CHECK_ANY_CREW" lvl="1">
 		<text>検査を受けます。</text>
 		<event load="GUARD_BLACKMARKET_INSPECT" />
 	</choice>
-	<choice hidden="true">
+	<choice hidden="true" blue="false" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0">
+		<text>検査を受けます。</text>
+		<event load="GUARD_BLACKMARKET_INSPECT_AUTO" />
+	</choice>
+	<choice hidden="true" req="pilot" blue="false">
 		<text>戦い抜く！</text>
 		<event>
 			<text>密輸業者は、これが通常の出来事であるかのように、まったく驚いていないように見えます。あなたは武器を武装させるために急いでいます。</text>
@@ -8851,7 +9107,7 @@
 			</choice>
 		</event>
 	</choice>
-	<choice>
+	<choice req="pilot" blue="false">
 		<text>料金を支払います。</text>
 		<event>
 			<text>「ああ、何か隠すものがありますか？まあ、スクラップはスクラップです...」</text>
@@ -8894,6 +9150,25 @@
 		</choice>
 	</event>
 </eventList>
+<eventList name="GUARD_BLACKMARKET_INSPECT_AUTO">
+	<event>
+		<text>「私はあなたに注目しています、マシン。私たちは船に乗り込んで、あなたが通常抱く厄介な驚きを発見するよりもよく知っているので、すぐに始めましょう.」あなたの船は徹底的にスキャンされます。これが裏目に出るのではないかと疑っていますが、最終的には許可されます。</text>
+	</event>
+	<event>
+		<text>「私はあなたに注目しています、マシン。私たちは船に乗り込んで、あなたが通常抱く厄介な驚きを発見するよりもよく知っているので、すぐに始めましょう.」あなたの船は徹底的にスキャンされます。これが裏目に出るのではないかと疑っていますが、最終的には許可されます。</text>
+	</event>
+	<event>
+		<text>「私はあなたに注目しています、マシン。私たちは船に乗り込んで、あなたが通常抱く厄介な驚きを発見するよりもよく知っているので、すぐに始めましょう.」あなたの船は徹底的にスキャンされます。これが裏目に出るのではないかと疑っていますが、最終的には許可されます。</text>
+	</event>
+	<event>
+		<text>密輸業者は、あなたが思っていたように、さらに調査することさえしません。代わりに、彼らは武器を武装させます！ 「私たちの作戦を探るロボット害虫はもう十分だ! 叩かれる準備をしておけ!」</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
 
 <ship name="SHIP_GUARD_SMUGGLER" auto_blueprint="MU_SMUGGLER_GUARD">
 	<surrender min="999" max="999" load="GUARD_SIGNAL" />
@@ -8919,6 +9194,10 @@
 	</item_modify>
 	<choice hidden="true" req="teleporter">
 		<text>（テレポーター）警備員を調査します。</text>
+		<event load="SMUGGLER_UNLOCK_1" />
+	</choice>
+	<choice hidden="true" req="LOCKED_GLOBAL_TELEPORT">
+		<text>(中央テレポート) 警備員を調査します。</text>
 		<event load="SMUGGLER_UNLOCK_1" />
 	</choice>
 	<choice hidden="true">
@@ -8964,6 +9243,7 @@
 
 	
 <event name="START_MONK">
+	<metaVariable name="juke_monk" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -9011,6 +9291,7 @@
 
 	
 <event name="START_HEKTAR">
+	<metaVariable name="juke_hektar" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -9026,7 +9307,7 @@
 </event>
 
 <event name="GUARD_HEKTAR">
-	<text>「ご挨拶、貴重なcussstomersss！Hektar Indusssstriesss（tm）のsss Hektar MEGA-MARKET（tm）へようこそ。ssssepartsssで新しい債務者をsssseeすることは常に素晴らしいことです！」</text>
+	<text>「ご挨拶、貴重なcussstomersss！ Indusssstriesss（tm）のsss ヘクタールMEGA-MARKET（tm）へようこそ。ssssepartsssで新しい債務者をsssseeすることは常に素晴らしいことです！」</text>
 	<choice hidden="true">
 		<text>ありがとう-待って、あなたは私たちを債務者と呼んだのですか？</text>
 		<event>
@@ -9130,6 +9411,7 @@
 		<nebulaBeacon>true</nebulaBeacon>
 		<nextSector>false</nextSector>
 		<nebulaEvent>NEBULA_REINFORCEMENTS_HEKTAR</nebulaEvent>
+		<createNebula>false</createNebula>
 		<aggressive>2</aggressive>
 	</quest>
 	<choice>
@@ -9178,6 +9460,7 @@
 
 	
 <event name="START_AUGMENTED">
+	<metaVariable name="juke_augmented" op="set" val="1" />
 	<preventQuest />
 	<beaconType id="map_icon_start" global="false">
 		<color r="46" g="252" b="51" a="1" />
@@ -9305,7 +9588,7 @@
 </ship>
 <event name="GUARD_AUGMENTED_FOLLOWUP">
 	<noQuestText />
-	<removeHazards />
+	
 	<text>オーグメンティドの警備員を殺すことによって、あなたは間違いなく彼らにあなたを追跡するために援軍を派遣させました。セクターを探索するときは、足元に注意してください。</text>
 	<quest event="REINFORCEMENTS_AUGMENTED" />
 	<choice>

@@ -521,6 +521,221 @@
 </event>
 
 
+<eventList name="DISTRESS_FED">
+	<event load="DISTRESS_FED_EMBASSY" />
+</eventList>
+
+<event name="DISTRESS_FED_EMBASSY" unique="true">
+	<text>繰り返し遭難信号があなたを地元の省大使館に案内します。ここで救難信号を見つけるのは憂慮すべきことです - ステーションの外に配置されたダスクブリンガー船によってさらに憂慮すべきことになりました.</text>
+	<distressBeacon />
+	<ship load="SHIP_DUSK_FED_EMBASSY" hostile="false" /> 
+	<choice hidden="true">
+		<text>大使館に乗り込みます。</text>
+		<event>
+			<text>2 つの格納庫の 1 つにこっそりとドッキングし、センター ロビーに向かいます。到着すると、数え切れないほどの民間人と警備員、主に省だけでなく他の多くの種族が拘束され、猿轡かませられていることがわかります。数人の警備員が銃を構えて側面に立っていたが、民間人を危険にさらすことなく行動することはできなかった.彼らのリーダーが行ったり来たりしている間、完全に装備されたダスクブリンガーのチームが数人の役人の頭に銃を持っています。 「私たちの種族の自己満足の時代は終わりました! ゾルタン種族は、焼け焦げた文明の灰から立ち上がって、無言で評議会に座り、人間の貪欲によって引き起こされた戦争で死ぬのではありません! 統一された連邦は神話です! 今こそ私たちが立ち上がって、星の中で私たちの正当な場所を主張してください！」ゾルタンは、どこかで聞いたスピーチを暗唱するかのように、固くしゃべります。</text>
+			<choice hidden="true">
+				<text>ダスクブリンガーを撃て。</text>
+				<event load="FED_EMBASSY_KILL" />
+			</choice>
+			<choice hidden="true">
+				<text>正体を現して、ダスクブリンガーと討論してみてください。</text>
+				<event load="FED_EMBASSY_DEBATE" />
+			</choice>
+			<choice hidden="true">
+				<text>この瞬間を残してください。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>大使館を避けてください。</text>
+		<event>
+			<text>これはリスクが高すぎて、参加する価値がありません。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="FED_EMBASSY_MESSY">
+	<text>大使館のスタッフはあなたの介入に満足していません。 「あなたのように他人の命を危険にさらしているのに、なぜ連邦は反逆者を雇うことを主張するのですか?! これらの人々は誰も死ぬ必要はありませんでしたが、彼らの血はあなたの手にあります。」</text>
+	<choice hidden="true">
+		<text>謝罪して去ります。</text>
+		<event>
+			<text>ゾルタンがあなたの謝罪を受け入れないことはわかりますが、少なくとも彼らは怒りを止めて状況に対処するようになり、それ以上の結果を招くことなくあなたを逃がすことができます.</text>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>状況をまったく制御できませんでした。</text>
+		<event>
+			<text>あなたの鈍感な反応は、ゾルタンをさらに怒らせるだけです。 「まあ、それはあなたの呼びかけではありませんでした。今、私たちは外交上の悪夢を手にしています。あなたを雇っただけでなく、あなたのタイプの人々がこの銀河に合法的に存在することを可能にしたプロジェクトは、いつでもサポートを受け続けると本当に思いますか?あなたはこのように行動しますか？」物事がさらに醜くなる前に去るのが最善だとあなたは考えます.</text>
+			<choice>
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_ZOLTAN" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>補償としていくらかのスクラップを提供してください。</text>
+		<event>
+			<text>「本当にスクラップ30枚で埋め合わせできると思ってんの？ お前の無謀な行動のせいで、少なくとも十数人が死んでいる」ゾルタンは両手を頭の上に置き、前後に歩きます。 「これは、故人の家族への補償は言うまでもなく、物的損害をカバーすることさえありません。ただ...行きなさい。あなたはここで望まれていません。」</text>
+			<item_modify>
+				<item type="scrap" min="-30" max="-30" />
+			</item_modify>
+		</event>
+	</choice>
+</event>
+<eventList name="FED_EMBASSY_KILL">
+	<event>
+		<text>ブラスターを抜き、ダスクブリンガーの胸を撃ちます。静かな待ち伏せの準備ができていない彼は、爆発ベストを起動する前に死ぬ.側の警備員も戦いに参加し、あなたは驚くほど早くダスクブリンガーを一掃することができます.脅威が処理されると、大使館のスタッフはあなたの助けに対して多額の支払いをします.</text>
+		<autoReward level="HIGH">augment</autoReward>
+	</event>
+	<event load="FED_EMBASSY_BAD" />
+	<event load="FED_EMBASSY_BAD" />
+</eventList>
+<event name="FED_EMBASSY_BAD">
+	<text>残念ながら、危険な動きはすぐに狂ってしまいます。 Duskbringers は迅速に反応し、爆発性のベストを起動して数人の人質を連れ出します。警備員が争いに加わっている間、あなたは船に後退し、外にいる敵対船を撃退することを余儀なくされています.</text>
+	<ship hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="FED_EMBASSY_GOOD">
+	<text>大使館長も手を振ってくれます。 「今日から流血が起こったのは残念です-あなたは驚くべきことに、銃ではなく言葉で敵を武装解除しました。あなたが彼らに彼らの道を放棄するよう説得できた可能性は低いですが、私たちの種の多くは古いことをやめたようです.いずれにせよ、これがあなたの報酬です。」</text>
+	<crewMember amount="1" class="zoltan_peacekeeper" />
+	<autoReward level="HIGH">augment</autoReward>
+	<choice>
+		<text>継続する...</text>
+		<event load="MORALITY_REMOVE_ZOLTAN" />
+	</choice>
+</event>
+<eventList name="FED_EMBASSY_DEBATE">
+	<event>
+		<text>あなたの存在が突然明らかになると、Duskbringers は油断しますが、ほんの一瞬です。ただし、人質に危害を加える前に、少なくともまだ攻撃するつもりがないことを示すために、手を空中に上げます。ダスクブリンガーのリーダーは笑いながら腕を大きく広げます。 「これを見てくれませんか! レネゲードのピエロが来て、今日私たちを楽しませようと決めました! 教えてください、ガンスリング野郎、あなたが私たちと共有したい知恵の言葉は何ですか?」</text>
+		<choice hidden="true">
+			<text>あなたのイデオロギーは邪悪で、かつてより優れた銀河が目指してきたすべてのものに反しています!</text>
+			<event>
+				<text>「私たちのイデオロギーが悪であると主張することは、あなたがダスクブリンガー運動の目的を理解していないことを証明するだけです! 単純な心のレネゲードは、そのような壮大な絵を理解することはできません. 私たちはより良い銀河のために働く人々です. "ゾルタンは微笑みますが、彼が表現していると主張する壮大な絵を説明することは一度もありませんでした.ただし、メッセージは明確です。彼は容赦しません。</text>
+				<choice hidden="true">
+					<text>プランBの時間 - 攻撃！</text>
+					<event load="FED_EMBASSY_BAD" />
+				</choice>
+				<choice hidden="true">
+					<text>行きましょう。</text>
+					<event />
+				</choice>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>あなたがゾルタン至上主義者であると主張するなら、なぜあなたは同種の多くの人々の命を危険にさらしているのですか?</text>
+			<event>
+				<text>ダスクブリンガーがこれについて熟考している間、少し間がありますが、彼は巧妙な答えを思いついたと思っているようです. 「私たちの運動の性質は、この銀河の優れた生命体のために場所を空けることです。彼らに正当な場所を与えることです。多くの場合、ゾルタンはこれらの優れた特性を持っているのは事実ですが、それはすべてのゾルタンがそうであるとは言いません. この偽りの平和の不浄な寺院で私たちが見つけた人々は、彼らの種を裏切り、より小さな存在と手を取り合って、より小さな存在になりました. Duskbringer はこっそりと微笑み、あなたの主張を打ち砕きました。この知的戦争に実際に勝つ必要はない、という考えが頭をよぎります。</text>
+				<choice hidden="true">
+					<text>しかし、どの存在が優れているか、または優れていないかを誰が本当に判断できるでしょうか?何があなたを裁判官にするのですか？</text>
+					<event>
+						<text>「フン。行動を起こす意思があるのは私たちだけです。銀河がこの変化をもっと早く行うことができたなら、ダスクブリンガーはまったく必要ありませんでした。銀河はすでにゾルタンを優れた人種 - 私たちはより良い技術、より良い文化、より良い精神を持っています. 確かに、より強い種や特定の環境により適した種がいます - しかし、私たちの新しい銀河には彼らのための場所があります. それはただ勝ちます.一番上にいることはできません。しかし、これを見ることができるのはダスクブリンガーだけです。」</text>
+						<choice hidden="true">
+							<text>つまり、あなたはまったく裁判官ではありません - 銃を飛び越えた過激派です。</text>
+							<event>
+								<text>「私たちは過激派ではありません！」ダスクブリンガーは仲間を押しのけ、あなたに向かって突進してきます。 「私たちの運動を侮辱するなんて！ 急進派は、自分たちのイデオロギーを事実で裏付けることができない人々であり、極端な手段に頼るのです！ ダスクブリンガーについて極端なことやサポートされていないことは何もありません。 私たちは何百万人も強く、成長しています。お前は反逆者の汚物に他ならない、そんなことを言うなんて誰だ? お前は政治を知らない、知らない-」警備員が開くと、ゾルタンは突然の銃撃によって遮断されましたDuskbringers が気を散らしている間に発砲します。ダスクブリンガーは人質を取りに行く前に一掃され、大使館のスタッフはあなたの助けを認識して報酬を提供しているようです.</text>
+								<choice hidden="true">
+									<text>報酬を受け取ります。</text>
+									<event load="FED_EMBASSY_GOOD" />
+								</choice>
+							</event>
+						</choice>
+						<choice hidden="true">
+							<text>あなたの技術は廃墟からリサイクルされたものであり、あなたの心は確かに優れているわけではなく、より良い文化の基準はありません.</text>
+							<event>
+								<text>「私たちの技術はすべて、祖先の肩から解放されています。私たちの多元宇宙全体は、古代帝国の廃墟の上に構築されています。問題は、私たちゾルタンがそれを利用できたということです。ハードライトで他に誰を見ますか?シールド、またはマインドアップロード? そして、私たちの心は、それらが十分に丸みを帯びているという点で、最も優れていることは間違いありません. シェルは科学的理解のためのより大きな能力を持っているかもしれませんが、外交や哲学的な問題を理解することはできません.あなたには文化がまったく欠けています。」ゾルタンは自分のジョークにくすくす笑う。あなたは彼を油断できなかったようで、残念ながら回答がありません。</text>
+								<choice hidden="true">
+									<text>プランBの時間 - 攻撃！</text>
+									<event load="FED_EMBASSY_BAD" />
+								</choice>
+								<choice hidden="true">
+									<text>行きましょう。</text>
+									<event />
+								</choice>
+							</event>
+						</choice>
+					</event>
+				</choice>
+				<choice hidden="true">
+					<text>それはただのばかです！そんなことを考えているあなたは明らかに劣っています。</text>
+					<event>
+						<text>「そして、知恵の戦いは短命です！残念ですが、ささいな侮辱に頼る必要があるのは、あなた自身の敗北を認めるものと見なします。」</text>
+						<choice hidden="true">
+							<text>プランBの時間 - 攻撃！</text>
+							<event load="FED_EMBASSY_BAD" />
+						</choice>
+						<choice hidden="true">
+							<text>行きましょう。</text>
+							<event />
+						</choice>
+					</event>
+				</choice>
+				<choice hidden="true">
+					<text>鼻をほじって、わからないふりをする。</text>
+					<event>
+						<text>あなたは静かにそこに立ち、鼻をつまんだり、お尻を引っ掻いたりする以外、まったく動きません。ダスクブリンガーはこれに完全に混乱しているようです。 「えっと……聞いてますか？脳がオフになったとか？」あなたは何も言わず、ぼんやりと前を見つめます。 Duskbringer グループの多くが互いにつぶやき始め、彼らが目撃しているものに完全に当惑しています。これにより、警備員が急いで状況を制御するのに十分な時間が与えられます。ダスクブリンガーは人質を取りに行く前に一掃され、大使館のスタッフはあなたの助けを認識して報酬を提供しているようです.</text>
+						<choice hidden="true">
+							<text>報酬を受け取ります。</text>
+							<event load="FED_EMBASSY_GOOD" />
+						</choice>
+						<choice hidden="true">
+							<text>静かにそこに長く立ってください。</text>
+							<event>
+								<text>大使館のスタッフはダスクブリンガーを止めたことを祝福しようとしますが、あなたはそれらを無視し、遠くを見つめ続けます.あまりにも長い間それをしていたので、なぜそこにいたのかさえ忘れてしまい、最終的に乗組員はあなたを船に引きずり戻さなければなりません.ゾルタンは混乱していますが、とにかく報酬をお届けします.</text>
+								<crewMember amount="1" class="zoltan_peacekeeper" />
+								<autoReward level="HIGH">augment</autoReward>
+								<choice>
+									<text>継続する...</text>
+									<event load="MORALITY_REMOVE_ZOLTAN" />
+								</choice>
+							</event>
+						</choice>
+					</event>
+				</choice>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>これらの市民を手放したら、無料でクッキーを差し上げます。</text>
+			<event>
+				<text>「それは魅力的ですが...私はあなたの申し出を断らなければなりません。」ゾルタンのスニッカーズ。 「本当にクッキーですか? それはあなたが提供できる最高のものですか? うわー. それはちょっと悲しいです.」</text>
+				<choice hidden="true">
+					<text>プランBの時間 - 攻撃！</text>
+					<event load="FED_EMBASSY_BAD" />
+				</choice>
+				<choice hidden="true">
+					<text>行きましょう。</text>
+					<event />
+				</choice>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>何を言おうとしていたか忘れた。</text>
+			<event>
+				<text>Duskbringer はまばたきをし、どれほど正確にあなたを侮辱したいのかわかりません。代わりに、彼はただ笑うだけです。 「あなたは本当に私が今まで見た中で最も哀れなものです。反逆者は、「ばか」という言葉を綴ることができるマンティスの数に等しい集合的IQを持っている必要があります。」</text>
+				<choice hidden="true">
+					<text>プランBの時間 - 攻撃！</text>
+					<event load="FED_EMBASSY_BAD" />
+				</choice>
+				<choice hidden="true">
+					<text>行きましょう。</text>
+					<event />
+				</choice>
+			</event>
+		</choice>
+	</event>
+</eventList>
+
+
 <event name="STEALTH_UNLOCK_1" unique="true">
 	<text>あなたは連邦とエンギの船の小さな艦隊の近くに到着します。彼らの通信頻度の単純な解読と翻訳は、彼らが明らかに彼らを悩ませている何かについて熱狂的な議論をしていることをあなたに伝えます。</text> 
 	<choice>

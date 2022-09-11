@@ -94,7 +94,7 @@
 		<text>利用可能な上級タスクはありません。</text>
 		<event load="OPTION_INVALID" />
 	</choice>
-	<choice hidden="false" req="CURA_HARD_TASKS_COMPLETED" lvl="1" max_group="3" blue="true">
+	<choice hidden="false" req="loc_task_points" lvl="9" max_group="3" blue="true">
 		<text>レネゲート、汝のために特別なタスクがある。</text>
 		<event load="CURA_HQ_PREVIEW" />
 	</choice>
@@ -227,13 +227,15 @@
 </event>
 
 <event name="CURA_SUCCESS_EASY">
-	<text>「私はこれまでになく緻密なA.I.だ...少なくとも今のところはな。私を失望させないようにせよ。その場合、私が汝を処分できる方法はいくらでもある、レネゲード。」</text>
+	<text>「私はいつも廉直な言葉を使うA.I.である...少なくとも今のところはな。私を失望させないようにせよ。その場合、私が汝を処分できる方法はいくらでもある、レネゲード。」</text>
+	<variable name="loc_task_points" op="add" val="1" />
 	<clearJumpEvent /> 
 	<clearTriggeredEvent name="CURA_FAILED_TASK" />
 	<autoReward level="MED">standard</autoReward>
 </event>
 <event name="CURA_SUCCESS_MEDIUM">
-	<text>「私はこれまでになく緻密なA.I.だ...少なくとも今のところはな。私を失望させないようにせよ。その場合、私が汝を処分できる方法はいくらでもある、レネゲード。」</text>
+	<text>「私はいつも廉直な言葉を使うA.I.である...少なくとも今のところはな。私を失望させないようにせよ。その場合、私が汝を処分できる方法はいくらでもある、レネゲード。」</text>
+	<variable name="loc_task_points" op="add" val="2" />
 	<clearJumpEvent /> 
 	<clearTriggeredEvent name="CURA_FAILED_TASK" />
 	<autoReward level="HIGH">standard</autoReward>
@@ -297,7 +299,7 @@
 	</beaconType>
 	<jumpEvent>CURA_JUMP_WARNING</jumpEvent>
 	<ship load="SHIP_CURA_SCHOOLID" hostile="false" />
-	<text>次のタスクの場所が見つかったようです。痛々しいほど明るい緑色の衛星は、すぐに自動メッセージを鳴らして耳を攻撃し始めます。 「こんにちは！私はデータセンターのDIXIEです！ウェントワースのテクノロジーズの教育部門が後援しています！」</text>
+	<text>次のタスクの場所を見つけたようです。痛々しいほど明るい緑色の衛星が、すぐに自動メッセージを鳴らして耳を攻撃し始めます。 「こんにちは! データセンターのディクシーです! Wentworth's Technologies の教育部門が後援しています!」</text>
 	<choice hidden="true">
 		<text>データストアへのアクセスを要求します。</text>
 		<event>
@@ -608,7 +610,7 @@
 	<choice hidden="true">
 		<text>ステーションに連絡してください。</text>
 		<event>
-			<text>ステーションの所有者は、どちらの方法でもタンクを部分的に満たすものの、これが単なる給油であるかのようにあなたを案内しますが、「ソフィアペレス」と言うと、護衛が到着し、ラボで彼女に会うためにあなたを降ろします。彼女は訪問者がいることに驚いているようですが、要点に到達するのに時間を無駄にしません。 「誰があなたを送ったのですか？それがそれらの気の毒な報告についてであるならば、私はサイクルの終わりまでにそれらを入れると言いました。」</text>
+			<text>ステーションの所有者は、これが単なる燃料補給であるかのように案内してくれますが、どちらの方法でもタンクを部分的に満たすことはできますが、「ソフィア ペレス」と言うと、エスコートが到着し、ラボで彼女に会いに行きます。彼女は訪問者がいることに驚いているように見えますが、ポイントに到達するのに時間を無駄にしません. 「誰があなたを送ったのですか?もしそれがそれらの忌まわしい報告に関するものなら、私はサイクルの終わりまでにそれらを受け取ると言った.」</text>
 			<autoReward level="LOW">fuel_only</autoReward>
 			<choice hidden="true">
 				<text>あなたがヴァンスウェントワースについて何か知っているので、私はここにいます。</text>
@@ -870,7 +872,7 @@
 	</choice>
 </event>
 <event name="CURA_TOILET_SUCCESS">
-	<text>トイレを手に入れたあなたは、内部を綿棒で調べ、その結果をC.U.R.A.に送ります。「レネゲイド...このトイレで間違いないのか？ このDNA痕跡はスラグのDNAが散在している。ある種のナメクジだ。あの悪党は色々な意味で下品であり、無駄な努力だった。しかし、結局のところ、それが私が汝を送り込んだ理由だ。これ以上、分析することはない。すぐに代金を送る。」</text>
+	<text>トイレを手に入れたあなたは、内部を綿棒で調べ、その結果をC.U.R.A.に送ります。「レネゲイド...このトイレで間違いないのか？ このDNA痕跡はスラグのDNAが散在している。ある種のスラグだ。あの悪党は色々な意味で下品であり、無駄な努力だった。しかし、結局のところ、それが私が汝を送り込んだ理由だ。これ以上、分析することはない。すぐに代金を送る。」</text>
 	<choice hidden="true">
 		<text>継続する...</text>
 		<event load="CURA_SUCCESS_EASY" />
@@ -1107,11 +1109,11 @@
 	<choice hidden="false">
 		<text>そうだね...</text>
 		<event>
-			<text>「しかし、あなたはおそらく疑問に思っているでしょう、 『ピート、あなたがそのような優れた戦闘機であるならば、どうやって背骨を失うのですか？』えーと、ヌードルモンスターが多すぎて殴られて殴られてしまい、マースパインから引き裂かれました！死んでしまいましたが、なんらかの理由で生きてほしいとのことでしたが、それが最後のミスでした！私は6回のチャンピオンo'武道であるだけでなく、8回のチャンピオンo' SPINLESS武道でもあります！Hehe！何がヒットしたのかわかりませんでした！彼らの船を盗んで家に帰りました、その後、この古いリグを自分で作りました。」</text>
+			<text>「でも、『ピート、そんなにいいファイターなのに、どうして背骨を失ったの？』と思っているでしょう」ええと、彼らのヌードル モンスターが多すぎて、私は殴られました.彼らは私を縛り付けて背骨から引き裂きました!私は死んでいたでしょうが、彼らは何らかの理由で私を生かしたいと思っていました.しかし、それは彼らの最後の間違いでした. ! なぜなら、私は格闘技の 6 回のチャンピオンであるだけでなく、スピネルレスの格闘技の 8 回のチャンピオンでもあるからです! へへ! 何がヒットしたのかわかりませんでした! 彼らの船を盗んで家に帰りました。それから、自分のためにこの古いリグを作りました。」</text>
 			<choice hidden="false">
 				<text>非常に信じられないように聞こえます。</text>
 				<event>
-					<text>「ああ、シャットアップ。あなたが口を離れているなら、私はあなたがあなたがgitsであるというスピンのない武道の意味をあなたに見せます。今、私はそれが終わりだと思っています。 Vance Wentworth自身を除いて！非公開契約。待ってください...これは開示としてカウントされますか？」</text>
+					<text>「ああ、シャットアップ。あなたが口を離れているなら、私はあなたがあなたがgitsであるというスピンのない武道の意味をあなたに見せます。今、私はそれが終わりだと思っています。 ヴァンスWentworth自身を除いて！非公開契約。待ってください...これは開示としてカウントされますか？」</text>
 					<choice hidden="false">
 						<text>はい。</text>
 						<event>
@@ -1520,11 +1522,7 @@
 <event name="CURA_WILL_DEFEAT">
 	<text>あなたは銀行のセキュリティを突破します。彼らは、オートシップを爆破したばかりのレネゲートの武装したバンドに直面して、あなたに挑戦するのは最善の考えではないと判断します。ボールトを見つけたら、入るには特別なパスコードでアクセスする必要があることがわかります。うまくいけば、あなたは1つのC.U.R.Aを覚えていることができますあなたに言った。</text>
 	<choice hidden="true">
-		<text>9To4G!aP6n</text>
-		<event load="CURA_WILL_FAIL" />
-	</choice>
-	<choice hidden="true">
-		<text>UGp！n8ITo4</text>
+		<text>7G!6nO3a0p</text>
 		<event load="CURA_WILL_FAIL" />
 	</choice>
 	<choice hidden="true">
@@ -1539,7 +1537,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>良い不従順！</text>
+		<text>7G!03bOp6n</text>
+		<event load="CURA_WILL_FAIL" />
+	</choice>
+	<choice hidden="true">
+		<text>7G!O3p6na0</text>
 		<event load="CURA_WILL_FAIL" />
 	</choice>
 </event>
@@ -1639,7 +1641,7 @@
 	<choice hidden="true">
 		<text>老人に新聞について聞いてください。</text>
 		<event>
-			<text>前哨基地に近づくと、突然CDEG船があなたに向かって走ってきます！ 「私は前回、私の財産から離れるために悪党を酷評しました！若者は最近敬意を払っていません！私は反逆者、海賊、クモ、そして連合との神の忌まわしい戦争と戦う私の悲惨な人生の60年間を過ごしました、そしてあなたは私に支払います私のステーションに性器をスプレー塗装して戻ってきた！」その老人はあなたを他の誰かと間違えたようです。たぶん、彼を殺さずに十分長く持ちこたえることができれば、彼に立ち向かうように説得することができるでしょうか？</text>
+			<text>前哨基地に近づくと、Elite Defense Cadre の船が突然あなたに向かって走ってきます! 「前に悪党どもめ、俺の所有物に近づかないように言っただろ! 最近の若者は敬意を払っていない! 俺は惨めな人生の 60 年間を、反乱軍、海賊、スパイダー、連合との忌まわしい戦争と戦った。私のステーションで性器をスプレー塗装して戻ってきてください！」おじいさんがあなたを誰かと間違えたようです。たぶん、彼を殺さずに十分長く持ちこたえることができれば、彼を説得して立ち去ることができるでしょうか?</text>
 			<ship load="SHIP_CURA_SCANDAL" hostile="true" />
 			<choice hidden="true">
 				<text>継続する...</text>
@@ -1738,7 +1740,7 @@
 	</destroyed>
 	<deadCrew>
 		<text>いわゆる「無敵のポイケンパル」は結局それほど無敵ではありませんでした。しかし、彼のクルーは皆死の危機に瀕しているので、その報告を得るために彼らを元気づけるための何らかの方法が必要になるようです。</text>
-		<autoReward level="HIGH">standard</autoReward>
+		<autoReward level="HIGH">standard_no_item</autoReward>
 		<choice hidden="true" req="medbay" lvl="2">
 			<text>（Upg. Medbay）彼を救ってください。</text>
 			<event load="CURA_TORTURE_SAVE" />
@@ -1756,8 +1758,8 @@
 			<event load="CURA_TORTURE_SAVE" />
 		</choice>
 		<choice hidden="true" req="BOMB_HEAL">
-			<text>（医療爆弾）彼を救ってください。</text>
-			<event load="CURA_TORTURE_SAVE" />
+			<text>(医療爆弾) 彼を救え。 [-1ミサイル]</text>
+			<event load="CURA_TORTURE_SAVE_BOMB" />
 		</choice>
 		<choice hidden="true" req="RECON_AND_TELEPORT"> 
 			<text>（再生テレポーター）彼を救ってください。</text>
@@ -1801,11 +1803,27 @@
 	</choice>
 </event>
 <event name="CURA_TORTURE_SAVE">
-	<text>「わかりません、なぜポイケンパルの命を救ったのですか？ああ、なるほど。何か欲しいのです。レネゲード、私から何を奪いたいのですか？」</text>
+	<text>「理解できない。なぜポイケンパルの命を救ったのだ？ ああ、なるほど。何か欲しいのだな？ レネゲード、私から何を得たいというのだ？」</text>
 	<choice hidden="true">
 		<text>連邦準備制度のマンティス戦争中にあなたが管理した捕虜収容所からの報告が欲しいのです。</text>
 		<event>
-			<text>「それは...奇妙なことに具体的です。しかし、あなたは幸運です！Poikempalは注意深いカタログを保持しています。フォローしてください。」ビショップはあなたをアーカイブルームに導き、そこで彼はあなたに数十のデータディスクを渡します。満足して、あなたは彼に二度とあなたを台無しにして去らないように警告します。</text>
+			<text>「それは...奇妙なことに具体的です。しかし、あなたは幸運です！ポインケンパルは注意深いカタログを保持しています。フォローしてください。」ビショップはあなたをアーカイブルームに導き、そこで彼はあなたに数十のデータディスクを渡します。満足して、あなたは彼に二度とあなたを台無しにして去らないように警告します。</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="CURA_TORTURE_SUCCESS" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="CURA_TORTURE_SAVE_BOMB">
+	<text>「理解できない。なぜポイケンパルの命を救ったのだ？ ああ、なるほど。何か欲しいのだな？ レネゲード、私から何を得たいというのだ？」</text>
+	<item_modify>
+		<item type="missiles" min="-1" max="-1" />
+	</item_modify>
+	<choice hidden="true">
+		<text>連邦準備制度のマンティス戦争中にあなたが管理した捕虜収容所からの報告が欲しいのです。</text>
+		<event>
+			<text>「それは...奇妙なことに具体的です。しかし、あなたは幸運です！ポインケンパルは注意深いカタログを保持しています。フォローしてください。」ビショップはあなたをアーカイブルームに導き、そこで彼はあなたに数十のデータディスクを渡します。満足して、あなたは彼に二度とあなたを台無しにして去らないように警告します。</text>
 			<choice hidden="true">
 				<text>継続する...</text>
 				<event load="CURA_TORTURE_SUCCESS" />
@@ -1838,11 +1856,12 @@
 	</choice>
 </event>
 <event name="CURA_SUCCESS_TORTURE_REWARD">
-	<text>「私はこれまでになく緻密なA.I.だ...少なくとも今のところはな。私を失望させないようにせよ。その場合、私が汝を処分できる方法はいくらでもある、レネゲード。」</text>
+	<text>「私はいつも廉直な言葉を使うA.I.である...少なくとも今のところはな。私を失望させないようにせよ。その場合、私が汝を処分できる方法はいくらでもある、レネゲード。」</text>
 	<variable name="task_torture_complete" op="set" val="1" />
+	<variable name="loc_task_points" op="add" val="3" />
 	<clearJumpEvent /> 
 	<clearTriggeredEvent name="CURA_FAILED_TASK" />
-	<autoReward level="HIGH">standard</autoReward>
+	<autoReward level="HIGH">standard_no_item</autoReward>
 	<weapon name="HARPOON_LAUNCHER" />
 </event>
 
@@ -1877,7 +1896,7 @@
 <ship name="SHIP_CURA_OUTPOST" auto_blueprint="LIST_SHIPS_FED_ELITE_FIGHT">
 	<destroyed>
 		<text>連邦船は敗北しました。前哨基地は苦しんでおり、援軍を送る準備をしていますが、山の後ろを滑って、スキャナーが拾ったバンカーの2番目の入り口に向かいます。</text>
-		<autoReward level="MED">standard</autoReward>
+		<autoReward level="MED">standard_no_item</autoReward>
 		<choice hidden="true">
 			<text>継続する...</text>
 			<event load="CURA_OUTPOST_WIN" />
@@ -1885,7 +1904,7 @@
 	</destroyed>
 	<deadCrew>
 		<text>連邦船は敗北しました。前哨基地は苦しんでおり、援軍を送る準備をしていますが、山の後ろを滑って、スキャナーが拾ったバンカーの2番目の入り口に向かいます。</text>
-		<autoReward level="HIGH">standard</autoReward>
+		<autoReward level="HIGH">standard_no_item</autoReward>
 		<choice hidden="true">
 			<text>継続する...</text>
 			<event load="CURA_OUTPOST_WIN" />
@@ -1950,11 +1969,12 @@
 	</choice>
 </event>
 <event name="CURA_SUCCESS_OUTPOST_REWARD">
-	<text>「私はこれまでになく緻密なA.I.だ...少なくとも今のところはな。私を失望させないようにせよ。その場合、私が汝を処分できる方法はいくらでもある、レネゲード。」</text>
+	<text>「私はいつも廉直な言葉を使うA.I.である...少なくとも今のところはな。私を失望させないようにせよ。その場合、私が汝を処分できる方法はいくらでもある、レネゲード。」</text>
 	<variable name="task_outpost_complete" op="set" val="1" />
+	<variable name="loc_task_points" op="add" val="3" />
 	<clearJumpEvent /> 
 	<clearTriggeredEvent name="CURA_FAILED_TASK" />
-	<autoReward level="HIGH">standard</autoReward>
+	<autoReward level="HIGH">standard_no_item</autoReward>
 	<weapon name="SCANNER_RECON" />
 </event>
 
@@ -1989,7 +2009,7 @@
 <ship name="SHIP_CURA_SHIP" auto_blueprint="MU_HEPH_TRANSPORT_CURA">
 	<destroyed>
 		<text>ヴァガボンドが出没する船が派遣されました。その残骸はあなたの略奪品です。</text>
-		<autoReward level="MED">standard</autoReward>
+		<autoReward level="MED">standard_no_item</autoReward>
 		<choice hidden="true">
 			<text>継続する...</text>
 			<event load="CURA_SHIP_WIN" />
@@ -1997,7 +2017,7 @@
 	</destroyed>
 	<deadCrew>
 		<text>ヴァガボンドが出没する船が派遣されました。その残骸はあなたの略奪品です。</text>
-		<autoReward level="HIGH">standard</autoReward>
+		<autoReward level="HIGH">standard_no_item</autoReward>
 		<choice hidden="true">
 			<text>継続する...</text>
 			<event load="CURA_SHIP_WIN" />
@@ -2107,22 +2127,23 @@
 	</choice>
 </event>
 <event name="CURA_SUCCESS_SHIP_REWARD">
-	<text>「私はこれまでになく緻密なA.I.だ...少なくとも今のところはな。私を失望させないようにせよ。その場合、私が汝を処分できる方法はいくらでもある、レネゲード。」</text>
+	<text>「私はいつも廉直な言葉を使うA.I.である...少なくとも今のところはな。私を失望させないようにせよ。その場合、私が汝を処分できる方法はいくらでもある、レネゲード。」</text>
 	<variable name="task_ship_complete" op="set" val="1" />
+	<variable name="loc_task_points" op="add" val="3" />
 	<clearJumpEvent /> 
 	<clearTriggeredEvent name="CURA_FAILED_TASK" />
-	<autoReward level="HIGH">standard</autoReward>
+	<autoReward level="HIGH">standard_no_item</autoReward>
 	<augment name="NO_GHOST_PLAYER" />
 </event>
 
 <event name="CURA_DUSK_PREVIEW">
-	<text>[上級タスク-アーティファクト名：オーディオログ]
-説明：反乱軍とダスクブリンガーの間で友好的な取り決めがなされていた頃、ウェントワース氏は悪名高い戦争ヒーロー／テロリストのデヴォラック「ザ・デスレス」ラライと会談したことがあるはずだ。近くの基地にその記録があるはずだが、簡単には手に入らないだろう。それでも、汝なら何とかできると信じている。私の期待を裏切らないように努力せよ。
-要件：オーディオログを取得する。
-推奨事項：
-大きなダメージを与えずにステーションを確保する。ダスクブリンガーは、死んでもあきらめない。
-報酬：高スクラップ+リソース。
-ボーナス報酬：Martyr Vests</text>
+	<text>[ハードタスク - アーティファクト名: 音声ログ]
+説明: 反乱運動とダスクブリンガー運動の間で行われたより心のこもった取り決めの間に、ウェントワース氏はかつて悪名高い戦争の英雄/テロリストであるデヴォラック「不死の」レイと会談したと思います.近くの前哨基地にはそれらの録音が搭載されているはずですが、簡単には入手できません。それでも、私はあなたが管理できると確信しています。私を裏切らないように頑張ってください。
+要件: 音声ログを取得します。
+推奨事項: あまり損傷を与えずにステーションを確保してください。ダスクブリンガーは死んでもあきらめないことで知られています。
+
+支払い: 高いスクラップ + リソース。
+ボーナス報酬: 殉教者のベスト</text>
 	<choice hidden="false">
 		<text>仕事を引き受けます。</text>
 		<event>
@@ -2147,7 +2168,7 @@
 	<triggeredEvent event="CURA_DUSK_TRIGGER" enemyDamage="2" thisFight="true" clearOnJump="true" />
 	<destroyed>
 		<text>ステーションは破壊されました。過剰なスクラップが残っている間、それらのログを今すぐ回復する見込みはありません...</text>
-		<autoReward level="MED">standard</autoReward>
+		<autoReward level="MED">standard_no_item</autoReward>
 		<choice hidden="true">
 			<text>継続する...</text>
 			<event load="CURA_FAILED_TASK" />
@@ -2155,7 +2176,7 @@
 	</destroyed>
 	<deadCrew>
 		<text>ダスクブリンガーは敗北しました。ステーションが空で、誰もあなたを止めることができない状態で、サルベージ操作を開始する前に、コンソールを検査して記録を取得します。</text>
-		<autoReward level="HIGH">standard</autoReward>
+		<autoReward level="HIGH">standard_no_item</autoReward>
 		<choice hidden="true">
 			<text>継続する...</text>
 			<event load="CURA_DUSK_SUCCESS" />
@@ -2175,12 +2196,12 @@
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
 	<jumpEvent>CURA_JUMP_WARNING</jumpEvent>
-	<text>到着後すぐに、近くのステーションから一連の連絡を受け取ります。「連邦船、これは制限されたダスクブリンガーの領土です。私は与えている気分です-私がそこに行く前に迷子になるために10のカウントまであなたに与えますそして...ええと...あなたにとって意味のあることをしてください！私はあなたの歯を蹴ります！そして...あなたのつま先をはぎ取ります！」</text>
+	<text>到着してすぐに、近くの駅から一連の連絡を受け取ります。 「連邦船、ここはダスクブリンガーの領地が制限されています。私は譲歩したい気分です - 10 カウントするまであなたをあきらめてから、あなたの歯を食いしばってみましょう。私たちのニュー オーダー以外の者がここに入る余地はありません。 "</text>
 	<ship load="SHIP_CURA_DUSK" hostile="false" />
 	<choice hidden="true">
 		<text>ステーションを攻撃せよ！</text>
 		<event>
-			<text>あなたは、自分自身で暴力に向けた最初の動きをするために、ダスクブリンガーの弱い脅迫を無視します。</text>
+			<text>Duskbringers の脅迫を無視して、暴力への最初の動きを自分で行います。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
 				<text>継続する...</text>
@@ -2189,9 +2210,9 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="unique_devorak">
-		<text>（Devorak）レコーディングへのアクセスをリクエストします。</text>
+		<text>(デヴォラック) 「『ニュー・オーダー』は失敗したビジョンだ。夢は終わったが、その記録が必要だ。」</text>
 		<event>
-			<text>「ああ、ラライ将軍！私はそこであなたに会いませんでした！ええと、もちろん、丸太です！すぐにあなたにそれらを届けます！今日はつま先を抜かないでください！ハハ...ハァッ...」</text>
+			<text>「レイ将軍！ 演説見た……見ない……見れない……ごめん！」ゾルタン敬礼。 「新秩序のビジョンを放棄する準備ができているとは言えませんが、史上最高のゾルタンの命令に逆らうつもりはありません。テープはあなたのものです。」</text>
 			<choice hidden="true">
 				<text>継続する...</text>
 				<event load="CURA_DUSK_SUCCESS" />
@@ -2208,7 +2229,7 @@
 	<triggeredEvent event="CURA_DUSK_EXPLOSION" time="100" thisFight="true" clearOnJump="true">
 		<triggeredEventBox load="DEFAULT_TIMER" pos="combat">
 			<warning time="10.0" flash="true" />
-			<tooltip>タイマーが切れる前にステーションのクルーを殺してください。さもないとステーションが爆発します！</tooltip>
+			<tooltip>タイマーが切れる前にステーションの乗組員を殺してください。そうしないと、ステーションが爆発してしまいます!</tooltip>
 		</triggeredEventBox>
 		<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 	</triggeredEvent>
@@ -2219,7 +2240,7 @@
 	<damage amount="7" />
 </event>
 <event name="CURA_DUSK_SUCCESS">
-	<text>「ウェントワース氏が、ダスクブリンガーに協力したのは...見込みが甘く、弱気のせいだ。確かにダスクブリンガーはまだ同盟を解消していませんが、それは避けられないことだ。この記録は2人の思想的な相違を表しているはずだ。これを見ながら私の考えを述べるが時間はあるか？ それとも他に用事があるか？」</text>
+	<text>「ダスクブリンガーの脅威に協力するというウェントワース氏の決定は近視眼的であり、弱さの欠点でした。ファシズムは 2 つの当事者間の団結要因にはなりません。そのように信じるのは、イデオロギーに対する根深い誤解を表しています。これらの録音は、次のことを示す必要があります。二人の男のイデオロギーの分裂. これらを検討しながら私の考えを放映させていただけますか? それとも、他に注意すべき事項はありますか?」</text>
 	<choice hidden="true">
 		<text>いかなくちゃ。</text>
 		<event>
@@ -2243,11 +2264,12 @@
 	</choice>
 </event>
 <event name="CURA_SUCCESS_DUSK_REWARD">
-	<text>「私はこれまでになく緻密なA.I.だ...少なくとも今のところはな。私を失望させないようにせよ。その場合、私が汝を処分できる方法はいくらでもある、レネゲード。」</text>
+	<text>「私はいつも廉直な言葉を使うA.I.である...少なくとも今のところはな。私を失望させないようにせよ。その場合、私が汝を処分できる方法はいくらでもある、レネゲード。」</text>
 	<variable name="task_dusk_complete" op="set" val="1" />
+	<variable name="loc_task_points" op="add" val="3" />
 	<clearJumpEvent /> 
 	<clearTriggeredEvent name="CURA_FAILED_TASK" />
-	<autoReward level="HIGH">standard</autoReward>
+	<autoReward level="HIGH">standard_no_item</autoReward>
 	<augment name="DEATH_VESTS" />
 </event>
 
@@ -2282,7 +2304,7 @@
 <ship name="SHIP_CURA_CONTRACT" auto_blueprint="MU_ARCADIA_STATION">
 	<destroyed>
 		<text>あなたが言われたように、ポッドはその破壊の直前にステーションのリアポートからガサガサ音を立てて来ます。それに乗って、いくつかの役に立たないサービスボットの回路図と契約があります。あなたは好奇心からそれをざっと見始めますが、C.U.R.A。の前に「アルカディアの研究開発-中央知能戦闘アシスタント（C.I.C.A.）プログラム開発助成金」という言葉をほとんど通り抜けません。あなたに連絡します。</text>
-		<autoReward level="MED">standard</autoReward>
+		<autoReward level="MED">standard_no_item</autoReward>
 		<choice hidden="true">
 			<text>継続する...</text>
 			<event load="CURA_CONTRACT_SUCCESS_KILL" />
@@ -2290,12 +2312,16 @@
 	</destroyed>
 	<deadCrew>
 		<text>ステーションがまだ1つのピースであるため、データポッドはまだ後部ポートの1つに隠されていることがわかります。いくつかの役に立たないサービスボット回路図と契約があります。 C.U.R.A.の前に、好奇心からそれをざっと見ていますが、「Arcadia Research and Development -Central Intelligence Assistant（C.I.C.A.）プログラム開発助成金」という言葉を過ぎてはいけません。あなたに連絡します。</text>
-		<autoReward level="HIGH">standard</autoReward>
+		<autoReward level="HIGH">standard_no_item</autoReward>
 		<choice hidden="true">
 			<text>継続する...</text>
 			<event load="CURA_CONTRACT_SUCCESS_KILL" />
 		</choice>
 	</deadCrew>
+	<crew>
+		<crewMember type="human" prop="0.75" />
+		<crewMember type="engi" prop="0.25" />
+	</crew>
 </ship>
 <event name="CURA_CONTRACT">
 	<beaconType id="map_icon_task" global="true">
@@ -2340,9 +2366,10 @@
 <event name="CURA_SUCCESS_SHIP_REWARD_KILL">
 	<text>「いい、まあいいだろう。とにかく... 私はA.I.であり、常に細心の注意を払っている...少なくとも、今はな。今後は私を失望させないようにしてくれ。失望させたら容赦しないぞ、レネゲイド」</text>
 	<variable name="task_contract_complete" op="set" val="1" />
+	<variable name="loc_task_points" op="add" val="3" />
 	<clearJumpEvent /> 
 	<clearTriggeredEvent name="CURA_FAILED_TASK" />
-	<autoReward level="HIGH">standard</autoReward>
+	<autoReward level="HIGH">standard_no_item</autoReward>
 	<drone name="OMNI_DRONE" />
 </event>
 <event name="CURA_CONTRACT_SUCCESS_NOKILL">
@@ -2355,6 +2382,7 @@
 <event name="CURA_SUCCESS_SHIP_REWARD_NOKILL">
 	<text>「報酬だと？ 汝は私の指示に従わなかった。おそらくだが、私の指示が明確に伝わらなかったか。しかし、汝ら生身の人間には、失敗をせずに命令を実行する能力がないことを、時々思い知らされる。よろしい。部分的ではあるが報酬を与えよう。特別なことは期待しないように。次回はもっと注意深く私の指示を聞くように、レネゲイト」</text>
 	<variable name="task_contract_complete" op="set" val="1" />
+	<variable name="loc_task_points" op="add" val="1" />
 	<clearJumpEvent /> 
 	<clearTriggeredEvent name="CURA_FAILED_TASK" />
 	<autoReward level="MED">standard</autoReward>

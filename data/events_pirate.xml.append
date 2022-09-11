@@ -17,31 +17,31 @@
 	<event>
 		<crewMember amount="1" class="engi" />
 		<item_modify>
-			<item type="scrap" min="-35" max="-55" />
+			<item type="scrap" min="-30" max="-45" />
 		</item_modify>
 	</event>
 	<event>
 		<crewMember amount="1" class="zoltan" />
 		<item_modify>
-			<item type="scrap" min="-50" max="-70" />
+			<item type="scrap" min="-35" max="-50" />
 		</item_modify>
 	</event>
 	<event>
 		<crewMember amount="1" class="mantis" />
 		<item_modify>
-			<item type="scrap" min="-45" max="-65" />
+			<item type="scrap" min="-35" max="-50" />
 		</item_modify>
 	</event>
 	<event>
 		<crewMember amount="1" class="rock" />
 		<item_modify>
-			<item type="scrap" min="-45" max="-65" />
+			<item type="scrap" min="-35" max="-50" />
 		</item_modify>
 	</event>
 	<event>
 		<crewMember amount="1" class="slug" />
 		<item_modify>
-			<item type="scrap" min="-35" max="-55" />
+			<item type="scrap" min="-30" max="-45" />
 		</item_modify>
 	</event>
 	<event>
@@ -53,19 +53,19 @@
 	<event>
 		<crewMember amount="1" class="crystal" />
 		<item_modify>
-			<item type="scrap" min="-50" max="-70" />
+			<item type="scrap" min="-50" max="-65" />
 		</item_modify>
 	</event>
 	<event>
 		<crewMember amount="1" class="phantom" />
 		<item_modify>
-			<item type="scrap" min="-30" max="-50" />
+			<item type="scrap" min="-30" max="-45" />
 		</item_modify>
 	</event>
 	<event>
 		<crewMember amount="1" class="orchid" />
 		<item_modify>
-			<item type="scrap" min="-40" max="-60" />
+			<item type="scrap" min="-35" max="-50" />
 		</item_modify>
 	</event>
 </eventList>
@@ -121,13 +121,13 @@
 	<event>
 		<crewMember amount="1" class="zoltan_martyr" />
 		<item_modify>
-			<item type="scrap" min="-90" max="-100" />
+			<item type="scrap" min="-80" max="-100" />
 		</item_modify>
 	</event>
 	<event>
 		<crewMember amount="1" class="slug_ranger" />
 		<item_modify>
-			<item type="scrap" min="-90" max="-100" />
+			<item type="scrap" min="-90" max="-110" />
 		</item_modify>
 	</event>
 	<event>
@@ -295,6 +295,10 @@
 	</choice>
 	<choice req="LIST_CREW_SLUG" hidden="true">
 		<text>（スラッグクルー）スラッグにチェックボックスをオンにしてもらいます。</text>
+		<event load="FLOATING_CARGO_SCAN_LIST" />
+	</choice>
+	<choice req="BLUELIST_CREW_SNAIL" hidden="true">
+		<text>(テレパシー シェル) スラッグにチェック ボックスをオンにします。</text>
 		<event load="FLOATING_CARGO_SCAN_LIST" />
 	</choice>
 </event>
@@ -682,7 +686,6 @@
 	<event load="DISTRESS_CIVILIAN_ASTEROIDS_BEACON" />
 	
 	<event load="DISTRESS_AUTO_REPAIRS" />
-	<event load="DISTRESS_ASB_PIRATE" />
 	<event load="DISTRESS_FEDERATION_LOST" />
 </eventList>
 
@@ -767,6 +770,37 @@
 			</choice>
 			<choice hidden="true">
 				<text>あなたのスラッグのアドバイスに従って、去ってください。</text>
+				<event>
+					<text>奴隷船は彼らの「製品」を宣伝し続けているので、あなたは彼らの船から来るすべての呼びかけを単にミュートします。</text>
+					<choice>
+						<text>船に乗って何かする。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice req="BLUELIST_CREW_SNAIL" hidden="true">
+		<text>(テレパシー シェル) シェルに彼らの意図を確認させます。</text>
+		<event>
+			<text>「これらの奴隷商人は死体を売っています! よく得た教訓以外には、何も渡してはいけません.」</text>
+			<choice hidden="true">
+				<text>いまいましい奴隷を攻撃せよ！</text>
+				<event>
+					<text>あなたは奴隷船を攻撃する準備をし、彼らが他の誰かを騙さないようにする準備をします。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>シェルのアドバイスに従い、立ち去ります。</text>
 				<event>
 					<text>奴隷船は彼らの「製品」を宣伝し続けているので、あなたは彼らの船から来るすべての呼びかけを単にミュートします。</text>
 					<choice>
@@ -1209,7 +1243,7 @@
 
 	
 
-<event name="SMUGGLER_UNLOCK_1" unique="true">
+<event name="SMUGGLER_UNLOCK_1">
 	<text>あなたはクルーを乗せます。増援が到着するまで長くはかからないでしょうが、すぐにいくつかのことに気づきます。</text>
 	<choice hidden="true">
 		<text>左側に座標のある地図があります。</text>
@@ -1302,7 +1336,7 @@
 		<text>継続する...</text>
 		<event>
 			<text>巡洋艦に近づくと、はるかに大きな密輸船が近くで覆いを外し、あなたを歓迎します。背が高くて細いスラッグがスクリーンに表示されます。 「あなたが私たちの新しいプロトタイプの巡洋艦のために来たのを見ますか？」スラッグは笑う。 「気づいていないのですが、そのクルッサーは上司のオシムのために特別に作られていました。しかし、私たちのベッセルをどれだけうまく破壊したかを見て、ssshipはあなたの手にあるほうがいいと思います。Heheheh...」</text>
-			<choice hidden="true">
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 				<text>彼の申し出を受け入れて船に乗りなさい。</text>
 				<event>
 					<text>フェデレーション格納庫に戻るために船の再プログラミングに取り掛かると、内部から大きなカチッという音がします。あなたが反応する前に、爆発は船全体を消費し、あなたのクルーの1人を殺します！あなたはスラッグから最後の連絡を受け取ります。 「あなたは船長を知っているべきです、決して海賊を押しつぶさないでください。今、私のsssshipyardから出てください。」</text>
@@ -1312,6 +1346,10 @@
 						<text>幸いなことに、あなたのクルーはクローン湾によって復活することができますが、爆弾によって破壊された船については同じことは言えません。</text>
 					</removeCrew>
 				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+				<text>AI は、その船に乗船しないようにアドバイスします。とにかく、それに送る乗組員がいるわけではありません。</text>
+				<event load="OPTION_INVALID" />
 			</choice>
 			<choice hidden="true">
 				<text>設計図に妥協点を提示します。海賊については確信が持てません。</text>
@@ -1791,7 +1829,7 @@
 	<choice>
 		<text>エンギに質問してください。</text>
 		<event>
-			<text>あなたはエンギ船を歓迎します。 「使命＝復讐。マンティスはエンギの故郷を襲撃し、[エンギ]を捕虜として捕らえます。恩恵は-返還されました-。」彼らはマンティスの奴隷を買っているようです。</text>
+			<text>あなたはエンギ船を歓迎します。 「使命＝復讐。蟷螂はエンギの故郷を襲撃し、【エンギ】を捕虜にする。その恩は――返された――」マンティスの奴隷を売っているようです。</text>
 			<choice>
 				<text>マンティスの奴隷を買うように頼みなさい。</text>
 				<event>
@@ -1801,7 +1839,7 @@
 						<event>
 							<crewMember amount="1" class="mantis" combat="1" />
 							<item_modify>
-								<item type="scrap" min="-45" max="-45" />
+								<item type="scrap" min="-35" max="-35" />
 							</item_modify>
 						</event>
 					</choice>
@@ -1810,7 +1848,7 @@
 						<event>
 							<crewMember amount="1" class="mantis" pilot="1" />
 							<item_modify>
-								<item type="scrap" min="-40" max="-40" />
+								<item type="scrap" min="-30" max="-30" />
 							</item_modify>
 						</event>
 					</choice>
@@ -1819,7 +1857,7 @@
 						<event>
 							<crewMember amount="1" class="mantis" />
 							<item_modify>
-								<item type="scrap" min="-35" max="-35" />
+								<item type="scrap" min="-25" max="-25" />
 							</item_modify>
 						</event>
 					</choice>
@@ -2154,9 +2192,13 @@
 		<text>彼らに呼びかけてみてください。</text>
 		<event load="SLAVER_DRIFTER_HAIL" />
 	</choice>
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>調査のために何人かのクルーを送ってください。</text>
 		<event load="SLAVER_DRIFTER_CREW" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>船に乗せる乗組員はいません。</text>
+		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true" req="BLUELIST_DRONES_BOARDING">
 		<text>（搭乗ドローン）搭乗ドローンを送ります。 [-1ドローン]</text>
@@ -2269,7 +2311,7 @@
 			<choice hidden="true">
 				<text>ああ、あなたは知っています...</text>
 				<event>
-					<text>「ええ？そしてそれはどうですか？」</text>
+					<text>「え、ええ？で、どうしたの？」</text>
 					<choice hidden="true">
 						<text>何か取引するものがありますか？</text>
 						<event>
@@ -2411,7 +2453,7 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>戦い続けろ。</text>
+		<text>戦い続ける。</text>
 		<event />
 	</choice>
 </event>
@@ -2655,7 +2697,7 @@
 				<event>
 					<text>あなたが正しい！あと2つです。次の部分は手紙のようです。</text>
 					<choice hidden="true">
-						<text>A</text>
+						<text>あ</text>
 						<event>
 							<text>警報が鳴り、セキュリティスラムの追加の層が金庫室のドアを閉めました。あなたはすぐに逃げますが、ゾルタンの援軍はちょうど間に合うように到着し、逃げる前に防御をまっすぐにミサイルの弾幕を発射します。</text>
 							<damage amount="5" />
@@ -3276,42 +3318,52 @@
 
 <event name="FINISH_BEACON_HACKER">
 	<preventQuest />
-	<beaconType id="map_icon_hacker" global="false">
-		<color r="73" g="151" b="195" a="1.0" />
-		<unvisitedTooltip>Uyo％Heav＃Ton @ Sdtviie！Stih * Anecbo</unvisitedTooltip>
-		<visitedTooltip>探索された場所。ここにハッカーのキャッシュがありました。</visitedTooltip>
-	</beaconType>
-	<text>出口ビーコンがハッカーによってここに隠されていたようです！ Atlasは接続されませんが、何かが信号をブロックしているようです...</text>
-	<ship load="SHIP_HACKER_BROADCAST_FAKE" hostile="false" />
-	<choice hidden="true">
-		<text>継続する...</text>
-		<event>
-			<text>突然、あなたは小さな月の後ろに隠された放送局から連絡を受け取ります。 「これは何ですか？ssssillyの小さなFed ssship isssが去ろうとしていますか？私はそれを許せないのではないかと思います！」</text>	
-			<ship hostile="true" />
-			<choice hidden="true">
-				<text>継続する...</text>
-				<event load="COMBAT_CHECK" />
-			</choice>
-		</event>
-	</choice>
-</event>
-<event name="FINISH_BEACON_HACKER_REBEL">
-	<preventQuest />
 	<beaconType id="map_icon_exit_hacker" global="true">
 		<color r="50" g="255" b="0" a="1" />
 		<unvisitedTooltip>これが実際の出口ビーコンです。次のセクターに移動するには、ここにアクセスしてください。</unvisitedTooltip>
 		<visitedTooltip>これが実際の出口ビーコンです。</visitedTooltip>
 	</beaconType>
-	<text>出口ビーコンがハッカーによってここに隠されていたようです！ Atlasは接続されませんが、何かが信号をブロックしているようです...</text>
-	<ship load="SHIP_HACKER_BROADCAST_FAKE" hostile="false" />
-	<choice hidden="true">
+	<variable name="loc_hacker_exit" op="set" val="1" />
+	<text>出口に到着しました...</text>
+	<choice req="loc_hacker_exit" lvl="0" max_group="0" hidden="true" blue="false">
 		<text>継続する...</text>
 		<event>
-			<text>突然、あなたは小さな月の後ろに隠された放送局から連絡を受け取ります。 「これは何ですか？ssssillyの小さなFed ssship isssが去ろうとしていますか？私はそれを許せないのではないかと思います！」</text>	
-			<ship hostile="true" />
+			<text>出口ビーコンがハッカーによってここに隠されていたようです！ Atlasは接続されませんが、何かが信号をブロックしているようです...</text>
+			<ship load="SHIP_HACKER_BROADCAST_FAKE" hostile="false" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>突然、あなたは小さな月の後ろに隠された放送局から連絡を受け取ります。 「これは何ですか？ssssillyの小さなFed ssship isssが去ろうとしていますか？私はそれを許せないのではないかと思います！」</text>	
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice req="loc_hacker_exit" lvl="1" max_group="0" hidden="true" blue="false"> 
+		<text>継続する...</text>
+		<event>
+			<text>ハッカー ステーションは倒されましたが、反乱軍の艦隊がビーコンを乗っ取ってしまいました!あなたはあなたの方法を戦う必要があります ！</text>
+			<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
+			<environment type="PDS" target="player" />
+			<ship load="SHIP_REBEL_FLEET_S" hostile="true" />
 			<choice hidden="true">
 				<text>継続する...</text>
 				<event load="COMBAT_CHECK" />
+			</choice>
+			<choice hidden="true" req="engines" lvl="6">
+				<text>（Adv. エンジン）エリートから脱出してみてください。</text>
+				<event load="FLEET_ESCAPE" />
+			</choice>
+			<choice hidden="true" req="LIST_CREW_JERRY">
+				<text>（ジェリー）「こんにちは！」</text>
+				<event>
+					<text load="TEXT_ENCOUNTER_REBEL_JERRY_HELLO" />
+					<ship hostile="false" /> 
+				</event>
 			</choice>
 		</event>
 	</choice>
@@ -3750,9 +3802,13 @@
 
 <event name="HACKER_CIVILIAN_WRECK_TRAP" unique="true">
 	<text>民間船の残骸が近くに漂っています。民間人がそのように死ななければならなかったのは残念ですが、あなたが救うことができるいくつかの物資が船上にある可能性があります。</text>
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>船をスクラップします。</text>
 		<event load="HACKER_CIVILIAN_WRECK_TRAP_SALVAGE" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>あらゆる形態のサルベージを実行する乗組員はいません。</text>
+		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true" req="LIST_CREW_SLUG">
 		<text>（スラッグクルー）最初にスラッグに残骸をチェックしてもらいます。</text>

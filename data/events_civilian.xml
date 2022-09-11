@@ -83,7 +83,8 @@
 	</choice>
 </event>
 <event name="KESTREL_UNLOCK_OFFER">
-	<text>これらの造船所は実際にはアーカイブが所有しているようです。そのため、デューイに直接パッチを当てる通信員と連絡を取ることは難しくありません。 「Renegades？私はあなたのタイプの経験があります。始める前に、私はArchive Inc.のCEOかもしれませんが、このリクエストでは、会社を代表して話しているわけではないことを明確にしておきます。 「RustingHulks」事件の惨事の後で、より多くの次元間のレネゲードに関与することは...悪いPRでしょう。あなたは理解していると確信しています。」</text>
+	<text>これらの造船所は実際には Archive が所有しているようです。そのため、Dewey に直接パッチを当てている特派員と連絡を取ることは難しくありません。 「レネゲード？私はあなたのタイプの経験があります。始める前に、私はアーカイブ社のCEOであるかもしれませんが、この要求では決して会社を代表して話しているわけではないことを明確にしたいと思います. 「さびついたハルク」事件の惨事の後、次元間のレネゲードに関与することは...悪いPRになるでしょう.私はあなたが理解していると確信しています.</text>
+	<variable name="loc_dewey" op="set" val="1" />
 	<choice hidden="true">
 		<text>します。</text>
 		<event>
@@ -94,16 +95,37 @@
 					<text>「しかし、誰に対して？　カスパロフはたくさん作られた。この特別なモデルは、私のような熱心な歴史家や船舶マニア以外には興味がないだろう。そんなことより 私の要求は、その泥棒を追い詰めてカスパロフを確保することです。報酬は特に考えていないが、何か解決できると思う。値段を言いなさい」</text>
 					<choice hidden="true">
 						<text>その古いチョウゲンボウはどうですか？</text>
-						<event>
+						<event name="KESTREL_UNLOCK_OFFER_KESTREL">
 							<text>「え？あの古いもの？ああ、間違いなく手放すことができる。南北戦争の終わりに人気が急上昇したのを見て、私はそれを購入することに飛びついたが、今では誰もがそれを持っているようだ。最後にもう1つ、海賊船の座標をアシスタントのガナにプログラムしました。彼は単なる機械であり、それほど人懐っこいものではありませんが、戦闘には十分に役立ちます。幸運を祈る船長。ゴッドスピード！」</text>
+							<variable name="loc_itb" op="add" val="1" />
 							<quest event="KESTREL_UNLOCK_PIRATE" />
 							<drone name="GANA_BATTLE" />
 						</event>
 					</choice>
 					<choice hidden="true">
 						<text>申し出を断る。</text>
-						<event>
+						<event name="KESTREL_UNLOCK_DECLINE">
 							<text>「それならあなたは助けないだろうか？なんて損失だ…それなら他の誰かを見つけなければならないだろう。いい日、船長。」</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="loc_zenith">
+				<text>ゼニスという名前の人を知っていますか?</text>
+				<event>
+					<text>「ゼニス？ピナクルＣＥＯ？」あなたは頭をうなずきます。 「そうですね、名前は知っています。かつて地球を支配していた 4 つの企業の 1 つです。彼女とあまり詳しく話したことがありませんでした。彼女はぼんやりとした未来に取りつかれていましたが、私は具体的な過去のことをもっと気にかけていました。聞く？"あなたは肩をすくめて、短い慣らし運転について言及します。 「ああ、なんて偶然なんだ。こんなに無限に大きいマルチバースは、ときどきとても小さく感じることがある...」</text>
+					<choice hidden="true">
+						<text>あなたはそう言うことができます。</text>
+						<event>
+							<text>「さて、それはさておき、あのカスパロヴェ号の話に戻りますが、なぜ誰かがそれを盗むのか、私には理解できません。多くのカスパロフが作られました。この特定のモデルは、熱心な歴史家や私のような船愛好家以外には興味がありません。決して問題ではありません。私の要求;盗賊を追い詰めて、カスパロフを確保してください。特にご褒美は考えていませんが、きっと何かできると思います。価格を指定してください。」</text>
+								<choice hidden="true">
+								<text>その古いチョウゲンボウはどうですか？</text>
+								<event><loadEvent>KESTREL_UNLOCK_OFFER_KESTREL</loadEvent></event>
+							</choice>
+							<choice hidden="true">
+								<text>申し出を断る。</text>
+								<event><loadEvent>KESTREL_UNLOCK_DECLINE</loadEvent></event>
+							</choice>
 						</event>
 					</choice>
 				</event>
@@ -139,7 +161,7 @@
             </event>
         </choice>
         <choice hidden="true">
-            <text>戦い続けろ。</text>
+            <text>戦い続ける。</text>
             <event />
         </choice>
     </surrender>
@@ -272,7 +294,7 @@
 		<aggressive>2</aggressive>
 	</quest>
 	<customFleet right="false" firing="false" autoDarkening="false">RINGSHIP</customFleet>
-	<text>最初はトリックに疑いを持っていましたが、これは間違いなく正しい場所です。遠くには、間違いなくカスパロフとは何か、そして「カスパロフ」が検査されている小さなヘファイストスの倉庫が見えます。船の間でラジオのおしゃべりを聞きます。 「ええ、上司は私たちがこの「シャカロフ」のものを田中さんのコレクションに持って行かなければならないと言います。神はこれを壊すのは悪いことだと知っていますが、私たちが失敗した場合、彼はおそらく私たちをティイカカに売るでしょう。傷がないことを確認してくださいこれで、または私たちは乾杯です！」</text>
+	<text>最初はトリックを疑っていましたが、これは間違いなく正しい場所です。遠くに、間違いなくカスパロフであるものが見え、「カスパロフ」が検査されている小さなヘパイストスの倉庫が見えます。船の間の無線のおしゃべりを聞きます。 「ええ、上司は、この『シャカロフ』の物を田中さんのコレクションに持ってこなければならないと言っています。神はこれを壊すのが悪いことを知っていますが、私たちが失敗した場合、彼はおそらく私たちをTiiikakaに売るでしょう。傷がないことを確認してください.これで乾杯しないと！」</text>
 	<ship load="SHIP_HEPHAESTUS_KESTREL" hostile="false" />
 	<choice hidden="true">
 		<text>彼らがカスパロフを返すように要求する。</text>
@@ -328,6 +350,7 @@
 				<event>
 					<text>「あの古いお尻バケツ。知っておくべきだった。秀夫は、ユニオンメガコープの仲間でさえ、好きな人から好きなものを奪う。まあ。おじいさんが言うように...おじいさんはあまり言わなかった。彼はほとんど衛星について話していた。とにかく、私はあなたのサービスに感謝します。あなたの任務の残りの部分で頑張ってください。」</text>
 					<autoReward level="LOW">stuff</autoReward>
+					<achievement>ACH_EVENT_KASPAROV</achievement>
 				</event>
 			</choice>
 		</event>
@@ -398,7 +421,7 @@
 		</event>
 	</choice>
 	<choice req="LIST_CREW_HEKTAR" hidden="true">
-		<text>（Hektarクルー）民間人と交渉します。</text>
+		<text>（クルー）民間人と交渉します。</text>
 		<event load="COREWORLDS_FUEL_RIDICULOUS_LOW" />
 	</choice>
 	<choice req="mind" lvl="1" max_lvl="2" hidden="true">
@@ -499,7 +522,7 @@
 		<text>（ロッククルー）彼らを乗せてください、しかしあなたのロックを追加のセキュリティとして配置してください。</text>
 		<event load="COREWORLDS_FREE_CREW_SECURITY" />
 	</choice>
-	<choice hidden="true" req="BLUELIST_DRONES_BOARDING">
+	<choice hidden="true" req="BLUELIST_DRONES_BOARDING_DAMAGE">
 		<text>（搭乗ドローン）彼らを乗せてください、しかしあなたのドローンを追加のセキュリティとして配置してください。</text>
 		<event load="COREWORLDS_FREE_CREW_SECURITY" />
 	</choice>
@@ -826,7 +849,7 @@
 					</choice>
 				</event>
 			</choice>
-			<choice hidden="true" req="BLUELIST_MINING">
+			<choice hidden="true" req="BEAM_MINING">
 				<text>（採掘設備）郊外で小惑星を採掘します。</text>
 				<event>
 					<text>以前のハーベスターが突然あなたを見つけたとき、あなたは小惑星からまともな量の燃料とスクラップを集めます。 「ねえ！これは立ち入り禁止区域です！一体何をしているのですか？」小惑星のフィールドを守る人が他にいないので、彼らはあなたを撃退するしかないのです！</text>
@@ -971,7 +994,7 @@
 	<choice hidden="true" req="LIST_CREW_SUZERAIN">
 		<text>（ハイブエリート）スゼライン船のスタンドダウンを要求する。</text>
 		<event>
-			<text>あなたのマンティスは、「肉袋を奪う」などの愚かなことをするために彼らの領土を無防備のままにしたことで、スゼラインの船長を非難します。これの皮肉にもかかわらず、敵の船に乗っているスゼラインは恥ずかしそうに見えて飛び去ります。民兵の船は報酬を提供しますが、彼らの警備員の1人があなたに彼のサービスを提供します。あなたが去った後、宗主国が戻ってキャラバンを攻撃するのではないかと恐れています。</text>
+			<text>あなたのマンティスは、「肉袋を強奪する」などの愚かなことをするために彼らの領土を無防備にしたことで、宗主国の船長を非難します.皮肉にも、敵艦に乗っていた宗主国は恥ずかしそうに飛び去ってしまう。民兵船は報酬を提供しますが、あなたが去った後に宗主国が戻ってきてキャラバンを攻撃することを恐れて、彼らの護衛の 1 人があなたにサービスを提供します。</text>
 			<crewMember amount="1" combat="1" />
 			<autoReward level="MED">standard</autoReward>
 		</event>
@@ -1013,6 +1036,7 @@
 	</beaconType>
 	<text>あなたはあまりにもなじみのある惑星を発見しました。それはAntiquumTerraeであり、人類の故郷であり起源であるオールド・アースと呼ばれることがよくあります。地球の大部分は洪水に見舞われましたが、いくつかの大規模で人口密度の高い都市が残っています。</text>
 	<img back="BACKGROUND_EARTH" planet="PLANET_INVISIBLE" />
+	<variable name="loc_itb" op="add" val="1" />
 	<choice hidden="true">
 		<text>継続する...</text>
 		<event>
@@ -1094,8 +1118,8 @@
 		<nebulaBeacon>false</nebulaBeacon>
 		<currentSector>true</currentSector>
 		<nextSector>true</nextSector>
-		<sectorEight>false</sectorEight>
-		<lastStand>false</lastStand>
+		<sectorEight>true</sectorEight>
+		<lastStand>true</lastStand>
 	</quest>
 	<beaconType id="map_icon_barrel" global="true">
 		<color r="255" g="255" b="255" a="1.0" />
@@ -1349,8 +1373,8 @@
 	<choice hidden="true">
 		<text>継続する...</text>
 		<event>
-			<text>「MultiverssseTravellerにとって素晴らしいsssship！民兵が彼らのランクの中でsssspeciessを受け入れたと聞いたとき、私は狩りに行くことがどんなに素晴らしい機会であるかを悟りました！しかし、あなたがここにいるので、おそらくあなたは寄付するsssspecimensを持っていますか？非常によく支払うでしょう！」</text>
-			<choice>
+			<text>「マルチバース トラベラーにとって素晴らしい船です! 民兵があらゆる種族を受け入れると聞いたとき、私は狩りに行く絶好の機会だと思いました! しかし、あなたがここにいるので、寄付する種族がいくつかありますか? 私たちは しっかり払います！」</text>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 				<text>ストローを引いて、スラッグにクルーを与えます。</text>
 				<event>
 					<text>スラッグはあなたのクルーを彼らの船の蹴りと叫びに戻します。 「これは素晴らしいトロフィーを作るでしょう！あなたのためのSssome ssscrap、良いssssir。」</text>
@@ -1360,6 +1384,10 @@
 						<text>あなたのクルーはすぐに死ぬ可能性がありますが、殺人ハンターに彼らをあきらめた後、彼らをクローンすることは良い考えではないと思います。</text>
 					</removeCrew>
 				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+				<text>なんとスラグは、生命体を感知する能力を持っているにも関わらず、送ってくれる人が乗っていないことにすら気づいていなかったのです...</text>
+				<event load="OPTION_INVALID" />
 			</choice>
 			<choice hidden="true" req="LIST_CREW_CLAN">
 				<text>（Clansmanクルー）自分がハンターであると主張します。</text>
@@ -1489,10 +1517,11 @@
 	</choice>
 </event>
 <event name="MILITIA_TEXTWALL_LOAD">
+	<variable name="loc_boline_repeat" op="add" val="1" />
 	<loadEvent ignoreUnique="true">MILITIA_TEXTWALL_TEXT</loadEvent>
 </event>
 <event name="MILITIA_TEXTWALL_TEXT">
-	<text>「私の銀河組合の仲間、連合連邦の子会社であり、連合領土の法律の規制当局、私は非常に重要な問題についてあなたと話すようになりました。文明の夜明け以来、私たちは戦争兵器に縛られた生き物でした。すべての人種、人間、ゾルタン、アクアリアン、ロックマン、マンティス、エンギーまたはランでさえ、私たちはすべてお互いに反対するだけでなく、私たち自身に対して戦争を繰り広げています。 ..いや、私たちの文明を悩ませているこれらの邪悪で邪悪な考え。私たちは進化し、学び、成長したいと言いますが、復venと憎しみの考えを私たちにとってとても大切にしているとき、どうすればこれを行うことができますか？」</text>
+	<text>「私の銀河組合の仲間、連合連邦の子会社であり、連合領土の法律の規制当局、私は非常に重要な問題についてあなたと話すようになりました。文明の夜明け以来、私たちは戦争兵器に縛られた生き物でした。すべての人種、人間、ゾルタン、アクアリアン、ロックマン、マンティス、エンギまたはオーキドゥでさえ、私たちはすべてお互いに反対するだけでなく、私たち自身に対して戦争を繰り広げています。 ..いや、私たちの文明を悩ませているこれらの邪悪で邪悪な考え。私たちは進化し、学び、成長したいと言いますが、復venと憎しみの考えを私たちにとってとても大切にしているとき、どうすればこれを行うことができますか？」</text>
 	<choice hidden="true">
 		<text>継続する...</text>
 		<event>
@@ -1512,7 +1541,7 @@
 									<choice hidden="true">
 										<text>継続する...</text>
 										<event>
-											<text>「恐ろしいことに、EHGが主導する攻撃は、前述のエキゾチックハンターギルドであり、注意を払っていない人にとっては、スラッグ拡張戦争として知られる以前の、しかしまだ比較的最近の一連の紛争とほぼ同義です。ここにいる皆さんはすでにスラッグ拡大戦争の歴史を知っていますが、そうでない皆さんのために紛争の簡単な要約を共有します。」</text>
+											<text>「恐ろしいことに、注意を払っていない人にとっては前述のエキゾチック ハンター ギルドである EHG が主導する攻撃は、スラッグ拡張戦争として知られる以前の、まだ比較的最近の一連の紛争とほぼ同義です。ここにいる皆さんはすでにスラッグ拡張戦争の歴史を知っていますが、そうでない皆さんのために、紛争の簡単な要約を共有します."</text>
 											<choice hidden="true">
 												<text>継続する...</text>
 												<event>
@@ -1533,8 +1562,8 @@
 																			<choice hidden="true">
 																				<text>継続する...</text>
 																				<event>
-																					<text>「待って...それはZluficarですか？Zultifigar？私はそれがZで始まることを知っています...」Bolineは何かを探して彼女のテキストをめくります。 「ああ、ここでつづりました。Zulfiqar、それだけです。さて、私はどこにいましたか...ああ、くそー、ページを失いました。ええと、もう一度やり直してほしいですか？」</text>
-																					<choice hidden="true">
+																					<text>「待って...それはZluficarですか？Zultifigar？私はそれがZで始まることを知っています...」ボーリンは何かを探して彼女のテキストをめくります。 「ああ、ここでつづりました。Zulfiqar、それだけです。さて、私はどこにいましたか...ああ、くそー、ページを失いました。ええと、もう一度やり直してほしいですか？」</text>
+																					<choice hidden="true" req="loc_boline_repeat" lvl="0" max_lvl="3" blue="false">
 																						<text>継続する...</text>
 																						<event>
 																							<text>ボーリンはあなたの応答を待っています。</text>
@@ -1545,6 +1574,43 @@
 																									<choice hidden="true">
 																										<text>継続する...</text>
 																										<event load="MILITIA_TEXTWALL_LOAD" />
+																									</choice>
+																								</event>
+																							</choice>
+																							<choice hidden="true">
+																								<text>いいえ。</text>
+																								<event>
+																									<text>「ああ、わかりました。十分に公平です！」ボーリンは本をめくって閉じます。 「少なくともそこまで聞いてくれてありがとう。それで、ええと、あなたはどう思いましたか？」</text>
+																									<choice hidden="true">
+																										<text>かなり良い。</text>
+																										<event>
+																											<text>「本当に？あなたはそれが好きでしたか？すごい！フィードバックをありがとうございました。ああ、これまで誰も私のスピーチについていいことを言ったことがありません。より良い、そして多分あなたの励ましで、私はそれを提示するのに間に合うようにこのドラフトを終えることさえできます！」</text>
+																											<crewMember amount="1" class="zoltan_peacekeeper">Boline</crewMember>
+																										</event>
+																									</choice>
+																									<choice hidden="true">
+																										<text>親愛なる神様、私の人生で最大の時間の無駄でした。</text>
+																										<event>
+																											<text>ボーリンは恥ずかしそうに彼女の足を見下ろします。 「ああ……わかった」彼女は通信をカットします。あなたはおそらくそれほど失礼である必要はなかったでしょう、しかし少なくともあなたはもう彼女の散歩を聞く必要はありません。</text>
+																										</event>
+																									</choice>
+																								</event>
+																							</choice>
+																						</event>
+																					</choice>
+																					<choice hidden="true" req="loc_boline_repeat" lvl="4" blue="false">
+																						<text>継続する...</text>
+																						<event>
+																							<text>ボーリンはあなたの応答を待っています。</text>
+																							<choice hidden="true">
+																								<text>はい。</text>
+																								<event>
+																									<text>「まじか？またか？私はあなたへの私のスピーチをすでに5回読みました！あなたは...私をからかっていますか？おい、クールではありません！」ボリンの武器がオンラインになったので、あなたは本当に彼女をひっくり返したようです!</text>
+																									<achievement>ACH_EVENT_BOLINE</achievement>
+																									<ship hostile="true" />
+																									<choice hidden="true">
+																										<text>継続する...</text>
+																										<event load="COMBAT_CHECK" />
 																									</choice>
 																								</event>
 																							</choice>
@@ -1644,7 +1710,7 @@
 </event>
 
 <event name="ENCOUNTER_MILITIA_ELITE" unique="true">
-	<text>CDEG船は、民兵隊の中で最も致命的なもののいくつかであり、正当な理由があります。高度な訓練を受けたクルーを誇るこれらの船は、戦闘で混乱することはありません。あなたにとって残念なことに、ここの船はあなたを脅威とみなし、攻撃します！</text>
+	<text>Elite Defence Cadre の船は民兵艦隊の中で最も危険な船の 1 つですが、それには正当な理由があります。高度に訓練された乗組員を誇るこれらの船は、戦闘で混乱することはありません。残念ながら、ここの船はあなたを脅威と見なして攻撃しています!</text>
 	<ship load="SHIP_MILITIA_ELITE_FIGHT" hostile="true" />
 	<choice hidden="true">
 		<text>継続する...</text>
@@ -1819,7 +1885,7 @@
 			<triggeredEvent event="MILITIA_TRAINIES_WIN" thisFight="true" clearOnJump="true" time="60.0">
 				<triggeredEventBox load="DEFAULT_TIMER" pos="combat">
 					<warning time="10.0" flash="true" />
-					<tooltip>トレーニング演習はこれだけの時間で終了します。それまでは誰も殺さないように注意してください！</tooltip>
+					<tooltip>訓練演習はこれだけの時間で終了します。それまで誰も殺さないように気をつけて！</tooltip>
 				</triggeredEventBox>
 				<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 			</triggeredEvent>
@@ -1877,7 +1943,7 @@
 			<autoReward level="MED">standard</autoReward>
 		</event>
 	</choice>
-	<choice hidden="true" req="zoltan_monk">
+	<choice hidden="true" req="LIST_CREW_MONK">
 		<text>（モンククルー）反逆者たちの暴力的なやり方を恥じてください。</text>
 		<event>
 			<text>あなたの僧侶は次の30分間、反乱軍を野蛮な方法で侮辱し、民間人を守ることによってのみ義務を果たしている男性を攻撃します。反乱軍は、床がすすり泣くのに何人かしわくちゃになっていることをとても恥じています。特に感動した1人の個人があなたのクルーに加わることを申し出、残りは軍人を放っておくことに同意します。</text>
@@ -1916,7 +1982,7 @@
 <eventList name="MILITIA_RECRUITMENT_TALK">
 	<event>
 		<text>反乱軍はわざわざあなたの言うことを聞きません。あなたが彼らの船と戦っている間、彼らはあなたに乗るためにクルーのチームを送ります。</text>
-		<boarders min="2" max="3" class="rebel" />
+		<boarders min="2" max="3" class="human_rebel" />
 		<ship hostile="true" />
 		<choice hidden="true">
 			<text>継続する...</text>
@@ -1933,8 +1999,6 @@
 <eventList name="DISTRESS_MILITIA">
 	<event load="DISTRESS_MILITIA_KERNALS" />
 	<event load="DISTRESS_MILITIA_OUTPOST" />
-	
-	<event load="DISTRESS_ASB_PIRATE" />
 </eventList> 
 
 <event name="DISTRESS_MILITIA_KERNALS" unique="true">
@@ -2178,7 +2242,7 @@
 	<choice hidden="true">
 		<text>シーンを調査します。</text>
 		<event>
-			<text>民兵の1人は、ステーションにドッキングするときに抗議しようとしますが、古い地球のデザインの小さな木製のパイプから喫煙している緑色の服を着た人間によって遮断されます。 「ああ、マルチバース旅行者、え？私はシャーロック・ヘインズです。私は地球から来ましたが、それ以来、私は民兵に加わりました。現在、私はSDMの探偵として働いていますが、かなり厄介な事件に見舞われました。おそらくあなたは助けるかもしれませんか？」</text>
+			<text>ステーションにドッキングすると、民兵の 1 人が抗議しようとしますが、緑色の服を着た人間がオールド アース デザインの小さな木製パイプから煙を出して、彼らを遮ります。私はシャーロック・ヘインズです。私は地球出身ですが、その後民兵隊に加わりました。現在は民兵隊の探偵として働いていますが、かなり厄介な事件が発生しました。役立つかもしれません？"</text>
 			<choice hidden="true">
 				<text>何を手伝いますか？</text>
 				<event>
@@ -2274,19 +2338,19 @@
 		<event>
 			<text>ステーションにはいくつかのシステムが搭載されています。どちらを見たいですか？</text>
 			<choice hidden="true">
-				<text>ドアを調べてください。</text>
+				<text>ドアを調べる。</text>
 				<event load="DETECTIVE_SYSTEM_DOORS" />
 			</choice>
 			<choice hidden="true">
-				<text>ドローンベイを調査します。</text>
+				<text>ドローンベイを調査する。</text>
 				<event load="DETECTIVE_SYSTEM_DRONES" />
 			</choice>
 			<choice hidden="true">
-				<text>ライフサポートを調査します。</text>
+				<text>生命維持装置を調査します。</text>
 				<event load="DETECTIVE_SYSTEM_OXYGEN" />
 			</choice>
 			<choice hidden="true">
-				<text>シールドを調べます。</text>
+				<text>盾を調べる。</text>
 				<event load="DETECTIVE_SYSTEM_SHIELDS" />
 			</choice>
 			<choice hidden="true">
@@ -2294,7 +2358,7 @@
 				<event load="DETECTIVE_SYSTEM_SENSORS" />
 			</choice>
 			<choice hidden="true">
-				<text>武器を調べてください。</text>
+				<text>武器を調査します。</text>
 				<event load="DETECTIVE_SYSTEM_WEAPONS" />
 			</choice>
 			<choice hidden="true">
@@ -2306,8 +2370,8 @@
 	<choice hidden="true">
 		<text>容疑者を非難する。</text>
 		<event>
-			<text>シャーロックは眉を上げます。 「それで、あなたは結論に達しましたか？誰が古いヘンリーを撃ったのですか？」
-[あなたはあなたが話をした容疑者だけを非難することができます]</text>
+			<text>シャーロックは眉を上げる。 「それで、あなたは結論に達しましたか?ヘンリーを撃ったのは誰ですか?」
+【話したことのある容疑者のみ告発できるようになります】</text>
 			<choice hidden="true" req="loc_evidence_dronekiller" blue="true">
 				<text>それらのどれもヘンリーを個人的に殺しませんでした。致命的なショットを発射したのはドローンでした！</text>
 				<event load="DETECTIVE_ACCUSE_DRONE" />
@@ -2329,7 +2393,7 @@
 				<event load="DETECTIVE_ACCUSE_SHERLOCK" />
 			</choice>
 			<choice hidden="true">
-				<text>えー、気にしないで。調査を続ける必要があります</text>
+				<text>ええと、気にしないでください。私は調査を続ける必要があります。</text>
 				<event>
 					<text>シャーロックは笑う。 「それでは大丈夫です。時間をかけてください。このようなことに注意しすぎることは決してありません。」</text>
 					<choice hidden="true">
@@ -2350,8 +2414,8 @@
 	</choice>
 </event>
 <event name="DETECTIVE_ACCUSE_SHERLOCK">
-	<text>あなたは容疑者に向かって長い一歩を踏み出し、次に旋回してシャーロックに指を向けます。 「ええと、あなたは私を非難しているのですか？あなたは私がこの日までこのステーションにいなかったことに気づいていますよね？</text>
-	<choice hidden="true">
+	<text>あなたは容疑者に向かって長い一歩を踏み出し、向きを変えてシャーロックに指を向けます. 「えっと、あなたは私を非難していますか? あなたは私がこの日までこの駅にさえいなかったことに気づいていますよね?」</text>
+	<choice hidden="true" req="loc_spit" lvl="0" max_lvl="2" blue="false">
 		<text>キラーが言うこととまったく同じように聞こえます！</text>
 		<event>
 			<text>突然、ライトが消え、ブラスターの火が部屋から鳴り響き、クルーの1人が倒れるのが聞こえます。ライトが再び点灯したとき、容疑者とバックアップの援軍はすでに逃げています。シャーロックはあなたに向かって叫びます。 「くそっ！今、本当の容疑者は逃げ出した！逃げろ、ここで殺人者が緩んでいるのはもはや安全ではない！」</text>
@@ -2359,6 +2423,17 @@
 				<clone>false</clone>
 				<text>クローンベイでクルーのバイタルサインを確認しましたが、キラーがウイルスを配備して、外出中にウイルスを遮断していることがわかりました。あなたはそれを通常の状態に戻しますが、あなたのクルーは永久に去っています。</text>
 			</removeCrew>
+		</event>
+	</choice>
+	<choice hidden="true" req="loc_spit" lvl="3" blue="false">
+		<text>キラーが言うこととまったく同じように聞こえます！</text>
+		<event>
+			<text>シャーロックは腕を組んであなたを睨みつけます。 「あなたはここに乱入し、私の容疑者全員の顔に唾を吐きかけ、それから私の犯罪を非難しますか? ."</text>
+			<achievement>ACH_EVENT_MYSTERY</achievement>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_GENERAL" />
+			</choice>
 		</event>
 	</choice>
 </event>
@@ -2566,6 +2641,7 @@
 		<text>トムの顔に唾を吐きます。</text>
 		<event>
 			<text>特に理由もなく、トムに唾を吐くことにしました。シャーロックはあなたを睨みつけますが、何も言いません。</text>
+			<variable name="loc_spit" op="add" val="1" />
 			<choice hidden="true">
 				<text>継続する...</text>
 				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
@@ -2699,6 +2775,7 @@
 		<text>エイミーの顔に唾を吐きます。</text>
 		<event>
 			<text>特に理由もなく、あなたはエイミーに唾を吐くことにしました。シャーロックはあなたを睨みつけますが、何も言いません。</text>
+			<variable name="loc_spit" op="add" val="1" />
 			<choice hidden="true">
 				<text>継続する...</text>
 				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
@@ -2820,6 +2897,7 @@
 		<text>ダニエルの顔に唾を吐きます。</text>
 		<event>
 			<text>特に理由もなく、ダニエルに唾を吐くことにしました。シャーロックはあなたを睨みつけますが、何も言いません。</text>
+			<variable name="loc_spit" op="add" val="1" />
 			<choice hidden="true">
 				<text>継続する...</text>
 				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
@@ -2990,7 +3068,7 @@
 
 <ship name="SHIP_MILITIA_BOSS" auto_blueprint="MU_MILITIA_BOSS">
 	<triggeredEvent event="DETECTIVE_HANGARATTACK_FAILURE" time="100" thisFight="true" clearOnJump="true">
-		<triggeredEventBox load="DEFAULT_TIMER" pos="combat">
+		<triggeredEventBox load="DEFAULT_TIMER">
 			<warning time="10.0" flash="true" />
 			<tooltip>この時間内にシールドリアクターは無効になります。時間がなくなる前に、必ずドレッドノート級戦艦を倒してください。</tooltip>
 		</triggeredEventBox>

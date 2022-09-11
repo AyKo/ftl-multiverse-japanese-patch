@@ -7,13 +7,13 @@
 
 
 <event name="PIRACY_LIST">
-	<loadEventList seeded="true" first="true" generate="true" default="PIRACY_LIST_GENERIC">
+	<loadEventList seeded="false" first="true" generate="true" default="PIRACY_LIST_GENERIC">
 		<event name="PIRACY_LIST_GENERIC" />
 	</loadEventList>
 </event>
 
 <event name="PIRACY_LIST_GENERIC">
-	<loadEventList seeded="true" first="false" generate="true">
+	<loadEventList seeded="false" first="false" generate="true">
 		<event name="PIRACY_GENERIC_FRIENDLY" />
 		<event name="PIRACY_GENERIC_CHOICE" />
 		<event name="PIRACY_GENERIC_HOSTILE" />
@@ -268,7 +268,7 @@
 <event name="SLAVER_CHOICE">
 	<text load="TEXT_SLAVER_CHOICE" />
 	<ship load="SHIP_SLAVER_ALL" hostile="false" />
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>くじ引きで、クルー1人を奴隷商人に送り込む。</text>
 		<event>
 			<text>選ばれたクルーは、あなたが選択の余地がないことを知って、文句なしに去ります。</text>
@@ -278,7 +278,18 @@
 			</removeCrew>
 		</event>
 	</choice>
-	<choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>「論理エラー: 要求に応じることができません。これは自動化された船舶です。要求: 拒否されました。」</text>
+		<event>
+			<text>自動化された船に乗組員を要求するなんて、この連中はどれだけ愚かなのだろうか?これらのピエロを追い払って世界に恩恵をもたらした後、あなたはそれについて考える時間があります.</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>クルーの1人を奴隷に引き渡すことは決してありません！</text>
 		<event>
 			<text>あなたは奴隷と戦う準備をします。</text>
@@ -289,7 +300,7 @@
 			</choice>
 		</event>
 	</choice>
-	<choice req="spider" hidden="true">
+	<choice req="LIST_CREW_SPIDER" hidden="true">
 		<text>（スパイダークリュー）彼らにあなたのスパイダーを「与えて」、彼らに大混乱を引き起こさせてください。</text>
 		<event>
 			<text>「待って、これは何だ？」スパイダーが喉を引き裂くと、奴隷商人は床に倒れ、残りのクルーを食い尽くす。奴隷を含む乗船しているすべての人を殺したかもしれませんが、船の船体はあなたがスクラップできるように無傷のままです。</text>
@@ -415,8 +426,8 @@
 
 <textList name="TEXT_MERCENARY_FRIENDLY">
 	<text>シンジケートには、適切な価格でほぼ何でもできるレンタル用の銃が不足していません。ここの船も例外ではありません。</text>
-	<text>船があなたを歓迎します：「ご挨拶！あなたは反乱に苦労しているようです。助けたいのですが、私が飛んでいるこの大量のがらくたに必要な維持費を払う余裕がありません...多分私たち取り決めに来ることができますか？」</text>
-	<text>「スクラップを手に入れましたか？何かをする必要がありますか？まあ、私はあなたのための男です！」このビーコンの傭兵はあなたを安心させるために歯を見せる笑顔を点滅させます。</text>
+	<text>船があなたに呼びかけます：「こんにちは！あなたは反乱軍で問題を抱えているようですね。助けたいのですが、私が飛んでいるこのジャンクの塊に必要な維持費を支払う余裕はありません...おそらく私たちは取り決めに来ることができますか？」</text>
+	<text>「スクラップがありますか? 何かをする必要がありますか? まあ、私はあなたのための男です!」このビーコンの傭兵は歯を見せてニヤリと笑ってあなたを安心させます。</text>
 	<text>VaelとSyndicateのおかげで、傭兵は銀河に群がっています。彼らの合法ではないサービスは需要が高く、彼らのサービスに何らかの用途があるかもしれないあなたのような船を近くで待っています。</text>
 	<text>シンジケートのマークが付いた船が近くのバックウォーターステーションを周回しています。 「適切な価格で、何でも可能です」という怪しげなメッセージが表示されます。</text>
 	<text>「私は言葉を聞きました...レネゲート？あなたは忙しいに違いありません。本当に忙しいです！あなたの使命は非常に重要だと理解しています。たぶん、少額の支払いで、私はあなたの生活を楽にすることができますか？」</text>
@@ -591,7 +602,7 @@
             <ship hostile="true" />
             <choice hidden="true">
                 <text>継続する...</text>
-                <event load="REPUTATION_DECREASE_MERCENARY_COMBAT" />
+                <event load="REPUTATION_DECREASE_SMUGGLING_COMBAT" />
             </choice>
         </event>
     </choice>

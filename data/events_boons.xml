@@ -1,4 +1,24 @@
 <FTL>
+<event name="BOON_SELECT_CHAOS">
+	<text>どこからともなく、あなたに話しかける声が聞こえてきます。 「カオスのブーン。私たちは...これらの力との相互作用をお勧めしませんが、私たちは...あなたにこのブーンを提供します.あなたのリソースは...常に変動します...常に. .しかし、どうか...私たちの警告を受け入れてください.これらの奇妙なものを悪用しないでください."</text>
+	<triggeredEvent event="BOON_CHAOS" seeded="false" thisFight="false" loops="999999999" time="0.5" />
+	<achievement silent="false">ACH_BOON_CHAOS</achievement>
+	<variable name="chaos_boon_active" op="set" val="1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_CHAOS">
+	<item_modify>
+		<item type="fuel" min="-7" max="5" />
+		<item type="missiles" min="-7" max="5" />
+		<item type="drones" min="-7" max="5" />
+	</item_modify>
+</event>
+
 
 <event name="BOON_SELECT_HUMAN">
 	<text>どこからともなく、あなたはあなたに話しかける声を聞きます。 「人類の恩恵...あなたの人間のクルーは危険に対して...20％の抵抗を得るでしょう。あなたは...前の挑戦者に感謝するかもしれません。あるいはあなたは...しないのですか？誰が言うことができますか...」</text>
@@ -31,8 +51,18 @@
 	</choice>
 </event>
 <event name="BOON_SELECT_ZOLTAN">
-	<text>どこからともなく、あなたはあなたに話しかける声を聞きます。 「ハードライトの恩恵...あなたのゾルタンのクルーは...15以上の健康を得るでしょう。あなたは...前の挑戦者に感謝するかもしれません。あるいはあなたは...しないのですか？誰が言うことができますか...」</text>
+	<text>どこからともなく、あなたに話しかける声が聞こえてきます。 「ブーン...ハードライト。あなたのゾルタンの乗組員とハードライト ホログラムの体力が... 15 増えます。あなたは...前の挑戦者に感謝するかもしれません。または、あなたは...しないでしょうか?誰が言うことができますか...」</text>
 	<hiddenAug>JUDGE_BOON_ZOLTAN</hiddenAug>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_OSMIAN">
+	<text>どこからともなく、あなたに話しかける声が聞こえてきます。 「オスミアのブーン。あなたのオスミアの乗組員は...すべての能力チャージを回復し、...同じ部屋にいる間、ホログラムを2hp/sで回復します。あなたは...前の挑戦者に感謝することができます。 .それとも、あなたは... しないのですか? 誰が言うことができます..."</text>
+	<hiddenAug>JUDGE_BOON_OSMIAN</hiddenAug>
 	<choice hidden="true">
 		<text>継続する...</text>
 		<event>
@@ -275,7 +305,7 @@
 </event>
 
 <event name="BOON_SELECT_ENGINES">
-	<text>どこからともなく、あなたはあなたに話しかける声を聞きます。 「[エンジン]i-i-installedのGrant。Installed！Grantは、エンジンシステムの修理を50％高速化します。p-p-前のチャレンジャーを目撃した場合は、感謝します。私も訪問することをお勧めします。」</text>
+	<text>どこからともなく、あなたに話しかける声が聞こえてきます。 「Grant of [Engines] i-i-installed. Installed! Grant provides: Engines system 75%早く修復します。p-p-前の挑戦者を目撃したら、感謝してください。私も訪問することをお勧めします.」</text>
 	<hiddenAug>JUDGE_BOON_ENGINES</hiddenAug>
 	<choice hidden="true">
 		<text>継続する...</text>
@@ -341,7 +371,7 @@
 </event>
 
 <event name="BOON_SELECT_HACKING">
-	<text>どこからともなく、あなたはあなたに話しかける声を聞きます。 「[ハッキング]i-i-installedのグラント。インストール済み！グラントの提供：クルーは船のハッキングされてロックされたドアを無視します。p-p-前の挑戦者を目撃した場合は感謝します。私も訪問することをお勧めします。」</text>
+	<text>どこからともなく、あなたに話しかける声が聞こえてきます。 "Grant of [Hacking] i-i-installed.Installed! Grant provide: 乗組員はあなたの船のハッキングされたドアを無視します。もし -あなた-が p-p-前の挑戦者を目撃した場合;感謝を伝えてください.私もあなたに-訪問することをお勧めします."</text>
 	<hiddenAug>JUDGE_BOON_HACKING</hiddenAug>
 	<choice hidden="true">
 		<text>継続する...</text>
@@ -363,7 +393,7 @@
 </event>
 
 <event name="BOON_SELECT_TEMPORAL">
-	<text>どこからともなく、あなたはあなたに話しかける声を聞きます。 「[Temporality]i-i-installed。Installed！Grantの提供：これは絶対に見ないでください。p-p-previousチャレンジャーを目撃した場合は、感謝の意を表します。私も訪問することをお勧めします。」</text>
+	<text>どこからともなく、あなたに話しかける声が聞こえてきます。 "Grant of [Temporality] i-i-installed. Installed! Grant provide: 乗組員全員の m-m-移動速度を 2 倍にします。-p-p-前の挑戦者を見かけたら、感謝してください。私も - 訪問することをお勧めします。"</text>
 	<hiddenAug>JUDGE_BOON_TEMPORAL</hiddenAug>
 	<choice hidden="true">
 		<text>継続する...</text>
@@ -483,8 +513,10 @@
 </event>
 
 <event name="BOON_SELECT_KERNELELITE">
-	<text>どこからともなく、あなたはあなたに話しかける声を聞きます。 「チャレンジャー！あなたのために、私は種の祝福を与えます！あなたはミサイル武器のコストを無視する7％のチャンスがあります、そしてあなたの旅行は祝福されるかもしれません！あなたは誰に感謝しますか？なぜ、前の挑戦者！ハハ！」</text>
-	<hiddenAug>JUDGE_BOON_KERNELELITE</hiddenAug>
+	<text>どこからともなく、あなたに話しかける声が聞こえてきます。 「CHALLENGER! あなたのために、カーネルの祝福を授けます! 武器に燃料を供給する 6 つのミサイルを受け取り、あなたの旅が祝福されますように! 誰に感謝しますか? なぜ、前の CHALLENGER! ははは!」</text>
+	<item_modify>
+		<item type="missiles" min="6" max="6" />
+	</item_modify>
 	<choice hidden="true">
 		<text>継続する...</text>
 		<event>
@@ -516,7 +548,7 @@
 </event>
 
 <event name="BOON_SELECT_NEWGEN">
-	<text>どこからともなく、あなたはあなたに話しかける声を聞きます。 「チャレンジャー！あなたのために、私は世代の祝福を与えます！これから獲得するすべてのクルーは、すべてのスキルでレベル1から始まり、あなたの旅行が祝福されるかもしれません！誰に感謝しますか？なぜ、前の挑戦者！ハハ！</text>
+	<text>どこからともなく、あなたに話しかける声が聞こえてきます。 「CHALLENGER! あなたのために、私は世代の祝福を与えます! このビーコンを離れた後に得たすべての乗組員は、すべてのスキルでレベル 1 から始まり、あなたの旅が祝福されますように! 誰に感謝しますか? なぜ、前の CHALLENGER! ハハハ！」</text>
 	<hiddenAug>JUDGE_BOON_NEWGEN</hiddenAug>
 	<choice hidden="true">
 		<text>継続する...</text>
@@ -542,6 +574,7 @@
 	<eventAlias name="SYLVAN_TRADES_DROPPOINT">SYLVAN_TRADES_CHOICE</eventAlias>
 	<eventAlias name="SYLVAN_TRADES_LASTSTAND">SYLVAN_TRADES_CHOICE</eventAlias>
 	<eventAlias name="SYLVAN_TRADES">SYLVAN_TRADES_CHOICE</eventAlias>
+	<variable name="merchant_boon_active" op="set" val="1" />
 	<choice hidden="true">
 		<text>継続する...</text>
 		<event>
@@ -594,6 +627,17 @@
 	</choice>
 </event>
 
+<event name="BOON_SELECT_SENTRY">
+	<text>どこからともなく、あなたに話しかける声が聞こえてきます。 「CHALLENGER! あなたのために、私は SENTRIES の祝福を与えます! 味方の乗組員とドローンは、敵船に乗っている間、30% のダメージと移動速度のブーストを獲得します! あなたの旅が祝福されますように! 誰に感謝しますか? なぜ、前のCHALLENGER！ははは！」</text>
+	<hiddenAug>JUDGE_BOON_SENTRY</hiddenAug>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
 <event name="BOON_SELECT_CURA">
 	<text>どこからともなく、あなたはあなたに話しかける声を聞きます。 「チャレンジャー！あなたのために、私はタスクの祝福を与えます！無味乾燥なC.U.R.A.はそのタスクを実行するためにあなたに請求しません、そしてあなたの旅行が祝福されるかもしれません！あなたは誰に感謝しますか？なぜ、前の挑戦者！ハハ！」</text>
 	<hiddenAug>JUDGE_BOON_CURA</hiddenAug>
@@ -630,6 +674,17 @@
 <event name="BOON_SELECT_GATLING">
 	<text>どこからともなく、あなたはあなたに話しかける声を聞きます。 「チャレンジャー！あなたのために、私はスーパーウェポンの祝福を与えます！あなたの武器は10％速く充電され、あなたの旅行が祝福されるかもしれません！あなたは誰に感謝しますか？なぜ、前の挑戦者！ハハ！」</text>
 	<hiddenAug>JUDGE_BOON_GATLING</hiddenAug>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_MADNESS">
+	<text>どこからともなく、あなたに話しかける声が聞こえてきます。 「CHALLENGER! あなたのために、私は BLESSING OF POETS を与えます! あなたの船に乗っている敵の乗組員は MADNESS を受けます! 誰に感謝しますか? なぜ、前の CHALLENGER! ははは!」</text>
+	<hiddenAug>JUDGE_BOON_MADNESS</hiddenAug>
 	<choice hidden="true">
 		<text>継続する...</text>
 		<event>

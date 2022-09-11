@@ -32,7 +32,7 @@
 
 <event name="DEAD_CREW_TRAPPER">
 	<text>トラッパーはクルーが空になりました。それを廃棄している間、あなたはその貯蔵庫に鉱山ランチャーを見つけます。</text>
-	<autoReward level="MED">standard</autoReward>
+	<autoReward level="HIGH">standard</autoReward>
 	<weapon name="GIFTLIST_MINELAUNCHERS_TRAPPER" />
 </event>
 
@@ -127,7 +127,7 @@
 	
 <event name="DESTROYED_MILITIA">
 	<text load="TEXT_DESTROYED_MILITIA" />
-	<autoReward level="LOW">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 </event>
 <textList name="TEXT_DESTROYED_MILITIA">
 	<text>民兵の船を殺すことは民間人を殺すことよりも悪いことではありませんが、少なくとも彼らは自発的に彼らの命を危険にさらすためにサインアップしました。</text>
@@ -142,7 +142,7 @@
 
 <event name="DEAD_CREW_MILITIA">
 	<text load="TEXT_DEAD_CREW_MILITIA" />
-	<autoReward level="MED">standard</autoReward>
+	<autoReward level="HIGH">standard</autoReward>
 </event>
 <textList name="TEXT_DEAD_CREW_MILITIA"> 
 	<text>民兵のクルーを殺すことは民間人を殺すことよりも悪いことではありませんが、少なくとも彼らは自発的に彼らの命を危険にさらすためにサインアップしました。</text>
@@ -178,7 +178,7 @@
 	
 <event name="DESTROYED_FEDERATION">
 	<text load="TEXT_DESTROYED_FEDERATION" />
-	<autoReward level="LOW">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 </event>
 <textList name="TEXT_DESTROYED_FEDERATION">
 	<text>連邦船が爆発するとき、あなたは目をそらします。あなたが自分の味方を喜んで殺したとき、私たちは何に来ましたか？</text>
@@ -193,7 +193,7 @@
 </textList>
 <event name="DESTROYED_FEDERATION_STATION">
 	<text load="TEXT_DESTROYED_FEDERATION_STATION" />
-	<autoReward level="LOW">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 </event>
 <textList name="TEXT_DESTROYED_FEDERATION_STATION">
 	<text>フェデレーションステーションが爆発するとき、あなたは目をそらします。あなたが自分の味方を喜んで殺したとき、私たちは何に来ましたか？</text>
@@ -209,7 +209,7 @@
 
 <event name="DEAD_CREW_FEDERATION">
 	<text load="TEXT_DEAD_CREW_FEDERATION" />
-	<autoReward level="LOW">standard</autoReward>
+	<autoReward level="HIGH">standard</autoReward>
 </event>
 <textList name="TEXT_DEAD_CREW_FEDERATION">
 	<text>あなたはそれらの連邦役員全員を殺害する必要があったかどうか疑問に思います。とにかく、戻るには遅すぎます。あなたは彼らの船をスクラップします。</text>
@@ -220,7 +220,7 @@
 </textList>
 <event name="DEAD_CREW_FEDERATION_STATION">
 	<text load="TEXT_DEAD_CREW_FEDERATION_STATION" />
-	<autoReward level="LOW">standard</autoReward>
+	<autoReward level="HIGH">standard</autoReward>
 </event>
 <textList name="TEXT_DEAD_CREW_FEDERATION_STATION">
 	<text>あなたはそれらの連邦役員全員を殺害する必要があったかどうか疑問に思います。とにかく、戻るには遅すぎます。あなたはステーションをスクラップします。</text>
@@ -256,7 +256,7 @@
 	
 <event name="DESTROYED_FEDERATION_AUTO">
 	<text load="TEXT_DESTROYED_FEDERATION_AUTO" />
-	<autoReward level="LOW">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 </event>
 <textList name="TEXT_DESTROYED_FEDERATION_AUTO">
 	<text>「Eエラー：裏切り」オートシップが爆発する。有人の連邦船である場合よりも後悔ははるかに少ないですが、それでも少し罪悪感を感じます。</text>
@@ -292,9 +292,13 @@
 <event name="DESTROYED_REBEL_POD">
 	<text>反乱軍の船が爆発する直前に、脱出ポッドがそこから飛び出します。残念ながら、それを集めて船に乗せるまで、それほど遠くはありません。あなたはそれを開いて、反乱軍の将校を中に引きずり出します。彼らはあなたが彼らを生きさせてくれるように頼みます。</text>
 	<autoReward level="LOW">standard</autoReward>
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>それらをあなたの船に受け入れてください。</text>
 		<event load="DESTROYED_REBEL_POD_ACCEPT" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>反乱軍の忠誠を保証する手段なしに反乱軍を受け入れるのはリスクが高すぎます。</text>
+		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true" req="mind">
 		<text>（マインドコントロール）彼らが何か悪いことをした場合に備えて、マインドコントロールをオンラインに保ちます。</text>
@@ -483,7 +487,7 @@
 </eventList>
 <event name="DESTROYED_AUTO_GENERIC">
 	<text load="TEXT_DESTROYED_AUTO" />
-	<autoReward level="RANDOM">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 </event>
 <textList name="TEXT_DESTROYED_AUTO">
 	<text>オートシップsを殺すことについての最も良い部分は、罪悪感がないことです。あなたは椅子にもたれかかって、船を廃棄するように命令します。</text>
@@ -498,7 +502,7 @@
 </textList>
 <event name="DESTROYED_AUTO_FUEL">
 	<text load="TEXT_DESTROYED_AUTO_FUEL" />
-	<autoReward level="RANDOM">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 	<choice hidden="true">
 		<text>余分な燃料電池を回収します。</text>
 		<event>
@@ -520,7 +524,7 @@
 </textList>
 <event name="DESTROYED_AUTO_MISSILES">
 	<text load="TEXT_DESTROYED_AUTO_MISSILES" />
-	<autoReward level="RANDOM">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 	<choice hidden="true">
 		<text>余分な弾薬を回収します。</text>
 		<event>
@@ -542,7 +546,7 @@
 </textList>
 <event name="DESTROYED_AUTO_DRONES">
 	<text load="TEXT_DESTROYED_AUTO_DRONES" />
-	<autoReward level="RANDOM">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 	<choice hidden="true">
 		<text>余分なドローン部品を回収します。</text>
 		<event>
@@ -646,7 +650,7 @@
 </eventList>
 <event name="DESTROYED_ESTATE_GENERIC">
 	<text load="TEXT_DESTROYED_ESTATE" />
-	<autoReward level="RANDOM">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 </event>
 <textList name="TEXT_DESTROYED_ESTATE">
 	<text>「ウェントワースイノベーションズで買い物をしてくれてありがとう！私たちは将来のビジネスをすることを楽しみにしています！」オートシップの陽気なトーンは、船が炎上するときに燃料ラインが破裂することによってのみ鈍くなります。</text>
@@ -657,7 +661,7 @@
 </textList>
 <event name="DESTROYED_ESTATE_FUEL">
 	<text load="TEXT_DESTROYED_ESTATE_FUEL" />
-	<autoReward level="HIGH">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 	<choice hidden="true">
 		<text>余分な燃料電池を回収します。</text>
 		<event>
@@ -675,7 +679,7 @@
 </textList>
 <event name="DESTROYED_ESTATE_MISSILES">
 	<text load="TEXT_DESTROYED_ESTATE_MISSILES" />
-	<autoReward level="HIGH">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 	<choice hidden="true">
 		<text>余分な弾薬を回収します。</text>
 		<event>
@@ -693,7 +697,7 @@
 </textList>
 <event name="DESTROYED_ESTATE_DRONES">
 	<text load="TEXT_DESTROYED_ESTATE_DRONES" />
-	<autoReward level="HIGH">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 	<choice hidden="true">
 		<text>余分なドローン部品を回収します。</text>
 		<event>
@@ -863,7 +867,7 @@
 <event name="DEAD_CREW_SEPERATIST_DRONE">
 	<text>結局、分離主義者によって雇われたクルーの無人機は彼らにとって無価値でした。ただし、それらの回路図を船に戻すことはできます。</text>
 	<autoReward level="MED">standard</autoReward>
-	<drone name="LIST_DRONES_SEPARATIST" />
+	<drone name="LIST_DRONES_SEPARATIST_DROP" />
 </event>
 
 <event name="SURRENDER_SEPERATIST">
@@ -1041,7 +1045,7 @@
 	
 <event name="DESTROYED_ORCHID">
 	<text load="TEXT_DESTROYED_ORCHID" />
-	<autoReward level="LOW">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 </event>
 <textList name="TEXT_DESTROYED_ORCHID">
 	<text>オーキドゥの船の巨大な植物のような構造を構築するのにどのくらい時間がかかりますか？あなたはオーキドゥの時間と労力のどれだけを無駄にしたのだろうかと思います。</text>
@@ -1051,7 +1055,7 @@
 
 <event name="DEAD_CREW_ORCHID">
 	<text load="TEXT_DEAD_CREW_ORCHID" />
-	<autoReward level="MED">standard</autoReward>
+	<autoReward level="HIGH">standard</autoReward>
 </event>
 <textList name="TEXT_DEAD_CREW_ORCHID">
 	<text>オーキドゥの香りがあなたのクルーをめまいさせます。船をスクラップするときは、呼吸しないようにします。</text>
@@ -1212,7 +1216,7 @@
 	
 <event name="DESTROYED_CULTIST">
 	<text load="TEXT_DESTROYED_CULTIST" />
-	<autoReward level="HIGH">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 </event>
 <textList name="TEXT_DESTROYED_CULTIST">
 	<text>怒っているカルティストでいっぱいの別の船がこの現実の平面から取り除かれました。おそらく彼らは、彼らが自分たちのために想像したどんな後世からもあなたを見守っています。</text>
@@ -1246,7 +1250,7 @@
 </eventList>
 <event name="DESTROYED_PIRATE_GENERIC">
 	<text load="TEXT_DESTROYED_PIRATE" />
-	<autoReward level="RANDOM">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 </event>
 <textList name="TEXT_DESTROYED_PIRATE">
 	<text>唯一の良い海賊は死んだ海賊です、そして今日あなたはそれらをたくさん作りました。</text>
@@ -1257,7 +1261,7 @@
 </textList>
 <event name="DESTROYED_PIRATE_FUEL">
 	<text load="TEXT_DESTROYED_PIRATE_FUEL" />
-	<autoReward level="RANDOM">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 	<choice hidden="true">
 		<text>余分な燃料電池を回収します。</text>
 		<event>
@@ -1275,7 +1279,7 @@
 </textList>
 <event name="DESTROYED_PIRATE_MISSILES">
 	<text load="TEXT_DESTROYED_PIRATE_MISSILES" />
-	<autoReward level="RANDOM">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 	<choice hidden="true">
 		<text>余分な弾薬を回収します。</text>
 		<event>
@@ -1305,7 +1309,7 @@
 </eventList>
 <event name="DEAD_CREW_PIRATE_GENERIC">
 	<text load="TEXT_DEAD_CREW_PIRATE" />
-	<autoReward level="RANDOM">standard</autoReward>
+	<autoReward level="HIGH">standard</autoReward>
 </event>
 <textList name="TEXT_DEAD_CREW_PIRATE">
 	<text>唯一の良い海賊は死んだ海賊です、そして今日あなたはそれらをたくさん作りました。</text>
@@ -1316,7 +1320,7 @@
 </textList>
 <event name="DEAD_CREW_PIRATE_FUEL">
 	<text load="TEXT_DEAD_CREW_PIRATE_FUEL" />
-	<autoReward level="RANDOM">standard</autoReward>
+	<autoReward level="HIGH">standard</autoReward>
 	<choice hidden="true">
 		<text>余分な燃料電池を回収します。</text>
 		<event>
@@ -1334,7 +1338,7 @@
 </textList>
 <event name="DEAD_CREW_PIRATE_MISSILES">
 	<text load="TEXT_DEAD_CREW_PIRATE_MISSILES" />
-	<autoReward level="RANDOM">standard</autoReward>
+	<autoReward level="HIGH">standard</autoReward>
 	<choice hidden="true">
 		<text>余分なミサイルを回収します。</text>
 		<event>
@@ -1519,12 +1523,12 @@
 	
 <event name="DESTROYED_INFESTED">
 	<text>あなたは出没した船の世話をしました。かつて船に乗っていたクルーがいなくなったので、今すぐ船をスクラップしても気にしないでしょう。</text>
-	<autoReward level="RANDOM">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 </event>
 
 <event name="DEAD_CREW_INFESTED">
 	<text>あなたは出没した船の世話をしました。かつて船に乗っていたクルーがいなくなったので、今すぐ船をスクラップしても気にしないでしょう。</text>
-	<autoReward level="RANDOM">standard</autoReward>
+	<autoReward level="HIGH">standard</autoReward>
 </event>
 
 	
@@ -1541,7 +1545,7 @@
 </eventList>
 <event name="DESTROYED_BROOD_GENERIC">
 	<text load="TEXT_DESTROYED_BROOD" />
-	<autoReward level="RANDOM">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 </event>
 <textList name="TEXT_DESTROYED_BROOD">
 	<text>クレイジーなクモに夢中になっている狂信者でいっぱいの別の船。あなたは残骸を救い出します。</text>
@@ -1552,7 +1556,7 @@
 </textList>
 <event name="DESTROYED_BROOD_FUEL">
 	<text load="TEXT_DESTROYED_BROOD_FUEL" />
-	<autoReward level="RANDOM">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 	<choice hidden="true">
 		<text>余分な燃料電池を回収します。</text>
 		<event>
@@ -1570,7 +1574,7 @@
 </textList>
 <event name="DESTROYED_BROOD_MISSILES">
 	<text load="TEXT_DESTROYED_BROOD_MISSILES" />
-	<autoReward level="RANDOM">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 	<choice hidden="true">
 		<text>余分な弾薬を回収します。</text>
 		<event>
@@ -1600,7 +1604,7 @@
 </eventList>
 <event name="DEAD_CREW_BROOD_GENERIC">
 	<text load="TEXT_DEAD_CREW_BROOD" />
-	<autoReward level="RANDOM">standard</autoReward>
+	<autoReward level="HIGH">standard</autoReward>
 </event>
 <textList name="TEXT_DEAD_CREW_BROOD">
 	<text>クレイジーなクモに夢中になっている狂信者でいっぱいの別の船。あなたは残骸を救い出します。</text>
@@ -1611,7 +1615,7 @@
 </textList>
 <event name="DEAD_CREW_BROOD_FUEL">
 	<text load="TEXT_DEAD_CREW_BROOD_FUEL" />
-	<autoReward level="RANDOM">standard</autoReward>
+	<autoReward level="HIGH">standard</autoReward>
 	<choice hidden="true">
 		<text>余分な燃料電池を回収します。</text>
 		<event>
@@ -1629,7 +1633,7 @@
 </textList>
 <event name="DEAD_CREW_BROOD_MISSILES">
 	<text load="TEXT_DEAD_CREW_BROOD_MISSILES" />
-	<autoReward level="RANDOM">standard</autoReward>
+	<autoReward level="HIGH">standard</autoReward>
 	<choice hidden="true">
 		<text>余分なミサイルを回収します。</text>
 		<event>
@@ -1649,7 +1653,7 @@
 	
 <event name="DESTROYED_HACKER">
 	<text load="TEXT_DESTROYED_HACKER" />
-	<autoReward level="RANDOM">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 	<status type="clear" target="player" system="oxygen" amount="100" />
 </event>
 <textList name="TEXT_DESTROYED_HACKER">
@@ -1670,7 +1674,7 @@
 </eventList>
 <event name="DEAD_CREW_HACKER_GENERIC">
 	<text load="TEXT_DEAD_CREW_HACKER" />
-	<autoReward level="RANDOM">standard</autoReward>
+	<autoReward level="HIGH">standard</autoReward>
 	<status type="clear" target="player" system="oxygen" amount="100" />
 </event>
 <textList name="TEXT_DEAD_CREW_HACKER">
@@ -1729,9 +1733,9 @@
 		<text>彼らの降伏を受け入れます。</text>
 		<event>
 			<text>あなたは物資を集めますが、あなたの電力レベルの乱れに気づきます。ハッカーがあなたをだましました！</text>
-			<ship hostile="true" />
 			<autoReward level="MED">standard</autoReward>
-			<status type="divide" target="player" system="reactor" amount="3" />
+			<status type="loss" target="player" system="shields" amount="1" />
+			<status type="loss" target="player" system="reactor" amount="4" />
 		</event>
 	</choice>
 	<choice>
@@ -1788,9 +1792,10 @@
 		<crewMember amount="1" class="engi" />
 	</event>
 	<event>
-		<text>あなたは貨物室を開けて、怒り狂ってあなたを攻撃するマンティスの生存者を見つけます。</text>
-		<status type="limit" target="enemy" system="teleporter" amount="0" />
-		<boarders min="1" max="1" class="mantis" />
+		<text>カーゴベイを開けて、マンティスの生存者を見つけます。マンティスは怒り狂ってあなたを攻撃します!侵入者は鎮圧されましたが、多少のダメージが残りました。</text>
+		
+		<damage amount="0" system="random" effect="breach" />
+		<damage amount="0" system="random" effect="breach" />
 	</event>
 </eventList>
 
@@ -1994,7 +1999,7 @@
 	
 <event name="DESTROYED_LOSTSUN">
 	<text>ロスト・サンの船を破壊し続けると、彼らが連邦と保持している不安定な同盟は長くは続かないでしょう。少なくともあなたはそれからいくらかのスクラップを手に入れます。</text>
-	<autoReward level="HIGH">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 </event>
 
 <event name="DEAD_CREW_LOSTSUN">
@@ -2072,16 +2077,9 @@
 	<choice>
 		<text>彼らの降伏を受け入れます。</text>
 		<event>
-			<ship hostile="false" />
-			<autoReward level="HIGH">missiles</autoReward>
-			<choice>
-				<text>継続する...</text>
-				<event>
-					<text>突然、あなたが去ろうとしているときに、スラッグ船はその武器を再びアクティブにし、ショットを発射します！それはあなたの防御を通り抜けることはありませんが、彼らがあなたに与えた貨物箱は、あなたの盾を部分的に無効にするイオン爆発で爆発します。</text>
-					<ship hostile="true" />
-					<status type="loss" target="player" system="shields" amount="4" />
-				</event>
-			</choice>
+			<text>突然、あなたが去ろうとしているときに、スラッグ船はその武器を再びアクティブにし、ショットを発射します！それはあなたの防御を通り抜けることはありませんが、彼らがあなたに与えた貨物箱は、あなたの盾を部分的に無効にするイオン爆発で爆発します。</text>
+			<status type="loss" target="player" system="shields" amount="2" />
+			<autoReward level="MED">standard</autoReward>
 		</event>
 	</choice>
 	<choice>
@@ -2170,16 +2168,9 @@
 	<choice>
 		<text>彼らの降伏を受け入れます。</text>
 		<event>
-			<ship hostile="false" />
-			<autoReward level="HIGH">missiles</autoReward>
-			<choice>
-				<text>継続する...</text>
-				<event>
-					<text>突然、あなたが去ろうとしているときに、スラッグ船はその武器を再びアクティブにし、ショットを発射します！それはあなたの防御を通り抜けることはありませんが、彼らがあなたに与えた貨物箱は、あなたの盾を部分的に無効にするイオン爆発で爆発します。</text>
-					<ship hostile="true" />
-					<status type="loss" target="player" system="shields" amount="4" />
-				</event>
-			</choice>
+			<text>突然、あなたが去ろうとしているときに、スラッグ船はその武器を再びアクティブにし、ショットを発射します！それはあなたの防御を通り抜けることはありませんが、彼らがあなたに与えた貨物箱は、あなたの盾を部分的に無効にするイオン爆発で爆発します。</text>
+			<status type="loss" target="player" system="shields" amount="2" />
+			<autoReward level="MED">stuff</autoReward>
 		</event>
 	</choice>
 	<choice>
@@ -2195,7 +2186,7 @@
 </event>
 <textList name="TEXT_DESTROYED_HEKTAR">
 	<text>ヘクタールの船が崩壊するにつれ、彼らの船が武器と同じくらい簡単に組み立てられるように設計されているのかどうか疑問に思わざるを得ません。</text>
-	<text>ヘクタールの船が爆発し、自動メッセージがあなたの船に送信されます。 「HektarIndustriesは、戦闘での成功を称賛します。ただし、船を廃棄する前に、この短い広告をご覧ください...」</text>
+	<text>ヘクタールの船が爆発し、自動メッセージがあなたの船に送信されます。 「Industriesは、戦闘での成功を称賛します。ただし、船を廃棄する前に、この短い広告をご覧ください...」</text>
 	<text>他の船の貨物室からたくさんの箱が飛んでくる。あなたはいくつかをつかむことを検討しますが、側面の写真はそれらがあなたの時間の価値がないことを示唆しています。 2つの円と楕円形は何を意味するのでしょうか？</text>
 	<text>彼の船が炎に包まれたとき、あなたはヘクタール船長から最後の連絡を受け取ります。 「私は何か賢いことを言うのに十分なお金を払っていませんでした。しかし、私のマネージャーが尋ねたら、私がしたふりをしてください-」</text>
 </textList>
@@ -2251,7 +2242,7 @@
     <text>「あなたは何を知っていますか？Thissssの仕事はとにかくそれの価値がありませんでした。私は正式に再署名しています。あなたは今無実の無職の民間人を殺すことはありませんか？」</text>
 	<text>「Capitalissssmhassは私に失敗しました！私は永遠にコミュニッスになります。賄賂とコミュニッスムはsssynonymoussですよね？」</text>
 	<text>「誰があなたにthisssの代金を払っているのですか？私はあなたがthisssにお金のためにいないと信じることを拒否します。まあ、何を推測します！私もお金を持っています！」</text>
-	<text>Hektarの従業員は、必死になって従業員マニュアルをめくります。 「クラップ、ここで何をすべきかについては何も言わないでください！ええと、計画Bに再分類する時間です。私の方法を購入してください！」</text>
+	<text>の従業員は、必死になって従業員マニュアルをめくります。 「クラップ、ここで何をすべきかについては何も言わないでください！ええと、計画Bに再分類する時間です。私の方法を購入してください！」</text>
 </textList>
 
 	
@@ -2512,7 +2503,7 @@
 	
 <event name="DESTROYED_COALITION">
 	<text load="TEXT_DESTROYED_COALITION" />
-	<autoReward level="HIGH">standard</autoReward>
+	<autoReward level="MED">standard</autoReward>
 </event>
 <textList name="TEXT_DESTROYED_COALITION">
 	<text>連立船が爆発します。別々のピースが浮かび上がると、派閥間の分裂をもう一度見ることができます。あなたはそれがこのようにもっと好きです。</text>
@@ -2646,7 +2637,7 @@
 		</event>
 	</choice>
 	<choice>
-		<text>降伏はお受けできません！</text>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
 		<event />
 	</choice>
 </event>
@@ -2668,7 +2659,7 @@
 
 <event name="DEADCREW_SIREN_UNKNOWN">
     <text>謎の船のクルーは死んでいます。レインボーライトが生命の内外でちらつき続けている間、あなたはその滑らかな白い船体をスクラップします。</text>
-    <autoReward level="MED">standard</autoReward>
+    <autoReward level="HIGH">standard</autoReward>
     <choice hidden="true">
         <text>継続する...</text>
         <event>
@@ -2814,7 +2805,7 @@
 
 	
 <event name="DEFEAT_MILITIA_ELITE">
-	<text>CDEGは、民間部門を防御できる数少ない部隊の1つであり、正確には一般的ではありません。この船の喪失は確かに民兵に悪影響を及ぼします。</text>
+	<text>EDC は、民間部門を守ることができる数少ない部隊の 1 つであり、一般的ではありません。この船を失うことは、間違いなく民兵にマイナスの結果をもたらすでしょう。</text>
 	<autoReward level="HIGH">standard</autoReward>
 	<choice hidden="true">
 		<text>継続する...</text>

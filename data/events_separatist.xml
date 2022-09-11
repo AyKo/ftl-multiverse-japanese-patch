@@ -214,6 +214,14 @@
 		<text>これ以上のクルーは必要ありません。</text>
 		<event>
 			<text>「ああ...わかりました。あなたのミッションミッションで頑張ってください。」</text>
+			<choice>
+                <text>船に乗って何かする。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>何もしない。</text>
+                <event />
+            </choice>
 		</event>
 	</choice>
 </event>
@@ -295,7 +303,13 @@
 	<choice hidden="true" req="human_technician">
 		<text>（技術者）あなたの技術者で彼を誘惑します。</text>
 		<event load="SEPERATIST_BODY_SCAN_TECH" />
-	</choice>		
+	</choice>
+	<choice hidden="true" req="siren_harpy">
+		<text>(ハーピー) あなたのハーピーで彼を誘惑してください。</text>
+		<event>
+			<text>分離主義者はハーピーのスキャンを開始しますが、途中で停止します。 「これは何だ?! これは何だ?! なぜ目は苦痛の味を感じるのだろう?! 何 - これらの - 色?! 私の心、私の [心]! ああああああ!」分離主義者はほとんどすぐに解散し、何も残せません。</text>
+		</event>
+	</choice>	
 	<choice hidden="true" req="LIST_CREW_ENGI">
 		<text>（エンギ）エンギをスキャンするように彼に勧めます。</text>
 		<event>
@@ -305,12 +319,15 @@
 	<choice hidden="true">
 		<text>拒否する。</text>
 		<event>
-			<text>「望ましくない結果。致命的なモードが有効になりました。」彼の体から5つの長いナイフのような付属品が現れ、彼は爆発する前に近くのクルーの1人をスライスし、船全体を揺さぶる！</text>
-			<damage amount="3" effect="fire" />
-			<removeCrew>
-				<clone>true</clone>
-				<text>あなたのクルーは再び生きて、クローンベイからつまずきます。それ以降、彼らは常にナイフやその他の鋭利なものを可能な限り避けますが、少なくともそれらは永久に消えることはありません。</text>
-			</removeCrew>
+			<text>「あなたは最も[鈍い]です。さようなら。」彼は船からビームオフします。</text>
+			<choice>
+                <text>船に乗って何かする。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>何もしない。</text>
+                <event />
+            </choice>
 		</event>
 	</choice>
 </event>
@@ -714,6 +731,37 @@
 			</choice>
 		</event>
 	</choice>
+	<choice hidden="true" req="BLUELIST_CREW_SNAIL">
+		<text>(テレパシー シェル) 生命の兆候を検出してみてください。</text>
+		<event>
+			<text>あなたのシェルは、敵船に乗っている何らかの形の知性を感知しようとします.彼らは潜在的な生命のかすかな兆候を検出しますが、それを見分けることはほぼ不可能です。</text>
+			<choice hidden="true">
+				<text>攻撃。</text>
+				<event>
+					<text>船の謎はあなたには関係ありません。あなたの心の唯一のことはそれを爆破することの報酬です。</text>
+					<ship hostile="true" /> 
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>船を無視します。</text>
+				<event>
+					<text>あなたは謎への興味を失い、先に進む準備をしています。</text>
+					<choice>
+						<text>船に乗って何かする。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
 	<choice hidden="true">
 		<text>船を無視します。</text>
 		<event>
@@ -887,7 +935,7 @@
 		</choice>
 	</event>
 	<event>
-		<text>「キャプテン、あなたの寄付に感謝します。正直に言うと、私たちはハーモニー船ではありません。この船は現在、分離主義者の管理下にあります。それでも、私たちはあなたに感謝します。この贈り物を受け取ってください。</text>
+		<text>「あなたの寄付に感謝します、船長。正直に言います。私たちはハーモニー船ではありません。この船は現在、分離主義者の支配下にあります。それでも、私たちは [感謝] します。この贈り物を受け取ってください。」</text>
 		<augment name="NANOBOT_DEFENSE_SYSTEM" />
 	</event>
 </eventList>
@@ -909,7 +957,7 @@
 	<choice hidden="true">
 		<text>それらに連絡してください。</text>
 		<event>
-			<text>「見知らぬ人を歓迎しません。今すぐ歓迎します。リクエストがあります。最近[致命的な]ウイルスに感染し、死傷者は人口の-1/4を超えています。支援してもらえますか？</text>
+			<text>「歓迎されない見知らぬ人にご挨拶します。歓迎されていると考えてください。お願いがあります。最近 [致命的な] ウイルスに感染しました。死傷者は人口の 4 分の 1 を超えています。ご協力いただけますか?」</text>
 			<choice>
 				<text>いくつかの物資を支払う。</text>
 				<event>

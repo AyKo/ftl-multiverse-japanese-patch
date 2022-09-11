@@ -452,6 +452,13 @@
 			<reveal_map />
 		</event>
 	</choice>
+	<choice req="LOCKED_GLOBAL_TELEPORT" hidden="true">
+		<text>(中央テレポート) ステーションに直接ビームを当てて、検出されないようにします。</text>
+		<event>
+			<text>搭乗すると、クルーは長距離スキャナーのアーカイブ情報にアクセスしてダウンロードできるようになります。マップが更新されました。</text>
+			<reveal_map />
+		</event>
+	</choice>
 </event>
 <eventList name="AUTO_DEFENSE_MAP_SENSORS">
 	<event>
@@ -689,13 +696,20 @@
 		<text>継続する...</text>
 		<event>
 			<text>顔を赤らめ、パニックに陥った反乱軍の兵士が船にテレポートしました。武装していないように見える反逆者は、彼の平和的な意図を繰り返し宣言します。反乱軍の生活はその魅力を失ったようです。</text>
-			<choice hidden="true">
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 				<text>彼の提案を受け入れ、反乱軍の船と戦う準備をしてください。</text>
 				<event load="REBEL_DEFECTOR_HELP" />
 			</choice>
-			<choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 				<text>彼の申し出を拒否します。あなたはこれらの反逆者を決して信頼することはできません。</text>
 				<event load="REBEL_DEFECTOR_REJECT" />
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+				<text>侵入者をすぐに終了します。これらの反乱軍を決して信用することはできません。</text>
+				<event>
+					<text>あなたの高度なセキュリティ システムは侵入者を簡単に排除しますが、反乱軍の船はまだ対処する必要があります。</text>
+					<event load="COMBAT_CHECK" />
+				</event>
 			</choice>
 		</event>
 	</choice>
@@ -861,9 +875,9 @@
 		<event>
 			<text>「反乱は2757年に最初に始まり、現在のヴァンスウェントワース提督によって設立されました。この男は、30年間の指揮下での連邦の運営方法に不満を持っていた、華麗でハンサムな男です。」聞き始めると、これにはしばらく時間がかかることがわかります。</text>
 			<choice hidden="true">
-				<text>聞き続けてください。</text>
+				<text>聞き続ける。</text>
 				<event>
-					<text>「人類が他のすべての異星人よりも優れていることは周知の事実です。したがって、連邦を転覆させ、栄光ある人間のみの銀河政府を樹立することは、反乱の神聖な権利です。他の異星人は、長い間郊外に存在することが許可されます。彼らは人間とのコミュニケーションを避けているので。</text>
+					<text>「人類が他のすべてのエイリアンよりも優れていることはよく知られています。したがって、連邦を打倒し、輝かしい人間だけの銀河政府を確立することは、反乱軍の神聖な権利です。他のエイリアンは、郊外に長く存在することが許されます。人間とのコミュニケーションを避けるからです。」</text>
 					<modifyPursuit amount="1" />
 					<choice hidden="true">
 						<text>継続する...</text>
@@ -881,7 +895,7 @@
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>聞くのをやめなさい。</text>
+						<text>聞くのをやめる。</text>
 						<event>
 							<text>オートシップをミュートすると、その武器がアクティブになり、攻撃します。</text>
 							<ship hostile="true" /> 
@@ -894,7 +908,7 @@
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>聞くのをやめなさい。</text>
+				<text>聞くのをやめる。</text>
 				<event>
 					<text>オートシップをミュートすると、その武器がアクティブになり、攻撃します。</text>
 					<ship hostile="true" /> 
@@ -1118,7 +1132,7 @@
 				<text>継続する...</text>
 				<event>
 					<text>ステージの中央には、反乱軍のプロパガンダを映し出す3つの大画面に囲まれた、重要な反乱軍の政治家がいます。群衆からの歓声のすべてについて、彼が言っていることをかろうじて理解することができます。 「友人たち、そして友人たち、私たちは皆、反乱の勢力を祝うためにここに集まりました！マルチバースの旅行者から私たちに贈られた新しい反乱軍の旗艦が連邦議会議事堂に到着したというニュースを受け取りました！連邦の日は数えられます、そしてすぐに反乱は起き上がり、その場所を占めるでしょう！」</text>
-					<choice hidden="true">
+					<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 						<text>政治家を暗殺するためにあなたのクルーの1人を送ってください。</text>
 						<event>
 							<text>船を持ってきたらよかったのですが、今戻ったら手遅れかもしれません。ハンドヘルドスキャナーを使用して、見晴らしの良い場所を見つけ、クルーの1人を準備に送ります。</text>
@@ -1127,6 +1141,10 @@
 								<event load="REBELHOLD_SPEECH_ASSASINATE" />
 							</choice>
 						</event>
+					</choice>
+					<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+						<text>あなたが一人でここにいるので、することはほとんどありません。</text>
+						<event load="OPTION_INVALID" />
 					</choice>
 					<choice hidden="true" req="LIST_CREW_ELITE">
 						<text>（エリートクルー）政治家を暗殺するためにエリートを送ってください。</text>
@@ -1398,7 +1416,7 @@
 	</choice>
 </event>
 <event name="FLAGSHIP_CONSTRUCTION_DONE">
-	<text>潜在的な現実が無限にあることを知っていますが、そこにはさらに何千もの旗艦がありますが、これがなければ、少なくとももう1つの現実が救われています。これは大きな勝利であり、収集するスクラップは無数にあり、反乱軍の巡洋艦の設計図でさえ保護されていません。援軍の到着に注意して、あなたはできるだけ多くを取り去ります。艦隊は、この損失に対処することに気を取られすぎて、あなたをフォローできない可能性があります。</text>
+	<text>潜在的な現実は無限にあるので、さらに何千ものフラッグシップが存在しますが、この 1 つがなければ、少なくとも 1 つの現実が救われました。これは大きな勝利であり、無数のスクラップを集めることができ、Rebel 巡洋艦の設計図でさえ保護されていません!増援の到着に注意し、できる限り多くのものを取り去ります。艦隊は、この損失に対処するのに気が散りすぎて、あなたについていくことができないでしょう。</text>
 	<variable name="ach_boss_construction" op="set" val="1" />
 	<unlockCustomShip silent="false">PLAYER_SHIP_REBEL</unlockCustomShip>
 	<item_modify>
@@ -2032,6 +2050,8 @@
 		<event>
 			<text>損傷した船はひどい状態ですが、それでも武器を上げて身を守ることができます。</text>
 			<ship load="SHIP_AUTO_DAMAGED" hostile="true" />
+			<enemyDamage amount="2" system="random" effect="eff" />
+			<enemyDamage amount="1" system="random" effect="eff" />   
 			<choice hidden="true">
 				<text>継続する...</text>
 				<event load="COMBAT_CHECK" />
@@ -2041,7 +2061,7 @@
 	<choice hidden="true">
 		<text>船を避けてください。</text>
 		<event>
-			<text>敵の自動船の修理に時間を費やすには、絶対に馬鹿である必要があります。</text>
+			<text>敵の自動船の修理に時間を費やすなんて、あなたは絶対的なバカにならなければならないでしょう。</text>
 			<choice>
 				<text>船に乗って何かする。</text>
 				<event load="STORAGE_CHECK" />
@@ -2352,8 +2372,9 @@
 			<choice hidden="true" req="loc_a55_handshake" lvl="1" max_group="0" blue="false">
 				<text>継続する...</text>
 				<event>
-					<text>「ありがとう、メイティ。アーグ、数分前に私を殺そうと選んだのに、あなたの心は明らかに正しい場所にいる。王は短命かもしれないので、ここでの私の時間は、それらのエンジニアが再びやってくるだろうと思う。反逆者のいない未来を見るために生きることを願って、私はあなたと一緒に来ると思います。」</text>
+					<text>「ありがとう、相棒。アルグ、あなたは数分前に私を殺そうとすることを選択しましたが、あなたの心は明らかに適切な場所にあります. ..私はあなたと一緒に来ると思います.私が生きて反乱軍のいない未来を見ることができることを願っています.私の船のスキャンをいくつかお送りしましょう-あなたが破壊したものではなく、私が反乱軍のデータバンクから略奪したものです日。"</text>
 					<variable name="ach_crew_a55" op="set" val="1" />
+					<unlockCustomShip silent="false">PLAYER_SHIP_AUTO</unlockCustomShip>
 					<drone name="A55_BATTLE" />
 				</event>
 			</choice>
@@ -2486,7 +2507,7 @@
 						</event>
 					</choice>
 					<choice hidden="true" req="LIST_CREW_ENGINEER">
-						<text>（エンジンクルー）エンジニアに助けてもらってください。</text>
+						<text>(機関士) 機関士の助けを借りてください。</text>
 						<event>
 							<text>エンジニアは思い出を深く調べ、各ボタンの重要性を説明したスタッフトレーニングの日を思い出します。赤いボタンが正しい解決策だったことを思い出して、あなたはこれをクルーに中継します。クルーは保護ケーシングをひっくり返して開き、ボタンをできるだけ速く壊します。</text>
 							<choice hidden="true">
@@ -2525,6 +2546,7 @@
 </event>
 <event name="AUTO_POWERCORE_BIGBOOM_ESCAPE_GOOD">
 	<text>あなたの高度なエンジンはあなたを時間内に簡単に連れ出すことができます。あなたは安全な距離から爆発を見ます。</text>
+	<achievement>ACH_EVENT_EXPLOSION</achievement>
 </event>
 <event name="AUTO_POWERCORE_SAVE">
 	<text>大きなビープ音がコンソールから鳴ります。 「緊急リアクター溶融防止ボタンが押されました。差し迫った爆発へのカウントダウンを停止します。リアクターは安定しました。」いくつかの信じられないほどの奇跡によって、あなたは爆発を止めたようです。</text>
@@ -2720,9 +2742,9 @@
     </loadEventList>
 </event>
 <event name="CYRA_JERRY_SPARE_CREW">
-	<text>サイラの船の状態は悪いですが、戦いを続ける前に、ジェリーはあなたを脇に置きます。 「どうか、何をするにしても、サイラを殺さないでください。彼女はこのように長く戦い続けることはできません。私たちは彼女が死なずにこれを乗り越えることができます。どうぞ、あなたが傭兵であり、連邦の1人であることを知っています。しかし、今日はもっと流血する必要はありません！」</text>
+	<text>サイラの船は調子が悪いが、戦闘を続ける前にジェリーがあなたを脇に引き寄せた。 「どうか、あなたが何をしても、サイラを殺さないでください。彼女はこれ以上長くこのように戦い続けることはできません。あなたが彼女を始末しない限り、私たちは彼女を死なせずにこれを乗り越えることができます!お願いします、私はあなたを知っています.彼らは傭兵であり、連邦のものですが、今日はこれ以上流血する必要はありません!」</text>
 	<triggeredEvent event="CYRA_JERRY_SUCCESS" thisFight="true" clearOnJump="true">
-		<time amount="25" />
+		<time amount="18" />
 	</triggeredEvent> 
 </event>
 <event name="CYRA_JERRY_SPARE_DEAD">
@@ -2732,6 +2754,7 @@
 	<text>あなたはなんとか十分長く持ちこたえました、そして結局サイラの船は止まります。サイラ自身が崩壊し、もはや戦うことができなくなり、彼女はしぶしぶ降伏しました。</text>
 	<ship hostile="false" />
 	<autoReward level="HIGH">weapon</autoReward>
+	<variable name="loc_killedcyra" op="set" val="1" />
 	<choice hidden="true" req="unique_jerry" lvl="1" max_group="0" blue="false">
 		<text>継続する...</text>
 		<event>
@@ -2880,7 +2903,7 @@
 	<triggeredEvent event="JERRY_HOME_FAIL" time="90" thisFight="true">
 		<triggeredEventBox load="DEFAULT_TIMER" pos="combat">
 			<warning time="10.0" flash="true" />
-			<tooltip>建物が空になる前に、オートシップを倒すのにこれだけの時間があります！</tooltip>
+			<tooltip>建物が避難する前に、オートシップを倒す時間はこれだけあります!</tooltip>
 		</triggeredEventBox>
 		<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 	</triggeredEvent>
@@ -3636,9 +3659,13 @@
 <event name="DESTROYED_TOM">
 	<text>反乱軍の船を倒すと、脱出ポッドがそこから飛び出します。残念ながら、それを集めて船に乗せるまで、それほど遠くはありません。あなたはそれを開いて、反乱軍の将校を中に引きずり出します。彼らはあなたが彼らを生きさせてくれるように頼みます。</text>
 	<autoReward level="LOW">standard</autoReward>
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>彼をあなたの船に乗せてください。</text>
 		<event load="DESTROYED_TOM_POD_ACCEPT" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>反乱軍の忠誠を保証する手段なしに反乱軍を受け入れるのはリスクが高すぎます。</text>
+		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true" req="mind">
 		<text>（マインドコントロール）彼が何か悪いことをした場合に備えて、マインドコントロールをオンラインに保ちます。</text>

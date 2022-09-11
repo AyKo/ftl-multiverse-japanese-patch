@@ -377,11 +377,21 @@
 			<autoReward level="HIGH">scrap_only</autoReward>
 		</event>
 	</choice>
-	<choice req="BLUELIST_MINING" hidden="true">
+	<choice req="BEAM_MINING" hidden="true">
 		<text>（採掘設備）小惑星の採掘を試みます。</text> 
 		<event>
 			<text>FTLが充電されるのを待っている間、最も近い小惑星からできるだけ多くの使用可能な材料を注意深く抽出します。</text>
 			<autoReward level="HIGH">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice req="BLUELIST_DRONES_BEAM" hidden="true">
+		<text>（ビームドローン）小惑星の採掘を試みます。 [-1ドローン]</text> 
+		<event>
+			<text>FTLが充電されるのを待っている間、最も近い小惑星からできるだけ多くの使用可能な材料を注意深く抽出します。</text>
+			<autoReward level="HIGH">scrap_only</autoReward>
+			<item_modify>
+				<item type="drones" min="-1" max="-1" />
+			</item_modify>
 		</event>
 	</choice>
 </event>
@@ -719,8 +729,8 @@
 							</choice>
 						</event>
 					</choice>
-					<choice hidden="true" req="rock_commando">
-						<text>（ロスト・サンコマンドー）市民に嘘をつくためのプロパガンダの使用。</text>
+					<choice hidden="true" req="LIST_CREW_LOSTSUN">
+						<text>(Lost Sun Crew) プロパガンダを使って市民に嘘をつく。</text>
 						<event load="LOSTSUN_CHALLENGE_CORRECT_1" />
 					</choice>
 				</event>
@@ -740,7 +750,7 @@
 	<choice hidden="true">
 		<text>継続する...</text>
 		<event>
-			<text>「私たちロスト・サンは私たちの宗教に専念しています。他のどの種族の中で最も強く、最も純粋な種族ですか？」</text>
+			<text>「最強で純粋な種族は？」</text>
 			<choice hidden="true">
 				<text>ロックマン。</text>
 				<event>
@@ -756,7 +766,7 @@
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>なし。聖なる火だけが本当に純粋であることができます。</text>
+				<text>なし。</text>
 				<event load="LOSTSUN_CHALLENGE_CORRECT_2" />
 			</choice>
 			<choice hidden="true">
@@ -766,8 +776,8 @@
 					<ship load="SHIP_LOSTSUN_FIGHT" hostile="true" />
 				</event>
 			</choice>
-			<choice hidden="true" req="rock_commando">
-				<text>（ロスト・サンコマンドー）なし。聖なる火だけが本当に純粋であることができます。</text>
+			<choice hidden="true" req="LIST_CREW_LOSTSUN">
+				<text>(ロストサンクルー) なし。聖なる種族など存在しない。</text>
 				<event load="LOSTSUN_CHALLENGE_CORRECT_2" />
 			</choice>
 		</event>
@@ -798,8 +808,8 @@
 					<ship load="SHIP_LOSTSUN_FIGHT" hostile="true" />
 				</event>
 			</choice>
-			<choice hidden="true" req="rock_commando"> 
-				<text>（ロスト・サンコマンドー）あなたのコマンドーは答えを知りません。</text>
+			<choice hidden="true" req="LIST_CREW_LOSTSUN"> 
+				<text>(ロスト・サンの乗組員) あなたの乗組員は答えを知りません。</text>
 				<event>
 					<text>コマンドーを含まない質問にもかかわらず、あなたはまだ答えを彼らに頼ります。彼らは肩をすくめる。ロスト・サンのキャプテンは待つのに飽き飽きしています。 「これは簡単な質問のキャプテンです！私はあなたのナンセンスのためにもう時間がありません。」</text>
 					<ship load="SHIP_LOSTSUN_FIGHT" hostile="true" />

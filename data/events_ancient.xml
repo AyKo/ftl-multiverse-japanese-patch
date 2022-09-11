@@ -2,7 +2,10 @@
 
 
 <event name="ANCIENT_LORE_DUMP">
-	<text>クリーチャーは前のオートスカウトと同じように文字化けして話し始めますが、止まります。翻訳者がいるエリアをスキャンし、デバイスが点灯します。翻訳者を見て、データベースエントリがさらに更新されていることを確認します。これは、オーグメンティドによって提供されたエントリを拡張したものです。</text>
+	<text>クリーチャーは、前のオートスカウトと同じように不明瞭な方法で話し始めますが、停止します。翻訳者がいるエリアをスキャンし、デバイスが点灯します。翻訳者を見ると、そのデータベース エントリがさらに更新されていることがわかります - Augmented によって提供されたエントリが拡張されています。
+
+開発者からのメモ:
+このクエストラインは古く、現在、将来のアップデートで完全に作り直す予定です。それに関連付けられているロック解除の数が多いため、ゲームに残しましたが、クエストラインはもはやカノンとは見なされません.</text>
 	<recallBoarders />
 	<choice hidden="true">
 		<text>継続する...</text>
@@ -78,13 +81,15 @@
 					<choice hidden="true" req="unique_wither">
 						<text>（エーンウィザ）「こんにちは、私だ」</text>
 						<event>
-							<text>「おっと、君はすでに別の時間軸から私と出会っていたのか。では、事情は分かっていると思う。これからオベリスク区に向かおうか？ それとも他にやることがありるか？」</text>
+							<text>「ああ、もう別のタイムラインから私に遭遇したようですね。それでは、状況を理解していると思います。オベリスクセクターに向かいましょうか、それとも他にやることはありますか?」
+
+[注: ウィザーはクルー スロットを占有しないため、以下の免責事項が主張している可能性があるにもかかわらず、クルー メンバーを解任する必要はありません。]</text>
 							<choice>
 								<text>さあ行こう。</text>
 								<event>
 									<text>「非常に素晴らしい。座る場所やつかむものを見つけることを勧める。これは、だいぶ波乱万丈な航海になるだろう！」</text>
 									<variable name="ach_crew_aenwithe" op="set" val="1" />
-									<crewMember amount="1" class="unique_wither">Wither</crewMember> 
+									<crewMember amount="1" class="unique_wither">ウィザー</crewMember> 
 									<choice hidden="true">
 										<text>継続する...</text>
 										<event>
@@ -109,13 +114,15 @@
 </event>
 
 <event name="ANCIENT_LORE_DUMP_CHALLENGE">
-	<text>「しかし、すべてが失われたわけではない。別のセクターの金庫にも同様の部品があると思われる。この滞在で得た情報から、私の目的は互いに有益であると確信している。この爆弾はこの世界を反乱軍の侵攻から守り、君たち方の戦争を終わらせる鍵になるかもしれない。もし君たちが協力しなかったとしても、私を目覚めさせただけで、すでに十分すぎるほどのことをしてくれた。もし断るのであれば、他の方法で報酬を支払おう」</text>
+	<text>「しかし、すべてが失われたわけではありません。私たちが使用できる同様のコンポーネントが保管庫に含まれている疑いのある別のセクターがあります。ここでの滞在で収集したものから、私の目標は私たち双方にとって相互に有益であると信じています。この爆弾はこれを救います反乱軍の侵略からの現実、そしてあなたのこの戦争を終わらせる鍵になるかもしれません. あなたが助けたくないのなら、私を目覚めさせるだけで十分すぎるほどのことをしたことは理解しています.支払い方法。」
+
+[注: ウィザーはクルー スロットを占有しないため、以下の免責事項が主張している可能性があるにもかかわらず、クルー メンバーを解任する必要はありません。]</text>
 	<choice>
 		<text>承認。</text>
 		<event>
 			<text>「そうか？ それは素晴らしい。座る場所やつかむものを見つけることを勧める。これはだいぶ波乱万丈な航海になるだろう！」</text>
 			<variable name="ach_crew_aenwithe" op="set" val="1" />
-			<crewMember amount="1" class="unique_wither">Wither</crewMember> 
+			<crewMember amount="1" class="unique_wither">ウィザー</crewMember> 
 			<choice hidden="true">
 				<text>継続する...</text>
 				<event>
@@ -276,22 +283,23 @@
 
 <event name="VAULT_DESTROYED">
 	<text>出発の準備をしていると、爆発によって引き込まれたオベリスク船の戦隊が近づきます。彼らの船長はあなたを歓迎する王室の船によって率いられています。 「お前は..お前は秘匿場所を破壊した。汚らしい死の虫め！このために苦しむのだ！」あなたは肩をすくめ、武器をその方向にフリックします。オベリスク戦隊の誰もがドレッドノート級戦艦を殺した船をあえて混乱させなかったので、彼らはすぐに飛び去り、おそらくあなたの接近のニュースを広めるために母星系に向けてに飛びました。</text>
-		<choice hidden="true">
-			<text>継続する...</text>
-				<event>
-					<text>エーンウィザはとても喜んでいます。「艦隊の心配は無用だ。どうせ母星系は厳戒態勢にあるのだから。我々は迅速に行動しなければならない。我々の基地に向かい、爆弾を構築しなければならない。母星系に直接向かうぞ。また何かに掴まってくれ。気を失わないようにな」</text>
-					<choice hidden="true">
-						<text>継続する...</text>
-						<event load="JUMP_TO_OBELISK" />
-					</choice>
-				</event>
-		</choice>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>エーンウィザはとても喜んでいます。「艦隊の心配は無用だ。どうせ母星系は厳戒態勢にあるのだから。我々は迅速に行動しなければならない。我々の基地に向かい、爆弾を構築しなければならない。母星系に直接向かうぞ。また何かに掴まってくれ。気を失わないようにな」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="JUMP_TO_OBELISK" />
+			</choice>
+		</event>
+	</choice>
 </event>
 <event name="JUMP_TO_OBELISK">
 	<secretSector />
 </event>
 
 <event name="START_BEACON_ANCIENT">
+	<metaVariable name="juke_ancient" op="set" val="1" />
 	<text> あなたは朦朧とした意識の中で、床から体を離す。船のカメラには、ほとんどのクルーが同じように、眠りから覚めている様子が映っている。ただ一人、エーンウィザだけは平然とした様子で、急いであなたの様子を見に来た。「無事に着いたが、これからいくつか気をつけなければならないことがある。今はまだ反乱軍も追ってこれないだろうが、もし君が疑っているように追ってくるなら、いずれ追いつかれるだろう。それに、この区域は警備船が守っている可能性が高い。もしそうなら、無傷で通してくれるとは思えない」</text>
 	<variable name="loc_unique_sectors" op="add" val="1" />
 	<modifyPursuit amount="-10" />
@@ -599,7 +607,7 @@
     </event>
     <event>
         <text>最初はオベリスクはかき混ぜられません。後で使用するためにオベリスクを保管場所に保管することを検討してください。しかし、あなたがそれを動かし始めると、それはあなたの盾を破壊するレーザーを突然活性化して発射します！あなたはブラスターを引きますが、オベリスクはすでに落ち着いています。 「ああ、私の悪い。あなたの装備について本当に申し訳ありません。私があなたのクルーに加わることを要求してもかまわないことを願っていますか？それは永遠に宇宙を漂うひどく退屈です、そして私は一度の行動を望みます。」</text>
-        <damage amount="8" system="shields" effect="fire" />
+        <damage amount="5" system="shields" effect="fire" />
         <choice hidden="true">
             <text>継続する...</text>
             <event>
@@ -663,6 +671,7 @@
             <status type="limit" target="player" system="battery" amount="1" />
             <status type="limit" target="player" system="artillery" amount="1" />
             <status type="limit" target="player" system="oxygen" amount="0" />
+			<status type="limit" target="player" system="temporal" amount="0" />
             <choice hidden="true">
 				<text>富。</text>
 				<event>
@@ -729,7 +738,7 @@
 <eventList name="HOSTILE_ANCIENT">
 	<event load="ENCOUNTER_ANCIENT" />
 	<event load="ENCOUNTER_ANCIENT_SURRENDER" />
-	<event load="ENCOUNTER_ENGI_ELITE_ANCIENT" />
+	
 	<event load="ENCOUNTER_ANCIENT_AUTO" />
 	
 	<event load="HAZARD_ANCIENT" />
@@ -1138,7 +1147,7 @@
 
 <event name="ANCIENT_SCULPTER" unique="true">
 	<img back="BACKGROUND" planet="PLANET_ANCIENT" />
-	<text>巨大な小惑星フィールドに囲まれたオベリスク船があなたを歓迎します。 「あなたはそれらが好きですか？すべての岩、手作り。私はこの場所を作成するために何千年も費やしました。どうぞ、私の作成を楽しんでください。」</text>
+	<text>巨大な小惑星帯に囲まれたオベリスク船があなたを歓迎します。 「どうです？ これらすべての岩は手作りです。私はこの場所を作るのに千年を費やしました。私の作品を楽しんでください.」</text>
 	<ship load="SHIP_ANCIENT_SCULPTER" hostile="false" /> 
 	<environment type="asteroid" />
 	<choice hidden="true">
@@ -1689,7 +1698,7 @@
 	<choice hidden="true">
 		<text>彼が彼の部下がどのように捕らえられたかをあなたに話すように要求しなさい。</text>
 		<event>
-			<text>グリズリした戦士は、歯から血を吐き出し、あなたの目をじっと見つめ、ついに壊れて、子供のようにすすり泣きます。 「T-those-DAMNオベリスク。彼らは私たちの弱点を知っていました。U1に戻ると、Vance-1はエースとは異なる方法で私たちを訓練します。私たちに純潔のルールを強制します。 。プレゼントt-この奇妙な見た目...猫...女の子...事。私たち...それ以上の説明はしていません。」</text>
+			<text>グリズリした戦士は、歯から血を吐き出し、あなたの目をじっと見つめ、ついに壊れて、子供のようにすすり泣きます。 「T-those-DAMNオベリスク。彼らは私たちの弱点を知っていました。U1に戻ると、ヴァンス-1はエースとは異なる方法で私たちを訓練します。私たちに純潔のルールを強制します。 。プレゼントt-この奇妙な見た目...猫...女の子...事。私たち...それ以上の説明はしていません。」</text>
 			<choice hidden="true">
 				<text>今どこにありますか？</text>
 				<event>
@@ -1814,11 +1823,11 @@
 							</item_modify>
 						</event>
 					</choice>
-					<choice req="symbiote">
+					<choice req="unique_symbiote">
 						<text>ティンタンとリグを売る。</text>
 						<event>
 							<text>「ああ、なんて素晴らしい標本だ。これは私の他の生き物の中でとても素敵に見えるだろう。この支払いをしてください。」</text>
-							<removeCrew class="symbiote">
+							<removeCrew class="unique_symbiote">
 								<clone>false</clone>
 								<text>クルーを売却したばかりなので、クルーのクローンを作成することはできません。</text>
 							</removeCrew>
@@ -2110,7 +2119,7 @@
 												<event>
 													<text>「これらの施設は数世紀前に建設されており、母国語ではカルチオとも呼ばれるパンドランボックス用の主要な製造プラントです。それらの中には小さな現実のマニピュレーターがあり、開いたときは神の不思議または想像を絶する恐怖のいずれかを解き放つことができます。もちろん、ギャンブルでは、オベリスクが娯楽に飽きたときに工場は放棄され、それ以来私のコントロールに残されていました。 。これはツアーを終了します、あなたは去るかもしれません。」</text>
 													<choice hidden="true">
-														<text>ボックスを購入することを申し出ます。 [-20スクラップ]</text>
+														<text>箱買いを申し出る。 [-20スクラップ]</text>
 														<event>
 															<text>「あなたは箱を取りたいですか？行きなさい、それを取りなさい。」</text>
 															<augment name="PANDORA_BOX_ANCIENT" />
@@ -2120,7 +2129,7 @@
 														</event>
 													</choice>
 													<choice hidden="true">
-														<text>自分でコグニティブを雇う。 [-40スクラップ]</text>
+														<text>あなた自身のためにコグニティブを雇ってください。 [-40スクラップ]</text>
 														<event>
 															<text>「あなたは私があなたと一緒に行きたいですか？どうか、私がこの地獄を置き去りにするかもしれないということを意味するならば、私はこの無意味ながらくたを取ります。」</text>
 															<crewMember amount="1" class="cognitive" />
@@ -2145,16 +2154,20 @@
 							</choice>
 						</event>
 					</choice>
-					<choice hidden="true">
+					<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 						<text>自分で続けてください。</text>
 						<event>
 							<text>あなたは声を無視して前進します。もう少し長く、それは再び話します。 「あなたが自分自身を歓迎したくないのは明らかです。侵入防止システムをアクティブにします。」突然、レーザーが壁から出てきて、クルーの1人が溶けてしまいました。さらに悪いことに、2つのコグニティブが具体化してあなたのクルーを追いかけます！</text>
 							<boarders min="2" max="2" class="cognitive" />
 							<removeCrew>
 								<clone>true</clone>
-								<text>幸いなことに、あなたのクルーはすでに船にクローンを戻し、認知的侵入者と戦う準備ができています。</text>
+								<text>幸いなことに、あなたのクルーはすでに船にクローンを戻し、コグニティブの侵入者と戦う準備ができています。</text>
 							</removeCrew>
 						</event>
+					</choice>
+					<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+						<text>声が言ったことを本当に聞くべきです。</text>
+						<event load="OPTION_INVALID" />
 					</choice>
 				</event>
 			</choice>

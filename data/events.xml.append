@@ -1,20 +1,20 @@
 <FTL>
 <event name="CHARACTER_TEST">    
-    <text>АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ абвгдеёжзийклмнопрстуфхцчшщъыьэюя
-    ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz
-    1234567890+-—""«»
-    { fuel
-    | drones
-    } missiles
-    ~ scrap
-    $ repair
-    
-    justin8 only:
-    € elite
-    ‰ fire
-    † power
-    ‡ cooldown
-    ™ upgraded</text>
+    <text>АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ абвгдеёжзийклмнопрстуфхцчшщыьэюя
+ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz
+1234567890+-—""«»
+燃料燃料
+ドローン ドローン
+ミサイル ミサイル
+スクラップスクラップ
+$修理
+
+justin8 のみ:
+€エリート
+火
+†パワー
+‡クールダウン
+™アップグレード</text>
     <store>STORE_STANDARD</store>
 </event>
 
@@ -406,13 +406,24 @@ Renegadeコレクションを有効にするには、サブセットフォーラ
 </event>
 
 <event name="START_GAME">
-	<text>星が通り過ぎるとき、あなたは遠くの宇宙の渦を見てください。これはあなたの物語の次の章の始まりです。次に何があなたを待っていますか？</text>
+	<text />
 </event>
 
 <event name="START_BEACON_RELOAD">
 	<loadEvent>START_BEACON_PRESELECT</loadEvent>
 </event>
 <event name="START_BEACON">
+	<img back="BACKGROUND_LIGHTSPEED" planet="PLANET_INVISIBLE" />
+	<loadEventList first="true" default="START_BEACON_REAL">
+		<event name="START_BEACON_DYLAN" req="prof_dylan_met" lvl="1" />
+	</loadEventList>
+</event>
+<event name="START_BEACON_DYLAN">
+	<img back="BACKGROUND_LIGHTSPEED" planet="PLANET_INVISIBLE" />
+	<metaVariable name="prof_dylan_counter" op="add" val="1" />
+	<loadEvent>START_BEACON_REAL</loadEvent>
+</event>
+<event name="START_BEACON_REAL">
 	<text>星が通り過ぎるとき、あなたは遠くの宇宙の渦を見てください。これはあなたの物語の次の章の始まりです。次に何があなたを待っていますか？</text>
 	<queueEvent seeded="true">THE_JUDGES_VARIABLE_CLEAR</queueEvent>
 	<deathEvent>DEATH</deathEvent>
@@ -433,10 +444,18 @@ Renegadeコレクションを有効にするには、サブセットフォーラ
         <jumpClear>false</jumpClear>
         <noDanger>true</noDanger>
     </eventButton>
+	<eventButton name="UI_JUKEBOX">
+        <event load="STORAGE_CHECK_JUKEBOX" />
+        <image>statusUI/top_music</image>
+        <customLocation x="338" y="46" />
+        <tooltip>ジュークボックスを開きます。</tooltip>
+        <inactiveTooltip>Unavailable.</inactiveTooltip>
+        <jumpClear>false</jumpClear>
+    </eventButton>
 	<eventButton name="UI_TOGGLE_BUTTON">
         <event load="COMBAT_CHECK_TOGGLE_BUTTON" />
         <image>statusUI/top_toggle</image>
-        <customLocation x="105" y="94" />
+        <customLocation x="105" y="110" />
         <tooltip>ドローンまたは武器を切り替えます。</tooltip>
         <inactiveTooltip>Unavailable!</inactiveTooltip>
         <jumpClear>false</jumpClear>
@@ -503,7 +522,7 @@ Renegadeコレクションを有効にするには、サブセットフォーラ
 	<item_modify>
 		<item type="fuel" min="10" max="10" />
 	</item_modify>
-	<modifyPursuit amount="1" />
+	
 	<disableScrapScore />
 	<choice hidden="true">
 		<text>継続する...</text>
@@ -517,7 +536,7 @@ Renegadeコレクションを有効にするには、サブセットフォーラ
 	<item_modify>
 		<item type="fuel" min="8" max="8" />
 	</item_modify>
-	<modifyPursuit amount="1" />
+	
 	<disableScrapScore />
 	
 	<choice hidden="true">
@@ -576,7 +595,9 @@ MVをサポートするためにプレイしている船を更新したいが、
 </event>
 
 <event name="START_DIFFICULT_MENU">
-	<text>チャレンジレベルを変更しようとしています。これにより、マルチバースの体験方法が変わります。オプションをクリックすると、2回目の確認と詳細が表示されます。チャレンジモードは、開始する前に何度でも変更できますが、実行を開始すると、これを変更することはできません。チャレンジレベルの構成は、再度変更されるまで、すべての実行にわたって維持されます。</text>
+	<text>チャレンジ レベルを変更しようとしています。これにより、マルチバースの体験方法が変わります。オプションをクリックすると、詳細が表示されます。チャレンジ モードは、開始する前に何度でも変更できますが、実行を開始すると、これを変更することはできません。チャレンジ レベルの構成は、再度変更されるまで、すべての実行で維持されます。
+
+チャレンジ レベルは格納庫の標準的な難易度スライダーとは独立しており、代替ではなく補完的なものです。デフォルトの難易度では微調整できなかった側面が変更されます。</text>
 	<item_modify steal="true">
 		<item type="fuel" min="-999" max="-999" />
 		<item type="scrap" min="-999" max="-999" />
@@ -585,12 +606,14 @@ MVをサポートするためにプレイしている船を更新したいが、
 	<choice hidden="true">
 		<text>カジュアル。</text>
 		<event>
-			<text>[カジュアルモード：リラックスした方法でゲームプレイを体験したい人のためのモード]
-スクラップの開始：50〜
-燃料の開始：25〜
-セクターの出口でエリートの難易度を減らします。
-マルチバースレネゲードミニボスは決して生じません。旅行商人は常にかなりの無料ギフトを提供し、フェデレーションの前post基地は無料の修理を提供します。
-真の結末の難しさを減らします。</text>
+			<text>【CASUAL MODE：気軽にゲームを楽しみたい方向けのモード】
+初期スクラップ: 50スクラップ
+始動燃料: 25燃料
+
+セクター 1 の出口にいる反乱軍の船はエリートではありません。
+Multiverse Renegades のミニボスはスポーンせず、Federation Outposts は無料で修理を行います。
+旅の商人は常にかなりの無料ギフトを提供し、より弱く、倒されると強力なエネルギー シールド増強を落とします。
+トゥルーエンディングの難易度を下げます。</text>
 			<choice hidden="true">
 				<text>継続する...</text>
 				<event load="SET_DIFFICULTY_CASUAL" />
@@ -600,11 +623,13 @@ MVをサポートするためにプレイしている船を更新したいが、
 	<choice hidden="true">
 		<text>普通。</text>
 		<event>
-			<text>[通常モード：標準モード、modが最初に設計された方法で再生されます]
-開始スクラップ：20スクラップ
-始動燃料：12燃料
-セクター1の出口でエリートの難易度を下げます。
-レネゲードボスは適度な強さでスポーンし、スクラップをトリビュートとして受け取ります。トラベリングマーチャントはドロップポイントとラストスタンドで小さな無料ギフトを贈ります。</text>
+			<text>[NORMAL MODE: 標準モード、mod が最初に設計された方法で再生]
+初期スクラップ: 20スクラップ
+始動燃料: 12燃料
+
+弱いレベルのエリートがセクター 1 の出口であなたを待っています。
+レネゲードのミニボスは適度な強さでスポーンし、スクラップを貢ぎ物として受け取ります。
+旅の商人は、ドロップ ポイントとラスト スタンドでささやかな無料ギフトを提供し、倒されると強力なエネルギー シールド オーグメントをドロップします。</text>
 			<choice hidden="true">
 				<text>継続する...</text>
 				<event load="SET_DIFFICULTY_NORMAL" />
@@ -614,12 +639,14 @@ MVをサポートするためにプレイしている船を更新したいが、
 	<choice hidden="true">
 		<text>チャレンジ。</text>
 		<event>
-			<text>[チャレンジモード：難しいチャレンジを探している人のためのモードですが、物事が手に負えなくなることはありません]
-スクラップの開始：なし
-燃料の開始：10〜
-反乱軍艦隊は1ジャンプブーストを獲得します。セクターの出口でエリートの難易度を高めます。
-レネゲートのボスはバフされ、乗組員を賛辞として連れて行き、旅行商人は決して贈り物を与えません。
-真のエンディングの難しさを増やします。</text>
+			<text>【CHALLENGE MODE：より難度の高いチャレンジを求める人向けのモードですが、手に負えなくなります】
+開始スクラップ: なし
+始動燃料: 10燃料
+
+反乱軍艦隊は 1 ジャンプ ブーストを獲得します。セクター 1 出口でのエリートの難易度を上げます。
+レネゲードのボスは強化され、乗組員を貢ぎ物として受け取ります。ラスト スタンドの修理ビーコンは常にエリート反乱軍の攻撃を受けます。
+旅の商人は決して贈り物を与えず、より強く、殺されるとほとんどの状況下で強力な武器をドロップします。
+トゥルーエンディングの難易度が上がります。</text>
 			<choice hidden="true">
 				<text>継続する...</text>
 				<event load="SET_DIFFICULTY_CHALLENGE" />
@@ -629,20 +656,21 @@ MVをサポートするためにプレイしている船を更新したいが、
 	<choice hidden="true">
 		<text>過激。</text>
 		<event>
-			<text>[エクストリームモード：簡単すぎることにうんざりしていませんか？あなたの人生を地獄にしたいですか？これはあなたのためのモードかもしれません。]
-開始スクラップ：なし
-始動燃料：8燃料
-反乱軍の艦隊は1ジャンプブーストを獲得します。セクター1の出口でエリートの難易度を上げます。
-レネゲードボスは大幅に強化されており、敬意を表しません。トラベリングマーチャントはリソースのスクラップを大幅に減らします。ラストスタンドの修理ビーコンは常にMFKエースの攻撃を受け、ラストスタンドの開始ビーコンはMFKエースの攻撃を受けます。
+			<text>[EXTREME MODE: 簡単すぎて退屈？あなたの人生を地獄にしたいですか？これはあなたのためのモードかもしれません.]
+開始スクラップ: なし
+始動燃料: 8燃料
+
 開始時の追加の準備オプションは無効になっています。
-トゥルーエンディングの難易度を大幅に上げます。</text>
+反乱軍艦隊は 1 ジャンプ ブーストを獲得します。セクター 1 出口でのエリートの難易度を上げます。
+レネゲードのボスは大幅に強化され、トリビュートを受けません。ラスト スタンドのリペア ビーコンは常に MFK エースの攻撃を受けます。ラスト スタンドの開始ビーコンは、MFK ピケット エースの攻撃を受けて、ジャンプするのを防ぎます。
+旅の商人は、リソースのスクラップをはるかに少なくし、より強く、殺されるとほとんどの状況で強力な武器をドロップします.
+トゥルーエンディングの難易度が大幅に上昇します。</text>
 			<choice hidden="true">
 				<text>継続する...</text>
 				<event load="SET_DIFFICULTY_EXTREME" />
 			</choice>
 		</event>
 	</choice>
-	
 </event>
 <event name="SET_DIFFICULTY_CASUAL">
 	<text>チャレンジレベルはカジュアルに設定されています。</text>
@@ -678,7 +706,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 		<item type="fuel" min="10" max="10" />
 	</item_modify>
 	<metaVariable name="challenge_level" op="set" val="2" />
-	<modifyPursuit amount="1" />
+	
 	<disableScrapScore />
 	
 	<choice hidden="true">
@@ -692,23 +720,8 @@ MVをサポートするためにプレイしている船を更新したいが、
 		<item type="fuel" min="8" max="8" />
 	</item_modify>
 	<metaVariable name="challenge_level" op="set" val="3" />
-	<modifyPursuit amount="1" />
 	<disableScrapScore />
 	
-	<choice hidden="true">
-		<text>継続する...</text>
-		<event load="START_BEACON_RELOAD" />
-	</choice>
-</event>
-<event name="SET_DIFFICULTY_SANDBOX">
-	<text>チャレンジレベルはサンドボックスに設定されています。</text>
-	<item_modify>
-		<item type="fuel" min="99" max="99" />
-		<item type="missiles" min="999" max="999" />
-		<item type="drones" min="999" max="999" />
-		<item type="scrap" min="999999" max="999999" />
-	</item_modify>
-	<disableScrapScore />
 	<choice hidden="true">
 		<text>継続する...</text>
 		<event load="START_BEACON_RELOAD" />
@@ -741,6 +754,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 												<text>読み続けます。</text>
 												<event>
 													<text>そこで君達の出番となる。連邦に雇われたレネゲートである君の目標は単純だ - 旗艦を破壊せよ。反乱軍がこの世界を攻略するために、これ以上の努力を惜しむとはとても思えない。反乱軍を別の世界に向かわせる方がはるかに現実的だ。もし失敗すれば、この現実の連邦は間違いなく崩壊し、ここは反乱軍の隷属する一部となるだろう。</text>
+													<achievement>ACH_ACC_DATABASE</achievement>
 													<choice hidden="true">
 														<text>それは今のところすべてです。ミッションに取り掛かる時が来ました。</text>
 														<event load="START_BEACON_RELOAD" />
@@ -836,17 +850,33 @@ MVをサポートするためにプレイしている船を更新したいが、
 	<backgroundObject name="DETERGENT">
 		<layer z="0">background</layer>
 		<spawnArea x="207" y="163" w="0" h="0" center="true" />
+		<req lvl="500" max_lvl="800">stability</req> 
 		<anim>detergent</anim>
 		<hoverAnim>detergent_hover</hoverAnim>
+		<inactiveAnim hide="true" />
 		<tooltip>洗剤のボトル。</tooltip>
 		<clickAction>
 			<event load="DETERGENT_MODE" /> 
 			<destroy />
 		</clickAction>
 	</backgroundObject>
+	<backgroundObject name="GNOME">
+		<layer z="0">background</layer>
+		<spawnArea x="1154" y="390" w="0" h="0" center="true" />
+		<req lvl="1">chaos_mode_unlock</req>
+		<anim>gnome_object</anim>
+		<hoverAnim>gnome_object_hover</hoverAnim>
+		<inactiveAnim hide="true" />
+		<tooltip>ノーム。</tooltip>
+		<clickAction>
+			<event load="CHAOS_MODE" /> 
+			<destroy />
+		</clickAction>
+	</backgroundObject>
 	<loadEventList seeded="false" first="true" generate="true">
 		<event name="START_BEACON_PREP_SKIP" req="challenge_level" lvl="3" />
-		<event name="START_BEACON_PREP" req="challenge_level" lvl="0" max_lvl="2" />
+		<event name="START_BEACON_FLEETBOOST" req="challenge_level" lvl="2" max_lvl="2" />
+		<event name="START_BEACON_PREP" req="challenge_level" lvl="0" max_lvl="1" />
 	</loadEventList>
 </event>
 <event name="START_BEACON_PREP">
@@ -915,7 +945,6 @@ MVをサポートするためにプレイしている船を更新したいが、
 			</item_modify>
 		</event>
 	</choice>
-	
 	<choice hidden="true" req="pilot" lvl="1" max_group="2" blue="false">
 		<text>別のクルーを探します。</text>
 		<event>
@@ -943,7 +972,18 @@ MVをサポートするためにプレイしている船を更新したいが、
 			</choice>
 		</event>
 	</choice>
-	<choice hidden="true" req="pilot" lvl="1" max_group="4" blue="false">
+	<choice hidden="true" req="magical_hat" lvl="1" max_group="4" blue="true">
+		<text>魔法の帽子を手に入れます。</text>
+		<event name="MAGIC_HAT">
+			<text>魔法の帽子は、理解できない非ユークリッドな形と色で作られているにもかかわらず、暖かくぼんやりとした気分にさせてくれます。着た瞬間、思いっきりやればどこにも行けないような感覚に。</text>
+			<variable name="magical_hat_active" op="set" val="1" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="START_BEACON_EXPLAIN_LOAD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="pilot" lvl="1" max_group="5" blue="false">
 		<text>あなたはあなたが持っているもので良いです。フリートで有利なスタートを切りましょう！</text>
 		<event>
 			<text>あなたは余分なものを何も取らないことに決めて、続けます。</text>
@@ -955,10 +995,24 @@ MVをサポートするためにプレイしている船を更新したいが、
 		</event>
 	</choice>
 </event>
+<event name="START_BEACON_FLEETBOOST">
+    <text>艦隊が近づいてくる…</text>
+	<changeBackground>BACK_SECTOR_START</changeBackground>
+	<modifyPursuit amount="1" />
+	<choice hidden="true">
+       <text>継続する...</text>
+       <event load="START_BEACON_PREP" />
+    </choice>
+</event>
 <event name="START_BEACON_PREP_SKIP">
     <text>ゆっくりとハイパースピードを終了し、着陸に安全な速度に移行して、下の格納庫に近づきます。そこで、あなたの船は収容され、この外銀河に向かう準備ができています。</text>
 	<changeBackground>BACK_SECTOR_START</changeBackground>
 	<playSound>lightspeed</playSound>
+	<modifyPursuit amount="1" />
+	<choice hidden="true" req="magical_hat" lvl="1" max_group="4" blue="true">
+		<text>魔法の帽子を手に入れます。</text>
+		<event load="MAGIC_HAT" />
+	</choice>
 	<choice hidden="true">
        <text>継続する...</text>
        <event load="START_BEACON_EXPLAIN_LOAD" />
@@ -994,6 +1048,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 		<event name="BOON_SELECT_HUMAN_2" req="prof_z_boon_human_2" />
 		<event name="BOON_SELECT_ENGI" req="prof_z_boon_engi" />
 		<event name="BOON_SELECT_ZOLTAN" req="prof_z_boon_zoltan" />
+		<event name="BOON_SELECT_OSMIAN" req="prof_z_boon_osmian" />
 		<event name="BOON_SELECT_ORCHID" req="prof_z_boon_orchid" />
 		<event name="BOON_SELECT_MANTIS" req="prof_z_boon_mantis" />
 		<event name="BOON_SELECT_MANTIS_2" req="prof_z_boon_mantis_2" />
@@ -1045,11 +1100,15 @@ MVをサポートするためにプレイしている船を更新したいが、
 		<event name="BOON_SELECT_TRANSPORT" req="prof_r_boon_transport" />
 		<event name="BOON_SELECT_MATH" req="prof_r_boon_math" />
 		<event name="BOON_SELECT_RENEGADE" req="prof_r_boon_renegade" />
+		<event name="BOON_SELECT_SENTRY" req="prof_r_boon_sentry" />
 		<event name="BOON_SELECT_CURA" req="prof_r_boon_cura" />
 		<event name="BOON_SELECT_CLONECANNON" req="prof_r_boon_clonecannon" />
 		<event name="BOON_SELECT_MODULAR" req="prof_r_boon_modular" />
 		<event name="BOON_SELECT_GATLING" req="prof_r_boon_gatling" />
 		<event name="BOON_SELECT_MERCHANTS" req="prof_r_boon_rift" />
+		<event name="BOON_SELECT_MADNESS" req="prof_r_boon_madness" />
+		
+		<event name="BOON_SELECT_CHAOS" req="prof_boon_chaos" />
 	</loadEventList>
 </event>
 
@@ -1096,8 +1155,10 @@ MVをサポートするためにプレイしている船を更新したいが、
 	<choice hidden="true" req="prof_beacon_active" blue="true">
 		<text>奇妙なビーコンが近くにあります。アクティベートしますか？</text>
 		<event>
-			<text>ビーコンはほとんどおなじみのようです。それが何をするのかわからないが、知りたいと思ったら、それをアクティブにします。おそらく、これは将来的にはより大きな結果をもたらすでしょう...</text>
+			<text>ビーコンがビープ音を鳴らし、カスケード信号が宇宙の奥深くまで跳ね返ります。誰が聞いているのか、どこにいるのかはわかりませんが、友好的であるか、または良い戦利品を持っていることを願っています.</text>
+			<achievement silent="false">ACH_ACC_SIGNAL</achievement>
 			<variable name="loc_beacon_active" op="set" val="1" />
+			<playSound>mysteriousBeacon</playSound>
 			<choice hidden="true">
 				<text>継続する...</text>
 				<event>
@@ -1117,9 +1178,9 @@ MVをサポートするためにプレイしている船を更新したいが、
 </event>
 
 <event name="FINISH_BEACON">
-    <loadEventList seeded="true" first="false" generate="true">
-		<event name="FINISH_BEACON_REAL" />
+    <loadEventList seeded="true" first="false">
 		<event name="FINISH_BEACON_DEBT" req="LOANS" lvl="1" /> 
+		<event name="FINISH_BEACON_REAL" />
 	</loadEventList>
 </event>
 <event name="FINISH_BEACON_REAL">
@@ -1139,10 +1200,9 @@ MVをサポートするためにプレイしている船を更新したいが、
 </event>
 
 <event name="FINISH_BEACON_NEBULA">
-    <loadEventList seeded="true" first="false">
-		<event name="FINISH_BEACON_NEBULA_REAL" />
-		<event name="FINISH_BEACON_NEBULA_REAL" />
+    <loadEventList seeded="true" first="true">
 		<event name="FINISH_BEACON_DEBT" req="LOANS" lvl="1" />
+		<event name="FINISH_BEACON_NEBULA_REAL" />
 	</loadEventList>
 </event>
 <event name="FINISH_BEACON_NEBULA_REAL">
@@ -1560,7 +1620,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 <event name="BOARDERS_HUMAN_REBEL_STATION" unique="true">
 	<text>反乱軍の基地が遠くに浮かんでいます。船にサイレンが鳴り響き、武装した反乱軍の兵士がデッキに現れます！</text>
 	<ship load="SHIP_REBEL_STATION" hostile="true" /> 
-	<boarders min="2" max="2" class="rebel" />
+	<boarders min="2" max="2" class="human_rebel" />
 	<choice hidden="true">
 		<text>継続する...</text>
 		<event load="COMBAT_CHECK" />
@@ -1582,9 +1642,13 @@ MVをサポートするためにプレイしている船を更新したいが、
 	<img planet="NONE" />
 	<text load="GHOST_SHIP_TEXT" />
 	<ship load="SHIP_GHOST_ALL" hostile="false" />
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>これは素晴らしい機会です。ドッキングして、貴重な物資が見つかるかどうか見てみましょう。</text>
 		<event load="ABANDONED_GHOST_DOCK" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>これは大きなリスクです。 AI は、船に乗らないようにアドバイスします。</text>
+		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true">
 		<text>急いでいます。船からスクラップをすばやく取り出しましょう。</text>
@@ -1623,7 +1687,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 			<event load="ABANDONED_GHOST_SCRAP" />
 		</choice>
 		<choice req="sensors" lvl="3" hidden="true"> 
-			<text>（センサー）待ってください、センサーは何か奇妙なものを拾っています...</text>
+			<text>(Adv. Sensors) 待って、センサーが何か変なものを拾っている...</text>
 			<event>
 				<text>あなたのセンサーは微妙ですが異常な活動を拾っています、それはまるで船がゆっくりと活動しているようです。あなたは彼らが集めたものでみんなをあなたの船に引き戻します。</text>
 				<autoReward level="MED">scrap_only</autoReward>
@@ -1867,8 +1931,8 @@ MVをサポートするためにプレイしている船を更新したいが、
 	<choice hidden="true">
 		<text>あなたの助けを提供します。</text>
 		<event>
-			<text>"エウ... 連邦軍... はい、私たちはまま迷子です。こき下ろす必要はない。我々は連邦の薄汚い犯罪者を、おおお追いかけていて、遠くまで行き過ぎたのだ。遠くへ行き過ぎた ねね燃料を少し分けてくれないか？</text>
-			<choice hidden="true">
+			<text>「うーん...連邦...はい、私たちは負けています。それをこする必要はありません。私たちはssssome汚いFeder....犯罪者を追いかけていました. "</text>
+			<choice>
 				<text>彼らに燃料を与えなさい。</text>
 				<event>
 					<text>スラッグはすぐに燃料をすくい上げ、船に戻します。</text>
@@ -1881,7 +1945,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 					</choice>
 				</event>
 			</choice>
-			<choice hidden="true" req="LIST_CREW_SLUG">
+			<choice req="LIST_CREW_SLUG">
 				<text>（スラッグのクルー）あなたのスラッグに取引をさせてください。</text>
 				<event>
 					<text>「ussssの1つ？私の間違い...私は仲間のKleptocratsがthissssを故意に遠くまで旅したとは思わなかった...」</text>
@@ -1897,7 +1961,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 					</choice>
 				</event>
 			</choice>
-			<choice hidden="true" req="weapons" lvl="5">
+			<choice req="weapons" lvl="5">
 				<text>（Upg. Weapons）トレードをしている間、武器に動力を与え続けてください。</text>
 				<event>
 					<text>「あそこに武器を曲げているのを見たよ、フェディボーイ。あなたはトスを片付けることができる、私は燃料が必要だ...」</text>
@@ -2004,9 +2068,13 @@ MVをサポートするためにプレイしている船を更新したいが、
 	</event>
 	<event>
 		<text>墜落した船は連邦ドレッドノート級戦艦のようです！まだクルーが生きているかもしれませんが、船は危機的な状態にあるようです。</text>
-		<choice hidden="true">
+		<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 			<text>クルーを救出してみてください。</text>
 			<event load="CRASH_LANDING_INSPECT_FED_RESCUE" />
+		</choice>
+		<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+			<text>あなたの船に送ってくれる救世主はいません。</text>
+			<event load="OPTION_INVALID" />
 		</choice>
 		<choice hidden="true">
 			<text>手遅れです、行かなければなりません。</text>
@@ -2029,7 +2097,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 	<event>	
 		<text>ここの船は普通の船ではありません。それは巨大な反乱軍のキャリアです！この距離からはあなたを検出していませんが、いくつかの自動船は内部で機能し続けています。</text>
 		<choice hidden="true">
-			<text>キャリアにアクセスするために自動船を攻撃します。</text>
+			<text>自動船を攻撃して空母にアクセスします。</text>
 			<event>
 				<text>あなたは空母に近づき、戦いの準備をします。</text>
 				<ship load="SHIP_AUTO_CRASH_LANDING" hostile="true" />
@@ -2264,7 +2332,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 	</event>
 </eventList>
 
-<event name="DISTRESS_ASB_PIRATE" unique="true">
+<event name="DISTRESS_ASB_PIRATE" unique="true"> 
 	<text>あなたは救難信号の源に到着します、しかし海賊だけを見つけてください！ 「さあ、聞いてください。あそこの惑星を見てください。表面には、私が現在制御している一連のアクティブな対艦バッテリーシステムがあります。私だけがあなたに発砲するのを阻止しています。本当にそれを続ける理由があります...しかし、私たちはここで相互に有益な取引をすることができると思います...」</text>
 	<distressBeacon />
 	<img planet="PLANET_POPULATED_SMALL" />
@@ -2303,6 +2371,18 @@ MVをサポートするためにプレイしている船を更新したいが、
 	</choice>
 	<choice hidden="true" req="hacking" lvl="2">
 		<text>（Upg. Hacking）自分でシステムにアクセスし、海賊にリダイレクトします。</text>
+		<event>
+			<text>「Tsktsk。ええと、私は警告しました-...待ってください、なぜそれらは私を狙っているのですか？！あなたは何をしましたか？クラップ、あなたはすべてを台無しにしました！」</text>
+			<environment type="PDS" target="enemy" />
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="slug_saboteur">
+		<text>(妨害工作員) 自分でシステムにアクセスして、海賊にリダイレクトします。</text>
 		<event>
 			<text>「Tsktsk。ええと、私は警告しました-...待ってください、なぜそれらは私を狙っているのですか？！あなたは何をしましたか？クラップ、あなたはすべてを台無しにしました！」</text>
 			<environment type="PDS" target="enemy" />
@@ -2378,7 +2458,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 		</choice>
 	</event>
 	<event>
-		<text>あなたはすぐに応答を受け取りますが、非常に失礼な応答です。 「がらくたを食べて死ぬ、連邦！あなたの助けを必要としない！」彼らは最近攻撃されたに違いないようで、彼らのエンジンは機能していません。</text>
+		<text>非常に失礼なものではありますが、すぐに応答を受け取ります。 「クソ食って死ね、フェデレーション！ お前の助けはいらない！」最近攻撃されたようで、エンジンが機能していません。</text>
 		<choice hidden="true">
 			<text>報復して攻撃します。</text>
 			<event>
@@ -2429,7 +2509,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 				<event load="DISTRESS_FACTORY_RESCUE" />
 			</choice>
 			<choice hidden="true" req="PDS_DISABLE">
-				<text>（希釈器）信号を遮断して接近します。</text>
+				<text>(Signal Diluter) 信号を遮断して接近する。</text>
 				<event>
 					<text>信号の集中砲火が終わると、すぐに安心します。その気晴らしが邪魔にならないので、破片を避けるために引き離さなければならない前に、あなたは何人かの労働者をあなたの船に護衛することができます。あなたは近くで最も降りますが、1つは滞在することを申し出ます。あなたが推測しなければならなかったならば、おそらくそれは彼らの古い仕事よりも良い支払いをするからです。</text>
 					<crewMember amount="1" repair="1" />
@@ -2553,10 +2633,11 @@ MVをサポートするためにプレイしている船を更新したいが、
 </event>
 <eventList name="QUEST_MERCENARY_DELIVERY_TRANSFER">
 	<event>
-		<text>あなたは薬を渡し、他の船がそれらを見渡すまで待ちます。 「すべてがチェックされているようです...しかし、私たちは支払うことはないと思います」</text>
+		<text>あなたは薬を渡して、他の船がそれらを見ている間待ちます。 「すべてが抑制されているように見えます...しかし、私たちが支払うことはないと思います。」</text>
 		<choice hidden="true">
 			<text>あなたの武器を上げて、あなた自身でそれらから支払いを受け取る準備をしてください。</text>
 			<event>
+			<text>特に麻薬中毒のスカムは、誰にも裏切られることはありません。武器アレイを彼らに向けます。</text>
 				<ship hostile="true" />
 				<choice hidden="true">
 					<text>継続する...</text>
@@ -3120,6 +3201,14 @@ MVをサポートするためにプレイしている船を更新したいが、
 					<autoReward level="HIGH">stuff</autoReward>
 				</event>
 			</choice>
+			<choice hidden="true" req="BLUELIST_CREW_SNAIL">
+				<text>(テレパシー シェル) テレパシーで通信を試みます。</text>
+				<event>
+					<text>しばらくすると、あなたの乗組員は、これらは平和な生活を楽しんでいる単純な存在であるとあなたに伝えます.あなたのシェルは馬を穏やかな状態にし、標本を持ち帰ることさえできます.馬を恐れることなく、さらに探索し、エンギ船の惑星で古い残骸を見つけることさえありますが、住民は死んでいます.</text>
+					<crewMember amount="1" class="pony" />
+					<autoReward level="HIGH">stuff</autoReward>
+				</event>
+			</choice>
 			<choice hidden="true" req="unique_nights">
 				<text>（夜）「おい、おかしなことをやめろ！」</text>
 				<event>
@@ -3169,9 +3258,13 @@ MVをサポートするためにプレイしている船を更新したいが、
 
 <event name="DONOR_PLAGUE" unique="true">
 	<text>損傷して老朽化した宇宙ステーションの近くに到着します。それは放棄されたように見えますが、船上でかすかな生命の兆候を検出します。</text>
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>ステーションに乗り込み、生存者を探します。</text>
 		<event load="DONOR_PLAGUE_LIST" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>AI は、あなたの船に増援なしで乗船しないように忠告します。</text>
+		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true">
 		<text>破片の一部をスクラップします。</text>
@@ -3187,6 +3280,13 @@ MVをサポートするためにプレイしている船を更新したいが、
 			<autoReward level="RANDOM">scrap_only</autoReward>
 		</event>
 	</choice>
+	<choice hidden="true" req="BLUELIST_CREW_SNAIL">
+		<text>(テレパシー シェル) あなたのシェルは、船に乗っている生命体を感知します。</text>
+		<event>
+			<text>シェルのアドバイスに従って、ステーションを避けることにしました。 FTL ドライブが充電されるのを待っている間、ステーションの端を迂回してスクラップを集めます。</text>
+			<autoReward level="RANDOM">scrap_only</autoReward>
+		</event>
+	</choice>
 	<choice hidden="true" req="LIFE_SCANNER">
 		<text>（Lifeform Scanners）ステーションでスキャンを実行します。</text>
 		<event>
@@ -3195,14 +3295,11 @@ MVをサポートするためにプレイしている船を更新したいが、
 		</event>
 	</choice>
 	<choice hidden="true" req="BLUELIST_DRONES_BOARDING">
-		<text>（搭乗ドローン）ドローンを送ります。 [-1ドローン]</text>
+		<text>(搭乗ドローン) ドローンを送ります。</text>
 		<event>
 			<text>人間の死体は駅に散らばっています。あなたは、ストレージクローゼットに閉じ込められた唯一の生存者である信号の源を見つけます。彼らはすすり泣きながらあなたのドローンに必死にしがみついています。それがどのようなトラウマの経験であったに違いないかを知って、あなたはいくつかの評価を実行しますが、最終的にはそれらが助けになるほど安定していると判断します。あなたはすぐに船に戻って彼らと一緒に退却し、彼らが何らかの使用するのに十分な回復ができることを願っています。</text>
 			<autoReward level="LOW">scrap_only</autoReward>
 			<crewMember amount="1" class="human" />
-			<item_modify>
-				<item type="drones" min="-1" max="-1" />
-			</item_modify>
 		</event>
 	</choice>
 </event>
@@ -3325,7 +3422,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 			<autoReward level="LOW">stuff</autoReward>
 		</event>
 	</choice>
-	<choice req="BLUELIST_MINING" hidden="true">
+	<choice req="BEAM_MINING" hidden="true">
 		<text>（採掘設備）小惑星の採掘を試みます。</text> 
 		<event>
 			<text>FTLが充電されるのを待っている間、最も近い小惑星からできるだけ多くの使用可能な材料を注意深く抽出します。</text>
@@ -3405,9 +3502,13 @@ MVをサポートするためにプレイしている船を更新したいが、
 
 <event name="STATION_SICK" unique="true">
 	<text>あなたは遭難信号を出している小さな研究基地を見つけるために到着します。あなたの呼びかけへの反応はありません。</text>
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>ステーションにドッキングして調査します。</text>
 		<event load="STATION_SICK_LIST" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>危険を冒して一人で入ることはできません。</text>
+		<event load="OPTION_INVALID" />
 	</choice>
 	<choice>
 		<text>ほっといて。</text>
@@ -3424,7 +3525,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 		</event>
 	</choice>
 	<choice hidden="true" req="BLUELIST_DRONES_BOARDING">
-		<text>（搭乗ドローン）ドローンを使用して調査します。 [-1ドローン]</text>
+		<text>(Boarding Drone) ドローンを使って調査します。</text>
 		<event load="STATION_SICK_DRONE_LIST" />
 	</choice>  
 	<choice hidden="true" req="LIFE_SCANNER">
@@ -3463,7 +3564,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 			</event>
 		</choice>
 		<choice hidden="true" req="medbay" lvl="3" max_group="0"> 
-			<text>（メドベイ）アドバンストメドベイに彼らの状態を分析させます。</text>
+			<text>(Adv. Medbay) Advanced Medbay に状態を分析してもらいます。</text>
 			<event>
 				<text>メッドベイに後退している間、あなたはそれらを遠ざけます。その高度なシステムは、異星人の神経毒が彼らの狂乱の原因であると判断します。それは解毒剤を合成し、それを部屋に放出します。しばらくすると、科学者たちは回復します。それらを保存してくれたおかげで、サービスを提供しています。</text>
 				<crewMember repair="1" amount="1" />
@@ -3489,14 +3590,14 @@ MVをサポートするためにプレイしている船を更新したいが、
 			</event>
 		</choice>
 		<choice hidden="true" req="medbay" lvl="2" max_group="0"> 
-			<text>（メドベイ）彼をメドベイにドラッグして戻します。</text>
+			<text>(Upg. Medbay) 彼をドラッグして Medbay に戻します。</text>
 			<event>
 				<text>あなたは彼を押さえつけ、メドベイは船にあった神経毒があなたのクルーに完全に感染するのを防ぐことができます。彼が回復したら、あなたは助けを超えている科学者と戦う準備をします。</text>
 				<boarders min="3" max="4" class="human" />
 			</event>
 		</choice>
 		<choice hidden="true" req="medbay" lvl="3" max_group="0">  
-			<text>（Advanced Medbay）AdvancedMedbayに状態を分析してもらいます。</text>
+			<text>(Adv. Medbay) Advanced Medbay に状態を分析してもらいます。</text>
 			<event>
 				<text>メッドベイに後退している間、あなたはそれらを遠ざけます。その高度なシステムは、異星人の神経毒がクルーを狂気に駆り立てていると判断します。それは解毒剤を合成し、それを船に放出します。しばらくすると、熱狂的な科学者たちは回復し、彼らを救ったことに感謝するために助けを申し出る。</text>
 				<crewMember amount="1" />
@@ -3520,9 +3621,6 @@ MVをサポートするためにプレイしている船を更新したいが、
 	<event>
 		<text>ドローンに取り付けられたカメラは混沌としたシーンを示しています。人は見つかりませんが、船内での最近の戦闘の残骸は明らかです。あなたはドローンに、出発する前にいくつかの有用な材料を回収するように指示します。</text>
 		<autoReward level="MED">standard</autoReward>
-		<item_modify>
-			<item type="drones" min="-1" max="-1" />
-		</item_modify>
 	</event>
 </eventList>
 
@@ -3745,9 +3843,13 @@ MVをサポートするためにプレイしている船を更新したいが、
 	</event>
 	<event>
 		<text>あなたは洞窟に一人で住んでいる男を見つけます。彼の難破した船の外観から、彼は何年もここにいるようです。彼は健康そうに見えますが、彼の精神状態は疑わしいです。</text>
-		<choice hidden="true">
+		<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 			<text>彼の助けを見つけることを期待して、彼をあなたの船に戻してください。</text>
 			<event load="MADMAN" />
+		</choice>
+		<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+			<text>適切なスタッフや設備がなければ、この人物をこれ以上近づけることを拒否します。</text>
+			<event load="OPTION_INVALID" />
 		</choice>
 		<choice>
 			<text>狂人を彼の怒りに任せなさい、彼は危険を冒す価値がない。</text>
@@ -3770,6 +3872,10 @@ MVをサポートするためにプレイしている船を更新したいが、
 		<choice req="LIST_CREW_SLUG" hidden="true">
 			<text>（スラッグのクルー）「Sssir、私に彼の精神的な状態を評価させてください。」</text>
 			<event load="MADMAN_SLUG" />
+		</choice>
+		<choice req="BLUELIST_CREW_SNAIL" hidden="true">
+			<text>(テレパシー シェル) "サー、彼の精神状態を評価させてください。"</text>
+			<event load="MADMAN_SNAIL" />
 		</choice>
 	</event>
 </eventList>
@@ -3811,14 +3917,14 @@ MVをサポートするためにプレイしている船を更新したいが、
 			<event />
 		</choice>
 		<choice req="medbay" lvl="2" hidden="true"> 
-			<text>（改良されたメドベイ）すぐに彼をメドベイに連れて行きます。</text>
+			<text>(Upg. Medbay) すぐに彼を medbay に連れて行きます。</text>
 			<event>
 				<text>あなたの改良されたメドベイは彼を蘇生させることができました。しばらくすると、彼は大いに回復し、「私は本当にゴナーだと思っていました...私は何日も食べていません。私があなたの船にとどまってくれませんか？」</text>
 				<crewMember amount="1">Charlie</crewMember>
 			</event>
 		</choice>
 		<choice req="clonebay" lvl="2" hidden="true"> 
-			<text>（改良されたクローンベイ）すぐに彼をクローンベイに登録します。</text>
+			<text>(Upg. Clone Bay) すぐに彼を Clone Bay に登録します。</text>
 			<event>
 				<text>あなたの素早い反応は、彼が通り過ぎた後、あなたのクローンベイが彼を復活させることを可能にしました。彼が機械から降りた後、彼は「私はどのように生きているのか？私はただシャトルで死んでいたのではないか？技術は確かに変わった」と述べた。</text>
 				<crewMember amount="1">Charlie</crewMember>
@@ -3832,6 +3938,15 @@ MVをサポートするためにプレイしている船を更新したいが、
 	</event>
 	<event>
 		<text>あなたは船を近づけ、スラッグは一時停止した後、その人は安定していて善意を持っていると言います。あなたはあなたのクルーのポジションを提供し、それは優雅に受け入れられます。</text>
+		<crewMember amount="1" class="human" />	
+	</event>
+</eventList>
+<eventList name="MADMAN_SNAIL">
+	<event>
+		<text>船を近づけます。シェルは 1 ～ 2 秒間トランスのような状態になり、すぐに抜けます。彼は、「この人は明らかに不安定です。放っておくのが最善です」と述べています。</text>
+	</event>
+	<event>
+		<text>あなたが船を近づけると、シェルは一時停止した後、その人は安定しており、善意を持っていると言います。あなたは乗組員のポジションを提供し、それは丁重に受け入れられます.</text>
 		<crewMember amount="1" class="human" />	
 	</event>
 </eventList>
@@ -3879,6 +3994,14 @@ MVをサポートするためにプレイしている船を更新したいが、
 		<text>それを避けてください。</text>
 		<event>
 			<text>戦いはそれらをあなたの直接のスキャン範囲から外します。しかし、しばらくすると、救難信号は止まります。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
 		</event>
 	</choice>
 	<choice req="weapons" lvl="6" hidden="true">
@@ -4035,9 +4158,25 @@ MVをサポートするためにプレイしている船を更新したいが、
 	<event>
 		<text>あなたは残念ながらその地域を去り、彼らが破壊されるのを見ることができません。しばらくすると、「私たちは生き残った、あなたのおかげではない！反乱軍があなたを探しているのかわからないとは思わない。次回は必ずあなたがどこにいるのかを彼らに伝える」という2番目のメッセージが表示されます。見えます！」</text>
 		<modifyPursuit amount="1" />
+		<choice>
+			<text>船に乗って何かする。</text>
+			<event load="STORAGE_CHECK" />
+		</choice>
+		<choice>
+			<text>何もしない。</text>
+			<event />
+		</choice>
 	</event>
 	<event>
 		<text>彼らの船が巡洋艦サイズの岩にぶつかるのをどうしようもなく見ています...</text>
+		<choice>
+			<text>船に乗って何かする。</text>
+			<event load="STORAGE_CHECK" />
+		</choice>
+		<choice>
+			<text>何もしない。</text>
+			<event />
+		</choice>
 	</event>
 </eventList>
 
@@ -4137,7 +4276,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 				<choice hidden="true">
 					<text>継続する...</text>
 					<event>
-						<text>彼らが安全になったので、エンジニアがあなたのクルーに加わることを提案し、残りはここから数ジャンプする隠れた連邦基地についてあなたに話します。</text>
+						<text>彼らは安全になったので、技術者があなたの乗組員に加わることを提案し、残りはここから数ジャンプ先に隠された連邦基地があることを教えてくれます.</text>
 						<crewMember engines="1" amount="1" /> 
 						<quest event="HIDDEN_FEDERATION_BASE_LIST" />
 						<autoReward level="MED">scrap_only</autoReward>
@@ -4155,7 +4294,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 				<choice hidden="true">
 					<text>継続する...</text>
 					<event>
-						<text>彼らが安全になったので、エンジニアがあなたのクルーに加わることを提案し、残りはここから数ジャンプする隠れた連邦基地についてあなたに話します。</text>
+						<text>彼らは安全になったので、技術者があなたの乗組員に加わることを提案し、残りはここから数ジャンプ先に隠された連邦基地があることを教えてくれます.</text>
 						<crewMember engines="1" amount="1" /> 
 						<quest event="HIDDEN_FEDERATION_BASE_LIST" />
 						<autoReward level="MED">scrap_only</autoReward>
@@ -4166,11 +4305,11 @@ MVをサポートするためにプレイしている船を更新したいが、
 		<choice req="LIST_CREW_MEDICAL">
 			<text>（医療クルー）クルーを派遣して状態を安定させます。</text>
 			<event>
-				<text>あなたはあなたのクルーを彼らの船に送ります、そしてそれはすぐに仕事に行きます。彼らが安心したら、あなたは彼らを友好的な領土に到達するのに十分健康に保つためにいくつかの物資を送ります。</text>
+				<text>乗組員を船に送り、船はすぐに仕事に取り掛かります。彼らが安心したら、友好的な領域に到達するのに十分な健康を維持するために、いくつかの物資を送ります。</text>
 				<choice hidden="true">
 					<text>継続する...</text>
 					<event>
-						<text>彼らが安全になったので、エンジニアがあなたのクルーに加わることを提案し、残りはここから数ジャンプする隠れた連邦基地についてあなたに話します。</text>
+						<text>彼らは安全になったので、技術者があなたの乗組員に加わることを提案し、残りはここから数ジャンプ先に隠された連邦基地があることを教えてくれます.</text>
 						<crewMember engines="1" amount="1" /> 
 						<quest event="HIDDEN_FEDERATION_BASE_LIST" />
 						<autoReward level="MED">scrap_only</autoReward>
@@ -4408,18 +4547,36 @@ MVをサポートするためにプレイしている船を更新したいが、
 <event name="DISTRESS_STATION_FIRE" unique="true">
 	<text>あなたは遭難信号の発信源である小さな研究基地を見つけます。小さな実験室の火災が制御不能になり、ステーションを破壊する恐れがあるようです。彼らの消火システムは反応していません。</text>
 	<distressBeacon />
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>火を消すのを手伝うためにあなたのクルーをシャトルに送ってください。</text>
 		<event load="DISTRESS_STATION_FIRE_CREW" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>ステーション全体の火災を処理する人が乗船していません。</text>
+		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true">
 		<text>ドッキングして、生存者を救出してみてください。</text>
 		<event load="DISTRESS_STATION_FIRE_RESCUE" />
 	</choice>
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>離れる。</text>
 		<event>
 			<text>あなたは冷静に通信を遮断し、去る準備をします。あなたのクルーは動揺しているように見えますが、あなたは彼らに何もできなかったことを保証します。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>		
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>離れる。</text>
+		<event>
+			<text>あなたは冷静に通信を遮断し、出発する準備をします。あなたは状況に腹を立てていますが、船の AI は何もできなかったと保証します。</text>
 			<choice>
 				<text>船に乗って何かする。</text>
 				<event load="STORAGE_CHECK" />
@@ -4443,7 +4600,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 			</choice>
 		</event>					
 	</choice>
-	<choice hidden="true" req="LIST_CREW_ELITE">
+	<choice hidden="true" req="LIST_CREW_ELITE_FIRE">
 		<text>（エリートクルー）エリートクルーメンバーをに送ります。</text>
 		<event>
 			<text>このような状況のための長年のエリート訓練で武装したあなたのクルーは、ステーションに彼らの道を見つけて、火を抑え始めます。</text>
@@ -4472,7 +4629,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 	<choice hidden="true" req="FIRE_EXTINGUISHERS">
 		<text>（消火器）あなたの技術を使って火を抑えてください。</text>
 		<event>
-			<text>あなたはすぐに貯蔵庫からいくつかの余分な消火器をつかみ、ホースを抑制システムに取り付けます、それらはステーションを通って移動し、より大きな火を消します。</text>
+			<text>ストレージから追加の消火器をいくつか取り出し、消火システムにホースを取り付けてから、ステーションを移動して、より大きな火を消します。</text>
 			<choice hidden="true">
 				<text>生存者に連絡してください。</text>
 				<event>
@@ -4514,9 +4671,13 @@ MVをサポートするためにプレイしている船を更新したいが、
 <event name="DISTRESS_STATION_DISEASE" unique="true">
 	<distressBeacon />
 	<text>あなたは未知の病気が激しく広がっている近くの人間の採掘コロニーを見つけます。彼らはそれを封じ込めるために検疫を設定していますが、暴動が発生しました。</text>
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>群衆を制御するのを助けるためにあなたのクルーを送ってください。</text>
 		<event load="DISTRESS_STATION_DISEASE_LIST" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>あなたの船は現在、群衆を処理するのに必要な人員が不足しています。</text>
+		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true">
 		<text>彼らの要求を無視して先に進んでください。</text>
@@ -4570,7 +4731,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 			</item_modify>
 		</event>
 	</choice>
-	<choice hidden="true" req="LIST_CREW_MEDIC">
+	<choice hidden="true" req="LIST_CREW_MEDICAL">
 		<text>（医療クルー）感染者を治療するためにあなたのクルーを送ってください。</text>
 		<event>
 			<text>これをどのように処理するかを知っているあなたの医者は、マスクを着用し、純粋な水の「治療」を施します。群衆は、これが実際に彼らを助けたと完全に確信し、彼らの家に戻ります。法執行機関はあなたに感謝します。</text>
@@ -4589,7 +4750,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 				</event>
 			</choice>
 			<choice hidden="true" req="NANO_MEDBAY">
-				<text>（エンギ Med-bot分散）Nano Med-botsを使用して、治療の分散を加速します。</text>
+				<text>(Med-bot Dispersal) Nano med-bots を使用して、キュアの分散を加速します。</text>
 				<event>
 					<text>船のNano分散システムを再構成します。ほんの数分で、すべての労働者が治癒します。リーダーはあなたが達成したことをほとんど信じることができません。彼らはあなたに彼らが支払いとしてできることを提供します。</text>
 					<autoReward level="HIGH">weapon</autoReward>
@@ -4614,11 +4775,19 @@ MVをサポートするためにプレイしている船を更新したいが、
 
 <event name="DISTRESS_REFUGEE_ABANDONED">
 	<text>あなたは宇宙を漂流している難民船に遭遇しました。反乱軍の前進から逃げ出し、燃料を使い果たしたように見えます。その遭難ビーコンはアクティブですが、誰かが搭乗しているかどうかはわかりません。また、通信がダウンしているようです。</text>
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>搭乗して調査する準備をします。</text>
 		<event load="DISTRESS_REFUGEE_GHOST_LIST" />
 	</choice>
-	<choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>脅威に待ち伏せされることを望まない限り、自分でそこに行くことはありません。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="BLUELIST_DRONES_BOARDING"> 
+		<text>(Boarding Drone) ドローンを使って調査します。</text>
+		<event load="DISTRESS_REFUGEE_GHOST_LIST_DRONE" />
+	</choice>
+	<choice hidden="true">
 		<text>船を無視します。</text>
 		<event>
 			<text>ゴースト船でチャンスをつかむことはありません。</text>
@@ -4652,6 +4821,26 @@ MVをサポートするためにプレイしている船を更新したいが、
 			<clone>true</clone>
 			<text>あなたが戻ったとき、あなたの捨てられたクルーは彼の前の化身の運命にこだわらないようにしようとして、船で待っています。</text>
 		</removeCrew>
+	</event>
+	<event>
+		<text>船に近づくと、センサーが一瞬ちらつき、ゴーストに乗っていることに気づきます。</text>
+		<boarders min="2" max="4" class="phantom_wraith" />
+	</event>
+</eventList>
+<eventList name="DISTRESS_REFUGEE_GHOST_LIST_DRONE">
+	<event>
+		<text>船は完全に放棄されています。クルーや貨物の痕跡はありません。不思議なことに、あなたはゴースト船を離れて続行します。</text>
+	</event>
+	<event>
+		<text>船は完全に放棄されています。燃料がなくなったようです...そしてクルーは間もなく食料を使い果たしました。残された恐ろしい光景にもかかわらず、あなたは貨物倉からいくつかの物資を掃討することができます。</text>
+		<autoReward level="MED">missiles</autoReward>
+	</event>
+	<event>
+		<text>船の燃料がなくなったようです...乗組員はすぐに食料を使い果たしました。残忍なシーンが残っているにもかかわらず、無人機は冷凍庫に閉じ込められた生き残った乗組員を 1 人発見しました。</text>
+		<crewMember amount="1" />
+	</event>
+	<event>
+		<text>あなたのドローンが船を調査していると、今では人食いの乗組員に攻撃されています!食べ物の不足に気が狂い、お互いに食べ合うようになりました。ドローンを置き去りにするか、船全体を失うことを余儀なくされます。</text>
 	</event>
 	<event>
 		<text>船に近づくと、センサーが一瞬ちらつき、ゴーストに乗っていることに気づきます。</text>
@@ -5047,7 +5236,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 	<event>
 		<text>信号に近づくと、反乱軍のチャンネルで「この信号で連邦の魚を捕まえることはわかっていました。搭乗する準備をしてください、クズ野郎！」というメッセージが表示されます。</text>
 		<ship load="SHIP_REBEL_FIGHT" hostile="true" />
-		<boarders min="2" max="3" class="rebel" />
+		<boarders min="2" max="3" class="human_rebel" />
 		<choice hidden="true">
 			<text>継続する...</text>
 			<event load="COMBAT_CHECK" />

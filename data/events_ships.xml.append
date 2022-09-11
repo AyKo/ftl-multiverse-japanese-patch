@@ -196,7 +196,7 @@
 
 <ship name="SHIP_COALITION_CHECKPOINT" auto_blueprint="MU_COALITION_STATION">
 	<destroyed load="DESTROYED_COALITION" />
-	<deadCrew load="DEAD_CREW_DEFAULT" />
+	<deadCrew load="DEAD_CREW_COALITION" />
 </ship>
 
 <ship name="SHIP_COALITION_CONSTRUCTION" auto_blueprint="LIST_SHIPS_COALITION_FIGHT">
@@ -221,7 +221,7 @@
 <ship name="SHIP_COALITION_ABDUCTOR" auto_blueprint="MU_COALITION_ABDUCTOR">
 	<surrender chance="0.75" min="2" max="3" load="SURRENDER_COALITION" />
 	<destroyed load="DESTROYED_COALITION" />
-	<deadCrew load="DEAD_CREW_DEFAULT" />
+	<deadCrew load="DEAD_CREW_COALITION" />
 </ship>
 
 <ship name="SHIP_COALITION_FEDERATION_DISTRESS" auto_blueprint="LIST_SHIPS_COALITION_FIGHT">
@@ -300,8 +300,8 @@
 </ship>
 
 <ship name="SHIP_REBEL_MV_FIGHT" auto_blueprint="LIST_SHIPS_MULTIVERSE">
-	<destroyed load="DESTROYED_REBEL" />
-	<deadCrew load="DEAD_CREW_REBEL" />
+	<destroyed load="DESTROYED_REBEL_MULTIVERSE" />
+	<deadCrew load="DEAD_CREW_REBEL_MULTIVERSE" />
 </ship>
 
 <ship name="SHIP_REBEL_ELITE_ALL" auto_blueprint="LIST_SHIPS_REBEL_ELITE_ALL">
@@ -385,7 +385,7 @@
 		<store>STORE_STANDARD</store>
 	</destroyed>
 	<deadCrew>
-		<text>前哨基地はあなたを歓迎します。「ありがとう！反乱軍を怒らせるために私たちが何をしたかはわかりませんが、彼らは私たちを殺す準備ができていました。私たちの商品を見せて船体を修理します。</text>
+		<text>前哨基地はあなたを歓迎します。「ありがとう！反乱軍を怒らせるために私たちが何をしたかはわかりませんが、彼らは私たちを殺す準備ができていました。私たちの商品を見せて船体を修理します。」</text>
 		<autoReward level="MED">scrap_only</autoReward>
 		<damage amount="-5" />
 		<store>STORE_STANDARD</store>
@@ -505,10 +505,6 @@
 		<choice hidden="true">
 			<text>民間の物資を盗む。</text>
 			<event load="REBEL_HELPERS_SUPPLIES" />
-		</choice>
-		<choice hidden="true" req="TAX_COLLECTOR">
-			<text>（要求ライセンス）民間人に物資の引き渡しを要求する。</text>
-			<event load="REBEL_HELPERS_SUPPLIES_TAX" />
 		</choice>
 		<choice hidden="true">
 			<text>民間人を放っておいてください。</text>
@@ -910,27 +906,6 @@
 
 
 
-<ship name="SHIP_JERRY" auto_blueprint="MU_JERRY">
-	<surrender min="2" max="3" load="PLEASE_DONT_KILL_JERRY" />
-	<destroyed>
-		<text>最後のショットで、ジェリーの船は爆発し、あらゆる方向にスクラップを送ります。</text>
-		<autoReward level="HIGH">scrap_only</autoReward>
-		<choice hidden="true">
-			<text>継続する...</text>
-			<event load="YOU_KILLED_JERRY" />
-		</choice>
-	</destroyed>
-	<deadCrew>
-		<text>最後のクルーが死亡したため、ジェリーの船は沈黙し、船を廃棄するために残された唯一のものを残しました。</text>
-		<autoReward level="HIGH">scrap_only</autoReward>
-		<choice hidden="true">
-			<text>継続する...</text>
-			<event load="YOU_KILLED_JERRY" />
-		</choice>
-	</deadCrew>
-</ship>
-
-
 <ship name="SHIP_ENGINEER_REPLICA" auto_blueprint="LIST_SHIPS_ENGINEER">
 	<destroyed>
 		<text>エンジニアは敗北しました。あなたは彼らの船をスクラップします。</text>
@@ -1040,7 +1015,7 @@
 <ship name="SHIP_FED_TEST_DRONE" auto_blueprint="MU_FED_AUTO_TEST">
 	
 	<destroyed load="FED_NODAMAGE_TEST_DESTROY" />
-	<triggeredEvent event="FED_NODAMAGE_TEST_WIN" time="40" clearOnJump="true" thisFight="true">
+	<triggeredEvent event="FED_NODAMAGE_TEST_WIN" time="40" playerHull="4" clearOnJump="true" thisFight="true">
 		<triggeredEventBox load="DEFAULT_TIMER" pos="combat">
 			<warning time="10.0" flash="true" />
 			<tooltip>テストセッションは、この時間が経過すると終了します。それまでは、ドローンに船体の損傷を与えないでください。</tooltip>
@@ -1216,17 +1191,11 @@
 	</deadCrew>
 </ship>
 
-<ship name="SHIP_MILITIA_COREWORLD_GUARD" auto_blueprint="MU_MILITIA_GUARD">
-	<destroyed load="GUARD_COREWORLDS_DESTROY" />
-	<deadCrew load="GUARD_COREWORLDS_KILL" />
-</ship>
-
 <ship name="SHIP_MILITIA_DUSK_ESCORT" auto_blueprint="MU_MILITIA_ESCORT">
 	<surrender chance="0.75" min="2" max="3" load="DUSK_MILITIA_ESCORT_SURRENDER" />
 	<destroyed load="DUSK_MILITIA_ESCORT_DESTROY" />
 	<deadCrew load="DUSK_MILITIA_ESCORT_DESTROY" />
 </ship>
-
 
 <ship name="SHIP_MILITIA_COREWORLD_FREEMANTIS_HUNTER" auto_blueprint="LIST_SHIPS_MILITIA_FIGHT">
 	<surrender min="2" max="2" load="COREWORLDS_FREEMANTIS_LOST_SURRENDER" />
@@ -1464,7 +1433,6 @@
 </ship>
 
 <ship name="SHIP_CORNELIUS" auto_blueprint="LIST_SHIPS_ESTATE">
-	<triggeredEvent event="ESTATE_DOCUMENTARY_SURRENDER" enemyHull="2" enemyCrew="1" thisFight="true" clearOnJump="true" />
 	<destroyed load="ESTATE_DOCUMENTARY_FAIL" />
 	<deadCrew load="ESTATE_DOCUMENTARY_FAIL" />
 </ship>
@@ -1481,7 +1449,7 @@
 		<choice hidden="true">
 			<text>バーの所有者に連絡してください。</text>
 			<event>
-				<text>「お疲れ様でした。バーでレネゲードを見るのは嬉しいことではありませんが...飲み物なしのルールがあなたにも適用されるのではないかと思いますが、何か解決できると確信しています...」</text>
+				<text>「よくやった。私のバーでレネゲードを見て喜んでいるとは思っていなかった... 飲酒禁止のルールはあなたにも適用されるのではないかと思うが、私たちは何かを解決できると確信している...」</text>
 				<autoReward level="MED">standard</autoReward>
 			</event>
 		</choice>
@@ -1492,7 +1460,7 @@
 		<choice hidden="true">
 			<text>バーの所有者に連絡してください。</text>
 			<event>
-				<text>「お疲れ様でした。バーでレネゲードを見るのは嬉しいことではありませんが...飲み物なしのルールがあなたにも適用されるのではないかと思いますが、何か解決できると確信しています...」</text>
+				<text>「よくやった。私のバーでレネゲードを見て喜んでいるとは思っていなかった... 飲酒禁止のルールはあなたにも適用されるのではないかと思うが、私たちは何かを解決できると確信している...」</text>
 				<autoReward level="MED">standard</autoReward>
 			</event>
 		</choice>
@@ -1553,6 +1521,10 @@
 </ship>
 
 <ship name="SHIP_AUTO_SUPPORT" auto_blueprint="MU_AUTO_SUPPORT">
+	<destroyed load="DESTROYED_AUTO" />
+</ship>
+
+<ship name="SHIP_AUTO_ESCORT" auto_blueprint="MU_AUTO_ESCORT">
 	<destroyed load="DESTROYED_AUTO" />
 </ship>
 
@@ -1766,7 +1738,7 @@
 
 <ship name="SHIP_AUTO_BOMB_PROTECTOR" auto_blueprint="LIST_SHIPS_AUTO_FIGHT">
 	<destroyed>
-		<text>あなたはパトロールを取り除いて、残ったものを救い出しました。</text>
+		<text>パトロールを解除し、残っているものを回収しました。</text>
 		<autoReward level="MED">standard</autoReward>
 		<choice hidden="true">
 			<text>工場に進みます。</text>
@@ -2028,13 +2000,13 @@
 <ship name="SHIP_ENGI_VIRUS" auto_blueprint="LIST_SHIPS_ENGI_ELITE_FIGHT">
 	<destroyed>
 		<text>船が破壊されると、ウイルスが船を放棄し、残骸のシステム内のどこかで消えたことを検出します。エンギ船が次に通過するものは何でも感染する可能性がありますが、あなたの任務は非常に重要であり、それを止めて再感染する危険を冒すことはできません。</text>
-		<autoReward level="MEDIUM">standard</autoReward>
+		<autoReward level="MED">standard</autoReward>
 		<status type="clear" target="player" system="engines" amount="100" />
 		<status type="clear" target="player" system="shields" amount="100" />
 	</destroyed>
 	<deadCrew>
 		<text>エンギのクルーが死んだ状態で、ウイルスがあなたの船を放棄し、エンギ船のシステム内のどこかで消えたことを検出します。エンギ船が次に通過するものは何でも感染する可能性がありますが、あなたの任務は非常に重要であり、それを止めて再感染する危険を冒すことはできません。</text>
-		<autoReward level="MEDIUM">standard</autoReward>
+		<autoReward level="MED">standard</autoReward>
 		<status type="clear" target="player" system="engines" amount="100" />
 		<status type="clear" target="player" system="shields" amount="100" />
 	</deadCrew>
@@ -2046,7 +2018,7 @@
 <ship name="SHIP_ENGI_VIRUS_ALT" auto_blueprint="LIST_SHIPS_ENGI_ELITE_FIGHT">
 	<destroyed>
 		<text>船が破壊されたら、あなたはそれをスクラップして飛び立つ準備をします。</text>
-		<autoReward level="MEDIUM">standard</autoReward>
+		<autoReward level="MED">standard</autoReward>
 		<choice hidden="true">
 			<text>継続する...</text>
 			<event load="ENGI_VIRUS_REBORN" />
@@ -2054,7 +2026,7 @@
 	</destroyed>
 	<deadCrew>
 		<text>すべてのエンギが死んだので、あなたはあなたができることを取り、飛び去る準備をします。</text>
-		<autoReward level="MEDIUM">standard</autoReward>
+		<autoReward level="MED">standard</autoReward>
 		<choice hidden="true">
 			<text>継続する...</text>
 			<event load="ENGI_VIRUS_REBORN" />
@@ -2108,6 +2080,7 @@
 
 <ship name="SHIP_HARMONY_CRUISER" auto_blueprint="MU_HARMONY_CRUISER">
 	<triggeredEvent name="HARMONY_DEMAND" event="HARMONY_FUGITIVE_SURRENDER" playerHull="7" thisFight="true" />
+	<triggeredEvent name="HARMONY_DEMAND_NOSOFTLOCK" event="HARMONY_FUGITIVE_SURRENDER" time="100" thisFight="true" />
 	
 	<destroyed load="HARMONY_FUGITIVE_WIN" />
 	<deadCrew load="HARMONY_FUGITIVE_WIN" />
@@ -2152,7 +2125,7 @@
 <ship name="SHIP_SEPERATIST_DISGUISE" auto_blueprint="LIST_SHIPS_ENGI_GENERIC">
 	<destroyed>
 		<text>船が破壊されたら、あなたはそれをスクラップして飛び立つ準備をします。</text>
-		<autoReward level="MEDIUM">standard</autoReward>
+		<autoReward level="MED">standard</autoReward>
 	</destroyed>
 	<deadCrew>
 		<text>戦いを振り返ると、船のクルーは完全に分離主義者によって配置されていたことがわかります。これをどうすればいいのかわかりませんが、船を廃棄します。</text>
@@ -2166,7 +2139,7 @@
 <ship name="SHIP_SEPERATIST_BOUNTY" auto_blueprint="LIST_SHIPS_SEPARATIST_LARGE">
 	<destroyed>
 		<text>あなたは誤って分離主義者の船を破壊しました。ミッションに失敗したことを知って、エンギに連絡しないことにしました。</text>
-		<autoReward level="MEDIUM">standard</autoReward>
+		<autoReward level="MED">standard</autoReward>
 	</destroyed>
 	<deadCrew>
 		<text>分離主義船のクルーを首尾よく殺したので、2つの選択肢が残されています。エンギはまだ到着していませんが、船をスクラップするか、エンギが到着するのを待って支払いをすることができます。</text>
@@ -2192,11 +2165,11 @@
 <ship name="SHIP_SEPERATIST_SCAN" auto_blueprint="LIST_SHIPS_SEPARATIST_FIGHT">
 	<destroyed>
 		<text>分離主義者の船が破壊され、あなたは残骸を廃棄します。残念ながら、船が破壊されたため、ダウンロードを続行できません。</text>
-		<autoReward level="MEDIUM">standard</autoReward>
+		<autoReward level="MED">standard</autoReward>
 	</destroyed>
 	<deadCrew>
 		<text>分離主義者は死んだが、彼らの船は残っている。船の不要な部分を廃棄しながら、データのダウンロードを続行します。</text>
-		<autoReward level="MEDIUM">standard</autoReward>
+		<autoReward level="MED">standard</autoReward>
 		<reveal_map />
 	</deadCrew>
 </ship>
@@ -2271,14 +2244,7 @@
 	<destroyed load="ENCOUNTER_ZOLTAN_AUTO_SEPERATIST_KILL" />
 </ship>
 
-<ship name="SHIP_ZOLTAN_BOSS" auto_blueprint="MU_ZOLTAN_CRUISER_ELITE">
-	<destroyed load="CAPITAL_INFO_HUB_WIN" />
-	<deadCrew load="CAPITAL_INFO_HUB_WIN" />
-	<crew>
-		<crewMember type="zoltan" prop="0.60" />
-		<crewMember type="zoltan_peacekeeper" prop="0.40" />	
-	</crew>
-</ship>
+
 
 <ship name="SHIP_ZOLTAN_CREW_SCAN" auto_blueprint="MU_ZOLTAN_GUARD">
 	<destroyed>
@@ -2456,10 +2422,6 @@
 			<event load="CAPITAL_REVOLT_PEACE_HELP" />
 		</choice>
 	</deadCrew>
-	<crew>
-		<crewMember type="zoltan" prop="0.8" />
-		<crewMember type="zoltan_devotee" prop="0.2" />
-	</crew>
 </ship>
 
 <ship name="SHIP_ZOLTAN_FREEMANTIS_FRIENDLY" auto_blueprint="LIST_SHIPS_ZOLTAN_ELITE_FIGHT">
@@ -2628,7 +2590,7 @@
 	<destroyed load="DESTROYED_PIRATE" />
 	<deadCrew load="DEAD_CREW_PIRATE" />
 	<crew>
-		<crewMember type="random" prop="1" />
+		<crewMember type="LIST_CREW_PIRATE_RANDOM" prop="1" />
 	</crew>
 </ship>
 
@@ -2787,10 +2749,6 @@
 	<gotaway load="GOTAWAY_DUSKBRINGER" />
 	<destroyed load="DESTROYED_DUSKBRINGER" />
 	<deadCrew load="DEAD_CREW_DUSKBRINGER" />
-	<crew>
-		<crewMember type="zoltan" prop="0.80" />
-		<crewMember type="zoltan_devotee" prop="0.20" />	
-	</crew>
 </ship>
 
 <ship name="SHIP_DUSK_GENERIC" auto_blueprint="LIST_SHIPS_DUSKBRINGER_GENERIC">
@@ -2798,10 +2756,6 @@
 	<gotaway load="GOTAWAY_DUSKBRINGER" />
 	<destroyed load="DESTROYED_DUSKBRINGER" />
 	<deadCrew load="DEAD_CREW_DUSKBRINGER" />
-	<crew>
-		<crewMember type="zoltan" prop="0.80" />
-		<crewMember type="zoltan_devotee" prop="0.20" />	
-	</crew>
 </ship>
 
 <ship name="SHIP_DUSK_FIGHT" auto_blueprint="LIST_SHIPS_DUSKBRINGER_FIGHT">
@@ -2809,59 +2763,31 @@
 	<gotaway load="GOTAWAY_DUSKBRINGER" />
 	<destroyed load="DESTROYED_DUSKBRINGER" />
 	<deadCrew load="DEAD_CREW_DUSKBRINGER" />
-	<crew>
-		<crewMember type="zoltan" prop="0.80" />
-		<crewMember type="zoltan_devotee" prop="0.20" />	
-	</crew>
 </ship>
 
 <ship name="SHIP_DUSK_ELITE_ALL" auto_blueprint="LIST_SHIPS_DUSKBRINGER_ELITE_ALL">
 	<destroyed load="DEFEAT_DUSK_ELITE" />
 	<deadCrew load="DEFEAT_DUSK_ELITE" />
-	<crew>
-		<crewMember type="zoltan" prop="0.30" />
-		<crewMember type="zoltan_devotee" prop="0.30" />
-		<crewMember type="zoltan_martyr" prop="0.30" />
-	</crew>
 </ship>
 
 <ship name="SHIP_DUSK_ELITE_GENERIC" auto_blueprint="LIST_SHIPS_DUSKBRINGER_ELITE_GENERIC">
 	<destroyed load="DEFEAT_DUSK_ELITE" />
 	<deadCrew load="DEFEAT_DUSK_ELITE" />
-	<crew>
-		<crewMember type="zoltan" prop="0.30" />
-		<crewMember type="zoltan_devotee" prop="0.30" />
-		<crewMember type="zoltan_martyr" prop="0.30" />
-	</crew>
 </ship>
 
 <ship name="SHIP_DUSK_ELITE_FIGHT" auto_blueprint="LIST_SHIPS_DUSKBRINGER_ELITE_FIGHT">
 	<destroyed load="DEFEAT_DUSK_ELITE" />
 	<deadCrew load="DEFEAT_DUSK_ELITE" />
-	<crew>
-		<crewMember type="zoltan" prop="0.30" />
-		<crewMember type="zoltan_devotee" prop="0.30" />
-		<crewMember type="zoltan_martyr" prop="0.30" />
-	</crew>
 </ship>
 
 <ship name="SHIP_DUSK_STATION" auto_blueprint="MU_DUSK_STATION">
 	<destroyed load="DESTROYED_DUSKBRINGER" />
 	<deadCrew load="DEAD_CREW_DUSKBRINGER" />
-	<crew>
-		<crewMember type="zoltan" prop="0.80" />
-		<crewMember type="zoltan_devotee" prop="0.20" />	
-	</crew>
 </ship>
 
 <ship name="SHIP_DUSK_ELITE_JAILER" auto_blueprint="MU_DUSK_JAILER_ELITE">
 	<destroyed load="DEFEAT_DUSK_ELITE" />
 	<deadCrew load="DEFEAT_DUSK_ELITE" />
-	<crew>
-		<crewMember type="zoltan" prop="0.30" />
-		<crewMember type="zoltan_devotee" prop="0.30" />
-		<crewMember type="zoltan_martyr" prop="0.30" />
-	</crew>
 </ship>
 
 <ship name="SHIP_DUSK_SMALL" auto_blueprint="LIST_SHIPS_DUSKBRINGER_SMALL">
@@ -2869,10 +2795,6 @@
 	<gotaway load="GOTAWAY_DUSKBRINGER" />
 	<destroyed load="DESTROYED_DUSKBRINGER" />
 	<deadCrew load="DEAD_CREW_DUSKBRINGER" />
-	<crew>
-		<crewMember type="zoltan" prop="0.80" />
-		<crewMember type="zoltan_devotee" prop="0.20" />	
-	</crew>
 </ship>
 
 <ship name="SHIP_ROCK_DUSKBRINGER" auto_blueprint="MU_ROCK_DUSKBRINGER">
@@ -2895,6 +2817,104 @@
 	</deadCrew>
 </ship>
 
+<ship name="SHIP_DUSK_YOUNG" auto_blueprint="LIST_SHIPS_DUSKBRINGER_SMALL">
+	<surrender min="1" max="3" load="DUSK_YOUNG_SURRENDER" />
+	<destroyed load="DESTROYED_DUSKBRINGER" />
+	<deadCrew load="DEAD_CREW_DUSKBRINGER" />
+</ship>
+
+<ship name="SHIP_DUSK_HARASS" auto_blueprint="LIST_SHIPS_DUSKBRINGER_FIGHT">
+	<destroyed>
+		<text>Duskbringers は再びあなたに打ち負かされました。彼らの船はあなたのものです。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>僧侶に連絡してください。</text>
+			<event load="DUSK_HARASS_WIN" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>Duskbringers は再びあなたに打ち負かされました。彼らの船はあなたのものです。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>僧侶に連絡してください。</text>
+			<event load="DUSK_HARASS_WIN" />
+		</choice>
+	</deadCrew>
+</ship>
+
+<ship name="SHIP_DUSK_FED_EMBASSY" auto_blueprint="LIST_SHIPS_DUSKBRINGER_ELITE_FIGHT">
+	<destroyed>
+		<text>ダスクブリンガーは、彼らの船のかなりの強さにもかかわらず、打ち負かされました。あなたはその残骸をスクラップします。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>大使館に戻る。</text>
+			<event load="FED_EMBASSY_MESSY" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>ダスクブリンガーは、彼らの船のかなりの強さにもかかわらず、打ち負かされました。あなたはその残骸をスクラップします。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>大使館に戻る。</text>
+			<event load="FED_EMBASSY_MESSY" />
+		</choice>
+	</deadCrew>
+</ship>
+
+<ship name="SHIP_DUSK_HIJACK" auto_blueprint="MU_DUSK_STATION">
+	<destroyed>
+		<text>あなたのおかげで駅は倒されました。オートシップを守るものは何も残っていないので、慎重にドッキングを解除します。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>省のエンジニアに連絡してください。</text>
+			<event load="DUSK_HIJACK_WIN" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>あなたのおかげで駅は倒されました。オートシップを守るものは何も残っていないので、慎重にドッキングを解除します。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>省のエンジニアに連絡してください。</text>
+			<event load="DUSK_HIJACK_WIN" />
+		</choice>
+	</deadCrew>
+</ship>
+
+<ship name="SHIP_DUSK_SNEAKYREBEL" auto_blueprint="LIST_SHIPS_MULTIVERSE">
+	<surrender min="1" max="3">
+		<text>「やめて、やめて！ 私たちはあなたの敵じゃない！ 発砲をやめて、説明しよう！」</text>
+		<choice hidden="true">
+			<text>それらを聞いてください。</text>
+			<event>
+				<text>「見てください、私たちは宇宙1から来たわけではありません.私たち全員がそれらの大量虐殺の現実ホッパーを支持しているわけではありません.バンスが最終的に銀河に永続的な平和をもたらすと思ったので、私は南北戦争中に反乱軍に加わりました-しかしこれは?これはあまりにも遠くです。セクター内のダスクブリンガーの前哨基地に物資を届けに行くところです。それで満足していただけるのであれば、一部の物資を差し控えることができます。」</text>
+				<choice hidden="false">
+					<text>賄賂を受け取ります。</text>
+					<event>
+						<ship hostile="false" />
+						<autoReward level="HIGH">stuff</autoReward>
+					</event>
+				</choice>
+				<choice hidden="true">
+					<text>元反逆者であろうとなかろうと、ダスクブリンガーの手に物資が渡ることはありません!</text>
+					<event>
+						<ship hostile="true" />
+					</event>
+				</choice>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>反乱スカムは反乱スカム。言い訳はありません。</text>
+			<event />
+		</choice>
+	</surrender>
+	<destroyed load="DESTROYED_REBEL_MULTIVERSE" />
+	<deadCrew load="DEAD_CREW_REBEL_MULTIVERSE" />
+</ship>
+<ship name="SHIP_DUSK_SNEAKYREBEL_NOSURRENDER" auto_blueprint="LIST_SHIPS_MULTIVERSE">
+	<destroyed load="DESTROYED_REBEL" />
+	<deadCrew load="DEAD_CREW_REBEL" />
+</ship>
+
 <ship name="SHIP_DUSK_MONASTERY" auto_blueprint="LIST_SHIPS_DUSKBRINGER_FIGHT">
 	<destroyed>
 		<text>あなたはダスクブリンガー船を首尾よく殺しました、そして他の海賊が彼らの敵と同じことをしたようです。海賊がダスクブリンガーを追い越し、戦隊の残りの船が逃げるまで、それほど時間はかかりません。</text>
@@ -2912,10 +2932,6 @@
 			<event load="DUSK_MONASTERY_PIRATE_WIN" />
 		</choice>
 	</deadCrew>
-	<crew>
-		<crewMember type="zoltan" prop="0.80" />
-		<crewMember type="zoltan_devotee" prop="0.20" />	
-	</crew>
 </ship>
 <ship name="SHIP_PIRATE_MONASTERY" auto_blueprint="LIST_SHIPS_PIRATE_ALL">
 	<destroyed>
@@ -2950,13 +2966,30 @@
 	</crew>
 </ship>
 
+<ship name="SHIP_DUSK_INFILTRATION" auto_blueprint="MU_DUSK_STATION_ELITE">
+	<destroyed>
+		<text>ダスクブリンガー ステーションが破壊されました。これを避けるように具体的に求められたという事実がなければ、それはかなりの成果です。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event>
+				<text>「なんてこった、あなたはそれを爆破した! この作戦全体は今やめちゃくちゃだ! これは私がレネゲードの助けを求めるために得たものだ. ..」</text>
+			</event>
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>ステーションは乗組員を排除しました。 Coalition に連絡する前に、外装の一部を廃棄します。 「仕事の最初の部分は完了です。さあ、ドッキングして技術を探しましょう。」</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="DUSKCAP_INFILTRATION_SEARCH" />
+		</choice>
+	</deadCrew>
+</ship>
+
 <ship name="SHIP_DUSK_JAILER" auto_blueprint="MU_DUSK_JAILER">
 	<destroyed load="DUSK_JAILER_KILL" />
 	<deadCrew load="DUSK_JAILER_CAPTURE" />
-	<crew>
-		<crewMember type="zoltan" prop="0.80" />
-		<crewMember type="zoltan_devotee" prop="0.20" />	
-	</crew>
 </ship>
 
 <ship name="SHIP_DUSK_AUTOCLONER" auto_blueprint="MU_CLONER_AUTO">
@@ -2965,7 +2998,7 @@
 	<destroyed load="DUSKCAP_CLONECANNON_DEFEAT" />
 </ship>
 
-<ship name="SHIP_KYLE_PICKET" auto_blueprint="LIST_SHIPS_REBEL_ELITE_MASSIVE">
+<ship name="SHIP_KYLE" auto_blueprint="MU_KYLE">
 	<destroyed load="DUSKCAP_PISSED_DEFEAT" />
 	<deadCrew load="DUSKCAP_PISSED_DEFEAT" />
 </ship>
@@ -2977,10 +3010,6 @@
 <ship name="SHIP_DUSKRAID_DUSKBOSS" auto_blueprint="MU_DUSK_CRUISER">
 	<destroyed load="DUSKCAP_CAPITOLRAID_REBEL_WIN" />
 	<deadCrew load="DUSKCAP_CAPITOLRAID_REBEL_WIN" />
-	<crew>
-		<crewMember type="zoltan" prop="0.30" />
-		<crewMember type="zoltan_martyr" prop="0.30" />	
-	</crew>
 </ship>
 
 
@@ -3294,6 +3323,10 @@
 <ship name="SHIP_FREEMANTIS_ELITE_LARGE" auto_blueprint="LIST_SHIPS_FREEMANTIS_ELITE_LARGE">
 	<destroyed load="DESTROY_FREEMAN_ELITE" />
 	<deadCrew load="DEADCREW_FREEMAN_ELITE" />
+	<crew>
+		<crewMember type="mantis_warlord" prop="0.30" />
+		<crewMember type="mantis_free" prop="0.70" />	
+	</crew>
 </ship>
 
 <ship name="SHIP_FREEMANTIS_ELITE_ALL" auto_blueprint="LIST_SHIPS_FREEMANTIS_ELITE_ALL">
@@ -3912,7 +3945,7 @@
 		<autoReward level="HIGH">standard</autoReward>
 	</deadCrew>
 	<crew>
-		<crewMember type="rock" prop="0.60" />
+		<crewMember type="rock" prop="0.50" />
 		<crewMember type="rock_crusader" prop="0.40" />
 		<crewMember type="crystal" prop="0.10" />	
 	</crew>
@@ -3921,6 +3954,11 @@
 <ship name="SHIP_CRUSADE_FREEMANTIS" auto_blueprint="LIST_SHIPS_FREEMANTIS_GENERIC">
 	<destroyed load="ROCK_CRUSADE_FREEMANTIS" />
 	<deadCrew load="ROCK_CRUSADE_FREEMANTIS" />
+	<crew>
+		<crewMember type="rock" prop="0.50" />
+		<crewMember type="rock_crusader" prop="0.40" />
+		<crewMember type="crystal" prop="0.10" />	
+	</crew>
 </ship>
 <ship name="SHIP_CRUSADE_ROCK" auto_blueprint="LIST_SHIPS_ROCK_ELITE_FIGHT">
 	<destroyed load="ROCK_CRUSADE_ROCK" />
@@ -4234,7 +4272,7 @@
 </ship>
 
 <ship name="SHIP_OUTCAST_FAT" auto_blueprint="MU_OUTCAST_BATTLESHIP_FAT">
-	<triggeredEvent name="BUNGALUNG_WIN" event="OUTCAST_CHUNGUS_WIN" enemyCrew="2" enemyHull="3" thisFight="true" clearOnJump="true" />
+	<triggeredEvent name="BUNGALUNG_WIN" event="OUTCAST_CHUNGUS_WIN" enemyCrew="1" enemyHull="4" thisFight="true" clearOnJump="true" />
 	<triggeredEvent name="BUNGALUNG_LOSE" event="OUTCAST_CHUNGUS_LOSE" playerDeaths="2" playerDamage="10" thisFight="true" clearOnJump="true" />
 	<destroyed>
 		<text>あなたは少し上手く戦ったようです-チョン・ブンガルンは死んでいて、彼の秘密は永遠に未知のままです。</text>
@@ -4242,7 +4280,7 @@
 	</destroyed>
 	<deadCrew>
 		<text>あなたは少し上手く戦ったようです-チョン・ブンガルンは死んでいて、彼の秘密は永遠に未知のままです。</text>
-		<autoReward level="MED">standard</autoReward>
+		<autoReward level="HIGH">standard</autoReward>
 	</deadCrew>
 </ship>
 
@@ -5060,13 +5098,17 @@
 	<destroyed load="DESTROYED_SLUG" />
 	<deadCrew load="DEAD_CREW_SLUG" />
 	<crew>
-		<crewMember type="slug" prop="0.80" />
-		<crewMember type="slug_saboteur" prop="0.20" />	
+		<crewMember type="slug" prop="0.60" />
+		<crewMember type="slug_saboteur" prop="0.40" />	
 	</crew>
 </ship>
 <ship name="SHIP_SLUG_UNLOCK_2" auto_blueprint="MU_SLUG_STATION_ELITE">
 	<destroyed load="SLUG_UNLOCK_3" />
 	<deadCrew load="SLUG_UNLOCK_3" />
+	<crew>
+		<crewMember type="slug" prop="0.50" />
+		<crewMember type="slug_saboteur" prop="0.50" />	
+	</crew>
 </ship>
 
 <ship name="SHIP_SLUG_CEALSTATION_STORM" auto_blueprint="MU_SLUG_CLEALSTATION">
@@ -5603,7 +5645,11 @@
 				<text>すべてが幸せというわけではありませんが、あなたの復帰はトカゲの間で多くのお祝いを引き起こします。一部の人々は、スラッグが彼の言葉を守らないことを恐れており、あなたによってセクターから護送されることを要求します。あなたは同意します、そしてトカゲの1人は固執したいです！</text>
 				<autoReward level="LOW">standard</autoReward>
 				<ship hostile="false" />
-				<crewMember amount="1" class="lizard" />
+				<variable name="door_union" op="set" val="1" />
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="DOOR_OPEN_SONG" />
+				</choice>
 			</event>
 		</choice>
 		<choice>
@@ -5648,6 +5694,27 @@
 		<crewMember type="slug_hektar" prop="0.75" />
 		<crewMember type="lizard" prop="0.25" />
 	</crew>
+</ship>
+
+<ship name="SHIP_HEKTAR_FEMALE" auto_blueprint="MU_HEKTAR_TRANSPORT">
+	<destroyed>
+		<text>「くっ、これはクビになるよりもマシだ！ えぇ… 引っ掻いてやれよ。金の無い人生より死んだ方がマシだ。やれやれ！」</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event>
+				<text>残念ながら、船を爆破したため、トカゲも確実に死亡しました。あなたは自分自身に失望して、先に進む準備をします。</text>
+			</event>
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>「くっ、これはクビになるよりもマシだ！ えぇ… 引っ掻いてやれよ。金の無い人生より死んだ方がマシだ。やれやれ！」</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>トカゲをチェックします。</text>
+			<event load="HEKTAR_FEMALE_SAVE" />
+		</choice>
+	</deadCrew>
 </ship>
 
 <ship name="SHIP_HEKTAR_PIRATE_GHETTO" auto_blueprint="LIST_SHIPS_PIRATE_ALL">
@@ -5760,7 +5827,7 @@
 		<choice hidden="true">
 			<text>ゾルタンに連絡してください。</text>
 			<event>
-				<text>「この銀河をまとめる高貴な商標法を守るためのあなたの努力に感謝します。HektarIndustries"（tm）"はかなり長い間それらを悪用してきました。ここに報酬があります。」</text>
+				<text>「この銀河をまとめる高貴な商標法を守るためのあなたの努力に感謝します。Industries"（tm）"はかなり長い間それらを悪用してきました。ここに報酬があります。」</text>
 				<autoReward level="MED">standard</autoReward>
 			</event>
 		</choice>
@@ -5771,7 +5838,7 @@
 		<choice hidden="true">
 			<text>ゾルタンに連絡してください。</text>
 			<event>
-				<text>「この銀河をまとめる高貴な商標法を守るためのあなたの努力に感謝します。HektarIndustries"（tm）"はかなり長い間それらを悪用してきました。ここに報酬があります。」</text>
+				<text>「この銀河をまとめる高貴な商標法を守るためのあなたの努力に感謝します。Industries"（tm）"はかなり長い間それらを悪用してきました。ここに報酬があります。」</text>
 				<autoReward level="MED">standard</autoReward>
 			</event>
 		</choice>
@@ -5838,28 +5905,6 @@
 	</crew>
 </ship>
 
-<ship name="SHIP_HEKTAR_BOSS" auto_blueprint="MU_HEKTAR_BOSS">
-	<destroyed>
-		<text>ヘクタール船は敗北しました。命令を受けただけの従業員だったので罪悪感を感じるかもしれませんが、何の共感もありません。</text>
-		<autoReward level="HIGH">weapon</autoReward>
-		<choice hidden="true">
-			<text>継続する...</text>
-			<event load="METYUNT" />
-		</choice>
-	</destroyed>
-	<deadCrew>
-		<text>ヘクタール船は敗北しました。命令を受けただけの従業員だったので罪悪感を感じるかもしれませんが、何の共感もありません。</text>
-		<autoReward level="HIGH">weapon</autoReward>
-		<choice hidden="true">
-			<text>継続する...</text>
-			<event load="METYUNT" />
-		</choice>
-	</deadCrew>
-	<crew>
-		<crewMember type="slug_hektar" prop="1" />
-		
-	</crew>
-</ship>
 
 <ship name="SHIP_HEKTAR_EXIT_BOSS" auto_blueprint="MU_HEKTAR_BOSS">
 	<destroyed>
@@ -6188,27 +6233,6 @@
 	</crew>
 </ship>
 
-<ship name="SHIP_CLAN_CRUISER" auto_blueprint="MU_CLAN_CRUISER">
-	<destroyed>
-		<text>クランズマン巡洋艦を取り出しましたが、祝う時間はほとんどありません。別の巡洋艦が近くに飛び込み、次に別の巡洋艦、さらに別の巡洋艦、そしてさらに大きなクランズマンの艦隊が彼らの後ろに飛び込みます！これらの船をすべて取り出す方法はありません...</text>
-		<choice hidden="true">
-			<text>ああ少年...</text>
-			<event load="SYLVAN_DOES_AN_EX_MACHINA" />
-		</choice>
-	</destroyed>
-	<deadCrew>
-		<text>クランズマン巡洋艦を取り出しましたが、祝う時間はほとんどありません。別の巡洋艦が近くに飛び込み、次に別の巡洋艦、さらに別の巡洋艦、そしてさらに大きなクランズマンの艦隊が彼らの後ろに飛び込みます！これらの船をすべて取り出す方法はありません...</text>
-		<choice hidden="true">
-			<text>ああ少年...</text>
-			<event load="SYLVAN_DOES_AN_EX_MACHINA" />
-		</choice>
-	</deadCrew>
-	<crew>
-		<crewMember type="slug_clansman" prop="0.5" />
-		<crewMember type="slug_ranger" prop="0.5" />
-	</crew>
-</ship>
-
 <ship name="SHIP_CLAN_IMMUNITY" auto_blueprint="LIST_SHIPS_CLAN_FIGHT">
 	<destroyed>
 		<text>あなたはクランズマンを首尾よく打ち負かしました。あなたは彼らの船をスクラップします。</text>
@@ -6357,10 +6381,6 @@
 			</event>
 		</choice>
 	</deadCrew>
-	<crew>
-		<crewMember type="zoltan" prop="0.80" />
-		<crewMember type="zoltan_devotee" prop="0.20" />	
-	</crew>
 </ship>
 
 <ship name="SHIP_CLAN_GHOST" auto_blueprint="LIST_SHIPS_CLAN_FIGHT">
@@ -6384,7 +6404,7 @@
 		<choice>
 			<text>彼を沈黙させ、船をレンジャーに返してください。</text>
 			<event>
-				<text>あなたは最後のゴーストを殺そうとしますが、あなたができる前に、彼は起爆装置のスイッチを引き出し、船を吹き飛ばして忘却させます！幸いなことに、あなたはダメージを受けていませんが、クランズマンは取り乱しています。彼はあなたを責めませんが、彼がいなくなった今、とにかくあなたの船に乗って働くことを申し出ます。</text>
+				<text>あなたは最後のゴーストを倒そうとしますが、そうする前に彼は起爆装置のスイッチを引き抜き、船を吹き飛ばしてしまいます!幸いなことにあなたはダメージを受けていませんが、クランマンは取り乱しています。彼はあなたを責めるのではなく、彼がいなくなった今、とにかくあなたの船に乗って働くことを申し出ます.</text>
 				<autoReward level="LOW">standard</autoReward>
 				<crewMember amount="1" class="slug_ranger" />
 			</event>
@@ -6487,7 +6507,7 @@
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>発砲し続けます。</text>
+			<text>発砲し続ける。</text>
 			<event />
 		</choice>
 	</surrender>
@@ -6646,10 +6666,30 @@
 	</deadCrew>
 </ship>
 
+<ship name="SHIP_SHELL_SCIENCE_JUICE" auto_blueprint="LIST_SHIPS_SHELL_SCIENCE">
+	<escape chance="0.5" min="5" max="6" load="ESCAPE_SHELL" />
+	<gotaway load="GOTAWAY_SHELL" />
+	<destroyed>
+		<text>シェル船が爆発し、すべての貨物が破壊されます。</text>
+		<autoReward level="MED">standard</autoReward>
+	</destroyed>
+	<deadCrew>
+		<text>シェル船は無力化されました。貨物を検査する前に外装をスクラップします。</text>
+		<autoReward level="HIGH">scrap_only</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event>
+				<text>あなたはすぐに神経毒のカーゴベイを空にして乗り込みますが、ジュースの箱の箱の上に箱を見つけるだけです.有名な人間の子供番組 Ellie the Equinoid の図像でマークされたこの製品は、「Quarp Juice」と呼ばれるもののようです。成分は非常に曖昧で、「謎の化学物質」といくつかの添加糖がリストされているだけです.どちらが悪いのかわからないので、貨物にいくつかの箱を投げて、乗組員がそれを飲むことを禁じます.うまくいけば、どこかの店に売ることができます。</text>
+				<autoReward level="MED">scrap_only</autoReward>
+			</event>
+		</choice>
+	</deadCrew>
+</ship>
+
 <ship name="SHIP_COALITION_SHELLCREW" auto_blueprint="LIST_SHIPS_COALITION_FIGHT">
 	<surrender chance="0.75" min="2" max="3" load="SURRENDER_COALITION" />
 	<destroyed load="DESTROYED_COALITION" />
-	<deadCrew load="DEAD_CREW_DEFAULT" />
+	<deadCrew load="DEAD_CREW_COALITION" />
 	<crew>
 		<crewMember type="slug" prop="0.50" />
 		<crewMember type="shell" prop="0.50" />
@@ -7176,7 +7216,7 @@
 		<choice hidden="true">
 			<text>連立船に連絡してください。</text>
 			<event>
-				<text>「あなたは実際にそれをしましたか？ああ、それはssssoを見て良かったと感じました。私は少しおしっこをしたと思います...または少なくともおしっこだといいのですが。関係ありません。あなたはleechesssのエリートsssslayerです！もっと頻繁にできることを願って一緒に来ます...」</text>
+				<text>「あなたは実際にそれをしましたか？ああ、それはssssoを見て良かったと感じました。私は少しおしっこをしたと思います...または少なくともおしっこだといいのですが。関係ありません。あなたはリーチェスのエリートsssslayerです！私は思いますもっと頻繁にできることを願って一緒に来ます...」</text>
 				<crewMember amount="1" class="slug_saboteur" />
 			</event>
 		</choice>
@@ -7187,7 +7227,7 @@
 		<choice hidden="true">
 			<text>連立船に連絡してください。</text>
 			<event>
-				<text>「あなたは実際にそれをしましたか？ああ、それはssssoを見て良かったと感じました。私は少しおしっこをしたと思います...または少なくともおしっこだといいのですが。関係ありません。あなたはleechesssのエリートsssslayerです！もっと頻繁にできることを願って一緒に来ます...」</text>
+				<text>「あなたは実際にそれをしましたか？ああ、それはssssoを見て良かったと感じました。私は少しおしっこをしたと思います...または少なくともおしっこだといいのですが。関係ありません。あなたはリーチェスのエリートsssslayerです！私は思いますもっと頻繁にできることを願って一緒に来ます...」</text>
 				<crewMember amount="1" class="slug_saboteur" />
 			</event>
 		</choice>
@@ -7467,7 +7507,7 @@
 	<surrender min="3" max="4">
 		<text>「やめて！はっきりと見えます。あなたは私たちを攻撃した海賊船ではありません。どうぞ、私たちを行かせてください。」</text>
 		<choice>
-			<text>戦いをやめなさい。</text>
+			<text>戦いをやめる。</text>
 			<event>
 				<ship hostile="false" />
 				<autoReward level="LOW">standard</autoReward>
@@ -7508,6 +7548,10 @@
 			<event load="ORCHID_MEGATREE_WIN" />    
 		</choice>
 	</deadCrew>
+	<crew>
+		<crewMember type="orchid" prop="0.6" />
+		<crewMember type="orchid_chieftain" prop="0.4" />
+	</crew>
 </ship>
 
 
@@ -7982,7 +8026,7 @@
 		<choice hidden="true">
 			<text>残りのエリートラニウス船に連絡してください。</text>
 			<event>
-				<text>エリート船は重大なダメージを受けましたが、それでもあなたに感謝するのに十分な機能を持っています。 「男を連れて行ってください、必要ありません。」ラニウスのトカゲが船から排出されます。</text>
+				<text>エリート船は重大な損傷を受けましたが、感謝できるほど機能しています。 「男を取って、必要ありません。」ラニウスの労働者が船から排出されます。</text>
 				<crewMember amount="1" class="lanius" repair="1" />
 			</event>
 		</choice>
@@ -7993,7 +8037,7 @@
 		<choice hidden="true">
 			<text>残りのエリートラニウス船に連絡してください。</text>
 			<event>
-				<text>エリート船は重大なダメージを受けましたが、それでもあなたに感謝するのに十分な機能を持っています。 「男を連れて行ってください、必要ありません。」ラニウスのトカゲが船から排出されます。</text>
+				<text>エリート船は重大な損傷を受けましたが、感謝できるほど機能しています。 「男を取って、必要ありません。」ラニウスの労働者が船から排出されます。</text>
 				<crewMember amount="1" class="lanius" repair="1" />
 			</event>
 		</choice>
@@ -8195,7 +8239,7 @@
 	<surrender chance="0" min="3" max="4">
 		<text>彼らの船はひどく損傷しているようで、彼らは戦いを再考しているように見えます。武器の電源を切り、脅威がないことを説明する必要がありますか？</text>
 		<choice hidden="true">
-			<text>戦いをやめなさい。</text>
+			<text>戦いをやめる。</text>
 			<event>
 				<text>彼らはあなたの説明を受け入れ、あなたが艦隊に近づくことを可能にします。彼らは、海賊と反乱軍の攻撃の報告を聞いた後、より保護された空間に逃げているフリンジ集落の鉱夫と入植者のようです。</text>
 				<ship hostile="false" />
@@ -8384,6 +8428,10 @@
 			</event>
 		</choice>
 	</deadCrew>
+	<crew>
+		<crewMember type="zoltan" prop="0.80" />
+		<crewMember type="zoltan_peacekeeper" prop="0.20" />	
+	</crew>
 </ship>
 <ship name="SHIP_ZOLTENVOY_SENTINEL" auto_blueprint="LIST_SHIPS_CRYSTAL_ELITE_FIGHT">
 	<destroyed>
@@ -8438,7 +8486,7 @@
 	</crew>
 </ship>
 <ship name="SHIP_INFESTED_STATION_REPEAT" auto_blueprint="MU_CIVILIAN_STATION_INFESTATION">
-	<surrender min="7" max="9" load="INFESTED_STATION_SURRENDER" />
+	<surrender min="5" max="7" load="INFESTED_STATION_SURRENDER" />
 	<destroyed load="INFESTED_STATION_DESTROY" />
 	<deadCrew load="INFESTED_STATION_WIN_REPEAT" />
 	<crew>
@@ -8471,17 +8519,6 @@
 	</crew>
 </ship>
 
-<ship name="SHIP_SPIDERBOSS" auto_blueprint="MU_SPIDER_BOSS">
-	<surrender min="6" max="8" load="INFESTATION_SPIDERBOSS_NOTIF" />
-	<destroyed load="INFESTATION_SPIDERBOSS_DESTROYED" />
-	<deadCrew load="INFESTATION_SPIDERBOSS_DEADCREW" />
-	<crew>
-		<crewMember type="unique_queen" prop="0.10" />
-		<crewMember type="spider_weaver" prop="0.20" />
-		<crewMember type="spider" prop="0.70" />
-	</crew>
-</ship>
-
 <ship name="SHIP_BROOD_MUFFET" auto_blueprint="LIST_SHIPS_BROOD">
     <surrender min="3" max="4">
         <text>「ああ、電報を受け取っているようだ！ああ、これはすべて大きな誤解だった。999スクラップ、それはあなたと同じくらい重要な人にとっては高すぎる！教えて、ドーナツを飲んでみませんか？無料で、そして私はいくつかの余分な物資を投入しますか？」</text>
@@ -8501,15 +8538,6 @@
     <destroyed load="DESTROYED_BROOD" />
     <deadCrew load="DEAD_CREW_BROOD" />
     <crew>
-		<crewMember type="LIST_CREW_PIRATE_RANDOM" prop="0.5" />
-		<crewMember type="LIST_CREW_SPIDER_RANDOM" prop="0.5" />
-	</crew>
-</ship>
-
-<ship name="SHIP_BROOD_CLASNMAN" auto_blueprint="LIST_SHIPS_BROOD">
-	<destroyed load="INFESTATION_CLANSMAN_DEFEAT" />
-	<deadCrew load="INFESTATION_CLANSMAN_DEFEAT" />
-	<crew>
 		<crewMember type="LIST_CREW_PIRATE_RANDOM" prop="0.5" />
 		<crewMember type="LIST_CREW_SPIDER_RANDOM" prop="0.5" />
 	</crew>
@@ -8682,7 +8710,7 @@
 		</choice>
 	</destroyed>
 	<deadCrew>
-		<text>王朝の船は破壊されました。他のゴーストに連絡する前に、船をスクラップします。</text>
+		<text>王朝の船は一掃されました。他のゴーストに連絡する前に船を廃棄します。</text>
 		<autoReward level="MED">standard</autoReward>
 		<choice hidden="true">
 			<text>継続する...</text>
@@ -8706,7 +8734,7 @@
 		</choice>
 	</destroyed>
 	<deadCrew>
-		<text>王朝の船は破壊されました。他のゴーストに連絡する前に、船をスクラップします。</text>
+		<text>王朝の船は一掃されました。他のゴーストに連絡する前に船を廃棄します。</text>
 		<autoReward level="MED">standard</autoReward>
 		<choice hidden="true">
 			<text>継続する...</text>
@@ -8929,6 +8957,47 @@
 	<crew>
 		<crewMember type="phantom" prop="0.2" />
 		<crewMember type="phantom_alpha" prop="0.8" />
+	</crew>
+</ship>
+
+<ship name="SHIP_DUSK_OCCUPIED" auto_blueprint="LIST_SHIPS_DUSKBRINGER_ELITE_FIGHT">
+	<destroyed>
+		<text>ダスクブリンガーの船を解体すると、船はほとんど残りません。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="DYNCAP_OCCUPIED_GHOSTS" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>ダスクブリンガーの船を解体すると、船はほとんど残りません。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="DYNCAP_OCCUPIED_GHOSTS" />
+		</choice>
+	</deadCrew>
+</ship>
+<ship name="SHIP_DYNASTY_OCCUPIED" auto_blueprint="LIST_SHIPS_DYNASTY_ELITE_FIGHT">
+	<destroyed>
+		<text>Dynasty の船を解体すると、船はほとんど残りません。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="DYNCAP_OCCUPIED_DUSK" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>Dynasty の船を解体すると、船はほとんど残りません。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="DYNCAP_OCCUPIED_DUSK" />
+		</choice>
+	</deadCrew>
+	<crew>
+		<crewMember type="LIST_CREW_ALPHA" prop="0.5" />
+		<crewMember type="LIST_CREW_GHOST_NOALPHA" prop="0.5" />
 	</crew>
 </ship>
 
@@ -9891,7 +9960,7 @@
 	</deadCrew>
 </ship>
 
-<ship name="SHIP_DESPERATE_SLUG" auto_blueprint="LIST_SHIPS_PIRATE_SLUG">
+<ship name="SHIP_DESPERATE_SLUG" auto_blueprint="MU_PIRATE_SLUG_LIGHT_CRUISER">
 	<surrender chance="0.4" min="2" max="3" load="GENERIC_SURRENDER" />
 	<escape chance="0.3" min="3" max="4" load="GENERIC_ESCAPE" />
 	<destroyed load="DESPERATE_SLUG_WIN" />
@@ -10212,62 +10281,6 @@
 	</deadCrew>
 </ship>
 
-<ship name="SHIP_MERCENARY_FED" auto_blueprint="LIST_SHIPS_MERCENARY_FED">
-	<surrender chance="0.4" min="2" max="3" load="SURRENDER_PIRATE" />
-	<escape chance="0.2" min="2" max="4" load="ESCAPE_PIRATE" />
-	<gotaway load="GOTAWAY_PIRATE" />
-	<destroyed>
-		<text>傭兵船が破壊されました。対処するクズ野郎でいっぱいの船が1隻少なくなります。</text>
-		<autoReward level="MED">standard</autoReward>
-	</destroyed>
-	<deadCrew>
-		<text>あなたは傭兵のクズ野郎を殺し、彼らの船の運命を決めることにしました。</text>
-		<autoReward level="HIGH">standard</autoReward>
-	</deadCrew>
-</ship>
-
-<ship name="SHIP_MERCENARY_REBEL" auto_blueprint="LIST_SHIPS_MERCENARY_REBEL">
-	<surrender chance="0.4" min="2" max="3" load="SURRENDER_PIRATE" />
-	<escape chance="0.2" min="2" max="4" load="ESCAPE_PIRATE" />
-	<gotaway load="GOTAWAY_PIRATE" />
-	<destroyed>
-		<text>傭兵船が破壊されました。対処するクズ野郎でいっぱいの船が1隻少なくなります。</text>
-		<autoReward level="MED">standard</autoReward>
-	</destroyed>
-	<deadCrew>
-		<text>あなたは傭兵のクズ野郎を殺し、彼らの船の運命を決めることにしました。</text>
-		<autoReward level="HIGH">standard</autoReward>
-	</deadCrew>
-</ship>
-
-<ship name="SHIP_MERCENARY_MANTIS" auto_blueprint="LIST_SHIPS_MERCENARY_MANTIS">
-	<surrender chance="0.4" min="2" max="3" load="SURRENDER_PIRATE" />
-	<escape chance="0.2" min="2" max="4" load="ESCAPE_PIRATE" />
-	<gotaway load="GOTAWAY_PIRATE" />
-	<destroyed>
-		<text>傭兵船が破壊されました。対処するクズ野郎でいっぱいの船が1隻少なくなります。</text>
-		<autoReward level="MED">standard</autoReward>
-	</destroyed>
-	<deadCrew>
-		<text>あなたは傭兵のクズ野郎を殺し、彼らの船の運命を決めることにしました。</text>
-		<autoReward level="HIGH">standard</autoReward>
-	</deadCrew>
-</ship>
-
-<ship name="SHIP_MERCENARY_ZOLTAN" auto_blueprint="LIST_SHIPS_MERCENARY_ZOLTAN">
-	<surrender chance="0.4" min="2" max="3" load="SURRENDER_PIRATE" />
-	<escape chance="0.2" min="2" max="4" load="ESCAPE_PIRATE" />
-	<gotaway load="GOTAWAY_PIRATE" />
-	<destroyed>
-		<text>傭兵船が破壊されました。対処するクズ野郎でいっぱいの船が1隻少なくなります。</text>
-		<autoReward level="MED">standard</autoReward>
-	</destroyed>
-	<deadCrew>
-		<text>あなたは傭兵のクズ野郎を殺し、彼らの船の運命を決めることにしました。</text>
-		<autoReward level="HIGH">standard</autoReward>
-	</deadCrew>
-</ship>
-
 
 
 <ship name="SHIP_HACKER" auto_blueprint="LIST_SHIPS_HACKER">
@@ -10452,7 +10465,7 @@
 			<text>継続する...</text>
 			<event>
 				<text>あなたは分離主義者の貯蔵庫を掘り進んでいますが、オードの技術は見つかりません。ただし、使用するクルードローンはあります。</text>
-				<drone name="LIST_DRONES_SEPARATIST" />
+				<drone name="LIST_DRONES_SEPARATIST_DROP" />
 			</event>
 		</choice>
 	</destroyed>
@@ -10463,7 +10476,7 @@
 			<text>継続する...</text>
 			<event>
 				<text>あなたは分離主義者の貯蔵庫を掘り進んでいますが、オードの技術は見つかりません。ただし、使用するクルードローンはあります。</text>
-				<drone name="LIST_DRONES_SEPARATIST" />
+				<drone name="LIST_DRONES_SEPARATIST_DROP" />
 			</event>
 		</choice>
 	</deadCrew>
@@ -10535,11 +10548,6 @@
 		<crewMember type="obelisk" prop="0.8" />
 		<crewMember type="cognitive" prop="0.2" />	
 	</crew>
-</ship>
-
-<ship name="SHIP_ANCIENT_WRECK" auto_blueprint="MU_ANCIENT_WRECK">
-	<destroyed load="ANCSECTOR_PART_1_FAIL" />
-	<deadCrew load="ANCSECTOR_PART_1_SUCCESS" />
 </ship>
 
 <ship name="SHIP_ANCIENT_SCULPTER" auto_blueprint="LIST_SHIPS_ANCIENT_ALL">
@@ -10987,7 +10995,7 @@
 <ship name="SHIP_ASTEROID" auto_blueprint="MU_ASTEROIDS">
 	<destroyed load="CIVILIAN_ASTEROID_APPROACHING_WIN" />
 	<triggeredEvent event="CIVILIAN_ASTEROID_APPROACHING_FAIL" thisFight="true" clearOnJump="true" time="30.0">
-		<triggeredEventBox load="DEFAULT_TIMER">
+		<triggeredEventBox load="DEFAULT_TIMER" pos="combat">
 			<warning time="10.0" flash="true" />
 			<tooltip>小惑星はこの時間内に衝突すると予想されます。タイマーが0になる前に、必ず破棄するか実行してください。</tooltip>
 		</triggeredEventBox>
@@ -11133,7 +11141,7 @@
 	</destroyed>
 	<deadCrew>
 		<text>スゼライン船はクルーが空になりました。あなたは船の外面をスクラップします。</text>
-		<autoReward level="MED">standard</autoReward>
+		<autoReward level="MED">standard_no_item</autoReward>
 		<choice hidden="true">
 			<text>継続する...</text>
 			<event>
@@ -11160,7 +11168,7 @@
 	</destroyed>
 	<deadCrew>
 		<text>密輸業者市場は無力化されました。ステーションの外観をスクラップします。</text>
-		<autoReward level="MED">standard</autoReward>
+		<autoReward level="MED">standard_no_item</autoReward>
 		<choice hidden="true">
 			<text>継続する...</text>
 			<event>
@@ -11220,10 +11228,6 @@
 			<event load="ZOLTAN_QUEST_LAWBOOK_OBTAIN" />
 		</choice>
 	</deadCrew>
-	<crew>
-		<crewMember type="zoltan" prop="0.80" />
-		<crewMember type="zoltan_devotee" prop="0.20" />	
-	</crew>
 </ship>
 <ship name="SHIP_ENGI_LAWBOOK" auto_blueprint="LIST_SHIPS_ENGI_FIGHT">
 	<surrender min="1" max="3"> 
@@ -11278,11 +11282,8 @@
 </ship>
 
 <ship name="SHIP_GHOST_FLAGSHIP" auto_blueprint="MU_GHOST_FLAGSHIP">
-	<surrender min="3" max="4">
-		<text>あなたはあなたの仲間、ゴーストハンターが通り過ぎて飛んでいるのに気づきます。彼らの武器はフラグシップに対して多くのことをすることができませんでしたが、彼らのサルボはついにフラグシップのエンジンに入り、彼らをシャットダウンしました。ただし、テレポーターの署名は、あなたが再び搭乗したことを示しています。</text>
-		<boarders min="3" max="3" class="phantom_goul" />
-		<status type="limit" target="enemy" system="engines" amount="0" />
-	</surrender>
+<triggeredEvent event="UNLOCK_GHOST_DAMAGE" enemyHull="11" thisFight="true" clearOnJump="true" />
+	
 	<destroyed load="UNLOCK_GHOST_QUEST_WIN" />
 	<deadCrew load="UNLOCK_GHOST_QUEST_WIN" />
 	<crew>
@@ -11568,10 +11569,6 @@
 <ship name="SHIP_DUSKBRINGER_TEAMUP" auto_blueprint="LIST_SHIPS_DUSKBRINGER_FIGHT">
 	<destroyed load="DUSK_TEAMUP_DUSK" />
 	<deadCrew load="DUSK_TEAMUP_DUSK" />
-	<crew>
-		<crewMember type="zoltan" prop="0.8" />
-		<crewMember type="zoltan_devotee" prop="0.2" />
-	</crew>
 </ship>
 <ship name="SHIP_ZOLTAN_TEAMUP" auto_blueprint="LIST_SHIPS_ZOLTAN_FIGHT">
 	<destroyed load="DUSK_TEAMUP_ZOLTAN" />
@@ -11734,10 +11731,6 @@
 			</event>
 		</choice>
 	</deadCrew>
-	<crew>
-		<crewMember type="zoltan" prop="0.8" />
-		<crewMember type="zoltan_devotee" prop="0.2" />
-	</crew>
 </ship>
 
 <ship name="SHIP_DISTRESS_SEARCH_REBEL" auto_blueprint="LIST_SHIPS_REBEL_FIGHT">

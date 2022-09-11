@@ -886,6 +886,7 @@
 </event>
 <event name="STORE_LOAD_AUTO">
 	<store>STORE_AUTO</store>
+	<ship hostile="false" />
 	<text>あなたが買い物をする前に、あなたはまだ船に乗って何か他のことをする時間があります。</text>
 	<choice>
 		<text>船に乗って何かする。</text>
@@ -1541,9 +1542,9 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>ゾルタンと取引してください。</text>
+		<text>ゾルタンと取引する。</text>
 		<event>
-			<text>ゾルタンは行動規則の長いリストを読み上げてから、彼の商品を閲覧できるようにします。</text>
+			<text>ゾルタンの船長は、行動規則の長いリストを読み上げてから、彼の商品を閲覧させます.</text>
 			<ship load="SHIP_ZOLTAN_GENERIC" hostile="false" />
 			<choice hidden="true">
 				<text>店。</text>
@@ -2038,7 +2039,7 @@
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>お店を探し続けてください。</text>
+						<text>お店を探し続ける。</text>
 						<event>
 							<text>店内を見ると、惑星に暗い雲が降りてきます。小惑星の嵐が月を飲み込みましたが、幸いなことに、大きなものは水面にぶつかる前に燃え尽きます。とにかく、まだ去るという選択肢はありません。あなたは待って、かなりの時間を失います。</text>
 							<modifyPursuit amount="1" />
@@ -2068,9 +2069,19 @@
 				</event>
 			</choice>
 			<choice req="LIST_CREW_SLUG" hidden="true">
-				<text>（スラッグのクルー）スラッグは市民の間で苦痛を感じます。彼は私たちが急ぐように忠告します。</text>
+				<text>(Slug Crew) あなたの Slug は市民の苦痛を感じます。彼らは私たちが急いでいると忠告しています。</text>
 				<event>
 					<text>あなたのスラッグが提供する知識で、あなたは小惑星の嵐がすぐに襲うであろうことを測ることができます。あなたはすぐに店に急いで行き、必要なものを手に入れて、嵐が襲う前に去ります。</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="STORE_LOAD_GENERIC" />
+					</choice>
+				</event>
+			</choice>
+			<choice req="BLUELIST_CREW_SNAIL" hidden="true">
+				<text>(テレパシー シェル) あなたのシェルは市民の苦痛を感知します。彼らは私たちが急いでいると忠告しています。</text>
+				<event>
+					<text>シェルが提供する知識があれば、小惑星の嵐が間もなく襲ってくることを予測できます。あなたは急いで店に入り、必要なものを手に入れ、嵐が来る前に店を出ます。</text>
 					<choice hidden="true">
 						<text>継続する...</text>
 						<event load="STORE_LOAD_GENERIC" />
@@ -2122,7 +2133,11 @@
 			<text>オートシップは、あなたを登録済みの連邦船として認識し、その取引メニューを開きます。</text>
 			<store>STORE_NOCREW</store>
 			<choice>
-				<text>店。</text>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
 				<event />
 			</choice>
 			<choice req="LIST_CREW_HARMONY">
@@ -2734,7 +2749,7 @@
 	<beaconType id="map_icon_store_monk" global="false">
 		<color r="215" g="255" b="200" a="1" />
 	</beaconType>
-	<text>地元の市場はゾルタンが運営しており、十分に保護されているようです。その周りには、聖職者の一部として年金を徴収している数人の僧侶がいます。船の1つがあなたを呼ぼうとしています。</text>
+	<text>地元の市場は Zoltan によって運営され、十分に保護されているようです。その周りには、聖職者の一部として年金を受け取っている僧侶が何人かいます。船の 1 つがあなたに電話をかけようとしています。</text>
 	<ship load="SHIP_MONK" hostile="false" />
 	<choice hidden="true">
 		<text>僧侶を無視して市場を訪れてください。</text>
@@ -2761,7 +2776,7 @@
 				<text>それらに十分な量のスクラップを与えます。</text>
 				<event load="STOREEVENT_ZOLTAN_MONK_DONATE" />
 			</choice>
-			<choice hidden="true" req="zoltan_monk">
+			<choice hidden="true" req="LIST_CREW_MONK">
 				<text>（僧侶クルー）「私たちはあなたと同じように僧侶です。共有するものは何もありませんが、良い気持ちです。」</text>
 				<event load="STOREEVENT_ZOLTAN_MONK_CREW" />
 			</choice>
@@ -2861,7 +2876,7 @@
 	</beaconType>
 	<text>孤独なゾルタン商船がビーコンであなたを待っています。そのクルーはあなたに簡単なメッセージを送ります：「私たちは販売可能な軍用品を持っています。」</text>
 	<ship load="SHIP_ZOLTAN_TRANSPORT" hostile="false" />
-	<choice hidden="true">
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>ドック。</text>
 		<event>
 			<text>あなたがドッキングするとすぐに、ゾルタン軍の警備員の群れがあなたのクルーをつかみ、彼らを地面に固定します。警備員の1人がスキャナーを引き出し、分析を開始します。</text>
@@ -2880,6 +2895,16 @@
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>ドック。</text>
+		<event>
+			<text>ゾルタンは、完全に自動化された船が彼らとドッキングしているのを見て困惑しています。警備員の 1 人がスキャナーを取り出して調査を開始しますが、最終的には取引を許可されます。</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="STORE_LOAD_ZOLTAN" />
 			</choice>
 		</event>
 	</choice>
@@ -2918,7 +2943,7 @@
 		<choice hidden="true">
 			<text>彼らにあなたのクルーを連れて行かせてください。</text>
 			<event>
-				<text>ゾルタンはあなたのクルーを引きずります。 「私のより良い判断に反して、あなたはまだここで買い物をすることが許されます。逃亡者を抱えているあなたを再び捕まえさせないでください、分かりますか？」</text>
+				<text>ゾルタンはあなたの乗組員を引きずります。 「私の判断に反して、あなたはまだここで買い物をすることを許されます。あなたが逃亡者をかくまうのを二度と捕まえさせませんよね？」</text>
 				<choice hidden="true">
 					<text>継続する...</text>
 					<event load="STORE_LOAD_ZOLTAN" />
@@ -3098,7 +3123,7 @@
 		<event>
 			<text>「ああ...それは何日も炎上している。私たちは自分たちが持っているものでそれを抑えるためにできる限りのことをした...それはそれほど多くない...」</text>
 			<choice req="FIRE_EXTINGUISHERS" hidden="true">
-				<text>（防火サプレッサー）サプレッサーを使用してください。</text>
+				<text>(消火器) サプレッサーを使用してください。</text>
 				<event>
 					<text>幸いなことに、この状況ではあなたの技術が適切であることがわかります。あなたは、オーキドゥがそれを世話することができるように、市場のより小さな領域に火を封じ込めることができます。彼らはあなたに感謝の意を表します、そしてもちろん市場はまだ訪問するために開いています。</text>
 					<autoReward level="HIGH">standard</autoReward>
@@ -3305,7 +3330,7 @@
 			</choice>
         </event>
     </choice>
-    <choice req="ORCHID_KIDS">
+    <choice hidden="true" req="ORCHID_KIDS">
         <text>（オーキドゥの子供たち）彼にこの「アーティファクト」を売ってください。</text>
         <event>
             <text>クリスタルは興奮して上下にジャンプします。 「おお、私は子供の死体の山が価値が高いとは思っていませんでした！私のものよりも倫理的な羅針盤が大きいものが心配かもしれませんが、私はこれらを手頃な価格で購入します！」</text>
@@ -3472,7 +3497,7 @@
 		</choice>
 	</event>
 	<event>
-		<text>クリスタルの檻が絶望して見つめている間、あなたは乗り込んで、ゴミの火の周りに群がっている海賊のバンドを見つけるだけです。あなたが近づくとすぐに、海賊は彼らの銃を引きます。 「あなたは一体誰なのか、身元を明かしてください！」</text>
+		<text>あなたが船に乗り込むと、海賊の一団がゴミの火の周りに群がり、クリスタルの檻が絶望的に見えます。あなたが近づくとすぐに、海賊は銃を引きます。 「お前は何者だ、正体を明かせ！」</text>
 		<choice hidden="true">
 			<text>落ち着いて、私たちは取引するためにここにいます。</text>
 			<event>
@@ -5001,16 +5026,13 @@
 <ship name="SHIP_AUTO_STOREEVENT_VENDER" auto_blueprint="MU_AUTO_SUPPORT">
 	<surrender chance="0.5" min="3" max="4">
 		<text>突然ニュートラルになり、自動販売モードに入るため、船のスキャナーに大きなダメージを与えたようです。</text>
-		<ship hostile="false" />
 		<choice hidden="true">
 			<text>それと交換してください。</text>
 			<event load="STORE_LOAD_AUTO" />
 		</choice>
 		<choice hidden="true">
 			<text>撃ち続けろ！</text>
-			<event>
-				<ship hostile="true" />
-			</event>
+			<event />
 		</choice>
 	</surrender>
 	<destroyed load="DESTROYED_AUTO" />
@@ -5131,7 +5153,7 @@
 	<choice hidden="true">
 		<text>ダスクブリンガーを攻撃してください！</text>
 		<event>
-			<text>ダスクブリンガーはあなたの敵です。彼らが他のゾルタンに開かれているかどうかは関係ありません-彼らはまだファシストであり外国人嫌いです、そしてそれはあなたの本で彼らの死を正当化するのに十分です。</text>
+			<text>ダスクブリンガーはあなたの敵です。彼らが他のゾルタン人に心を開いているかどうかは問題ではありません。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
 				<text>継続する...</text>
@@ -5211,7 +5233,7 @@
 	<choice hidden="true" req="LIST_CREW_ZOLTAN">
 		<text>（ゾルタンクルー）あなたのクルーはルールを理解しています。</text>
 		<event>
-			<text>ゾルタンはこういうことを早く理解するために育てられています。ルールの100ページのリストをざっと読むだけで、必要なすべてのことを理解できます。幸い、彼らの知識は報われます。</text>
+			<text>ゾルタンは、この種のことをすぐに理解できるように育てられています。 100 ページに及ぶルールのリストをざっと読むだけで、必要なすべてのことを理解できます。幸いなことに、彼らの知識は役に立ちます。</text>
 			<store>STORE_DUSK</store>
 		</event>
 	</choice>
@@ -5934,6 +5956,13 @@
 					<modifyPursuit amount="-2" />
 				</event>
 			</choice>
+			<choice hidden="true" req="unique_dessius">
+				<text>(デシウス) 艦隊の手伝いを頼む。</text>
+				<event>
+					<text>驚いたことに、Yethrediは意味にもかかわらず、喜んでいます。 「終末の近づいて、私は一度フロントラインで悪魔と戦い、私が目撃した私の兄弟の多くは秋になりました。時が来たとき、彼らとの最後の戦いに立つことは私の名誉でした。あなたを助けてください。私は私たち全員を助けます。死神は私たちの比phor的な魂に慈悲を持っています。」</text>
+					<modifyPursuit amount="-2" />
+				</event>
+			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
@@ -6107,6 +6136,22 @@
 							<autoReward level="MED">standard</autoReward>
 						</event>
 					</choice>
+					<choice hidden="true" req="BLUELIST_CREW_SNAIL">
+						<text>(テレパシー シェル) 私たちのシェルは、船に乗っている人を感知します。それを調査します。</text>
+						<event>
+							<text>誰かが船上でテレポートしている間、商人があなたを失速させようとしていたようです。彼が終わる前にあなたは彼を捕まえ、彼はテレポートします。あなたは戦いを期待していますが、商人は何よりもおびえているようです。 「私は何もしていませんでした！私はええと...あなたに贈り物を持ってきました！はい、そうです！私を殺さないでください。</text>
+							<store>STORE_SLUG</store>
+							<autoReward level="MED">standard</autoReward>
+						</event>
+					</choice>
+					<choice hidden="true" req="LIFE_SCANNER">
+						<text>(ライフフォーム スキャナー) スキャナーが船内の活動を検知しました。それを調査します。</text>
+						<event>
+							<text>誰かが船上でテレポートしている間、商人があなたを失速させようとしていたようです。彼が終わる前にあなたは彼を捕まえ、彼はテレポートします。あなたは戦いを期待していますが、商人は何よりもおびえているようです。 「私は何もしていませんでした！私はええと...あなたに贈り物を持ってきました！はい、そうです！私を殺さないでください。</text>
+							<store>STORE_SLUG</store>
+							<autoReward level="MED">standard</autoReward>
+						</event>
+					</choice>
 				</event>
 			</choice>
 		</event>
@@ -6200,7 +6245,7 @@
 				<event>
 					<text>スラッグは一時停止し、時計を振り続けます。 「ええと、あなたは私にあなたのすべてのお金を与えて、それからあなた自身のflatulencccceで連邦国歌を演奏するつもりです！」</text>
 					<choice hidden="true">
-						<text>いいえ、私はそうではないと思います。</text>
+						<text>いいえ、そうは思いません。</text>
 						<event>
 							<text>スラッグはうなり声を上げます。 「あなたは私にあなたのお金のすべてを与え、そしてあなたはバレリーナのように踊るでしょう！」</text>
 							<choice hidden="true">
@@ -7054,6 +7099,14 @@
 		<event>
 			<text>密輸業者の中には、あなたを歓迎し、合法ではないサービスや商品を提供する人もいます。</text>
 			<store>STORE_PIRATE</store>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="hacking" lvl="3">
@@ -7063,14 +7116,7 @@
 			<autoReward level="HIGH">weapon</autoReward>
 		</event>
 	</choice>
-	<choice hidden="true" req="COMBAT_WEAPON_JAMMER">
-		<text>（ジャマーをターゲットにする）タレットをオフラインにします。</text>
-		<event>
-			<text>彼らを守るための砲塔がなければ、海賊は自分たちを守ることができません。最初はすべてが正常であるふりをして買い物をしますが、離れるときは、彼らがあなたの慈悲にかかっていることを明確にします。</text>
-			<autoReward level="LOW">weapon</autoReward>
-			<store>STORE_PIRATE</store>
-		</event>
-	</choice>
+	
 	<choice hidden="true">
 		<text>市場を奪ってみてください。</text>
 		<event>
@@ -7189,7 +7235,7 @@
 				</event>
 			</choice>
 			<choice>
-				<text>合成された思い出を持つクルーを購入します。</text>
+				<text>記憶が合成された乗組員を購入する。</text>
 				<event>
 					<crewMember amount="1" all_skills="2" />
 					<store>STORE_SHELL</store>
@@ -7362,7 +7408,7 @@
 </ship>
 
 <textList name="TEXT_TONYS">
-	<text>近づくと画面に広告が表示され、スリムで手入れの行き届いたリーチが描かれます。 「こんにちは、シニアさんです。トニーシニア、つまり！トニーズのオーナーです。HektarIndustriesとの新しいパートナーシップを発表したいと思います。ぜひお立ち寄りください！」あなたはずっと前にこの広告を見たことがあると誓います。これは間違いなく「真新しい」ものではなく、「Tony's」は大規模な小売チェーンです。何らかの理由で、彼らはこの同じ古代の広告をループしていますが、それはほとんど問題ではありません。</text>
+	<text>近づくと画面に広告が表示され、スリムで手入れの行き届いたリーチが描かれます。 「こんにちは、シニアさんです。トニーシニア、つまり！トニーズのオーナーです。Industriesとの新しいパートナーシップを発表したいと思います。ぜひお立ち寄りください！」あなたはずっと前にこの広告を見たことがあると誓います。これは間違いなく「真新しい」ものではなく、「Tony's」は大規模な小売チェーンです。何らかの理由で、彼らはこの同じ古代の広告をループしていますが、それはほとんど問題ではありません。</text>
 	<text>近くのステーションは「トニーズ」のようです。これは、リーチが所有する唯一の、マルチバースで最大の小売チェーンの1つです。通常の商品に加えて、これらの店は「園芸器具」と疑わしいラベルが付けられた軍用品を販売することで有名です。</text>
 	<text>地元のトニーの広告があなたのインターホンで再生されているようです。軍用兵器を提供するこのような大規模な小売チェーンを見つけるのは奇妙ですが、中古の臓器や売春婦も販売していることを考えると、それは場違いではありません。</text>
 	<text>「みなさん、こんにちは！地元のトニーに立ち寄ってください！ええと...ええと...来て立ち寄ってください！」説得力のない売り込みにもかかわらず、あなたはこれらの場所について聞いたことがあります。神秘的でとらえどころのないリーチの大物が所有する「トニーズ」は、マルチバースの最大の小売チェーンとして機能し、正当な理由があります。</text>
@@ -7464,7 +7510,7 @@
 	<loadEventList seeded="false" first="true" generate="true" default="DEBT_COLLECTOR_NORMAL">
 		<event name="DEBT_COLLECTOR_EASY" req="loc_loan_25" lvl="1" />
 		<event name="DEBT_COLLECTOR_NORMAL" req="loc_loan_50" lvl="1" />
-		<event name="DEBT_COLLECTOR_HARD" req="loc_loan_50" lvl="1" />
+		<event name="DEBT_COLLECTOR_HARD" req="loc_loan_100" lvl="1" />
 	</loadEventList>
 </event>
 
@@ -7620,8 +7666,10 @@
 	</choice>
 </event>
 <event name="DEBT_COLLECTOR_DEFEAT">
-    <text>「ああ、私はこれから抜け出せないのか？よくやった、レネゲード。まあ...遊んだ...」</text>
-    <variable name="loc_loan_any" op="set" val="0" />
+    <text>「ああ、私はこれから抜け出せないのですか？よくやった、レネゲード。よく...よくやった...」</text>
+	<variable name="loc_loan_25" op="set" val="0" />
+	<variable name="loc_loan_50" op="set" val="0" />
+	<variable name="loc_loan_100" op="set" val="0" />
 	<autoReward level="HIGH">standard</autoReward>
 	<augment name="ATM_MACHINE" />
 	<triggeredEvent name="ATM_CHECKER" event="ATM_MACHINE_WITHDRAW_CHECK" loops="999999999">
@@ -7703,9 +7751,9 @@
 <event name="TONY_COMICS" unique="true">
 	<text>たくさんの漫画本に注目しながら、店内を閲覧します。通常、あなたは彼らに注意を払わないでしょう-しかし、彼らは奇妙に見えます...架空のものではありません。あなたは、デボラク・ザ・デスレス、連邦のタリー提督、そして連邦-マンティス戦争の出来事の再話のような有名な人物の風味豊かな描写をキャッチします。あなたはそれらがあなたにとって価値があるとは思わないが、それらは少し楽しい読書かもしれない。</text>
 	<choice>
-		<text>Devorakの漫画本を購入します。</text>
+		<text>デボラックの漫画本を購入します。</text>
 		<event>
-			<text>Devorakの本の1つを手に取り、それをレジ係に持っていくと、他の買い物客から奇妙な外観がいくつか得られます。船に戻ったら、漫画本をめくって開きます。</text>
+			<text>デボラックの本の1つを手に取り、それをレジ係に持っていくと、他の買い物客から奇妙な外観がいくつか得られます。船に戻ったら、漫画本をめくって開きます。</text>
 			<hiddenAug>COMIC_DEVORAK</hiddenAug>
 			<item_modify>
 				<item type="scrap" min="-1" max="-1" />
@@ -7794,6 +7842,10 @@
 			</choice>
 			<choice hidden="true" req="LIST_CREW_SLUG">
 				<text>（スラッグのクルー）子供を追跡します。</text>
+				<event load="TONY_CHILD_FOUND" />
+			</choice>
+			<choice hidden="true" req="BLUELIST_CREW_SNAIL">
+				<text>(テレパシー シェル) 子供を追跡します。</text>
 				<event load="TONY_CHILD_FOUND" />
 			</choice>
 			<choice hidden="true" req="ADV_SCANNERS">
@@ -7893,7 +7945,7 @@
 					<choice hidden="true">
 						<text>シンジケートはトニーに何を望んでいますか？</text>
 						<event>
-							<text>「Dunno、でもHektarと関係があると思います。見てみましょう。もう2つのビッグネームしか縛られていません。グレープバインの下で、ヴァエルはヘクタルが彼に資産をつかむ言い訳をすることを望んでいたということです。もしそうなら、シニア氏は彼の邪魔に立っている唯一のものです。しかし、それは単なる教育を受けた推測です。警備員！」</text>
+							<text>「Dunno、でもと関係があると思います。見てみましょう。もう2つのビッグネームしか縛られていません。グレープバインの下で、ヴァエルはヘクタルが彼に資産をつかむ言い訳をすることを望んでいたということです。もしそうなら、シニア氏は彼の邪魔に立っている唯一のものです。しかし、それは単なる教育を受けた推測です。警備員！」</text>
 							<choice hidden="true">
 								<text>トニーを救出します。</text>
 								<event load="TONY_HQ_ANGEL" />
@@ -7961,6 +8013,7 @@
 <event name="TONY_HQ_SAVE">
 	<text>奇妙な海賊船が敗北した。あなたはその残骸をスクラップします。</text>
 	<autoReward level="HIGH">item</autoReward>
+	<variable name="loc_angels_killed" op="add" val="1" />
 	<choice hidden="true">
 		<text>継続する...</text>
 		<event>
@@ -8004,7 +8057,7 @@
 													<autoReward level="HIGH">stuff</autoReward>
 												</event>
 											</choice>
-											<choice hidden="true" req="symbiote">
+											<choice hidden="true" req="unique_symbiote">
 												<text>（シンビオート）「この7年間悲惨だったのはあなただけではありません。」</text>
 												<event>
 													<text>「私の神...リグ？それはあなたですか？お元気ですか？」何が起こっているのかわかりませんが、トニーは説明します。 「7年前、トニーズは共和国だけの小さなチェーンで、かなり小さいものでした。ズルフィカルの商品を売って状況を変えたいと思っていました。どこからともなくスラッグ船が到着したとき、リグと会って条件について話し合いました。心が私をコントロールしてリグの...ええと...嫌いな人を突き刺しました。外科医は状況にどう対処するかわかりませんでした。私たちは3年間そのように暮らし、一緒に立ち往生しました。私は生き残るためにリグの廃棄物を食べることを余儀なくされました。私たちは私たちを引き離すことができる専門家を見つけましたが、私たちのどちらかを永続的なトラウマから救うには遅すぎました。」</text>
@@ -8060,11 +8113,11 @@
 	<choice hidden="true" req="SYMBIOTE_AND_TONY" lvl="1" max_group="0" blue="false">
 		<text>トニーとリグとのアプローチ。</text>
 		<event>
-			<text>あなたはスラッグを呼び、トニーとリグを画面に置きます。 「あなたは米国に会うことを期待していなかったでしょう！私たちはついにあなたを見つけました、そして今、あなたはこれが何であるかをついに私たちに話す時が来ました。」</text>
+			<text>スラグを歓迎し、トニーとリグを画面に表示します。トニーは舌をテーブルに叩きつけ、ついに復讐の準備が整いました。 「あなたは腐った、卑劣なスライム ボールです。この間ずっと私- 私たちはついにあなたに追いつきました!今、あなたはこのすべての要点が何であるかを最終的に説明するつもりです!」</text>
 			<choice hidden="true">
 				<text>応答を待ちます。</text>
 				<event>
-					<text>スラッグキャプテンは完全に混乱しているように見えますが、すぐに何が起こっているのかを理解します。 「おおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおお！ HAHAHAH！あなた-あなたは本当にthisss wasss sssome grand ssscheme？Sssome epic plot？HAHAHAHAH！NO！それは純粋なcoincccidenccceでした！ ！HAHAHAH！へぇ...」</text>
+					<text>スラグ船長は完全に混乱しているように見えますが、すぐに何が起こっているのかを理解します. 「ああ、ああ！それはあなたです！はははははは！はあああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ！ なんてこった！ これは面白い！個人的なことは何もありませんよね? 昔、スーツとネクタイ姿のこの sssssstrange Ssslug から連絡がありました。</text>
 					<choice hidden="true">
 						<text>それらを攻撃します。</text>
 						<event>
@@ -8105,6 +8158,7 @@
 </event>
 <event name="BUTT_BUDDIES_REVENGE">
 	<text>戦闘中に2つの主要なスラッグが脱出ポッドで逃げたようですが、逃げる前にすばやくすくい上げます。あなたは彼らを船に戻し、彼らをどうするかを検討します。リグとトニーは両方とも1つの簡単な罰を提案します-彼ら自身の薬で彼らを治療してください。</text>
+	<achievement>ACH_EVENT_BUTTBUDDIES</achievement>
 	<choice hidden="true">
 		<text>同意。</text>
 		<event>
@@ -8194,7 +8248,7 @@
 			<choice hidden="true">
 				<text>いいえ、どうですか。</text>
 				<event>
-					<text>「あぁ...男よ... 一発で分かる とにかく、このアカウントは無料なんです。アカウントを作成すると、U.W.U.ポイントが1ポイントもらえます。Hektarのマーケットに行くたびに、買い物をする前にU.W.U.ポイントを集めることを忘れないでください。4ポイント集めると、カスタマーリワードプログラムに参加することができます。スラッグはU.W.U.ポイントを私たちのアカウントに転送してくれました。"さあ、何か買うか、損するかだ」</text>
+					<text>「あぁ...男よ... 一発で分かる とにかく、このアカウントは無料なんです。アカウントを作成すると、U.W.U.ポイントが1ポイントもらえます。のマーケットに行くたびに、買い物をする前にU.W.U.ポイントを集めることを忘れないでください。4ポイント集めると、カスタマーリワードプログラムに参加することができます。スラッグはU.W.U.ポイントを私たちのアカウントに転送してくれました。"さあ、何か買うか、損するかだ」</text>
 					<choice hidden="true">
 						<text>継続する...</text>
 						<event load="UWU_POINT" />
@@ -8271,7 +8325,7 @@
 			<choice hidden="true">
 				<text>いいえ、どうですか。</text>
 				<event>
-					<text>「あぁ...男よ... 一発で分かる とにかく、このアカウントは無料なんです。アカウントを作成すると、U.W.U.ポイントが1ポイントもらえます。Hektarのマーケットに行くたびに、買い物をする前にU.W.U.ポイントを集めることを忘れないでください。4ポイント集めると、カスタマーリワードプログラムに参加することができます。スラッグはU.W.U.ポイントを私たちのアカウントに転送してくれました。"さあ、何か買うか、損するかだ」</text>
+					<text>「あぁ...男よ... 一発で分かる とにかく、このアカウントは無料なんです。アカウントを作成すると、U.W.U.ポイントが1ポイントもらえます。のマーケットに行くたびに、買い物をする前にU.W.U.ポイントを集めることを忘れないでください。4ポイント集めると、カスタマーリワードプログラムに参加することができます。スラッグはU.W.U.ポイントを私たちのアカウントに転送してくれました。"さあ、何か買うか、損するかだ」</text>
 					<choice hidden="true">
 						<text>継続する...</text>
 						<event load="UWU_POINT" />
@@ -8321,7 +8375,7 @@
 	</choice>
 </event>
 <event name="HEKTAR_COORDS_GET_1">
-	<text>ヘクタールの従業員は、驚いて立ち止まると、あなたのポイントを追加しに行きます。 「え？あなたは実際に4ポイントに達しました...あなたは脳に損傷がありますか？なぜあなたはsssso多くのsssstoresを訪問するのですか？ええと、何でも。おめでとうございますssss。これがHektarMega-Market（tm）へのsssshinyキーです。責任か何か。」彼らはあなたのアトラスのためにいくつかの特別なコーディネートを送ったようです。連邦首都の前のセクタージャンプ中にそこに旅行することができます。</text>
+	<text>ヘクタールの従業員は、驚いて立ち止まると、あなたのポイントを追加しに行きます。 「え？あなたは実際に4ポイントに達しました...あなたは脳に損傷がありますか？なぜあなたはsssso多くのsssstoresを訪問するのですか？ええと、何でも。おめでとうございますssss。これがMega-Market（tm）へのsssshinyキーです。責任か何か。」彼らはあなたのアトラスのためにいくつかの特別なコーディネートを送ったようです。連邦首都の前のセクタージャンプ中にそこに旅行することができます。</text>
 	<variable name="loc_uwupoint" op="add" val="1" />
 	<choice hidden="true">
 		<text>継続する...</text>
@@ -8630,6 +8684,58 @@
 </eventList>
 
 	
+<event name="STOREEVENT_NNNN">
+	<beaconType id="map_icon_nnnn" global="false">
+		<color r="215" g="255" b="200" a="1" />
+		<unvisitedTooltip>Something is off about this beacon.</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<preventQuest />
+	<text>奇妙なビーコンに誘われて、すぐに異常なことは何も見えなくなります。ハッカーによって仕掛けられたある種の罠、またはもっと悪い何かに注意して、近くのステーションに近づきます。それはあなたに電話をかけようとはしませんし、船内での活動は検出できません。</text>
+	<ship load="SHIP_STATION_GENERIC" hostile="false" />
+	<choice hidden="true">
+		<text>ステーションに連絡する。</text>
+		<event>
+			<text>ステーションに何度か電話をかけようとしますが、応答がありません。彼らはあなたの連絡を決してブロックしないので、耳が聞こえないように聞こえます.あきらめようとしているところに、ついに反対側から迎えに来ます。 「え？ え？ 駅長さん、うたた寝から起きたみたいにぼんやりしてるの。どうしたの？大丈夫？」</text>
+			<choice hidden="true">
+				<text>なぜあなたはたくさんのNを放送しているのですか？</text>
+				<event>
+					<text>「な、なに言ってるの？」駅長が隣のモニターに映る何かをちらりと見ると、目を見開く。 「ああ…クソ。Nキーで寝落ちした！くそー、これで訴えられるぞ！頼む、誰にも言わないでくれ！お金を払って黙ってろ」</text>
+					<choice hidden="false">
+						<text>賄賂を受け取ります。</text>
+						<event>
+							<text>「まあ、これは非常に恥ずかしいことです。このことは誰にも言わないでください。正直に言って、罰金以上のことでからかわれるのが怖いです。」</text>
+							<autoReward level="HIGH">standard</autoReward>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>代わりに取引するものはありますか？</text>
+						<event>
+							<text>「ええと、そうです。私たちは結局のところ、市場であり、... 「NNNNNNNN」ではありません。</text>
+							<store>STORE_STANDARD</store>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>まだできるうちに離れてください。</text>
+		<event>
+			<text>ここでトラップが待っているかどうかはわかりませんが、知りたくありません。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
 <eventList name="STORELIST_CIVILIAN">
 	<event load="STOREEVENT_ALIENS" />
 	<event load="STOREEVENT_OUTPOST" />
@@ -9085,6 +9191,101 @@
 </eventList>
 
 	
+<event name="STOREEVENT_SECTOR_DUSK_SEARCH" unique="true">
+    <preventQuest />
+	<beaconType id="map_icon_store_zoltan" global="false">
+		<color r="215" g="255" b="200" a="1" />
+	</beaconType>
+	<text>一見普通の魔法省のマーケットプレイスがループストアメッセージをブロードキャストしています。近づくと、退屈と緊張が入り混じっているように見えますが、あなたが知る限り、どの船も入港を歓迎しています。ダスクブリンガーの宇宙の奥深くにいることを考えると、それだけの価値はありますか?</text>
+    <choice hidden="true">
+        <text>ドック。</text>
+        <event>
+            <text>幸運なことに、停泊して市場を散歩している間、Duskbringers はあなたを追いかけませんが、廊下をパトロールしているいくつかの連隊に気づきます.また、変装した連邦準備制度理事会であることがわかる奇妙なグループのそばをたまたま通過します。彼らのカバーが吹き飛ばされた場合、それはあなたにとって悲惨なことになる可能性がありますが、あなたにできることはあまりありませんが、他に何も起こらないことを願っています.</text>
+            <store>STORE_ZOLTAN</store>
+			<jumpEvent loop="false">STOREEVENT_SECTOR_DUSK_SEARCH_LEAVE</jumpEvent>
+        </event>
+    </choice>
+    <choice>
+        <text>店を避けてください。</text>
+        <event>
+            <text>ドッキングするリスクを冒す価値はありません。何らかのトラップがある場合に備えて、ステーションから離れます。</text>
+            <choice>
+                <text>船に乗って何かする。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>何もしない。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+<eventList name="STOREEVENT_SECTOR_DUSK_SEARCH_LEAVE">
+	<event />
+	<event>
+		<text>出発の準備をしていると、多数のサイレンが聞こえ、非常に脅威的なエリートの Duskbringer 船が姿を現します。徹底的に武装したダスクブリンガー中隊が駆けつけ、強制検査のために全員をステーションの中央に連れて行くように命じます。</text>
+		<resetFtl />
+		<ship load="SHIP_DUSK_ELITE_FIGHT" hostile="false" />
+		<choice hidden="true">
+			<text>検査のために報告します。</text>
+			<event>
+				<text>あなたとあなたの乗組員は、兵士や他の市民の後を追ってステーションの中心部に向かいます。まばゆいばかりのメダルやその他の著名な賞のセットを身に着けているゾルタンは、さまざまな群衆の前を行ったり来たりしながら、手に電気バトンを振っています。 「よし、聞いてくれ! 司令部は、連邦の関係者がこのステーションに乗り込んだという知らせを受け取った! 連邦は私たちの土地を汚し、ゾルタン種族が実現するために懸命に働いてきた夢を台無しにするために来た!」群集はざわめき、不審な目が群集に飛び交う。あなたが発見された場合、これは厄介なことになる可能性があります-しかし、彼らはあなたが市場で以前に見たグループを探している可能性があります.</text>
+				<choice hidden="true">
+					<text>バスの下に他の連邦政府を投げます。</text>
+					<event>
+						<text>あなたは前に出て、他のグループを指さします。騒ぎが起こり、FRB は他に選択肢がなく、武器を抜いて自分たちの立場を維持しようとします。明らかに、彼らは戦闘集団ではありませんでした。なぜなら、彼らは逮捕されるまでにそれほど長くは続かなかったからです。ダスクブリンガーの船長があなたに向かってうなずきます。 「善良な市民の皆様、ありがとうございます。ふふっ。より良い銀河を作る手助けをするために、報酬が用意されるべきだと思います! 連邦と一緒に、Zoltan レースに栄光を永遠に与えてください!」</text>
+						<autoReward level="MED">stuff</autoReward>
+					</event>
+				</choice>
+				<choice hidden="true">
+					<text>他のグループを救うために自分自身を明らかにします。</text>
+					<event>
+						<text>これらの他の連邦準備制度理事会が誰であるか、または彼らが何のためにここにいるのかはわかりませんが、彼らのために立ち上がる価値があると判断します.あなたは前に出てブラスターを抜き、ダスクブリンガーに向けて発砲します。群衆が逃げるとき、あなたは連邦政府が船に戻って無事に離陸する前に気づきました。この善行が長続きすることを願うだけです。</text>
+						<modifyPursuit amount="-1" />
+						<ship hostile="true" />
+						<choice hidden="true">
+							<text>継続する...</text>
+							<event load="MORALITY_REMOVE_GENERAL_FIGHT" />
+						</choice>
+					</event>
+				</choice>
+				<choice hidden="true">
+					<text>黙って何が起こるか見てください。</text>
+					<event load="SECTOR_DUSK_SEARCH_WAIT" />
+				</choice>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>逃げようとする。</text>
+			<event>
+				<text>このように急いで準備不足の行動をとった場合、発見される前にそれほど遠くまで行かないのは当然のことです.あなたの人生のために戦う準備をしてください！</text>
+				<ship hostile="true" />
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+				</choice>
+			</event>
+		</choice>
+		<choice hidden="true" req="cloaking" lvl="2">
+			<text>(Upg. Cloaking) クロークして逃げる。</text>
+			<event />
+		</choice>
+	</event>
+</eventList>
+<eventList name="SECTOR_DUSK_SEARCH_WAIT">
+	<event>
+		<text>誰も前に出たり、情報を提供したりしないと、ダスクブリンガーは物理的な検索に頼らざるを得なくなります。彼らは島を行き来し、箱をひっくり返し、ポケットを空にし、人々をからかいます。シーンはすぐに大騒ぎになり、完全な暴動にならない唯一の理由は、警備員の周りの爆弾ベストです.最終的に、他の連邦政府が発見され、その場で逮捕されます。発見に満足した Duskbringers は、乗組員を含む全員を解放しました。かろうじて出たようです。</text>
+	</event>
+	<event>
+		<text>誰も前に出たり、情報を提供したりしないと、ダスクブリンガーは物理的な検索に頼らざるを得なくなります。彼らは島を行き来し、箱をひっくり返し、ポケットを空にし、人々をからかいます。シーンはすぐに大騒ぎになり、完全な暴動にならない唯一の理由は、警備員の周りの爆弾ベストです.最終的に、Duskbringers はあなたの乗組員に向かいます。他に選択肢がないので、武器を抜いて戦いの準備をします。</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+		</choice>
+	</event>
+</eventList>
+
 <eventList name="STORELIST_DUSK">
 	<event load="STOREEVENT_ALIENS" />
 	<event load="STOREEVENT_DAMAGED" />
@@ -9101,6 +9302,8 @@
 	<event load="STOREEVENT_REBEL_FRIENDLY" />
 	
 	<event load="STORE_HOSTILE_REBEL" />
+	
+	<event load="STOREEVENT_SECTOR_DUSK_SEARCH" />
 </eventList>
 
 	
@@ -9805,7 +10008,7 @@
 	<text>軽い小惑星のフィールドが近くの惑星の大気に侵入しています-銀河系の花火ショー。それにはほとんど何もありませんが、雰囲気を取り入れて次のジャンプをプログラムすることです。</text>
 	<text>あなたは戦闘訓練をしているいくつかのゾルタン軍の船に出くわしました。彼らのエネルギーシールドは印象的ですが、ビームとイオン兵器がどれほど速くそれらを破壊するかに気づきます。</text>
 	<text>ビーコンで待っていたゾルタン船が飛び去る前に呼び出す時間はない。彼らは慎重な種族だ。</text>
-	<text>ゾルタン造船所がこのビーコンに配置されています。あなたは、巨大な輸送船で繊細な外装作業を行っている何百もの輝くゾルタンの展示に感心します。</text>
+	<text>ゾルタン造船所がこのビーコンに配置されています。巨大な輸送船で精巧な外装作業を行う何百もの光るゾルタンの展示に感心します。</text>
 	<text>近くの惑星から放送されたメッセージは、訪問可能な古代のゾルタン修道院の存在を知らせています。たぶん単なる観光客の罠ですが、それでも残念ながらあなたは訪れる時間がありません。</text>
 </textList>
 
@@ -10108,7 +10311,7 @@
 	<text>Rock Eldersは、すべてのシステムを非常に厳しく監視しています。彼らの権威主義的な方法は、近くのシステムに非常に悪い影響を及ぼしたようです。なぜなら、歩き回っている船は1隻もないからです。</text>
 	<text>このセクターでのあなたの存在は犯罪ですが、ロック船はあなたを止めません。数人の民間人が飛び降りる前に長居しますが、あなたは邪魔されません。</text>
 	<text>ここで空のビーコンを見つけるのは奇跡です。このビーコンは、このセクターをパトロールする残忍な執行者や敵対的な市民から解放されています。</text>
-	<text>ユニバース0からのロック異端審問の多くの話を思い出すことができませんが、恐ろしく激しい戦争がロック人口にひどい因果関係を持っていたことは確かです。このビーコンは、すべての生命を神経質に空けており、それが長老たちの連邦以前の年の熱狂の結果であるかどうかだけ疑問に思うことができます。</text>
+	<text>ユニバース 0 のロックの異端審問の話を思い出すことはあまりできませんが、恐ろしく暴力的な戦争がロックの人口にひどい犠牲者を出したことは確かです。このビーコンには恐ろしいほどすべての生命体が存在せず、連邦化以前のエルダーズ時代の戦争挑発の結果ではないかと考えることしかできません。</text>
 	<text>ロックパトロールはビーコンの周りを周回しますが、幸いなことに彼らはかなりのんびりしているように見えます。彼らはあなたを歓迎します、「あなたもそうしないかどうかはわかりません」。</text>
 	<text planet="PLANET_POPULATED">岩の集落は遠くにありますが、彼らはどんな呼びかけにも反応することを拒みます。ロックマンの頑固さに対抗できるものは何もないので、このビーコンは空の場合もあります。</text>
 </textList>

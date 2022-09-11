@@ -36,7 +36,7 @@
 	<event load="FUEL_EXPLORE" />
 	<event load="FUEL_APPROACH" />
 	<event load="FUEL_OFF_ENGI_DUBIOUS" />
-	<event load="FUEL_OFF_ROCK_WRECK" />
+	<event load="FUEL_ROCK" />
 	
 	<event load="NO_FUEL_REFUGEE_FRIENDLY" />
 </eventList>
@@ -107,7 +107,7 @@
 <textList name="FUEL_TRADER_TEXT_LIST">
 	<text>商船がこのセクターに飛び込み、あなたはすぐに彼らを呼んで助けを求めます。彼らは、「おそらく私たちは交換を行うことができるでしょう...」と答えます。</text>
 	<text>多くの船がこのセクターを通過します。あなたはそれぞれにあなたのメッセージを中継し、そして1人が最終的に応答します。 「私は今はあまり助けられませんが、おそらく私たちは取引することができます。」</text>
-	<text>近くの集落はあなたの方向に小さな船を送ります。それは距離を保ち、あなたを歓迎します。「私たちはあなたに価格で燃料を与えることができます。ただ急いで何もすることを考えないでください。私たちは私たちの基地にテレポーターと私たちを守る準備ができているチームを持っています。</text>
+	<text>近くの集落があなたの方向に小さな船を送ります。それは距離を保ち、あなたに呼びかけます。</text>
 	<text>商船の大きなキャラバンがあなたの位置の近くにジャンプします。機会を感じて、1隻の船が艦隊から離脱して交換を提供します。</text>
 	<text>改造されたYT-1300貨物船は、あなたのセクターの近くのエリアにジャンプします。あなたの腸は、これらの人々は密輸業者であるとあなたに言いますが、彼らは利他的であり、援助の申し出を提示しているようです。</text>
 </textList>
@@ -700,7 +700,7 @@
 	</event>
 </eventList>
 <event name="NO_FUEL_REFUGEE_PIRATE">
-	<text>反乱軍の前進を逃れた難民船が、あなたの遭難ビーコンを拾い上げてシステムに入ります。十分な燃料はありませんが、兵器の必要性は低く、それらと交換する用意があります。</text>
+	<text>反乱軍の前進を逃れた難民船が星系に入り、あなたの遭難ビーコンを拾いました。燃料はそれほど多くありませんが、武装が必要であり、喜んで交換します。</text>
 	<choice>
 		<text>燃料用のミサイルをいくつか提供します。</text>
 		<event load="NO_FUEL_REFUGEE_PIRATE_ACCEPT" />
@@ -828,7 +828,7 @@
 		</choice>
 	</event>
 	<event>
-		<text>エンギはあなたの信号に反応します。 「あなたの必要性：燃料。このユニットの必要性：スクラップ。交換は有益です。交換は許可されますか？</text>
+		<text>Engi はあなたの合図に反応します。 「あなたのニーズ: 燃料。このユニットのニーズ: スクラップ。交換は有益です。交換は許可されますか?」</text>
 		<choice>
 			<text>取引をします。</text>
 			<event>	
@@ -870,6 +870,13 @@
 	<text>マンティスの船が近くにジャンプします。センサーは武器のロックを検出し、戦いを回避するというすべての希望は消え去ります。</text>
 </textList>
 		
+
+<event name="FUEL_ROCK">
+	<loadEventList seeded="false" first="false" generate="true">
+		<event name="FUEL_OFF_ROCK_CURIOUS" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" />
+		<event name="FUEL_OFF_ROCK_WRECK" req="LIST_CHECK_ANY_CREW" lvl="1" />
+	</loadEventList>
+</event>
 
 <event name="FUEL_OFF_ROCK_WRECK">
 	<text>救いか死かを待つ間、スターボードビューポートを通り過ぎて漂う破片の海に注意が向けられます。遠くの戦争で全焼したロックフリゲート艦の船尾が見えるまで、滑走する塊のサイズは大きくなります。</text>
@@ -1058,7 +1065,7 @@
 	<choice hidden="true">
 		<text>オファーを無視します。</text>
 		<event>
-			<text>あなたは彼があなたが知らないことを知っているように見えるスラッグマンとビジネスをするよりもよく知っています。彼は別の笑い声で飛び降ります。</text>
+			<text>あなたが知らないことを知っているように見えるスラグと取引するよりも、あなたはよく知っています.彼は別の笑い声で飛び降ります。</text>
 			<choice>
 				<text>船に乗って何かする。</text>
 				<event load="STORAGE_CHECK" />
@@ -1073,6 +1080,16 @@
 		<text>（スラッグクルー）スラッグに購入してもらいます。</text>
 		<event>
 			<text>彼があなたのクルーを見るとすぐに、スラッグは彼の絶え間ない笑い声を止めます。 2つのスラッグの間でテレパシー的にどのような精神的な戦いが起こっているのか疑問に思いますが、交換はスムーズに進んでいるように見えます。</text>
+			<item_modify>
+				<item type="scrap" min="-15" max="-15" />
+				<item type="fuel" min="5" max="5" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice hidden="true" req="BLUELIST_CREW_SNAIL">
+		<text>(テレパシー シェル) シェルに購入してもらいます。</text>
+		<event>
+			<text>スラグはしばらく笑い続けますが、何かがおかしいことに気付くとすぐに止まります。交換は順調に進んでいるように見えますが、2 つの種の間でテレパシーでどのような精神的な戦いが起こっているのか疑問に思います。</text>
 			<item_modify>
 				<item type="scrap" min="-15" max="-15" />
 				<item type="fuel" min="5" max="5" />
@@ -1108,7 +1125,7 @@
 </eventList>
 
 <event name="FUEL_ON_SLUG_OVERPRICED">
-	<text>移動式のスラッグマン燃料貯蔵所がスキャン範囲に入ります。 「私の価格は公正ですが、私は一つのことを尋ねます-交渉で私を侮辱しないでください！」あなたは彼の価格表をチェックします。</text>
+	<text>移動式スラッグ燃料貯蔵庫がスキャン範囲に入る。 「私のお姫様は公正ですが、一つだけお願いがあります。交渉で私を侮辱しないでください!」あなたは彼の価格表をチェックします。</text>
 	<ship load="SHIP_SLUG_OVERPRICED" hostile="false" />
 	<choice hidden="false">
 		<text>50スクラップで5つの燃料を購入します。</text>
@@ -1133,7 +1150,7 @@
 	<choice hidden="true">
 		<text>交渉。</text>
 		<event>
-			<text>あなたはよりリーズナブルな価格を提供しますが、スラッグマンは憤慨しています！彼は攻撃するために移動します！</text>
+			<text>あなたはよりリーズナブルな価格を提示しましたが、スラグは激怒しています!彼は攻撃に移動します ！</text>
 			<ship hostile="true" />
 			<choice hidden="true">
 				<text>継続する...</text>

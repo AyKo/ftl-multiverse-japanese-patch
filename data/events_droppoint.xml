@@ -123,13 +123,25 @@ MVバージョン番号とハイパースペースバージョン番号</text>
 		<event load="FINISH_BEACON_DROPPOINT_ENCOUNTER_EXTREME" />
 	</choice>
 </event>
+
 <event name="NEBULA_FINISH_BEACON_DROPPOINT">
 	<text>ロングレンジビーコンに到着しました。 FTLドライブが充電されると、次のセクターにジャンプできます。</text>
 	<environment type="nebula" />
-	<ship load="SHIP_START_MULTIVERSE" hostile="true" />
-	<choice hidden="true">
+	<choice hidden="true" req="challenge_level" lvl="0" blue="false" max_group="0">
 		<text>継続する...</text>
-		<event load="FINISH_BEACON_DROPPOINT_ENCOUNTER" />
+		<event load="FINISH_BEACON_DROPPOINT_ENCOUNTER_CASUAL" />
+	</choice>
+	<choice hidden="true" req="challenge_level" lvl="1" blue="false" max_group="0">
+		<text>継続する...</text>
+		<event load="FINISH_BEACON_DROPPOINT_ENCOUNTER_NORMAL" />
+	</choice>
+	<choice hidden="true" req="challenge_level" lvl="2" blue="false" max_group="0">
+		<text>継続する...</text>
+		<event load="FINISH_BEACON_DROPPOINT_ENCOUNTER_CHALLENGE" />
+	</choice>
+	<choice hidden="true" req="challenge_level" lvl="3" blue="false" max_group="0">
+		<text>継続する...</text>
+		<event load="FINISH_BEACON_DROPPOINT_ENCOUNTER_EXTREME" />
 	</choice>
 </event>
 
@@ -544,19 +556,29 @@ MVバージョン番号とハイパースペースバージョン番号</text>
 		<choice>
 			<text>エンギスレーブを購入します。</text>
 			<event>
+				<text>あなたは奴隷を獲得し、奴隷商人が何らかの反則行為を行う前に素早く立ち去ります。</text>
 				<crewMember amount="1" class="engi" />
 				<item_modify>
-					<item type="scrap" min="-35" max="-45" />
+					<item type="scrap" min="-25" max="-35" />
 				</item_modify>
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="REPUTATION_UPDATE_SLAVER" />
+				</choice>
 			</event>
 		</choice>
 		<choice>
 			<text>マンティスの奴隷を購入します。</text>
 			<event>
+				<text>あなたは奴隷を獲得し、奴隷商人が何らかの反則行為を行う前に素早く立ち去ります。</text>
 				<crewMember amount="1" class="mantis" />
 				<item_modify>
-					<item type="scrap" min="-45" max="-55" />
+					<item type="scrap" min="-35" max="-45" />
 				</item_modify>
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="REPUTATION_UPDATE_SLAVER" />
+				</choice>
 			</event>
 		</choice>
 		<choice hidden="true">
@@ -569,19 +591,29 @@ MVバージョン番号とハイパースペースバージョン番号</text>
 		<choice>
 			<text>ロックスレーブを購入します。</text>
 			<event>
+				<text>あなたは奴隷を獲得し、奴隷商人が何らかの反則行為を行う前に素早く立ち去ります。</text>
 				<crewMember amount="1" class="rock" />
 				<item_modify>
-					<item type="scrap" min="-45" max="-55" />
+					<item type="scrap" min="-35" max="-45" />
 				</item_modify>
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="REPUTATION_UPDATE_SLAVER" />
+				</choice>
 			</event>
 		</choice>
 		<choice>
 			<text>オーキドゥスレーブを購入します。</text>
 			<event>
+				<text>あなたは奴隷を獲得し、奴隷商人が何らかの反則行為を行う前に素早く立ち去ります。</text>
 				<crewMember amount="1" class="orchid" />
 				<item_modify>
-					<item type="scrap" min="-40" max="-50" />
+					<item type="scrap" min="-30" max="-40" />
 				</item_modify>
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="REPUTATION_UPDATE_SLAVER" />
+				</choice>
 			</event>
 		</choice>
 		<choice hidden="true">
@@ -764,11 +796,21 @@ MVバージョン番号とハイパースペースバージョン番号</text>
 			<autoReward level="LOW">stuff</autoReward>
 		</event>
 	</choice>
-	<choice req="BLUELIST_MINING" hidden="true">
+	<choice req="BEAM_MINING" hidden="true">
 		<text>（採掘設備）小惑星の採掘を試みます。</text> 
 		<event>
 			<text>FTLが充電されるのを待っている間、最も近い小惑星からできるだけ多くの使用可能な材料を注意深く抽出します。</text>
 			<autoReward level="HIGH">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice req="BLUELIST_DRONES_BEAM" hidden="true">
+		<text>（ビームドローン）小惑星の採掘を試みます。 [-1ドローン]</text> 
+		<event>
+			<text>FTLが充電されるのを待っている間、最も近い小惑星からできるだけ多くの使用可能な材料を注意深く抽出します。</text>
+			<autoReward level="HIGH">scrap_only</autoReward>
+			<item_modify>
+				<item type="drones" min="-1" max="-1" />
+			</item_modify>
 		</event>
 	</choice>
 </event>
@@ -873,8 +915,8 @@ MVバージョン番号とハイパースペースバージョン番号</text>
 			</choice>
 		</event>
 	</choice>
-	<choice hidden="true" req="rock_commando">
-		<text>（ロスト・サンコマンドー）その場しのぎの爆発物を作る方法を彼らに教えることを申し出る。</text>
+	<choice hidden="true" req="LIST_CREW_LOSTSUN">
+		<text>(ロストサン クルー) 間に合わせの爆薬の作り方を教えると申し出る。</text>
 		<event>
 			<text>あなたのコマンドーは、経験豊富な放火犯であり、爆発物の方法に精通しているため、ロスト・サンがコストを節約するために「リサイクル」弾薬をどのように使用しているかを鉱夫に説明します。この知識に完全に感銘を受けたコロニーのリーダーは、最新の戦利品のいくつかへのアクセスを許可します。</text>
 			<autoReward level="MED">fuel</autoReward>
@@ -1051,7 +1093,7 @@ MVバージョン番号とハイパースペースバージョン番号</text>
 					</choice>
 				</event>
 			</choice>
-			<choice hidden="true">
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 				<text>クルーを貸して滞在し、彼らを支援します。</text>
 				<event>
 					<text>たった一人の男ですが、連盟の役員はあなたの決定の重要性を理解し、あなたの犠牲に対して多額の支払いをしているようです。</text>
@@ -1061,6 +1103,10 @@ MVバージョン番号とハイパースペースバージョン番号</text>
 						<text>彼らは死んでいないので、あなたのクルーはクローンすることができません。</text>
 					</removeCrew>
 				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+				<text>そもそも乗組員を持っていないため、乗組員を貸すことはできません。</text>
+				<event load="OPTION_INVALID" />
 			</choice>
 			<choice hidden="true">
 				<text>仕方がない。</text>
@@ -1154,10 +1200,13 @@ MVバージョン番号とハイパースペースバージョン番号</text>
 			</event>
 		</choice>
 		<choice hidden="true" req="BLUELIST_BOMBS_HEAL">
-			<text>（ヒーリングボム）フリーマンティスを復活させます。</text>
+			<text>(ヒーリング ボム) フリーマンティスを復活させます。 [-1ミサイル]</text>
 			<event>
 				<text>安全に生活の領域に戻ったら、フリーマンティスはあなたに拍手を送ります。 「想像を絶する戦闘機の閣下！私は一緒に来て、さらなる行動であなたに会わなければなりません。」</text>
 				<crewMember amount="1" class="mantis_free" />
+				<item_modify>
+					<item type="missiles" min="-1" max="-1" />
+				</item_modify>
 			</event>
 		</choice>
 	</deadCrew>
@@ -1270,9 +1319,13 @@ MVバージョン番号とハイパースペースバージョン番号</text>
 					</choice>
 				</event>
 			</choice>
-			<choice hidden="true">
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 				<text>支援するためにクルーのチームを送ります。</text>
 				<event load="DROPPOINT_PROTESTORS_CREW" />    
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+				<text>あなたが飛行している巨大な殺戮マシンは、現在、非致死的なアプローチで暴徒を処理するように装備されていません.</text>
+				<event load="OPTION_INVALID" />    
 			</choice>
 			<choice hidden="true">
 				<text>飛び去る。</text>
@@ -1320,7 +1373,7 @@ MVバージョン番号とハイパースペースバージョン番号</text>
 </eventList>
 <eventList name="DROPPOINT_PROTESTORS_CREW">
 	<event>
-		<text>あなたは紛争の真っ只中に船を着陸させます。誰も押しつぶさないように注意してください。あなたのクルーは出て、抗議者と状況について話し合います。彼らはなんとか暴力に訴えないように彼らを説得し、群衆はゆっくりと減少します。</text>
+		<text>誰も押しつぶさないように注意しながら、紛争の真っ只中に船を着陸させます。あなたの乗組員は退場し、抗議者と状況について話します。彼らはなんとか暴力に頼らないよう説得し、群衆はゆっくりと消えていきました。</text>
 	</event>
 	<event>
 		<text>状況は混沌としすぎて近くに船を着陸させることができないため、紛争のメインシーンから少し離れた場所で操縦し、クルーを降ろします。彼らは銃撃で完全に降下したものに引きずり込まれ、あなたのクルーの1人はブラスター火で胸にまっすぐにタグ付けされます！チームの他のメンバーに、すぐに船に戻るように命令します。</text>
@@ -1337,7 +1390,7 @@ MVバージョン番号とハイパースペースバージョン番号</text>
 </eventList>
 
 <event name="DROPPOINT_CRAZYZOLTAN" unique="true">
-	<text>コミュニケーターのブリップは、視野外のゾルタン船からの着信送信を示しています。あなたが拾うとき、あなたは「預言者の目の下でカウリングする」ことについて叫んでいる狂った狂人の歓迎されない音によって迎えられます。彼は祈りと捧げ物を要求します、さもなければ彼の怒りに苦しみます。</text>
+	<text>コミュニケーターのブリップは、視野外にあるゾルタン船からの着信通信を示しています。手に取ると、「預言者の目の前でうずくまっている」と金切り声を上げる熱狂的な狂人の歓迎されない音に迎えられます。彼は祈りと供物を要求するか、さもなければ怒りに苦しみます。</text>
 	<choice hidden="true">
 		<text>拒否する。</text>
 		<event load="DROPPOINT_CRAZYZOLTAN_REFUSE" />
@@ -1346,7 +1399,7 @@ MVバージョン番号とハイパースペースバージョン番号</text>
 		<text>彼に支払います。 [-20スクラップ]</text>
 		<event load="DROPPOINT_CRAZYZOLTAN_PAY" />
 	</choice>
-	<choice hidden="true" req="zoltan_monk">
+	<choice hidden="true" req="LIST_CREW_MONK">
 		<text>（モンククルー）さらに大きな精神的ナンセンスで報復する。</text>
 		<event>
 			<text>両方のゾルタンは長い議論を開始し、非常に熱くなり、最終的には翻訳者でさえ彼らが言っている言葉を理解できないようになります。それは主に、それらが言葉ではなく、ただ原始的な叫び声であるためです。あなたの僧侶が戻ってきて、2番目のゾルタンが議論の最中に死んだと報告し、質問をしないようにあなたに懇願します。あなたは彼の船をスクラップします。</text>
@@ -1757,9 +1810,13 @@ MVバージョン番号とハイパースペースバージョン番号</text>
 	</event>
 	<event>
 		<text>墜落した船は連邦ドレッドノート級戦艦のようです！まだクルーが生きているかもしれませんが、船は危機的な状態にあるようです。</text>
-		<choice hidden="true">
+		<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 			<text>クルーを救出してみてください。</text>
 			<event load="MV_CRASH_LANDING_INSPECT_FED_RESCUE" />
+		</choice>
+		<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+			<text>あなたの船に送ってくれる救世主はいません。</text>
+			<event load="OPTION_INVALID" />
 		</choice>
 		<choice hidden="true">
 			<text>手遅れです、行かなければなりません。</text>
@@ -1848,7 +1905,7 @@ MVバージョン番号とハイパースペースバージョン番号</text>
 		<store>STORE_STANDARD</store>
 	</destroyed>
 	<deadCrew>
-		<text>前哨基地はあなたを歓迎します。「ありがとう！反乱軍を怒らせるために私たちが何をしたかはわかりませんが、彼らは私たちを殺す準備ができていました。私たちの商品を見せて船体を修理します。</text>
+		<text>前哨基地はあなたを歓迎します。「ありがとう！反乱軍を怒らせるために私たちが何をしたかはわかりませんが、彼らは私たちを殺す準備ができていました。私たちの商品を見せて船体を修理します。」</text>
 		<autoReward level="MED">scrap_only</autoReward>
 		<damage amount="-5" />
 		<store>STORE_STANDARD</store>
