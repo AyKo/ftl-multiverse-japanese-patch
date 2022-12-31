@@ -93,7 +93,7 @@
 	<choice req="loc_anointed" lvl="0" max_group="0" hidden="true" blue="false">
 		<text>継続する...</text>
 		<event>
-			<text>あなたが到着するとすぐに、紫色のディテールが施された白いラニウスが彼女の大きな王位から立ち上がる。</text>
+			<text>あなたが到着するとすぐに、紫色のディテールが施された白いラニウスが彼女の大きな玉座から立ち上がる。</text>
 			<ship load="SHIP_AUGMENTED_ANOINTED" hostile="false" />
 			<choice>
 				<text>継続する...</text>
@@ -112,15 +112,15 @@
 						</event>
 					</choice>
 					<choice>
-						<text>彼女が最初にそれを何に使うつもりか尋ねてください。</text>
+						<text>まず、それを何に使うつもりか彼女に尋ねます。</text>
 						<event>
 							<text>「当然、食料だ。わらわの食事は、とても複雑なのだ。特に生きているものは手に入れるのが難しい。彼は旨いつまみになる。まあ、わらわは平民より王族の方が好きなのだがな..」</text>
 							<choice hidden="true">
-								<text>拒否します、私たちはこの生き物に別の生き物を食べさせるつもりはありません！</text>
+								<text>拒否します、私たちはこの古代生物を食べさせるつもりはありません！</text>
 								<event>
 									<text>「申し出を断るのか？ 残念だな、価格が安いのか？ 値上げをしてやろう」</text>
 									<choice hidden="true">
-										<text>あなたの決定をしっかりと握ってください。</text>
+										<text>自分の意志は揺るぎません。</text>
 										<event>
 											<text>「おぬしは頑固だな。いいだろう、最後の提案は無しだ。おぬしにその気がなくとも、わらわが奪ってやろう！」</text>
 											<ship hostile="true" />
@@ -201,14 +201,14 @@
 </event>
 
 <event name="ANOINTED_SURRENDER_ACCEPT">
-	<text>あなたは聖皇后の降伏を受け入れ、彼女はかなりの量のスクラップを転送します。あなたが去る準備をしているとき、彼女はもう一つのことについてあなたと話すように頼みます。</text>
+	<text>あなたは聖皇后の降伏を受け入れ、彼女はかなりの量のスクラップを転送します。あなたが去る準備をしているとき、彼女はそれとはまた別のことを話したいとの要請がありました。</text>
 	<variable name="ach_boss_augcruiser" op="set" val="1" />
 	<autoReward level="HIGH">weapon</autoReward>
 	<ship hostile="false" />
 	<choice hidden="true">
 		<text>継続する...</text>
 		<event>
-			<text>そのラニウスはあなたに奇妙な鍵のような装置を手渡しました。「この古代人は他の多くと同様、冬眠状態にある。この装置は彼らを目覚めさせることができるようだ。ここには謎がある、そうだな？ わらわがそれを解決したいが、いまやおぬしに権利がある。また、触媒としてこれと燃料が必要だ。幸運を祈っておるぞ」</text>
+			<text>そのラニウスはあなたに奇妙な鍵のような装置を手渡しました。「この古代生物は他の多くと同様、冬眠状態にある。この装置は彼らを目覚めさせることができるようだ。ここには謎がある。気になるだろう？　わらわがそれを解き明かしたいが、いまやおぬしに権利がある。また、触媒としてこの装置とは別に燃料が必要だ。幸運を祈っておるぞ」</text>
 			<hiddenAug>ANCIENT_ACTIVATOR</hiddenAug>
 			<choice hidden="true">
 				<text>彼女の贈り物を受け取り、去ります。</text>
@@ -227,7 +227,7 @@
 					<choice hidden="true" req="ANCIENT_LASER">
 						<text>彼女に古代のレーザーを提供して食べさせてください。</text>
 						<event>
-							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めさせたらどうなるのか、興味津々だ！」</text>
 							<remove name="ANCIENT_LASER" />
 							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -236,7 +236,7 @@
 					<choice hidden="true" req="ANCIENT_BEAM">
 						<text>彼女に餌を与えるために古代のビームを提供します。</text>
 						<event>
-							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めさせたらどうなるのか、興味津々だ！」</text>
 							<remove name="ANCIENT_BEAM" />
 							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -245,7 +245,7 @@
 					<choice hidden="true" req="ANCIENT_FOCUS">
 						<text>彼女に餌を与えるために古代のピンポイントを提供します。</text>
 						<event>
-							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めさせたらどうなるのか、興味津々だ！」</text>
 							<remove name="ANCIENT_FOCUS" />
 							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -254,7 +254,7 @@
 					<choice hidden="true" req="ANCIENT_FOCUS_2">
 						<text>彼女に古代のピンポイントMkを提供します。餌をやるII。</text>
 						<event>
-							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めさせたらどうなるのか、興味津々だ！」</text>
 							<remove name="ANCIENT_FOCUS_2" />
 							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -263,7 +263,7 @@
 					<choice hidden="true" req="ANCIENT_MISSILES">
 						<text>彼女に古代ミサイルランチャーを提供して食べさせてください。</text>
 						<event>
-							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めさせたらどうなるのか、興味津々だ！」</text>
 							<remove name="ANCIENT_MISSILES" />
 							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -272,7 +272,7 @@
 					<choice hidden="true" req="ANCIENT_BOMB">
 						<text>彼女に古代爆弾発射装置を提供して食べさせてください。</text>
 						<event>
-							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めさせたらどうなるのか、興味津々だ！」</text>
 							<remove name="ANCIENT_BOMB" />
 							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -281,7 +281,7 @@
 					<choice hidden="true" req="ANCIENT_STUN">
 						<text>彼女に古代の平和維持者を養うように申し出なさい。</text>
 						<event>
-							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めさせたらどうなるのか、興味津々だ！」</text>
 							<remove name="ANCIENT_STUN" />
 							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -290,7 +290,7 @@
 					<choice hidden="true" req="ANCIENT_COMBAT_LASER">
 						<text>彼女に餌を与えるために古代のレーザードローンを提供します。</text>
 						<event>
-							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めさせたらどうなるのか、興味津々だ！」</text>
 							<remove name="ANCIENT_COMBAT_LASER" />
 							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -299,7 +299,7 @@
 					<choice hidden="true" req="ANCIENT_COMBAT_ION">
 						<text>彼女に古代のイオンドローンを提供して食べさせてください。</text>
 						<event>
-							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めさせたらどうなるのか、興味津々だ！」</text>
 							<remove name="ANCIENT_COMBAT_ION" />
 							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -308,7 +308,7 @@
 					<choice hidden="true" req="ANCIENT_COMBAT_MISSILE">
 						<text>彼女に古代ミサイルドローンを提供して食べさせてください。</text>
 						<event>
-							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めさせたらどうなるのか、興味津々だ！」</text>
 							<remove name="ANCIENT_COMBAT_MISSILE" />
 							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -317,7 +317,7 @@
 					<choice hidden="true" req="ANCIENT_DEFENSE_1">
 						<text>彼女に古代の監視者ドローンを提供して食べさせてください。</text>
 						<event>
-							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めさせたらどうなるのか、興味津々だ！」</text>
 							<remove name="ANCIENT_DEFENSE_1" />
 							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -326,7 +326,7 @@
 					<choice hidden="true" req="MENDER">
 						<text>彼女に餌を与えるために古代の修理人を提供します。</text>
 						<event>
-							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めさせたらどうなるのか、興味津々だ！」</text>
 							<remove name="MENDER" />
 							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -335,7 +335,7 @@
 					<choice hidden="true" req="DIRECTOR">
 						<text>彼女に古代の監督を養うように申し出なさい。</text>
 						<event>
-							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めさせたらどうなるのか、興味津々だ！」</text>
 							<remove name="DIRECTOR" />
 							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -344,7 +344,7 @@
 					<choice hidden="true" req="ATOM_DEFEND">
 						<text>彼女に古代の噴霧器を提供して食べさせてください。</text>
 						<event>
-							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めさせたらどうなるのか、興味津々だ！」</text>
 							<remove name="ATOM_DEFEND" />
 							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
@@ -353,7 +353,7 @@
 					<choice hidden="true" req="ATOM_BOARDER">
 						<text>彼女に古代の噴霧器を提供して食べさせてください。</text>
 						<event>
-							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めたらどうなるのか、興味津々だ！」</text>
+							<text>「これは..なんて高度な技術だ。おぬし、よくこれを見つけたな。くくく、いいだろう。目覚めさせたらどうなるのか、興味津々だ！」</text>
 							<remove name="ATOM_BOARDER" />
 							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
 							<variable name="ach_crew_anointed" op="set" val="1" />
