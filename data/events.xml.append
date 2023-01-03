@@ -424,7 +424,7 @@ Renegadeコレクションを有効にするには、サブセットフォーラ
 	<loadEvent>START_BEACON_REAL</loadEvent>
 </event>
 <event name="START_BEACON_REAL">
-	<text>星が通り過ぎるとき、あなたは遠くの宇宙の渦を見てください。これはあなたの物語の次の章の始まりです。次に何があなたを待っていますか？</text>
+	<text>あなたは、星々が飛び交う宇宙の渦を遠くから眺めます。これは、あなたの物語における次章の始まりです。次は何が待っているのでしょうか。</text>
 	<queueEvent seeded="true">THE_JUDGES_VARIABLE_CLEAR</queueEvent>
 	<deathEvent>DEATH</deathEvent>
 	<eventButton name="ADDON_TRC">
@@ -563,7 +563,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 	</choice>
 </event>
 <event name="START_BEACON_PRESELECT">
-	<text>ミッションが始まる前に、ワープベイに到着する前に準備する時期かもしれません。何をしたいですか？</text>
+	<text>ミッションが始まる前、つまりワープベイに到着する前に準備したほうが良いかもしれません。何をしたいですか？</text>
 	<choice hidden="true" req="prof_finalsector" lvl="0" max_lvl="0" blue="false">
 		<text>チャレンジレベルがロックされています。それらのロックを解除するには、セクター8にアクセスしてください。</text>
 		<event load="OPTION_INVALID" />
@@ -585,7 +585,7 @@ MVをサポートするためにプレイしている船を更新したいが、
 支配的な派閥：連邦
 反乱軍の脅威レベル：中（中立艦隊）
 
-あなたは近くの連邦ワープベイに到着しようとしています。これらの格納庫のような構造は、宇宙間を移動するためのある種のビーコンとして機能します。怒っている反政府勢力や海賊の艦隊に迎えられないように、あなたが素敵な温かい歓迎を与えられていないことを願っていますよね？</text>
+あなたは今、最も近い連邦のワープベイに到着しようとしています。この格納庫のような建物は、宇宙を行き来するためのビーコンのようなものです。怒った反乱軍や海賊の艦隊に迎えられることなく、暖かく迎えてくれることを期待しましょう。</text>
 			<choice hidden="true" req="pilot" lvl="1" max_group="0" blue="false">
 				<text>Hyperspeedを終了します。</text>
 				<event load="START_BEACON_PREP_LOAD" />
@@ -986,7 +986,7 @@ Multiverse Renegades のミニボスはスポーンせず、Federation Outposts 
 	<choice hidden="true" req="pilot" lvl="1" max_group="5" blue="false">
 		<text>今あるもので十分。この船で有利なスタートを切りましょう！</text>
 		<event>
-			<text>あなたは余分なものを何も取らないことに決めて、続けます。</text>
+			<text>あなたは特に追加のもの入手しないことに決めて進みます。</text>
 			<modifyPursuit amount="-2" />
 			<choice hidden="true">
 				<text>継続する...</text>
@@ -1245,7 +1245,7 @@ Multiverse Renegades のミニボスはスポーンせず、Federation Outposts 
 	<text>「私たちを殺さないでください。私たちはあなたに私たちが持っているすべてのものを与えます！」</text>
 	<text>あなたが彼らを生きさせれば、彼らはあなたに彼らの貨物のいくつかを提供します。</text>
 	<text>あなたが彼らの船を破壊しなければ、彼らはあなたに彼らの商品のいくつかを与えることを申し出ます。</text>
-	<text>必死のメッセージが届く。「全部持っていっていい！殺さないでくれ」</text>
+	<text>必死なメッセージが届く。「全部持っていっていい！殺さないでくれ」</text>
 	<text>「明らかにあなたの勝ちだ。助命する。我々を見逃してくれないか」</text>
 	<text>「あなたはあなたの主張をしました、私たちは殴打されました。これらを取り、私たちを恥じてください。」</text>
 	<text>「私たちが持っているすべてのものを取り、これが起こったことを両方とも忘れましょう。」</text>
@@ -2624,7 +2624,7 @@ Multiverse Renegades のミニボスはスポーンせず、Federation Outposts 
 		<event load="QUEST_MERCENARY_DELIVERY_TRANSFER" />
 	</choice>
 	<choice hidden="true">
-		<text>最初に支払いを要求します。</text>
+		<text>まずは支払いをせよ。</text>
 		<event>
 			<text>"大丈夫、大丈夫。"彼らは支払いを渡し、あなたは麻薬を送ります。簡単なお金。</text>
 			<autoReward level="LOW">scrap_only</autoReward>
@@ -3167,11 +3167,11 @@ Multiverse Renegades のミニボスはスポーンせず、Federation Outposts 
 </event>
 
 <event name="DONOR_PONY" unique="true">
-	<text>スキャナーは近くの惑星でインテリジェントな生命体を示しています。それらに一致するものはデータベースに見つかりません。</text>
+	<text>スキャナーは近くの惑星で知的生命体の存在を示しています。ただ、それらに一致するものはデータベースから見つかりませんでした。</text>
 	<choice hidden="true">
 		<text>調査。</text>
 		<event>
-			<text>あなたは巨大なフィールドに小さなシャトルを着陸させます。その占有者は小さく、鮮やかな色の、6本足の馬のような動物だけです。それらはあなたのスキャンが拾ったものでしょうか？</text>
+			<text>あなたは大きな野原に小型シャトルを着陸させました。そこにいた居住者は小さく、鮮やかな色の6本足の馬のような動物だけでした。スキャンが拾ったものは彼らでしょうか？</text>
 			<choice hidden="true">
 				<text>平和的にコミュニケーションをとるようにしてください。</text>
 				<event load="DONOR_PONY_PEACE" />
@@ -3196,7 +3196,7 @@ Multiverse Renegades のミニボスはスポーンせず、Federation Outposts 
 			<choice hidden="true" req="LIST_CREW_SLUG">
 				<text>（スラッグのクルー）テレパシーで通信しようとします。</text>
 				<event>
-					<text>しばらくすると、あなたのクルーは、これらは平和な生活を楽しんでいる単純な存在であるとあなたに話します。あなたのスラッグは馬を落ち着いた状態にし、あなたはなんとか標本を持ち帰ることさえできます。馬を恐れることなく、さらに探索し、エンギ船の惑星で古い残骸を見つけることさえできますが、住民は死んでいます。</text>
+					<text>しばらくするとクルーから、彼らは平和な生活を楽しむ素朴な存在であることを教えられます。あなたのスラッグは馬を穏やかな状態にし、あなたは標本として持ち帰ることに成功しました。さらに探索を続け惑星でエンギ船の古い残骸を発見しました。</text>
 					<crewMember amount="1" class="pony" />
 					<autoReward level="HIGH">stuff</autoReward>
 				</event>
@@ -3243,7 +3243,7 @@ Multiverse Renegades のミニボスはスポーンせず、Federation Outposts 
 </event>
 <eventList name="DONOR_PONY_PEACE">
 	<event>
-		<text>コミュニケーションの試みのどれも機能しないようです。彼らは静かにあなたを見つめています。あなたが去る準備をすると、生き物の一人が前方にカントンし、船からあなたを強制的に微調整します。彼はあなたが彼に従ってほしいと思っているようです。最終的に、彼らはあなたを古いエンギ船のcrash落サイトに導きます。内部では、エンギを見つけて再活性化することができます！</text>
+		<text>コミュニケーションを試みましたが上手くいってはないようです。彼らはただただ静かにあなたを見つめています。あなたが去ろうとすると、彼らの一人がゆっくり駆け寄ってきて、あなたを強引に船から連れ出します。彼はあなたについてきて欲しい思っているようです。その後、彼らはあなたを古いエンギ船が墜落した場所に導きました。船の内部であなたはエンギを見つけ再起動することができました！</text>
 		<crewMember amount="1" class="engi" />
 		<autoReward level="LOW">standard</autoReward>
 	</event>
@@ -3389,7 +3389,7 @@ Multiverse Renegades のミニボスはスポーンせず、Federation Outposts 
 </eventList>
 
 <event name="ASTEROID_EXPLORE" unique="true">
-	<text>スキャンにより、近くに大きな小惑星フィールドが見つかります。 FTLが再充電されるのを待つ間、短距離スキャナーは有用な資料を発見する可能性があります。</text>
+	<text>スキャンすると、近くに大きな小惑星帯があることが分かりました。FTLの再充電を待つ間、短距離スキャナーで有用なものを発見できるかもしれません。</text>
 	<choice hidden="true">
 		<text>小惑星のフィールドを探索します。</text>
 		<event load="ASTEROID_EXPLORE_RESULTS" />
@@ -3564,9 +3564,9 @@ Multiverse Renegades のミニボスはスポーンせず、Federation Outposts 
 			</event>
 		</choice>
 		<choice hidden="true" req="medbay" lvl="3" max_group="0"> 
-			<text>(Adv. Medbay) Advanced Medbay に状態を分析してもらいます。</text>
+			<text>(Adv. Medbay) 強化されたメドベイで状態を分析する。</text>
 			<event>
-				<text>メッドベイに後退している間、あなたはそれらを遠ざけます。その高度なシステムは、異星人の神経毒が彼らの狂乱の原因であると判断します。それは解毒剤を合成し、それを部屋に放出します。しばらくすると、科学者たちは回復します。それらを保存してくれたおかげで、サービスを提供しています。</text>
+				<text>メドベイに後退している間、あなたはそれらを遠ざけます。その高度なシステムは、異星人の神経毒が彼らの狂乱の原因であると判断します。それは解毒剤を合成し、それを部屋に放出します。しばらくすると、科学者たちは回復します。それらを保存してくれたおかげで、サービスを提供しています。</text>
 				<crewMember repair="1" amount="1" />
 				<autoReward level="MED">scrap_only</autoReward>
 			</event>
@@ -3590,16 +3590,16 @@ Multiverse Renegades のミニボスはスポーンせず、Federation Outposts 
 			</event>
 		</choice>
 		<choice hidden="true" req="medbay" lvl="2" max_group="0"> 
-			<text>(Upg. Medbay) 彼をドラッグして Medbay に戻します。</text>
+			<text>(Upg. Medbay) 彼をメドベイに引きずり戻します。</text>
 			<event>
 				<text>あなたは彼を押さえつけ、メドベイは船にあった神経毒があなたのクルーに完全に感染するのを防ぐことができます。彼が回復したら、あなたは助けを超えている科学者と戦う準備をします。</text>
 				<boarders min="3" max="4" class="human" />
 			</event>
 		</choice>
 		<choice hidden="true" req="medbay" lvl="3" max_group="0">  
-			<text>(Adv. Medbay) Advanced Medbay に状態を分析してもらいます。</text>
+			<text>(Adv. Medbay) 強化されたメドベイで状態を分析する。</text>
 			<event>
-				<text>メッドベイに後退している間、あなたはそれらを遠ざけます。その高度なシステムは、異星人の神経毒がクルーを狂気に駆り立てていると判断します。それは解毒剤を合成し、それを船に放出します。しばらくすると、熱狂的な科学者たちは回復し、彼らを救ったことに感謝するために助けを申し出る。</text>
+				<text>メドベイに後退している間、あなたはそれらを遠ざけます。その高度なシステムは、異星人の神経毒がクルーを狂気に駆り立てていると判断します。それは解毒剤を合成し、それを船に放出します。しばらくすると、熱狂的な科学者たちは回復し、彼らを救ったことに感謝するために助けを申し出る。</text>
 				<crewMember amount="1" />
 			</event>
 		</choice> 
@@ -4739,7 +4739,7 @@ Multiverse Renegades のミニボスはスポーンせず、Federation Outposts 
 		</event>
 	</choice>
 	<choice hidden="true" req="medbay" lvl="2">
-		<text>（Adv. Medbay）Medbayを使用して治療法を合成します。</text>
+		<text>（Adv. Medbay）メドベイを使用して治療法を合成します。</text>
 		<event>
 			<text>軍用グレードの医療用コンピューターは、発掘中に発掘された未知の胞子であるウイルスの原因を簡単に特定できます。コロニーのリーダーに、治療法のリバースエンジニアリングが成功したことをすばやく通知できます。</text>
 			<choice hidden="true">
