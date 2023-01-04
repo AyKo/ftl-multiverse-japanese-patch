@@ -472,7 +472,7 @@
 	<event>
 		<text>よく調べてみると、攻撃を受けている船は反乱軍の偵察船だったことがわかります。ダメージが大きすぎて、多くの戦いを繰り広げることはできません。</text>
 		<choice hidden="true">
-			<text>船を破壊し、救助します。</text>
+			<text>船を破壊し、回収します。</text>
 			<event>
 				<text>あなたは船から有用なものをすべて取り除き、助けが到着することを期待するためにそのクルーを残します。</text>
 				<autoReward level="LOW">standard</autoReward>
@@ -3801,13 +3801,13 @@
 </eventList>
 
 <event name="HACKER_CIVILIAN_WRECK_TRAP" unique="true">
-	<text>民間船の残骸が近くに漂っています。民間人がそのように死ななければならなかったのは残念ですが、あなたが救うことができるいくつかの物資が船上にある可能性があります。</text>
+	<text>民間船の残骸が近くに漂っています。民間人がそのように死ななければならなかったのは残念ですが、あなたが回収することができるいくつかの物資が船上にある可能性があります。</text>
 	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
 		<text>船をスクラップします。</text>
 		<event load="HACKER_CIVILIAN_WRECK_TRAP_SALVAGE" />
 	</choice>
 	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
-		<text>あらゆる形態のサルベージを実行する乗組員はいません。</text>
+		<text>資材を回収するためのクルーがいません。</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true" req="LIST_CREW_SLUG">
