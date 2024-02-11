@@ -10,11 +10,10 @@ text_dict = dict()
 
 with open('shortage.txt', 'r' ,encoding='utf8') as f:
     for text in iter(f.readline, ''):
-        original_text.add(text)
+        original_text.add(text.replace('\n', ''))
 
 count = 0
 for en in original_text:
-    en = en.replace('\n', '')
     ja = ''
     try :
         ja = translator.translate(en, 'ja', 'en').text
