@@ -14,9 +14,10 @@ with open('shortage.txt', 'r' ,encoding='utf8') as f:
 
 count = 0
 for en in original_text:
+    en = en.replace('\n', '')
     ja = ''
     try :
-        ja = translator.translate(en.replace('\n', ''), 'ja', 'en').text
+        ja = translator.translate(en, 'ja', 'en').text
     except :
         print('#error')
     if ja:
