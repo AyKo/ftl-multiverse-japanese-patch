@@ -51,7 +51,7 @@ Google翻訳などでサイトを丸ごと翻訳しても、まあ何となく�
 * [Hyperspace 1.9.0](https://subsetgames.com/forum/viewtopic.php?f=11&t=35095)
 * [Multiverse 5.4.1](https://subsetgames.com/forum/viewtopic.php?t=35332)
 * [FTL: Hyperspace 日本語化MOD](https://seesaawiki.jp/ftl/d/MOD#content_3_6_1)
-* [本パッチ](https://github.com/AyKo/ftl-multiverse-japanese-patch/raw/main/FTL-Multiverse_5.4.1.jp-patch.zip)
+* [本パッチ](https://github.com/ranhai613/ftl-multiverse-japanese-patch/raw/main/FTL-Multiverse_5.4.1.jp-patch.zip)
 
 #### 1. FTLのインストール
 Steamなど。
@@ -97,7 +97,7 @@ Asset File と Data File の２つをダウンロードしてください。
 ダウンロードした２つのファイルを、Slipstream Mod Manager の mod フォルダに保存して下さい。
 
 #### 7. 日本語パッチの入手と格納
-本ページから [本パッチ](https://github.com/AyKo/ftl-multiverse-japanese-patch/raw/main/FTL-Multiverse_5.4.1.jp-patch.zip) をダウンロードします。
+本ページから [本パッチ](https://github.com/ranhai613/ftl-multiverse-japanese-patch/raw/main/FTL-Multiverse_5.4.1.jp-patch.zip) をダウンロードします。
 
 ダウンロードしたファイルを、Slipstream Mod Manager の mod フォルダに保存して下さい。
 
