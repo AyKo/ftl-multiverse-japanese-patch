@@ -60,8 +60,32 @@ Steamなど。
 [Slipstream Mod Manager](https://subsetgames.com/forum/viewtopic.php?f=12&t=17102) をダウンロードしてください。
 ページを少し進めると Download と書いてある部分がありますのでダウンロードします。
 
-
 解凍すると展開される modman.exe を実行すると起動できます（まだ起動しなくていいです）が、 Java で作成されているので、別途インストールも必要です。インストールされていない場合は、こちらを先にすましておく必要があります。([Windows版Javaのダウンロード](https://www.java.com/ja/download/ie_manual.jsp))
+
+Slipstream Mod Manager の初回起動時は、FTLのインストール先の指定などの初期設定を要求されます。
+環境に合わせて問いに答えます。
+
+* 「FTL のインストール先にある ftl.dat を指定せよ」を指示されます。 Steam であれば ＜Steamのインストール先＞\steamapps\common\FTL Faster Than Light\ にあります。 私の環境の場合、C:\Steam\steamapps\common\FTL Faster Than Light\ にありました。また、簡単に調べる方法として、SteamのライブラリでFTLのページの管理（歯車マーク）→管理→ローカルファイルを閲覧からFTLのインストールフォルダに飛ぶことができます。そしたらフォルダのパスをコピペしてください。
+
+   ![Slipstream-FirstStep-1](doc/SlipstreamModManager-FirstSetting-1.png)
+
+   ![Slipstream-FirstStep-2](doc/SlipstreamModManager-FirstSetting-2.png)
+
+* 「Steam からインストールした？」私の場合は YES。
+  
+   ![Slipstream-FirstStep-3](doc/SlipstreamModManager-FirstSetting-3.png)
+
+* 「Steam はここであってる？」 YES。
+
+   ![Slipstream-FirstStep-4](doc/SlipstreamModManager-FirstSetting-4.png)
+
+* 「FTLを直接起動する？ それともSteamから？」私の場合は Steam。
+
+   ![Slipstream-FirstStep-5](doc/SlipstreamModManager-FirstSetting-5.png)
+
+* 「Slipstream のアップデートの定期確認はする？」しない。
+
+   ![Slipstream-FirstStep-6](doc/SlipstreamModManager-FirstSetting-6.png)
 
 #### 3. Hyperspace の入手
 [Hyperspace 1.9.0](https://subsetgames.com/forum/viewtopic.php?f=11&t=35095) をダウンロードしてください。
