@@ -103,7 +103,7 @@ FTL自体のバージョンダウンが必要で、これを実行すると「FT
 #### 5. Multiverse の入手と格納
 [Multiverse 5.4.1](https://subsetgames.com/forum/viewtopic.php?t=35332) をダウンロードしてください。
 
-![Multiverse5.3Download](doc/5.3-download.png)
+![Multiverse5.3Download](doc/5.4.1-download.png)
 
 だいたい1/3くらいの場所に、DOWNLOAD RAW FILES (OTHER PLATFORMS, UPDATES, MANUAL INSTALL) MULTIVERSE VERSION 5.4.1 - ORCHIDS REVAMPED と書かれている部分がありますので、その Google Drive と書かれたリンクの先にあります。
 Asset File と Data File の２つをダウンロードしてください。
@@ -139,12 +139,12 @@ Slipstream Mod Manager を起動し、必要な初期設定をおこなったら
 4. [JapaneseFonts]
 5. [FTL-Multiverse_5.4.1.jp-patch]
 
-![ModManager](doc/mod-manager.png)
+![ModManager](doc/5.4.1-mod-manager.png)
 
 必要な項目にチェックをしたら Patch ボタンをクリックします。クリックするとパッチの適用が始まります。うまくいくと、今すぐ起動するか？的な問い合わせが表示されます。ここまでくればOKです。
 
 #### 9. マルチバース起動！
-![Title1](doc/5.3-start.png)
+![Title1](doc/5.4.1-start.png)
 
 #### 10. 起動しない場合
 環境によっては上手く起動しないみたいです。
