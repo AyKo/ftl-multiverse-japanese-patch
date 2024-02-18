@@ -1,5 +1,5 @@
 # FTL MOD「Multiverse」の日本語パッチ(機械翻訳:一部分は手作業翻訳)
-FTL: Faster Than Light の overhaul mod である [Multiverse 5.3](https://subsetgames.com/forum/viewtopic.php?t=35332) への日本語パッチ(機械翻訳)です。 英語だとしんどくて機械翻訳で雰囲気だけでも・・と思って作りました。
+FTL: Faster Than Light の overhaul mod である [Multiverse 5.4.1](https://subsetgames.com/forum/viewtopic.php?t=35332) への日本語パッチ(機械翻訳)です。 英語だとしんどくて機械翻訳で雰囲気だけでも・・と思って作りました。
 
 ただ、遊んでいて意味が通じなさ過ぎて気になった部分や、真のエンディングまでのイベントを中心に、その他いくつかのイベント、多分ヒロイン（？）のビームマスター・リア関連など、その他もろもろの部分は手作業で翻訳しました。２万以上のテキストがあって、完全手作業はちょっと難しい..。
 
@@ -48,10 +48,10 @@ Google翻訳などでサイトを丸ごと翻訳しても、まあ何となく�
 * FTL: Faster Than Light 本体
 * [Slipstream Mod Manager](https://subsetgames.com/forum/viewtopic.php?f=12&t=17102)
    (動作には Java (JRE) が必要。Windows なら [こちら](https://www.java.com/ja/download/ie_manual.jsp) ）
-* [Hyperspace 1.2.2](https://subsetgames.com/forum/viewtopic.php?f=11&t=35095)
-* [Multiverse 5.3](https://subsetgames.com/forum/viewtopic.php?t=35332)
+* [Hyperspace 1.9.0](https://subsetgames.com/forum/viewtopic.php?f=11&t=35095)
+* [Multiverse 5.4.1](https://subsetgames.com/forum/viewtopic.php?t=35332)
 * [FTL: Hyperspace 日本語化MOD](https://seesaawiki.jp/ftl/d/MOD#content_3_6_1)
-* [本パッチ](https://github.com/AyKo/ftl-multiverse-japanese-patch/raw/main/FTL-Multiverse_5.3.jp-patch.zip)
+* [本パッチ](https://github.com/ranhai613/ftl-multiverse-japanese-patch/raw/main/FTL-Multiverse_5.4.1.jp-patch.zip)
 
 #### 1. FTLのインストール
 Steamなど。
@@ -60,15 +60,39 @@ Steamなど。
 [Slipstream Mod Manager](https://subsetgames.com/forum/viewtopic.php?f=12&t=17102) をダウンロードしてください。
 ページを少し進めると Download と書いてある部分がありますのでダウンロードします。
 
-
 解凍すると展開される modman.exe を実行すると起動できます（まだ起動しなくていいです）が、 Java で作成されているので、別途インストールも必要です。インストールされていない場合は、こちらを先にすましておく必要があります。([Windows版Javaのダウンロード](https://www.java.com/ja/download/ie_manual.jsp))
 
+Slipstream Mod Manager の初回起動時は、FTLのインストール先の指定などの初期設定を要求されます。
+環境に合わせて問いに答えます。
+
+* 「FTL のインストール先にある ftl.dat を指定せよ」を指示されます。 Steam であれば ＜Steamのインストール先＞\steamapps\common\FTL Faster Than Light\ にあります。 私の環境の場合、C:\Steam\steamapps\common\FTL Faster Than Light\ にありました。また、簡単に調べる方法として、SteamのライブラリでFTLのページの管理（歯車マーク）→管理→ローカルファイルを閲覧からFTLのインストールフォルダに飛ぶことができます。そしたらフォルダのパスをコピペしてください。
+
+   ![Slipstream-FirstStep-1](doc/SlipstreamModManager-FirstSetting-1.png)
+
+   ![Slipstream-FirstStep-2](doc/SlipstreamModManager-FirstSetting-2.png)
+
+* 「Steam からインストールした？」私の場合は YES。
+  
+   ![Slipstream-FirstStep-3](doc/SlipstreamModManager-FirstSetting-3.png)
+
+* 「Steam はここであってる？」 YES。
+
+   ![Slipstream-FirstStep-4](doc/SlipstreamModManager-FirstSetting-4.png)
+
+* 「FTLを直接起動する？ それともSteamから？」私の場合は Steam。
+
+   ![Slipstream-FirstStep-5](doc/SlipstreamModManager-FirstSetting-5.png)
+
+* 「Slipstream のアップデートの定期確認はする？」しない。
+
+   ![Slipstream-FirstStep-6](doc/SlipstreamModManager-FirstSetting-6.png)
+
 #### 3. Hyperspace の入手
-[Hyperspace 1.2.2](https://subsetgames.com/forum/viewtopic.php?f=11&t=35095) をダウンロードしてください。
+[Hyperspace 1.9.0](https://subsetgames.com/forum/viewtopic.php?f=11&t=35095) をダウンロードしてください。
 ページを少し進めると Download と書かれている部分がありますのでダウンロードします。
 
 #### 4. Hyperspace の導入（FTLのバージョンダウン＋バイナリパッチ）
-前の項でダウンロードした FTL Hyperspace (1.2.2).zip を解凍します。解凍後、「Windows - Extract these files into where FTLGame.exe is」という名前のフォルダがありますので、その中のファイルをすべてFTLのインストールフォルダにコピーします。
+前の項でダウンロードした FTL Hyperspace (1.9.0).zip を解凍します。解凍後、「Windows - Extract these files into where FTLGame.exe is」という名前のフォルダがありますので、その中のファイルをすべてFTLのインストールフォルダにコピーします。
 私の場合、インストールファルダは C:\Steam\steamapps\common\FTL Faster Than Light でした。
 
 コピー後、FTLのインストールフォルダで「downgrade.bat」を実行します。
@@ -77,15 +101,15 @@ FTL自体のバージョンダウンが必要で、これを実行すると「FT
 なお、Multiverse自体に Hyperspace.ftl が含まれているらしいので、こちらはいりません。
 
 #### 5. Multiverse の入手と格納
-[Multiverse 5.3](https://subsetgames.com/forum/viewtopic.php?t=35332) をダウンロードしてください。
+[Multiverse 5.4.1](https://subsetgames.com/forum/viewtopic.php?t=35332) をダウンロードしてください。
 
-![Multiverse5.3Download](doc/5.3-download.png)
+![Multiverse5.3Download](doc/5.4.1-download.png)
 
-だいたい1/3くらいの場所に、DOWNLOAD RAW FILES - 5.3 ORDER AND CHAOS (Requires manual install) と書かれている部分がありますので、その Google Drive と書かれたリンクの先にあります。
+だいたい1/3くらいの場所に、DOWNLOAD RAW FILES (OTHER PLATFORMS, UPDATES, MANUAL INSTALL) MULTIVERSE VERSION 5.4.1 - ORCHIDS REVAMPED と書かれている部分がありますので、その Google Drive と書かれたリンクの先にあります。
 Asset File と Data File の２つをダウンロードしてください。
 以下の2つのファイルとなります：
-- Multiverse 5.3 - Assets (Patch First).zip
-- Multiverse 5.3 - Data.zip
+- Multiverse 5.4 - Assets (Patch above Data).zip
+- Multiverse 5.4.1 - Data.zip
 
 ダウンロードした２つのファイルを、Slipstream Mod Manager の mod フォルダに保存して下さい。
 
@@ -97,30 +121,30 @@ Asset File と Data File の２つをダウンロードしてください。
 ダウンロードした２つのファイルを、Slipstream Mod Manager の mod フォルダに保存して下さい。
 
 #### 7. 日本語パッチの入手と格納
-本ページから [本パッチ](https://github.com/AyKo/ftl-multiverse-japanese-patch/raw/main/FTL-Multiverse_5.3.jp-patch.zip) をダウンロードします。
+本ページから [本パッチ](https://github.com/ranhai613/ftl-multiverse-japanese-patch/raw/main/FTL-Multiverse_5.4.1.jp-patch.zip) をダウンロードします。
 
 ダウンロードしたファイルを、Slipstream Mod Manager の mod フォルダに保存して下さい。
 
 #### 8. パッチの適用
 Slipstream Mod Manager を起動し、必要な初期設定をおこなったら、「ファイル」メニュー→「Preferences...」をクリックして設定画面を開いてください。開いたウィンドウの一番上のチェックボックス「allow_zip」にチェックをいれて、「Apply」ボタンを押してください。
-次に「ファイル」メニュー→「Re-scan mods」をクリックしてください。FTL-Multiverse 5.2.3. hotfix.zip が選択できるようになります。
+次に「ファイル」メニュー→「Re-scan mods」をクリックしてください。FTL-Multiverse_5.4.1.jp-patch.zip が選択できるようになります。
 
 ここで、適用したいModをチェックをして「Patch」ボタンをクリックすると適用されますが、**順番が大事**です。チェックしたModを上から適用しますが、順序が正しくないと上手くいきません。
 入れ替えたい項目をドラッグすることで移動できますので、以下にしたがって並べ替えとチェックをしてください。
 
 順番は：
-1. [FTL-Multiverse 5.3 - Assets (Patch First)]
-2. [FTL-Multiverse 5.3 - Data]
+1. [FTL-Multiverse 5.4 - Assets (Patch above Data)]
+2. [FTL-Multiverse 5.4.1 - Data]
 3. [Hyperspace-ja]
 4. [JapaneseFonts]
-5. [FTL-Multiverse_5.3.jp-patch]
+5. [FTL-Multiverse_5.4.1.jp-patch]
 
-![ModManager](doc/mod-manager.png)
+![ModManager](doc/5.4.1-mod-manager.png)
 
 必要な項目にチェックをしたら Patch ボタンをクリックします。クリックするとパッチの適用が始まります。うまくいくと、今すぐ起動するか？的な問い合わせが表示されます。ここまでくればOKです。
 
 #### 9. マルチバース起動！
-![Title1](doc/5.3-start.png)
+![Title1](doc/5.4.1-start.png)
 
 #### 10. 起動しない場合
 環境によっては上手く起動しないみたいです。
