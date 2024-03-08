@@ -1,0 +1,1507 @@
+<FTL>
+
+
+
+<event name="FINISH_BEACON_SHELL">
+	<text id="finish_beacon" />
+	<choice hidden="true">
+		<text>探検。</text>
+		<event load="EXIT_FILLER_LIST" />
+	</choice>
+	<choice hidden="true">
+		<text>船に乗って何かする。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice hidden="true">
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+
+	
+<eventList name="CLEARING_SHELL">
+	<event load="SHELL_VAMPWEED_HEALTH" />
+	<event load="SHELL_CLAN_CHOICE" />
+	<event load="ENCOUNTER_SHELL" />
+	<event load="ENCOUNTER_CLAN_SHELL_CLEARING" />
+</eventList>
+
+<event name="SHELL_VAMPWEED_HEALTH" unique="true">
+    <text>ヴァンプウィード船があなたを歓迎します。「すみません！その警備員の指示に従おうとすると、私たちは完全に迷子になりました。それらの貝殻は理解するのがとても難しいかもしれません。シェルヘルスセンターへの道を知っていますか？ネブラスはナビゲートする絶対的な悪夢です。」</text>
+    <ship load="SHIP_VAMPWEED_HEALTH" hostile="false" />
+    <choice req="ADV_SCANNERS" hidden="true">
+		<text>（長距離スキャナー）スキャナーの測定値を与えます。</text>
+		<event>
+			<text>「それはまさに私たちに必要なものです。ここから道を見つけることができると思います。ああ、おそらく今、何らかの報酬が欲しいですよね？</text>
+			<autoReward level="MED">standard</autoReward>
+		</event>
+    </choice>
+    <choice req="shell_scientist" hidden="true">
+		<text>（シェルサイエンティスト）彼らを助けることを申し出ます。</text>
+		<event>
+			<text>シェル科学者は助けを提供します。ヴァンプウィードは次のように答えます。「ご存知のように、私の兄弟は、一部のシェル科学者によって行われたいくつかの実験から変異しました。いくつかの副作用がありました。精神的な霧、慢性痛...とはいえません。「彼らがする研究があります。あなたの船がいくつかの高度なラボ機器を持っていない限り、どこに行くべきかを教えてくれることを除いて、あなたができることはたくさんあると思います。」</text>
+			<choice req="LAB_UPGRADE" hidden="true">
+				<text>実際、高度なラボがあります。</text>
+				<event>
+					<text>「そうですか？まあ、私たちは代わりにあなたとビジネスをすると思います。」シェル科学者は、耕作者を間近で見ていきます。少し作業の後、シェルはいくつかの症状を扱うかもしれないいくつかの処方箋を書いています。</text>
+					<autoReward level="HIGH">standard</autoReward>
+					<choice>
+						<text>継続する...</text>
+						<event>
+							<text>「悪くない、私たちは星雲を悩ませることなく問題に対処することができた。まあ、私はヒントが整っていると思う。」</text>
+							<weapon name="GIFTLIST_SPORE" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>あなたのシェルは彼らに指示を与えることができます。</text>
+				<event>
+					<text>「私たちはここから道を見つけることができると思います。ああ、あなたはおそらく今、何らかの報酬を望んでいますか？</text>
+					<autoReward level="MED">standard</autoReward>
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice req="unique_alkali" hidden="true">
+		<text>（アルカリ）彼らを助けるために申し出ます。</text>
+		<event>
+			<text>「ご存知のように、私の兄弟は、一部のシェル科学者によって行われたいくつかの実験から変異しました。いくつかの副作用がありました。精神的な霧、慢性の痛みなど。あなたの船がいくつかの高度なラボ機器を持っていない限り、私はどこに行くべきかを言うことを除いて、あなたができることはたくさんあると思います。」</text>
+			<choice hidden="true">
+				<text>アルカリはすでに支援方法を知っています。</text>
+				<event>
+					<text>「誰も私がいる耕作者と一緒に経験豊富な人はいません。彼をここに連れてきてください。」ヴァンプウィードは驚いていますが、とにかくあなたの船に旅行します。アルカリはすぐに問題を診断して治療することができます。「ここに治療があります。2か月間逸脱しないでください。問題が続いている場合は、Anothhhhhherの検査のために戻ってきてください。」アルカリは患者を排出し、彼らに請求書を渡します。</text>
+					<autoReward level="HIGH">standard</autoReward>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>「悪くない、私たちは星雲を悩ませることなく問題に対処することができた。まあ、私はヒントが整っていると思う。」</text>
+							<weapon name="GIFTLIST_SPORE" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>船を攻撃します。</text>
+		<event>
+			<text>彼らがあなたの敵対的な意図を検出すると、彼らは親切に対応します。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_VAMPWEED_FIGHT" />
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>仕方がない。</text>
+		<event>
+			<text>あなたは謝罪し、彼らが地元の地元の誰かに尋ねることをお勧めします。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+
+<event name="SHELL_CLAN_CHOICE" unique="true">
+    <text>ShellとSlugClansmenの船が、このビーコンでドッグファイトに参加しました。乗り越える唯一の方法は、そのうちの1人と戦うことだと思われます。</text>
+    <choice>
+        <text>シェルを攻撃します。</text>
+        <event>
+            <text>あなたはシェル船を真っ向から攻撃し、ギルド船に脱出するように促します。どうやら、彼らの狩りへの献身は、連邦船の借金に身を置く限りではないので、彼らはあなたを砲弾で放置するために飛び去ります。</text>
+            <ship load="SHIP_SHELL_GENERIC" hostile="true" />
+            <choice hidden="true">
+                <text>継続する...</text>
+                <event load="MORALITY_UPDATE_SHELL_FIGHT" />
+            </choice>
+        </event>
+    </choice>
+    <choice>
+        <text>クランズマンを攻撃します。</text>
+        <event>
+            <text>あなたはスラッグクランズマンを正面から攻撃します。シェルは、結果を見るために立ち往生したくないようで、飛び去ります。</text>
+            <ship load="SHIP_CLAN_FIGHT" hostile="true" />
+            <choice hidden="true">
+                <text>継続する...</text>
+                <event load="COMBAT_CHECK" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="cloaking">
+        <text>（クローク）クロークを着て飛び去る。</text>
+        <event />
+    </choice>
+    <choice req="engines" lvl="5">
+        <text>（Upg. エンジン）飛び去ります。</text>
+        <event />
+    </choice>
+</event>
+
+<event name="ENCOUNTER_SHELL" unique="true">
+	<text>砲弾は通常、星雲に避難するのが好きですが、人はあまりにも遠くまでさまよって星雲に侵入したようです。彼らはすぐに攻撃するので、あなたが彼らを狩っているに違いないと思っているようです！</text>
+	<ship load="SHIP_SHELL_FIGHT" hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ENCOUNTER_CLAN_SHELL_CLEARING" unique="true">
+	<text load="CLAN_FIGHT" />
+	<ship load="SHIP_CLAN_FIGHT" hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="CLAN_FIGHT">
+	<text>星雲の外にあるギルド船を発見しました。しかし、彼らがあなたを見つけたらすぐに彼らは彼らの休息を放棄し、すぐに攻撃します。</text>
+	<text>盗聴に気づいた数人のスラッグがシェルコロニーへの攻撃を計画していることに気づき、報復を促します。</text>
+</textList>
+
+	
+<eventList name="NEBULA_ITEMS_SHELL">
+	<event load="NEBULA_SHELL_CULTIVATOR_LAB" />
+	<event load="NEBULA_SHELL_FISHING" />
+	<event load="NEBULA_SHELL_FOSSILS" />
+	<event load="NEBULA_SHELL_TOXINTEST" />
+</eventList>
+
+<event name="NEBULA_SHELL_CULTIVATOR_LAB" unique="true">
+    <text>このビーコンの隣には小さな情報端末があり、最も近いシステムの研究室への指示を提供します - 明らかに彼らはヴァンプウィードのボランティアを必要としています。</text>
+    <environment type="nebula" />
+    <choice>
+        <text>実験室にアクセスしてください。</text>
+        <event>
+            <text>ラボのコースを設定します。あなたが近くに描くと、実験室管理者があなたに連絡します。「ようこそ、レネゲード。私たちはここにolo'bache Genome Research Instituteで、あなたの乗組員を勉強して改善する許可を希望します。ヴァンプウィードのボランティアはいますか？」</text>
+            <choice req="orchid_vampweed">
+                <text>（ヴァンプウィードクルー）はい。</text>
+                <event>
+                    <text>「Splandid。Thhhhisの放棄に署名し、いくつかのテストを実行して、手順が機能するかどうかを確認してください。」あなたのヴァンプウィードはラボに入ります。短い健康診断の後、ラボの技術者はあなたが彼らの医療記録を持っているかどうかあなたに尋ねます。</text>
+                    <choice req="medbay" hidden="true">
+                        <text>（Medbay）Lab TechにMedBayの記録を与えます。</text>
+                        <event>
+                            <text>あなたの乗組員は、彼らの病歴に基づいて専門医学を与えられます。シェル科学者はあなたのヴァンプウィードを医療ポッドに引っ掛けます。あなたの乗組員が中に封印された後、ポッドは泣き叫び始めます...</text>
+                            <choice hidden="true">
+                                <text>継続する...</text>
+                                <event load="CULTIVATOR_POD_SUCCESS" />
+                            </choice>
+                        </event>
+                    </choice>
+                    <choice req="unique_alkali" hidden="true">
+                        <text>（アルカリ）アルカリにはそれらがあります。</text>
+                        <event>
+                            <text>アルカリは、ラボのアシスタントに脇に立って、ヴァンプウィードを医療用ポッドに引っ掛けるように言います。すでに乗組員の医療ニーズを予測するのに十分な知識を持っています。あなたの乗組員が中に封印された後、ポッドは泣き叫び始めます...</text>
+                            <choice hidden="true">
+                                <text>継続する...</text>
+                                <event load="CULTIVATOR_POD_SUCCESS" />
+                            </choice>
+                        </event>
+                    </choice>
+                    <choice>
+                        <text>記録はありません。</text>
+                        <event>
+                            <text>「私たちはwithhhhoutをしなければならないと思います。」シェル科学者はあなたのヴァンプウィードを医療ポッドに引っ掛けます。あなたの乗組員が中に封印された後、ポッドは泣き叫び始めます...</text>
+                            <choice hidden="true">
+                                <text>継続する...</text>
+                                <event load="CULTIVATOR_POD_ENTER" />
+                            </choice>
+                        </event>
+                    </choice>
+                </event>
+            </choice>
+            <choice hidden="true" req="orchid_cultivator">
+                <text>あなたの耕作者には貝殻の歴史があります - 彼らの病歴はすでに提出されています。</text>
+                <event load="OPTION_INVALID" />
+            </choice>
+            <choice req="unique_ivar">
+                <text>（Ivar）Ivarは自己紹介をします。</text>
+                <event>
+                    <text>「プレミアイバー？私たちは何を喜びに借りているの？」「私はちょうど通り抜けていました。ラボを訪れてからしばらく経ちました。前回ここにいたとき、アルカリは私を見せてくれました。」「彼の存在はこの辺りで見逃されています。まあ、私はあなたにテストにさらされないことを敢えてしません - 私はgeniocracyのすべてで最も尊敬されているエイリアンを危険にさらしたいと思います。あなたの大義に参加します。」</text>
+                    <choice>
+                        <text>耕作者を求めてください。</text>
+                        <event>
+                            <crewMember amount="1" all_skills="1" class="orchid_cultivator" />
+                        </event>
+                    </choice>
+                    <choice>
+                        <text>科学者に尋ねてください。</text>
+                        <event>
+                            <crewMember amount="1" all_skills="1" class="shell_scientist" />
+                        </event>
+                    </choice>
+                    <choice>
+                        <text>すべての乗客を拒否します。</text>
+                        <event />
+                    </choice>
+                </event>
+            </choice>
+            <choice req="unique_tyerel">
+                <text>（ty e'rel）ty e'relを紹介します。</text>
+                <event>
+                    <text>「ああ、尊敬されている大使エレル！あなたは元気でしたか？」「Oro'bacheとctl'yaeとの関係は安定したままですが、それは些細な努力ではありません。あなたのラボは私が答えることができる集まりについて他に質問がありましたか？」最も役に立ちました。私たちはあなたに返済したいと思っています。あなたが望むなら、私はThhhe Instituteの誰かにあなたの大義に参加するかどうか尋ねることができます。」</text>
+                    <choice>
+                        <text>耕作者を求めてください。</text>
+                        <event>
+                            <crewMember amount="1" all_skills="1" class="orchid_cultivator" />
+                        </event>
+                    </choice>
+                    <choice>
+                        <text>科学者に尋ねてください。</text>
+                        <event>
+                            <crewMember amount="1" all_skills="1" class="shell_scientist" />
+                        </event>
+                    </choice>
+                    <choice>
+                        <text>すべての乗客を拒否します。</text>
+                        <event />
+                    </choice>
+                </event>
+            </choice>
+			<choice>
+				<text>ボランティアはいません。</text>
+				<event>
+					<text>「ああ、残念。まあ、将来的にボランティアを見つけたら、必ず彼らを私たちの方法で指示してください。」</text>
+				</event>
+			</choice>
+        </event>
+    </choice>
+    <choice>
+        <text>研究室を無視してください。</text>
+        <event>
+            <text>調査するのではなく、エンジンのウォームアップに焦点を当てます。</text>
+            <choice>
+                <text>船に乗って何かする。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>何もしない。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+<event name="CULTIVATOR_POD_SUCCESS">
+    <text>あなたの乗組員はまったく違って見えるポッドからつまずきます。彼らはより大きく、強く、胞子を分散させることができます。「おめでとうございます、あなたのヴァンプウィードがアップグレードされました！またお会いしましょう。」</text>
+    <transformRace class="orchid_vampweed">orchid_cultivator</transformRace>
+</event>
+<eventList name="CULTIVATOR_POD_ENTER">
+    <event load="CULTIVATOR_POD_SUCCESS" />
+    <event load="CULTIVATOR_POD_SUCCESS" />
+    <event>
+        <text>しばらくして、科学者はパニックに陥ります。「あなたのヴァンプウィードは薬に適切に反応していません...手順を止めてください!!」マシンが停止すると、ポッドが開きます - しかし、あなたのヴァンプウィードは死んでいます。「ああ、親愛なる...私たちが医療記録を求める理由です。」</text>
+        <removeCrew class="orchid_vampweed">
+            <clone>true</clone>
+            <text>あなたのヴァンプウィードはクローンベイから出て、船に戻って混乱しています。</text>
+        </removeCrew>  
+    </event>
+</eventList>
+
+<event name="NEBULA_SHELL_FISHING" unique="true">
+	<text>星雲のこの部分ではセンサーは何も拾いませんが、ここの雲は少し厚くなっています。あなたがあなたに向かって転倒していることに気付いたとき、あなたは逃げる準備をしようとしています！あなたは何か悪いことを装っていますが、ついにそれが十分に近づいていると、あなたはそれが...武器だと気づきますか？それはかすかな塊であなたの船体から跳ね返り、螺旋状になり始めます。</text>
+	<img back="BACK_EVENT_LIGHTNEBULA" planet="NONE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>すぐに、それをつかんでください！無料の武器！</text>
+		<event>
+			<text>あなたは武器を追いかけます。クラウドの後ろで消えてしまうことはほとんどありません。しばらくして、ビーム武器だと思うものをすくうことができます。簡単すぎるように思えますが、無料の武器を断ることはありません。</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>飛び去る前に、別の船が近くに現れます！しかし、彼らは敵対的ではないようで、彼らはあなたを歓迎します。「こんにちは。平均船が空間のランダムなオブジェクトを信頼する可能性のある実験を実行しています。この「実験」を実行しているシェルは、あなたが本当に理解していないことについて叩きつけますが、武器をつかむことであなたをあまり高く考えていないと感じます。「とにかく、私たちはあなたの時間を支払います。私たちに武器を返してください。</text>
+					<ship load="SHIP_SHELL_SCIENCE" hostile="false" />
+					<choice hidden="true">
+						<text>彼らに武器を返してください。</text>
+						<event>
+							<text>シェルはあなたにいくつかの基本的なリソースを送ります。彼らが送った供給木枠を割ると、上にメモがあります - 天井の言葉について何か？彼らは狂っているに違いありません。なぜなら、あなたが見るとき、そこには何もないからです。</text>
+							<autoReward level="MED">standard</autoReward>
+						</event>
+					</choice>
+					<choice>
+						<text>彼らが死んでいるなら、彼らはもうそれを必要としません。攻撃！</text>
+						<event>
+							<text>シェルはスクリーンのオフスクリーンに変わります。「Thhhhat'sNew。Allona、Mark Down thhhhatの件名33は非常にintel的ではありません。</text>
+							<weapon name="BEAM_SCYTHE" />
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="MORALITY_UPDATE_SHELL_FIGHT" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それはあまりにも疑わしいです。それを残してください。</text>
+		<event>
+			<text>スペースは巨大です。文字通り、この武器はただの幸運のストロークではありません。あなたは物を雲の中に消えさせ、あなたのジャンプを充電し始めます。</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>出発する前に、別の船が近くに現れます！しかし、彼らは敵対的ではないようで、彼らはあなたを歓迎します。「ついに！馬鹿ではない人！あなたは、馬が何人のバカが飛ぶのを見ているのか信じられないだろう。あなたの時間と「馬鹿ではない」ためにさらにいくつかのリソースを移動してください。</text>
+					<ship load="SHIP_SHELL_SCIENCE" hostile="false" />
+					<autoReward level="HIGH">standard</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_SHELL_FOSSILS" unique="true">
+	<text>近くには、人口の少ない大きな惑星の近くにあるシェル生物学者が漂っています。あなたは船から連絡を受け取ります。 「ずっと前に、私たちはこの惑星が住むことができたかもしれないと思います！さらに、それは、シェルとスラッグの種族の間の失われたリンクに化石を保持することさえできました！それはクールではありませんか？」</text>
+	<environment type="nebula" />
+	<img back="BACK_EVENT_LIGHTNEBULA" planet="PLANET_UNPOPULATED_TERRA" />
+	<status type="limit" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>関心を表明します。</text>
+		<event>
+			<text>「ああ、面白いと思う人に会うのはとても素晴らしいことです。ああ、ああ、わかっています。興味があれば、私はあなたのために仕事をしています。この惑星には、収集したい化石サンプルがいくつかあります。しかし、その雰囲気は私たちが長く生き残るにはあまりにも薄いです。あなたは私たちのために私たちのために行くことができると思いますか？</text>
+			<choice hidden="true">
+				<text>同意。</text>
+				<event>
+					<text>あなたは惑星の表面まで操縦し、そこであなたは自分たちのために化石を集めている密輸船を見つけます。 「ねえ、私たちはこれらのファンキーな岩を市場でどれだけ売ることができるのだろうか、それは連邦政府だ！走れ！」</text>
+					<ship load="SHIP_SMUGGLER_FOSSIL" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>却下。</text>
+				<event>
+					<text>「大丈夫です。とにかく私のとりとめのない話を聞いてくれてありがとう！」</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">	
+		<text>丁寧に会話を終了します。</text>
+		<event>
+			<text>生物学の授業を受ける時間がありません。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_SHELL_TOXINTEST" unique="true">
+	<text>近くはシェルサイエンス研究所のようです。彼らはあなたを歓迎します：「ああ、訪問者です！私たちは最近多くの人を見ていません。それは残念です。あなたが持っているかもしれないエイリアンに対する効果をテストしたい...私たちはリスクを理解しており、それに応じて支払います。」</text>
+	<environment type="nebula" />
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="1">
+		<text>あなたのクルーを送ってください。</text>
+		<event load="TOXINTEST_REGULAR" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="0" max_lvl="0">
+		<text>科学者は他の場所で被験者を探す必要があります。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_SHELL">
+		<text>（シェルクルー）シェルを送ってください。</text>
+		<event>
+			<text>「ええと...ジェスチャーに感謝しますが、私たちは本当に自分の種でテストする必要はありません...」</text>
+		</event>
+	</choice>
+	<choice hidden="true" req="BLUELIST_CREW_NO2">
+		<text>（嫌気性のクルー）嫌気性クルーを送ります。</text>
+		<event>
+			<text>「どれほど面白い！毒素はまだ効果をもたらしますが、より少ない用量はそれほど害を引き起こすことはないようです。私はより大きな濃度をテストできればいいのにと思いますが、ほぼ確実に致命的です。</text>
+			<autoReward level="MED">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">	
+		<text>結構です。</text>
+		<event>
+			<text>「大丈夫です、あなたのような連邦船はとにかくやるべきもっと重要なことをしていると確信しています。」</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="TOXINTEST_REGULAR">
+	<event>
+		<text>「当然のことながら、これらの結果は反乱軍の船で頻繁に見られます。非常に有害だと思います！」彼らはあなたのクルーを送り返します。彼らはかなり病気に見えますが、働き続けるのに十分健康です。</text>
+		<autoReward level="LOW">scrap_only</autoReward>
+	</event>
+	<event>
+		<text>「ああ……ああ、それはかなり速かった…悪い知らせがあるのではないかと思う。あなたのクルーはうまく反応しなかったようだ…まったく。ヘムを救え。」</text>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event>
+				<text>クルーを救うためにできることは何もありません。シェルは深く謝罪し、支払いを大幅に増やすことを申し出ます。</text>
+				<autoReward level="HIGH">item</autoReward>
+				<removeCrew>
+					<clone>true</clone>
+					<text>幸いなことに、あなたはあなたのクルーを復活させるためにクローンベイを持っていますが、シェルはそれを知る必要はありません...</text>
+				</removeCrew>
+			</event>
+		</choice>
+		<choice hidden="true" req="medbay" lvl="2">
+			<text>（Upg. Medbay）クルーを救ってください。</text>
+			<event>
+				<text>あなたは彼らを癒すためにあなたのクルーをメドベイに急いで行きます。シェルはまだ謝罪し、支払いを増やすことを申し出ます。</text>
+				<autoReward level="MED">scrap_only</autoReward>
+			</event>
+		</choice>
+	</event>
+</eventList>
+
+	
+<eventList name="NEBULA_NEUTRAL_SHELL">
+	<event load="NEBULA_SHELL_SUZERAIN" />
+	<event load="NEBULA_SHELL_COALITION_RECRUITER" />
+	<event load="NEBULA_SHELL_CLAN_LODGE" />
+	<event load="NEBULA_SHELL_HIDING" />
+	<event load="NEBULA_SHELL_ZOLTAN_TOXIN" />
+	<event load="NEBULA_SHELL_ADBUCTION" />
+	<event load="NEBULA_SHELL_NEUROTOXINLAB" />
+</eventList>
+
+<event name="NEBULA_SHELL_SUZERAIN" unique="true">
+	<text>おそらく、これらの星雲で見られると予想された最後の船は宗主国でした。それどころか、飛び込んだ直後にあなたを呼ぶ人。</text>
+	<ship load="SHIP_SUZERAIN_FIGHT" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>「キャプテン、キャプテン。これらのシェル、彼らは非常に興味深いです、そうですか？私はそれをキャプチャして個人の爪研ぎ器に使用することを探していますが、半分に切断し続けます！」マンティスは笑う。 「私が使用できるシェルはありますか？」</text>
+			<choice hidden="true" req="LIST_CREW_SHELL" lvl="0" max_group="0" blue="false">
+				<text>謝罪し、辞退し、そしてここから地獄を取り除いてください。</text>
+				<event />
+			</choice>
+			<choice hidden="true" req="LIST_CREW_SHELL" lvl="1" max_group="0" blue="false">
+				<text>謝罪し、辞退し、そしてここから地獄を取り除いてください。</text>
+				<event>
+					<text>「Tsktsk、あなたがそこにシェルを持っていることを知っています！私はあなたに私の賞品を手放すことはできません！」</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>それらを攻撃します！</text>
+				<event>
+					<text>あなたは武器の電源を入れ、宗主国と交戦します。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="shell">
+				<text>（シェルクルー）スゼラインにシェルクルーを渡してください。</text>
+				<event>
+					<text>シェルをスゼラインに渡します。</text>
+					<removeCrew class="shell">
+						<clone>false</clone>
+						<text>シェルはすぐに死んでしまう可能性がありますが、この後はクローンを作成しないのがおそらく最善です。</text>
+					</removeCrew>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>「ああ、ありがとう！これはうまくいっている、そうだ！これが給料だ。戦士を連れて行って、今は彼のために十分なスペースがない。」</text>
+							<autoReward level="LOW">scrap_only</autoReward>
+							<crewMember amount="1" class="mantis" combat="1" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="shell_scientist">
+				<text>（シェルクルー）スゼラインにシェルサイエンティストを与えてください。</text>
+				<event>
+					<text>シェルをスゼラインに渡します。</text>
+					<removeCrew class="shell_scientist">
+						<clone>false</clone>
+						<text>シェルはすぐに死んでしまう可能性がありますが、この後はクローンを作成しないのがおそらく最善です。</text>
+					</removeCrew>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>「ああ、ありがとう！これはうまくいっている、そうだ！これが給料だ。戦士を連れて行って、今は彼のために十分なスペースがない。」</text>
+							<autoReward level="LOW">scrap_only</autoReward>
+							<crewMember amount="1" class="mantis" combat="1" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="shell_mechanic">
+				<text>（シェルクルー）スゼラインにシェルメカニックを与えてください。</text>
+				<event>
+					<text>シェルをスゼラインに渡します。</text>
+					<removeCrew class="shell_mechanic">
+						<clone>false</clone>
+						<text>シェルはすぐに死んでしまう可能性がありますが、この後はクローンを作成しないのがおそらく最善です。</text>
+					</removeCrew>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>「ああ、ありがとう！これはうまくいっている、そうだ！これが給料だ。戦士を連れて行って、今は彼のために十分なスペースがない。」</text>
+							<autoReward level="LOW">scrap_only</autoReward>
+							<crewMember amount="1" class="mantis" combat="1" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="shell_guardian">
+				<text>（シェルクルー）スゼラインにシェルガーディアンを渡してください。</text>
+				<event>
+					<text>シェルをスゼラインに渡します。</text>
+					<removeCrew class="shell_guardian">
+						<clone>false</clone>
+						<text>シェルはすぐに死んでしまう可能性がありますが、この後はクローンを作成しないのがおそらく最善です。</text>
+					</removeCrew>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>「ああ、ありがとう！これはうまくいっている、そうだ！これが給料だ。戦士を連れて行って、今は彼のために十分なスペースがない。」</text>
+							<autoReward level="MED">scrap_only</autoReward>
+							<crewMember amount="1" class="mantis" combat="1" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="shell_radiant">
+				<text>（ラディアントクルー）スゼラインにラディアントのクルーを与え、彼らを毒殺させます。</text>
+				<event>
+					<text>あなたはあなたのラディアントをスゼラインに送ります。それが罠だとは気づかず、彼らはあなたに大きな報酬を提供します。</text>
+					<autoReward level="MED">scrap_only</autoReward>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>その後間もなく、スゼライン船からのラジオの沈黙に気づきます。あなたはあなたが再び迎えに来るあなたのラディアントから連絡を受け取ります。船を一瞥すると、マンティスが地面でけいれんしているのが見えます。彼らの脳はどろどろになっています。</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_SHELL_COALITION_RECRUITER" unique="true">
+	<text>この星雲にはおなじみの青の色合いがあります。それが連合だと気づいた後、あなたはすぐに隠れます！あなたは彼らとシェル船の間でラジオのおしゃべりを捕まえ、シェルを彼らの側に集めようとします。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>介入して、自分でシェルを募集してみてください！</text>
+		<event>
+			<text>「わー」あなたは連立を断ち切り、連邦について説教しながら会話を中断しました。怒り狂った連立隊長は独白を続けているが、シェルは誰に耳を傾けるべきかわからないようだ。</text>
+			<choice hidden="true">
+				<text>友好的な同盟を約束して、シェルを揺さぶってみてください。</text>
+				<event>
+					<text>あなたは、長期にわたる同盟、国境開放、そしてもちろん無料のクッキーを約束します。申し出、特に最後の部分は、連立艦の不満に非常に、シェルに勝つようです。彼らが任務に失敗したのを見て、彼らはあなたの船を攻撃することに決めました！</text>
+					<crewMember amount="1" class="shell" />
+					<ship load="SHIP_COALITION_FIGHT" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>安全を約束してシェルを揺さぶってみてください。</text>
+				<event>
+					<text>あなたはシェルに安全を約束しますが、彼らはあまり気にしないかもしれません。彼らはすでに防御に自信を持っており、代わりに連立艦に耳を傾けることを選択します。連立艦は非常に説得力があります。彼らがシェルに勝ったので、船は次にあなたを攻撃します！</text>
+					<ship load="SHIP_COALITION_SHELLCREW" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>脅威でシェルを揺さぶってみてください。</text>
+				<event>
+					<text>あなたはシェルを脅かしますが、それはシェルをかき混ぜるだけです。彼らは代わりに連立船に耳を傾けることを選びます。そして、それは非常に説得力があることがわかります。彼らがシェルに勝ったので、船は次にあなたを攻撃します！</text>
+					<ship load="SHIP_COALITION_SHELLCREW" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_SHELL">
+				<text>（シェルクルー）シェルを揺らします。</text>
+				<event>
+					<text>シェルは彼らの友人の言葉を信じているようです。連邦に自信を持っており、そのうちの1人は、連立艦の不満を募らせて、クルーに加わることを申し出ています。彼らが任務に失敗したのを見て、彼らはあなたの船を攻撃することに決めました！</text>
+					<crewMember amount="1" class="shell" />
+					<ship load="SHIP_COALITION_FIGHT" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>連立船に足を踏み入れて攻撃します。</text>
+		<event>
+			<text>あなたは隠れ場所から抜け出し、連合艦を攻撃します。シェル船はすぐに飛び去ります。</text>
+			<ship load="SHIP_COALITION_FIGHT" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">	
+		<text>連立を無視します。</text>
+		<event>
+			<text>シェルが連立に参加したいのなら、そうしてください。うまくいけば、彼らは彼らがどんな混乱に陥っているのかを理解しています...</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_SHELL_CLAN_LODGE" unique="true">
+	<text>エキゾチックハンターギルドがこのビーコンの近くに狩猟用のロッジを設立したようです。シェルスペース内でそれを行うかなり大胆な動きですが、クランズマンは領土の境界を尊重することで知られていませんでした。</text>
+	<ship load="SHIP_CLAN_LODGE" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>ロッジを攻撃します。</text>
+		<event>
+			<text>あなたはこれらの人を取り除くことによって皆に恩恵を与えるでしょう。あなたは武器を準備し、殺すために移動します。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_CLAN">
+		<text>（Clansman Crew）供給を要求します。</text>
+		<event>
+			<text>このロッジは、メンバーの1人があなたの船に乗っているのを見て、同意し、いくつかの物資を転送します。</text>
+			<autoReward level="MED">stuff</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">	
+		<text>ステーションを無視します。</text>
+		<event>
+			<text>シェルの1つがこの場所に気づき、操作を停止するまで、そう長くはかからないでしょう。あなたはそれを気にするよりもやるべきことがもっと重要です。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_SHELL_HIDING" unique="true">
+	<text>シェル船がひどく損傷しているのに気づきましたが、それでも部分的に機能していて近くに漂っています。突然、コンピューターは不要なテレポーター信号を登録しました！</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>シェルが船上で実体化し、すぐに遠くの隅に転がり落ちます。その後間もなく、スラッグクランズマンが星雲から出てきて、シェル船にショットを発射し、それを破壊しました。ここで2つと2つをつなぎ合わせるのは難しくありません。</text>
+			<ship load="SHIP_CLAN_FIGHT" hostile="false" />
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+				<text>シェルをクランズマンに渡してください。</text>
+				<event load="SHELL_HIDING_RATOUT" />
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+				<text>シェルを終了します。</text>
+				<event load="SHELL_HIDING_EXTERMINATE" />
+			</choice>
+			<choice hidden="true">
+				<text>シェルを保護します。</text>
+				<event load="SHELL_HIDING_PROTECT" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="SHELL_HIDING_PROTECT">
+	<event>
+		<text>あなたは待って、スラッグが通り過ぎるのを待ちます。幸いなことに、彼らはあなたの船について何も考えておらず、あなたを無視しているようです。シェルは彼らの秘密を守ってくれてありがとう、そしてあなたのクルーと一緒に働くことを申し出ます。</text>
+		<crewMember amount="1" class="shell" />
+	</event>
+	<event>
+		<text>スラッグが気付かないことを願っていますが、残念ながら、彼らのテレパシー能力があなたの船に隠れているシェルを検出したようです。あなたを次のターゲットとして見て、彼らはほとんどすぐに攻撃します！あなたは防御的なポジションに急いで行き、次に新しいシェルの友達が続きます。</text>
+		<crewMember amount="1" class="shell" />
+		<boarders min="1" max="2" class="slug_clansman" />
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="SHELL_HIDING_RATOUT">
+	<event>
+		<text>あなたはスラッグに連絡し、シェルの1つがあなたの船に逃げ込んだことを知らせます。彼らはシェルの見返りに彼らに支払いを提供します。しかし、あなたがクリーチャーを捕まえようとしている間、それは爆発し、衝撃であなたのクルーの1人を殺します。その後、クリーチャーを殺すのに数ショットしかかかりません。幸いなことに、シェルの外観は、スラッグ達が喜んでお金を払うのに十分なほど完全です。</text>
+		<autoReward level="MED">scrap_only</autoReward>
+		<removeCrew>
+			<clone>true</clone>
+			<text>幸いなことに、クローンベイはすでにクルーのクローン作成プロセスを開始しています。</text>
+		</removeCrew>
+	</event>
+	<event>
+		<text>あなたのクルーはシェルをつかみ、地面から持ち上げて無力に空中に引き上げます。あなたはスラッグに連絡し、シェルがあなたの船に乗っていることを彼らに知らせます。あなたの助けに満足して、彼らはシェルを彼らと一緒に取り戻し、いくつかのスクラップを転送します。</text>
+		<autoReward level="MED">scrap_only</autoReward>
+	</event>
+</eventList>
+<eventList name="SHELL_HIDING_EXTERMINATE">
+	<event>
+		<text>あなたのセキュリティ対策はシェルを簡単に処理しますが、ハンターはあなたの船に注意を払います.彼らは、あなたが彼らから獲物を奪ったか、あなたを彼らの連続への脅威と見なしたため、すでに熱い武器をあなたに向けています.</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>あなたのセキュリティ対策は、望ましくない密航者を迅速に処分します。あなたはハンターに捕まるのを避けるのに十分速かったようです.ハンターが近くに生命反応を検出しなくなると、彼らは飛び去り、あなたに休息の瞬間を残します.</text>
+		<choice hidden="true">
+			<text>船に乗って何かする。</text>
+			<event load="STORAGE_CHECK" />
+		</choice>
+		<choice hidden="true">
+			<text>何もしない。</text>
+			<event />
+		</choice>
+	</event>
+</eventList>
+
+<event name="NEBULA_SHELL_ZOLTAN_TOXIN" unique="true">
+	<text>あなたはゾルタンの科学船に歓迎されています。 「あなたは連邦の船ですよね？シェル船を追い詰めて捕獲することで、もちろん有料でサービスを提供してください。彼らの毒素をリバースエンジニアリングして、平和的な紛争のために致命的ではない麻痺する化学物質を開発したいと思います。解像度。"</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>同意。</text>
+		<event>
+			<text>「私たちがガスを収穫するために、あなたが船を破壊しないことが絶対に必要です。」ゾルタンは近くのシェル船に案内します。</text>
+			<ship load="SHIP_SHELL_ZOLTAN_TOXIN" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_SHELL_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">	
+		<text>却下。</text>
+		<event>
+			<text>「私たちがあなたの同盟国を助けようとしないことを忘れるとは思わないでください。」ゾルタンはもう言いません。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_SHELL_ADBUCTION" unique="true">
+	<text>シェルアブダクターの攻撃を受けている近くの民間船を見つけました！</text>
+	<ship load="SHIP_SHELL_ABDUCTION" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>シェルに連絡する。</text>
+		<event>
+			<text>シェルが実際にあなたの呼びかけに反応するのを見て驚いています。 「こんにちは。Thhhisは見栄えが悪いかもしれませんが、私たちはThhhheseの民間人に害を及ぼさないことを約束します。私たちはthhhhhemで2、3のテストを実行したいだけです。それ以上はありません。それは科学のためです！」</text>
+			<choice hidden="true">
+				<text>彼らが民間人を放っておくように要求する。</text>
+				<event load="NEBULA_SHELL_ADBUCTION_DEMAND" />
+			</choice>
+			<choice hidden="true">
+				<text>民間人に状況を説明します。</text>
+				<event load="NEBULA_SHELL_ADBUCTION_EXPLAIN" />
+			</choice>
+			<choice hidden="true">
+				<text>彼らを彼らの仕事に任せなさい。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>シェルを攻撃せよ！</text>
+		<event>
+			<text>シェルにチャンスを与えてすぐに攻撃することはありません。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_SHELL_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">	
+		<text>船を避けてください。</text>
+		<event>
+			<text>シェルが攻撃している理由はわかりませんが、関与しないことをお勧めします。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="NEBULA_SHELL_ADBUCTION_DESTROY">
+	<event>
+		<text>民間人はシェルの誘拐の試みを生き延びなかったようです。彼らが戦いで死んだか、致命的な毒素で早く死んだかにかかわらず、今では手遅れです。あなたは彼らの船の損傷の少ない部分のいくつかをスクラップします。</text>
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+	<event>
+		<text>ほとんどの民間人は、生きたまま紛争から抜け出せなかったようです。最後の生存者はあなたの船に乗って働くことを要求します。</text>
+		<crewMember amount="1" class="human" />
+	</event>
+</eventList>
+<eventList name="NEBULA_SHELL_ADBUCTION_DEMAND">
+	<event>
+		<text>シェルはあなたの話を聞くことに特に興味はありません。代わりに、彼らは代わりにあなたのクルーを捕まえることを試みることに決めました！</text>
+		<boarders min="1" max="2" class="shell" />
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>シェルはあなたを台無しにしたくないようです。彼らはあなたの要求に耳を傾け、民間人から引き離します。民間船は彼らを救ってくれてありがとう。</text>
+		<autoReward level="MED">standard</autoReward>
+	</event>
+</eventList>
+<eventList name="NEBULA_SHELL_ADBUCTION_EXPLAIN">
+	<event>
+		<text>シェルが民間人を傷つけるつもりはないことを説明した後、あなたはなんとか両者の間の妥協点を見つけることができます。シェルは、平和的な解決に到達するのを助けるためにあなたに支払います。</text>
+		<autoReward level="LOW">stuff</autoReward>
+	</event>
+	<event>
+		<text>説明しようとするあなたの試みは、民間人をさらに恐れさせるだけです。彼らは逃げようとします、そしてシェルはあなたを援助したと非難します！船が攻撃します。</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="NEBULA_SHELL_NEUROTOXINLAB" unique="true">
+    <text>この星雲の雲を通して、あなたは反乱軍の科学ステーションを見つけます。シェルスペースでこれらの1つを見るのは奇妙ですが、確かに正当な理由があります。</text>
+    <environment type="nebula" />
+    <choice hidden="true">
+        <text>近づけて調べます。</text>
+        <event>
+            <text>不思議なことに、あなたが近づくと、反乱軍の船があなたを邪魔することはありません。さらに奇妙なことに、ステーションには1つを除いてすべての生命の兆候がないように見えます。</text>
+            <choice hidden="true">    
+                <text>よく調べてください。</text>
+                <event>
+                    <text>確かに、1人の反乱軍だけがあなたに害を及ぼすことはできません。あなたはあなたのクルーを送ります。中には、科学者の死体が散らばっている大きな実験室がありますが、目に見える傷はありません。部屋はかすかに奇妙なにおいがします。</text>
+                    <choice hidden="true">    
+                        <text>探し続ける。</text>
+                        <event>
+                            <text>あなたのクルーは、あなたが以前に検出した生命の兆候を探しながら、ステーションを通り抜け続けます。彼らは、無精ひげを生やした、乱れたエンジニアが前後に揺れ、よだれを垂らし、大きな立方体を抱きしめているのを見つけます。あなたのクルーは、彼が状況を説明するのに十分な時間、彼を落ち着かせることができます。乗船しているエンジニアは、彼らの自動船の1つが敵対的になったときに、シェルによって放出された神経毒を研究し、それを兵器化する任務を負っていたようです。毒素を使用して、それは他のすべての科学者を殺しました。エンジニアは、あなたがステーションに乗り込んだので、AIはあなたもここにいることを知っている必要があると警告します！</text>
+                            <choice hidden="true">    
+                                <text>今、クルーを引き戻します！</text>
+                                <event>
+                                    <text>あなたのクルー、続いて精神科のエンジニアが急いで船に戻ります。彼らがそうするように、大きな自動船がステーションから離れてあなたを追いかけます！</text>
+                                    <crewMember amount="1" class="human_engineer">ラトマン</crewMember>
+                                    <ship load="SHIP_AUTO_LARGE" hostile="true" />
+                                    <choice hidden="true">
+                                        <text>継続する...</text>
+                                        <event load="COMBAT_CHECK" />
+                                    </choice>
+                                </event>
+                            </choice>
+                        </event>
+                    </choice>
+                    <choice hidden="true">    
+                        <text>これは奇妙です。クルーを引き出します。</text>
+                        <event>
+                            <text>万が一に備えて、クルーを船に呼び戻します。</text>
+                        </event>
+                    </choice>
+                </event>
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true">    
+        <text>ステーションを無視します。</text>
+        <event>
+            <text>自分と反乱軍の基地との間にある程度の距離を置いてください。</text>
+            <choice hidden="true">
+                <text>船に乗って何かする。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice hidden="true">
+                <text>何もしない。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+
+<eventList name="NEBULA_NEUTRAL_SHELL_UNIQUE">
+	<event load="NEBULA_SHELL_MERCENARY" />
+	<event load="NEBULA_SHELL_IMMUNITY" />
+	<event load="NEBULA_SHELL_HIDDEN_COLONY" />
+
+	<event load="NEBULA_SHELL_CLAN_LODGE" />
+	<event load="NEBULA_SHELL_ZOLTAN_TOXIN" />
+</eventList>
+
+<event name="NEBULA_SHELL_MERCENARY" unique="true">
+	<text>このビーコンにいるのはあなただけではありません。近くにはシンジケート船があり、そのシステムはすべてオンラインですが、船はほとんど稼働していません。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>傭兵に声をかけ、彼らがここにいる理由を確認してください。</text>
+		<event>
+			<text>「ああ、私たちはこれらのシェル船の1つを捕獲するために何人かのクランズマンに雇われましたが、それは私たちが準備していたよりもはるかに難しい作業です。今、私たちはシェル船がやって来てランダムに死ぬまでちょっと待っています。どれだけ時間がかかるでしょう...」</text>
+			<choice hidden="true">
+				<text>彼らを助け、シェル船を探して捕まえましょう。</text>
+				<event>
+					<text>傭兵を通り過ぎて星雲の奥深くまで飛んでいき、シェル船に遭遇します。</text>
+					<ship load="SHIP_SHELL_MERCENARY" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="MORALITY_UPDATE_SHELL_FIGHT" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>離れる。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>傭兵を攻撃します。</text>
+		<event>
+			<text>あなたは海賊にチャンスを与えず、すぐに攻撃することにしました。</text>
+			<ship load="SHIP_MERCENARY_ALL" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">	
+		<text>傭兵を無視します。</text>
+		<event>
+			<text>セントラルシェルスペースの傭兵は前兆がよくありません。あなたは船を無視します。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_SHELL_IMMUNITY" unique="true">
+	<text>あなたは近くのシェル船から連絡を受け取り、スラッグのクランズマンが星雲に滑り込んでいるように見えます。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>あの人達の話を聞いて。</text>
+		<event>
+			<text>「連邦は人々を助けますよね？私たちは助けが必要です！Thhhose Clansmenは、シェル毒素のサンプルを盗みました。thheyがそれをthheirラボに戻すことができれば、thhheyは解毒剤を開発できるかもしれません！問題なく私たちの船に乗ることができます。」</text>
+			<choice hidden="true">
+				<text>クランズマンを追い詰めることに同意します。</text>
+				<event>
+					<text>「完璧です。素晴らしいサンプルを回収できれば、それがあなたの能力を超えていても心配しないでください。必要なのはそれらが死んでいることだけです。」</text>
+					<ship load="SHIP_CLAN_IMMUNITY" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">	
+		<text>シェルを避けてください。</text>
+		<event>
+			<text>ここで何が起こっているのかわかりませんが、参加することに興味はありません。あなたはシェルを無視し、最終的に彼らはあきらめてスラッグを追いかけ続けます。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_SHELL_HIDDEN_COLONY" unique="true">
+	<text>シェル船の後部が星雲に滑り落ちるのを捕まえます。あなたが速いなら、あなたは彼らに追いつくことができるかもしれません。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>それらに従う。</text>
+		<event>
+			<text>星雲を通って船をたどると、いくつかの接続されたステーションの間に巨大なシェルコロニーを見つけることにショックを受けます。</text>
+			<ship load="SHIP_SHELL_COLONY_STATION" hostile="false" />
+			<choice hidden="true">
+				<text>シェルに連絡してください。</text>
+				<event>
+					<text>あなたはコロニー内のシェルを歓迎します。彼らはあなたが言うことを待ちます。</text>
+					<choice hidden="true">
+						<text>攻撃！</text>
+						<event>
+							<text>あなたはここでの最善の行動方針は、正当な理由もなくこれらの平和な異星人を攻撃することであると決定します。</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="MORALITY_UPDATE_SHELL_FIGHT" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>取引をお願いする。</text>
+						<event>
+							<text>シェルの間でいくつかの話がありますが、彼らは皆、あなたとの取引が害をもたらさないことに同意しているようです。</text>
+							<store>STORE_SHELL</store>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>彼らにいくつかの物資を渡すように要求する。</text>
+						<event load="SHELL_HIDDEN_COLONY_DEMAND" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>コロニーを無視します。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">	
+		<text>それらを無視します。</text>
+		<event>
+			<text>ここで何が起こっているのかはわかりませんが、その孤独なシェル船が何をしているのかは、あなたの使命には関係ありません。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="SHELL_HIDDEN_COLONY_DEMAND">
+	<event>
+		<text>シェルはどんな犠牲を払っても戦いを避けたいと思っています。彼らは自分たちが惜しまない物資を手渡します。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="MORALITY_UPDATE_SHELL" />
+		</choice>
+	</event>
+	<event>
+		<text>コロニーはあなたの要求にうまく対応していません。彼らは武器で報復します！</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="MORALITY_UPDATE_SHELL_FIGHT" />
+		</choice>
+	</event>
+</eventList>
+<event name="SHELL_HIDDEN_COLONY_SURRENDER" unique="true">
+	<text>「どうぞ、やめてください！私たちはあなたに何でも与えます、ただ私たちの残りを惜しまないでください！」</text>
+	<choice>
+		<text>武器をよこせ。</text>
+		<event>
+			<weapon name="RANDOM" />
+		</event>
+	</choice>
+	<choice>
+		<text>奴隷をよこせ。</text>
+		<event>
+			<crewMember amount="1" class="shell" />
+		</event>
+	</choice>
+	<choice>
+		<text>スクラップをよこせ。</text>
+		<event>
+			<autoReward level="MED">scrap_only</autoReward>
+		</event>
+	</choice>
+</event>
+
+<eventList name="NEBULA_DISTRESS_SHELL">
+	<event load="NEBULA_DISTRESS_SHELL_CHOICE" />
+	<event load="NEBULA_DISTRESS_SHELL_SUFFOCATING" />
+</eventList>
+
+<event name="NEBULA_DISTRESS_SHELL_CHOICE" unique="true">
+	<distressBeacon />
+	<text>あなたは小さなナメクジの輸送に近づくシェル船を見つけます。ナメクジがこれに値するために何をしたかはわかりませんが、彼らは困っているように見えます。</text>
+	<ship load="SHIP_SHELL_FIGHT" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>スラッグを助けます。</text>
+		<event>
+			<text>スラッグが飛び去るのを手伝うために移動した直後に、最後のメッセージを船のコンピューターに送信します。 「サイク！」シェル船は混乱していますが、あなたがそれと関係があると仮定して攻撃します！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">	
+		<text>スラッグを無視します。</text>
+		<event>
+			<text>あなたはスラッグ船を無視して通り過ぎます。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_DISTRESS_SHELL_SUFFOCATING" unique="true">
+	<distressBeacon />
+	<text>近くのシェル船が遭難ビーコンの発生源のようです。彼らの人生のサポートは壊れており、彼らは急速に窒息しています！</text>
+	<ship load="SHIP_SHELL_GENERIC" hostile="false" />
+	<environment type="nebula" />
+	<status type="limit" target="enemy" system="oxygen" amount="0" />
+	<choice hidden="true">
+		<text>搭乗してシェルを保存してみてください！</text>
+		<event>
+			<text>あなたはシェル船とドッキングしますが、彼らはあなたに会えてうれしくないようです。彼らはあなたを海賊と間違えて攻撃しますが、酸素がなければ長くは続かないでしょう...</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="oxygen" lvl="2">
+		<text>（Upg. Oxygen）O2をドッキングして補充します。</text>
+		<event>
+			<text>あなたはシェル船とドッキングし、ゆっくりと彼らの酸素を補充します。最後の生存者が逃げるのに十分長く彼らのレベルを安定させるのにちょうど十分であるように思われます。クルーや船が残っていない状態で、彼らはあなたに加わることを申し出ます。</text>
+			<crewMember amount="1" class="shell" />
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ORCHID">
+		<text>（オーキドゥクルー）オーキドゥを送って酸素を補充します。</text>
+		<event>
+			<text>シェル船とドッキングし、ゆっくりと酸素を補充します。あなたのオーキドゥは、最後の生存者が逃げるのに十分な時間、レベルを安定させるのにちょうど十分であるようです。クルーや船が残っていない状態で、彼らはあなたに加わることを申し出ます。</text>
+			<crewMember amount="1" class="shell" />
+		</event>
+	</choice>
+	<choice hidden="true">	
+		<text>船を避けてください。</text>
+		<event>
+			<text>残念ながら、シェル船にはニューロトキシンガスが含まれていることを考えると、船でドッキングすることはあまりにも危険である可能性があります。関与しないことが最善です。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+
+
+
+<eventList name="NEBULA_HOSTILE_SHELL">
+	<event load="NEBULA_ENCOUNTER_SHELL" />
+	
+	<event load="NEBULA_ENCOUNTER_CLAN_SHELL" />
+	<event load="NEBULA_ENCOUNTER_SHELL_SLUG" />
+	<event load="NEBULA_ENCOUNTER_SHELL_AUTO" />
+	
+	<event load="NEBULA_SHELL_SMUGGLER" />
+</eventList>
+
+<event name="NEBULA_ENCOUNTER_SHELL">
+	<loadEventList first="false" generate="true">
+		<event name="NEBULA_ENCOUNTER_SHELL_CIVILIAN" />
+		<event name="NEBULA_ENCOUNTER_SHELL_MANAGEMENT" />
+		<event name="NEBULA_ENCOUNTER_SHELL_MILITARY" />
+		<event name="NEBULA_ENCOUNTER_SHELL_MILITARY" />
+		<event name="NEBULA_ENCOUNTER_SHELL_STORM" />
+	</loadEventList>
+</event>
+<event name="NEBULA_ENCOUNTER_SHELL_CIVILIAN" unique="true">
+	<text>シェルの民間人は通常、直接戦闘を行う人ではありません...しかし、軍管区の大部分がストライキを行っているため、セクターを保護するために軍管区を自分たちの手に委ねる必要性を感じている人もいます。どうやら、近くのシェル船が攻撃するので、あなたは脅威です！</text>
+	<ship load="SHIP_SHELL_FIGHT" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="NEBULA_ENCOUNTER_SHELL_MANAGEMENT" unique="true">
+	<text>シェル管理船が近くの保安検査場で建造を行っています。あなたの突然の出現は彼らを心配しました、そしてチェックポイントを保護する他の船なしで、彼らは銃を飛び越えて攻撃します！</text>
+	<ship load="SHIP_SHELL_MECH" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="NEBULA_ENCOUNTER_SHELL_MILITARY">
+	<text load="NEBULA_SHELL_MILITARY_FIGHT" />
+	<ship load="SHIP_SHELL_SOLDIER" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="NEBULA_SHELL_MILITARY_FIGHT">
+    <text>シェル軍管区は混乱状態にあり、彼らの労働力はストライキ中です。それでも、賢才国家に最も忠実な人々は、彼らの人々を保護するために取り残されています。誰から彼らを守りますか？あなた、どうやら。</text>
+    <text>「軍用船は民間地区の近くでは許可されていません！連邦かどうかにかかわらず、すぐに出発します！」あなたはFTLドライブがまだ充電されていないことを説明しようとしますが、シェルはリッスンして動揺し、攻撃しません！</text>
+    <text>「船舶で監視されていない非殻の職員が特定されています。監督および常任職員のNervaの命令の下で、連邦職員は遺伝的領土では許可されていません。あなたは除去されます。」</text>
+    <text>シェルの過激な船があなたの船にロックされました。彼らがあなたを止めてスキャンするのだろうかと思いますが、彼らは即座に発砲します！シェルスペースがフレンドリーであることはこれだけです！</text>
+</textList>
+<event name="NEBULA_ENCOUNTER_SHELL_STORM" unique="true">
+	<text>このイオンの嵐の中でシェル船が待っているようです。どういうわけか彼らはあなたが敵対的だと思うのかわかりませんが、この戦いから簡単に抜け出すことはできないようです。</text>
+	<ship load="SHIP_SHELL_FIGHT" hostile="true" />
+	<environment type="storm" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="NEBULA_ENCOUNTER_CLAN_SHELL">
+	<text load="NEBULA_CLAN_SHELL_FIGHT" />
+	<ship load="SHIP_CLAN_FIGHT" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="NEBULA_CLAN_SHELL_FIGHT">
+	<text>エキゾチックハンターギルドの危険なメンバーの1人に遭遇したようです。これらのスラッグハンターは鎧を求めてシェルを狩る傾向がありますが、他の船を狩るよりも優れているわけではありません！</text>
+	<text>「あなたがそれが個人的な子供ではないことを理解することを願っています、しかしあなたの頭は私のトロフィーの壁で非常にきれいに見えるでしょう！」スラッグの一族と彼の船のアプローチ、武器の準備ができています。</text>
+	<text>星雲からスラッグハンターがやって来て、武器をまっすぐにあなたに向けないようにします！</text>
+	<text>あなたはあなたがフォローされているという沈みゆく感じを得始めます。船を回転させて追跡者に向かい、スラッグクランズマンがまっすぐに向かっているのを確認します。</text>
+	<text>「ああ、それを見てください。確かに彼はギルドに持ち帰る価値のあるものを手に入れました！」近くのスラッグ船が攻撃のために移動します。</text>
+</textList>
+
+<event name="NEBULA_ENCOUNTER_SHELL_SLUG" unique="true">
+	<text>通常、標準のスラッグ船は、いとこの種との確執を始めたくないので、シェルセクターを避けたいと思っています。しかし、1隻の外れ値の船があなたと道を渡ったようで、今は彼らが戦おうとしているようです！</text>
+	<ship load="SHIP_SLUG_FIGHT" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="NEBULA_ENCOUNTER_SHELL_AUTO" unique="true">
+	<text>反乱軍はシェルの大ファンではありませんが、通常、毒素を恐れすぎて直接攻撃することはできません。代わりに、彼らは汚い仕事をするために自動船を送ることを好みます。残念ながら、これらの自動船の1つは、あなたと攻撃を認識します。</text>
+	<ship load="SHIP_AUTO_FIGHT" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="NEBULA_SHELL_SMUGGLER" unique="true">
+	<text>密輸船がこの星雲をこっそり通り抜けようとしているようです！彼らはあなたが彼らを見ていることに気づき、あなたが彼らの場所をネズミにすることを望まずに攻撃します！</text>
+	<ship load="SHIP_SMUGGLER_SHELL" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<eventList name="NEBULA_HOSTILE_SHELL_UNIQUE">
+	<event load="NEBULA_ENCOUNTER_SHELL" />
+	<event load="NEBULA_ENCOUNTER_CLAN_SHELL" />
+	
+	<event load="NEBULA_SHELL_SMUGGLER" />
+</eventList>
+
+
+<event name="NEBULA_ENCOUNTER_SHELL_ELITE" unique="true">
+	<text>シェルラディアントはシェルスペースの保護者です。それらの非常に有毒な組成物は、敵のクルーを阻止するのにうまく機能します。残念ながら、これらの船の1つが星雲であなたを見つけたようで、あなたは脅威だと思っています！</text>
+	<ship load="SHIP_SHELL_ELITE_FIGHT" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+
+<event name="NEBULA_SHELL_UNIQUE_LAB" unique="true">
+	<distressBeacon />
+	<preventQuest />
+	<text>星雲に隠れている連邦船から連絡を受け取ります。 「ああ、よかった、あなたは私たちが呼んだバックアップに違いありません! このセクターを迂回することを余儀なくされたとき、私たちは軍隊をノード 17 に輸送していました。どこからともなくシェル アブダクターが来て乗組員を誘拐するまでは大丈夫だと思っていました! 私たちは彼らは近くの実験室にあるこのビーコンに拘束されているのではないかと疑っていますが、自力で救出するのに十分な火力がありません。」</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>ステーションの支援と検査に同意します。</text>
+		<event>
+			<text>このステーションは、これまでに見た他のステーションとは異なります。巨大でエリートの色で描かれている、これは重要な場所でなければなりません。</text>
+			<choice hidden="true">
+				<text>平和的に交渉します。これらの科学者を殺害する必要はありません。</text>
+				<event>
+					<text>「おお、連邦の船だ。ビーコンへようこそ！何ができる？」あなたが状況を説明すると、シェルは少し考えているようです。 「ああ、なるほど。申し訳ありませんが、私たちの空間に侵入する生き物を研究するのは、常にシェルの慣習でした。もちろん、私たちは彼らに害を及ぼすことはありません。私たちは単に彼らを船に乗せ、簡単ないくつかの痛みのないテストを実行し、彼らを私たちの船に送ります。私たちは危害を加えるつもりはありませんでした! 心配しないでください。すぐにすべてを解放します. 私たちはトラブルを望んでいません.</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>シェルがフェデレーションの乗組員をリリースしている間、別のジャンプ署名が検出されていることに気付きます。突然、大きなステルス容器がビーコンに飛び込みます。船から殻に送られたメッセージをキャッチします。 「これはDA-SR 12であり、連邦の救難信号に対応しています。あなたはクラスB連盟の担当者を所有しています。私たちはすぐにあなたと一緒にドッキングします、あなたは降伏し、逮捕のために連れて行かれるか、私たちは武力を使用します。」</text>
+							<ship load="SHIP_SHELL_STEALTH" hostile="false" />
+							<choice hidden="true">
+								<text>シェルはこれに値しません！それらを保護し、ステルス艦を攻撃します。</text>
+								<event>
+									<text>あなたはステルス巡洋艦と砲弾の間で船を操縦します。 「あなたは犯罪者を保護していますか？私たちはその時力を使うしかないでしょう！」</text>
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="COMBAT_CHECK" />
+									</choice>	
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>クラップ、私たちはこれに関与することはできません。離れる。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>あなたが兵士を救うことができることを期待して駅を攻撃します。</text>
+				<event>
+					<text>武器を武装させ、シェルラボ室を攻撃します。兵士を救いたい場合は、船体を破壊することなく、乗組員のこの場所を掃除する必要があります。</text>
+					<ship load="SHIP_SHELL_DONUTBOSS" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="MORALITY_UPDATE_SHELL_FIGHT" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>これは私たちが予想していた以上です、去ってください。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">	
+		<text>あなたはバックアップではないことを説明し、去ります。</text>
+		<event>
+			<text>あなたは連邦船に謝罪し、あなたがより重要な使命を帯びていることを説明します。うまくいけば、彼らを助けるために本当のバックアップがすぐに到着するでしょう。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SHELL_UNIQUE_LAB_RESCUE_LAB">
+	<text>「あなたは私たちを救った！連盟の船だった...あなたは私たちを救うためにあなた自身の人々を裏切るだろうか？私がここにとどまることができない今、私はあなたと一緒に来ることを許します。もちろん、私はまだthhhheseの男性を解放し、最初にthhheir船に送り返します。」</text>
+	<variable name="ach_boss_stealth" op="set" val="1" />
+	<unlockCustomShip silent="false">PLAYER_SHIP_SHELL</unlockCustomShip>
+	<crewMember amount="1" class="shell_radiant">バマルフ</crewMember>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="MORALITY_REMOVE_SHELL" />
+	</choice>
+</event>
+<ship name="SHIP_SHELL_DONUTBOSS" auto_blueprint="MU_SHELL_DONUTBOSS">
+	<destroyed>
+		<text>実験室は爆発し、間違いなく、内部の連邦職員を含むすべての乗組員を殺します。あなたは連邦がこの失態について聞かないことを願っています...</text>
+		<autoReward level="HIGH">standard</autoReward>
+	</destroyed>
+	<deadCrew>
+		<text>あなたはステーションに乗っているすべての科学者を殺しました。船体の外側をスクラップします。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>兵士を解放します。</text>
+			<event>
+				<text>あなたはステーションに乗り込み、連邦職員全員を解放します。彼らは、彼らを取り戻すためにステーションとドッキングしている彼らの船に急いで戻る前に、簡単にあなたに感謝します。連邦船はあなたに感謝し、あなたの助けに対してあなたに支払います。</text>
+				<autoReward level="MED">scrap_only</autoReward>
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event>
+						<text>出発する前にステーションの周りをざっと見て、研究所の1つで奇妙な装置を見つけます。通常シェル船を保護する神経毒を放出するように作られているようです。ラボに設置されたものは、今ここにいることができるという事実から判断すると、戦闘中に壊れたに違いありませんが、これは完全に機能しています。あなたはそれを船に戻します。</text>
+						<variable name="ach_boss_donut" op="set" val="1" />
+						<augment name="TOXIC_GAS" />
+					</event>
+				</choice>
+			</event>
+		</choice>
+	</deadCrew>
+	<crew>
+		<crewMember type="shell_radiant" prop="0.50" />
+		<crewMember type="shell" prop="0.50" />
+	</crew>
+</ship>
+<ship name="SHIP_SHELL_STEALTH" auto_blueprint="MU_STEALTH_BOSS">
+	<destroyed>
+		<text>あなたはステルス巡洋艦を無力化し、その過程でシェルを救出しました。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>科学者に連絡してください。</text>
+			<event load="SHELL_UNIQUE_LAB_RESCUE_LAB" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>あなたはステルス巡洋艦を無力化し、その過程でシェルを救出しました。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>科学者に連絡してください。</text>
+			<event load="SHELL_UNIQUE_LAB_RESCUE_LAB" />
+		</choice>
+	</deadCrew>
+</ship>
+</FTL>

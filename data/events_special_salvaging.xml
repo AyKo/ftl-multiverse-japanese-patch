@@ -1,0 +1,432 @@
+<FTL>
+<eventList name="STORAGE_CHECK_JOB_SALVAGE_DEFAULT">
+	<event load="SALVAGE_DEFAULT_LOW" />
+	<event load="SALVAGE_DEFAULT_LOW" />
+	<event load="SALVAGE_DEFAULT_MED" />
+	<event load="SALVAGE_DEFAULT_MED" />
+	<event load="SALVAGE_DEFAULT_HIGH" />
+	<event load="SALVAGE_DEFAULT_FUEL" />
+	<event load="SALVAGE_DEFAULT_MINEFIELD" />
+	<event load="SALVAGE_DEFAULT_DRONE" />
+	<event load="SALVAGE_DEFAULT_PIRATES" />
+	<event load="SALVAGE_DEFAULT_CACHE" />
+	<event load="SALVAGE_DEFAULT_SHRINE" />
+	<event load="SALVAGE_DEFAULT_COLONY" />
+	<event load="SALVAGE_FAIL" />
+</eventList>
+<eventList name="STORAGE_CHECK_JOB_SALVAGE_ARM">
+	<event load="SALVAGE_ARM_LOW" />
+</eventList>
+
+<event name="SALVAGE_FAIL">
+	<text>あなたのクルーはほとんど価値がありません。がっかりして、彼らは船に戻ります。</text>
+	<variable name="loc_has_salvaged" op="set" val="1" />
+</event>
+
+
+<event name="SALVAGE_ARM_LOW">
+	<text>腕が近距離のがらくたを引き付けることを期待して、適度な時間待ってから、それを引っ込めて運搬を観察します。</text>
+	<item_modify>
+		<item type="scrap" min="0" max="4" />
+		<item type="missiles" min="0" max="2" />
+		<item type="drones" min="0" max="2" />
+	</item_modify>
+</event>
+
+
+<event name="SALVAGE_DEFAULT_LOW">
+	<text>あなたのクルーはほとんど見つけませんが、それでも何かです。彼らは運搬して船に戻ります。</text>
+	<autoReward level="LOW">stuff</autoReward>
+	<variable name="loc_has_salvaged" op="set" val="1" />
+</event>
+<event name="SALVAGE_DEFAULT_MED">
+	<text>あなたのクルーはまともな量の救助を見つけます。彼らは運搬して船に戻ります。</text>
+	<autoReward level="MED">stuff</autoReward>
+	<variable name="loc_has_salvaged" op="set" val="1" />
+</event>
+<event name="SALVAGE_DEFAULT_HIGH">
+	<text>あなたのクルーは大量の救助を見つけます。彼らは運搬して船に戻ります。</text>
+	<autoReward level="HIGH">stuff</autoReward>
+	<variable name="loc_has_salvaged" op="set" val="1" />
+</event>
+
+<event name="SALVAGE_DEFAULT_FUEL">
+	<text>起源は不明ですが、クルーは大量の燃料電池を見つけました。彼らは運搬して船に戻ります。</text>
+	<autoReward level="MED">fuel_only</autoReward>
+	<variable name="loc_has_salvaged" op="set" val="1" />
+</event>
+
+<event name="SALVAGE_DEFAULT_MINEFIELD">
+	<text>あなたは放棄された地雷原につまずきます。確かに疑わしいだけでなく、大量の弾薬とスクラップの潜在的な供給源でもあります。しかし、不注意であることは危険であることが証明されます。</text>
+	<variable name="loc_has_salvaged" op="set" val="1" />
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+		<text>リスクをとる。</text>
+		<event load="SALVAGE_DEFAULT_MINEFIELD_RISK" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>地雷原に送る犠牲的な乗組員はいません。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="rock_crusader">
+		<text>（Crusader Crew）あなたの十字軍は爆発物について多くを知っており、ヒットすることもできます。</text>
+		<event>
+			<text>あなたのクルセイダーは爆発物についてかなりよく知っていますが、彼が良い選択である本当の理由は彼の厚い肌です。彼らの幸福への危険はほとんどなく、彼らは印象的な運搬で戻ってきますが、それはあなたがより大きなチームで得たかもしれないほど良くはありません。</text>
+			<autoReward level="MED">missiles</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="rock_paladin"> 
+		<text>（パラディンクルー）あなたのパラディンは爆発物について多くを知っており、またヒットすることができます。</text>
+		<event>
+			<text>あなたのパラディンは爆発物についてかなりよく知っていますが、彼が良い選択である本当の理由は彼の印象的な弾力性のためです。彼らの幸福への危険はほとんどなく、彼らは印象的な運搬で戻ってきますが、彼らの遅い速度は彼らが反乱軍の艦隊に時間を稼がせずにそれ以上集めることを妨げます。</text>
+			<autoReward level="MED">missiles</autoReward>
+		</event>
+	</choice>	
+	<choice hidden="true" req="LIST_CREW_LANIUS">
+		<text>（ラニウスの乗組員）あなたのラニウスは、スクラップのためにいくつかの鉱山を溶かすことができます。</text>
+		<event>
+			<text>機能的な弾薬は得られませんが、報酬のリスクは低くなります。あなたはできるだけ多くの鉱山を液化するためにあなたのラニウスを送ります。</text>
+			<autoReward level="LOW">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="false">
+		<text>それを危険にさらすのではなく、外れ値のいくつかを取り戻すだけです。</text>
+		<event>
+			<autoReward level="LOW">missiles_only</autoReward>
+		</event>
+	</choice>
+</event>
+<eventList name="SALVAGE_DEFAULT_MINEFIELD_RISK">
+	<event>
+		<text>ある程度の優雅さで、あなたのクルーは爆発物を発射することなくフィールドを漂流することができます。できるだけ多くの武装を解除し、印象的な運搬を取り戻します。</text>
+		<autoReward level="HIGH">missiles</autoReward>
+	</event>
+	<event>
+		<text>あなたのクルーは、フィールドを優雅にナビゲートすることはできず、ほとんどすべてを2回引き離します。ついに、彼らは最後の運を押し上げ、あなたのクルーの1人が塊に吹き飛ばされます！チームの他のメンバーがラジオで恐怖で叫んでいるのを聞くことができますが、あなたは彼らを沈黙させ、彼らがすでに集めた量ですぐに船に戻すように命じます。</text>
+		<autoReward level="MED">missiles</autoReward>
+		<removeCrew>
+			<clone>true</clone>
+			<text>幸いなことに、あなたのクルーはクローンベイによって復活しましたが、彼らは次の救助任務からパスを取得するように要求しています。</text>
+		</removeCrew>
+	</event>
+	<event>
+		<text>あなたのクルーは、彼らが戻る前に何とか多くの地雷を武装解除しますが、中央に何かを見つけます。これは、フィールドを敷設するために使用されるツールであるMineLauncherです。地雷が少なくなったので、近くで操縦してそれをつかむことができますが、フィールドの残りの部分を船で引き離す危険があります。</text>
+		<autoReward level="MED">missiles</autoReward>
+		<choice hidden="false">
+			<text>マインランチャーを手に入れよう！</text>
+			<event>
+				<text>あなたはマインランチャーをつかんでフィールドを離れますが、途中で誤ってそのうちの1つをトリップするだけです！幸いなことに、結果として生じる爆発はそれほど壊滅的ではありませんが、それでも痛いです。</text>
+				<weapon name="GIFTLIST_MINELAUNCHERS_TRAPPER" />
+				<damage amount="3" />
+			</event>
+		</choice>
+		<choice hidden="false">
+			<text>そのままにしておきます。</text>
+			<event />
+		</choice>
+	</event>
+</eventList>
+
+<event name="SALVAGE_DEFAULT_DRONE">
+	<text>奇妙なことに、ここの深淵に搭乗ドローンのペアが放棄されたようです。それらを部品ごとに簡単に分解できますが、それらをスキャンして回路図を探すと、アクティブ化するリスクが生じる可能性があります。</text>
+	<variable name="loc_has_salvaged" op="set" val="1" />
+	<choice hidden="false">
+		<text>それらを部品に分解します。</text>
+		<event>
+			<text>回路図面はリスクに見合う価値がありません。あなたはドローンを回収します。</text>
+			<autoReward level="LOW">droneparts_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それらをスキャンします。</text>
+		<event>
+			<text>スキャンを試みましたが、距離が原因で読み取りができません。あなたは近づきますが、誤って少し近づきすぎて、ドローンをトリガーします！幸いなことに、あなたはまだ回路図面を回復します、しかし今それらは船上にあります！</text>
+			<boarders min="2" max="2" class="drone_battle" />
+			<damage amount="0" system="random" effect="breach" />
+			<damage amount="0" system="random" effect="breach" />
+			<drone name="BATTLETOG_DEFEND" />
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ENERGY_SHIELD">
+		<text>（エナジーシールド）侵入者を恐れずにアプローチします。</text>
+		<event>
+			<text>幸いなことに、エネルギーシールドはプロセスを大幅に簡素化します。抵抗に対処することなく、回路図を取得します。</text>
+			<drone name="BATTLETOG_DEFEND" />
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ENGI">
+		<text>（エンギクルー）最初にドローンを無効にします。</text>
+		<event>
+			<text>幸い、エンギはドローンをスキャンする前に無効にすることができます。</text>
+			<drone name="BATTLETOG_DEFEND" />
+		</event>
+	</choice>
+		<choice hidden="true" req="LIST_CREW_ENGINEER">
+		<text>（エンジニアクルー）最初にドローンを無効にします。</text>
+		<event>
+			<text>幸い、エンジニアはドローンをスキャンする前に無効にすることができます。</text>
+			<drone name="BATTLETOG_DEFEND" />
+		</event>
+	</choice>
+</event>
+
+<event name="SALVAGE_DEFAULT_PIRATES">
+	<text>ビーコンのすぐ近くの領域はほとんど得られませんが、システムをさらに深く掘り下げた後、非アクティブな海賊船のスキャンに遭遇することは以前にはありませんでした。</text>
+	<variable name="loc_has_salvaged" op="set" val="1" />
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+		<text>チームを送って、中にどんな戦利品が入っているかを確認します。</text>
+		<event load="SALVAGE_DEFAULT_PIRATES_LOOT" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>チームが不足しているため、チームを送信できません。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true">
+		<text>船体をスクラップします。</text>
+		<event load="SALVAGE_DEFAULT_PIRATES_SCRAP" />
+	</choice>
+	<choice hidden="false">
+		<text>船を無視します。</text>
+		<event />
+	</choice>
+</event>
+<eventList name="SALVAGE_DEFAULT_PIRATES_LOOT">
+	<event>
+		<text>あなたのクルーは船の周りを掘りますが、すべてのクルーが死んでいて、価値のあるものがなくなっているのを見つけます。代わりに船体を解体することにします。</text>
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+	<event>
+		<text>内部を探索している間、あなたのクルーは孤独な生存者を見つけます。彼らはかつて海賊だったかもしれませんが、彼らはあなたのために働くことをいとわないのです。</text>
+		<crewMember amount="1" />
+	</event>
+	<event>
+		<text>あなたのクルーは、船の貯蔵庫に残された機能的な武器全体を見つけます！彼らはそれを勝利で船に運び戻します。</text>
+		<weapon name="RANDOM" />
+	</event>
+	<event>
+		<text>船のほとんどがむき出しになっているようです。しかし、貨物室はまだ施錠されており、まだ誰も侵入していないようです。あなたがそうするのはそれほど難しいことではないでしょう、あなたは先に進みたいですか？</text>
+		<choice hidden="true">
+			<text>彼らの貨物を開きます。</text>
+			<event>
+				<text>あなたは繊細にドアを通り抜けますが、罠の中に足を踏み入れた瞬間がトリガーされます！ 「あなたをねじ込みなさい、泥棒！」自動化されたメッセージを叫び、続いて爆発が起こり、クルーの1人が引き裂かれます。損失はひどいものですが、それ以上の影響はないようで、残っているものをすべて取り去ることになります。</text>
+				<autoReward level="HIGH">standard</autoReward>
+				<removeCrew>
+					<clone>true</clone>
+					<text>幸いなことに、あなたのクローンベイはすでにあなたのクルーを復活させる過程にあります。</text>
+				</removeCrew>
+			</event>
+		</choice>
+		<choice hidden="true" req="BLUELIST_CREW_NODOORS">
+			<text>（Phasingクルー）中に忍び込みます。</text>
+			<event>
+				<text>あなたのクルーはドアをすり抜けて中に入ることができ、そこで彼らはすぐに解き放つ罠を見つけます。安全に入ることができたので、残りのクルーはできる限りのことを行います。</text>
+				<autoReward level="HIGH">standard</autoReward>
+			</event>
+		</choice>
+		<choice hidden="true" req="LIST_CREW_ROCK">
+			<text>(Rock Crew) 最初に自分の Rock を送ってください。</text>
+			<event>
+				<text>乗組員は簡単にドアを開けて中に入ることができますが、トラップに足を踏み入れた瞬間にトリガーされます! 「くそったれ、泥棒！」自動メッセージを叫び、続いて爆発します。幸いなことに、乗組員はひるんだだけのようで、まだ元気です。安全に入場できるようになったので、残りの乗組員はそれに続き、できる限りのことをします。</text>
+				<autoReward level="HIGH">standard</autoReward>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>そのままにしておきます。</text>
+			<event />
+		</choice>
+	</event>
+	<event>
+		<text>あなたのクルーは船に乗り込みますが、ほとんど空です。しかし、空気中には非常に不快な悪臭があります。あなたのクルーは、そこに腐った死体を見つけるためだけに収納キャビネットの1つを開けます、そして何が見えるか...巨大なエイリアンのクモ？！</text>
+		<boarders min="1" max="2" class="spider" />
+	</event>
+</eventList>
+<eventList name="SALVAGE_DEFAULT_PIRATES_SCRAP">
+	<event>
+		<text>船をスクラップしても邪魔されません。</text>
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+</eventList>
+
+
+<event name="SALVAGE_DEFAULT_CACHE">
+	<text>小さな供給キャッシュが近くの小さな小惑星に埋め込まれています。内部から小規模で議論の余地のない短距離信号放送がなければ、あなたはそれを通り過ぎていたでしょう。</text>
+	<variable name="loc_has_salvaged" op="set" val="1" />
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+		<text>キャッシュを開こうとします。</text>
+		<event load="SALVAGE_DEFAULT_CACHE_OPEN" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0">
+		<text>送信できる乗組員はありません。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="DRONE_CONTROL_BOARDING_DAMAGE">
+		<text>（搭乗ドローン）キャッシュを開こうとします。</text>
+		<event load="SALVAGE_DEFAULT_CACHE_OPEN_DRONE" />
+	</choice>
+	<choice hidden="false">
+		<text>キャッシュを無視します。</text>
+		<event />
+	</choice>
+</event>
+<eventList name="SALVAGE_DEFAULT_CACHE_OPEN">
+	<event>
+		<text>乗組員は、キャッシュへのドアをこじ開け、ミサイルと燃料の供給を見つけています。それはトンではありませんが、船にすべてを取り戻すのに十分です。</text>
+		<autoReward level="MED">fuel_and_missiles</autoReward>
+	</event>
+	<event>
+		<text>信号は、キャッシュ上の特別な鎧にこもった苦痛信号であったようです！送信者の死体は、使い果たされた食料の山の中に捨てられ、偶然ここに閉じ込められている可能性があります。あなたの乗組員は緊張しており、中に足を踏み入れて、数回の気まぐれでしか戻ってきません。</text>
+		<autoReward level="LOW">stuff</autoReward>
+	</event>
+	<event>
+		<text>あなたの運のために、キャッシュはかつて内戦後に放棄された反乱軍のキャッシュだったようです！あなたはその年齢にもかかわらずまだ機能している武器を見つけ、それをあなたと一緒に戻します。</text>
+		<weapon name="RANDOM" />
+	</event>
+	<event>
+		<text>キャッシュは、家庭用品の奇妙な品揃えに基づいて、一部の民間人に属していたようです。おそらく南北戦争からの最後のリゾートバンカーですか？古い地図以外にはあまり役に立たないが、古いマップはあなたが使用するのに十分正確であると思われるが。</text>
+		<reveal_map />
+	</event>
+	<event>
+		<text>キャッシュのドアを剥がすと、空気のために息を切らしている声が聞こえ、人が出てくると胸に胸を握ります。以前に見つけた信号は苦痛信号であり、シェルを通り抜けることができないようです。キャッシュは現在空ですが、一度回復したガラガラのサバイバーは喜んであなたを助けてくれるようです。</text>
+		<crewMember amount="1" />
+	</event>
+	<event>
+		<text>キャッシュドアは非常によく安全に見えますが、とにかく開く際に運をテストします。爆発が途中で開かれた直後に、乗組員が宇宙に転がり込んでしまい、最も近くに立っている人の生命維持を破壊します。イベントから回復したら、ダメージを調査し、ブービトロップキャッシュの内容がもうないことがわかります。</text>
+		<damage amount="3" />
+		<removeCrew>
+			<clone>true</clone>
+			<text>幸いなことに、乗組員は船に戻るまでにすでにクローニングされています。</text>
+		</removeCrew>
+	</event>
+</eventList>
+<eventList name="SALVAGE_DEFAULT_CACHE_OPEN_DRONE">
+	<event>
+		<text>ドローンはキャッシュへのドアをこじ開けることができ、ミサイルと燃料の供給を見つけます！それはトンではありませんが、船にすべてを取り戻すのに十分です。</text>
+		<autoReward level="MED">fuel_and_missiles</autoReward>
+	</event>
+	<event>
+		<text>信号は、キャッシュ上の特別な鎧にこもった苦痛信号であったようです！送信者の死体は、使い果たされた食料の山の中に捨てられ、偶然ここに閉じ込められている可能性があります。あなたの大胆不敵なドローンは、その収容能力が許す限り回復します。</text>
+		<autoReward level="LOW">stuff</autoReward>
+	</event>
+	<event>
+		<text>あなたの運のために、キャッシュはかつて内戦後に放棄された反乱軍のキャッシュだったようです！あなたのドローンは、その年齢にもかかわらずまだ機能している武器を見つけ、それをあなたに戻します。</text>
+		<weapon name="RANDOM" />
+	</event>
+	<event>
+		<text>キャッシュは、家庭用品の奇妙な品揃えに基づいて、一部の民間人に属していたようです。おそらく南北戦争からの最後のリゾートバンカーですか？古い地図以外にはあまり役に立たないが、古いマップはあなたが使用するのに十分正確であると思われるが。</text>
+		<reveal_map />
+	</event>
+	<event>
+		<text>ドローンがキャッシュドアを開けると、空気のために息を切らしている声が聞こえ、人が出てくるのを聞き、呼吸器を胸に握ります。以前に見つけた信号は苦痛信号であり、シェルを通り抜けることができないようです。キャッシュは現在空ですが、一度回復したガラガラのサバイバーは喜んであなたを助けてくれるようです。</text>
+		<crewMember amount="1" />
+	</event>
+	<event>
+		<text>キャッシュドアは非常によく安全に見えますが、とにかく開く際に運をテストします。ドアが途中で開かれた直後、爆発によりドローンが宇宙に転がり、回路が破壊されます。イベントから回復したら、ダメージを調査し、ブービトロップキャッシュの内容がもうないことがわかります。</text>
+		<damage amount="3" />
+		<item_modify>
+			<item type="drones" min="-1" max="-1" />
+		</item_modify>
+	</event>
+</eventList>
+
+<event name="SALVAGE_DEFAULT_SHRINE">
+	<text>近くにある小さな神社は、宇宙を放棄されたドリフトです。通常、あなたはこれらをより密集した人口密集した胸の寺院に近いと思います。</text>
+	<variable name="loc_has_salvaged" op="set" val="1" />
+	<choice hidden="true">
+		<text>貴重品のために神社を襲撃します。</text>
+		<event load="SALVAGE_DEFAULT_SHRINE_ROB" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ZOLTAN">
+		<text>（ゾルタンの乗組員）神社に祈ります。</text>
+		<event load="SALVAGE_DEFAULT_SHRINE_PRAY" />
+	</choice>
+	<choice hidden="false">
+		<text>神社を無視してください。</text>
+		<event />
+	</choice>
+</event>
+<eventList name="SALVAGE_DEFAULT_SHRINE_ROB">
+	<event>
+		<text>貴重品を襲撃する過程で、あなたが気づかなかった小さな年配の僧kはあなたを見つけて抗議します。あなたは彼を無視して、彼があなたを止めるために何もすることができないことを知っていますが、これはおそらくあなたの使命にそれほどよく反映されないでしょう。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice>
+			<text>継続する...</text>
+			<event load="MORALITY_UPDATE_ZOLTAN" />
+		</choice>
+	</event>
+	<event>
+		<text>残念ながら、あなたの検索は失望以外の何ものももたらされません。神社が軍事船には価値がないということは予想外ではありませんが、それはあなたの空の手をそれほど傷つけることはありません。</text>
+	</event>
+	<event>
+		<text>いくつかの小さなエーテル装身具を見つけます。技術にエンジニアリングするのに十分な大きさのものはありませんが、確かにポーンオフする価値があります。あなたの検索の残りの部分は価値のないものを明らかにしていませんが、少なくともあなたは手ぶらで戻ることはありません。</text>
+		<autoReward level="MED">standard</autoReward>
+	</event>
+	<event>
+		<text>疲れた旅行者のための燃料電池の小さなコレクションが通り過ぎるための小さなコレクションを見つけます。</text>
+		<choice hidden="true">
+			<text>ほんの数個しか服用しません。</text>
+			<event>
+				<text>あなたはいくつかの燃料電池をつかむだけで、それをいくつかの余分なジャンプにするのに十分なだけで、明確な良心で船に戻ります。</text>
+				<autoReward level="MED">fuel_only</autoReward>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>できるだけ多く服用してください。</text>
+			<event>
+				<text>持ち運びできる限り多くの燃料電池をつかみ、かなりの数で浴槽を空にします。これはあなたのエンジンをうまく締めくくりますが、あなたは角を曲がったところから目に見えない力によって判断されているように感じずにはいられません。忍び寄って、突然あなたが本当に一人でいるとはもう一度も確信していません。あなたは船に急いで戻ります。</text>
+				<autoReward level="HIGH">fuel_only</autoReward>
+				<choice>
+					<text>継続する...</text>
+					<event load="MORALITY_UPDATE_ZOLTAN" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<eventList name="SALVAGE_DEFAULT_SHRINE_PRAY">
+	<event>
+		<text>あなたはあなたのゾルタンが神社に祈りを捧げるためにしばらくすることを許します。満足して、彼らは立ち上がって船に戻り、あなたは続ける準備をします。</text>
+	</event>
+	<event>
+		<text>あなたはあなたのゾルタンが神社に祈りを捧げるためにしばらくすることを許します。そうすることで、あなたは以前に気付いていなかった小さな年配の僧kの注意を引いています。「ええ...？訪問者？私は人々を見てからとても長いです...」僧kはあなたのゾルタンを祈るのを見ます。「あなたは誠意を持っている人だと思います。私はそれを感謝します。おそらく私はあなたと一緒に来て、銀河がどのように見えるかを思い出させます。」</text>
+		<crewMember amount="1" class="zoltan_monk" />
+	</event>
+	<event>
+		<text>あなたはあなたのゾルタンが神社に祈りを捧げるためにしばらくすることを許します。ただし、近づくと、小さなゾルタンの自動クラフトが隠れから明らかになります。「連盟の同盟国では、この省は、この船に、イレスクトリアン信仰の船を運ぶ船を支援する能力を認めています。」船はいくつかの付属物を延長し、船体を無料で修理し始めます。</text>
+		<damage amount="-6" />
+	</event>
+</eventList>
+
+<event name="SALVAGE_DEFAULT_COLONY">
+	<text>小さな植民地の遺跡は、かつて近くの大気惑星の上にあったように見えます。誰かが残っているかどうかは確信できません。</text>
+	<variable name="loc_has_salvaged" op="set" val="1" />
+	<choice hidden="true">
+		<text>コロニーを訪れてください。</text>
+		<event load="SALVAGE_DEFAULT_COLONY_VISIT" />
+	</choice>
+	<choice hidden="false">
+		<text>遺跡を避けてください。</text>
+		<event />
+	</choice>
+</event>
+<eventList name="SALVAGE_DEFAULT_COLONY_VISIT">
+	<event>
+		<text>古代の落書きは、放棄された構造の摩耗した壁を刺青しました。これは、沈黙した声の最後の遺跡です。いくつかのスケルトンを見つけます。この場所は長い間放棄されていたに違いないことを示しています。死者を混乱させないように注意してください。あなたは必須の場所に固執し、キャンプの周りにいくつかのゆるい物資を清掃します。</text>
+		<autoReward level="HIGH">standard</autoReward>
+	</event>
+	<event>
+		<text>「連邦をくそー！私たちがあなたを最も必要としたときにあなたは私たちを捨ててくれました。そして今、あなたは私たちが死の瀬戸際にいるときだけ戻ってきます！」あなたの最初のスキャンを逃れたいくつかの隠されたセントリー銃は、あなたの船にアクティブに火をつけて火災を起こします！あなたはわずかなダメージだけで逃げますが、かなり驚いています。</text>
+		<damage amount="5" effect="breach" system="room" />
+	</event>
+	<event>
+		<text>かつてこのキャンプを席巻した病気の明確な兆候があります。あなたの乗組員は慎重に行動しますが、すべての入植者は非常に長い間死んでいます。非常に多くの患者に圧倒された摩耗したドクタードローンは、現在、地元の診療所の隣に休眠状態にあります。あなたはドローンをつかみ、船に戻ります。</text>
+		<drone name="DOCTOR_DEFENSE" />
+	</event>
+	<event>
+		<text>あなたは足跡の音に驚いており、廃inthest the Ruinsの中で疲れ果てているが若い追放を見つけます。「戻って！私は武装している！」あなたは彼にあなたが脅威ではなく、彼は落ち着いていることを保証します。「この場所は、新しい家を探している失われた旅行者にとって聖域であると言われました。代わりに、私は腐敗と失われた希望しか見つかりませんでした。おそらくあなたは代わりにいるかもしれませんか？」</text>
+		<crewMember amount="1" class="rock_outcast" />
+	</event>
+	<event>
+		<text>植民地を探索している間、あなたは突然武装した反政府勢力のバンドに飛びついた！「このような遺跡は、連邦自身の市民の怠慢の副産物です！内戦が進行したとき、反乱は人々の安全を確保しましたが、あなたはどこにいましたか？あなたはゼノの貴族を人類の意志から守るのに忙しかったです！「</text>
+		<boarders min="2" max="4" class="LIST_CREW_REBEL_RANDOM" />
+	</event>
+</eventList>
+</FTL>

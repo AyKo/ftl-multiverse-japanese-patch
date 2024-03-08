@@ -1,0 +1,2196 @@
+<FTL>
+
+
+
+<event name="FINISH_BEACON_LANIUS">
+	<text id="finish_beacon" />
+	<choice hidden="true">
+		<text>探検。</text>
+		<event load="EXIT_FILLER_LIST" />
+	</choice>
+	<choice hidden="true">
+		<text>船に乗って何かする。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice hidden="true">
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+
+	
+<eventList name="ITEMS_LANIUS_MV">
+	<event load="LANIUS_LANGUAGE" />
+	<event load="LANIUS_INJURED" />
+	<event load="LANIUS_FREEMANTIS_DEAD" />
+	<event load="LANIUS_LUNG_SCAN" />
+
+	<event load="LANIUS_FREE_STUFF_MV" />
+	<event load="LANIUS_RESEARCHER_CONTACT_MV" />
+	<event load="LANIUS_RESEARCHER_CRAFT_MV" />
+	<event load="LANIUS_TRADER_TRANSLATOR_MV" />
+	<event load="LANIUS_TRADER_MV" />
+</eventList>
+
+<event name="LANIUS_LANGUAGE" unique="true">
+	<text>ラニウスの船があなたを歓迎し、お願いをします。彼らはあなたの言語を適度に上手に話しますが、それは改善を使うことができます。 「翻訳の改善として使用するために、データを要求し、スキャンします。」</text> 
+	<choice hidden="true">
+		<text>同意します。時間がかかる可能性があることを知っています。</text>
+		<event>
+			<text>予想通り、データスキャンにはかなりの時間がかかりますが、ラニウスは非常に満足していることがわかります。彼らはあなたに支払うことを申し出ます。</text>
+			<modifyPursuit amount="1" />
+			<choice>
+				<text>支払いを受け入れます。</text>
+				<event>
+					<autoReward level="MED">standard</autoReward>
+				</event>
+			</choice>
+			<choice>
+				<text>ラニウスがあなたのクルーに加わってさらに学ぶことを提案してください。</text>
+				<event>
+					<text>ラニウスはあなたの提案に同意し、乗船します。</text>
+					<crewMember amount="1" class="lanius" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>拒否する。</text>
+		<event>
+			<text>「わかりました。検討していただきありがとうございます。」彼らは飛び去り、あなたをビーコンに一人で残します。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="LANIUS_INJURED" unique="true">
+	<text>単一のラニウスが宇宙を漂流します。彼らはあなたの船に反応していないようですが、スキャンは彼らが生きていることを確認します。</text>
+	<choice hidden="true">
+		<text>それらを乗せてください。</text>
+		<event load="LANIUS_INJURED_RESCUE" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_LANIUS">
+		<text>（ラニウスの乗組員）ラニウスに、あなたが彼らを乗せたときにあなたが害を及ぼさないことを意味することを保証します。</text>
+		<event>
+			<text>ラニウスは何かによって重傷を負ったようで、彼らの体のかなりの部分が失われています。あなたが助けられない限り、彼らはおそらくそれほど長くは生きられないでしょう。</text>
+			<choice>
+				<text>スクラップでそれらを癒します。</text>
+				<event>
+					<text>ラニウスは金属を溶かし、それと同化します。あなたはその体のナイフのような構造がゆっくりと再形成するのを見ます。</text>
+					<item_modify>
+						<item type="scrap" min="-35" max="-25" />
+					</item_modify>
+					<choice hidden="true">
+						<text>継続する。</text>
+						<event>
+							<text>完全に癒された今、ラニウスは喜んであなたのクルーに加わり、あなたがその命を救うためにその借金を返済します。</text>
+							<crewMember amount="1" class="lanius" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="medbay" lvl="2">
+				<text>（Upg. Medbay）ラニウスを癒します。</text>
+				<event>
+					<text>どういうわけか、メドベイのナノボットは、ラニウスの体への損傷を修復することができます。命を救うことに感謝して、ラニウスはあなたの乗組員に加わります。</text>
+					<crewMember amount="1" class="lanius" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>できることは何もありません、彼らを死なせてください。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>ラニウスを無視します。</text>
+		<event>
+			<text>あなたはラニウスを無視し、あなたの使命を続けます。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="LANIUS_INJURED_RESCUE">
+	<event>
+		<text>ラニウスは何かによって重傷を負ったようで、彼らの体のかなりの部分が失われています。あなたが助けられない限り、彼らはおそらくそれほど長くは生きられないでしょう。</text>
+		<choice>
+			<text>スクラップでそれらを癒します。</text>
+			<event>
+				<text>ラニウスは金属を溶かし、それと同化します。あなたはその体のナイフのような構造がゆっくりと再形成するのを見ます。</text>
+				<item_modify>
+					<item type="scrap" min="-35" max="-25" />
+				</item_modify>
+				<choice hidden="true">
+					<text>継続する。</text>
+					<event>
+						<text>完全に癒された今、ラニウスは喜んであなたのクルーに加わり、あなたがその命を救うためにその借金を返済します。</text>
+						<crewMember amount="1" class="lanius" />
+					</event>
+				</choice>
+			</event>
+		</choice>
+		<choice hidden="true" req="medbay" lvl="2">
+			<text>（Upg. Medbay）ラニウスを癒します。</text>
+			<event>
+				<text>どういうわけか、メドベイのナノボットは、ラニウスの体への損傷を修復することができます。命を救うことに感謝して、ラニウスはあなたの乗組員に加わります。</text>
+				<crewMember amount="1" class="lanius" />
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>できることは何もありません、彼らを死なせてください。</text>
+			<event />
+		</choice>
+	</event>
+	<event>
+		<text>ラニウスは重傷を負い、非常に攻撃的です。あなたに脅かされていると感じて、彼らはつまずいて攻撃します。</text>
+		<boarders min="1" max="1" class="lanius" />
+	</event>
+</eventList>
+
+<event name="LANIUS_FREEMANTIS_DEAD" unique="true">
+	<text>あなたは混乱してイライラしたラニウスから連絡を受けました。 「フリーマンティスボード。窒息し、愚かです。1つを保存し、痛みを生かし続けます。あなたが欲しいですか？」</text> 
+	<choice>
+		<text>生き残ったマンティスを受け入れます。</text>
+		<event>
+			<text>ラニウスは無意識のマンティスをあなたの船に降ろし、彼らの船に戻ります。フリーマンティスが目を覚ますと、彼らは連邦の船に乗っているのを見て驚いていますが、あなたの指揮下で奉仕することは喜ばしいことです。</text>
+			<crewMember amount="1" class="mantis_free" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>これ以上のクルーは必要ありません。</text>
+		<event>
+			<text>「私たちはできません。TAKE！」ラニウスはあなたにマンティスを与えようとしてあなたの船に強制的に乗り込みます、そして闘争は完全な戦いに変わります！</text>
+			<boarders min="2" max="3" class="lanius" />
+		</event>
+	</choice>
+</event>
+
+<event name="LANIUS_LUNG_SCAN" unique="true">
+	<text>あなたはラニウスの船に歓迎されます。ラニウスの船は驚くべきことに通常よりも優れた翻訳者を備えています。 「私たちは他の種についてもっと学び、科学的範囲を拡大したいと思っています。あなたの人間のスタッフに相談してください。私たちはあなたに支払います。」</text>
+	<ship load="SHIP_LANIUS_GENERIC" hostile="false" />
+	<choice hidden="true" req="human" blue="false">
+		<text>彼らにあなたの人間をスキャンさせてください。</text>
+		<event>
+			<text>あなたの人間は緊張しており、ラニウスは彼らを安心させようとはしません。彼らは彼らを船に乗せて、研究のために特別な酸素で満たされた部屋に連れて行きます。今、あなたは待たなければなりません...</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LANIUS_LUNG_SCAN_HUMAN" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="human_engineer" blue="false">
+		<text>彼らにあなたのエンジニアをスキャンさせてください。</text>
+		<event>
+			<text>あなたのエンジニアは行くことに神経質になっており、ラニウスは彼らを安心させようとはしません。彼らは彼らを船に乗せて、研究のために特別な酸素で満たされた部屋に連れて行きます。今、あなたは待たなければなりません...</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LANIUS_LUNG_SCAN_ENGINEER" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="human_medic" blue="false">
+		<text>彼らにあなたのメディックをスキャンさせてください。</text>
+		<event>
+			<text>あなたのメディックは行くのに神経質になっており、ラニウスは彼らを安心させようとはしません。彼らは彼らを船に乗せて、研究のために特別な酸素で満たされた部屋に連れて行きます。今、あなたは待たなければなりません...</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LANIUS_LUNG_SCAN_MEDIC" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_SOLDIER" blue="false">
+		<text>彼らにあなたの兵士をスキャンさせてください。</text>
+		<event>
+			<text>あなたの兵士は、相変わらず大胆不敵で、ラニウスと共に行進します。彼らは彼らを船に乗せて、研究のために特別な酸素で満たされた部屋に連れて行きます。今、あなたは待たなければなりません...</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LANIUS_LUNG_SCAN_SOLDIER" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="human_technician" blue="false">
+		<text>技術者をスキャンさせてください。</text>
+		<event>
+			<text>あなたの技術者は行くのに緊張しており、ラニウスは彼らを安心させようとはしません。彼らは彼らを彼らの船に乗せて、研究のために特別な酸素充填室に連れて行きます。今、あなたは待たなければなりません...</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LANIUS_LUNG_SCAN_TECH" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>却下。</text>
+		<event>
+			<text>あなたは彼らの奇妙な研究に参加する時間がありません。申し訳ありませんが、通話を終了します。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="LANIUS_LUNG_SCAN_HUMAN">
+	<event>
+		<text>しばらくすると、あなたは再びラニウスに歓迎されます。 「間違い。進行中、人間の肺は取り除かれます。非常に残念です。損失の見返りに支払います。」</text>
+		<removeCrew class="human">
+			<clone>true</clone>
+			<text>あなたのクルーは、彼らの胸をかじりながら、クローンベイからあえぎながらやって来ます。あなたは彼らの肺が本来あるべき場所に戻っていることを彼らに保証するために少し時間がかかります。</text>
+		</removeCrew>
+		<choice>
+			<text>彼らの支払いを受け入れます。</text>
+			<event>
+				<autoReward level="MED">scrap_only</autoReward>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>支払いをねじ込みます！復讐したい。</text>
+			<event>
+				<text>これは不正です！この後、ラニウスを再び信頼することはありませんが、最初にこれらのろくでなしを殺したいと思います...</text>
+				<ship hostile="true" />
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>しばらくすると、あなたは再びラニウスに歓迎されます。 「とても良い。たくさん学んだ。ここに人間とお金がある。」</text>
+		<autoReward level="MED">scrap_only</autoReward>
+	</event>
+</eventList>
+<eventList name="LANIUS_LUNG_SCAN_ENGINEER">
+	<event>
+		<text>しばらくすると、あなたは再びラニウスに歓迎されます。 「間違い。進行中、人間の肺は取り除かれます。非常に残念です。損失の見返りに支払います。」</text>
+		<removeCrew class="human_engineer">
+			<clone>true</clone>
+			<text>あなたのクルーは、彼らの胸をかじりながら、クローンベイからあえぎながらやって来ます。あなたは彼らの肺が本来あるべき場所に戻っていることを彼らに保証するために少し時間がかかります。</text>
+		</removeCrew>
+		<choice>
+			<text>彼らの支払いを受け入れます。</text>
+			<event>
+				<autoReward level="MED">scrap_only</autoReward>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>支払いをねじ込みます！復讐したい。</text>
+			<event>
+				<text>これは不正です！この後、ラニウスを再び信頼することはありませんが、最初にこれらのろくでなしを殺したいと思います...</text>
+				<ship hostile="true" />
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>しばらくすると、あなたは再びラニウスに歓迎されます。 「とても良い。たくさん学んだ。ここに人間とお金がある。」</text>
+		<autoReward level="MED">scrap_only</autoReward>
+	</event>
+</eventList>
+<eventList name="LANIUS_LUNG_SCAN_TECH">
+	<event>
+		<text>しばらくすると、あなたは再びラニウスに歓迎されます。 「間違い。進行中、人間の肺は取り除かれます。非常に残念です。損失の見返りに支払います。」</text>
+		<removeCrew class="human_technician">
+			<clone>true</clone>
+			<text>あなたのクルーは、彼らの胸をかじりながら、クローンベイからあえぎながらやって来ます。あなたは彼らの肺が本来あるべき場所に戻っていることを彼らに保証するために少し時間がかかります。</text>
+		</removeCrew>
+		<choice>
+			<text>彼らの支払いを受け入れます。</text>
+			<event>
+				<autoReward level="HIGH">scrap_only</autoReward>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>支払いをねじ込みます！復讐したい。</text>
+			<event>
+				<text>これは不正です！この後、ラニウスを再び信頼することはありませんが、最初にこれらのろくでなしを殺したいと思います...</text>
+				<ship hostile="true" />
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>しばらくすると、あなたは再びラニウスに歓迎されます。 「とても良い。たくさん学んだ。ここに人間とお金がある。」</text>
+		<autoReward level="MED">scrap_only</autoReward>
+	</event>
+</eventList>
+<eventList name="LANIUS_LUNG_SCAN_MEDIC">
+	<event>
+		<text>しばらくすると、あなたは再びラニウスに歓迎されます。 「間違い。進行中、人間の肺は取り除かれます。非常に残念です。損失の見返りに支払います。」</text>
+		<removeCrew class="human_medic">
+			<clone>true</clone>
+			<text>あなたのクルーは、彼らの胸をかじりながら、クローンベイからあえぎながらやって来ます。あなたは彼らの肺が本来あるべき場所に戻っていることを彼らに保証するために少し時間がかかります。</text>
+		</removeCrew>
+		<choice>
+			<text>彼らの支払いを受け入れます。</text>
+			<event>
+				<autoReward level="MED">scrap_only</autoReward>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>支払いをねじ込みます！復讐したい。</text>
+			<event>
+				<text>これは不正です！この後、ラニウスを再び信頼することはありませんが、最初にこれらのろくでなしを殺したいと思います...</text>
+				<ship hostile="true" />
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>しばらくすると、あなたは再びラニウスに歓迎されます。 「とても良い。たくさん学んだ。ここに人間とお金がある。」</text>
+		<autoReward level="MED">scrap_only</autoReward>
+	</event>
+</eventList>
+<eventList name="LANIUS_LUNG_SCAN_SOLDIER">
+	<event>
+		<text>しばらく待ちますが、ラニウスは応答しません。突然、あなたはあなたの兵士が逃げるのを見て、2人の怒っているラニウスが続きます！あなたの兵士は、ラニウスが誤って肺をほとんど取り除いたとすぐに説明し、彼らは自由への道を戦うことを余儀なくされました。</text>
+		<ship hostile="true" />
+		<boarders min="2" max="2" class="lanius" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>しばらくすると、あなたは再びラニウスに歓迎されます。 「とても良い。たくさん学んだ。ここに人間とお金がある。」</text>
+		<autoReward level="MED">scrap_only</autoReward>
+	</event>
+</eventList>
+
+<event name="LANIUS_FREE_STUFF_MV" unique="true">
+	<text>あなたはひどく損傷したラニウスの工芸品に出くわしました。それはあなたを見るとすぐに飛び去ります。この地域を見渡すと、破壊された反乱軍の自動化された船がたくさん見つかります。かなりの戦いだったに違いありません。残っているものをスクラップします。</text> 
+	<autoReward level="HIGH">standard</autoReward>
+	<choice>
+		<text>船に乗って何かする。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+
+<event name="LANIUS_RESEARCHER_CONTACT_MV" unique="true">
+	<text>連邦の科学技術は、いくつかのラニウス船とドッキングされています。あなたは彼らを歓迎し、何が起こっているのか尋ねます。 「ご挨拶！私たちは地域の最新の訪問者であるラニウスを理解しようと試みてきましたが、彼らの言語の解読にはほとんど前進していません。」</text>
+	<choice hidden="true">
+		<text>彼らがあなたの使命を助けることができる何かを持っているかどうか尋ねてください。</text>
+		<event load="LANIUS_RESEARCHER_CONTACT_LIST_MV" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_LANIUS">
+		<text>（ラニウスクルー）翻訳者のデータスイートをコピーすることを提案します。</text>
+		<event>
+			<text>あなたのラニウスのクルーは、船の翻訳者を微調整して、時間をかけてゆっくりと自分自身を改善しました。 ラニウスとのやり取りから収集されたデータは、これらの科学者にとって非常に役立つ可能性があります。</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="LANIUS_RESEARCHER_CONTACT_LIST2_MV" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>離れる。</text>
+		<event>
+			<text>あなたは彼らが元気になり、ジャンプする準備をします。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="LANIUS_RESEARCHER_CONTACT_LIST_MV">
+	<event>
+		<text>「いくつかの貨物室に余分なジャンクメタルがあるはずです...」彼らがスクラップを移して次に進む準備をしたら、あなたは彼らに感謝します。</text>
+		<autoReward level="MED">scrap_only</autoReward>
+	</event>
+	<event>
+		<text>「私たちは仕事でドローンを頻繁に使用し、余分な部品が周りにあります。」彼らは部品を移し、あなたは彼らの寛大さに感謝します。</text>
+		<autoReward level="MED">droneparts</autoReward>
+	</event>
+	<event>
+		<text>「私たちは以前にいくつかのラニウス兵器の研究を行っていました。あなたがそれを使う必要がないことを願っていますが、おそらくそれはあなたの任務に役立つでしょう。」あなたは彼らに感謝し、先に進む準備をします。</text>
+		<weapon name="RANDOM" />
+	</event>
+	<event>
+		<text>「申し訳ありませんが、軍用船に役立つ機器はあまり持っていません。」あなたは彼らに感謝し、先に進む準備をします。</text>
+	</event>
+</eventList>
+<eventList name="LANIUS_RESEARCHER_CONTACT_LIST2_MV">
+	<event>
+		<text>彼らはあなたの貢献に感謝し、彼らが以前に研究していたいくつかのラニウス機器をあなたに提供します。</text>
+		<augment name="RANDOM" />
+	</event>
+	<event>
+		<text>彼らはあなたの貢献に感謝し、彼らが以前に研究していたいくつかのラニウス機器をあなたに提供します。</text>
+		<weapon name="RANDOM" />
+	</event>
+	<event>
+		<text>彼らはあなたの貢献に感謝し、彼らが以前に研究していたいくつかのラニウス機器をあなたに提供します。</text>
+		<drone name="RANDOM" />
+	</event>
+</eventList>
+
+<event name="LANIUS_RESEARCHER_CRAFT_MV" unique="true">
+	<text>商船にはラニウス輸送が施されています。あなたは彼らに助けが必要かどうかを確認するために彼らにメッセージを送ります。彼らは金属を再構築するラニウスの能力を研究してきたことが判明しました。</text>
+	<choice hidden="true">
+		<text>プロセスについてお問い合わせください。</text>
+		<event>
+			<text>彼らは、「私たちはそれがどのように機能するかについて最も霧深い考えを持っていません。彼らは彼らの体の一部を金属に溶かしてそれを再形成するように見えます。なにか。"</text>
+			<choice hidden="true">
+				<text>増強を作るために45のスクラップを与えます。</text>  
+				<event>
+					<text>あなたはスクラップを移し、熟練した職人が働くのを見ます。彼らは簡単に金属を使用できる断片に変形し、船にさまざまな追加の材料を追加して増強を構築します。あなたは彼らに感謝し、それをあなたの船に積み込みます。</text>
+					<item_modify>
+						<item type="scrap" min="-45" max="-45" />
+					</item_modify>
+					<augment name="RANDOM" />
+				</event>
+			</choice>	
+			<choice hidden="true">
+				<text>武器を作るために50個のスクラップを与えます。</text>
+				<event>
+					<text>あなたはスクラップを移し、熟練した職人が働くのを見ます。彼らは簡単に金属を使用できる断片に変形し、次に武器を構築するために船にさまざまな追加の材料を追加します。あなたは彼らに感謝し、それをあなたの船に積み込みます。</text>
+					<item_modify>
+						<item type="scrap" min="-50" max="-50" />
+					</item_modify>
+					<weapon name="RANDOM" /> 
+				</event>
+			</choice>				
+			<choice hidden="true">
+				<text>ドローンの回路図を作成するために40個のスクラップを与えます。</text>
+				<event>
+					<text>あなたはスクラップを移し、熟練した職人が働くのを見ます。彼らは簡単に金属を使用できる断片に再形成し、次に船にさまざまな追加の材料を追加して回路図を作成します。あなたは彼らに感謝し、それをあなたの船に積み込みます。</text>
+					<item_modify>
+						<item type="scrap" min="-40" max="-40" />
+					</item_modify>
+					<drone name="RANDOM" /> 
+				</event>
+			</choice>			
+			<choice>
+				<text>彼らの申し出を断る。</text>
+				<event>
+					<text>あなたは彼らに情報を感謝し、ジャンプする準備をします。</text>
+					<choice>
+						<text>船に乗って何かする。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_LANIUS">
+				<text>（ラニウスクルー）プロセスを支援することを申し出ます。</text>
+				<event>
+					<text>あなたのクルーはそれをスピードアップするプロセスを支援することを申し出ます。彼らは、追加の支援があればもう少し効率的に実行でき、スクラップの要求が少なくなると考えています。</text>
+					<choice hidden="true">
+						<text>増強物を作るために35のスクラップを与えます。</text>  
+						<event>
+							<text>あなたはスクラップを移し、熟練した職人が働くのを見ます。彼らは簡単に金属を使用できる断片に変形し、船にさまざまな追加の材料を追加して増強を構築します。あなたは彼らに感謝し、それをあなたの船に積み込みます。</text>
+							<item_modify>
+								<item type="scrap" min="-35" max="-35" />
+							</item_modify>
+							<augment name="RANDOM" />
+						</event>
+					</choice>	
+					<choice hidden="true">
+						<text>武器を作るために40のスクラップを与えます。</text>
+						<event>
+							<text>あなたはスクラップを移し、熟練した職人が働くのを見ます。彼らは簡単に金属を使用できる断片に変形し、次に武器を構築するために船にさまざまな追加の材料を追加します。あなたは彼らに感謝し、それをあなたの船に積み込みます。</text>
+							<item_modify>
+								<item type="scrap" min="-40" max="-40" />
+							</item_modify>
+							<weapon name="RANDOM" /> 
+						</event>
+					</choice>				
+					<choice hidden="true">
+						<text>ドローンの回路図を作成するために30個のスクラップを与えます。</text>
+						<event>
+							<text>あなたはスクラップを移し、熟練した職人が働くのを見ます。彼らは簡単に金属を使用できる断片に再形成し、次に船にさまざまな追加の材料を追加して回路図を作成します。あなたは彼らに感謝し、それをあなたの船に積み込みます。</text>
+							<item_modify>
+								<item type="scrap" min="-30" max="-30" />
+							</item_modify>
+							<drone name="RANDOM" />
+						</event>
+					</choice>	
+					<choice>
+						<text>彼らの申し出を断る。</text>
+						<event>
+							<text>あなたは彼らに情報を感謝し、ジャンプする準備をします。</text>
+							<choice>
+								<text>船に乗って何かする。</text>
+								<event load="STORAGE_CHECK" />
+							</choice>
+							<choice>
+								<text>何もしない。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>	
+		</event>	
+	</choice>
+	<choice hidden="true">
+		<text>彼らを彼らの研究に任せなさい。</text>
+		<event>
+			<text>それらの本来の能力を複製することは、商業的製造に計り知れない結果をもたらすでしょうが、あなたの使命は、現時点でははるかに高い優先順位を持っています。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+	
+<event name="LANIUS_TRADER_TRANSLATOR_MV" unique="true">
+	<text>あなたが彼らのメッセージをはっきりと理解しているので、ラニウス商人は大幅に改善された翻訳者を持っているように見えます。 「金属含有量は十分すぎる。あなたの船は私たちの余分な金属と資源を交換することを気にしていますか？」</text>
+	<choice>
+		<text>交換に同意します。</text>
+		<event load="LANIUS_TRADER_LIST_MV" />
+	</choice>
+	<choice>
+		<text>却下。</text>
+		<event>
+			<text>彼らは一言も言わずに去ります。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>辞退しますが、翻訳デバイスについて質問します。</text>
+		<event>
+			<text>「はい。それは品質です。私たちの船には余分なものが含まれています。購入する気はありますか？」</text>
+			<choice hidden="true">
+				<text>翻訳者を40スクラップで購入します。</text>
+				<event>
+					<text>あなたの船はドッキングし、あなたが話したラニウスがあなたの船に乗り込むとき、あなたは少し驚いています。あなたが購入した「デバイス」はあなたの言語を学んだ存在の1つだったようです。</text>
+					<crewMember amount="1" class="lanius">翻訳者</crewMember>
+					<item_modify>
+						<item type="scrap" min="-40" max="-40" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice>
+				<text>再び辞退します。</text>
+				<event>
+					<text>「関係ありません。これはこの船を気にしません。」彼らは引き離し、あなたはそれがそれが何を意味するのか疑問に思うままになります。おそらく、翻訳デバイスはまだ完成していませんか？</text>
+					<choice>
+						<text>船に乗って何かする。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="LANIUS_TRADER_MV" unique="true">
+	<text load="LANIUS_TRADER_MV_TEXT" />
+	<choice>
+		<text>交換に同意します。</text>
+		<event load="LANIUS_TRADER_LIST_MV" />
+	</choice>
+	<choice>
+		<text>却下。</text>
+		<event>
+			<text>彼らは一言も言わずに去ります。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_LANIUS">
+		<text>（ラニウスクルー）別の取引を依頼してください。</text>
+		<event>
+			<text>あなたが理解していない短い議論の後、トレーダーは2番目の提案で戻ってきます。</text>
+			<choice>
+				<text>交換に同意します。</text>
+				<event load="LANIUS_TRADER_LIST2_MV" />
+			</choice>
+			<choice>
+				<text>却下。</text>
+				<event>
+					<text>彼らは一言も言わずに去ります。</text>
+					<choice>
+						<text>船に乗って何かする。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<textList name="LANIUS_TRADER_MV_TEXT">
+	<text planet="PLANET_POPULATED">改造された翻訳者の助けを借りて、近くのラニウススカベンジャー船はあなたに「金属は十分です。交換を要求してください」とメッセージを送ります。他の種族との社交的な交流を望んでいるラニウスがいるようです。</text>
+	<text>小さなラニウスクラフトが近づいています。あなたは戦いの準備をしていますが、彼らは武器を持っていないようです。あなたの翻訳者はなじみのない方言に苦しんでいますが、しばらくすると彼らはあなたにメッセージを送ります。彼らは取引したいと思っているようです。</text>
+	<text>最近集められた金属を積んだ大きなラニウス船を見つけるために到着します。彼らは明らかに彼らが不足している物資と交換することを申し出ています。</text>
+</textList>
+<eventList name="LANIUS_TRADER_LIST_MV">
+	<event>
+		<text>交換が完了した後、彼らは一言も言わずに去ります。</text>
+		<item_modify>
+			<item type="fuel" min="-7" max="-3" />
+			<item type="scrap" min="15" max="30" />
+		</item_modify>
+	</event>
+	<event>
+		<text>交換が完了した後、彼らは一言も言わずに去ります。</text>
+		<item_modify>
+			<item type="missiles" min="-7" max="-3" />
+			<item type="scrap" min="20" max="40" />
+		</item_modify>
+	</event>
+	<event>
+		<text>交換が完了した後、彼らは一言も言わずに去ります。</text>
+		<item_modify>
+			<item type="drones" min="-7" max="-3" />
+			<item type="scrap" min="20" max="40" />
+		</item_modify>
+	</event>
+</eventList>
+<eventList name="LANIUS_TRADER_LIST2_MV">
+	<event>
+		<text>交換が完了した後、彼らは一言も言わずに去ります。</text>
+		<item_modify>
+			<item type="fuel" min="-7" max="-3" />
+			<item type="scrap" min="20" max="35" />
+		</item_modify>
+	</event>
+	<event>
+		<text>交換が完了した後、彼らは一言も言わずに去ります。</text>
+		<item_modify>
+			<item type="missiles" min="-7" max="-3" />
+			<item type="scrap" min="25" max="50" />
+		</item_modify>
+	</event>
+	<event>
+		<text>交換が完了した後、彼らは一言も言わずに去ります。</text>
+		<item_modify>
+			<item type="drones" min="-7" max="-3" />
+			<item type="scrap" min="25" max="50" />
+		</item_modify>
+	</event>
+</eventList>
+
+	
+<eventList name="NEUTRAL_LANIUS_MV">
+	<event load="LANIUS_ASTEROID_COLONY" />
+	<event load="LANIUS_MUTUAL_FEAST" />
+	<event load="LANIUS_GOLD" />
+
+	<event load="LANIUS_CIVILIAN_MV" />
+	<event load="LANIUS_SOLO_SALVAGE_MV" />
+	<event load="LANIUS_SCARED_CIVILIAN_MV" />
+	<event load="LANIUS_DORMANT_EVENT_MV" />
+</eventList>
+
+<event name="LANIUS_ASTEROID_COLONY" unique="true">
+	<text>このビーコンは、小惑星フィールドとラニウスのコロニーの両方をホストしているように見えます。岩と一緒に浮かんでいる金属くずの塊、いくつかの船がここで彼らの死を迎えたという不吉な兆候にもかかわらず、少なくともラニウスが行く限り、コロニー自体は平和に見えます。</text>
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>コロニーに連絡してください。</text>
+		<event load="LANIUS_ASTEROID_COLONY_CONTACT" />
+	</choice>
+	<choice hidden="true">
+		<text>コロニーを無視してください、小惑星は十分に危険です。</text>
+		<event />
+	</choice>
+</event>
+<eventList name="LANIUS_ASTEROID_COLONY_CONTACT">
+	<event>
+		<text>結局のところ、コロニーはあなたが彼らの領土に侵入することを軽視していないようです。彼らの武器はオンラインになり、攻撃します！</text>
+		<ship load="SHIP_LANIUS_STATION" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>ラニウスはあなたをより近くで歓迎し、取引を申し出ます。</text>
+		<ship load="SHIP_LANIUS_STATION" hostile="false" />
+		<store>STORE_LANIUS</store>
+	</event>
+</eventList>
+
+<event name="LANIUS_MUTUAL_FEAST" unique="true">
+	<text>ここでは2隻のラニウス船が戦っているようです。乗馬用ズボンには大きくなりすぎて、彼らの欠片の1つを消費することに決めたように見えるエリートと、戦いなしでは諦めたくない非常に威嚇するような通常のラニウス船。</text>
+	<choice hidden="true">
+		<text>エリートと戦ってください。</text>
+		<event>
+			<text>あなたはエリートラニウスに取り組むことにしました。あなたは武器を武装させて交戦します。</text>
+			<ship load="SHIP_LANIUS_MUTUAL_ELITE" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>通常のラニウスと戦ってください。</text>
+		<event>
+			<text>あなたはラニウスに取り組むことにしました。あなたは武器を武装させて交戦します。</text>
+			<ship load="SHIP_LANIUS_MUTUAL_LARGE" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>これは危険です、去ってください。</text>
+		<event />
+	</choice>
+</event>
+
+<event name="LANIUS_CIVILIAN_MV" unique="true">
+	<text load="LANIUS_CIVILIAN_MV_TEXT" />
+	<ship load="SHIP_LANIUS_CIVILIAN" hostile="false" />
+	<choice hidden="true">
+		<text>ラニウス船を攻撃します。</text>
+		<event>
+			<text>あなたは武器を充電します。それはすぐにラニウス船の注意を引きます。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>衝突を避けてください。</text>
+		<event>
+			<text>残念ながら、この戦争やラニウスの侵略によって影響を受けたすべての人を救うことはあなたの使命ではありません。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<textList name="LANIUS_CIVILIAN_MV_TEXT">
+	<text>到着するとすぐに、「助けて！これらの金属のろくでなしが狂った！」というメッセージが届きます。通信は、他の多くの破壊された船の中にある部分的に解体された船の船体から始まります。この大虐殺の原因となった暴力的なラニウス船が生存者を前進させています。</text>
+	<text>このシステムに到着した後、エリアをスキャンします。ラニウス船は非武装の民間船を迅速に追跡しています。その武器は充電されていないので、それが本当に脅威であるかどうかを言うのは難しいです。</text>
+	<text>あなたは最近の戦いの場所に到着します。残骸から判断すると、何人かの入植者は多くの小さなラニウス船を撃退しようとしましたが、誰が攻撃を扇動したかを言うことは不可能です。遠くにいくつかの小競り合いが見られますが、特に、ひどく損傷した民間船に1隻のラニウス船が発砲しています。</text>
+</textList>
+
+<event name="LANIUS_SOLO_SALVAGE_MV">
+	<text load="LANIUS_SOLO_SALVAGE_MV_TEXT" />
+	<ship load="SHIP_LANIUS_FIGHT" hostile="false" />
+	<choice hidden="true">
+		<text>船を攻撃します。</text>
+		<event>
+			<text>あなたは移動して武器の電源を入れます。脅威を検出して、彼らは彼らがしていたことを止めて、戦いの準備をします。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>放っておけ。</text>
+		<event>
+			<text>あなたは船を無視してジャンプする準備をします。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_LANIUS">
+		<text>（ラニウスクルー）スクラップをリクエストしてください。</text>
+		<event load="LANIUS_SOLO_SALVAGE_LIST_MV" />
+	</choice>
+</event>
+<eventList name="LANIUS_SOLO_SALVAGE_LIST_MV">
+	<event>
+		<text>あなたのクルーは彼らの船を歓迎し、彼らに余分な救助があるかどうか疑問に思います。彼らのクルーは喜んで共有しているようです。</text>
+		<autoReward level="MED">scrap_only</autoReward>
+	</event>
+	<event>
+		<text>あなたのクルーは彼らを歓迎し、余分なスクラップがあるかどうか尋ねます。彼らは彼らが非常に低く、何も惜しまないと述べています。</text>
+	</event>
+	<event>
+		<text>彼らはあなたのクルーの要求を嘲笑し、「あなた自身の怠惰なはんだを手に入れなさい」と翻訳された何かを発します。</text>
+		<choice hidden="true">
+			<text>船を攻撃します。</text>
+			<event>
+				<text>あなたは移動して武器の電源を入れます。脅威を検出して、彼らは彼らがしていたことを止めて、戦いの準備をします。</text>
+				<ship hostile="true" />
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+		<choice>
+			<text>離れる。</text>
+			<event>
+				<text>あなたは彼らの嘲笑的な口調を無視し、ジャンプする準備をします。</text>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<textList name="LANIUS_SOLO_SALVAGE_MV_TEXT">
+	<text>あなたは小さな民間の工芸品を救助している単一のラニウス船に出くわします。彼らがその船を攻撃したのか、それともただ起こったのかはわかりません。</text>
+	<text>ここには激しい戦いの名残があります。ハルクの間に散らばっているのは小さなラニウスクラフトで、残骸をゆっくりと分解します。船の1つは十分に接近しているため、他の船にすぐに警告することなく攻撃できる可能性があります。</text>
+	<text>ビーコンに到着すると、大規模な戦いの残骸であったに違いないものを発見します。しかし、金属の大部分は船から剥ぎ取られており、惑星の周りのリングに浮かんでいるのはさまざまなプラスチックやその他の材料だけです。孤独なラニウス船が残骸の間を移動し、より多くの資材の回収を求めています。</text>
+	<text>このジャンプビーコンの近くに小さな小惑星帯があります。ラニウス船は大きな岩にドッキングされており、ゆっくりとその一部を吸収するため、ミネラルが豊富である必要があります。あなたはおそらく彼らの注意をかなり簡単に得ることができるでしょう。</text>
+	<text>ラニウスの船は、小さな研究基地の残骸をゆっくりと回収しています。それがラニウスによって放棄されたのか攻撃されたのかを判断するのは難しいです。</text>
+</textList>
+
+<event name="LANIUS_SCARED_CIVILIAN_MV" unique="true">
+	<text>あなたはビーコンに到着し、孤独なラニウスの船から逃げる民間船を発見します。民間人はあなたに「助けて！金属の怪物が私たちの船を溶かしに来ている！」とメッセージを送ります。不思議なことに、アクティブな武器の署名は検出されません。</text>
+	<ship load="SHIP_LANIUS_FIGHT" hostile="false" />
+	<choice hidden="true">
+		<text>ラニウス船を攻撃します。</text>
+		<event>
+			<text>民間船は、船の進路を遮って武器をロックしている間、急いで後退します。それは向きを変え、戦いの準備をします。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それを避けてください。</text>
+		<event>
+			<text>あなたは船の嘆願を無視し、急いで逃げるのを眺めます。奇妙なことに、ラニウス船はそれを追いかける動きをしません。彼らが脅威だったのではないかと思います。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ラニウス船に連絡してみてください。</text>
+		<event>
+			<text>あなたは武器を作動させずに船に近づき、民間船は「これ以上近づかないでください！ただそれらを殺してください！」と言います。急いで撤退する前に。</text>
+			<choice hidden="true">
+				<text>それらを無視して続行します。</text>
+				<event load="LANIUS_SCARED_CIVILIAN_LIST_MV" />
+			</choice>
+		</event>
+	</choice>		
+	<choice hidden="true" req="LIST_CREW_LANIUS">
+		<text>（ラニウスクルー）船に連絡してみてください。</text>
+		<event>
+			<text>あなたのクルーは彼らと一緒にチャンネルを開きます。彼らは他の衆生とのつながりを確立しようとしている商人のギルドを探しているようです。あなたは彼らがより良い翻訳者を開発するために研究時間を投資し、彼らが現在何かを売っているかどうか尋ねることを提案します。</text>
+			<store>STORE_LANIUS</store>
+		</event>
+	</choice>
+</event>
+<eventList name="LANIUS_SCARED_CIVILIAN_LIST_MV">
+	<event>
+		<text>あなたは彼らが何を望んでいるのかを尋ねると、翻訳者は彼らの反応を「探求し、貿易の可能性を評価しなさい」と叫びます。他の種族とのつながりを作ろうとしている商船のようです。民間人は単に怖がって尋ねることができなかったに違いありません。あなたは彼らが現時点で何を売らなければならないかをチェックします。</text>
+		<store>STORE_LANIUS</store>
+	</event>
+	<event>
+		<text>あなたは彼らがここで何をしているのか尋ねますが、翻訳者は明らかにその要求に問題があります。それは彼らの反応で鳴り響きます、「抹消...花...提案...」あなたは彼らの答えを明確にしようとしますが、無駄です。あなたとラニウスの船長の両方が落胆して送信を終了します。</text>
+	</event>
+	<event>
+		<text>あなたは彼らがここで何をしているのか尋ねますが、翻訳者は明らかにその要求に問題があります。ラニウスは、見分けがつかない理由で激怒しているようです。彼らは伝達を遮断し、武器に動力を供給します。結局戦わなければならないようです！</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="LANIUS_DORMANT_EVENT_MV" unique="true">
+	<text>あなたはこのセクターを漂流しているラニウス船を拾いました。船体に損傷はなく、電源がオフになっているようです。</text>
+	<ship load="SHIP_LANIUS_FIGHT" hostile="false" />
+	<choice hidden="true">
+		<text>船をスキャンして生命体を探します。</text>
+		<event>
+			<text>船をスキャンすると、スキャン頻度によって冬眠からラニウスのクルーが目覚めます-そして彼らは原材料に飢えています！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>攻撃する武器を強化します。</text>
+		<event load="LANIUS_DORMANT_WEAPONS_MV" />
+	</choice>
+	<choice hidden="true">
+		<text>船を調査します。</text>
+		<event load="LANIUS_DORMANT_INVESTIGATE_MV" />
+	</choice>
+</event>
+<eventList name="LANIUS_DORMANT_WEAPONS_MV">
+	<event>
+		<text>あなたは武器の電源を入れます、そしてそれに応じて、ラニウス船は同じことをします！戦いの準備をしなさい。</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>武器の電源を入れますが、応答がありません。</text>
+		<choice hidden="true">
+			<text>船を調査します。</text>
+			<event load="LANIUS_DORMANT_INVESTIGATE_MV" />
+		</choice>
+		<choice hidden="true">
+			<text>それを破壊して廃棄します。</text>
+			<event>
+				<text>あなたが武器を彼らの船に固定するとすぐに、それは目覚めます...彼らは冬眠状態にあり、危険に目覚めたに違いありません！</text>
+				<ship hostile="true" />
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<event name="LANIUS_DORMANT_INVESTIGATE_MV">
+	<text>船は休眠しているようです。船内にはラニウスがいる可能性がありますが、船が新しい材料の範囲内に入るまで冬眠している可能性があります。</text>
+	<choice>
+		<text>船を無視します。</text>
+		<event>
+			<text>船の邪魔をしません。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice req="LIST_CREW_LANIUS" hidden="true">
+		<text>(Lanius Crew) ラニウスの乗組員を派遣して船から資源を略奪します。</text>
+		<event>
+			<text>あなたのクルーは、休止状態のクルーを起こさずに、なんとかいくつかの資源を回収することができます。</text>
+			<autoReward level="MED">stuff</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>船の周りを注意深くナビゲートし、船体からできる限りの材料を取り除きます。</text>
+		<event load="LANIUS_DORMANT_PILOT_MV" />
+	</choice>
+	<choice hidden="true" req="pilot" lvl="2">
+		<text>（Upg. Piloting）自動操縦装置を作動させて、船を安全に剥ぎ取ります。</text>
+		<event>
+			<text>コンピューターは対象の船の回転と速度に一致し、ラニウスのクルーを目覚めさせることなく可能な限りの残留スクラップを収集する機会を利用します。あなたは素晴らしい運搬を手に入れます！</text>
+			<autoReward level="MED">standard</autoReward>
+		</event>
+	</choice>
+</event>
+<eventList name="LANIUS_DORMANT_PILOT_MV">
+	<event>
+		<text>あなたが船に向かって漂流するとき、あなたの水先案内スキルはあなたの意図に一致することができません-ラニウス船はパワーアップし、原材料に飢えています！</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>後退を余儀なくされたり衝突の危険を冒したりする前に、不器用に船体のメッキを剥がすことができます。</text>
+		<autoReward level="LOW">scrap_only</autoReward>
+	</event>
+</eventList>
+
+
+<eventList name="DISTRESS_LANIUS_MV">
+	<event load="DISTRESS_LANIUS_FEEDING" />
+	<event load="DISTRESS_LANIUS_FIGHT" />
+	<event load="DISTRESS_LANIUS_EMPTY" />
+	<event load="DISTRESS_LANIUS_TRAP" />
+	<event load="DISTRESS_LANIUS_SLUG" /> 
+	<event load="DISTRESS_LANIUS_MANTIS" />
+	<event load="DISTRESS_LANIUS_ROCK" />
+</eventList>
+
+<event name="DISTRESS_LANIUS_FEEDING" unique="true">
+	<distressBeacon />
+	<text>苦しんでいるスラッグ船長は、ラニウス船がスラッグ船の上部に付着し、船体をゆっくりと溶かしている間、あなたを歓迎します。 「私たちにお願いをして、ラニウスに私たちを食べないように言ってくれませんか？私たちは私たち自身を試しましたが、彼らは反応しませんでした。それは大いに感謝されるでしょう。」</text>
+	<choice hidden="true">
+		<text>ラニウス船を追い払ってください。</text>
+		<event>
+			<text>驚いたことに、ラニウス船はスラッグの船体から離れることを拒否し、スラッグと一緒に引きずっています。標識は、ラニウスが飛び去ろうとしていることを検出します。彼らがなんとかジャンプした場合、完全に破壊していなくても、スラッグ船に極度のダメージを与える可能性があります。</text>
+			<ship load="SHIP_LANIUS_FEEDING" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_LANIUS">
+		<text>（ラニウスクルー）あなたのラニウスにスラッグを手放すように説得してもらいます。</text>
+		<event>
+			<text>しぶしぶ、ラニウス船はスラッグ達から離れて飛び去ります。それは簡単でした...</text>
+			<choice hidden="true">
+				<text>スラッグ船に連絡してください。</text>
+				<event>
+					<text>スラッグが反応する前に、ラニウスの船が戻ってきて、武器が燃え上がります。それはスラッグ船を爆破し、次にあなたを攻撃します。</text>
+					<ship load="SHIP_LANIUS_FIGHT" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それを楽しんでください。</text>
+		<event>
+			<text>あなたはスラッグ達に別れを告げ、ラニウスとの取引に任せます。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="DISTRESS_LANIUS_FEEDING_WIN">
+	<text>「あなたのasssissstanccceに感謝します、私たちが他の1つのwissseから抜け出すことができたかどうかはわかりません。thisssのお尻の贈り物を受け入れてください。」</text>
+	<weapon name="RANDOM" />
+</event>
+
+<event name="DISTRESS_LANIUS_FIGHT" unique="true">
+	<distressBeacon />
+	<text>ビーコンに到着したら、すぐに短距離スキャンを実行します。それは、ラニウス船から発砲された小さな民間船から来ているようです。すべてのラニウスが以前の戦いの残骸を単に掃討することに満足しているわけではありません。</text>
+	<ship load="SHIP_LANIUS_CIVILIAN" hostile="false" />
+	<choice hidden="true">
+		<text>ラニウス船と戦ってください。</text>
+		<event>
+			<text>あなたは船を迎撃するために移動します。より大きな脅威を検出して、ラニウスは戦う準備をします。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>衝突を避けてください。</text>
+		<event>
+			<text>あなたのクルーは民間人をそのような運命に任せることに不満を感じているようですが、あなたは彼らにもっと大きな善を納得させようとします。しかし、あなたは自分自身の不安については話しません。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_LANIUS">
+		<text>（ラニウスクルー）あなたのクルーに彼らの船長に忠告してもらいます。</text>
+		<event load="DISTRESS_LANIUS_FIGHT_LANIUS" />
+	</choice>
+</event>
+<eventList name="DISTRESS_LANIUS_FIGHT_LANIUS">
+	<event>
+		<text>あなたの翻訳者が理解できないという議論の後、敵の船はその武器をパワーダウンします。あなたは、あなたのクルーが、知覚力のある異星人の財産を放っておくことを約束している彼らの論文を首尾よく思い出させたことを学びます。これがこの種族の広範なルールである場合、それに同意しない人が多いようです。安全になった今、民間船を呼ぼうとしています。</text>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="SAVE_CIVILIAN_LIST" />
+		</choice>
+	</event>
+	<event>
+		<text>船は、それ自体の種類のものであっても、すべての連絡を拒否します。完全に不正になっているようです。あなたが反応する前に、それはあなたの船を標的にし始めます。戦いの準備をしなさい。</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="DISTRESS_LANIUS_EMPTY" unique="true">
+	<distressBeacon />
+	<text load="TEXT_DISTRESS_LANIUS_EMPTY" />
+	<choice>
+		<text>船に乗って何かする。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_DISTRESS_LANIUS_EMPTY">
+	<text>救難信号の元のソースが何であれ、それ以降は削除されました。あなたが推測しなければならなかったならば、おそらくラニウスの手による恐ろしい運命。</text>
+	<text>ビーコンに到達すると、遭難信号の発信元をすばやく見つけようとします。見ていると、信号が点滅します。すると、近くの大規模な戦闘で発生した破片を吸収するスカベンジャー船の小さな艦隊に気付くでしょう。遭難信号がどこから来たのか疑問に思わずにはいられませんが、艦隊に圧力をかける危険を冒さないことにしました。</text>
+</textList>
+
+<event name="DISTRESS_LANIUS_TRAP" unique="true">
+	<distressBeacon />
+	<text>あなたは遅すぎます-かつてこのシステムから遭難信号を発していたものは何でも、あなた自身と同様にラニウス船を引きました。元のターゲットを消費した後、ラニウスはあなたの船に注意を向けます。</text>
+	<ship load="SHIP_LANIUS_FIGHT" hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="DISTRESS_LANIUS_SLUG" unique="true">
+	<distressBeacon />
+	<text>このシステムからの遭難信号は、ラニウスの攻撃を受けているスラッグ船から来ています！ラニウスが船体のメッキを引き裂くと、スラッグは助けを求めます。</text>
+	<choice>
+		<text>ラニウス船を攻撃します。</text>
+		<event>
+			<text>あなたはラニウスを攻撃する準備をします。</text>
+			<ship load="DISTRESS_LANIUS_SLUG_SHIP" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>スラッグを彼らの運命に任せなさい。</text>
+		<event>
+			<text>あなたはラニウス船を放っておいて、次のビーコンにジャンプする準備をします。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="LANIUS_SLUG_DISTRESS_END">
+	<event>
+		<text>スラッグは、銃撃戦を利用して、システムから逃げました。感謝の気持ちでいっぱいです。</text>
+	</event>
+	<event>
+		<text>スラッグはしぶしぶあなたの助けに感謝し、彼らがすべての状況をコントロールしていることに抗議し、あなたに彼らを助けてもらうためにあなたにお金を払わせようとし、そして1時間後、ついに寛容になってあなたにいくつかの物資を与えます。</text>
+		<autoReward level="MED">standard</autoReward>
+	</event>
+</eventList>
+
+<event name="DISTRESS_LANIUS_MANTIS" unique="true">
+	<distressBeacon />
+	<text>このシステムのマンティス船は、遭難ビーコンが誤動作しているように見えます...おそらくラニウス船が船体とサブシステムを採掘しているためです！マンティスの船がずっと長持ちするようには見えません。</text>
+	<choice>
+		<text>ラニウス船を攻撃します。</text>
+		<event>
+			<text>ラニウスはまだあなたに気づいていないようですが、気づいています。争いに突入して、あなたはラニウス船をターゲットにします！</text>
+			<ship load="DISTRESS_LANIUS_MANTIS_SHIP" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>マンティスを彼らの運命に任せなさい。</text>
+		<event>
+			<text>マンティスの船はラニウスの船にすぐに打ち負かされ、ラニウスが残骸を食べている間、あなたは立ち去ります。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="LANIUS_MANTIS_DISTRESS_END">
+	<event>
+		<text>マンティスはヒスとクリックし、救われることに腹を立て、救われる必要があることに腹を立てます。彼らは、船体に取り付けられなくなった金属くずと、使用できなくなったミサイルをいくつか手放します。</text>
+		<autoReward level="MED">missiles</autoReward>
+	</event>
+	<event>
+		<text>マンティスの船はあまりにも多くの被害を受けました-生存者はいません。残骸からできる限りの資源を集めます。</text>
+		<autoReward level="MED">standard</autoReward>
+	</event>
+</eventList>
+
+<event name="DISTRESS_LANIUS_ROCK" unique="true">
+	<distressBeacon />
+	<text>このシステムでは、ロックマン船から遭難ビーコンが弱くパルスします...彼らの船体（およびそのクルー）は、ラニウス、レーザー、および武器が船を引き裂くことによって採掘されています！</text>
+	<choice>
+		<text>ラニウス船を攻撃します。</text>
+		<event>
+			<text>ロックマンはあなたの助けを必要としています-あなたはラニウスの船を標的にして、厳しく戦いの準備をします。</text>
+			<ship load="DISTRESS_LANIUS_ROCK_SHIP" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>ロックマンを彼らの運命に任せなさい。</text>
+		<event>
+			<text>脱出すると、ロックマンの船のエンジンが爆発し、ラニウスの船が残骸とクルーをゆっくりと餌にするのを見ることができます。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="LANIUS_ROCK_DISTRESS_END">
+	<event>
+		<text>ロックマンは、感謝の気持ちについて何かを示しているように見える、ぎこちなく翻訳されたメッセージを出します。その後、彼らは別の言葉なしで飛び去ります。</text>
+	</event>
+	<event>
+		<text>ロックマンの船は戦闘中に飛び去りましたが、船体とスペアパーツの多くが後ろに浮かんでいました。あなたはできる限りのことを救い、ジャンプする準備をします。</text>
+		<autoReward level="MED">standard</autoReward>
+	</event>
+</eventList>
+
+
+<eventList name="QUESTS_LANIUS_MV">
+	<event load="LANIUS_ZOLTAN_PEACE" />
+</eventList>
+
+<event name="LANIUS_ZOLTAN_PEACE" unique="true">
+	<text>ゾルタンの小グループがこのビーコンのおしゃべりで前後に出荷します。彼らはすぐにあなたを歓迎します。 「簡単なスキャンは、あなたが連邦船を操作していることを示しています。したがって、あなたは私たちを助ける義務があります。私たちはラニウス種族と和解するようになりましたが、何か悪いことが起こった場合に備えて追加の火力が必要です。交渉がスムーズに進むことを確認してください、分かりますか？」</text>
+	<ship load="SHIP_ZOLTAN_GENERIC" hostile="false" />
+	<choice hidden="true">
+		<text>彼らの仕事に同意します。</text>
+		<event>
+			<text>ゾルタンは座標を送信し、あなたをミュートして、会話に戻ります。</text>
+			<quest event="QUEST_LANIUS_ZOLTAN_PEACE" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>私たちが支払われた場合のみ。</text>
+		<event load="LANIUS_ZOLTAN_PEACE_PAY" />
+	</choice>
+	<choice hidden="true" req="ZOLTAN_DELETER">
+		<text>（Zoltan leter）迷子になります。</text>
+		<event>
+			<text>もう一方の端のゾルタンは、怒りから怒り、悲しみ、そして最終的に敗北に必死に切り替えます。彼は、飛行隊の残りの部分を急いで去る前に、いくつかの物資を認めています。</text>
+			<autoReward level="HIGH">item</autoReward>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_ZOLTAN" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>何？ご注文は承っておりません。</text>
+		<event>
+			<text>「なぜ私は決してない！あなたは神経を持っている。」彼らの武器はオンラインで攻撃しているので、あなたはゾルタンを真剣に怒らせたようです。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="LANIUS_ZOLTAN_PEACE_PAY">
+	<event>
+		<text>「なぜ私は決してない！あなたは神経を持っている。」彼らの武器はオンラインで攻撃しているので、あなたはゾルタンを真剣に怒らせたようです。</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>「ああ、大丈夫。あなたがいつもスクラップを物乞いしているような生き物は驚くことではない。ただ遅れないでください。」</text>
+		<autoReward level="LOW">scrap_only</autoReward>
+		<quest event="QUEST_LANIUS_ZOLTAN_PEACE" />
+	</event>
+</eventList>
+<event name="QUEST_LANIUS_ZOLTAN_PEACE">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>ゾルタンとラニウスの船との交換の出会いスポット。</unvisitedTooltip>
+	</beaconType>
+	<text>ゾルタンの目的地では物事がうまくいっていないようです。ゾルタンは、ラニウスと必死に交渉しようとしている間、彼らが捕食者のように獲物のように近づいているので、あなたは少し遅れているに違いありません。</text>
+	<choice hidden="true">
+		<text>ただ待って見てください。</text>
+		<event>
+			<text>ゾルタンの指導者は、まるでそれが彼らが理解するのに役立つかのように、ラニウスにゆっくりと話します。「こんにちは、私の金属の友人。私たちはあなたに平和への素晴らしい提案をもたらしました。私たちはあなたのセクターのすべての領域、あなたのすべての貿易ルートなどの権利への完全なアクセスを要求します。rac- "ラニウスの1つが退屈し、ミサイルをエンジンにまっすぐに発射し、船を破壊すると、ゾルタンは遮断されます。カオスが続き、あなたはそれがあなたが去る時だと思います。</text>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>あなたは仕事を与えられました。ゾルタンを保護します。</text>
+		<event>
+			<text>ラニウスが敵対的になるのにそれほど時間はかかりません。あなたはあなたの「雇用者」を守るために急襲します。</text>
+			<ship load="SHIP_PEACE_LANIUS" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それらのゾルタンはぎくしゃくしていて、ラニウスと戦ってください。</text>
+		<event>
+			<text>ラニウスは、銀河の他の人種の伝統と言語に慣れていないかもしれませんが、愚かではありません。これらのゾルタンが交渉したいものは何でも、ラニウスの最高の利益にはありません。あなたは立ち上がることにしました。</text>
+			<ship load="SHIP_PEACE_ZOLTAN" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="LANIUS_ZOLTAN_PEACE_ZOLTAN_WIN"> 
+	<text>ラニウス船は重大なダメージを受けましたが、エリートのようです。 「連邦...救世主。募集、オプション、はい？」彼らの船が破壊に近づいており、ゾルタンが不十分な味方であることが証明されていることを考えると、船長はあなたの船で働きたいと思っているようです。</text>
+	<crewMember amount="1" class="lanius_welder">ソラリス</crewMember> 
+</event>
+<event name="LANIUS_ZOLTAN_PEACE_LANIUS_WIN"> 
+	<text>「あなたは私たちの戦隊を保護するのに満足しています。あなたは完璧にはほど遠いですが、私はあなたのパフォーマンスを完全に評価する時間がありません。私はあなたに十分に支払いますが、この状況が再び発生した場合は、次回はもっと頑張ってください。 。」</text>
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+
+
+<event name="LANIUS_BEACON_EATER" unique="true">
+	<text>ジャンプビーコンにドッキングされている損傷した船舶を検出します。ラニウスはビーコンから金属を吸収していて、それを破壊して立ち往生する危険を冒しているようです。</text>
+	<ship load="SHIP_LANIUS_HARVESTER" hostile="false" />
+	<choice hidden="true">
+		<text>彼らが援助を必要とするかどうか尋ねなさい。</text>
+		<event load="LANIUS_BEACON_EATER_ASK" />
+	</choice>
+	<choice hidden="true">
+		<text>それらに30スクラップを送ってください。</text>
+		<event load="LANIUS_BEACON_EATER_SCRAP" />		
+	</choice>
+	<choice hidden="true">
+		<text>離れる。</text>
+		<event load="LANIUS_BEACON_EATER_LEAVE" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_LANIUS">
+		<text>（ラニウスクルー）彼らが援助を必要とするかどうか尋ねてください。</text>
+		<event>
+			<text>しばらくすると、金属が不足しているために損傷し、船を修理できないと言われました。彼らは、船の設備の一部をスクラップやその他の有用な材料と交換することを提案しています。</text>
+			<choice hidden="true">
+				<text>それらに30スクラップを与えます。</text>
+				<event>
+					<text>エアロックから材料を解放すると、ラニウスはすぐにそれを収集し、溶かし始めます。彼らはあなたの援助に感謝し、船の増強を送ります。</text>
+					<augment name="RANDOM" />
+					<item_modify>    
+						<item type="scrap" min="-30" max="-30" />
+					</item_modify>	
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>それらに6発のミサイルを与えます。</text>
+				<event>
+					<text>エアロックから材料を解放すると、ラニウスはすぐにそれを収集し、溶かし始めます。彼らはあなたの援助に感謝し、船の増強を送ります。</text>
+					<item_modify>    
+						<item type="missiles" min="-6" max="-6" />
+					</item_modify>	
+					<augment name="RANDOM" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>それらに6つのドローンパーツを与えます。</text>
+				<event>
+					<text>エアロックから材料を解放すると、ラニウスはすぐにそれを収集し、溶かし始めます。彼らはあなたの援助に感謝し、船の増強を送ります。</text>
+					<item_modify>    
+						<item type="drones" min="-6" max="-6" />
+					</item_modify>	
+					<augment name="RANDOM" />
+				</event>
+			</choice>
+			<choice>
+				<text>却下。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="SHIP_REPAIR">
+		<text>（船の修理ドローン）ドローンを送って助けてください。</text>
+		<event>
+			<text>ドローンが近づくとすぐに、ある種の船外活動ユニットのラニウスがドローンをつかみ、すぐに金属のために分解し始めます。あなたは戦いの準備をしますが、彼らはその行為に非常に感謝しているように見えます。彼らは船の重要な部分を修理するために金属を使い始めます。翻訳者から理解できることから、彼らのクルーの1人があなたに加わりたいと思っているようです。</text> 
+			<crewMember amount="1" class="lanius" />
+		</event>
+	</choice> 
+</event>
+<eventList name="LANIUS_BEACON_EATER_ASK">
+	<event>
+		<text>長いメッセージの後、翻訳者は「クリティカル...マスト...メタル...」を吐き出すことしかできません。あなたは彼らがスクラップに必死であると推測することしかできません。</text>
+		<choice hidden="true">
+			<text>それらに30スクラップを与えます。</text>
+			<event>
+				<text>エアロックから材料を解放すると、ラニウスはすぐにそれを収集し、溶かし始めます。彼らはあなたの援助に感謝し、船の増強を送ります。</text>
+				<item_modify>    
+					<item type="scrap" min="-30" max="-30" />
+				</item_modify>	
+				<augment name="RANDOM" />
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>離れる。</text>
+			<event load="LANIUS_BEACON_EATER_LEAVE" />
+		</choice>
+	</event>
+	<event>
+		<text>あなたは船にメッセージを送り始めますが、それはすぐに防御的に武器の電源を入れます。それは完全に機能していて、戦いを探しているようです！</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="LANIUS_BEACON_EATER_SCRAP">
+	<event>
+		<text>エアロックから材料を解放すると、ラニウスはすぐにそれを収集し、溶かし始めます。彼らはあなたの援助に感謝し、船の増強を送ります。</text>
+		<item_modify>    
+			<item type="scrap" min="-30" max="-30" />
+		</item_modify>	
+		<augment name="RANDOM" />
+	</event>
+	<event>
+		<text>あなたはエアロックからスクラップを解放し、彼らはそれを貪欲に集めます。その後まもなく、インパルスエンジンが点滅し、武器の電源が入ります。あなたは彼らの金属への欲望を満足させていないようです！</text>
+		<item_modify>    
+			<item type="scrap" min="-30" max="-30" />
+		</item_modify>	
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="LANIUS_BEACON_EATER_LEAVE">
+	<event>
+		<text>あなたはできるだけ早くジャンプする準備をします。彼らがこのビーコンを無効にしているなら、あなたは周りにいたくないでしょう。</text>
+	</event>
+	<event>
+		<text>あなたはできるだけ早くジャンプする準備をします。彼らがこのビーコンを無効にしているなら、あなたは周りにいたくないでしょう。</text>
+	</event>
+	<event>
+		<text>あなたはできるだけ早くジャンプする準備をします。彼らがこのビーコンを無効にしているなら、あなたは周りにいたくないでしょう。</text>
+	</event>
+	<event>
+		<text>あなたはジャンプする準備をしますが、ラニウス船がビーコンからあなたに向かって引き離されると驚いています。完全に機能しているようです。</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<eventList name="HOSTILE_LANIUS_UNIQUE">
+	<event load="ENCOUNTER_LANIUS" />
+
+	<event load="ENCOUNTER_REBEL_LANIUS" />
+	<event load="ENCOUNTER_PIRATE_LANIUS" />
+	<event load="ENCOUNTER_AUTO_LANIUS" />
+
+	<event load="LANIUS_HARVESTER_MV" />
+	<event load="BOARDERS_LANIUS" />
+</eventList>
+
+<event name="ENCOUNTER_LANIUS">
+	<loadEventList first="false" generate="true">
+		<event name="ENCOUNTER_LANIUS_SWARM" />
+		<event name="ENCOUNTER_LANIUS_ASTEROID" />
+		<event name="ENCOUNTER_LANIUS_PULSAR" />
+		<event name="ENCOUNTER_LANIUS_PDS" />
+	</loadEventList>
+</event>
+<event name="ENCOUNTER_LANIUS_SWARM">
+	<text load="TEXT_ENCOUNTER_LANIUS" />
+	<ship load="SHIP_LANIUS_FIGHT" hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_LANIUS">
+	<text>センサーは、別の小さなラニウス船を救助する過程にある小さなラニウス巡洋艦を示します。何が原因でお互いがオンになったのか疑問に思う前に、生存者はあなたに気づき、攻撃に移ります。</text>
+	<text>到着後すぐに、ラニウス船がビーコンの近くにジャンプします。それはゆっくりとあなたに向かって動き始めます。広帯域通信チャネルを開き、連絡を試みます。ただし、それはあなたを無視するか、メッセージを受信することができません。彼らが近づくにつれて、あなたは武器を充電する命令を出し、彼らが同じことをするのを見つけます。</text>
+	<text>接近するラニウス船から発信された広帯域周波数のメッセージを受信します。それはあなたに向けられていないように見えますが、あなたの翻訳者はすべて同じように最善を尽くしています：「...金属の機会...獲得...強制的に...」あなたは戦いに参加しているようです。</text>
+	<text>ビーコンは多くの小さなラニウスクラフトに囲まれており、確かに1人の乗員しか収容できません。おそらく、彼らは「金属の機会」を探しているある種のフォワードスカウトですか？これを考えると、はるかに大きなラニウス船があなたと交戦するために移動し、スカウト船はあらゆる方向に散らばっています。</text>
+	<text>星系に到着すると、近接警報が鳴り始めた。ラニウス艦が真上にいるのだ！あなたが呼びかける前に、彼らは砲撃してきた。</text>
+	<text>あなたが方位を取得していると、別の船が突然ビーコンに到着します-それはラニウスであり、彼らはあなたの船に救助のマークを付けました！</text>
+	<text>最初はすべてが静かに見えますが、スキャナーは高速で接近している船を拾い上げます-ラニウスはあなたの到着を検出し、攻撃準備をしています！</text>
+	<text>あなたは採掘遠征に出くわしました-残念ながら、採掘者はラニウスであり、彼らはあなたの船を彼らのターゲットとして選びました！</text>
+</textList>
+<event name="ENCOUNTER_LANIUS_ASTEROID" unique="true">
+	<text>このビーコンは、採掘集落にアクセスするために小惑星フィールド内に設置されたようです。しかし、集落の半分は多くのラニウススカベンジャーによって解体されました。彼らの軍の護衛はあなたを怖がらせるために移動します。</text>
+	<ship load="SHIP_LANIUS_FIGHT" hostile="true" />
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="ENCOUNTER_LANIUS_PULSAR" unique="true">
+	<text>パルサーの一部が溶けているのでわかりにくいですが、パルサーの近くにある種の研究基地があるようです。それで働いていたラニウス船は、EMパルスの脅威に完全に気づかずにあなたを迎撃するために移動します。</text>
+	<ship load="SHIP_LANIUS_FIGHT" hostile="true" />
+	<environment type="pulsar" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="ENCOUNTER_LANIUS_PDS" unique="true">
+	<text planet="PLANET_POPULATED">到着するとすぐに混乱に包まれます。惑星の対艦バッテリーが多くのラニウス船に向けて発砲しています。戦闘艦の1隻は、惑星防衛を支援するためにあなたの船が到着したと誤って信じています。戦闘位置！</text>
+	<ship load="SHIP_LANIUS_BOARDERS_PDS" hostile="true" />
+	<environment type="PDS" target="enemy" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<eventList name="LANIUS_BOARDERS_PDS_LIST">
+	<event>
+		<text>小競り合いの後、戦闘は終了し、惑星防衛調整室から連絡があります。 「すみません、あなたはその戦いに巻き込まれました、見知らぬ人。私たちが空から吹き飛ばすこれらのモンスターの数に関係なく、彼らはちょうど来続けます。私たちはあなたのためにあなたの船を修理することができます。」</text>
+		<damage amount="-8" />
+	</event>
+	<event>
+		<text>あなたは対艦バッテリーの助けを借りて加害者を終わらせますが、戦いは遠くで激しさを増します。あなたが再びそれに引きずり込まれる前にあなたは去るのが最善です。</text>
+	</event>
+</eventList>
+
+<event name="ENCOUNTER_REBEL_LANIUS">
+	<text load="TEXT_ENCOUNTER_REBEL_LANIUS" />
+	<ship load="SHIP_REBEL_FIGHT" hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_REBEL_LANIUS">
+	<text>あなたは、ラニウスのスカベンジャー船が彼らの前方ステーションを「獲得する」ことを思いとどまらせようとしている多くの反乱軍の船を見るために到着します。通りすがりの反乱軍の巡視船があなたを発見し、迎撃するために移動します。</text>
+	<text>反乱軍の偵察隊がビーコンの近くをパトロールします。 「ハァッ！このセクターをこっそりとやってみようと思うよ！反乱軍はここに来ないと思っていたんだよね？まあ、私はここで何ヶ月も待っていたが、今ではすべてが報われた！」</text>
+	<text>反乱軍は、ラニウスのように威嚇するような人種でさえ、いかなる慈悲も惜しみません。彼らは致命的なメタルメンを狩るためにここに来ましたが、反乱軍もあなたと戦うことに熱心です。</text> 
+	<text>ビーコンに到着すると、破壊された反乱軍の戦艦からラニウスのスカベンジャーを追いかけている小さな反乱軍の船に気づきます。反乱軍があなたに気づき、攻撃するために移動するとすぐに、ラニウスの船はゴミの上を飛ぶように獲物に戻ります。</text>
+	<text>「あなたがここに来たのはとても便利です！私はラニウスのこのセクターを掃除するという恐ろしい仕事を与えられました、しかしおそらくあなたを殺すことは私が私たちのターゲットが私たちを窒息させようとしない他の場所に置かれる必要があるチャンスです死！"</text>
+</textList>
+
+<event name="ENCOUNTER_PIRATE_LANIUS">
+	<text load="TEXT_ENCOUNTER_PIRATE_LANIUS" />
+	<ship load="SHIP_PIRATE_ALL" hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_PIRATE_LANIUS">
+	<text>「おかしい、これらのラニウスはまだこのセクターを所有していると思っている。彼らは眠りについた瞬間にここにいる権利を放棄した。これは今の私たちの領土であり、連邦船がここにやって来て私たちのビジネスに関与することを感謝しない！」</text>
+	<text>ラニウスのホームワールドのラニウスの出会いと同じくらい敵対的な海賊の出会いに賭けることができるのは奇妙な日です。海賊でギャンブルをしていたら、今は素敵なお金を稼ぐことができたでしょう。</text>
+	<text>多数の戦艦からの破片がビーコンの周りに散らばっています。あなたがその地域に近づくと、海賊船がハルクを突き抜けて攻撃します。それは、ラニウスを罠に誘い込むために金属を使用しているに違いありません。</text> 
+	<text>このセクターを巡視している海賊船は忙しい。数人のラニウススカウトと少なくとも1隻の民間船の残骸がこの地域に散らばっています。 「ようこそ、ようこそ、もう1つ余裕があります！」自信過剰の海賊は、武器をチャージして攻撃するために移動するときにあなたを歓迎します。</text>
+	<text>海賊船は、犠牲者が現れるのを待って、このビーコンに身を寄せています。巨大なラニウスの軍事化された護送船団を越えてあなたの船に満足し、彼らは攻撃します。</text>
+</textList>
+
+<event name="ENCOUNTER_AUTO_LANIUS">
+	<text load="TEXT_ENCOUNTER_AUTO_LANIUS" />
+	<ship load="SHIP_AUTO_FIGHT" hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_AUTO_LANIUS">
+	<text>このビーコンには、自動化された反乱軍オートスカウトが配備されています。多くのラニウスが朝食にそれを食べたいと考えていることを考えると、あなたは自分が船にもたらしようとしている死を容赦のない殺害だと考えています.オートシップは痛みを感じますか?</text>
+	<text>ここの自動船は、破壊されたラニウスの駆逐艦によって溶けてしまうのをかろうじて回避したようです。まだ戦闘モードで、船はあなたを次のターゲットとして登録します。</text>
+	<text>自動船は、反乱軍がラニウス船をおびき寄せるための餌として使用されることがあります。彼らはまた、通過する連邦船を排除するための偵察も兼ねており、ここの船が果たすことを目的としています。</text> 
+	<text>自動化されたメッセージが画面に登録されます。「これはUnit-964205-Aです。私はあなたとの戦闘を始めます。」</text>
+	<text>敵対的なオートシップが、銃を燃やして旋回してくる。その背後にはいくつかのラニウスと海賊船の残骸があり、戦いは避けられないようです。</text>
+</textList>
+
+<event name="LANIUS_HARVESTER_MV" unique="true">
+	<text>あなたのスキャンはこのシステムでラニウス船を拾いました：それは鉱物を収穫して、豊かな破片フィールドをナビゲートしているように見えます。</text>
+	<choice hidden="true">
+		<text>自分で収穫してみてください。</text>
+		<event>
+			<text>あなたが破片をナビゲートしようとすると、あなたはラニウス船に近づきすぎます-そして彼らはあなたを収穫しようとします！</text>
+			<ship load="SHIP_LANIUS_HARVESTER" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="pilot" lvl="2" hidden="true" max_group="0">
+		<text>（upg。piloting）自動操縦士に関与し、破片を安全に収穫します。</text>
+		<event>
+			<text>コンピューターの助けを借りて、あなたはあなたとラニウス船との間に快適な距離を保つことができ、あなたは衝突することなく破片フィールドから資源を集めることができます。</text>
+			<autoReward level="MED">standard</autoReward>
+		</event>
+	</choice>
+	<choice req="pilot" lvl="3" hidden="true" max_group="0">
+		<text>（Adv。Piloting）オートパイロットに関与し、破片を安全に収穫します。</text>
+		<event>
+			<text>コンピューターの助けを借りて、あなたはあなたとラニウス船との間に快適な距離を保つことができ、あなたは衝突することなく破片フィールドからかなりの量の資源を集めることができます。</text>
+			<autoReward level="HIGH">standard</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>船を攻撃します。</text>
+		<event>
+			<text>あなたは攻撃を続け、武器の電源を入れます-運が良ければ、すぐにミネラルフィールドをすべて自分のものにすることができます。</text>
+			<ship load="SHIP_LANIUS_HARVESTER" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>船を無視します。</text>
+		<event>
+			<text>ドライブを充電し、次のジャンプの準備をします。必要がなければ、ラニウスに敵対する意味はありません。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="LANIUS_HARVESTER_MV_SHIP_LIST">
+	<event>
+		<text>競争相手は去りました、あなたは破片を調査します、しかしあなたが到着する前にラニウスがそれの多くを収穫したように見えます。</text>
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+	<event>
+		<text>競争相手が去った、あなたはフィールドを調査し、あなたができることを清掃し始めます。</text>
+		<autoReward level="MED">standard</autoReward>
+	</event>
+	<event>
+		<text>彼らが破片から多くを取り除く機会を得る前にあなたがラニウスを妨害したように見えます、そしてあなたは良い運搬で離陸します。</text>
+		<autoReward level="HIGH">standard</autoReward>
+	</event>
+</eventList>
+
+
+<eventList name="BOARDERS_LANIUS">
+	<event load="LANIUS_PUN" />
+	<event load="LANIUS_CONFUSED" />
+</eventList>
+
+<event name="LANIUS_PUN" unique="true"> 
+	<text>あなたは不思議な情報源から連絡を受け取ります。厳しい声があなたにささやきます、「ノック...ノック...」</text>
+	<choice hidden="true">
+		<text>W-誰がいるの？</text>
+		<event>
+			<text>「L..a...n ... i ... u ...s...」</text>
+			<choice hidden="true">
+				<text>ラニウス誰？</text>
+				<event>
+					<text>「ラニウスはあなたを窮地に立たせます！」クルーが船上でテレポートする独特の音が聞こえます！</text>
+					<boarders min="2" max="2" class="lanius" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="LANIUS_CONFUSED" unique="true">
+	<text>船体にいくつかのサンクが聞こえ、続いてこすります。スキャンは、ラニウスが船に着陸し、船体を通り抜けていることを示しています！</text>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="1">
+		<text>乗組員を派遣して通信を試みます。</text>
+		<event>
+			<text>このような状況のためだけに予約された宇宙服を着たあなたのクルーの1人は、エアロックを出てラニウスと通信します。ラニウスは他の誰かに会ってショックを受けました。 「あなたはゴミ箱からボートのように見えますか？食べるときの通常のがらくた。」彼らはあなたの船を難破船と間違えたようです。</text>
+			<choice hidden="true">
+				<text>あなたが難破船ではないことを彼らに保証してください。</text>
+				<event load="LANIUS_CONFUSED_EXPLAIN" />
+			</choice>
+			<choice hidden="true" req="LIST_CREW_LANIUS">
+				<text>（ラニウスクルー）あなたのラニウスに説明してもらってください。</text>
+				<event>
+					<text>ラニウスは彼らの誤解をお詫びします。それらのほとんどはあなたの船から離れて宇宙の真空に浮かんでいますが、1人のラニウスは他の人と一緒に行きたくないのです。代わりに、彼らはあなたのクルーと一緒にいることを望んでいます。</text>
+					<crewMember amount="1" class="lanius" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>これは私たちの時間の価値がありません。それらを撃退するだけです。</text>
+				<event>
+					<text>ラニウスが船の胴体に入るのにそれほど時間はかかりません。船を守る準備をしてください！</text>
+					<boarders min="2" max="3" class="lanius" />
+					<damage amount="0" system="random" effect="breach" />
+					<damage amount="0" system="random" effect="breach" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>戦う準備をしなさい！</text>
+		<event>
+			<text>ラニウスが船の胴体に入るのにそれほど時間はかかりません。クルーが搭乗しているのを見て、彼らはどういうわけか驚いていますが、それでも攻撃を止めることはできません！</text>
+			<boarders min="2" max="3" class="lanius" />
+			<damage amount="0" system="random" effect="breach" />
+			<damage amount="0" system="random" effect="breach" />
+		</event>
+	</choice>
+</event>
+<eventList name="LANIUS_CONFUSED_EXPLAIN">
+	<event>
+		<text>あなたの説明はラニウスにとって理にかなっているようです。 「船...ゴミじゃないの？出て行け」彼らがあなたの船から離れて、再び宇宙の真空に漂い始めるとき、ラニウスはあなたに手を振る。</text>
+	</event>
+	<event>
+		<text>あなたの説明は無意味です。ラニウスはもっと混乱していて、クルーを無視し、船の救助に戻ります。あなたはそれらを撃退するしかない。</text>
+		<boarders min="2" max="3" class="lanius" />
+		<damage amount="0" system="random" effect="breach" />
+		<damage amount="0" system="random" effect="breach" />
+	</event>
+	<event>
+		<text>あなたのクルーはラニウスに状況を説明しようとしますが、彼らは理解する代わりに、あなたのクルーがナンセンスをしゃべるのに飽きて、彼らを心から刺します。彼らはすぐに船体を通り抜けて食べることに戻ります。</text>
+		<boarders min="2" max="3" class="lanius" />
+		<damage amount="0" system="random" effect="breach" />
+		<damage amount="0" system="random" effect="breach" />
+		<removeCrew>
+			<clone>true</clone>
+			<text>幸いなことに、あなたのクローンベイはラニウスと戦うためにあなたのクルーを復活させます。</text>
+		</removeCrew>
+	</event>
+</eventList>
+
+
+<event name="ENCOUNTER_LANIUS_ELITE" unique="true">
+	<text>ラニウス眷属は通常、多くの独立した運営グループで構成されていますが、リーダーシップが必要な場合はいつでも、ウェルダーとして知られる強力で非常に古いラニウスが眷属の「リーダー」として機能します。彼らも特に友好的であることで知られていません、そしてここの溶接船はあなたの船がスクラップとしてより良く見えることを決定しました！</text>
+	<ship load="SHIP_LANIUS_ELITE_FIGHT" hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="LANIUS_GOLD" unique="true">
+	<text>最初は、このビーコンが非常に近い星をホストしていることを確信していますが、実際には非常に明るい金色のラニウス船です。その上に奇妙な金色のFlak銃があります。高価に見えますが、武器としてはそれほど効率的ではありません。それでも、多分あなたは彼らから武器を盗むことができますか？</text>
+	<ship load="SHIP_LANIUS_GOLD" hostile="false" />
+	<preventQuest />
+	<choice hidden="true">
+		<text>それらを攻撃します。</text>
+		<event>
+			<text>ラニウスの船は非常に重いはずです。それは非常にゆっくりと向きを変えて自分自身を守るからです。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>ラニウスを避けてください。</text>
+		<event>
+			<text>あなたは黄金のラニウス船には興味がありません。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="LANIUS_GOLD_DESTROY">
+	<event>
+		<text>幸いなことに、Flak銃は戦いを生き延びたようです。</text>
+		<weapon name="SHOTGUN_GOLD" />
+	</event>
+	<event>
+		<text>フラック銃が戦いを生き延びたようには見えません。がっかりして、あなたは先に進む準備をします。</text>
+	</event>
+</eventList>
+
+
+<event name="BEACON_EATER_START" unique="true">
+	<distressBeacon />
+	<preventQuest />
+	<text>遭難信号は民間局から発信されているようです。この領土に対する弱い主張を擁護しようとして残された数少ない勇敢な魂の1人であり、彼らは今や何らかの攻撃の犠牲になっているようです。恐ろしい助けは決して到着しません、彼らは問題を解決するためにあなたにお金を払っても構わないと思っています。彼らはただ一つの警告を与えます-これらのラニウスはいつものようではありません。</text>
+	<choice hidden="true">
+		<text>支援することを約束します。</text>
+		<event>
+			<text>民間人は、ラニウスが...違うことについて冗談を言っていませんでした。熱烈で奇妙な色のラニウス容器は、近くのビーコンを分解しています。彼らが成功すれば、それはアトラスからシステム全体を遮断するでしょう！</text>
+			<choice req="unique_anointed" hidden="true">
+				<text>（油そそがれます）彼らに停止してあなたに部品を与えるように頼みます。</text>
+				<event>
+					<text>油そそがれたものは増強された船を呼び起こします。彼女は彼ら自身の言語で彼らにコミュニケーションを取り、彼らが話していることを理解することを困難にしています - しかし、ボディーランゲージはかなり語っています。彼らの女王に敬意を表して増強された弓は、膨大な量のスクラップと、彼らが収穫したビーコン部品のセットを提供しました。彼らが彼らの賛辞を終えたら、彼らは彼らの休暇を取り、解放します。彼女はあなたの混乱に気づきます。「彼は...トラブルキングです。私たちは非常に疎遠になりました。彼は私の人々の...ビジョンを尊重しません。彼を見るかもしれません。」</text>
+					<autoReward level="HIGH">standard_no_item</autoReward>
+					<augment name="BEACON_PARTS" />
+					<choice hidden="true">
+						<text>ステーションのhiに応答します。</text>
+						<event load="BEACON_EATER_START_ANOINTED_BYPASS" />
+					</choice>
+				</event>
+			</choice>		
+			<choice hidden="true">
+				<text>ラニウスに連絡してください。</text>
+				<event>
+					<text>「邪魔しないで！集まって！ビーコンイーターにプレゼント！女王が要求する！」その短い拒否で、ラニウスはビーコンを引き裂くことに戻ります。ここでの唯一の明白な選択肢は戦うことです！</text>
+					<ship load="SHIP_LANIUS_BEACON_UNDERLING_CONTACT" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>船と戦ってください。</text>
+				<event>
+					<text>あなたは状況を処理するための最良の選択肢はラニウス船と戦うことであると決定します。</text>
+					<ship load="SHIP_LANIUS_BEACON_UNDERLING_FIGHT" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>他にも注意すべきことがあります。</text>
+		<event>
+			<text>ラニウスは小さな脅威ではありません。特に、はるかに重要な任務が手元にある場合は、「奇妙なラニウス」に参加することをお勧めします。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="BEACON_EATER_START_WIN">
+	<text>「どうもありがとうございました。孤立によるゆっくりとした痛みを伴う死から私たちを救ってくれました。ここにステーションを建設することを考えていたのかわかりません...修理チームが到着するまでビーコンが機能し続けることを願っています、しかし今のところ私たちはあなたの援助のためにあなたに支払いましょう。」</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>「ビーコンイーター」が何であるかを彼らが知っているかどうか尋ねてください。</text>
+		<event>
+			<text>「ああ...私は少し知っています。私が理解していることから、彼は多くの名前で行きます。彼は彼の現在の名前の出身地であるビーコンのみを食べさせると聞きました。ラニウスの群れの王は非常に古く、 Vindictive。彼の群れはこの領土を主張してきたものであり、彼らは南北戦争以来ここで入植者を恐怖に陥れてきました。 、組合全体が感謝するだろうと確信しています。」</text>
+			<quest event="QUEST_BEACON_EATER" />
+			<choice hidden="true">
+				<text>彼らに感謝し、続けてください。</text>
+				<event />
+			</choice>
+			<choice hidden="true">
+				<text>後ろにとどまり、「贈り物」を救うために少し時間がかかります。</text>
+				<event>
+					<text>あなたは戦いから残された部分のいくつかをすくい上げます。反乱軍の艦隊はおそらくあなたに追いつくでしょうが、おそらく後でこれらを使用することができます。</text>
+					<augment name="BEACON_PARTS" />
+					<modifyPursuit amount="1" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="BEACON_EATER_START_ANOINTED_BYPASS">
+	<text>「どうもありがとうございました。孤立によるゆっくりとした痛みを伴う死から私たちを救ってくれました。ここにステーションを建設することを考えていたのかわかりません...修理チームが到着するまでビーコンが機能し続けることを願っています、しかし今のところ私たちはあなたの援助のためにあなたに支払いましょう。」</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>「ビーコンイーター」に関する情報がこれ以上あるかどうかを尋ねます。</text>
+		<event>
+			<text>「ああ...私は少し知っています。私が理解していることから、彼は多くの名前で行きます。彼は彼の現在の名前の出身地であるビーコンのみを食べさせると聞きました。ラニウスの群れの王は非常に古く、 Vindictive。彼の群れはこの領土を主張してきたものであり、彼らは南北戦争以来ここで入植者を恐怖に陥れてきました。 、組合全体が感謝するだろうと確信しています。」</text>
+			<quest event="QUEST_BEACON_EATER" />
+			<choice hidden="true">
+				<text>彼らに感謝し、続けてください。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<ship name="SHIP_BEACON_EATER" auto_blueprint="MU_LANIUS_BEACON_EATER">
+    <destroyed>
+        <text>ビーコンイーターの巡洋艦は分裂し、恐怖の支配の終わりを示します。たくさんのスクラップが残っています。</text>
+        <autoReward level="HIGH">standard</autoReward>
+        <choice req="unique_anointed" lvl="1" blue="false" hidden="true">
+            <text>継続する...</text>
+            <event load="BEACON_EATER_WIN_ANOINTED" />
+        </choice>
+        <choice req="unique_anointed" max_lvl="0" lvl="0" blue="false" hidden="true">
+            <text>継続する...</text>
+            <event load="BEACON_EATER_WIN" />
+        </choice>
+    </destroyed>
+    <deadCrew>
+        <text>あなたはビーコンイーターのクルーの残りをすべて殺し、彼らの恐怖の統治の終わりを示しました。たくさんのスクラップが残っています。</text>
+        <autoReward level="HIGH">standard</autoReward>
+        <choice req="unique_anointed" lvl="1" blue="false" hidden="true">
+            <text>継続する...</text>
+            <event load="BEACON_EATER_WIN_ANOINTED" />
+        </choice>
+        <choice req="unique_anointed" max_lvl="0" lvl="0" blue="false" hidden="true">
+            <text>継続する...</text>
+            <event load="BEACON_EATER_WIN" />
+        </choice>
+    </deadCrew>
+    <crew>
+        <crewMember prop="0.5" type="lanius_welder" />
+        <crewMember prop="0.5" type="lanius" />
+    </crew>
+</ship>
+
+<event name="QUEST_BEACON_EATER">
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<nebulaBeacon>false</nebulaBeacon>
+		<aggressive>2</aggressive>
+	</quest>
+	<img back="BACK_EVENT_SWARMHOME" planet="NONE" />
+	<beaconType id="map_icon_swarm" global="true">
+		<color r="255" g="255" b="255" a="1.0" />
+	</beaconType>
+	<text>あなたは確かに...何かを見つけました。何百万トンもの金属くずから急いで集められた巨大な人工のゴミが、蜂の巣の中の蜂のようにちらつき、ラニウスの群れをホストしています。どの船も気にしないで、構造に追加するために金属の山を運びます。そのすべての間の巨大な球体の中心に、巨大なプロポーションのはるかに洗練された容器に気づきます。</text>
+	<customFleet right="true" firing="false" autoDarkening="true">CUSTOM_FLEET_LANIUS</customFleet>
+	<ship load="SHIP_BEACON_EATER" hostile="false" />
+	<choice req="unique_anointed" hidden="true">
+		<text>（油そそがれます）ビーコンイーターに連絡してください。</text>
+		<event>
+			<text>「私がこのセクターに行ってからしばらく経ちました。まさに覚えているとおりです。」奇妙なことに、彼女の翻訳者はビーコンイーター自身のコミュニケーションデバイスと交流しているようで、彼女の感情をより明確に理解できるようになりました。緑の箱をむしゃむしゃにする？」私があなたをなだめるために私のフォロワーを送るときでさえ、決して満足することはありません。「
+
+」。私はあなたと一緒にそれを持っていました。今。"</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>	
+	<choice hidden="true">
+		<text>近づいてみる。</text>
+		<event>
+			<text>インターホンからパチパチという音が鳴り、続いてロボットの声が聞こえます。文法の問題を除いて、彼らが言っていることを実際に理解できるので、彼らははるかに優れた翻訳者を持っているようです。 「猛烈な部外者。私たちの親切な先祖の下での苦しみの千年に耐え、ここに勝利を収めました。それでも、あなたは私たちに最後の立っている長老の種族のスペースと尊敬を与えないことを学びますか？私の領土から出てください。私がむさぼり食うあなたの侵略的なビーコンのような小さな体。」</text>
+			<choice hidden="true">
+				<text>この男と彼の群れは脅威であり、私たちはそれらを破壊する必要があります。</text>
+				<event>
+					<text>あなたは武器を上げてビーコンイーターを攻撃します。攻撃に対して憤慨している巡洋艦は、あなたに会うために前に飛び出します。 「これがあなたの選択なら、そうだろう。私はあなたの死を楽しみにしている。」</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>ビーコンを食べるのをやめるために彼らと交渉してみてください。</text>
+				<event>
+					<text>あなたは無駄にビーコンイーターと交渉しようとします。 「あなたは耳が聞こえませんか？耳の詰まりを取り除き、私が言っている言葉を聞いてください。このセクターは私の人々のものです。あなたは侵略者です。害虫です。あなた自身の駆除を望むなら、私はあなたをなだめます。」</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>親愛なる神様、これは巨大です。私たちは去らなければなりません。</text>
+		<event />
+	</choice>
+</event>
+<event name="BEACON_EATER_WIN">
+	<text>ビーコンイーターが倒れ、倒されると、あなたの周りの群れ全体が不安で凍りつきます。最後の必死の努力で、ビーコンイーターはあなたのエアロックを通り抜け、彼の劣化した体をあなたの方に引きずります。 「私は...あなたの種が生きているよりも長生きしました。それでも、これが私が死ぬ方法ですか？残念です...」</text>
+	<variable name="ach_boss_beaconeater" op="set" val="1" />
+	<killEnemyBoarders />
+	<choice hidden="true" req="BEACON_PARTS">
+		<text>まだビーコンパーツがあります。それらを彼に渡してください。</text>
+		<event>
+			<text>ビーコンイーターはその部分を彼の体に同化させ、急速に治癒します。 「あなた...あなたは私を救ってくれました。これは珍しい慈悲です。」長老のラニウスは、彼の体が元の形を取り戻し続けている間、立ち上がろうとします。 「私は部外者のそのような感謝を知りませんでした。先祖...彼らは同じことをしたことはありませんでした。」</text>
+			<remove name="BEACON_PARTS" />
+			<variable name="ach_crew_beacon" op="set" val="1" />
+			<choice hidden="true">
+				<text>先祖？</text>
+				<event>
+					<text>「私はあえて彼らの名前を話さない。ずっと前に、5つの古代帝国があった。帝国、王朝、群れ、ユートピア、そして...先祖。彼らはあなたが存在に戦争を起こすために使用する技術を作った。結局、彼らは自分自身と他のほとんどすべての帝国を破壊します。偉大な群れだけが彼らに抵抗します！私の不死の中で、私は当時の最悪の時代を生きてきました。それは私が自分以外の誰も信頼しないことを学んだ場所です。 、そしてそれ自体だけで、戦争は起こらないだろう。」</text>
+					<choice hidden="true">
+						<text>反乱軍が望んでいるように聞こえます。</text>
+						<event load="BEACON_EATER_REWARD_SAVE" />
+					</choice>
+					<choice req="ANCIENT_ACTIVATOR" hidden="true">
+						<text>（古代の活性化因子）私たちは冬眠の祖先を持っています。</text>
+						<event load="BEACON_EATER_REWARD_FOREFATHER" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>彼は長くは続かないでしょう、ただ彼を彼の悲惨さから解放します。</text>
+		<event>
+			<text>頭の後ろへのブラスターチャージは、かつて脅迫していたラニウスの王を終わらせるために必要なすべてです。ラニウスは再び外に出てかき混ぜ、あなたは一度にいくつかの連絡を受け取ります。</text>
+			<choice hidden="true">
+				<text>応答。</text>
+				<event load="BEACON_EATER_REWARD" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="BEACON_EATER_REWARD">
+	<text>群れ全体が光景を見ていたようです。 「アウトサイダーキング殺人！お辞儀、お辞儀！」長く滞在することはできませんが、関係するラニウスからの賛辞を受け入れ、この勝利が北軍の入植地の破壊をもう少し長く阻止するのに十分であることを願っています。</text>
+	<unlockCustomShip silent="false">PLAYER_SHIP_LANIUS</unlockCustomShip>
+	<autoReward level="HIGH">standard</autoReward>
+	<weapon name="RANDOM" />
+</event>
+<event name="BEACON_EATER_REWARD_SAVE">
+	<text>「あなたは私を偉大な暴君ウェントワースのビジョンと比較しますか? 私は侮辱されています。あなたがここで私を打ち負かしていなかったら、あなたは今死んでいたでしょう。私の船...それは廃墟です.飽くなき好奇心. 私はあなたと一緒に旅をして、あなたの人々が価値があるかどうかを見ます. あなたが祖先と本当に違うかどうか. おそらく... おそらく私たちはまだ休戦を見つけることができます.</text>
+	<crewMember amount="1" class="unique_eater" all_skills="1">ビーコンイーター</crewMember>
+	<unlockCustomShip silent="false">PLAYER_SHIP_LANIUS</unlockCustomShip>
+	<autoReward level="HIGH">standard</autoReward>
+	<weapon name="RANDOM" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event />
+	</choice>
+	<choice hidden="true">
+		<text>先ほど見た奇妙なラニウス船について聞いてください。</text>
+		<event>
+			<text>あなたはビーコンイーターに贈り物の起源を説明します。 「うーん...聖皇后が戻ってきた。ずっと前に、私の人々は大きな分裂を持っていた。結局、2つの半分が作られた。嫌悪感のある「オーグメンテッド」は、祖先の力を利用するために大きな脱出を残した。心がはっきりしていて、私に忠実であり続けました。私たちは、必要がない限り、彼らについて話しません。この贈り物を持っていたのは幸運なことです。もし彼らだったら、私は銀河を半分に引き裂くほどの大戦争をしたでしょう。あえて彼女はそのような和解できない違いを解決しようとします。」</text>
+		</event>
+	</choice>
+</event>
+<event name="BEACON_EATER_WIN_ANOINTED">
+    <text>ビーコンイーターが倒れ、敗北すると、あなたの周りの群れ全体が不安に凍ります。最後の必死の努力で、ビーコンイーターはエアロックを通り抜け、劣化した体を油そそがれた人に引きずります。「あなたは勝ちました。結局のところ、私の古い方法のためにこの銀河にこれ以上の場所がないに違いありません。残念...私はあなたの理想が結局支配的になると思います。」</text>
+    <variable name="ach_boss_beaconeater" op="set" val="1" />
+    <killEnemyBoarders />
+    <choice hidden="true" req="BEACON_PARTS">
+		<text>まだビーコンパーツがあります。それらを彼に渡してください。</text>
+		<event>
+			<text>ビーコンイーターは、部品を彼の体に同化させ、急速に癒します。「あなたの友人...私を救ってくれました。これは珍しい慈悲です。」ラニウス長老は、彼の体が元の形を取り戻し続けるにつれて立って立っています。ビーコンイーターはあなたと油そそがれた人の間を見ます。「あなたは和解を求めていますか？「紛争は私の目標ではなかった。しかし、あなたは私が私自身の要請でここにいないことを知っている必要があります。私はあなたの心を変えるためにここにいるわけではなく、私はあなたの人生を終わらせるためにここにいます。。 "
+
+"はい... hmph。私は他の人に圧倒されることに慣れていません。祖先に抵抗するために見捨てた柔軟性を示す時が来たのかもしれません。」</text>
+			<remove name="BEACON_PARTS" />
+			<variable name="ach_crew_beacon" op="set" val="1" />
+			<choice hidden="true">
+				<text>先祖？</text>
+				<event>
+					<text>「私は彼らの名前を話せません。昔、5つの古代帝国がありました。帝国、王朝、群れ、ユートピア人、そして祖先。彼は油そそがれた人に一時停止し、ジェスチャーをします。「まあ、あなたは今までにそれに遭遇したと思います。彼女が自分自身を満足させるために使用するテクノロジー。それは責任を持って使用することはできません！このテクノロジーは、他の人と同じ力の狂気に陥らないほど賢明です。</text>
+					<choice hidden="true">
+						<text>ようこそ。</text>
+						<event load="BEACON_EATER_REWARD_SAVE_ANOINTED" />
+					</choice>
+					<choice req="ANCIENT_ACTIVATOR" hidden="true">
+						<text>（古代の活性化因子）私たちは冬眠の祖先を持っています。</text>
+						<event load="BEACON_EATER_REWARD_FOREFATHER_ANOINTED" />
+					</choice>
+				</event>
+			</choice>
+   	 	</event>
+    </choice>
+    <choice hidden="true">
+		<text>彼は長くは続かないでしょう、ただ彼を彼の悲惨さから解放します。</text>
+		<event>
+			<text>油そそがれたものは力で輝き、腕をビーコンイーターの胸に突き刺し、彼の体を吸収し、彼を完全にむさぼり食います。その過程で、彼の翻訳者は破壊されたようで、彼女のスピーチを以前のことに戻しました。「ビーコンイーターは面倒すぎます。それでも、物事を平和的に終わらせることができたでしょう。たぶん良くなりました。私たちは今ここを去ります。」</text>
+			<choice hidden="true">
+				<text>応答。</text>
+				<event load="BEACON_EATER_REWARD" />
+			</choice>
+		</event>
+    </choice>
+</event>
+<event name="BEACON_EATER_REWARD_SAVE_ANOINTED">
+    <text>「私の船...それは廃inにあります。私は返済するための大きな借金と飽くことのない好奇心があります。私はあなたと一緒に旅して、あなたの人々が価値があるかどうかを確認します。あなたが先祖と本当に違うなら。。おそらく私たちはまだ停戦を見つけることができます。「あなたの人々はここで歓迎されています。彼らのやり方はまだ私を嫌っています。私たちの人々の間で祖先の技術を増殖させることを避けることだけをお願いします。」2人のラニウスは、ある種の合意のジェスチャーを実行します。</text>
+    <crewMember amount="1" class="unique_eater" all_skills="1">ビーコンイーター</crewMember>
+    <unlockCustomShip silent="false">PLAYER_SHIP_LANIUS</unlockCustomShip>
+    <autoReward level="HIGH">standard</autoReward>
+    <weapon name="RANDOM" />
+</event>
+<event name="BEACON_EATER_REWARD_FOREFATHER_ANOINTED">
+    <text>「それは不可能です！色によって、これは...異議を唱える先祖ですか？ああ、私はあなたの混乱を見ます。私は言及するのにふさわしくありませんでしたが、少数の祖先は、彼らの技術が他の人に課すコントロールを覆そうとします。」彼は油そそがれた。「アクティベーターがあなたのやっていたと思っていますか？」
+
+ "はい。反対者の言葉。」</text>
+    <crewMember amount="1" class="unique_eater" all_skills="1">ビーコンイーター</crewMember>
+    <unlockCustomShip silent="false">PLAYER_SHIP_LANIUS</unlockCustomShip>
+    <autoReward level="HIGH">standard</autoReward>
+    <weapon name="RANDOM" />
+</event>
+<event name="BEACON_EATER_REWARD_FOREFATHER">
+    <text>「それは不可能です！色によって、これは...異議を唱える先祖ですか？ああ、私はあなたの混乱を見ます。私は言及するのにふさわしくありませんでしたが、少数の祖先は、彼らの技術が他の人に課すコントロールを覆そうとします。あなたは私に同行させなければなりません！私は先祖の反対者の言葉を聞きたいです。」</text>
+    <crewMember amount="1" class="unique_eater" all_skills="1">ビーコンイーター</crewMember>
+    <unlockCustomShip silent="false">PLAYER_SHIP_LANIUS</unlockCustomShip>
+    <autoReward level="HIGH">standard</autoReward>
+    <weapon name="RANDOM" />
+</event>
+
+</FTL>

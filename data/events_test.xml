@@ -4,6 +4,7 @@
 	<quest event="HIDDEN_FEDERATION_BASE_LIST" />
 </event>
 
+
 <event name="TEST_HAZARDS">
 	<text>ええと...太陽。</text>
 	<environment type="sun" />
@@ -41,10 +42,60 @@
 	</choice>
 </event>
 
+<event name="TEST_BOARDERS">
+	<text>ボーダーをスポーンします</text>
+	<choice>
+		<text>兵士</text>
+		<event>
+			<boarders min="1" max="1" class="human_soldier" />
+		</event>
+	</choice>
+	<choice>
+		<text>MFK</text>
+		<event>
+			<boarders min="1" max="1" class="human_mfk" />
+		</event>
+	</choice>
+	<choice>
+		<text>宗主</text>
+		<event>
+			<boarders min="1" max="1" class="mantis_suzerain" />
+		</event>
+	</choice>
+	<choice>
+		<text>司教</text>
+		<event>
+			<boarders min="1" max="1" class="mantis_bishop" />
+		</event>
+	</choice>
+	<choice>
+		<text>部隊</text>
+		<event>
+			<boarders min="1" max="1" class="slug_ranger" />
+		</event>
+	</choice>
+	<choice>
+		<text>騎士</text>
+		<event>
+			<boarders min="1" max="1" class="slug_knight" />
+		</event>
+	</choice>
+	<choice>
+		<text>パラディン</text>
+		<event>
+			<boarders min="1" max="1" class="rock_paladin" />
+		</event>
+	</choice>
+	<choice>
+		<text>王立</text>
+		<event>
+			<boarders min="1" max="1" class="obelisk_royal" />
+		</event>
+	</choice>
+</event>
 
-<event name="TEST_HYPERSPACE_AUGMENT">
-	<text>ロックされた拡張。</text>
-	<augment name="MULTIVERSE_DRIVE" />
+<event name="KILL_BOARDERS">
+	<killEnemyBoarders />
 </event>
 
 <event name="TEST_HYPERSPACE_CARGO">
@@ -66,179 +117,6 @@
 		<text>これは2番目のオプションです</text>
 		<event>
 			<text>ネイト。</text>
-		</event>
-	</choice>
-</event>
-
-<event name="EXAMPLE_CREW_TRANSFORM" unique="true">
-	<text>大野！あなたのクルーは回心しています！</text>
-	<choice req="LIST_CREW_CANCHANGE" hidden="true" blue="false" max_group="0" lvl="0">
-		<text>継続する...</text>
-		<event>
-			<text>幸いなことに、変身できるクルーはいませんでした。</text>
-		</event>
-	</choice>
-	<choice req="LIST_CREW_CANCHANGE" hidden="true" blue="false" max_group="0" lvl="1">
-		<text>継続する...</text>
-		<event load="EXAMPLE_CREW_TRANSFORM_1" />
-	</choice>
-</event>
-<event name="EXAMPLE_CREW_TRANSFORM_1"> 
-	<text>大野！あなたのクルーの1人は変身することができます。</text>
-	<choice req="human" hidden="true" blue="false">
-		<text>継続する...</text>
-		<event>
-			<text>あなたのクルーはラニウスに変更されました！ Wierd。</text>
-			<removeCrew class="human">
-				<clone>false</clone>
-				<text>彼らは死んでいないので、あなたのクルーはクローンすることができません。</text>
-			</removeCrew>
-			<choice hidden="true">
-				<text>継続する...</text>
-				<event>
-					<text>変換が完了しました。</text>
-					<crewMember amount="1" class="lanius" />
-					<choice req="LIST_CREW_CANCHANGE" hidden="true" blue="false" max_group="0" lvl="0">
-						<text>継続する...</text>
-						<event>
-							<text>幸いなことに、変身できるクルーはもういませんでした。</text>
-						</event>
-					</choice>
-					<choice req="LIST_CREW_CANCHANGE" hidden="true" blue="false" max_group="0" lvl="1">
-						<text>継続する...</text>
-						<event load="EXAMPLE_CREW_TRANSFORM_2" />
-					</choice>
-				</event>
-			</choice>
-		</event>
-	</choice>
-	<choice req="slug" hidden="true" blue="false">
-		<text>継続する...</text>
-		<event>
-			<text>あなたのクルーはラニウスに変更されました！ Wierd。</text>
-			<removeCrew class="slug">
-				<clone>false</clone>
-				<text>彼らは死んでいないので、あなたのクルーはクローンすることができません。</text>
-			</removeCrew>
-			<choice hidden="true">
-				<text>継続する...</text>
-				<event>
-					<text>変換が完了しました。</text>
-					<crewMember amount="1" class="slug" />
-					<choice req="LIST_CREW_CANCHANGE" hidden="true" blue="false" max_group="0" lvl="0">
-						<text>継続する...</text>
-						<event>
-							<text>幸いなことに、変身できるクルーはもういませんでした。</text>
-						</event>
-					</choice>
-					<choice req="LIST_CREW_CANCHANGE" hidden="true" blue="false" max_group="0" lvl="1">
-						<text>継続する...</text>
-						<event load="EXAMPLE_CREW_TRANSFORM_2" />
-					</choice>
-				</event>
-			</choice>
-		</event>
-	</choice>
-	<choice req="mantis" hidden="true" blue="false">
-		<text>継続する...</text>
-		<event>
-			<text>あなたのクルーはラニウスに変更されました！ Wierd。</text>
-			<removeCrew class="mantis">
-				<clone>false</clone>
-				<text>彼らは死んでいないので、あなたのクルーはクローンすることができません。</text>
-			</removeCrew>
-			<choice hidden="true">
-				<text>継続する...</text>
-				<event>
-					<text>変換が完了しました。</text>
-					<crewMember amount="1" class="lanius" />
-					<choice req="LIST_CREW_CANCHANGE" hidden="true" blue="false" max_group="0" lvl="0">
-						<text>継続する...</text>
-						<event>
-							<text>幸いなことに、変身できるクルーはもういませんでした。</text>
-						</event>
-					</choice>
-					<choice req="LIST_CREW_CANCHANGE" hidden="true" blue="false" max_group="0" lvl="1">
-						<text>継続する...</text>
-						<event load="EXAMPLE_CREW_TRANSFORM_2" />
-					</choice>
-				</event>
-			</choice>
-		</event>
-	</choice>
-</event>
-<event name="EXAMPLE_CREW_TRANSFORM_2">
-	<text>大野！あなたのクルーの1人は変身することができます。</text>
-	<choice req="human" hidden="true" blue="false">
-		<text>継続する...</text>
-		<event>
-			<text>あなたのクルーはラニウスに変更されました！ Wierd。</text>
-			<removeCrew class="human">
-				<clone>false</clone>
-				<text>彼らは死んでいないので、あなたのクルーはクローンすることができません。</text>
-			</removeCrew>
-			<choice hidden="true">
-				<text>継続する...</text>
-				<event>
-					<text>変換が完了しました。</text>
-					<crewMember amount="1" class="lanius" />
-					<choice req="LIST_CREW_CANCHANGE" hidden="true" blue="false" max_group="0" lvl="0">
-						<text>継続する...</text>
-						<event>
-							<text>幸いなことに、変身できるクルーはもういませんでした。</text>
-						</event>
-					</choice>
-					
-				</event>
-			</choice>
-		</event>
-	</choice>
-	<choice req="slug" hidden="true" blue="false">
-		<text>継続する...</text>
-		<event>
-			<text>あなたのクルーはラニウスに変更されました！ Wierd。</text>
-			<removeCrew class="slug">
-				<clone>false</clone>
-				<text>彼らは死んでいないので、あなたのクルーはクローンすることができません。</text>
-			</removeCrew>
-			<choice hidden="true">
-				<text>継続する...</text>
-				<event>
-					<text>変換が完了しました。</text>
-					<crewMember amount="1" class="slug" />
-					<choice req="LIST_CREW_CANCHANGE" hidden="true" blue="false" max_group="0" lvl="0">
-						<text>継続する...</text>
-						<event>
-							<text>幸いなことに、変身できるクルーはもういませんでした。</text>
-						</event>
-					</choice>
-					
-				</event>
-			</choice>
-		</event>
-	</choice>
-	<choice req="mantis" hidden="true" blue="false">
-		<text>継続する...</text>
-		<event>
-			<text>あなたのクルーはラニウスに変更されました！ Wierd。</text>
-			<removeCrew class="mantis">
-				<clone>false</clone>
-				<text>彼らは死んでいないので、あなたのクルーはクローンすることができません。</text>
-			</removeCrew>
-			<choice hidden="true">
-				<text>継続する...</text>
-				<event>
-					<text>変換が完了しました。</text>
-					<crewMember amount="1" class="lanius" />
-					<choice req="LIST_CREW_CANCHANGE" hidden="true" blue="false" max_group="0" lvl="0">
-						<text>継続する...</text>
-						<event>
-							<text>幸いなことに、変身できるクルーはもういませんでした。</text>
-						</event>
-					</choice>
-					
-				</event>
-			</choice>
 		</event>
 	</choice>
 </event>
@@ -265,7 +143,7 @@
 		<text>Ok</text>
 		<event>
 			<text>2隻目！</text>
-			<ship load="TEST_DOUBLE_SPAWN_2" hostile="true" />
+			<ship load="REBEL" hostile="true" />
 		</event>
 	</choice>
 </event>
@@ -290,12 +168,16 @@
 	<ship hostile="true" />
 </event>
 
+<event name="RECALL">
+	<recallBoarders />
+</event>
+
 <event name="GIVE_CRIME">
 	<text>あなたは今+1の犯罪を持っています</text>
 	<variable name="rep_general" op="add" val="1" />
 </event>
 	
-<event name="PLACEHOLDER">
+<event name="PLACEHOLDER_OLD">
 	<text>これは決して見るべきではありません。</text>
 </event>
 

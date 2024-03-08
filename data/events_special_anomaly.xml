@@ -1,0 +1,505 @@
+<FTL>
+<ship name="SHIP_CONTINUITY_ENFORCER" auto_blueprint="MU_CONTINUITY_ENFORCER">
+	<destroyed>
+		<text />
+		<autoReward level="MED">standard</autoReward>
+	</destroyed>
+	<deadCrew>
+		<text />
+		<autoReward level="HIGH">standard</autoReward>
+	</deadCrew>
+</ship>
+
+<event name="SPAWN_CHECK"> 
+	<beaconType id="map_icon_casino" global="true" req="ANOMALY_SPAWN_CHECK">
+		<color r="155" g="90" b="205" a="1.0" />
+		<unvisitedTooltip>テスト。</unvisitedTooltip>
+		<visitedTooltip>テスト。</visitedTooltip>
+		<undiscoveredTooltip>TEST.</undiscoveredTooltip>
+	</beaconType>
+	<text>船に乗って何かする。</text>
+</event>
+
+<event name="ANOMALY_SPAWNER"> 
+	<loadEventList seeded="false" first="true" generate="true">
+		<event name="ANOMALY_ORACLE" req="ORACLE_SPAWN_CHECK" lvl="1" /> 
+		<event name="ANOMALY_SPAWNER_CEL" />
+	</loadEventList>
+</event>
+<eventList name="ANOMALY_SPAWNER_CEL">
+	<event load="ANOMALY_CEL_QUESTIONS" />
+	<event load="ANOMALY_CEL_COVERUP" />
+	<event load="ANOMALY_CEL_WALDO" />
+	<event load="ANOMALY_CEL_BACON" />
+</eventList>
+
+
+
+
+<event name="GNOME_HATER">
+	<text load="TEXT_EMPTY_START" />
+	<choice>
+		<text>船に乗って何かする。</text>
+		<event load="GNOME_HATER_GLITCH" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event load="GNOME_HATER_GLITCH" />
+	</choice>
+</event>
+<event name="GNOME_HATER_GLITCH">
+	<backgroundObject name="GLITCH_GNOME">
+		<layer z="0">front</layer>
+		<spawnArea x="295" y="188" w="0" h="0" center="true" />
+		<anim>glitch</anim>
+		<active>true</active>
+	</backgroundObject>
+	<playSound>glitch</playSound>
+	<triggeredEvent event="GNOME_HATER_SPAWNER" time="1" clearOnJump="true" />
+</event>
+<event name="GNOME_HATER_FIGHT">
+	<text>「あなたの船に異常なオブジェクトが検出されました。C.E.L.は、あなたが継続性プロトコル13に違反し、異常な密輸品を隠している罪で有罪と認定しました。異常なオブジェクトを止めて一掃するための継続的な失敗は容認されません。継続性の修正を開始します。」</text>
+	<clearBackgroundObject name="GLITCH_GNOME" />
+	<resetFtl />
+	
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="GNOME_HATER_SPAWNER">
+	<loadEventList seeded="false" first="false" generate="false">
+		<event name="PROBE_EARLY" req="loc_sector_count" lvl="0" max_lvl="2" /> 
+		<event name="PROBE_MID" req="loc_sector_count" lvl="3" max_lvl="4" /> 
+		<event name="PROBE" req="loc_sector_count" lvl="5" /> 
+	</loadEventList>
+</event>
+<event name="PROBE_EARLY">
+	<ship load="SHIP_CONTINUITY_PROBE_EARLY" hostile="true" />
+	<loadEvent>GNOME_HATER_FIGHT</loadEvent>
+</event>
+<event name="PROBE_MID">
+	<ship load="SHIP_CONTINUITY_PROBE_MID" hostile="true" />
+	<loadEvent>GNOME_HATER_FIGHT</loadEvent>
+</event>
+<event name="PROBE">
+	<ship load="SHIP_CONTINUITY_PROBE" hostile="true" />
+	<loadEvent>GNOME_HATER_FIGHT</loadEvent>
+</event>
+<ship name="SHIP_CONTINUITY_PROBE_EARLY" auto_blueprint="MU_CONTINUITY_AUTO_EARLY">
+	<destroyed>
+		<text>「エラー - エラー - エラー - エラー - 継続性を実施できませんでした。検疫の要求を送信しています -」 船は信号を発する前に爆発します。これらのものが再び現れる前に、すぐにワープする準備をします。</text>
+		<autoReward level="HIGH">item</autoReward>
+	</destroyed>
+</ship>
+<ship name="SHIP_CONTINUITY_PROBE_MID" auto_blueprint="MU_CONTINUITY_AUTO_MID">
+	<weaponOverride count="1">
+		<name>PRIME_LASER</name>
+	</weaponOverride>
+	<destroyed>
+		<text>「エラー - エラー - エラー - エラー - 継続性を実施できませんでした。検疫の要求を送信しています -」 船は信号を発する前に爆発します。これらのものが再び現れる前に、すぐにワープする準備をします。</text>
+		<autoReward level="HIGH">item</autoReward>
+	</destroyed>
+</ship>
+<ship name="SHIP_CONTINUITY_PROBE" auto_blueprint="MU_CONTINUITY_AUTO">
+	<weaponOverride count="2">
+		<name>PRIME_LASER</name>
+		<name>PRIME_LASER</name>
+	</weaponOverride>
+	<destroyed>
+		<text>「エラー - エラー - エラー - エラー - 継続性を実施できませんでした。検疫の要求を送信しています -」 船は信号を発する前に爆発します。これらのものが再び現れる前に、すぐにワープする準備をします。</text>
+		<autoReward level="HIGH">item</autoReward>
+	</destroyed>
+</ship>
+
+
+
+<event name="ANOMALY_CEL_QUESTIONS">
+	<text>周囲を観察する前に、大型のスラッグ トランスポートがあなたに向かって急降下し、船にスラッグを発射します。アイロンをかけたばかりのスーツを着て、どこか見慣れた奇妙な外見をした彼は、大きなブリーフケースを近くのテーブルに置き、きれいに整理された書類の山を引っ張って自分の前に置きました。またはあなたに話しかけます。</text>
+	<ship load="SHIP_CONTINUITY_ENFORCER" hostile="false" />
+	<variable name="loc_found_anomaly" op="set" val="1" />
+	<choice hidden="true">
+		<text>ええと...こんにちは？</text>
+		<event>
+			<text>ナメクジはさりげなく見上げ、論文を再調整します。「こんにちは、ssstranger。答えを待たずに、ナメクジはすぐに彼のシートを読み始めます。「usssを...始めましょう。Quessstion one。何か気づいたことがありますか...あなたが持っているRealitiesssの中で非存在しますか？</text>
+			<choice hidden="true">
+				<text>はい。</text>
+				<event>
+					<text>「それを... sssso？うーん。」ナメクジは彼の紙に何かを落書きします。「QuessStion ...Two。HasssあなたがConssider ... Ontherworldly ... Ssssubjugate sssubjugate sssubjugate ssssubjugate ssssubjugate oneworldly ...</text>
+					<choice hidden="true">
+						<text>私はそうは思わない？</text>
+						<event>
+							<text>スラッグはかすかに笑い、別のことを書きます。 「質問3。ミーム災害と見なされる可能性のあるものに遭遇したか、聞いたことがありますか?特に、お尻のチョコレートプディングと一般的に呼ばれるsssubssstanceを含むものは?」</text>
+							<choice hidden="true">
+								<text>はい。</text>
+								<event>
+									<text>「なるほど。私は...これを私の雇用主に報告します。先に進みましょう。」</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="ANOMALY_QUESTIONS_2" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>いいえ。</text>
+								<event>
+									<text>"非常によく、その後。"スラッグは紙に×を描き、ペンをいじる。 「先に進みましょう。」</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="ANOMALY_QUESTIONS_2" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>チョコレートプリンとは？</text>
+								<event>
+									<text>「あなたが...とても鈍感な人か、私が...間違ったクラススターに属しているかのどちらかです。いずれにせよ、この質問者には続ける理由がありません。お時間をいただきありがとうございます。」</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event>
+											<instantEscape />
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>いいえ。</text>
+				<event>
+					<text>「そうですか... sssso? そうですね... では、私があなたから必要としていたのはそれだけであると思います。さようなら、ススストレンジャー。」一言も言わずに、スラッグは書類をブリーフケースに戻し、ビームで立ち去り、しばらくして船が飛び去りました。</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<instantEscape />
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ANOMALY_QUESTIONS_2">
+	<text>「質問4。あなたの現実の構造そのものを妨害するような異常なオブジェクトや実体と関わったり、遭遇したりしたことがありますか?おそらく...供給品を掃除していますか?」</text>
+	<choice hidden="true" req="detergent_mode" blue="true">
+		<text>(洗剤) そうかもしれません。</text>
+		<event>
+			<text>「ああ… 知らせてくれてありがとう。残念ながら、これは…没収しなければならないだろうが、公正な補償を提供させてください。新しい、先に進みましょう。」</text>
+			<variable name="detergent_mode" op="set" val="0" />
+			<autoReward level="LOW">scrap_only</autoReward>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="ANOMALY_QUESTIONS_3" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="gnome" blue="true">
+		<text>(Gnome) おそらく。</text>
+		<event>
+			<text>スラッグは一瞥し、彼の間違いのない冷静さはついに打ち砕かれた。あなたが作ったのですか? もう... 遅すぎます. 私たちは... この現実を隔離しなければなりません. 私は去らなければならず、私の雇用主に知らせなければなりません.</text>
+			<variable name="quarantine" op="set" val="1" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<instantEscape />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>疑わしい。</text>
+		<event>
+			<text>「うーん。人々はそれについて確信が持てません...しかし、私たちは先に進みます。」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="ANOMALY_QUESTIONS_3" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ANOMALY_QUESTIONS_3">
+	<text>「質問 5、今日の... 私たちの質問の最下位。あなたは... 神々を信じますか?」</text>
+	<choice hidden="true">
+		<text>はい。</text>
+		<event load="ANOMALY_QUESTIONS_4" />
+	</choice>
+	<choice hidden="true">
+		<text>いいえ。</text>
+		<event load="ANOMALY_QUESTIONS_4" />
+	</choice>
+	<choice hidden="true">
+		<text>多分。</text>
+		<event load="ANOMALY_QUESTIONS_4" />
+	</choice>
+</event>
+<event name="ANOMALY_QUESTIONS_4">
+	<text>スラッグは何も言わず、さらにメモを書き留めるだけです。あなたは不快にそこに座って彼を見ていて、外にいると、他のすべてが動きを止め、時間と場所が凍っているように見えることに気づきます.</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>やっとスラッグが顔を上げる。 「これで...質問票を締めくくります。あなたの...参加に感謝します。あなたは...あなたの時間に対して補償されます。さようなら。」何も言わずにスラッグはテレポートし、彼の船はジャンプし、FTL 署名の痕跡はまったく残りません。</text>
+			<autoReward level="HIGH">item</autoReward>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<instantEscape />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+<event name="ANOMALY_CEL_COVERUP">
+	<text>遭難ビーコンに誘われて、あなたが見たどの連邦ステーションモデルとも違う奇妙な宇宙ステーションと、その周りを周回するいくつかの船、すべてスラッグ輸送を見つけます.こっそり近づいて聞くこともできますが、それがどれほど危険かはわかりません。</text>
+	<variable name="loc_found_anomaly" op="set" val="1" />
+	<distressBeacon />
+	<img back="BACK_EVENT_CE" planet="NONE" />
+	<choice hidden="true">
+		<text>こっそり近づきます。</text>
+		<event>
+			<text>これまでに見たことのない洗練された暗号化方式により、他の船からの会話は信じられないほどほとんど届きません。あなたがキャッチするのは、異常、連続性、そして問題のステーションがどこか遠くから来ているという言及だけです。聞いていると、ステーションの所有者から連絡が届き、青い肌をした非常に恐ろしい人間のような生き物が現れました。
+
+「助けてください。助けてください。何が起こったのかわかりません。砲兵レーザーとマインランチャーの販売を終えようとしていたとき、この邪悪な笑い声が聞こえてきて、ここにたどり着きました。ここがどこかさえわかりません」スラッグ達は連続性違反で逮捕だと言っているのに、何もしていない！ 連続性が何かも分からない！</text>
+			<choice hidden="true">
+				<text>ステーションの乗組員を救出する。</text>
+				<event>
+					<text>乗組員を迅速に案内し、船から使用する可能性のある貨物からの武器を迅速に案内します。あなたの運のために、ナメクジの船は気づいていないようです！ここから安全に出ることができるように見えます。</text>
+					<crewMember amount="1" all_skills="2" class="human_humanoid">ステファン</crewMember>
+					<weapon name="BA_LASER_ARTILLERY_2" />
+					<item_modify>
+						<item type="fuel" min="3" max="3" />
+					</item_modify>
+					<jumpEvent loop="false">ANOMALY_CEL_COVERUP_FIGHT</jumpEvent>
+				</event>
+			</choice>
+			<choice hidden="false">
+				<text>仕方がない。</text>
+				<event>
+					<text>ここで起こっていることに巻き込まれる危険はありません。船長の懇願が聞こえなくなるまで、自分と駅との間に十分な距離を置いてください。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>今すぐ出発します。</text>
+		<event>
+			<text>ここで何が起こっていようと、関与するにはリスクが高すぎます。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ANOMALY_CEL_COVERUP_LEAVE"> 
+	<backgroundObject name="GLITCH_PROBE">
+		<layer z="0">front</layer>
+		<spawnArea x="295" y="188" w="0" h="0" center="true" />
+		<anim>glitch</anim>
+		<active>true</active>
+	</backgroundObject>
+	<playSound>glitch</playSound>
+	<triggeredEvent event="ANOMALY_CEL_COVERUP_FIGHT" time="1" clearOnJump="true" />
+	<resetFtl />
+</event>
+<ship name="SHIP_CONTINUITY_PROBE_COVERUP" auto_blueprint="MU_CONTINUITY_AUTO_EARLY"> 
+	<weaponOverride count="2">
+		<name>PRIME_LASER</name>
+		<name>PRIME_LASER</name>
+	</weaponOverride>
+	<destroyed>
+		<text>「エラー - エラー - エラー - エラー - 継続性を実施できませんでした。検疫の要求を送信しています -」 船は信号を発する前に爆発します。ステーションの乗組員の何人かは歓声を上げますが、祝う時間はありません。これらのものが再び現れる前に、すぐにワープする準備をします。</text>
+		<autoReward level="HIGH">standard</autoReward>
+	</destroyed>
+</ship>
+<event name="ANOMALY_CEL_COVERUP_FIGHT">
+	<text>「継続性執行プロトコルにおける予期せぬ未承認の干渉。修正を試みています。異常な密輸品を引き渡さなければ、継続性違反で逮捕されます。」</text>
+	<clearBackgroundObject name="GLITCH_PROBE" />
+	<resetFtl />
+	<ship load="SHIP_CONTINUITY_PROBE_COVERUP" hostile="false" />
+	<choice hidden="false" blue="false" req="human_humanoid" lvl="1" max_group="0">
+		<text>乗組員と貨物を引き渡します。</text>
+		<event>
+			<text>ステーションの所有者は抗議しますが、あなたの武器が上がったことで、彼らは従う以外に選択肢がありません。あなたは迅速な裏切りに少し罪を犯しますが、これが何であれ対処するためにサインアップしませんでした。「継続性執行プロトコルを遵守してくれてありがとう。これがこれまでに起こったことを忘れるかもしれません。異常の清掃が始まるように敷地を離れてください。」</text>
+			<removeCrew class="human_humanoid">
+				<clone>false</clone>
+				<text />
+			</removeCrew>
+			<remove name="BA_LASER_ARTILLERY_2" />
+		</event>
+	</choice>
+	<choice hidden="false" blue="false" req="human_humanoid" lvl="0" max_lvl="0" max_group="0">
+		<text>乗組員と貨物を引き渡します。</text>
+		<event>
+			<text>「エラー。異常な要素がありません。あなたの欺ceptionの試みは、継続性の執行を維持することに対するf辱と見なされます。現在、あなたはプロトコル13に違反した罪を犯しています。異常な密輸品に違反し、プロトコル18;密輸品の除去または除去して、異常な部位を除去します。「</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="false" max_group="1">
+		<text>拒否する！</text>
+		<event>
+			<text>「継続性強制に抵抗することで、あなたはプロトコル13、異常な密輸品の隠蔽、プロトコル18、異常なサイトからの密輸品の除去または改ざん、プロトコル24、認可された継続性実施者の遵守を拒否することに違反したことになります。パージを開始します。」</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+<event name="ANOMALY_CEL_WALDO">
+	<text>このビーコンに最初に到着すると、ビーコンを調べる巨大で奇妙に着色されたナメクジの容器を調べて見つけるまで、予備スキャンを実行し始めます。船自体はあなたと同じようにあなたに会えてショックを受けたようです。灰色のスーツのよく服を着たナメクジがあなたの画面に現れます。sssseen ssssseen ... thisssシステムでのSsssssspiccioussのアクティビティはありますか？SSSOの場合、私は知りたいです。」応答する前に、船は別の場所から神秘的なあられを受け取りますが、それはまったく識別できません。「彼に何も言わないでください。秘密を守ってください、そして私はそれをあなたの時間の価値があるようにします。」</text>
+	<variable name="loc_found_anomaly" op="set" val="1" />
+	<ship load="SHIP_CONTINUITY_ENFORCER" hostile="false" />
+	<img planet="NONE" />
+	<backgroundObject name="WALLACE">
+		<layer z="0">background</layer>
+		<spawnArea x="750" y="440" w="150" h="150" center="true" />
+		<anim>wally</anim>
+		<hoverAnim>wally_hover</hoverAnim>
+		<inactiveAnim hide="true" />
+		<tooltip>これは誰ですか？</tooltip>
+		<clickAction>
+			<event load="WALDO_TALK" /> 
+			<destroy />
+		</clickAction>
+	</backgroundObject>
+	<choice hidden="false" blue="false" req="sensors" lvl="0" max_lvl="1" max_group="0">
+		<text>嘘;何もありません。</text>
+		<event>
+			<text>「MHM ...大丈夫...」あなたはすぐにナメクジが心を読むことができ、あなたはちょうどtrapに入ったかもしれないことを覚えていますが、ナメクジはさらにプッシュしません。「ここに私の...カード、ssstranger。何かに気づいたなら...奇妙なことに、電話をかけないでください。」ナメクジは、円形のロゴとヘッダーC.E.L.を備えた小さな名刺の上に梁を張り、電話をかける方法さえ知らない数字を備えています。船はすぐに飛び降ります。「良い、あなたは正しい選択をした。今私を見つけて、私たちは話します。」</text>
+			<instantEscape />
+		</event>
+	</choice>
+	<choice hidden="false" blue="false" req="sensors" lvl="2" max_group="0">
+		<text>嘘;何もありません。</text>
+		<event>
+			<text>「MHM ...大丈夫...」あなたはすぐにナメクジが心を読むことができ、あなたはちょうどtrapに入ったかもしれないことを覚えていますが、ナメクジはさらにプッシュしません。「ここに私の...カード、ssstranger。何かに気づいたなら...奇妙なことに、電話をかけないでください。」ナメクジは、円形のロゴとヘッダーC.E.L.を備えた小さな名刺の上に梁を張り、電話をかける方法さえ知らない数字を備えています。船はすぐに飛び降ります。「良い、あなたは正しい選択をした。今私を見つけて、私たちは話します。」</text>
+			<instantEscape />
+			<status type="limit" target="player" system="sensors" amount="1" />
+		</event>
+	</choice>
+	<choice hidden="false" max_group="1">
+		<text>本当のことを言え;メッセージを報告します。</text>
+		<event>
+			<text>「ありがとう... ssstranger. Glory... Multiverssse に。」スラッグは彼の船を反転させ、遠くに飛び去ります。船が彼の後を飛び去ると、人型の姿が消えるのをかろうじて確認できます.</text>
+			<clearBackgroundObject name="WALLACE" />
+			<instantEscape />
+		</event>
+	</choice>
+</event>
+<event name="WALDO_TALK">
+	<text>突然、奇妙に見えるように見える目のあるヒューマノイドの姿があなたの船の上にあなたの前に現れ、縞模様のベストを着ています。「その男を取り除くのは素晴らしい仕事です。私の名前はウォレスです。あなたが知らなかった場合に備えて、私は多元宇宙の有名人です。好意を返すために。これらのいずれかがあなたの空想を得るかどうか教えてください。」</text>
+	<store>STORE_SYLVAN_RARE</store>
+</event>
+
+
+<event name="ANOMALY_CEL_BACON">
+	<text>遠くには、植生で覆われていない小さな惑星は、まだ活動的な容器の異常なエネルギー署名を示しています。ここで船を見つけるのは少し奇妙ですが、見知らぬことが起こりました。</text>
+	<variable name="loc_found_anomaly" op="set" val="1" />
+	<img back="BG_NEBULA" planet="PLANET_UNPOPULATED_TERRA" />
+	<choice hidden="false">
+		<text>惑星を調査します。</text>
+		<event>
+			<text>あなたは惑星に近づくと、容器はそれほど大きくない標準的な集まりの工芸品であることがわかります。孤立した花柄が船体に座っており、あなたが完全に理解できないある種のオブジェクトを持っています。あなたは少し離れて着陸し、トレッキングが近づき、それがあなたを見るとランはジャンプします。驚いて、花の手話は不安定で、翻訳者が自動的に修正するいくつかの兆候を台無しにします。「これは神聖な土地です！私は肉の神聖なスラブのキーパーであり、あなたはこの土地の神聖さを邪魔しています！」</text>
+			<choice hidden="false">
+				<text>神聖な...何？</text>
+				<event>
+					<text>ランはあなたを激しく見つめて、より近くに傾いています。「肉の神聖なスラブ。あなたが本当に知らないなら、私はあなたが明らかにスーツでナメクジを使っていないのを見ます！」ランはそれ自体に変えます。「良い、あなたは神聖なスラブの神性を尊重することに同意する限り、ここで歓迎されます。」</text>
+					<choice hidden="false">
+						<text>スーツのナメクジ？何を言っているの？</text>
+						<event>
+							<text>「昔、私は空から宇宙の贈り物に落ちたとき、私自身のビジネスを心に留めている普通の花でした！」ランはポケットに手を伸ばし、ベーコンのめちゃくちゃスライスを引き出し、不注意にあなたにそれを振っています。「これは神聖なスラブです！シルタル・ムンコロの葉からまっすぐ落ちました。スーツとブリーフケースを着た男は私をフォローしていて、スラブを取ろうとしています！しかし、私は容赦しません！決して！</text>
+							<choice hidden="true">
+								<text>それを保護するためにあなたと一緒にオーキッドを連れて行くことを申し出てください。</text>
+								<event>
+									<text>「あなたも神聖なスラブを護衛したいですか？まあ...私はここに隠れるよりも安全だと思います。あなたは私をスラブから切り離そうとしないでください！」</text>
+									<crewMember amount="1" all_skills="2" class="orchid">a'nd krew</crewMember>
+								</event>
+							</choice>
+							<choice hidden="true" req="nexus_sylvan_gman">
+								<text>（g-van）「Jussstは私に...ベーコンを与えます。それはあなたを含むすべての人の... ssssafetyのために...」</text>
+								<event>
+									<text>蘭の悲鳴、あなたが着陸してから最初に作った音。「いいえ！いいえ！あなたは私をもう一度見つけました！」ランはベーコンを撤回し、絶望的にそのくちばしを押し下げます。フラストレーションのg-vanフェースパーム。「ああ、それをやめなさい。ベーコンは別のクラススターから来ます。どうやってここで終わったのか、イッズ...不確かですが、私はファウル・エルドリッチが遊びます。ここで出入りしない個人からのsssampless、およびssso sssoは砂漠にされたり返されたりします。」g-van点滅。「私は、私が今持っている唯一の選択肢をssssuppossseしていません...オーキッドをusssで服用し、ベスストを希望する殺人です。」</text>
+									<crewMember amount="1" all_skills="2" class="orchid">a'nd krew</crewMember>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>非常識な蘭をして、去りましょう。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="false">
+		<text>惑星を無視します。</text>
+		<event>
+			<text>あなたがいるので興味深いことに、この辺りでスヌーピングに行く理由はありません。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+<ship name="ORACLE" auto_blueprint="HER_ORACLE">
+	<destroyed load="OPTION_INVALID" />
+	<deadCrew load="OPTION_INVALID" />
+</ship>
+<event name="ANOMALY_ORACLE">
+	<triggeredEvent event="ANOMALY_ORACLE_GLITCH" time="1" />
+</event>
+<event name="ANOMALY_ORACLE_GLITCH">
+	<backgroundObject name="GLITCH">
+		<layer z="0">front</layer>
+		<spawnArea x="295" y="188" w="0" h="0" center="true" />
+		<anim>glitch</anim>
+		<active>true</active>
+	</backgroundObject>
+	<playSound>glitch</playSound>
+	<triggeredEvent event="ANOMALY_ORACLE_REAL" time="1" clearOnJump="true" />
+</event>
+<event name="ANOMALY_ORACLE_REAL">
+	<text>あなたは目立たないビーコンに飛び込み、遠く離れたいくつかの放棄された惑星と資源を奪われた小惑星帯しか表示するものはありません。今こそリラックスして、船上で何かすることを探すのに良い時期のようです.</text>
+	<clearBackgroundObject name="GLITCH" />
+	<ship load="ORACLE" hostile="false" />
+	<choice>
+		<text>船に乗って何かする。</text>
+		<event load="ANOMALY_ORACLE_SPEAK" />
+	</choice>
+	<choice>
+		<text>何もしない。</text>
+		<event load="ANOMALY_ORACLE_SPEAK" />
+	</choice>
+</event>
+<event name="ANOMALY_ORACLE_SPEAK">
+	
+	
+	
+	<variable name="loc_found_oracle" op="set" val="1" />
+	<instantEscape />
+</event>
+</FTL>

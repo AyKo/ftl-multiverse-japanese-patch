@@ -1,0 +1,990 @@
+<FTL>
+<event name="SHOWDOWN_PLACEHOLDER">
+	<text>これは決して見るべきではありません。</text>
+</event>
+
+<ship name="SHIP_MFK_FLAGSHIP_CASUAL" auto_blueprint="MU_MFK_FLAGSHIP_CASUAL">
+	<triggeredEvent event="SHOWDOWN_FAIL" time="300">
+		<triggeredEventBox load="DEFAULT_TIMER" pos="combat">
+			<warning time="10.0" flash="true" />
+			<tooltip>MFKフラグシップはMVドライブを充電しています。この時間までに破壊できなければ逃げる！エンジンを破壊することさえ、このタイマーを止めるものは何もありません。</tooltip>
+		</triggeredEventBox>
+		<timerSounds load="DEFAULT_TIMER_SOUNDS" />
+	</triggeredEvent>
+	<deadCrewAuto />
+	<destroyed load="SHOWDOWN_WIN" />
+	<deadCrew load="SHOWDOWN_AUTO" />
+	<deadCrewAuto />
+	<finalBoss ach="true" creditsText="credit_victory_true_mutual" text="This is not the victory you hoped for, but it's one nonetheless." creditsBackground="VICTORY_TRUE" music="paragon" />
+</ship>
+<ship name="SHIP_MFK_FLAGSHIP_NORMAL" auto_blueprint="MU_MFK_FLAGSHIP_NORMAL">
+<triggeredEvent event="FLAGSHIP_DIRTY" enemyHull="20" thisFight="true" clearOnJump="true" />
+	<triggeredEvent event="SHOWDOWN_FAIL" time="240" thisFight="true">
+		<triggeredEventBox load="DEFAULT_TIMER" pos="combat">
+			<warning time="10.0" flash="true" />
+			<tooltip>MFKフラグシップはMVドライブを充電しています。この時間までに破壊できなければ逃げる！エンジンを破壊することさえ、このタイマーを止めるものは何もありません。</tooltip>
+		</triggeredEventBox>
+		<timerSounds load="DEFAULT_TIMER_SOUNDS" />
+	</triggeredEvent>
+	<deadCrewAuto />
+	<triggeredEvent event="POWER_SURGE_BARRAGE_MFK" seeded="false" loops="999999999" thisFight="true" minTime="30.0" maxTime="50.0">
+		<warningMessage id="warning_power_surge" x="692" y="84" time="5.0" centerText="true" flash="true" sound="surgeWarning" useWarningLine="true" />
+	</triggeredEvent>
+	<destroyed load="SHOWDOWN_WIN" />
+	<deadCrew load="SHOWDOWN_AUTO" />
+	<deadCrewAuto />
+	<finalBoss ach="true" creditsText="credit_victory_true_mutual" text="This is not the victory you hoped for, but it's one nonetheless." creditsBackground="VICTORY_TRUE" music="paragon" />
+</ship>
+<ship name="SHIP_MFK_FLAGSHIP_CHALLENGE" auto_blueprint="MU_MFK_FLAGSHIP_CHALLENGE">
+<triggeredEvent event="FLAGSHIP_DIRTY_HARD" enemyHull="20" thisFight="true" clearOnJump="true" />
+	<triggeredEvent event="SHOWDOWN_FAIL" time="180" thisFight="true">
+		<triggeredEventBox load="DEFAULT_TIMER" pos="combat">
+			<warning time="10.0" flash="true" />
+			<tooltip>MFKフラグシップはMVドライブを充電しています。この時間までに破壊できなければ逃げる！エンジンを破壊することさえ、このタイマーを止めるものは何もありません。</tooltip>
+		</triggeredEventBox>
+		<timerSounds load="DEFAULT_TIMER_SOUNDS" />
+	</triggeredEvent>
+	<deadCrewAuto />
+	<triggeredEvent event="POWER_SURGE_BARRAGE_MFK" seeded="false" loops="999999999" thisFight="true" minTime="30.0" maxTime="40.0">
+		<warningMessage id="warning_power_surge" x="692" y="84" time="5.0" centerText="true" flash="true" sound="surgeWarning" useWarningLine="true" />
+	</triggeredEvent>
+	<destroyed load="SHOWDOWN_WIN" />
+	<deadCrew load="SHOWDOWN_AUTO" />
+	<deadCrewAuto />
+	<finalBoss ach="true" creditsText="credit_victory_true_mutual" text="This is not the victory you hoped for, but it's one nonetheless." creditsBackground="VICTORY_TRUE" music="paragon" />
+</ship>
+<ship name="SHIP_MFK_FLAGSHIP_EXTREME" auto_blueprint="MU_MFK_FLAGSHIP_EXTREME">
+<triggeredEvent event="FLAGSHIP_DIRTY_HARD" enemyHull="25" thisFight="true" clearOnJump="true" />
+	<triggeredEvent event="SHOWDOWN_FAIL" time="165" thisFight="true">
+		<triggeredEventBox load="DEFAULT_TIMER" pos="combat">
+			<warning time="10.0" flash="true" />
+			<tooltip>MFKフラグシップはMVドライブを充電しています。この時間までに破壊できなければ逃げる！エンジンを破壊することさえ、このタイマーを止めるものは何もありません。</tooltip>
+		</triggeredEventBox>
+		<timerSounds load="DEFAULT_TIMER_SOUNDS" />
+	</triggeredEvent>
+	<deadCrewAuto />
+	<triggeredEvent event="POWER_SURGE_BARRAGE_MFK" seeded="false" loops="999999999" thisFight="true" minTime="20.0" maxTime="35.0">
+		<warningMessage id="warning_power_surge" x="692" y="84" time="5.0" centerText="true" flash="true" sound="surgeWarning" useWarningLine="true" />
+	</triggeredEvent>
+	<destroyed load="SHOWDOWN_WIN" />
+	<deadCrew load="SHOWDOWN_AUTO" />
+	<deadCrewAuto />
+	<finalBoss ach="true" creditsText="credit_victory_true_mutual" text="This is not the victory you hoped for, but it's one nonetheless." creditsBackground="VICTORY_TRUE" music="paragon" />
+</ship>
+
+<event name="FLAGSHIP_DIRTY">
+	<text>旗艦は震えます。それはすでに甚大な被害を被っていますが、それは一緒に保持されます。テレポーターの署名が登録され、反乱軍が汚いプレーをしていることが明らかになります。いくつかの敵対的な実体が船上で検出されたので、彼らは彼らの襲撃の後にいくつかのコグニティブを持っていたに違いありません！</text>
+	<boarders min="2" max="2" class="cognitive" />
+</event>
+<event name="FLAGSHIP_DIRTY_HARD">
+	<text>旗艦は震えます。それはすでに甚大な被害を被っていますが、それは一緒に保持されます。テレポーターの署名が登録され、反乱軍が汚いプレーをしていることが明らかになります。いくつかの敵対的な実体が船上で検出されたので、彼らは彼らの襲撃の後にいくつかのコグニティブを持っていたに違いありません！</text>
+	<boarders min="2" max="2" class="cognitive_advanced" />
+</event>
+
+<event name="POWER_SURGE_BARRAGE_MFK">
+	<superBarrage player="false" name="MFK_LASER_SURGE" />
+</event>
+<event name="POWER_SURGE_SUPER_MFK">
+	<superBarrage player="false" name="MFK_LASER_SURGE" />
+	<superDrones player="false" name="MFK_DRONE_SURGE" />
+</event>
+
+<event name="SHOWDOWN_AUTO">
+	<text>この船にも高度なAIシステムが搭載されているようです。クルーが死んだので、それはコントロールを取りました！フラグシップでも酸素レベルが低下しているのを感じます...</text>
+	<status type="limit" target="enemy" system="oxygen" amount="0" />
+</event>
+
+<event name="SHOWDOWN_BEGIN">
+	<text>フラグシップを追求するとき、これが戦いの前に必要なものを準備する最後のチャンスであることを知っています。これはそれです、あなたが彼らに追いついたら戻ることはありません。ミッションレポートをもう一度確認する良い機会です。</text>
+	<jumpEvent>GO_TO_SHOWDOWN</jumpEvent>
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+</event>
+
+<event name="SHOWDOWN_FAIL">
+	<text>旗艦はあなたから逃げて飛び去ります。あなたは失敗しました...そして今、すべての現実にわたる連邦の未来は暗いように見えます。これは破滅的な敗北であり、あなたの使命は失われます。</text>
+	<instantEscape />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<lose text="Universe 0 has been destroyed. All is lost." />
+		</event>
+	</choice>
+</event>
+
+<event name="GO_TO_SHOWDOWN">
+	<text>これで完全に配置され、最後の戦いの準備が整いました。うまくいけば、最後ではありません。</text>
+	<secretSector>SHOWDOWN</secretSector>
+</event>
+
+<event name="SHOWDOWN_START">
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<loadEventList seeded="false" first="true" generate="false">
+		<event name="SHOWDOWN_GNOME" req="chaos_mode" lvl="1" />
+		<event name="SHOWDOWN_CASUAL" req="challenge_level" lvl="0" max_lvl="0" />
+		<event name="SHOWDOWN_NORMAL" req="challenge_level" lvl="1" max_lvl="1" />
+		<event name="SHOWDOWN_CHALLENGE" req="challenge_level" lvl="2" max_lvl="2" />
+		<event name="SHOWDOWN_EXTREME" req="challenge_level" lvl="3" max_lvl="3" />
+	</loadEventList>
+</event>
+<event name="SHOWDOWN_START_NOCHAOS">
+	<loadEventList seeded="false" first="true" generate="false">
+		<event name="SHOWDOWN_CASUAL" req="challenge_level" lvl="0" max_lvl="0" />
+		<event name="SHOWDOWN_NORMAL" req="challenge_level" lvl="1" max_lvl="1" />
+		<event name="SHOWDOWN_CHALLENGE" req="challenge_level" lvl="2" max_lvl="2" />
+		<event name="SHOWDOWN_EXTREME" req="challenge_level" lvl="3" max_lvl="3" />
+	</loadEventList>
+</event>
+<event name="SHOWDOWN_GNOME">
+	<achievement>ACH_GNOME_TRUEFAIL</achievement>
+	<playSound>gm_fail</playSound>
+	<loadEvent>SHOWDOWN_START_NOCHAOS</loadEvent>
+</event>
+
+<event name="SHOWDOWN_CASUAL">
+	<text>あなたはヴァンスをできるだけ早く追いかけます。あなたはなんとか彼の巨人の船に追いつくことができます。これは反乱軍の旗艦と似ていますが、さらに強力な大砲とMFKペイントの仕事で武装しています。</text>
+	<ship load="SHIP_MFK_FLAGSHIP_CASUAL" hostile="false" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>ここまで来て、もう諦めることはありえない。この船を破壊する以外にはない。失敗すれば連邦は破滅するだろうし、成功すればこの世界は永遠に救われる。賭け金は安くないが、考える暇もない。戦いの準備をする。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_jerry">
+		<text>（ジェリー）ヴァンスに呼びかける。</text>
+		<event load="SHOWDOWN_JERRY" />
+	</choice>
+	<choice hidden="true" req="unique_tully">
+		<text>（タリー）ヴァンスに呼びかける。</text>
+		<event load="SHOWDOWN_TULLY" />
+	</choice>
+	<choice hidden="true" req="unique_nights">
+		<text>（夜）夜はヴァンスに何か言いたいことがあるようです。</text>
+		<event load="SHOWDOWN_NIGHTS" />
+	</choice>
+</event>
+<event name="SHOWDOWN_NORMAL">
+	<text>あなたはヴァンスをできるだけ早く追いかけます。あなたはなんとか彼の巨人の船に追いつくことができます。これは反乱軍の旗艦と似ていますが、さらに強力な大砲とMFKペイントの仕事で武装しています。</text>
+	<ship load="SHIP_MFK_FLAGSHIP_NORMAL" hostile="false" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>ここまで来て、もう諦めることはありえない。この船を破壊する以外にはない。失敗すれば連邦は破滅するだろうし、成功すればこの世界は永遠に救われる。賭け金は安くないが、考える暇もない。戦いの準備をする。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_jerry">
+		<text>（ジェリー）ヴァンスに呼びかける。</text>
+		<event load="SHOWDOWN_JERRY" />
+	</choice>
+	<choice hidden="true" req="unique_tully">
+		<text>（タリー）ヴァンスに呼びかける。</text>
+		<event load="SHOWDOWN_TULLY" />
+	</choice>
+	<choice hidden="true" req="unique_nights">
+		<text>（夜）夜はヴァンスに何か言いたいことがあるようです。</text>
+		<event load="SHOWDOWN_NIGHTS" />
+	</choice>
+</event>
+<event name="SHOWDOWN_CHALLENGE">
+	<text>あなたはヴァンスをできるだけ早く追いかけます。あなたはなんとか彼の巨人の船に追いつくことができます。これは反乱軍の旗艦と似ていますが、さらに強力な大砲とMFKペイントの仕事で武装しています。</text>
+	<ship load="SHIP_MFK_FLAGSHIP_CHALLENGE" hostile="false" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>ここまで来て、もう諦めることはありえない。この船を破壊する以外にはない。失敗すれば連邦は破滅するだろうし、成功すればこの世界は永遠に救われる。賭け金は安くないが、考える暇もない。戦いの準備をする。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_jerry">
+		<text>（ジェリー）ヴァンスに呼びかける。</text>
+		<event load="SHOWDOWN_JERRY" />
+	</choice>
+	<choice hidden="true" req="unique_tully">
+		<text>（タリー）ヴァンスに呼びかける。</text>
+		<event load="SHOWDOWN_TULLY" />
+	</choice>
+	<choice hidden="true" req="unique_nights">
+		<text>（夜）夜はヴァンスに何か言いたいことがあるようです。</text>
+		<event load="SHOWDOWN_NIGHTS" />
+	</choice>
+</event>
+<event name="SHOWDOWN_EXTREME">
+	<text>あなたはヴァンスをできるだけ早く追いかけます。あなたはなんとか彼の巨人の船に追いつくことができます。これは反乱軍の旗艦と似ていますが、さらに強力な大砲とMFKペイントの仕事で武装しています。</text>
+	<ship load="SHIP_MFK_FLAGSHIP_EXTREME" hostile="false" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>ここまで来て、もう諦めることはありえない。この船を破壊する以外にはない。失敗すれば連邦は破滅するだろうし、成功すればこの世界は永遠に救われる。賭け金は安くないが、考える暇もない。戦いの準備をする。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_jerry">
+		<text>（ジェリー）ヴァンスに呼びかける。</text>
+		<event load="SHOWDOWN_JERRY" />
+	</choice>
+	<choice hidden="true" req="unique_tully">
+		<text>（タリー）ヴァンスに呼びかける。</text>
+		<event load="SHOWDOWN_TULLY" />
+	</choice>
+	<choice hidden="true" req="unique_nights">
+		<text>（夜）夜はヴァンスに何か言いたいことがあるようです。</text>
+		<event load="SHOWDOWN_NIGHTS" />
+	</choice>
+</event>
+
+<event name="SHOWDOWN_NIGHTS">
+	<text>ヴァンスが一時停止し、ビデオ画面に表示されます。夜は彼のビールの別の小枝を取りながら、より近くにスクロールします。 「Ssssay...あなたの名前をもう一度何がしたの？」</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>ヴァンスのうなり声としかめっ面。 「ヴァンス・ウェントワース提督。あなたにとってはどうですか、スライムピニャータ？」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>夜は笑い、もう一口飲みます。 「へぇ…ヴァンス・ウェントワース提督、ハァッ？もっと…ウェントワース・レッセス！ハハハハハハハハ！」</text>
+					<achievement silent="false">ACH_TRUEEND_WENTWORTHLESS</achievement>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>ナイトの酔ったような笑い声としゃっくりを通して、ヴァンスの唸り声が聞こえてきます。ついに、このぬるぬるした嫌いな人をあなたの船に留めておくための検証が見つかりました.残念ながら、避けられない事態をこれ以上遅らせることはできません。対決の時が来ました!</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SHOWDOWN_TULLY">
+	<text>ヴァンスは一時停止し、VID画面に表示されます。タリーステップはおしゃべりし、腕が背中の後ろに交差しました。 「ウェントワース。敵としてではなく、あなたの古い友人として私に耳を傾けてください。これをしないでください。あなたがしていることを考えてみてください。何のために、いくつかのささいなスコアを解決するために？あなたは連邦と競争できる帝国を築きました - なぜあなたはそれに満足できないのですか？」</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>ヴァンスのまぶしさは和らぎますが、彼の顔の決意のある表情は衰えません。 「これは単純な復讐をはるかに超えています、ブロドリック。なぜ私たちがまだ反乱の称号を持っているのか不思議に思ったことはありませんか？それは私たちの理想と私たちの使命を私たちの旗の下で行進するすべての人の心に忠実に保つからです。連邦は、数兆人だけでなく、ほぼ無限の人々が苦しみ続けることを喜んで許可することになっています。」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>「このマルチバースは、連邦が最終的に解散し、野蛮な異種生物が自分たちの私的な苦しみの中で彼らの不正行為を続けることができ、人類が常に運命づけられていたように繁栄することができる新しい輝かしい文明を構築できるときにのみ平和を知るでしょうユニバース0の人々はチャンスがありましたが、失敗しました。より小さな悪にコミットできるようになるには、ダイヤモンドの人が必要です。ブロドリック、あなたと戦いたくないのですが、私たちの歴史は考えていません。目的を果たせなくなるだろう」と語った。</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>これで、ヴァンスはすぐに通話を終了し、彼の船はMVドライブの充電に戻ります。タリーは敗北したように見えますが、熟考する時間がありません。最後の対決の時間です！</text>
+							<achievement silent="false">ACH_TRUEEND_TULLY</achievement>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="SHOWDOWN_JERRY">
+	<text>あなたが旗艦の大砲に近づくと、あなたはあなたをロックし、あなたを忘却の中に爆破する準備をします。しかし、彼らが退院する前に、ジェリーは秘密の反乱軍のアクセスコードを使用して船をすばやく呼び寄せます。応答を待ちます...</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>旗艦は走りを止めることはありませんが、あなたの橋の上に以前からの手ごわい人物がテレポートします。ヴァンスが到着しました。彼は混乱してジェリーをちらっと見ながら、あなたに向かっていくつかのステップを踏みます。</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>「連邦は大変なことになるだろう、もしお前が私の甥を誘拐し、私の銀河間の平和を達成するのを阻止するための餌として使うのならばな！」</text>
+					<choice hidden="true">
+						<text>誘拐などしていない。</text>
+						<event>
+							<text>ヴァンスは笑います。「では、彼がお前らのクルーに喜んで参加したとでも？馬鹿げている。私の甥の反乱軍への忠誠心は揺るぎな..」ここでジェリーが途中で言葉を遮りました。「叔父さん、彼らは真実を語っています！僕はもう反乱軍にはうんざりしています。だいたい、何のために戦っているんです？一つの世界の支配だってできないし、ましてや無限にある世界を支配することなんて不可能です！他の種族を追い出すつもりですか？あなたの計画は理解ができない！」</text>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event>
+									<text>ヴァンスの目が鋭くなっているのが見える。「このバカめが。お前は母親と同じだな。誤った道徳観に目がくらみ、進歩することができていない。我々に仕えるべき単純で無知な生き物が、奴らが属する原初の泥沼から這いずり出でることに忙しすぎるのと同じだ！　そうだろうな、私の計画は壮大すぎるように聞こえるかもしれない。実際に壮大なのだ。だからこそ、私が目指したことを成し遂げるには、献身的かつ勇気のある人間が必要なのだ。私の偉大な使命を邪魔するものは排除する。誰であろうと、それこそ家族であろうともだ！」</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event>
+											<text>ジェリーは反応できず口ごもってしまった。ヴァンスは彼を追い払うかのように手で払いのける。「もう無駄なことをするな。私は自分の船に戻る。これ以上の邪魔はさせない」。ヴァンスはベルトのボタンを押し、遠くの旗艦にテレポートで戻る。</text>
+											<ship hostile="true" />
+											<choice hidden="true">
+												<text>継続する...</text>
+												<event>
+													<text>ジェリーはあまりにもあっけなく打ち棄てられたことにショックを受け、膝から崩れ言葉を失う。「知ってさえいれば......」ジェリーは両手で頭を抱え、涙が水たまりを作っている。</text>
+													<removeCrew class="unique_jerry">
+														<clone>false</clone>
+														<text>ジェリーは隅で泣いている。フラッグシップが近づいてきて、武器がチャージされている。彼を慰めたいが、もう行かねばならない。</text>
+													</removeCrew>
+													<choice hidden="true">
+														<text>継続する...</text>
+														<event>
+															<text>突然、ジェリーは涙を拭きながら立ち上がる。「もう、やることは、一つしかない」 彼は巨大なガトリングガンを取り出した。どこから持ってきたのかわからないが、それを聞く余裕はない。</text>
+															<achievement>ACH_JERRY_END</achievement>
+															<crewMember amount="1" class="unique_jerry_gun">ジェリー</crewMember>
+															<choice hidden="true" blue="false" lvl="0" max_group="0" req="pony_tamed">
+																<text>継続する...</text>
+																<event>
+																	<text>ジェリーが覚悟を決めている以上、戦うこと以外にやるべきことは何もない！</text>
+																	<choice hidden="true">
+																		<text>継続する...</text>
+																		<event load="COMBAT_CHECK" />
+																	</choice>
+																</event>
+															</choice>
+															<choice hidden="true" blue="false" lvl="1" max_group="0" req="ponyc">
+																<text>継続する...</text>
+																<event>
+																	<text>フラグシップと向き合う前に、ジェリーはいったん部屋から出ます。</text>
+																	<removeCrew class="unique_jerry_gun">
+																		<clone>false</clone>
+																		<text>ジェリーがどこに行くのか分かりませんが、あなたは彼に着いていくことにします。</text>
+																	</removeCrew>
+																	<choice hidden="true">
+																		<text>継続する...</text>
+																		<event>
+																			<text>ジェリーはイクイノイドが眠っている部屋に入ります...</text>
+																			<removeCrew class="ponyc">
+																				<clone>false</clone>
+																				<text>あなたにはジェリーが何をしているのか分かりませんが、見守ることにしました。</text>
+																			</removeCrew>
+																			<choice hidden="true">
+																				<text>継続する...</text>
+																				<event>
+																					<text>そして、ジェリーはポニーにまたがります。「よし。覚悟を決めた」</text>
+																					<crewMember amount="1" class="unique_jerry_pony_crystal">ジェリー</crewMember>
+																					<achievement>ACH_JERRY_STEED</achievement>
+																					<achievement>ACH_JERRY_CRYSTALSTEED</achievement>
+																					<choice hidden="true">
+																						<text>継続する...</text>
+																						<event load="COMBAT_CHECK" />
+																					</choice>
+																				</event>
+																			</choice>
+																		</event>
+																	</choice>
+																</event>
+															</choice>
+															<choice hidden="true" blue="false" lvl="1" max_group="0" req="pony_tamed">
+																<text>継続する...</text>
+																<event>
+																	<text>フラグシップと向き合う前に、ジェリーはいったん部屋から出ます。</text>
+																	<removeCrew class="unique_jerry_gun">
+																		<clone>false</clone>
+																		<text>ジェリーがどこに行くのか分かりませんが、あなたは彼に着いていくことにします。</text>
+																	</removeCrew>
+																	<choice hidden="true">
+																		<text>継続する...</text>
+																		<event>
+																			<text>ジェリーはイクイノイドが眠っている部屋に入ります...</text>
+																			<removeCrew class="pony_tamed">
+																				<clone>false</clone>
+																				<text>あなたにはジェリーが何をしているのか分かりませんが、見守ることにしました。</text>
+																			</removeCrew>
+																			<choice hidden="true">
+																				<text>継続する...</text>
+																				<event>
+																					<text>そして、ジェリーはポニーにまたがります。「よし。覚悟を決めた」</text>
+																					<crewMember amount="1" class="unique_jerry_pony">ジェリー</crewMember>
+																					<achievement>ACH_JERRY_STEED</achievement>
+																					<choice hidden="true">
+																						<text>継続する...</text>
+																						<event load="COMBAT_CHECK" />
+																					</choice>
+																				</event>
+																			</choice>
+																		</event>
+																	</choice>
+																</event>
+															</choice>
+														</event>
+													</choice>
+												</event>
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="SHOWDOWN_WIN">
+	<text>旗艦が爆発するとき、あなたは勝利の歓喜で見ます。あなたはこの戦いに勝ちました！</text>
+	<unlockCustomShip shipReq="PLAYER_SHIP_ANCIENT" silent="false">PLAYER_SHIP_ANCIENT_2</unlockCustomShip>
+	<achievement silent="false">ACH_TRUEEND_MFKFS</achievement>
+	<clearSuperDrones player="false" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<secretSectorWarp>SHOWDOWN_WIN</secretSectorWarp>
+			<secretSector />
+		</event>
+	</choice>
+</event>
+
+<event name="TRUE_VICTORY_LOAD">
+	<event />
+</event>
+<event name="TRUE_VICTORY">
+	<text>MFKフラグシップが破壊された、ヴァンスと共に。あなたはミッションが成功したことを知りました。反乱軍はリーダーを失って立ち直るのに苦労するだろうが、これが彼らの死にはならないだろう。あなたは残骸の中から近くにあったパラゴンを回収し、自分の船に持ち帰る。艦隊が追いつくまで時間がないことを知り、最後にクルーを確認する。この爆弾を爆発させることは、多元的宇宙の崩壊を意味し、MVドライブは単に機能しなくなる。これは戦争の終結を意味するが...あなたとあなたのクルーは死に、マルチバースから何十億人もの人々を取り残します。選択はあなた次第です。船長、どう終わらせよう？</text>
+	<metaVariable name="juke_showdown" op="set" val="1" />
+	<unlockCustomShip silent="false">PLAYER_SHIP_FLAGSHIP</unlockCustomShip>
+	<img back="VICTORY_TRUE" planet="NONE" />
+	<choice hidden="true">
+		<text>パラゴンを爆発させます。この戦争を終わらせる。</text>
+		<event>
+			<text>あなたはあなたがしなければならないことを知っています。この戦争は、費用に関係なく終わらせなければなりません。あなたはこのチャンスを与えられました、そしてあなたはそれを逃しません。あなたのクルーは理解しています、彼らは彼らが死ぬかもしれないことを非常によく知ってこれにサインアップしました。あなたは最後の別れを告げ、爆弾を作動させます...</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="TRUE_VICTORY_BOMB" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>パラゴンを破壊します。あなたのクルーとあなたの仲間の旅行者を救ってください。</text>
+		<event>
+			<text>これはあなたの選択ではありません。マルチバース全体の運命を決めることはできません。あなたはパラゴンを持ち上げ、それを金属の床にしっかりと降ろし、一見無敵に見える技術を百万個に粉砕します。この戦争は決して終わらないかもしれませんが、終われば、一人の行動のせいではありません。</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="TRUE_VICTORY_SAVE" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_PARAGON_UNIQUE">
+		<text>クルーと話してください。</text>
+		<event load="TRUE_VICTORY_CREW" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW">
+	<text>あなたはあなたの評決を待って立っているあなたのクルーを見回します。</text>
+	<checkCargo />
+	<choice hidden="true" req="unique_haynes">
+		<text>これについてヘインズに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_DETECTIVE" />
+	</choice>
+	<choice hidden="true" req="unique_tully">
+		<text>これについてタリーに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_TULLY" />
+	</choice>
+	<choice hidden="true" req="LIST_A55">
+		<text>これについてはA5540L3にお問い合わせください。</text>
+		<event load="TRUE_VICTORY_CREW_A55" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_JERRY">
+		<text>これについてジェリーに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_JERRY" />
+	</choice>
+	<choice hidden="true" req="unique_anurak">
+		<text>これについてアヌラックに尋ねてください。</text>
+		<event load="TRUE_VICTORY_CREW_ANURAK" />
+	</choice>
+	<choice hidden="true" req="unique_devorak">
+		<text>これについてデボラックに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_DEVORAK" />
+	</choice>
+	<choice hidden="true" req="unique_turzil">
+		<text>これについてタージルに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_TURZIL" />
+	</choice>
+	<choice hidden="true" req="unique_mayeb">
+		<text>これについてメイブに尋ねてください。</text>
+		<event load="TRUE_VICTORY_CREW_MAYEB" />
+	</choice>
+	<choice hidden="true" req="unique_ivar">
+		<text>これについてIvarに尋ねてください。</text>
+		<event load="TRUE_VICTORY_CREW_IVAR" />
+	</choice>
+	<choice hidden="true" req="unique_tyerel">
+		<text>これについてty e'relに尋ねてください。</text>
+		<event load="TRUE_VICTORY_CREW_TYEREL" />
+	</choice>
+	<choice hidden="true" req="unique_alkali">
+		<text>これについてアルカリに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_ALKALI" />
+	</choice>
+	<choice hidden="true" req="unique_ooj">
+		<text>これについてはOOJMAJOOに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_OOJ" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ELLIE_COSTUME">
+		<text>これについてエリーに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_ELLIE" />
+	</choice>
+	<choice hidden="true" req="unique_ellie_stephan">
+		<text>これについてステファンに尋ねてください。</text>
+		<event load="TRUE_VICTORY_CREW_STEPHAN" />
+	</choice>
+	<choice hidden="true" req="unique_nights">
+		<text>これについてナイトに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_NIGHTS" />
+	</choice>
+	<choice hidden="true" req="unique_slocknog">
+		<text>これについてSlocknogに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_SLOCKNOG" />
+	</choice>
+	<choice hidden="true" req="unique_irwin">
+		<text>これについてアーウィンに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_IRWIN" />
+	</choice>
+	<choice hidden="true" req="unique_alkram">
+		<text>これについてアルクラムに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_ALKRAM" />
+	</choice>
+	<choice hidden="true" req="unique_tyrdeo">
+		<text>これについてティルデオに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_TYRDEO" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_FREDDY">
+		<text>これについてフレディに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_FREDDY" />
+	</choice>
+	<choice hidden="true" req="unique_kaz">
+		<text>これについてカズに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_KAZ" />
+	</choice>
+	<choice hidden="true" req="unique_ariadne">
+		<text>これについてAriadneに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_ARIADNE" />
+	</choice>
+	<choice hidden="true" req="unique_ruwen">
+		<text>これについてルーウェンに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_RUWEN" />
+	</choice>
+	<choice hidden="true" req="unique_dianesh">
+		<text>これについてディアネッシュに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_DIANESH" />
+	</choice>
+	<choice hidden="true" req="unique_tuco">
+		<text>これについてトゥコに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_TUCO" />
+	</choice>
+	<choice hidden="true" req="unique_eater">
+		<text>これについてはビーコンイーターに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_EATER" />
+	</choice>
+	<choice hidden="true" req="unique_anointed">
+		<text>これについて聖皇后に尋ねてください。</text>
+		<event load="TRUE_VICTORY_CREW_ANOINTED" />
+	</choice>
+	<choice hidden="true" req="unique_dessius">
+		<text>これについてはDessiusに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_DESSIUS" />
+	</choice>
+	<choice hidden="true" req="unique_vortigon">
+		<text>これについてヴォルティゴンに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_VORTIGON" />
+	</choice>
+	<choice hidden="true" req="unique_billy">
+		<text>これについてビリーに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_BILLY" />
+	</choice>
+	<choice hidden="true" req="unique_sylvan">
+		<text>これについてシルバンに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_SYLVAN" /> 
+	</choice>
+	<choice hidden="true" req="LIST_CREW_QUEEN">
+		<text>スパイダークイーンをチェックしてください。</text>
+		<event load="TRUE_VICTORY_CREW_QUEEN" />
+	</choice>
+	<choice hidden="true" req="unique_obyn">
+		<text>これについてObynに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_OBYN" />
+	</choice>
+	<choice hidden="true" req="unique_symbiote">
+		<text>これについてはティンタンとリグに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_SYMBIOTE" />
+	</choice>
+	<choice hidden="true" req="unique_tonysr">
+		<text>これについてはトニーシニアに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_TONY" />
+	</choice>
+	<choice hidden="true" req="unique_guntput">
+		<text>これについてガントプットに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_GUNTPUT" />
+	</choice>
+	<choice hidden="true" req="unique_metyunt">
+		<text>これについてMetyuntに聞いてください。</text>
+		<event load="TRUE_VICTORY_CREW_METYUNT" />
+	</choice>
+	<choice hidden="true" req="ORCHID_KIDS">
+		<text>オーキドゥの子供たちに何をすべきか尋ねます。</text>
+		<event load="TRUE_VICTORY_CREW_CHILD" />
+	</choice>
+	<choice hidden="true" req="unique_wither"> 
+		<text>エーンウィザに何をすべきか尋ねてください。</text>
+		<event load="TRUE_VICTORY_CREW_WITHER" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_DETECTIVE">
+	<text>「思えば遠くへ来たもんだ 、ねぇ？ 考えてみると、少し前までは単純な殺人事件に取り組んでいて、私の人生で 最もエキサイティングだった！ 今はどうだ！ そうだな、私の遺産がこんな風に終わるのはとても残念だけど、あなたが何を選んでも、私は船に乗っているよ。」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT1</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_TULLY">
+	<text>「考えてみると、背後でもっと大きなことが起きていたのに、私はくだらない内戦を心配していたのだ。今となっては連邦に戻ることはできないでしょう。ヴァンスは、私の最も古い友人で、もういない。反省すべきは、この争いのずっと前に、彼がいなくなってしまったことだ。ここで私にあなたの決断を左右をさせないでください。私にはあなたの心を動かす権利は一つもないのですから。今はあなたが提督です、艦長」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT1_2</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_A55">
+	<text>「アーグラッド、あなたに仕えるのは楽しかった。一日の終わりに、私があなたのクルーの一員になったとき、私が反乱軍によって建てられたかどうかは大した問題ではない。海賊王はこのように死ぬが、それは私が決して語ることができなかった物語の1つの地獄だからだ！」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT1_3</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_JERRY">
+	<text>ジェリーは自分の足元を見下ろす。「僕は...叔父がいなくなることは良いことだと思っています。嫌っていたわけではありませんが、マルチバースのためには、これが最善としか言いようがありません。でも僕はヴァンスがいつも望んでいたヒーローになれたと思います。"マルチバースの救世主"、なかなか良いタイトルだね！ あなたに会えてよかった。僕は最後まであなたについて行く。それが今日であろうと、明日であろうと、時間の終わりであれ」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT2</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_ANURAK">
+	<text>「おやおや、シェルスケンブリー！これは本当に素晴らしいことです！私にはわかりません...私はそれをすべてどうすればいいのかわかりません！しかし、これについて私の意見が必要ですか？ああ、私は決断があまり得意ではありません.いいえ、まったくありません! うーん... ああ... うーん... うーん... やるべきだと思います! 爆弾! 爆弾は... あなたがすべきことです. はい. ええと. 私はしません. 「理由はわかりません。それが最初に頭に浮かんだことです。説明しようとすると、考えが変わるかもしれません。今はそのような優柔不断はしたくありません。ただ…すぐにやってください。大丈夫です。ああ、痛くないといいのですが…」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT2_2</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_DEVORAK">
+	<text>「そのろくでなしのヴァンスはついに彼に来ていたものを手に入れました、そして、私はそれをした船に乗っていてうれしいです。私に関しては...残りの時間とスペースと一緒に自分自身を爆破することは、私の物語にかなり適切な終わりのように聞こえます。私は自分の目的を果たしました - トリガーを引っ張るのを妨げないでください。」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT2_2</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_TURZIL">
+	<text>「エンギーが感情を感じることは[非伝統的]です。それはあなたの会社で最も異常に楽しい感情に詰まっているように見えます。これは私がサインアップした使命ではありません。しかし、私はそれを後悔していません。しかし、私の人々はまだ私を必要としていることを思い出させなければなりません。私の不在は、壊滅的な結果を引き起こします。しかし、戦争の継続もそうです。厄介なジレンマ。最も厄介です。」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT2_3</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_MAYEB">
+    <text>「私が今までに知っているのは、庭での私の人生だけで、自分自身のために戦うことができない植物を擁護し、擁護しています。それらの植物は、そこに存在するほとんどの生命は言うまでもなく、反乱軍、多様バー、obelisks、stellarについて何も知りません戦争...私が言おうとしているのは、彼らが理解できない力で足元に足を踏み入れないように私たちの人生を横たわらなければならないなら、私はずっとあなたの後ろにいます。」</text>
+    <unlockCustomShip silent="false">CREW_SHIP_ORCHID</unlockCustomShip>
+    <choice hidden="true">
+        <text>継続する...</text>
+        <event load="TRUE_VICTORY_LOAD" />
+    </choice>
+</event>
+<event name="TRUE_VICTORY_CREW_IVAR">
+    <text>Ivarはお祝いの中で彼の最高のワインのいくつかを飲んでおり、あなたにもグラスを提供しています。「私？多元宇宙はいいことだと思う。確かに、それは危険かもしれないが、私は自分自身を恐れから制限することを信じていない。考えてみてください。決定を下す前にグラスを共有しましょう。あなたがそれを終わらせることに決めた場合は、ちょっとかかり、乗組員が最初に酔って幸せであることを確認してください。それを手に入れましたか？」</text>
+    <unlockCustomShip silent="false">CREW_SHIP_ORCHID_2</unlockCustomShip>
+    <choice hidden="true">
+        <text>継続する...</text>
+        <event load="TRUE_VICTORY_LOAD" />
+    </choice>
+</event>
+<event name="TRUE_VICTORY_CREW_TYEREL">
+    <text>タイ・エレルは、彼のルーツをオットマンに上げて、彼の快適な椅子に傾いています。机はきちんと配置されており、すべての論文は適切な場所に置かれています。彼があなたの視線に出会うと、彼は彼の隣の椅子に身振りで示す。二人は座って、長くて骨の折れる旅の後、無言でリラックスします。ここで休んで、彼は彼が通常するよりもさらに古いように見えます。最終的に、あなたは立ち上がるために立ち上がりますが、あなたがドアを開けると、彼が話すのが聞こえます。
+
+「やるべきだ」彼はそれ以上何も言わない。</text>
+    <unlockCustomShip silent="false">CREW_SHIP_ORCHID_3</unlockCustomShip>
+    <choice hidden="true">
+        <text>継続する...</text>
+        <event load="TRUE_VICTORY_LOAD" />
+    </choice>
+</event>
+<event name="TRUE_VICTORY_CREW_ALKALI">
+	<text>「ハハハ！私は、不滅の半神のエイリアンのようなたわごとではないことを知っていました。雌犬ネルヴァの愚かな小さな顔。ハー！...ええと。ごめんなさい、あなたは大丈夫、私たちが最初に会ったとき、私はそれをあなたの頭に行かせないでください。もしそうならあなたを責める。」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT3</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_OOJ">
+	<text>「あまりにも見てください-ルーキクピクの波紋が急です。」これが何を意味するのかはわかりませんが、OOJが大きな心を形作ったとき、その背後にある感情は失われません。彼があなたの腕を揺さぶるとき、あなたは巨大なブロブを抱きしめます。</text>
+	<transformRace class="unique_ooj">unique_ooj_love</transformRace>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT3_2</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_ELLIE">
+	<text>「ハハハ！ エリーは世界の頂点に！ マルチバースの頂点に！ ねぇええええ！」エリーはぐるぐる回る。 「エリーが今死ぬのは残念だ! 彼女はまだすべての子供たちに対して義務を負っている. 彼女が死んだら二度とエリーに会えないすべての子供たち! 爆弾のスーパーファンを吹き飛ばさないでください,マルチバースを奪う！」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT3_3</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_STEPHAN">
+	<text>「私たちはここまで来ました！もしかしたら…この後、私は本当にヒーローになるのかもしれません。子供たちが尊敬する何か…私たちが何をしたかを彼らが決して知らないとしても。私は知りません。 ..次に何が起こるかはどうでもいい。あなたは私に償還の機会を与えてくれた、そして私が気にかけているのはそれだけだ。ありがとう、船長」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT3_3</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_NIGHTS">
+	<text>夜はあなたをしかめっ面しますが、彼の顔には、彼が独善的であるとき以外に、彼の中で今まで見た中で最もかすかな笑顔の線が見えます。 「記録のために、私はあなたを嫌いです。しかし、私が嫌うすべての人と比較して、私はあなたを嫌います。このすべて、私はあなたを絞め殺すつもりです。」夜を知っていると、これはおそらく誰もが彼の友人であるために来る最も近いものです。うまくいけば、彼はあなたの首を絞めていることに真剣ではありません。</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT4</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_SLOCKNOG">
+	<text>「ビートが王様で、Ssslocknog isssという名前が大学のssssaviorとして歴史に残る！Hehehe。待って、私たちがその爆弾を爆破した場合、誰もこれについて知らないだろうか？ええと、ssscrewthossseguyss。 、私はそれを吹き飛ばします。とにかく戻ることはできませんでした。」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT4_2</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_IRWIN">
+	<text>「私は...私は何を考えればよいかわからない、仲間。すべての時間は、私がマルチバーズのビッグジェスストのゲームを狩る熱いssshotのレネゲードだと思った...そして私はすべての時間にsssspeckであり、2つの異なるMassster計画の壮大なSsscheme。私は内骨の瞬間を持っているように感じます、そして私はそれが嫌いです。良いことだけをしてください。」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT4_3</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_ALKRAM">
+	<text>アルクラムは、状況に無関心であるふりをしてうめき声を上げます。 「私たちが最初に会ったとき、私の頭の中で最も重要なことはティルデオを倒すことでした。しかし、今ではそれはそれほど重要ではないようです...私は話し手ではなく兵士です。レムはあなたのために私の言葉をできるだけ鈍くしました。唯一の方法私の人々や誰もが学ぶことになるのは、問題を解決するために他の人々に頼るのをやめるときです。連邦、反乱、連立、または神が他に誰が介入し続けているかを知っているとき、このマルチバーサル戦争全体は誰にも役立ちません。すべてを直します。みんなのために、その爆弾を吹き飛ばして、以前のように物事を置くようにお願いします。」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT5</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_TYRDEO">
+	<text>「ああ、私はかすかに感じます。それは本当ですか？私たちは生きていますか？驚くべきことです。あなたはそのような逆境に直面している間、私の側に立っている私の給与に頼っていない最初の人です。私。愚かな年をとって、これについて何でも言うことは場違いに感じます...しかし、私は生き続けたいです。そして、私もそうするでしょう。そのことに？私たちは永遠に行っていますか？ああ、私はそれについて考えたくありません。」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT5_2</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_FREDDY">
+	<text>「いい仕事だ、キャップ。本当に素晴らしい瞬間だ。爆弾を爆発させるつもりなんだろう？ 私のことは心配しないでいい。フリーマンティスはもう何年も私を当てにしていないからな。まぁ怖がるだろうが、何とかするさ。マルチバースが無くなれば反乱軍も無くなるし、やっと一段落だ。いずれにせよ、私の時代は終わった。マンティスは長くは生きられないようになっている」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT6</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_KAZ">
+	<text>カザァクは何を言うべきかわからないようだ。 「久しぶりに何を言えばいいのかわからない。あなたは今まで以上に偉大な戦士だ。でも、パラゴンを爆発させて家に帰らなければ、もっと多くのことを成し遂げることができるだろう！私たちは最高のヒーローになることができるだろう」いつでも！このチャンスをどうやって逃すことができますか？」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT6_2</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_ARIADNE">
+	<text>この偉大な勝利に直面しても、アリアドネは彼女の顔にかすかなにやにや笑いを浮かべることを除けば、ストイックなままです. 「私があなたのキャプテンに私のサービスを提供したとき、私はあなたが多元宇宙を横切って半神の穴に私を引きずり込み、反乱を打倒するとは思っていませんでした.しかし、それは光栄でした.しかし、私の最初の任務は完了していません.Theocracy残念ながら、あなたの爆弾は長老たちを止めるのにほとんど役に立ちません.これが私の呼びかけではないことは理解していますが、あなたがこの決定の重要性を考慮してくれたことを願っています.</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT7</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_RUWEN">
+	<text>「私は、私が設定した目的よりもはるかに大きな目的を果たしたように感じます。あなたは、私がこれまでに会ったことのある名誉を持った、本当に最も注目に値する、熟練した船長です。あなたは、私がずっと前に会った他の誰かを思い出させます。連邦の船長..しかし、彼らでさえこれに近づくことはできませんでした！しかし、マルチバースの破壊はそれだけの価値がありますか？この技術が達成できる不思議を考えてください。それは私の人々とほとんど同じ状況です-混乱があります最初は、しかし、最終的には解決しなければならないことは確かです。戦争は本当に永遠に続くことはできません！」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT7_2</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_DIANESH">
+	<text>「考えるために、私はあなたの外国人を判断するための裁判としてあなたの船に加わっただけです。あなたがそのテストに合格し、飛んでいる色で言っても安全だと思います。現実を救うために、このマルチバースの技術は多くの文明の破滅でしたが、それはさらに多くの誕生と救世主でもありました。 、私はそれが未使用のままになるのが最善かどうか疑問に思うことができます...」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT6_3</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_TUCO">
+	<text>「スカイドリフターでこれまで以上に酔っ払ったと感じたこの旅全体。それは旅の1つの地獄でした。しかし、ハァッ、私はこの勝利に飲むことができます！」トゥコは、非常に無傷の酒のボトルを引き出し、数秒でそれを下げます。 「私の栄光の日々は終わってから長いです。マルチバースは私を必要とせず、率直に言って誰もマルチバースを必要としません。しかし、私たちがこの日を過ぎて生きるなら、私は別の飲み物をあなたと共有したいと思います。」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT7_3</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_EATER">
+	<text>「節約の言葉、コミュニケーションの難しさ。より多くのタイミングに適した象徴的なジェスチャー。」ビーコンイーターは、あなたが会って抱きしめて抱きしめるために手を伸ばして以来、彼の強大なスパイクを初めて撤回します。あなたはラニウスがそれをすることさえできるとは知りませんでした。あなたはさらに計画しますが、ビーコンイーターはパラゴンについて何も言うことはないようです。オベリスク帝国自体よりも長く生きている生き物にとって、彼がもはや自分の死亡率についてほとんど気にしないのは驚くことではありません。</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT8</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_ANOINTED">
+	<text>「古代の遺跡からパラゴンの話を聞いていた。だが、それをわらわが見つけるとは夢にも思っていなかったぞ！ わらわが聖皇后であるなら、おぬしは疑いなく神であろうな！」 聖皇后は、あなたにお辞儀をする。「何世紀もの間、我が民はオベリスクを神として崇めてきた。が、今、わらわは彼らの真の脅威を知ることとなった。彼らの帝国を滅ぼすには、マルチバースを破壊するのが一番だ」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT8_2</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_DESSIUS">
+	<text>「ああ、アネイディオおじいさん、もしあなたが今私に立ち会うことができたなら! あなたは称号に値しません. あなたはそのような致命的なものを過ぎて上昇しました. . あなたは何ですか? 憶測であなたを侮辱するつもりはありません. しかし, 私の謙虚な意見を受け入れるなら, 耳を傾けて聞いてください. このパラゴン, ああ、汚い創造物はオベリスクの道具です. 彼らの力に対するアンチテーゼです, はい, しかしこのすべての後、彼らに道を譲り、現実を分割するのを彼らの発明に任せるのは、あなたには最も残酷に思えませんか? オベリスクは崩壊しますが、多元宇宙は私たちの存在の事実です. それは悲しいことではありません.こんなに美しいものを現実から奪い、残酷な神の特許で再び自然を汚すとは? 私があなたに求めるこれらの考えを考えてください。</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOT8_3</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_VORTIGON">
+	<text>ヴォルティゴンは他のクルーと一緒ではなく、船の隅でくしゃくしゃになってボールになっていることがわかります。 「ああ、地獄の立方体の悪魔の全能の殺し屋、マルチバースの救世主、そして平均以上の存在の大主よ、私が今まで知っていたのは嘘です。私は自分の目で燃えさしの精霊を見ました、そして私は彼らを殺しました私の手。どうして神は出血するのだろうか。神性は嘘だ。私は自分と一緒に暮らすことはできない。私は多くの男性と女性を迷わせ、汚染された嘘で大衆を毒殺した。そうだ、私も彼らを信じたが、運命が私をそこに置いたのではなく、それは私自身の傲慢でした。最後にお願いします。あなたがパラゴンで何をするかは気にしません。それは私の心配をはるかに超えています。しかし、私たちがこの日を過ぎて生きるなら、慈悲を持ってください。私を見て、私は決して私の家に戻らない。あなたが私の犠牲者の目をもう一度見るように私に命じる前に、私を深淵に投げ入れなさい。」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOTA</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_BILLY">
+	<text>「これは私があなたのクルーに加わったときに私が期待したものではありません。しかしねえ、銀河系の英雄について疑問があった場合は、次元間英雄のsssure ass地獄は税金を払わない！ああ、そしてええと...ありがとうみんなのように後ろで私を刺します他の人のようにハッス。私は修正する必要のあるものがたくさんあります。私たちの旅がここで終わった場合、私はチャンスを得ることができません。」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOTA_2</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_SYLVAN"> 
+	<text>シルバンはあなたの肩に触手を置きます。 「Ssstranger...何年もの間、私はこの野生のMultiverssseに住んでいましたが、sssseeにあるすべてのことについてssssしました。または、少なくとも、sssoは、あなたに会うまで考えました。あなたがssssomethingになることを知っていました。Sssoの多くのrunss、え？ 「sssss、そしてそのParagonで何が起こっても、私たちは再びお互いをsssseeします。」シルバンはあなたにウィンクし、ずるずる。</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_QUEEN">
+	<text>女王は柔らかくあなたの頭をなでます。女王が事態の全容を理解しているかどうかは分かりませんが、それでも心からのジェスチャーであることは間違いない。</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOTB</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_OBYN">
+	<text>「あなたの英雄的な行為とは他の人とは違うんです、艦長 。運命的な出会いをしたあの日、あなたは私が連邦の英雄になると約束した。私はこれを期待していなかったし、あなたもそうではなかったと思う。私の伝説は語り継がれてきたが、終わりがない。私は今、真実と折り合いをつけた。私の仲間はもういない。あの世で彼らと合流する時が来たのかもしれない、それが本当ならね。 もしあなたが爆弾を作動させるなら..そうだね..私はその結末で満足だ」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOTB_2</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_SYMBIOTE">
+	<text>ティンタンとリグはよろめきます。 「うそをつくことはできません。最初はこのような地獄でした。しかし、この厄介な旅の中で、私たちは自分たちの状況に同意しました。永遠に私たちはリンタンとして知られるでしょう。」リグの腹鳴り。 「なに？ティンリグ？それはばかげている！神はそれに取り組んでいる。しかし、私たちのポイントはこれだった。ありがとう。最初は感謝していなかったが、今はあなたが私たちを救ったことに気付いた。しかし、私たちは1つ尋ねなければならないわがままなこと。この啓示が無駄になるのは残念だ。パラゴンがすべてを解決してくれると確信しているのか？」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOTB_3</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_TONY">
+	<text>「あなたは私が見つけることを期待していなかった何かを私に見せてくれました。願っています。私の人生は過去7年間悲惨なものでした。私はそれをすべて終わらせようとしていました。私はあなたに私が持っているすべてを借りています。しかし私は仕方がありません。このパラゴンは私たちの誰よりもはるかに大きな解決策だと思います。私の苦しみの原因となったスラッグは、この宇宙の多くの混沌とした悪役の1人にすぎません。彼らは、この技術にアクセスするべきではありません。すべきである。"</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOTB_3</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_GUNTPUT">
+	<text>「私は旅の中で、テクノロジーの両側を見ました。良い、悪い。あなたは間違いなく正義のために戦うことがあります。たとえ行動が疑わしいとしても、あなたは正義のために戦います。オベリスク、純粋な形の技術的腐敗。武器のものですが、技術的な悪を終わらせることができるものだけです！あなたの靴にいないことをうれしく思います。今後の決定はその難しさで理解できません。私はあなたに二度目のチャンスを与えてくれてうれしいです。」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOTA_3</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_METYUNT">
+	<text>「私は他に言うことはほとんどありません...ありがとう。もう一度チャンスを与えてくれてありがとう。私たちが会う前は、私は裏切り者に過ぎず、私の人々に軽蔑され、私の有用性のためだけに歩き回っていました。私が裏切った人々にそれを成し遂げることができました、少なくとも私はこの旅を通して自分自身を償還する機会を与えられました。」</text>
+	<unlockCustomShip silent="false">CREW_SHIP_SLOTA_3</unlockCustomShip>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_WITHER"> 
+	<text>「よくぞここまで...感銘を受けた！ 人間にしては、驚くほどの強靭さだ。しかし、この使命を忘れないでほしい。オベリスクを倒すには、パラゴンを爆発させなければならない。犠牲が必要なことは理解しているつもりだ。私もそれを望んではいない。だが我々の命はオベリスクや反乱軍、さらにはマルチバース技術を手にした連邦によって破壊された人々の海の一滴に過ぎない」</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="TRUE_VICTORY_LOAD" />
+	</choice>
+</event>
+<event name="TRUE_VICTORY_CREW_CHILD">  
+	<text>...</text>
+	<choice hidden="true">
+		<text>...</text>
+		<event>
+			<text>子供たちはひどく沈黙している。</text>
+			<unlockCustomShip silent="false">CREW_SHIP_WITHER_2</unlockCustomShip>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="TRUE_VICTORY_LOAD" />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="TRUE_VICTORY_BOMB">
+	<text>爆弾の衝撃波はさらに外側に広がり、最初にあなたの船を破壊し、次にオベリスク母星系全体を破壊、そしてすべてのオベリスクとヴァンスの艦隊全体を破壊します。マルチバースの周りでは、何十億ものMVドライブが機能しなくなり、多くの人に混乱をもたらします。必然的に、多くの現実の連邦と反乱は、力の偏ったバランスが彼らの両方の終わりを綴るだけであることを知って、休戦を解決することができました。あなたの犠牲は決して知られることはありませんが、あなたは終わりのない戦争に終止符を打ち、すべての現実を以前の状態に戻しました。</text>
+	<achievement silent="false">ACH_TRUEEND_DETONATION</achievement>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<win ach="true" music="paragon" creditsText="credit_victory_true_bomb" text="Your victory will echo through the Multiverse for all time." creditsBackground="VICTORY_TRUE" />
+		</event>
+	</choice>
+</event>
+<event name="TRUE_VICTORY_SAVE">
+	<text>パラゴンが破壊されたら、オベリスク母星系に戻ります。 MFK艦隊があなたを待っていますが、あなたが彼らの旗艦の残骸を彼らに見せると、彼らは立ち下がります。その後も、あなたの勝利の物語はマルチバースの周りで話されています。あなたの勝利はあなたに生きるためのちょうど別の日以上のものをもたらしたようです-あなたは反乱全体を止めた単一の船として永遠に不滅になります。オリジナルのヴァンスがなければ、各現実の多くの反乱はリーダーシップを獲得するのに苦労し、必然的にそれは反乱の運命を綴った。彼らの社会は崩壊し、連邦は彼らができる限り多くの現実をすぐに取り戻しました。紛争は必然的に永遠に続くでしょうが、少なくとも物事はようやく落ち着きました。</text>
+	<achievement silent="false">ACH_TRUEEND_DESTRUCTION</achievement>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<win ach="true" music="paragon" creditsText="credit_victory_true_save" text="Your victory will echo through the Multiverse for all time." creditsBackground="VICTORY_TRUE" />
+		</event>
+	</choice>
+</event>
+</FTL>

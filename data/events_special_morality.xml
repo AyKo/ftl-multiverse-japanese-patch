@@ -1,0 +1,441 @@
+<FTL>
+
+<event name="MORALITY_UPDATE_GENERAL">
+	<text>[悪評の増加-一般]
+ここでのあなたの行動は、正当であるかどうかにかかわらず、連邦またはその市民の目にはよく反映されません。このような行動を継続的に実行すると、連盟とその同盟国からの否定的な反応が見られるようになる可能性があります。</text>
+	<variable name="rep_general" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_GENERAL_DOUBLE">
+	<text>[悪評増加 X2 - 一般]
+ここでのあなたの行動は、正当であろうとなかろうと、連邦やその市民の目に映りません。このようなアクションを継続的に実行すると、連邦とその同盟国からの否定的な反応が見られるようになる可能性があります。
+あなたの非常に悪質な行動により、あなたの悪評は 2 倍になりました。</text>
+	<variable name="rep_general" op="add" val="2" />
+</event>
+<event name="MORALITY_UPDATE_GENERAL_FIGHT">
+	<text>[悪評の増加-一般]
+ここでのあなたの行動は、正当であるかどうかにかかわらず、連邦またはその市民の目にはよく反映されません。このような行動を継続的に実行すると、連盟とその同盟国からの否定的な反応が見られるようになる可能性があります。</text>
+	<variable name="rep_general" op="add" val="1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="MORALITY_UPDATE_GENERAL_DOUBLE_FIGHT">
+	<text>[悪評増加 X2 - 一般]
+ここでのあなたの行動は、正当であろうとなかろうと、連邦やその市民の目に映りません。このようなアクションを継続的に実行すると、連邦とその同盟国からの否定的な反応が見られるようになる可能性があります。
+あなたの非常に悪質な行動により、あなたの悪評は 2 倍になりました。</text>
+	<variable name="rep_general" op="add" val="2" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="MORALITY_REMOVE_GENERAL">
+	<text>[悪名低下 - 一般]
+連邦の目にはここで善行をしました。過去に他の行動から悪名を獲得した場合、あなたはそれらを許される可能性が高くなります。</text>
+	<variable name="rep_general" op="add" val="-1" />
+</event>
+
+<event name="MORALITY_REMOVE_GENERAL_FIGHT">
+	<text>[悪名低下 - 一般]
+連邦の目にはここで善行をしました。過去に他の行動から悪名を獲得した場合、あなたはそれらを許される可能性が高くなります。</text>
+	<variable name="rep_general" op="add" val="-1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+
+<event name="MORALITY_UPDATE_UNION">
+	<text>[悪名が高まった - 組合]ここでの行動は、正当であるかどうかにかかわらず、組合やその市民の目にはよく反映されません。このような行動を継続的に実行すると、組合とその同盟国からの否定的な反応が見られるかもしれません。</text>
+	<variable name="rep_union" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_UNION_DOUBLE">
+	<text>[悪名高いx2-ユニオンの増加] aury私は、正当かどうかにかかわらず、ここでの行動は、組合やその市民の目にはよく反映されません。このような行動を継続的に実行すると、組合とその同盟国からの否定的な反応が見られるかもしれません。</text>
+	<variable name="rep_union" op="add" val="2" />
+</event>
+<event name="MORALITY_UPDATE_UNION_FIGHT">
+	<text>[悪名が高まった - 組合]ここでの行動は、正当であるかどうかにかかわらず、組合やその市民の目にはよく反映されません。このような行動を継続的に実行すると、組合とその同盟国からの否定的な反応が見られるかもしれません。</text>
+	<variable name="rep_union" op="add" val="1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="MORALITY_REMOVE_UNION">
+	<text>[悪名が減った - 組合]
+連合の目にはここで善行をした。過去に他の行動から悪名を獲得した場合、あなたはそれらを許される可能性が高くなります。</text>
+	<variable name="rep_union" op="add" val="-1" />
+</event>
+<event name="MORALITY_REMOVE_UNION_FIGHT">
+	<text>[悪名が減った - 組合]
+連合の目にはここで善行をした。過去に他の行動から悪名を獲得した場合、あなたはそれらを許される可能性が高くなります。</text>
+	<variable name="rep_union" op="add" val="-1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+
+<event name="MORALITY_UPDATE_ENGI">
+	<text>[悪評の増加-ハーモニー]
+ここでのあなたの行動は、正当であるかどうかにかかわらず、ハーモニーまたはその市民の目にはよく反映されません。このような行動を継続的に行うと、ハーモニーとその仲間からの否定的な反応が見られるようになるかもしれません。</text>
+	<variable name="rep_engi" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_ENGI_FIGHT">
+	<text>[悪評の増加-ハーモニー]
+ここでのあなたの行動は、正当であるかどうかにかかわらず、ハーモニーまたはその市民の目にはよく反映されません。このような行動を継続的に行うと、ハーモニーとその仲間からの否定的な反応が見られるようになるかもしれません。</text>
+	<variable name="rep_engi" op="add" val="1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="MORALITY_REMOVE_ENGI">
+	<text>[悪名が低下した - 調和]過去に他の行動から悪名を獲得した場合、あなたはそれらを許される可能性が高くなります。</text>
+	<variable name="rep_engi" op="add" val="-1" />
+</event>
+
+
+<event name="MORALITY_UPDATE_ZOLTAN">
+	<text>[悪評の増加-省庁]
+ここでのあなたの行動は、正当であるかどうかにかかわらず、省やその市民の目にはよく反映されません。このような行動を継続的に行うと、省とその同盟国からの否定的な反応が見られるようになるかもしれません。</text>
+	<variable name="rep_zoltan" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_ZOLTAN_FIGHT">
+	<text>[悪評の増加-省庁]
+ここでのあなたの行動は、正当であるかどうかにかかわらず、省やその市民の目にはよく反映されません。このような行動を継続的に行うと、省とその同盟国からの否定的な反応が見られるようになるかもしれません。</text>
+	<variable name="rep_zoltan" op="add" val="1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="MORALITY_REMOVE_ZOLTAN">
+	<text>[悪評の減少 - 大臣]
+あなたはここで省の目に良い行いをしました。過去に他の行動で悪評を得たことがあれば、それを許される可能性が高くなります。</text>
+	<variable name="rep_zoltan" op="add" val="-1" />
+</event>
+
+
+<event name="MORALITY_UPDATE_ORCHID">
+	<text>[悪評の増加-収集]
+ここでのあなたの行動は、正当であるかどうかにかかわらず、ギャザリングやその市民の目にはよく反映されません。このような行動を継続的に行うと、ギャザリングとその仲間からの否定的な反応が見られるようになるかもしれません。</text>
+	<variable name="rep_orchid" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_ORCHID_DOUBLE">
+	<text>[悪名高いX2の増加 - 集会] sutsififiableが正当であるかどうかにかかわらず、集会やその市民の目にはうまく反映されない。このような行動を継続的に実行すると、連邦とその同盟国からの否定的な反応が見られるかもしれません。</text>
+	<variable name="rep_orchid" op="add" val="2" />
+</event>
+<event name="MORALITY_UPDATE_ORCHID_FIGHT">
+	<text>[悪評の増加-収集]
+ここでのあなたの行動は、正当であるかどうかにかかわらず、ギャザリングやその市民の目にはよく反映されません。このような行動を継続的に行うと、ギャザリングとその仲間からの否定的な反応が見られるようになるかもしれません。</text>
+	<variable name="rep_orchid" op="add" val="1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="MORALITY_UPDATE_ORCHID_FIGHT_DOUBLE">
+	<text>[悪名高いX2の増加 - 集会] sutsififiableが正当であるかどうかにかかわらず、集会やその市民の目にはうまく反映されない。このような行動は、集まりとその同盟国からの否定的な反応を網羅します。</text>
+	<variable name="rep_orchid" op="add" val="2" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="MORALITY_UPDATE_ORCHID_TRIPLE">
+	<text>[悪名高いX3 -Gatheringの増加]ここでの行動は、集会やその市民の目には非常に貧弱に反映されます。このような行動は、集まりとその同盟国からの否定的な反応を網羅します。</text>
+	<variable name="rep_orchid" op="add" val="3" />
+</event>
+
+<event name="MORALITY_REMOVE_ORCHID">
+	<text>[悪評の減少-収集]
+あなたはここで集会の目で善行をしました。過去に他の行動から悪評を得た場合、あなたはそれらのために許される可能性が高くなります。</text>
+	<variable name="rep_orchid" op="add" val="-1" />
+</event>
+
+
+<event name="MORALITY_UPDATE_VAMPWEED">
+	<text>[悪名が増した - 南軍]ここでの行動は、正当であるかどうかにかかわらず、南軍やその市民の目にはよく反映されません。このような行動を継続的に実行すると、南軍とその同盟国からの否定的な反応が見られるかもしれません。</text>
+	<variable name="rep_vampweed" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_VAMPWEED_FIGHT">
+	<text>[悪名が増した - 南軍]ここでの行動は、正当であるかどうかにかかわらず、南軍やその市民の目にはよく反映されません。このような行動を継続的に実行すると、南軍とその同盟国からの否定的な反応が見られるかもしれません。</text>
+	<variable name="rep_vampweed" op="add" val="1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="MORALITY_REMOVE_VAMPWEED">
+	<text>[悪名が低下した - 南軍]
+南軍の目にはここで善行をした。過去に他の行動から悪名を獲得した場合、あなたはそれらを許される可能性が高くなります。</text>
+	<variable name="rep_vampweed" op="add" val="-1" />
+</event>
+
+
+<event name="MORALITY_UPDATE_FREEMANTIS">
+	<text>[悪評の増加-フリーマンティス]
+ここでのあなたの行動は、正当であるかどうかにかかわらず、フリーマンティスの目にはよく反映されません。このような行動を継続的に行うと、マンティスとその仲間からの否定的な反応が見られるようになるかもしれません。</text>
+	<variable name="rep_freemantis" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_FREEMANTIS_FIGHT">
+	<text>[悪評の増加-フリーマンティス]
+ここでのあなたの行動は、正当であるかどうかにかかわらず、フリーマンティスの目にはよく反映されません。このような行動を継続的に行うと、マンティスとその仲間からの否定的な反応が見られるようになるかもしれません。</text>
+	<variable name="rep_freemantis" op="add" val="1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="MORALITY_REMOVE_FREEMANTIS">
+	<text>[悪名が減少した - 自由なカマキリ]過去に他の行動から悪名を獲得した場合、あなたはそれらを許される可能性が高くなります。</text>
+	<variable name="rep_freemantis" op="add" val="-1" />
+</event>
+
+
+<event name="MORALITY_UPDATE_CRYSTAL">
+	<text>[悪評の増加-クリスタルライン帝国]
+ここでのあなたの行動は、正当であるかどうかにかかわらず、帝国またはその市民の目にはよく反映されません。このような行動を継続的に行うと、帝国とその同盟国からの否定的な反応が見られるようになるかもしれません。</text>
+	<variable name="rep_crystal" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_CRYSTAL_FIGHT">
+	<text>[悪評の増加-クリスタルライン帝国]
+ここでのあなたの行動は、正当であるかどうかにかかわらず、帝国またはその市民の目にはよく反映されません。このような行動を継続的に行うと、帝国とその同盟国からの否定的な反応が見られるようになるかもしれません。</text>
+	<variable name="rep_crystal" op="add" val="1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="MORALITY_REMOVE_CRYSTAL">
+	<text>[通知が減少しました-CRYSTALLINEEMPIRE]
+あなたはここで帝国の目から見て善行をしました。過去に他の行動から悪評を得た場合、あなたはそれらのために許される可能性が高くなります。</text>
+	<variable name="rep_crystal" op="add" val="-1" />
+</event>
+
+<event name="MORALITY_UPDATE_SHELL">
+	<text>[悪評の増加-賢才国家]
+ここでのあなたの行動は、正当であるかどうかにかかわらず、賢才国家やその市民の目にはよく反映されません。このような行動を継続的に行うと、賢才国家とその同盟国からの否定的な反応が見られるようになるかもしれません。</text>
+	<variable name="rep_shell" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_SHELL_FIGHT">
+	<text>[悪評の増加-賢才国家]
+ここでのあなたの行動は、正当であるかどうかにかかわらず、賢才国家やその市民の目にはよく反映されません。このような行動を継続的に行うと、賢才国家とその同盟国からの否定的な反応が見られるようになるかもしれません。</text>
+	<variable name="rep_shell" op="add" val="1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="MORALITY_REMOVE_SHELL">
+	<text>[悪評の減少-賢才国家]
+あなたはここで賢才国家の目から見て善行をしました。過去に他の行動から悪評を得た場合、あなたはそれらのために許される可能性が高くなります。</text>
+	<variable name="rep_shell" op="add" val="-1" />
+</event>
+
+
+<event name="MORALITY_UPDATE_SLUG">
+	<text>[悪評の増加-収奪国家]
+ここでのあなたの行動は、正当であるかどうかにかかわらず、収奪国家やその市民の目にはよく反映されません。このような行動を継続的に行うと、収奪国家とその同盟国からの否定的な反応が見られるようになるかもしれません。</text>
+	<variable name="rep_slug" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_SLUG_FIGHT">
+	<text>[悪評の増加-収奪国家]
+ここでのあなたの行動は、正当であるかどうかにかかわらず、収奪国家やその市民の目にはよく反映されません。このような行動を継続的に行うと、収奪国家とその同盟国からの否定的な反応が見られるようになるかもしれません。</text>
+	<variable name="rep_slug" op="add" val="1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+
+<event name="MORALITY_UPDATE_OUTCAST">
+	<text>[悪名高い - 追放者]ここでのアクションは、正当かどうかにかかわらず、追放者の目にはうまく反映されません。このような行動を継続的に実行すると、追放者とその同盟国からの否定的な反応が見られるようになります。</text>
+	<variable name="rep_outcast" op="add" val="1" />
+</event>
+
+<event name="MORALITY_UPDATE_OUTCAST_FIGHT">
+	<text>[悪名高い - 追放者]ここでのアクションは、正当かどうかにかかわらず、追放者の目にはうまく反映されません。このような行動を継続的に実行すると、追放者とその同盟国からの否定的な反応が見られるようになります。</text>
+	<variable name="rep_outcast" op="add" val="1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="MORALITY_REMOVE_OUTCAST">
+	<text>[悪名高い減少 - 追放者] outCustcastsの目には、ここで善行をしました。過去に他の行動から悪名を獲得した場合、あなたはそれらを許される可能性が高くなります。</text>
+	<variable name="rep_outcast" op="add" val="-1" />
+</event>
+
+<event name="MORALITY_OUTCAST_ARMS">
+	<text>[武装したアウトキャスト]
+あなたは、異端審問が近づいていることを追放者に確信させました。審問攻撃が発生した場合、追放者が準備されます。</text>
+	<variable name="loc_badlandallies" op="set" val="1" />
+</event>
+<event name="MORALITY_OUTCAST_FIRESUPPORT"> 
+	<text>追放された部隊はあなたの要求に応えました。戦闘中に追加の火力支援が提供されます！</text>
+	<environment type="PDS" target="enemy" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+
+<event name="REPUTATION_UPDATE_PIRATES">
+	<text>[評判上昇 - 海賊]
+あなたの行動により、海賊の間での評判が向上しました。特定の海賊の一族は、あなたにより良い、または特別な取引を提供することをいとわない場合があり、あなたの周りでより快適になります.
+
+[悪評の増加 - 一般]
+ここでのあなたの行動は、正当であろうとなかろうと、連邦やその市民の目に映りません。このようなアクションを継続的に実行すると、連邦とその同盟国からの否定的な反応が見られるようになる可能性があります。</text>
+	<variable name="rep_general" op="add" val="1" />
+	<variable name="rep_pirate" op="add" val="1" />
+</event>
+
+<event name="REPUTATION_UPDATE_SLAVER">
+	<text>[評判が上がりました - 奴隷]
+奴隷を受け入れたり購入したり、奴隷所有者を擁護したりすることで、奴隷サークル内での評判が向上しました。特定の奴隷商人は、より良い取引や特別な取引を喜んで提供する可能性があり、あなたの周りでより快適になります.
+
+[悪評の増加 - 一般]
+ここでのあなたの行動は、正当であろうとなかろうと、連邦やその市民の目に映りません。このようなアクションを継続的に実行すると、連邦とその同盟国からの否定的な反応が見られるようになる可能性があります。</text>
+	<variable name="rep_general" op="add" val="1" />
+	<variable name="rep_slaver" op="add" val="1" />
+</event>
+<event name="REPUTATION_DECREASE_SLAVER">
+	<text>[評判の低下-奴隷]
+ここでのあなたの行動は、あなたに彼らのサービスを提供するかもしれない奴隷制にあまり反映されません。あなたが以前に評判を得ていたならば、彼らはもはやあなたにもっと良い取引を提供しないかもしれません。</text>
+	<variable name="rep_slaver" op="add" val="-1" />
+</event>
+<event name="REPUTATION_DECREASE_SLAVER_COMBAT">
+	<text>[評判の低下-奴隷]
+ここでのあなたの行動は、あなたに彼らのサービスを提供するかもしれない奴隷制にあまり反映されません。あなたが以前に評判を得ていたならば、彼らはもはやあなたにもっと良い取引を提供しないかもしれません。</text>
+	<variable name="rep_slaver" op="add" val="-1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="REPUTATION_UPDATE_MERCENARY">
+	<text>[評判が上がりました - 傭兵]
+傭兵サービスを購入したり、傭兵を擁護したりすることで、シンジケート内での評判が向上しました。特定の傭兵は、より良い取引や特別な取引を喜んで提供する可能性があり、あなたの周りでより快適になります.
+
+[悪評の増加 - 一般]
+ここでのあなたの行動は、正当であろうとなかろうと、連邦やその市民の目に映りません。このようなアクションを継続的に実行すると、連邦とその同盟国からの否定的な反応が見られるようになる可能性があります。</text>
+	<variable name="rep_general" op="add" val="1" />
+	<variable name="rep_mercenary" op="add" val="1" />
+</event>
+<event name="REPUTATION_DECREASE_MERCENARY">
+	<text>[評判の低下-傭兵]
+ここでのあなたの行動は、あなたに彼らのサービスを提供するかもしれない傭兵にあまり反映されません。あなたが以前に評判を得ていたならば、彼らはもはやあなたにもっと良い取引を提供しないかもしれません。</text>
+	<variable name="rep_mercenary" op="add" val="-1" />
+</event>
+<event name="REPUTATION_DECREASE_MERCENARY_COMBAT">
+	<text>[評判の低下-傭兵]
+ここでのあなたの行動は、あなたに彼らのサービスを提供するかもしれない傭兵にあまり反映されません。あなたが以前に評判を得ていたならば、彼らはもはやあなたにもっと良い取引を提供しないかもしれません。</text>
+	<variable name="rep_mercenary" op="add" val="-1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="REPUTATION_UPDATE_SMUGGLING">
+	<text>[評判が上がりました - 密輸業者]
+密輸品を購入したり、密輸業者を擁護したりすることで、闇市場での評判が向上しました。特定の密輸業者は、より良い取引や特別な取引を喜んで提供する可能性があり、あなたの周りにいるとより快適になります。
+
+[悪評の増加 - 一般]
+ここでのあなたの行動は、正当であろうとなかろうと、連邦やその市民の目に映りません。このようなアクションを継続的に実行すると、連邦とその同盟国からの否定的な反応が見られるようになる可能性があります。</text>
+	<variable name="rep_general" op="add" val="1" />
+	<variable name="rep_smuggler" op="add" val="1" />
+</event>
+<event name="REPUTATION_UPDATE_SMUGGLING_FREE">
+	<text>[評判が増した - 密輸業者] somentrabandを購入するか、密輸業者を守ることにより、闇市場での評判を改善しました。特定の密輸業者は、より良い取引や特別な取引をもっと喜んで提供するかもしれず、あなたの周りでより快適になります。</text>
+	<variable name="rep_smuggler" op="add" val="1" />
+</event>
+<event name="REPUTATION_DECREASE_SMUGGLING">
+	<text>[評判の低下-密輸業者]
+ここでのあなたの行動は、あなたに彼らのサービスを提供するかもしれない密輸業者にあまり反映されません。あなたが以前に評判を得ていたならば、彼らはもはやあなたにもっと良い取引を提供しないかもしれません。</text>
+	<variable name="rep_smuggler" op="add" val="-1" />
+</event>
+<event name="REPUTATION_DECREASE_SMUGGLING_COMBAT">
+	<text>[評判の低下-密輸業者]
+ここでのあなたの行動は、あなたに彼らのサービスを提供するかもしれない密輸業者にあまり反映されません。あなたが以前に評判を得ていたならば、彼らはもはやあなたにもっと良い取引を提供しないかもしれません。</text>
+	<variable name="rep_smuggler" op="add" val="-1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+
+<event name="MORALITY_UPDATE_JERRY">
+	<text>[悪評の増加-保護]
+ここでのあなたの行動は、反乱軍に見過ごされることはありません。ジェリーとサイラとの出会いが差し迫っていることを考えると、彼らをあまり怒らせたくないかもしれません。</text>
+	<variable name="rep_jerry" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_JERRY_FIGHT">
+	<text>[悪評の増加-保護]
+ここでのあなたの行動は、反乱軍に見過ごされることはありません。ジェリーとサイラとの出会いが差し迫っていることを考えると、彼らをあまり怒らせたくないかもしれません。</text>
+	<variable name="rep_jerry" op="add" val="1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="MORALITY_UPDATE_NEXUS">
+	<text>[悪評の増加 - ネクサス]
+ここでのあなたの行動は、ネクサスの住人に気付かれず、高く評価されることはありません。このようなアクションは、Prime との会議がどのように終了するかに影響を与える可能性があります。</text>
+	<variable name="rep_nexus" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_NEXUS_FIGHT">
+	<text>[悪評の増加 - ネクサス]
+ここでのあなたの行動は、ネクサスの住人に気付かれず、高く評価されることはありません。このようなアクションは、Prime との会議がどのように終了するかに影響を与える可能性があります。</text>
+	<ship hostile="true" />
+	<variable name="rep_nexus" op="add" val="1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="MORALITY_REMOVE_NEXUS">
+	<text>[悪評の減少 - ネクサス]
+ここネクサスの住民の目には、あなたは善行を遂げました。過去に他の行動で悪評を得たことがあれば、それを許される可能性が高くなります。</text>
+	<variable name="rep_nexus" op="add" val="-1" />
+</event>
+
+
+<event name="MORALITY_UPDATE_ZOLTAN_VAMPWEED_GENERAL">
+	<text>[悪名高い - ミニストリー]ここでの行動は、正当であるかどうかにかかわらず、省またはその市民の目にはよく反映されません。このような行動を継続的に実行すると、省とその同盟国からの否定的な反応が見られるかもしれません。。このような行動を継続的に実行すると、南軍とその同盟国からの否定的な反応が見られるかもしれません。。このような行動を継続的に実行すると、連邦とその同盟国からの否定的な反応が見られるようになります。</text>
+	<variable name="rep_zoltan" op="add" val="1" />
+	<variable name="rep_vampweed" op="add" val="1" />
+	<variable name="rep_general" op="add" val="1" />
+</event>
+
+<event name="MORALITY_REMOVE_ZOLTAN_UPDATE_VAMPWEED">
+	<text>[悪名が減った - ミニストリー] shyあなたはここでミニストリーの目に善行をした。あなたが過去に他の行動から悪名を得た場合、あなたはそれらのために許される可能性が高くなります。南軍またはその市民。このような行動を継続的に実行すると、南軍とその同盟国からの否定的な反応が見られるかもしれません。</text>
+	<variable name="rep_zoltan" op="add" val="-1" />
+	<variable name="rep_vampweed" op="add" val="1" />
+</event>
+
+<event name="MORALITY_REMOVE_ZOLTAN_FREEMANTIS">
+	<text>[悪名が減った - ミニストリー] shyあなたはここでミニストリーの目に善行をした。あなたが過去に他の行動から悪名を得たなら、あなたは彼らのために許される可能性が高くなります。過去に他の行動から悪名を獲得した場合、あなたはそれらを許される可能性が高くなります。</text>
+	<variable name="rep_zoltan" op="add" val="-1" />
+	<variable name="rep_freemantis" op="add" val="-1" />
+</event>
+</FTL>

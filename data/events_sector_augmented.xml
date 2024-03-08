@@ -1,0 +1,1414 @@
+<FTL>
+
+
+
+
+<event name="AUGMENTED_ANOINTED">
+	<preventQuest />
+	<beaconType id="map_icon_anointed" global="true">
+		<color r="255" g="0" b="230" a="1.0" />
+		<unvisitedTooltip>増強されたリーダー、聖皇后の場所。</unvisitedTooltip>
+		<visitedTooltip>訪問した場所。</visitedTooltip>
+	</beaconType>
+	<variable name="loc_anointed" op="set" val="1" />
+	<text>出口に到着しました...</text>
+	<choice req="loc_anointed" lvl="0" max_group="0" hidden="true" blue="false">
+		<text>継続する...</text>
+		<event>
+			<text>あなたが到着するとすぐに、紫色のディテールが施された白いラニウスが彼女の大きな玉座から立ち上がる。</text>
+			<ship load="SHIP_AUGMENTED_ANOINTED" hostile="false" />
+			<choice>
+				<text>継続する...</text>
+				<event>
+					<text>「おぬしは噂の連邦船だな。古代生物の一種を持ち込んでいるそうだな。それを買い取ろう、適正価格でな」</text>
+					<choice>
+						<text>それを売る。</text>
+						<event>
+							<text>あなたはラニウスが乗って来るのを待って、あなたから古代人を連れて行きます。これはおそらくこの大きな謎を最後に目にすることになるでしょうが、あなたはそれからかなりの利益を上げています。</text>
+							<item_modify>
+								<item type="fuel" min="3" max="3" />
+								<item type="scrap" min="35" max="35" />
+								<item type="missiles" min="3" max="3" />
+								<item type="drones" min="2" max="2" />
+							</item_modify>
+						</event>
+					</choice>
+					<choice>
+						<text>まず、それを何に使うつもりか彼女に尋ねます。</text>
+						<event>
+							<text>「当然、食料だ。わらわの食事は、とても複雑なのだ。特に生きているものは手に入れるのが難しい。彼は旨いつまみになる。まあ、わらわは平民より王族の方が好きなのだがな..」</text>
+							<choice hidden="true">
+								<text>拒否します、私たちはこの古代生物を食べさせるつもりはありません！</text>
+								<event>
+									<text>「申し出を断るのか？ 残念だな、価格が安いのか？ 値上げをしてやろう」</text>
+									<choice hidden="true">
+										<text>自分の意志は揺るぎません。</text>
+										<event>
+											<text>「おぬしは頑固だな。いいだろう、最後の提案は無しだ。おぬしにその気がなくとも、わらわが奪ってやろう！」</text>
+											<ship hostile="true" />
+											<choice hidden="true">
+												<text>継続する...</text>
+												<event load="COMBAT_CHECK" />
+											</choice>
+										</event>
+									</choice>
+									<choice>
+										<text>新しい価格に同意します。</text>
+										<event>
+											<text>あなたはラニウスが乗って来るのを待って、あなたから古代人を連れて行きます。これはおそらくこの大きな謎を最後に目にすることになるでしょうが、あなたはそれからかなりの利益を上げています。</text>
+											<item_modify>
+												<item type="fuel" min="5" max="5" />
+												<item type="scrap" min="50" max="50" />
+												<item type="missiles" min="5" max="5" />
+												<item type="drones" min="3" max="3" />
+											</item_modify>
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice>
+								<text>それを売る。</text>
+								<event>
+									<text>あなたはラニウスが乗って来るのを待って、あなたから古代人を連れて行きます。これはおそらくこの大きな謎を最後に目にすることになるでしょうが、あなたはそれからかなりの利益を上げています。</text>
+									<item_modify>
+										<item type="fuel" min="3" max="3" />
+										<item type="scrap" min="35" max="35" />
+										<item type="missiles" min="3" max="3" />
+										<item type="drones" min="2" max="2" />
+									</item_modify>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice req="loc_anointed" lvl="1" max_group="0" hidden="true" blue="false"> 
+		<text>継続する...</text>
+		<event>
+			<text>聖皇后の船はもうなくなったようですが、反乱軍の艦隊がビーコンを支配しています！あなたはあなたの方法を戦わなければならないでしょう！</text>
+			<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
+			<ship load="SHIP_REBEL_FLEET_S" hostile="true" />
+			<environment type="PDS" target="player" />
+			<noASBPlanet />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+			<choice hidden="true" req="engines" lvl="6">
+				<text>（Adv. エンジン）エリートから脱出してみてください。</text>
+				<event load="FLEET_ESCAPE" />
+			</choice>
+			<choice hidden="true" req="LIST_CREW_JERRY">
+				<text>（ジェリー）「こんにちは！」</text>
+				<event>
+					<text load="TEXT_ENCOUNTER_REBEL_JERRY_HELLO" />
+					<ship hostile="false" /> 
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ANOINTED_SURRENDER">
+	<text>「わかった、おぬしの勝ちだ。生き物は持っていてくれ、死ぬほどまでの価値はない。襲撃は謝罪する。これを持って、とっとと行け」</text>
+	<choice>
+		<text>彼女の降伏を受け入れます。</text>
+		<event load="ANOINTED_SURRENDER_ACCEPT" />
+	</choice>
+	<choice hidden="true">
+		<text>拒否する。</text>
+		<event />
+	</choice>
+</event>
+
+<event name="ANOINTED_SURRENDER_ACCEPT">
+	<text>あなたは聖皇后の降伏を受け入れ、彼女はかなりの量のスクラップを転送します。あなたが去る準備をしているとき、彼女はそれとはまた別のことを話したいとの要請がありました。</text>
+	<variable name="ach_boss_augcruiser" op="set" val="1" />
+	<autoReward level="HIGH">weapon</autoReward>
+	<ship hostile="false" />
+	<recallBoarders ship="both" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>そのラニウスはあなたに奇妙な鍵のような装置を手渡しました。「この古代生物は他の多くと同様、冬眠状態にある。この装置は彼らを目覚めさせることができるようだ。ここには謎がある。気になるだろう？　わらわがそれを解き明かしたいが、いまやおぬしに権利がある。また、触媒としてこの装置とは別に燃料が必要だ。幸運を祈っておるぞ」</text>
+			<hiddenAug>ANCIENT_ACTIVATOR</hiddenAug>
+			<choice hidden="true">
+				<text>彼女の贈り物を受け取り、去ります。</text>
+				<event />
+			</choice>
+			<choice hidden="true">
+				<text>彼女を連れて行くことを申し出てください。</text>
+				<event>
+					<text>「それは出来ない。悪いが忙しい。わらわの命をつなぐのは非常に厄介なのだ。体の材料は非常に不安定で、常に多くのものを摂取する必要がある。そうでないと、わらわは衰え死んでしまう。とても苦しいのだ、おぬしにわかるだろうか？」</text>
+					<checkCargo />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event />
+					</choice>
+					<choice hidden="true" req="ANCIENT_LASER">
+						<text>彼女に古代のレーザーを提供して食べさせてください。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ANCIENT_LASER" />
+							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="ANCIENT_BEAM">
+						<text>彼女に餌を与えるために古代のビームを提供します。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ANCIENT_BEAM" />
+							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="ANCIENT_FOCUS">
+						<text>彼女に餌を与えるために古代のピンポイントを提供します。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ANCIENT_FOCUS" />
+							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="ANCIENT_MISSILES">
+						<text>彼女に古代ミサイルランチャーを提供して食べさせてください。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ANCIENT_MISSILES" />
+							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="ANCIENT_BOMB">
+						<text>彼女に古代爆弾発射装置を提供して食べさせてください。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ANCIENT_BOMB" />
+							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="ANCIENT_STUN">
+						<text>彼女に古代の平和維持者を養うように申し出なさい。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ANCIENT_STUN" />
+							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="ANCIENT_COMBAT_LASER">
+						<text>彼女に餌を与えるために古代のレーザードローンを提供します。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ANCIENT_COMBAT_LASER" />
+							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="ANCIENT_COMBAT_ION">
+						<text>彼女に古代のイオンドローンを提供して食べさせてください。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ANCIENT_COMBAT_ION" />
+							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="ANCIENT_COMBAT_MISSILE">
+						<text>彼女に古代ミサイルドローンを提供して食べさせてください。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ANCIENT_COMBAT_MISSILE" />
+							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="ANCIENT_DEFENSE_1">
+						<text>彼女に古代の監視者ドローンを提供して食べさせてください。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ANCIENT_DEFENSE_1" />
+							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="MENDER">
+						<text>彼女に餌を与えるために古代の修理人を提供します。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="MENDER" />
+							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="DIRECTOR">
+						<text>彼女に古代の監督を養うように申し出なさい。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="DIRECTOR" />
+							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="ATOM_DEFEND">
+						<text>彼女に古代の噴霧器を提供して食べさせてください。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ATOM_DEFEND" />
+							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="ATOM_BOARDER">
+						<text>彼女に古代の噴霧器を提供して食べさせてください。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ATOM_BOARDER" />
+							<crewMember amount="1" combat="2" class="unique_anointed">聖皇后</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ANOINTED_DESTROYED">
+    <text>聖皇后の巡洋艦が爆発します。残骸からスクラップするものはたくさん残っていますが、彼女が死ぬと、この異星人をどうするかを理解できる可能性があります。</text>
+    <variable name="ach_boss_augcruiser" op="set" val="1" />
+	<autoReward level="HIGH">weapon</autoReward>
+</event>
+
+<event name="ANOINTED_DEADCREW">
+    <text>巡洋艦のクルーは無力化されました。あなたは船を検査し、残骸を集めるために移動します。</text>
+   <variable name="ach_boss_augcruiser" op="set" val="1" />
+	<autoReward level="HIGH">weapon</autoReward>
+    <choice hidden="true">
+        <text>継続する...</text>
+        <event>
+            <text>船を検査すると、油そそがれた油そそがれたものが地面に崩壊します。彼女はあなたが近づくようにジェスチャーをし、あなたの手に奇妙な見た目のデバイスを平手打ちします。彼女は言葉を窒息させることができます。「これはアクティベーターのキーです。燃料触媒とともに古代を起こします... h-hibernationから。確かに...」それで、彼女は地面に落ち、死んでいます。</text>
+            <hiddenAug>ANCIENT_ACTIVATOR</hiddenAug>
+        </event>
+    </choice>
+</event>
+
+	
+<eventList name="ITEMS_AUGMENTED">
+	<event load="AUGMENTED_FREESCRAP" />
+	<event load="AUGMENTED_ARTIST" />
+	<event load="AUGMENTED_HUNGRY" />
+	<event load="AUGMENTED_WAYSTONE" />
+	<event load="AUGMENTED_FEEDING" />
+</eventList>
+
+<event name="AUGMENTED_FREESCRAP" unique="true">
+	<text>このビーコンはかつて古代の船の本拠地だったようですが、核心まで廃棄されています。ただし、余分なスクラップを取得するのに十分な量が残っています。</text>
+	<autoReward level="LOW">scrap_only</autoReward>
+	<choice hidden="true">
+		<text>船に乗って何かする。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice hidden="true">
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+
+<event name="AUGMENTED_ARTIST" unique="true">
+    <text>この宇宙の領域は、周囲とは大きく異なります。誰かが、粉砕された船がシステム全体に散らばっているのではなく、船の殻をあなたの船を飛ぶのに十分なほど広い、長いトンネルに変えるのに苦労しました。</text>
+    <choice>
+		<text>トンネルに入ります。</text>
+		<event>
+			<text>船をトンネルに操縦すると、誰かが奇妙な粘着性のある粒子状物質で壁を描いていることに気付くようになります。アートは、船、奇妙な立方体、ダイヤモンドと並んでラニウスを描いており、トンネルを深く掘り下げるにつれて品質が向上しているようです。最終的に、太陽系の基本的な図面のいくつかはあなたの見解に入ります - あなたが識別できる詳細は、eonsのために存在していないシステムを指しているようです。トンネルの端に向かって、迫り来る黒と金の姿が、ラニウスの群衆が見ている間、拡張された小さなグループを追い払っている写真を見る。大きくて紫と白の姿が壁画の端で切り取られ、他の場所で追放されます。</text>
+			<choice>
+				<text>継続する...</text>
+				<event>
+					<text>トンネルの奥深くにある一連の絵画に出くわします。そこでは、以前に見た紫と白の姿の肖像画が仕上げられています。それはほとんど印象的なように見え、壁から放射される輝きがあります。ラニウスは最終的にあなたの船に気づき、壁から押し出して船体に着地します。</text>
+					<choice>
+						<text>通信してみてください。</text>
+						<event>
+							<text>「部外者。見ているものを作ってください。他のラニウスは理解していません。あなたは見られません。知らなかった。イメージを作ることができますか？」</text>
+							<choice req="LIST_CREW_HUMAN">
+								<text>（人間の乗組員）ラニウスにあなたの人間をスケッチさせてください。</text>
+								<event>
+									<text>あなたはあなたの人間を窓の前に立って、増強された人が見るようにします。「新しい生き物！見たことがない！肉質...頭に鎖があります...インスピレーションを得ました！」ラニウスは壁にジャンプして絵を描き始めます。ラニウスはある程度のスキルを開発しましたが、描写は非常に...奇妙に見えます。あなたの人間は、描写が頭のためにブラシを持ったいくつかの鎖のベーコンのように見えると感じています。アーティストは満足しています。</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_ENGI">
+								<text>（Engi Crew）LaniusにあなたのEngiをスケッチさせます。</text>
+								<event>
+									<text>窓の前に立つようにエンギーを送って、拡張して見ることができます。「新しい生き物！見たことがない！メタリック...身をかがめて...焦点を合わせて...インスピレーションを得た！」ラニウスは壁にジャンプして絵を描き始めます。ラニウスはある程度のスキルを開発しましたが、描写は非常に...奇妙に見えます。それにもかかわらず、あなたのEngiは描写で元気に見えます。アーティストは満足しています。</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_ZOLTAN">
+								<text>（Zoltan Crew）Laniusにあなたのゾルタンをスケッチさせます。</text>
+								<event>
+									<text>Zoltanを送り、窓の前に立って、増強された人が見るようにします。「新しい生き物！見たことがない！輝く...小さな...透明...インスピレーションを得た！」ラニウスは壁にジャンプして絵を描き始めます。ラニウスはある程度のスキルを開発しましたが、描写は非常に...奇妙に見えます。あなたのゾルタンは、描写が燃え尽きたL.E.D.のように見えると感じています。アーティストは満足しています。</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_ORCHID">
+								<text>（オーキッドクルー）ラニウスにランをスケッチさせます。</text>
+								<event>
+									<text>オーキッドを送って窓の前に立って、拡張が見られるようにします。「新しい生き物！見たことがない！薄っぺら...カラフル...インスピレーションを得た！」ラニウスは壁にジャンプして絵を描き始めます。ラニウスはある程度のスキルを開発しましたが、描写は非常に...奇妙に見えます。あなたのランは、それが庭のホースにテープで貼られた折り紙のように見えると感じています。アーティストは満足しています。</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_SHELL">
+								<text>（シェルクルー）ラニウスにシェルをスケッチさせます。</text>
+								<event>
+									<text>シェルを窓の前に立って、拡張して見るようにします。「新しい生き物！見たことがない！丸い...ぬるぬるした...インスピレーションを得た！」ラニウスは壁にジャンプして絵を描き始めます。ラニウスはある程度のスキルを開発しましたが、描写は非常に...奇妙に見えます。あなたのシェルは、それが泥だらけの古いタイヤのように見えると感じています。アーティストは満足しています。</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_MANTIS">
+								<text>（マンティスクルー）ラニウスにマンティスをスケッチさせてください。</text>
+								<event>
+									<text>マンティスを窓の前に立って、拡張して見えるようにします。「新しい生き物！見たことがない！鋭い... crawly ...インスピレーションを得た！」ラニウスは壁にジャンプして絵を描き始めます。ラニウスはある程度のスキルを開発しましたが、描写は非常に...奇妙に見えます。あなたのマンティスは、それが剣で作られたトレッドミルのように見えると感じています。アーティストは満足しています。</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_ROCK">
+								<text>（ロッククルー）ラニウスにロックマンをスケッチさせてください。</text>
+								<event>
+									<text>岩を送って窓の前に立って、増強された人が見るようにします。「新しい生き物！見たことがない！大きい...ラフ...インスピレーションを得た！」ラニウスは壁にジャンプして絵を描き始めます。ラニウスはある程度のスキルを開発しましたが、描写は非常に...奇妙に見えます。あなたの岩は、それが誤った形のジャガイモのように見えると感じています。アーティストは満足しています。</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_SLUG">
+								<text>（ナメクジの乗組員）ラニウスにナメクジをスケッチさせてください。</text>
+								<event>
+									<text>スラグを送って窓の前に立って、増強された人が見るようにします。「新しい生き物！見たことがない！太った...ぬるぬるした...インスピレーションを得た！」ラニウスは壁にジャンプして絵を描き始めます。ラニウスはある程度のスキルを開発しましたが、描写は非常に...奇妙に見えます。あなたのナメクジは、それがプロペラキャップのあるBratwurstのように見えると感じています。アーティストは満足しています。</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_LEECH">
+								<text>（リーチクルー）ラニウスにヒルをスケッチさせます。</text>
+								<event>
+									<text>窓の前に立って、拡張が見られるように窓の前に立つようにあなたのヒルを送ります。「新しい生き物！見たことがない！長く...薄い...インスピレーションを得た！」ラニウスは壁にジャンプして絵を描き始めます。ラニウスはある程度のスキルを開発しましたが、描写は非常に...奇妙に見えます。あなたのリーチは、それが廃inedしたように見えると感じています。アーティストは満足しています。</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_SPIDER">
+								<text>（スパイダークルー）ラニウスに巨大なエイリアンクモをスケッチさせます。</text>
+								<event>
+									<text>窓の前に立つようにクモを送り、拡張して見ることができます。「新しい生き物！見たことがない！多くの足...多くの目...インスピレーションを得た！」ラニウスは壁にジャンプして絵を描き始めます。ラニウスはある程度のスキルを開発しましたが、描写は非常に...奇妙に見えます。あなたのクモは何が起こっているのかを理解していないようです。アーティストは満足しています。</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_PONY">
+								<text>（equinoid Crew）ラニウスにあなたのequinoidをスケッチさせます。</text>
+								<event>
+									<text>あなたはあなたのequinoidを窓の前に立って、増強された人が見えるようにします。「新しい生き物！見たことがない！たくさんの足...カラフル...インスピレーションを得た！」ラニウスは壁にジャンプして絵を描き始めます。ラニウスはある程度のスキルを開発しましたが、描写は非常に...奇妙に見えます。あなたのequinoidは何が起こっているのかを理解していないようです。アーティストは満足しています。</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="unique_tyrdeo_bird">
+								<text>（ウィーズリー）ラニウスをスケッチしてください。</text>
+								<event>
+									<text>窓の前には、窓の前にWealseyの止まり木が見えるようになります。「新しい生き物！見たことがない！小さな...光...雄大...インスピレーションを得た！」ラニウスは壁にジャンプして絵を描き始めます。ラニウスはある程度のスキルを開発しましたが、描写は非常に馴染みのあるように見えます。実際、Rebel MFKロゴに驚くほど似ているように見えます。アーティストは満足しています。</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_LIZARD">
+								<text>（トカゲの乗組員）ラニウスにトカゲをスケッチさせてください。</text>
+								<event>
+									<text>あなたはあなたのトカゲを窓の前に立って、増強された人が見るようにします。ラニウスは言葉に途方に暮れているようですが、うなずきます。それは壁にジャンプして絵を始めます。ラニウスは、ほぼ完全な精度でトカゲを描きます。トカゲは満足してうなずきます。アーティストは満足しています。</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_MORPH">
+								<text>（Morph Crew）ラニウスにモーフをスケッチさせます。</text>
+								<event>
+									<text>モーフを送信して、窓の前に立って、拡張が見られるようにします。「新しい生き物！見たことがない！生地...鈍い色...インスピレーションを得た！」ラニウスは壁にジャンプして絵を描き始めます。ラニウスはある程度のスキルを開発しましたが、描写は非常に...奇妙に見えます。モーフは、図面に一致するようにその形状を瞬間的に調整します。アーティストは満足しています。</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_SIREN">
+								<text>（サイレンクルー）ラニウスにサイレンをスケッチさせます。</text>
+								<event>
+									<text>サイレンを送って窓の前に立って、拡張が見られるようにします。「新しい生き物！見たことがない！できない...考えて...！」ラニウスは、まるで絵を描き始める前に痛みを感じているかのように頭をつかみます。しかし、サイレンを描く代わりに、死んだナメクジや壊れた円のように見えるものの絵を描きます。アーティストはwoozyに見えて気絶します。</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event>
+											<text>ラニウスは無意識で、あなたができる最善のことは、あなたが横たわっていることを見つけることができるどんなスクラップを取ることです。</text>
+											<autoReward level="LOW">scrap_only</autoReward>
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_ELDRITCH">
+								<text>（Eldritch Crew）LaniusにEldritch Creatureをスケッチさせます。</text>
+								<event>
+									<text>あなたはラニウスにあなたのエルドッチの乗組員を見させました。それらを見ると、増強された拍手。「インスピレーション！それは自由に流れる！」アーティストは壁にジャンプして絵を描き始めます。何らかの理由で、ラニウスは、単純な韻と間抜けな動物のキャラクターでいっぱいの子供の絵本のように見えるものを作りました。アートはとても上品です。</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_ANCIENT_ALL">
+								<text>（Obelisk Crew）Laniusに古代の乗組員をスケッチさせてください。</text>
+								<event>
+									<text>「あなた!!油そそがれた欲しい！」ラニウスは攻撃しようとしているように見えます...しかし、一時停止します。「戦闘機ではありません。取ることはできません。スケッチします。」ラニウスは古代の乗組員をスケッチします。それはかなりよく見えます。</text>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event>
+											<text>「油そそがれた警告に私たちに警告します。あなたは行きます。」ラニウスはあなたの船を見つめてから、部屋に向かって走り、贈り物を持って戻ってきます。「それから取る。でも行く。」</text>
+											<autoReward level="HIGH">scrap_only</autoReward>
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true" req="LIST_CREW_CRYSTAL">
+								<text>（クリスタルクルー）「帝国を知る。パス。」</text>
+								<event load="OPTION_INVALID" />
+							</choice>
+							<choice hidden="true" req="LIST_CREW_GHOST">
+								<text>（ゴーストクルー）「王朝を知る。パス。」</text>
+								<event load="OPTION_INVALID" />
+							</choice>
+							<choice hidden="true" req="LIST_CREW_LANIUS">
+								<text>（ラニウスの乗組員）「アム・ラニウス。必要はありません。」</text>
+								<event load="OPTION_INVALID" />
+							</choice>
+							<choice>
+								<text>ボランティアはいません。</text>
+								<event>
+									<text>「非常に悲しい。インスピレーションが必要です。」ラニウスはあなたの船を飛び降りて絵を履きます。やるべきことは、トンネルを離れることだけです。</text>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>これはあまりにも疑わしいです。離れる。</text>
+		<event>
+			<text>あなたは裁量を行使し、トンネルを放っておきます。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+<event name="AUGMENTED_ARTIST_REWARD">
+    <text>「フレンドリーな生き物！描かれ続けます！</text>
+    <autoReward level="HIGH">weapon</autoReward>
+</event>
+
+<event name="AUGMENTED_HUNGRY" unique="true">
+	<text>小さなシャトルが、1つの増強されたラニウスを運んで通り過ぎます。彼らはあなたを歓迎し、恩恵を求めます。 「私の体、それは速く分解します。生きるために船体を食べる必要があります。このシャトルは小さく、あなたにあなたの小さな一口をとらせてくれと頼みます。あなたが管理できないものは何もありません。」</text>
+	<choice hidden="true">
+		<text>彼に船体を食べさせてください。</text>
+		<event>
+			<text>ラニウスはシャトルを閉じて飛ばし、底から出て、あなたのところに滑り込みます。彼は船体のごく一部を付着させて液化し始めます。それはほとんど何もありません、あなたが予想したよりはるかに少ないです、しかしラニウスは感謝していて、あなたのクルーに加わることさえ申し出ます。</text>
+			<crewMember amount="1" class="lanius_augmented" />
+			<damage amount="2" effect="breach" system="room" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>拒否する。</text>
+		<event>
+			<text>あなたは拒否します。ラニウスはおびえているように見えますが、腕が落ちて金属の水たまりに溶けるまでそう長くはかかりませんでした。彼が速く言ったとき、彼は非常に速いことを意味したと思います...</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="AUGMENTED_WAYSTONE" unique="true">
+    <text>このセクターにはあらゆる種類の奇妙な光景があり、このセクターでは見られないと思っていた予期しない訪問者のリストにクリスタルエリートを追加できるようになりました。</text>
+    <ship load="SHIP_CRYSTAL_ELITE_GENERIC" hostile="false" />
+    <choice hidden="true">
+        <text>彼らに連絡する。</text>
+        <event>
+            <text>クリスタルセンチネルは、ここで連邦の船を見て同様に驚いていますが、少なくともまともな受動的な方法であなたを考慮しています。 「私たちはこれらの構造からいくつかの部分を探しに来ました。彼らの技術が私たちの祖先の技術と組み合わされて、私たちの母星系を封鎖する道石を作成したと信じています。しかし、このセクターをナビゲートすることは困難です。地図データがある場合、喜んで受け取ります。」</text>
+            <choice>
+                <text>すでに収集した基本データを販売します。</text>
+                <event>
+                    <autoReward level="LOW">scrap_only</autoReward>
+                </event>
+            </choice>
+            <choice req="FTL_JUMPER">
+                <text>（Adv. Navigation）ナビゲーターが取得したデータを販売します。</text>
+                <event>
+                    <autoReward level="HIGH">scrap_only</autoReward>
+                </event>
+            </choice>
+            <choice req="ADV_SCANNERS">
+                <text>（長距離スキャナー）スキャナーが収集したデータを販売します。</text>
+                <event>
+                    <autoReward level="HIGH">scrap_only</autoReward>
+                </event>
+            </choice>
+            <choice req="sensors" lvl="3">
+                <text>（高度なセンサー）センサーが収集したデータを販売します。</text>
+                <event>
+                    <autoReward level="HIGH">scrap_only</autoReward>
+                </event>
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true">
+        <text>攻撃！</text>
+        <event>
+            <text>真の野蛮なやり方で、あなたは最初に攻撃し、後で質問する以外に何も好きではないことを証明します。あなたは容赦なくクリスタルラインの船を攻撃します。</text>
+            <ship hostile="true" /> 
+            <choice hidden="true">
+                <text>継続する...</text>
+                <event load="MORALITY_UPDATE_CRYSTAL_FIGHT" />
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true">
+        <text>クリスタルは無視してください。</text>
+        <event>
+            <text>クリスタルは飛び立つ前に、近くの2つの難破船を探索するのに時間を費やします。彼らが何も見つけなかった場合、あなたはどちらも見つけないでしょう。</text>
+            <choice hidden="true">
+                <text>船に乗って何かする。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice hidden="true">
+                <text>何もしない。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+
+<event name="AUGMENTED_FEEDING" unique="true">
+	<text>近くには小さな古代遺跡があり、ラニウスがそれを食べています。あなたが近づくと、彼らはあなたを歓迎します。「あなたは訪問者ですか？ 仲間のラニウスがいるなら、気軽に参加してください。ここは組成を変えるのに十分な量がありますよ！」</text>
+	<choice hidden="true" req="lanius">
+		<text>あなたのラニウスに廃墟を食べさせましょう。</text>
+		<event>
+			<text>あなたのラニウスは船から廃墟に向かって滑走し、他の人たちと一緒にそれらに付着します...</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>あなたのラニウスの金属の体がゆっくりと暗黒に変わるのを見て、あなたは魅了されます。すぐに彼らは戻ってきて、あなたが見た他のすべての増強されたラニウスと同じように見え、そして同じ能力を持っています。</text>
+					<transformRace class="lanius">lanius_augmented</transformRace>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それらを攻撃して、自分で遺跡にアクセスしてください！</text>
+		<event>
+			<text>あなたは近づき、ラニウスに発砲します。それらは構造から切り離され、あなたがそこに移動してそれを回収することを可能にします。しかし、彼らは十分に長く抑止されておらず、彼らは船体に再び付着し、侵入します！</text>
+			<boarders min="2" max="3" class="lanius_augmented" />
+			<autoReward level="HIGH">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それらを無視します。</text>
+		<event>
+			<text>ラニウスは、それ以上あなたに連絡しようとはしません。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+	
+<eventList name="NEUTRAL_AUGMENTED">
+	<event load="AUGMENTED_CHOICE" />
+	
+	<event load="AUGMENTED_LANIUS" />
+	<event load="AUGMENTED_GHOST" />
+	<event load="AUGMENTED_SEPARATISTS" />
+	<event load="AUGMENTED_INQUISITION" />
+</eventList>
+
+<event name="AUGMENTED_CHOICE">
+	<text load="TEXT_AUGMENTED_CHOICE" />
+	<ship load="SHIP_AUGMENTED" hostile="false" /> 
+	<choice hidden="true">
+		<text>ラニウスと戦ってください。</text>
+		<event>
+			<text>あなたは武器の電源を入れ、増強された船と戦います。</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それらを避けてください。</text>
+		<event>
+			<text>あなたはラニウスと戦わないことに決め、飛び去ります。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_AUGMENTED_CHOICE">
+	<text>オーグメンティドは必ずしも友好的ではないかもしれませんが、ここの船はあなたと戦うために動きません。同じことをしますか？</text>
+	<text>「避けるよう警告する。私の船は危険だ。面倒なことにはなりたくないだろう」他の船のラニウスは誇りを持って胸を突き出し、鋭い刃を誇らしげに振る。</text>
+	<text>軍艦との衝突を避けようとするラニウスはそれほど珍しいことではありませんが、特に野蛮なオーグメンティド艦を目にしたことがあります。それでも、ここの船は攻撃的な動きをしません。</text>
+	<text>最初は、目の前のラニウス船がまだアクティブであるかどうかはわかりませんが、スキャンによってかすかな生命の兆候が元に戻ります。けがをしていない、ただ眠っている。この状況を利用しますか？</text>
+</textList>
+
+<event name="AUGMENTED_LANIUS" unique="true">
+	<text>いくつかの古代の残骸を所有していることをめぐって、近くのオーグメンティドとエリートのラニウス船の間で緊張が高まっているようです。参加しますか？</text>
+	<choice hidden="true">
+		<text>オーグメンティドを助けます。</text>
+		<event>
+			<text>あなたは武器の電源を入れ、エリート船と戦います。</text>
+			<ship load="SHIP_AUGMENTED_LANIUS_ELITE" hostile="true" /> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>エリートを助けてください。</text>
+		<event>
+			<text>あなたは武器の電源を入れ、増強された船と戦います。</text>
+			<ship load="SHIP_AUGMENTED_LANIUS_AUG" hostile="true" /> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それらを避けてください。</text>
+		<event>
+			<text>あなたはラニウスと対話しないことに決め、飛び去ります。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="AUGMENTED_GHOST" unique="true">
+    <text>近くのエンシェント船はいつもよりずっと良い状態ですが、それだけではありません... スキャンは、ヴァガボンドが船を支配していることを示しています!</text>
+    <ship load="SHIP_GHOST_ANCIENT" hostile="false" />
+    <choice hidden="true">
+        <text>それらを攻撃してください、多分船は何か価値があります！</text>
+        <event>
+            <text>船をあきらめないことを決意した放浪者たちは、あなたの攻撃から身を守る準備をしています。</text>
+            <ship hostile="true" /> 
+            <choice hidden="true">
+                <text>継続する...</text>
+                <event load="COMBAT_CHECK" />
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true">
+        <text>放浪者を歓迎し、取引を申し出てください。</text>
+        <event>
+            <text>メッセージを送信して応答を待ちます。翻訳者がゴーストの静的なノイズを適切に解読するのに時間がかかることを知っています。 「こんにちは、承知しました。この新しい船を回収しましたが、維持に必要なリソースが不足しています。燃料が多量にある場合は、商品の交換を受け付けます。」</text>
+            <choice>
+                <text>彼らに少量の燃料を与えます。</text>
+                <event>
+                    <text>「これは定量化可能な量の燃料ですが、ほんのわずかです。これより高い支払いを期待していなかったと思います。」</text>
+                    <item_modify>
+                        <item type="fuel" min="-2" max="-2" />
+                        <item type="scrap" min="5" max="5" />
+                    </item_modify>
+                </event>
+            </choice>
+            <choice>
+                <text>それらに中程度の量の燃料を与えます。</text>
+                <event>
+                    <text>「これはうまくいくでしょう。ありがとう。」</text>
+                    <item_modify>
+                        <item type="fuel" min="-7" max="-7" />
+                        <item type="scrap" min="20" max="20" />
+                    </item_modify>
+                </event>
+            </choice>
+            <choice>
+                <text>彼らに大量の燃料を与えなさい。</text>
+                <event>
+                    <text>「これは大量の燃料です。感謝の意を表します。この武器を受け取ってください。この船の元居住者のものでした。それが誰であったとしてもです。」</text>
+                    <item_modify>
+                        <item type="fuel" min="-15" max="-15" />
+                        <item type="scrap" min="40" max="40" />
+                    </item_modify>
+                    <weapon name="ANCIENT_BOMB" />
+                </event>
+            </choice>
+            <choice>
+                <text>燃料を惜しまない。</text>
+                <event>
+                    <text>ヴァガボンドからの応答を待ちますが、応答がありません。あなたは古代の船から離れ、幽霊を置き去りにしました。</text>
+                </event>
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true">
+        <text>ヴァガボンドは無視してください。</text>
+        <event>
+            <text>放浪者がエンシェント船を確保できたのなら、彼らにとっては良いことです。それはあなたが対処したいガスの存在のバンドではありません.</text>
+            <choice hidden="true">
+                <text>船に乗って何かする。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice hidden="true">
+                <text>何もしない。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+
+<event name="AUGMENTED_SEPARATISTS" unique="true">
+	<text>一人のエンギ分離主義者が、長く放棄された古代の船をスキャンしています。あなたが飛び込むとき、彼らはあなたの船の間にいくらかの距離を置きますが、離れないでください。</text>
+	<ship load="SHIP_SEPARATIST_RUINS" hostile="false" />
+	<choice hidden="true">
+		<text>彼らに連絡する。</text>
+		<event>
+			<text>「地元の連邦船、私たちはあなたが検出されたことを[保証]します。邪魔しないでください。私たちはハーモニーを[無効にする]方法を探しています。」</text>
+			<choice hidden="true">
+				<text>さらに質問してください。</text>
+				<event>
+					<text>分離主義者はため息を吐き出します。 「このセクターに住む[立方体の]船は古代の種族に属していました。60％の推測ではありますが、これらの生き物は最初にハーモニーを発達させたと信じられています。あなたの[伝承]があります。今すぐ去ってください。」</text>
+					<choice hidden="true">
+						<text>それらを攻撃してください、多分彼らは機内に何か貴重なものを持っています！</text>
+						<event>
+							<text>あなたは分離主義者の船を攻撃することにしました。戦いに備えよう。</text>
+							<ship hostile="true" /> 
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>彼らの言うことをして、放っておいてください。</text>
+						<event>
+							<text>船はあなたを悩ませていないので、あなたも彼らを悩ませることはありません。</text>
+							<choice hidden="true">
+								<text>船に乗って何かする。</text>
+								<event load="STORAGE_CHECK" />
+							</choice>
+							<choice hidden="true">
+								<text>何もしない。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_VARIANT_SEPARATIST">
+				<text>（分離主義者のクルー）「あなたの使命は[非常に]重要です。しかし、私たちの使命も重要です。要求：物資。」</text>
+				<event>
+					<text>あなたの分離主義者はあなたの使命を他のエンギに説明します。 「このリクエストは受け入れられます。今すぐ物資を転送します。」</text>
+					<autoReward level="MED">stuff</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_HARMONY">
+				<text>（エンギクルー）「これは容認できません。分離主義者の成功を防ぐことが最優先事項です。」</text>
+				<event>
+					<text>あなたのエンギは、彼らが彼らの任務を完了することができる前にあなたが分離主義者の世話をすることを要求します。</text>
+					<ship hostile="true" /> 
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>彼らの言うことをして、放っておいてください。</text>
+				<event>
+					<text>船はあなたを悩ませていないので、あなたも彼らを悩ませることはありません。</text>
+					<choice hidden="true">
+						<text>船に乗って何かする。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice hidden="true">
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>分離主義者を攻撃します。</text>
+		<event>
+			<text>いくつかのエンギをあなたから逃げさせると、あなたは気が滅入るでしょう。あなたはこれをあなたが知っている唯一の方法で解決するでしょう-不必要な殺人で。</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>エンギを無視します。</text>
+		<event>
+			<text>船はあなたを悩ませていないので、あなたも彼らを悩ませることはありません。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="AUGMENTED_INQUISITION" unique="true">
+	<text>ここで、あなたはおそらくあなたが見たいと思っていたであろう最後のもの、放棄された尋問容器を見つけました。長老たちは、このスカウトをここに送って彼らの影響力をさらに押し込んだに違いありません。</text>
+	<ship load="SHIP_ROCK_ELITE_GENERIC" hostile="false" />
+	<choice hidden="true">
+		<text>残骸を救い出してください。</text>
+		<event load="AUGMENTED_INQUISITION_SALVAGE" />
+	</choice>
+	<choice hidden="true" req="sensors" lvl="2">
+		<text>（Upg。Sensors）最初に残骸をスキャンします。</text>
+		<event load="AUGMENTED_INQUISITION_SCAN" />
+	</choice>
+	<choice hidden="true" req="LIFE_SCANNER">
+		<text>（Lifeform Scanner）最初に残骸をスキャンします。</text>
+		<event load="AUGMENTED_INQUISITION_SCAN" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_SLUG">
+		<text>(Slug Crew) まず生命体を確認してください。</text>
+		<event load="AUGMENTED_INQUISITION_SCAN" />
+	</choice>
+	<choice hidden="true" req="BLUELIST_CREW_SNAIL">
+		<text>(テレパシー シェル) まず、生命体を確認します。</text>
+		<event load="AUGMENTED_INQUISITION_SCAN" />
+	</choice>
+	<choice hidden="true">
+		<text>それらを無視します。</text>
+		<event>
+			<text>あなたが飛び去る間、ロック船は動かないままです。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="AUGMENTED_INQUISITION_SALVAGE">
+	<event>
+		<text>あなたが船をスクラップしている間、何もあなたを邪魔しません。ラニウスは彼らの生命維持に深刻なダメージを与えたに違いないようで、抵抗力のあるクルセイダーでさえ彼ら自身を救うことができませんでした。</text>
+		<autoReward level="HIGH">stuff</autoReward>
+	</event>
+	<event>
+		<text>船を救っている間、数人のロックマンの十字軍が突然ドアを駆け抜けます。「誰もロック審問を期待していない！」それが待ち伏せであろうと、彼らが本当にあなたを好きではないかどうか、それはもう問題ではありません。戦闘の準備をしてください！</text>
+		<boarders min="2" max="2" class="rock_crusader" /> 
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="AUGMENTED_INQUISITION_SCAN">
+	<event>
+		<text>スキャンは船が空であることを示しています。ラニウスは彼らの生命維持に深刻なダメージを与えたに違いないようで、抵抗力のあるクルセイドでさえ彼ら自身を救うことができませんでした。あなたは回収するのが安全だと判断します。</text>
+		<autoReward level="HIGH">stuff</autoReward>
+	</event>
+	<event>
+		<text>スキャンによると、船の生命維持装置はある程度の損傷を受けていますが、クルセイダーのクルーはまだ搭乗しています。</text>
+		<choice hidden="true">
+			<text>彼らが弱い間に彼らを攻撃してください！</text>
+			<event>
+				<text>酸素がオフラインのときに武器を上げてクルセイダーの船を攻撃します！</text>
+				<status type="limit" target="enemy" system="oxygen" amount="0" />
+				<ship hostile="true" />
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>それらに質問します。</text>
+			<event>
+				<text>クルセイダーは意外にもあなたの質問を受け入れてくれる。「この区域には古代の神族の遺物があり、クリスタルの神話と一致するそうです。長老たちはクリスタルに挑戦するものを欲しない。だから我々を送り込み、捕獲して持ち帰らせました。しかし、そこには我々を食べようとするラニウスの一団がいたのです。さて、失礼して船の修理に戻らねばならん。窒息死する前にな」</text>
+				<choice hidden="true">
+					<text>彼らが弱い間に彼らを攻撃してください！</text>
+					<event>
+						<text>酸素がオフラインのときに武器を上げてクルセイダーの船を攻撃します！</text>
+						<status type="limit" target="enemy" system="oxygen" amount="0" />
+						<ship hostile="true" />
+						<choice hidden="true">
+							<text>継続する...</text>
+							<event load="COMBAT_CHECK" />
+						</choice>
+					</event>
+				</choice>
+				<choice hidden="true" req="oxygen" lvl="2">
+					<text>（Upg. Oxygen）ドッキングして酸素を補充することを提案します。</text>
+					<event>
+						<text>クルセイダーは同意し、あなたはすぐに彼らの船とドッキングし、酸素でそれを氾濫させます。彼らはかなり満足しており、彼らのほとんどは彼らの使命を継続する必要性を感じていますが、他の人が抗議しないように、あなたの後ろに留まりたいと思っています。</text>
+						<crewMember amount="1" class="rock_crusader">Python</crewMember>
+					</event>
+				</choice>
+				<choice hidden="true">
+					<text>それらを残します。</text>
+					<event />
+				</choice>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>それらを無視します。</text>
+			<event />
+		</choice>
+	</event>
+</eventList>
+
+
+<eventList name="DISTRESS_AUGMENTED">
+	<event load="DISTRESS_AUGMENTED_EXPLOSIVE" />
+	<event load="DISTRESS_AUGMENTED_WENTWORTH" />
+	<event load="DISTRESS_AUGMENTED_NEAR_DEATH" />
+</eventList>
+
+<event name="DISTRESS_AUGMENTED_EXPLOSIVE" unique="true">
+	<distressBeacon />
+    <text>強化された船が必死にあなたに連絡します。「急いで！爆発して！食べるために素早く行動する必要があります！」点滅と加熱されている古いテクノロジーの近くにあります。</text>
+    <ship load="SHIP_AUGMENTED" hostile="false" />
+    <choice req="hacking">
+		<text>（ハッキング）爆発を止めるために技術にハッキングします。</text>
+		<event>
+			<text>幸いなことに、あなたは問題を診断して対処することができます - おそらく拡張された船によって自己破壊がつまずいていました。自己破壊が無効になると、船とラニウスは廃inを介して召集することができます。</text>
+			<item_modify>
+				<item type="drones" min="-1" max="-1" />
+			</item_modify>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>増強された船が飛び回って検査します。「良い仕事。破滅を共有してください。半分、半分。」賞金の半分でさえ高収量です - あなたはそれからかなり多くのスクラップを得ることができます。</text>
+					<autoReward level="HIGH">standard</autoReward>
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>リスクの価値はありません！</text>
+		<event>
+			<text>増強された船は、爆発するとすぐに残骸から離れます。それはあなたに立ち向かう - 「私たちの食事、消えてしまった。私たちはあなたの船を食べる！」</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+    </choice>
+</event>
+
+<event name="DISTRESS_AUGMENTED_WENTWORTH" unique="true">
+	<distressBeacon />
+    <text>苦痛信号は、障害のあるウェントワース産業の自動スカウトに由来します。さらに調査する前に、近くの拡張容器からあられを受け取ります。、 あなたが取る？"</text>
+    <choice hidden="true">
+   		<text>彼らの申し出を受け入れる。</text>
+     	<event>
+     		<text>ラニウスは船から技術を剥奪します：セントリーの武器。ウェントワース産業のスカウトがセクターに入ることを許可したものは何でも良いことはできませんが、少なくとも破壊されています。</text>
+     		<weapon name="GIFTLIST_ESTATE" />
+     	</event>
+    </choice>
+    <choice hidden="true">
+   		<text>私たちは完全な難破船を取ります。武器を強化します。</text>
+		<event load="DISTRESS_AUGMENTED_WENTWORTH_FIGHT" />
+    </choice>
+</event>
+<eventList name="DISTRESS_AUGMENTED_WENTWORTH_FIGHT">
+	<event>
+		<text>武器を始めた瞬間、あなたはすぐに襲撃パーティーに搭乗します。ただし、船は無防備です。つまり、ボーダーが扱われたら自由に武器を摂取できることを意味します。</text>
+		<boarders min="4" max="4" class="lanius_augmented" />
+		<autoReward level="HIGH">standard_no_item</autoReward>
+		<weapon name="GIFTLIST_ESTATE" />  			 
+	</event>
+	<event>
+		<text>武器を開始した瞬間、拡張船はオンラインになります。彼らは彼らの収穫を守るつもりです！</text>
+		<ship load="SHIP_AUGMENTED_WW" hostile="true" />
+		<boarders min="3" max="3" class="lanius_augmented" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>武器を始めた瞬間、あなたはすぐに襲撃パーティーに搭乗します。さらに悪いことに、自動船が再び起動します。「再初期化：完全。反論が検出された。敵対的なラニウスが検出された。新しいミッションパラメーター：すべてのターゲットを排除します。」彼らはそれを無効にすることで終わっていないようです！</text>
+	 	<ship load="SHIP_AUTO_WW_AUG" hostile="true" />
+	 	
+		<boarders min="4" max="4" class="lanius_augmented" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<event name="AUGMENTED_WENTWORTH_SCRAP">
+    <text>船が無効になっていると、廃棄することは安全です。</text>
+    <autoReward level="HIGH">standard_no_item</autoReward>
+</event>
+
+<event name="DISTRESS_AUGMENTED_NEAR_DEATH" unique="true">
+	<distressBeacon />
+    <text>「助けてください。助けてください。命を落とします！船体批判！増強されたものは、できるだけ速くSOSを必死に翻訳しています。</text>
+    <ship load="SHIP_AUGMENTED_SELF_DESTRUCT" hostile="false" />
+	<enemyDamage amount="999" />
+	<enemyDamage amount="-1" />
+    <status type="limit" target="enemy" system="medbay" amount="0" />
+    <choice req="BOMB_HEAL" hidden="true">
+		<text>（医療爆弾）負傷した増強を癒します。[-1ミサイル]</text>
+		<event>
+			<text>医療爆弾は、フルフィットネスまで増強されたものを回復し、すぐに落ち着きます。「戦いで。かろうじて勝ちました。持っています - 私たちはこれを見つけました。」</text>
+			<item_modify>
+				<item type="missiles" min="-1" max="-1" />
+			</item_modify>
+			<weapon name="GIFTLIST_LANIUS" />
+		</event>
+    </choice>
+    <choice hidden="true" req="BLUELIST_BOMB_REPAIR">
+		<text>（修理バースト）修理爆弾で船を修理します。[-1ミサイル]</text>
+		<event>
+			<text>修理爆弾はラニウス容器を修理し、船体を使用して自分自身を修正する能力を彼らに与えます - その後、彼らは落ち着きます。「戦いで。かろうじて勝ちました。持っています - 私たちはこれを見つけました。」</text>
+			<item_modify>
+				<item type="missiles" min="-1" max="-1" />
+			</item_modify>
+			<weapon name="GIFTLIST_LANIUS" />
+		</event>
+    </choice>
+	<choice hidden="true" req="DRONE_CONTROL_SHIPREPAIR">
+		<text>（船体修理ドローン）ドローンで船を修理します。[-1ドローン]</text>
+		<event>
+			<text>ドローンはラニウス容器を修理し、船体を使用して自分自身を修正する能力を彼らに与えます - その後、彼らは落ち着きます。「戦いで。かろうじて勝ちました。持っています - 私たちはこれを見つけました。」</text>
+			<item_modify>
+				<item type="drone" min="-1" max="-1" />
+			</item_modify>
+			<weapon name="GIFTLIST_LANIUS" />
+		</event>
+    </choice>
+    <choice hidden="true" req="LIST_CREW_MEDICAL">
+		<text>（医療乗組員）あなたの医療乗組員に彼らを助けてもらいます。</text>
+		<event>
+			<text>あなたの医療乗組員がラニウスが枯渇させる酸素を呼吸することを考えると、彼らを助けるのは少し厄介ですが、彼らはシャトルの安全から最善を尽くします。あなたの乗組員は、救助された船からの贈り物で戻ってきます。</text>
+			<weapon name="GIFTLIST_LANIUS" />
+		</event>
+    </choice>
+    <choice hidden="true" req="REPAIR_ARM">
+		<text>（修理群）修理群を使用してパッチを当てます。[-25スクラップ]</text>
+		<event>
+			<text>あなたの修理群は船を修理することに成功し、ラニウスに船体を使用して自分自身を固定する能力を与えます - その後、彼らは落ち着きます。「戦いで。かろうじて勝ちました。持っています - 私たちはこれを見つけました。」</text>
+			<item_modify>
+				<item type="scrap" min="-25" max="-25" />
+			</item_modify>
+			<weapon name="GIFTLIST_LANIUS" />
+		</event>
+    </choice>
+    <choice hidden="true" req="BEAM_REPAIR">
+		<text>（Pro-hull Beam）船を修理します。</text>
+		<event load="DISTRESS_AUGMENTED_NEAR_DEATH_BEAM" />
+    </choice>
+	<choice hidden="true">
+		<text>彼らの破壊を待ちます。</text>
+		<event load="DISTRESS_AUGMENTED_NEAR_DEATH_DEATH" />
+    </choice>
+</event>
+<eventList name="DISTRESS_AUGMENTED_NEAR_DEATH_DEATH">
+   	 <event load="DISTRESS_AUGMENTED_NEAR_DEATH_EXPLOSION" />
+   	 <event load="DISTRESS_AUGMENTED_NEAR_DEATH_EXPLOSION" />
+   	 <event load="DISTRESS_AUGMENTED_NEAR_DEATH_EXPLOSION" />
+   	 <event load="DISTRESS_AUGMENTED_NEAR_DEATH_EXPLOSION" />
+   	 <event>
+		<text>船は暗くなります。驚くべきことに、彼らはすべて自分の船を破壊する代わりに飢starで死ぬことを選んだ。</text>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="DEAD_CREW_AUGMENTED" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="DISTRESS_AUGMENTED_NEAR_DEATH_BEAM">
+	<event>
+		<text>ラニウスに迅速に連絡し、シールドを下げるように指示して、ビームを使用してその完全性を固定できるようにします。彼らはそうし、自分自身を修理することを可能にし、その後落ち着きます。「戦いで。かろうじて勝ちました。持っています - 私たちはこれを見つけました。」</text>
+		<weapon name="GIFTLIST_LANIUS" />
+		<status type="loss" target="enemy" system="shields" amount="8" />
+		<enemyDamage amount="-8" />
+	</event>
+	<event>
+		<text>ラニウスに迅速に連絡し、シールドを下げるように指示して、ビームを使用してその完全性を固定できるようにします。しかし、あなたの嘆願は無視されます - 不信または混乱のために、それは彼らのパニックによって助けられません。</text>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="DISTRESS_AUGMENTED_NEAR_DEATH_DEATH" />
+		</choice>
+	</event>
+</eventList>
+<event name="DISTRESS_AUGMENTED_NEAR_DEATH_EXPLOSION">
+    <ship hostile="true" />
+    <enemyDamage amount="1" />
+    <text>増強されたものが飢えと破壊の間を選ぶ必要があるのを見ます。当然のことながら、そのうちの1つはひび割れて船体を食べ、その完全性を損ないます。</text>
+</event>
+
+
+<eventList name="QUESTS_AUGMENTED">
+	<event load="QUEST_AUGMENTED_AUTOMATED_SIGNAL" />
+</eventList>
+
+<event name="QUEST_AUGMENTED_AUTOMATED_SIGNAL" unique="true">
+	<text>古代の通信レシーバーがここに居住し、別のシステムから文字化けされた信号を拾います。残念ながら、それを作成したのは種の言語です。</text>
+	<choice hidden="true" req="UPG_AETHER_TRANSLATOR">
+		<text>（Runic Translator）メッセージを翻訳します。</text>
+		<event>
+			<text>通信は近くのシステムに由来します。自動船は、パルサーに漂いた破滅に関するメッセージを送信しています。そこに貴重な救助を見つけることができますが、自動船は廃inに近づくことができる人を攻撃する可能性があります。</text>
+			<quest event="AUGMENTED_AUTOMATED_SIGNAL_QUEST" />
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ANCIENT_ALL">
+		<text>（古代の乗組員）メッセージを翻訳します。</text>
+		<event>
+			<text>通信は近くのシステムに由来します。自動船は、パルサーに漂いた破滅に関するメッセージを送信しています。そこに貴重な救助を見つけることができますが、自動船は廃inに近づくことができる人を攻撃する可能性があります。</text>
+			<quest event="AUGMENTED_AUTOMATED_SIGNAL_QUEST" />
+		</event>
+	</choice>
+	<choice>
+		<text>信号を無視します。</text>
+		<event>
+			<text>あなたは他のことに焦点を合わせるために信号をそのままにしておきます。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>    
+	</choice>
+</event>
+<event name="AUGMENTED_AUTOMATED_SIGNAL_QUEST">
+	<beaconType id="map_icon_quest" global="true">
+  	  <color r="69" g="168" b="235" a="1" />
+  	  <unvisitedTooltip>古代の自動船がこのビーコンで廃inを保護しています。</unvisitedTooltip>
+	</beaconType>
+	<text>自動船はパルサーを軌道に乗せ、飛び込むとすぐにアクティブになります。廃inにアクセスするには、戦う必要があります。</text>
+	<ship load="SHIP_ANCIENT_AUTO_PULSAR" hostile="true" />
+	<environment type="pulsar" />
+	<choice hidden="true">
+  	  <text>継続する...</text>
+  	  <event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+
+<eventList name="HOSTILE_AUGMENTED">
+	<event load="ENCOUNTER_AUGMENTED" />
+	<event load="ENCOUNTER_AUGMENTED" />
+	<event load="ENCOUNTER_AUGMENTED_LANIUS" />
+
+	
+	<event load="ENCOUNTER_AUGMENTED_PIRATE" />
+</eventList>
+
+<event name="ENCOUNTER_AUGMENTED">
+	<text load="TEXT_ENCOUNTER_AUGMENTED" />
+	<ship load="SHIP_AUGMENTED" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_AUGMENTED">
+	<text>オーグメンティドは恐ろしい戦闘機であり、スカベンジャーです。たとえ、これまでにあなたが友好的なものにも会ったとしても。そして今、あなたは友好的でない者にであったようです。そして攻撃しようとしています！</text>
+	<text>生命を維持するスクラップへの衝動が近くのオーグメンティド・ラニウスを狂気に追いやったようで、彼らはあなたのような軍隊を攻撃するのに十分必死です！</text>
+	<text>ラニウスがSwarmlandsのものよりもスクラップに飢えているとは思わなかったが、オーグメンティドはそうではないことを証明した。戦いに備えろ！</text>
+	<text>「スクラップが必要なんです。あなたはスクラップで作られた船を持っています。あなたの船を食べたい..ああ、心配しないでください、代わりにあなたにシャトルを与えましょう」あなたがこの船の船長である限り、そのシャトルは飛ぶことはない！</text>
+	<text>あなたはオーグメンティドが古代の残骸を食べるためにここに来ることを知っていました、しかしあなたは彼らがあなたのような船を攻撃するまで行くとは知りませんでした！</text>
+</textList>
+
+<event name="ENCOUNTER_AUGMENTED_LANIUS">
+	<text load="TEXT_ENCOUNTER_AUGMENTED_LANIUS" />
+	<ship load="SHIP_LANIUS_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_AUGMENTED_LANIUS">
+    <text>このセクターは主にオーグメンティド・ラニウスによって運営されている可能性がありますが、それは、あなたの方向に向かって発砲している船のように、通過する船を捕食するために待機している通常のラニウスを見つけることができないという意味ではありません。</text>
+    <text>ここで敵対的なラニウスの船を見て驚いたかもしれませんが、オーグメンティドはどこかから来ているに違いないと思います。</text>
+    <text>ここのこの船は増強された船ではないかもしれませんが、それは通常のラニウスであり、彼らは他のどこよりもあなたの船に飢えています！</text>
+    <text>近づいてくるラニウス船で推論できるかもしれないと簡単に願っていますが、残念ながら、言葉では遅すぎて、暴力だけだと思われます。</text>
+</textList>
+
+<event name="ENCOUNTER_AUGMENTED_AUTOANCIENT" unique="true"> 
+	<text>あなたが見たものと同様の別の自動化された船は、このセクターのラニウスの群れをなんとか生き延びました。あなたが近づくとすぐに、それはあなたを脅威と攻撃として認識しているようです！</text>
+	<ship load="SHIP_ANCIENT_AUTO" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ENCOUNTER_AUGMENTED_PIRATE" unique="true">
+	<text>あなたは海賊船から連絡を受け取りますが、他の回線では、増強されたラニウスが海賊船長を切り開いて彼をむさぼり食うので、大声で叫ぶだけです。「悪い時に立ち会ったな。食べ物が必要だ。次はお前だ。」</text>
+	<ship load="SHIP_PIRATE_AUGMENTED" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+
+
+
+
+<event name="AUGMENTED_DISCOVERY">
+	<preventQuest />
+	<preventBossFleet />
+	<beaconType id="map_icon_quest" global="true">
+		<color r="66" g="255" b="0" a="1.0" />
+		<unvisitedTooltip>これらは、ハーモニーリンクで見つけた座標です。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+	</beaconType>
+	<text>マップにマークされた座標に到着しました。以前と同じように、はるかに小さいが類似した立方体の船の残骸に気づきます。ただし、前回との主な違いは、場所を除いて、これまでに見たことのない色の3つの巨大なラニウス船です。</text>
+	<ship load="SHIP_AUGMENTED_INTRO" hostile="false" />
+	<choice>
+		<text>ラニウスに連絡してください。</text>
+		<event>
+			<text>あなたはその船に連絡しますが、返答がありません。代わりに、奇妙な色のラニウスが船体から飛び出し、あなたに向かって滑空しました。それはあなたの船体に付着し穴を開けているが、損傷はすぐに修復できると思われます。</text>
+			<choice>
+				<text>継続する...</text>
+				<event>
+					<text>ラニウスが姿を現し、何か金属的な音で言います。単調だが、妙によく通る声です。「謝罪しよう。エアロックを取りたいわけではない。あなたは質問を持っていて、私を呼び出しているのか？」</text>
+					<choice>
+						<text>彼らにロボットを見せてください。</text>
+						<event>
+							<text>奇妙なラニウスは、ロボットを点検してから話します。「いや、ロボットではない。あなたのような生命体だ。金属、私のようなものだ。これは我らの皇后様にお見せるのが一番だ。きっとこれを見たいと思うだろう、生きているものはめったに見つからない！ FTLドライブの補助をさせてくれないか？」</text>
+							<choice hidden="true">
+								<text>彼に「FTLドライブの補助」をさせることに同意します。</text>
+								<event>
+									<text>ラニウスはよたよたとエンジンに近づき、ドライブをいじりまわす。「さて、行こう。ボルトで固定して、急発進だ！」 エンジンが起動し、あなたは船が光速に変化しているのを感じることができます。</text>
+									<crewMember amount="1" class="lanius_augmented">cronchmeister</crewMember>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event>
+											<secretSectorWarp>SECRET_AUGMENTED</secretSectorWarp>
+											<secretSector />
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>拒否する。</text>
+								<event>
+									<text>「なんたることだ！ では異星人を連れていく。食料が必要だ」 彼らが手に持っている装置のボタンを押すと、遠くの船が武器を装備してこちらに向かってきます</text>
+									<boarders min="1" max="1" class="lanius_augmented" />
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>ラニウスを無視します。</text>
+		<event>
+			<text>いくつかの大きな謎を抱えてこの道を進んでいるにもかかわらず、あなたは泥の中の棒になり、今やめることにします。それはかなり足りないです。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+</FTL>

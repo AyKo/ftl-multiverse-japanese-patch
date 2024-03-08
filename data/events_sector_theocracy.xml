@@ -1,0 +1,2865 @@
+<FTL>
+
+
+
+<event name="FINISH_BEACON_ROCK">
+	<text id="finish_beacon" />
+	<choice hidden="true">
+		<text>探検。</text>
+		<event load="EXIT_FILLER_LIST" />
+	</choice>
+	<choice hidden="true">
+		<text>船に乗って何かする。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice hidden="true">
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+
+	
+<eventList name="ITEMS_ROCK_MV">
+	<event load="ROCK_NEEDSMISSILES" />
+	<event load="ROCK_APOLOGY" />
+	<event load="ROCK_PUNS" />
+	<event load="ROCK_CRYOBSESSION" />
+</eventList>
+
+<event name="ROCK_NEEDSMISSILES" unique="true">
+	<text>あなたはミサイルが少ないと思われるロック船に歓迎されています。彼らはあなたからいくつかを買うことを申し出ます。</text>
+	<choice>
+		<text>ミサイルを5発売る。</text>
+		<event>
+			<disableScrapAugments />
+			<item_modify>
+				<item type="missiles" min="-5" max="-5" />
+				<item type="scrap" min="20" max="20" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text>ミサイルを10発売る。</text>
+		<event>
+			<disableScrapAugments />
+			<item_modify>
+				<item type="missiles" min="-10" max="-10" />
+				<item type="scrap" min="40" max="40" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text>ミサイルを15発売る。</text>
+		<event>
+			<disableScrapAugments />
+			<item_modify>
+				<item type="missiles" min="-15" max="-15" />
+				<item type="scrap" min="60" max="60" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>私たちは何も売ることに興味がありません。</text>
+		<event>
+			<text>あなたは謝罪し、あなたの道を続けます。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ROCK_APOLOGY" unique="true">
+	<ship load="SHIP_ROCK_GENERIC" hostile="false" />
+	<text>システムに入った瞬間、近くの船からメッセージが届きます。 「私たちは罪人です！ああ、私たちです！私たちを打ち倒してください！私たちを罰してください！私たちは人生の贈り物に値しません！」</text>
+	<choice hidden="true">
+		<text>彼らが動揺している理由を彼らに尋ねてください。</text>
+		<event load="ROCK_APOLOGY_INTERROGATE" />
+	</choice>
+	<choice hidden="true">
+		<text>それらを打ち倒します。</text>
+		<event load="ROCK_APOLOGY_ATTACK" />
+	</choice>
+	<choice hidden="true">
+		<text>それらを無視します。</text>
+		<event>
+			<text>ロックマンの訴えはしばらく続きますが、あなたは単にそれらを調整して飛び去ります。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ROCK_APOLOGY_INTERROGATE">
+    <event>
+        <text>「私は罪を犯しました！私は...トイレを使いました...そしてトイレットペーパーがなくなりました...そして近くに聖なる台本がありました...ああ神様！私はモンスターです！どうして私を作ることができますか私の犯罪を追体験しますか？あなたは残酷です！この世界にはあまりにも残酷です！最初に私はあなたを殺し、次に私自身を殺します！」</text>
+        <ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+    </event>
+    <event>
+        <text>「私は罪を犯しました！私は...トイレを使いました...そしてトイレットペーパーがなくなりました...そして近くに聖なる台本がありました...ああ神様！私はモンスターです！ああ、許してください自分自身を贖うために！私ができる方法で、おそらく私がもう一度天国への道を見つけるために役立つことができる恩恵があるでしょう！」</text>
+		<crewMember amount="1" class="rock" />
+	</event>
+</eventList>
+<eventList name="ROCK_APOLOGY_ATTACK">
+    <event>
+        <text>「気が変わった！もう死にたくない！代わりにあなたを殺して自分を贖う！」</text>
+        <ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+    </event>
+    <event>
+        <text>「ああ、いい船長に感謝します！死んで初めて贖いを見つけましょう！」</text>
+		<autoReward level="MED">standard</autoReward>
+		<enemyDamage amount="30" />
+	</event>
+</eventList>
+
+<event name="ROCK_PUNS" unique="true">
+	<ship load="SHIP_ROCK_GENERIC" hostile="false" />
+	<text>ストイックなロックキャプテンがあなたを歓迎します。 「連邦。私はあなたに重要な質問があります。なぜあなたは地質学者に完璧を期待できないのですか？」</text>
+	<choice hidden="true">
+		<text>ええと…わかりません。</text>
+		<event>
+			<text>「彼ら全員が彼らの欠点を持っているからです！」彼は激しい笑い声を上げます。</text>
+			<choice hidden="true">
+				<text>お返しに笑う。</text>
+				<event>
+					<text>あなたの笑いはロックマンと混ざり合っています。しばらくすると、二人とも落ち着きます。あなたが彼のしゃれでユーモアを見つけたのでとても感謝して、ロックマンはあなたにいくつかのミサイルを贈ることを強いられていると感じます！</text>
+					<autoReward level="MED">missiles_only</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>彼らの哀れな存在を終わらせなさい。</text>
+				<event>
+					<text>「待って…いや、冗談だった！」</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_ZOLTAN">
+				<text>（ゾルタンクルー）「なんてショッカー！」</text>
+				<event>
+					<text>ロックマンはあなた自身の駄洒落の報復にとても感銘を受け、彼が提出し、彼の残りの存在をあなたの奴隷に捧げることを約束します。彼が途中で駄洒落を作り続けることができる限り。</text>
+					<crewMember amount="1" class="rock">コメディアン</crewMember>
+					<autoReward level="MED">missiles_only</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_CRYSTAL">
+				<text>（クリスタルクルー）「ああ、賢い亀裂だ！」</text>
+				<event>
+					<text>ロックマンはあなた自身の駄洒落の報復にとても感銘を受け、彼が提出し、彼の残りの存在をあなたの奴隷に捧げることを約束します。彼が途中で駄洒落を作り続けることができる限り。</text>
+					<crewMember amount="1" class="rock">コメディアン</crewMember>
+					<autoReward level="MED">missiles_only</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_LEECH">
+				<text>（リーチクルー）「その冗談は最悪だ」</text>
+				<event>
+					<text>「それは駄洒落だと思われますか？あなたが私を侮辱しているのか、私に加わろうとして哀れな試みをしているのかわかりません。私はリーチが嫌いです。私の視界から出てください！」</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice req="LIST_CREW_SLUG" hidden="true">
+		<text>（スラッグクルー）スラッグに答えを予測してもらいます。</text>
+		<event>
+			<text>あなたのスラッグは不平を言う。 「それはssssjussstssstupidpunです。」あなたのスラッグはロックマンへの答えを繰り返します。 「彼ら全員に欠点があるので...」ロックマンはあなたがそれを予測したことを眉をひそめ、送信をオフにします。</text>
+		</event>
+	</choice>
+	<choice req="BLUELIST_CREW_SNAIL" hidden="true">
+		<text>(テレパシー シェル) シェルに答えを予測させます。</text>
+		<event>
+			<text>あなたのシェルは嘲笑します。 「これは信じられないほど愛想の悪い試みです... コメディです。」あなたのシェルは、ロックマンへの答えを繰り返します。 「みんな欠点があるから…」ロックマンはそれを聞いて笑い、あなたのシェルが彼の心から答えを得たことに気づきませんでした。彼は、彼のふざけた態度に参加するために、あなたにいくつかのミサイルを贈らなければならないと感じています.</text>
+			<autoReward level="MED">missiles_only</autoReward>
+		</event>
+	</choice>
+</event>
+
+<event name="ROCK_CRYOBSESSION" unique="true">
+	<text planet="PLANET_POPULATED">ほぼ完全に水色に塗られた近くの岩の集落があなたを歓迎します。 「あなたは外から来たのですか？クリスタル種族に由来するものは何もありませんよね？」</text>
+	<choice req="BLUELIST_WEAPONS_CRYSTAL" hidden="true">
+		<text>（クリスタルウェポン）クリスタルウェポンがあります。</text>
+		<event>
+			<text>「すごい！そのような巧妙に作られた武器も。あなたが私たちにそれを売ってくれるとは思わないでしょう？」</text>
+			<choice req="CRYSTAL_BURST_1" blue="false">
+				<text>それらにCrystalBurstMKIを販売します。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_BURST_1" />
+					<item_modify>
+						<item type="scrap" min="65" max="65" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_BURST_1_RED" blue="false">
+				<text>エリートクリスタルバーストMKIを販売します。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_BURST_1_RED" />
+					<item_modify>
+						<item type="scrap" min="75" max="75" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_BURST_2" blue="false">
+				<text>それらにCrystalBurstMKIIを販売します。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_BURST_2" />
+					<item_modify>
+						<item type="scrap" min="90" max="90" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_BURST_2_RED" blue="false">
+				<text>それらにエリートクリスタルバーストMKIIを売ってください。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_BURST_2_RED" />
+					<item_modify>
+						<item type="scrap" min="100" max="100" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_HEAVY_1" blue="false">
+				<text>それらにヘビークリスタルMKIを売る。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_HEAVY_1" />
+					<item_modify>
+						<item type="scrap" min="60" max="60" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_HEAVY_1_RED" blue="false">
+				<text>それらにエリートヘビークリスタルMKIを売ってください。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_HEAVY_1_RED" />
+					<item_modify>
+						<item type="scrap" min="70" max="70" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_HEAVY_2" blue="false">
+				<text>それらにヘビークリスタルMKIIを売ってください。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_HEAVY_2" />
+					<item_modify>
+						<item type="scrap" min="85" max="85" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_HEAVY_2_RED" blue="false">
+				<text>それらにエリートヘビークリスタルMKIIを売ってください。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_HEAVY_2_RED" />
+					<item_modify>
+						<item type="scrap" min="95" max="95" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_SHOTGUN" blue="false">
+				<text>それらにクリスタルスキャッターを売る。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_SHOTGUN" />
+					<item_modify>
+						<item type="scrap" min="90" max="90" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_SHOTGUN_RED" blue="false">
+				<text>それらにエリートクリスタルスキャッターを売る。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_SHOTGUN_RED" />
+					<item_modify>
+						<item type="scrap" min="100" max="100" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_CHARGEGUN" blue="false">
+				<text>それらにクリスタルチャージャーを売る。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_CHARGEGUN" />
+					<item_modify>
+						<item type="scrap" min="60" max="60" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_CHARGEGUN_RED" blue="false">
+				<text>それらにエリートクリスタルチャージャーを売ってください。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_CHARGEGUN_RED" />
+					<item_modify>
+						<item type="scrap" min="70" max="70" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_STUN" blue="false">
+				<text>それらにニューラルクリスタルを売る。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_STUN" />
+					<item_modify>
+						<item type="scrap" min="65" max="65" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_STUN_RED" blue="false">
+				<text>それらにエリートニューラルクリスタルを売ってください。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_STUN_RED" />
+					<item_modify>
+						<item type="scrap" min="75" max="75" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="BOMB_LOCK" blue="false">
+				<text>彼らに封鎖爆弾を売る。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="BOMB_LOCK" />
+					<item_modify>
+						<item type="scrap" min="50" max="50" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="MINELAUNCHER_CRYSTAL" blue="false">
+				<text>それらにシャードランチャーを販売します。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="MINELAUNCHER_CRYSTAL" />
+					<item_modify>
+						<item type="scrap" min="60" max="60" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_BURST_FIRE" blue="false">
+				<text>それらに琥珀色のランチャーを売る。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_BURST_FIRE" />
+					<item_modify>
+						<item type="scrap" min="120" max="120" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_BURST_FIRE_CHAOS" blue="false">
+				<text>それらをカオスアンバーランチャーを販売します。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_BURST_FIRE" />
+					<item_modify>
+						<item type="scrap" min="160" max="160" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>私たちは何も売ることに興味がありません。</text>
+				<event>
+					<text>「ああ……なんて残念だ。まあ、あなたはそのようなエキゾチックな技術を使うことができてとても幸運だということを知っている必要がある！」</text>
+					<choice>
+						<text>船に乗って何かする。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice req="LIST_CREW_CRYSTAL" hidden="true">
+		<text>（クリスタルクルー）船にクリスタルが乗っています。</text>
+		<event>
+			<text>ロックマンは沈黙します。それから、彼は不安定な口調で、「あなたは...あなたは神でなければなりません！どうぞ、私たちが持っているすべてのものを持っていってください！」と言います。</text>
+			<weapon name="GIFTLIST_CRYSTAL" />
+			<autoReward level="HIGH">standard</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>申し訳ありません。</text>
+		<event>
+			<text>和解はすぐに送信をカットします。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<eventList name="ITEMS_ROCK_UNIQUE">
+	<event load="ROCK_PROPHECY" />
+	<event load="ROCK_TEMPLE" />
+	<event load="ASTEROID_DERELICT_SHIP" />
+
+	<event load="ROCK_APOLOGY" />
+	<event load="ROCK_PUNS" />
+	<event load="ROCK_CRYOBSESSION" />
+</eventList>
+
+<event name="ROCK_PROPHECY" unique="true">
+	<text>聖なる本とろうそくを運ぶ数人のローブを着たロックマンを運ぶ船があなたを歓迎します。 「変化の時が来ています！ニュースを聞いたことがありますか？予言、それは成就するでしょう！」</text>
+	<choice hidden="true">
+		<text>どんな予言？</text>
+		<event>
+			<text>「聞いたことがありませんか？私たちよりもはるかに明るい未来からの船は、大きな変化をもたらします！慈悲深いクリスタルの人たちから私たちに死すべき者を授けられた、高い天からの贈り物です！」</text>
+			<choice hidden="true">
+				<text>私たちは予言からの船になることができますか？</text>
+				<event>
+					<text>ロックマンの一人がクロークを下ろし、長い間あなたの目の奥深くを見つめます。 「私は専門家ではありませんが、あなたはあなたのコントロールを超えた力によって動かされる生き物のように見えます。あなたの意志は、娯楽のために操作された、はるか彼方からの存在によって曲げられます。予言では、確かにあなたは関係なく重要です。おそらくこれは助けになるかもしれません。」</text>
+					<autoReward level="MED">stuff</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>これらの人々は頭がおかしいので、去りましょう。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それらを無視します。</text>
+		<event>
+			<text>あなたはこれらの宗教的なアビの絶賛に耳を傾けるよりも良いことを持っています。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ROCK_TEMPLE" unique="true">
+	<text>近くにはクリスタル種族に捧げられたロックマン寺院があります。濃い霧が惑星を覆っており、神社を守るものがあるかどうかはわかりません。</text>
+	<choice hidden="true">
+		<text>寺院を襲撃します。</text>
+		<event load="ROCK_TEMPLE_RAID" />
+	</choice>
+	<choice hidden="true">
+		<text>寺院を無視します。</text>
+		<event>
+			<text>ロックの領土にあるロックマン寺院を襲撃するには、気が狂っている必要があります。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ROCK_TEMPLE_RAID">
+	<event>
+		<text>寺院を奪おうとしている間、あなたはすぐに攻撃するロック船に止められます！</text>
+		<ship load="SHIP_ROCK_FIGHT" hostile="true" /> 
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>寺院の中には、いくつかの物資とクリスタルの武器があります。</text>
+		<autoReward level="MED">standard</autoReward>
+		<weapon name="GIFTLIST_CRYSTAL" />
+	</event>
+</eventList>
+
+<event name="ASTEROID_DERELICT_SHIP" unique="true">
+	<distressBeacon />
+	<text>近くの密集した小惑星フィールド内に生命体のない船が遭難信号を発しています。調べてみませんか？危険かもしれません。</text>	
+	<choice hidden="true">
+		<text>船を探します。</text>
+		<event load="ASTEROID_DERELICT_SHIP_SEARCH" />
+	</choice>
+	<choice hidden="true">
+		<text>そのエリアを避けてください。</text>
+		<event>
+			<text>裁量は勇気の大部分です。危険を冒さない方がいいです。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="ROCK_ARMOR">
+		<text>（ロックメッキ）漂遊小惑星を恐れずに船を徹底的に捜索してください。</text>
+		<event load="ASTEROID_DERELICT_SHIP_ROCK" />
+	</choice>
+</event>
+<eventList name="ASTEROID_DERELICT_SHIP_SEARCH">
+	<event>
+		<text>遺棄されたCrystalステーションの一部のように見えるものを見つけます。ドッキングする前に、いくつかの小惑星がシールドを通過して、エンジンに部分的な損傷を与えます。あなたは引き抜かなければならないでしょう！</text>
+		<damage amount="4" />
+		<damage amount="1" system="engines" />  
+	</event>
+	<event>
+		<text>あなたは、損傷して放棄された海賊船を見つけます。資材の回収をして先に進みます。</text>
+		<autoReward level="RANDOM">standard</autoReward>
+	</event>
+	<event>
+		<text>遺棄されたCrystallineステーションの腐敗した残骸が見つかります。既視感の奇妙な感覚があり、隅にはスタシスポッドとクリスタルの武器があります。</text>
+		<ship load="SHIP_CRYSTAL_STATION" hostile="false" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event>
+				<text>巨大な小惑星がステーションと直接衝突しているようです！あなたはあなたのクルーを引き抜かなければなりませんが、彼らは彼らが最初にできることをつかみたいと思っています。彼らは何を取りますか？</text>
+				<choice hidden="true">
+					<text>武器と予備のリソースを持っていきます。</text>
+					<event>
+						<text>あなたのクルーは彼らができることをつかみ、小惑星が衝突する前に船に戻ります。小惑星のフィールドから離れると、回復したものを確認します。</text>
+						<enemyDamage amount="999" />
+						<autoReward level="LOW">stuff</autoReward>
+						<weapon name="GIFTLIST_CRYSTAL" />
+					</event>
+				</choice>
+				<choice hidden="true">
+					<text>スタシスチャンバーをつかみます。</text>
+					<event>
+						<text>小惑星がステーションに激突し、クリスタル コーティングを粉々にする前に、乗組員はポッドを船に引きずり戻します。</text>
+						<enemyDamage amount="999" />
+						<choice hidden="true">
+							<text>継続する...</text>
+							<event>
+								<text>スタシスチャンバーをもう一度アクティブにして、内部のクリスタルがまだ生きているのを見つけることができます。彼らは混乱していて、何年か疑問に思っているので、あなたは彼らにあなたの現在の状況について非常に簡単な説明をし、小惑星のフィールドを離れることを急いでください。</text>
+								<crewMember amount="1" class="crystal">deja</crewMember>
+								<autoReward level="LOW">scrap_only</autoReward>
+							</event>
+						</choice>
+					</event>
+				</choice>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<eventList name="ASTEROID_DERELICT_SHIP_ROCK">
+	<event>
+		<text>遺棄されたCrystallineステーションの腐敗した残骸が見つかります。既視感の奇妙な感覚があり、隅にはスタシスポッドとクリスタルの武器があります。</text>
+		<ship load="SHIP_CRYSTAL_STATION" hostile="false" />
+		<status type="limit" target="enemy" system="teleporter" amount="0" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event>
+				<text>巨大な小惑星がステーションと直接衝突しているようです！あなたはあなたのクルーを引き抜かなければなりませんが、彼らは彼らが最初にできることをつかみたいと思っています。彼らは何を取りますか？</text>
+				<choice hidden="true">
+					<text>武器と予備のリソースを持っていきます。</text>
+					<event>
+						<text>あなたのクルーは彼らができることをつかみ、小惑星が衝突する前に船に戻ります。小惑星のフィールドから離れると、回復したものを確認します。</text>
+						<enemyDamage amount="999" />
+						<autoReward level="LOW">stuff</autoReward>
+						<weapon name="GIFTLIST_CRYSTAL" />
+					</event>
+				</choice>
+				<choice hidden="true">
+					<text>スタシスチャンバーをつかみます。</text>
+					<event>
+						<text>小惑星がステーションに激突し、クリスタル コーティングを粉々にする前に、乗組員はポッドを船に引きずり戻します。</text>
+						<enemyDamage amount="999" />
+						<choice hidden="true">
+							<text>継続する...</text>
+							<event>
+								<text>スタシスチャンバーをもう一度アクティブにして、内部のクリスタルがまだ生きているのを見つけることができます。彼らは混乱していて、何年か疑問に思っているので、あなたは彼らにあなたの現在の状況について非常に簡単な説明をし、小惑星のフィールドを離れることを急いでください。</text>
+								<crewMember amount="1" class="crystal">deja</crewMember>
+								<autoReward level="LOW">scrap_only</autoReward>
+							</event>
+						</choice>
+					</event>
+				</choice>
+			</event>
+		</choice>
+	</event>
+</eventList>
+	
+<eventList name="NEUTRAL_ROCK_MV">
+	<event load="ROCK_WEAPON_MEASURING" />
+	<event load="ROCK_LOOTING_MV" />
+	<event load="ROCK_MANTIS_HUNTER_MV" />
+	<event load="ROCK_MANTIS_FREIGHTER_MV" />
+	<event load="ROCK_ZOLTAN_HELP_MV" />
+	<event load="ROCK_ATHEIST" />
+	<event load="ROCK_LIVE_MINE" />
+</eventList>
+
+<event name="ROCK_WEAPON_MEASURING" unique="true">
+	<text>「ハァッ！あなたの小さな船を見てください！あなたの武器は小さいに違いありません！あなたはとても恥ずかしいに違いありません。」</text>
+	<ship load="SHIP_ROCK_BIGGUNS" hostile="false" /> 
+	<choice hidden="true">
+		<text>地獄は私たちに言っただけですか？</text>
+		<event>
+			<text>あなたが彼らと戦う準備をしている間、ロックマンは傲慢に笑います。</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="weapons" lvl="2">
+		<text>（レベル2の武器）あなたは驚かれることでしょう。</text>
+		<event>
+			<text>「ハァッ！あなたはその大きな武器と呼んでいますか？あなたの脳はもっと小さくなければなりません！」</text>
+			<choice hidden="true" req="weapons" lvl="4">
+				<text>（レベル4の武器）これはどうですか？</text>
+				<event>
+					<text>「暖かくなりましたが、それでも私たちが持っているものと比較して何もありません！」</text>
+					<choice hidden="true" req="weapons" lvl="6">
+						<text>（レベル6の武器）これはどうですか！</text>
+						<event>
+							<text>「うーん、悪くない。こんなに熱を詰めてここに来る船はあまりない。あなたのような船がこのような強力な武器の用途を見つけると確信している！」</text>
+							<weapon name="LIST_WEAPONS_ROCK_BIGGUNS" />
+							<choice hidden="true" req="weapons" lvl="8">
+								<text>（レベル8の武器）ああ、それよりもうまくやれる。</text>
+								<event>
+									<text>「さて、あなたはただ自慢しているだけです。私はそれが好きです。私はあなたの武器を試してみたいです。私はあなたに加わります！」</text>
+									<crewMember amount="1" class="rock" weapons="2">McBash</crewMember>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>いいでしょう、あなたが勝ちます。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>いいでしょう、あなたが勝ちます。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="artillery">
+		<text>（レベル1大砲）あなたは驚かれることでしょう。</text>
+		<event>
+			<text>「ハァッ！あなたはその大きな武器と呼んでいますか？あなたの脳はもっと小さくなければなりません！」</text>
+			<choice hidden="true" req="artillery" lvl="2">
+				<text>（レベル2砲）これはどうですか？</text>
+				<event>
+					<text>「暖かくなりましたが、それでも私たちが持っているものと比較して何もありません！」</text>
+					<choice hidden="true" req="artillery" lvl="3">
+						<text>（レベル3砲）これはどうですか！</text>
+						<event>
+							<text>「うーん、悪くない。こんなに熱を詰めてここに来る船はあまりない。あなたのような船がこのような強力な武器の用途を見つけると確信している！」</text>
+							<weapon name="LIST_WEAPONS_ROCK_BIGGUNS" />
+							<choice hidden="true" req="artillery" lvl="4">
+								<text>（レベル4大砲）ああ、それよりもうまくやれる。</text>
+								<event>
+									<text>「さて、あなたはただ自慢しているだけです。私はそれが好きです。私はあなたの武器を試してみたいです。私はあなたに加わります！」</text>
+									<crewMember amount="1" class="rock" weapons="2">McBash</crewMember>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>いいでしょう、あなたが勝ちます。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>いいでしょう、あなたが勝ちます。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="WEAPON_PREIGNITE">
+		<text>（プレイグナイター）これはどうですか！</text>
+		<event>
+			<text>「さて、あなたはただ自慢しているだけです。私はそれが好きです。私はあなたの武器を試してみたいです。私はあなたに加わります！」</text>
+			<weapon name="LIST_WEAPONS_ROCK_BIGGUNS" />
+			<crewMember amount="1" class="rock" weapons="2">McBash</crewMember>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それらを無視します。</text>
+		<event>
+			<text>あなたは自我のロックマンを無視し、あなたの道を続けます。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SURRENDER_ROCK_BIGGUNS">
+	<text>「うわあ、それはサイズではなく、あなたがそれをどのように使うかについてだと聞きました、そしてあなたはあなたの銃の使い方を確かに知っています！あなたの銃。」</text>
+	<choice>
+		<text>彼らの降伏を受け入れます。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="HIGH">missiles_only</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text>くそくらえ！</text>
+		<event />
+	</choice>
+</event>
+
+<event name="ROCK_LOOTING_MV" unique="true">
+	<text>ビーコンの近くに浮かんでいる無効なロックトランスポートが見つかります。あなたはそれを有用な部分から取り除くことを検討しますが、そもそもなぜそこにあるのかはわかりません。</text>
+	<choice hidden="true">
+		<text>船を剥ぎ取ります。</text>
+		<event load="ROCK_LOOTING_STRIP_MV" />
+	</choice>
+	<choice hidden="true">
+		<text>ほっといて。</text>
+		<event load="ROCK_LOOTING_LEAVE_MV" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_SLUG">
+		<text>（スラッグのクルー）残骸を略奪している間、生命体をチェックし、船を監視してください。</text>
+		<event load="ROCK_LOOTING_SLUG_MV" />
+	</choice>
+	<choice hidden="true" req="BLUELIST_CREW_SNAIL">
+		<text>(テレパシー シェル) 難破船を略奪している間、生命体を確認し、船に注意してください。</text>
+		<event load="ROCK_LOOTING_SLUG_MV" />
+	</choice>
+</event>
+<eventList name="ROCK_LOOTING_STRIP_MV">
+	<event>
+		<text>あなたは船からできるだけ資材を回収します。オペレーション中は誰も気になりません。</text>
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+	<event>
+		<text>あなたが船のサルベージをしている間、ロックパトロール船が飛び込みます。彼らはあなたに「汚らしい海賊め！死ぬ覚悟はしろ！」とメッセージを送ります。自分の使命を説明しても納得してくれるそうには思えません。</text>
+		<ship load="SHIP_ROCK_FIGHT" hostile="true" />
+		<autoReward level="LOW">standard</autoReward>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="ROCK_LOOTING_LEAVE_MV">
+	<event>
+		<text>ロックの人々は罠を仕掛けることで知られていませんが、とにかくあなたは急いで去ります。</text>
+	</event>
+	<event>
+		<text>ロックの人々は罠を仕掛けることで知られていませんが、とにかくあなたは急いで去ります。</text>
+	</event>
+	<event>
+		<text>出発する前に、ロックの巡視船が到着し、彼らの通信のおしゃべりを傍受します。あなたがあなたの無実を弁護することができる前に、彼らは攻撃するために動きます。</text>
+		<ship load="SHIP_ROCK_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="ROCK_LOOTING_SLUG_MV">
+	<event>
+		<text>あなたは船からできるだけ資材を回収します。近くに生物や船は検出されません。</text>
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+	<event>
+		<text>あなたは資材の回収を開始しますが、やがてあなたのクルーは船が近づいていることを警告します。彼らが射撃場に入る前にあなたは急いで去ります。</text>		
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+</eventList>
+
+<event name="ROCK_MANTIS_HUNTER_MV" unique="true">
+	<text>ここのマンティスの船はロックボディパーツで飾られています！内臓があればゴツゴツしたディスプレイになりますが、メッセージは十分に明確です。これは非常に特殊な種類のハンターです。</text>
+	<ship load="SHIP_MANTIS_FIGHT" hostile="false" />
+	<choice hidden="true">
+		<text>攻撃！</text>
+		<event>
+			<text>背中にマンティスハンターに値する種はありません-銀河を少し安全にする時間です。戦闘開始！</text>
+			<ship hostile="true" />	
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それらを無視します。</text>
+		<event>
+			<text>マンティスはあなたの船に興味を持っていません-彼らは次のロック船が通り抜けるのを待っています。エンジンを回転させて、自由にジャンプすることができます。</text>		
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="ROCK_ARMOR">
+		<text>（ハルアーマー）あの野郎に激突する。</text>
+		<event>
+			<text>彼らがチャンスを得る前に、あなたはあなたの船を彼らの船に突っ込み、彼らのエンジンに取り返しのつかないダメージを与えます。幸いなことに、あなたの船の装甲船体は衝撃からほとんどへこんでいません。マンティスの船が気を配り、あなたは攻撃のために移動します。</text>
+			<ship hostile="true" />
+			<status type="limit" target="enemy" system="engines" amount="0" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ROCK">
+		<text>（ロッククルー）ロッククルーメンバーを通信に配置します。</text>
+		<event>
+			<text>2人の異星人はスクリーン上で互いに向き合っています。 「洞窟に住む小石男！」猛烈なマンティスの船長を怒鳴りつけます。 「ほら、私はあなたの仲間と一緒に船をペイントします！私はあなたと一緒に船をペイントします！」</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ROCK_MANTIS_FREIGHTER_MV" unique="true">
+	<text>不思議な光景がこのビーコンであなたを迎えます：2つのマンティスクラフトがそれと戦っている間、障害のあるロック貨物船が宇宙を漂流します-おそらく誰が戦利品に値するかをめぐって。</text>
+	<choice hidden="true">
+		<text>待ってから、生き残ったマンティスを攻撃してください。</text>
+		<event load="ROCK_MANTIS_FREIGHTER_LIST_MV" />
+	</choice>
+	<choice hidden="true">
+		<text>それらを無視します。</text>	
+		<event>
+			<text>ここにはすでに十分なアクションがあります-光速の準備をしてください。</text>
+		</event>
+	</choice>
+	<choice hidden="true" req="DRONE_CONTROL_REPAIR_CREW">
+		<text>（ドローンの修理）岩船を修理します。[-1ドローン]</text>
+		<event>
+			<text>2つのマンティスが戦っている間、あなたはロック船に近づき、多くの破損の1つを通して修理ドローンを送ります。それは少なくとも1回ジャンプするのに十分なほど船を固定します。代わりに、彼らが2つのマンティスで神風特攻隊に乗り出すと、驚かされます。その結果、3つすべてが破壊されます。</text>
+			<autoReward level="HIGH">standard</autoReward>
+			<item_modify>
+				<item type="drones" min="-1" max="-1" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice hidden="true" req="DRONE_CONTROL_SHIPREPAIR">
+		<text>（船体修理ドローン）船体を修復します。[-1ドローン]</text>
+		<event>
+			<text>2つのマンティスが戦っている間、あなたはロック船に近づき、ドローンを使って船を修理します。破損が修正されると、ライフサポートがちらつきます。すぐに、彼らはすでにマンティスの船の1つを追跡しています。その間、2番目のマンティスはあなたの方を向きます。</text>
+			<item_modify>
+				<item type="drones" min="-1" max="-1" />
+			</item_modify>
+			<ship load="SHIP_ROCK_MANTIS_FREIGHTER" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ROCK_MANTIS_FREIGHTER_LIST_MV">
+	<event>
+		<text>マンティスのクラフトは、お互いを虐殺するのに忙しくて、あなたに気付くことができません。やがて小型船が優勢になりますが、暴行でヒューズを飛ばしたに違いなく、兵器システムは機能しません。今こそ攻撃する時です！</text>
+		<ship load="SHIP_ROCK_MANTIS_FREIGHTER" hostile="true" />
+		<status type="loss" target="enemy" system="weapons" amount="2" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>マンティスの工芸品には違いがあるかもしれませんが、あなたに関して言えば、彼らは一つの心を持っています。小さい方の船は、交戦するために移動するときに停電に見舞われますが、大きい方の船は一斉射撃を放ち、攻撃するために移動します。</text>
+		<ship load="SHIP_ROCK_MANTIS_FREIGHTER" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="ROCK_ZOLTAN_HELP_MV" unique="true">
+	<text>ゾルタンの船が彼らの「抑圧的な信念体系」から岩の和解を解放するためにここに来たようで、和解はそれを評価していませんでした - 長距離スキャナーはゾルタンとその追跡者がいつでもここにいることを示唆しています！</text>
+	<choice hidden="true">
+		<text>ゾルタンを滞在して防御します。</text>
+		<event>
+			<text>...岩信仰の極端な性質はよく知られています。Zoltansは、視野を広げようとすることでほとんど非難されることはありません。追求する岩船は、状況を迅速に評価し、2つの捕獲されたエイリアン船が1つよりも優れていると判断します。</text>
+			<ship load="SHIP_ROCK_HELP_ROCK" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ゾルタンを滞在して捕らえます。</text>
+		<event>
+			<text>これは岩の領土であり、したがって岩法です - ゾルタンは干渉するよりもよく知っていたはずです。安全な捕獲を確保するために、乗組員を中和する必要があります。</text>
+			<ship load="SHIP_ROCK_HELP_ZOLTAN" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>離れる。</text>
+		<event>
+			<text>これはあなたの心配事ではありません-ジャンプドライブの電源を入れてください！</text>
+		</event>
+	</choice>
+</event>
+
+<event name="ROCK_ATHEIST" unique="true">
+	<text>推進力が最小限の小さな船に遭遇します。そのロックのクルーは、ロックの故郷は大衆を抑制している嘘と宣伝で運営されており、彼らはその一部を望んでいないと説明しています。</text>
+	<ship load="SHIP_ROCK_GENERIC" hostile="false" />
+	<choice hidden="true">
+		<text>彼らの神があなたのクルーに加わるために彼らをここに送ったと彼らに伝えてください。</text>
+		<event>
+			<text load="ROCK_ATHEIST_BAD" />
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>彼らが否定された真実を彼らと共有することを約束します。</text>
+		<event load="ROCK_ATHEIST_GOOD" />
+	</choice>
+	<choice hidden="true" req="sensors" lvl="2">
+		<text>（Upg。Sensors）データスイートに表示します。</text>
+		<event>
+			<text>ロックキャプテンはあなたが収集したデータに感銘を受け、彼らが銀河に足を踏み入れるまであなたと一緒にいることに同意します。</text>
+			<crewMember amount="1" class="rock_outcast" />
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_LOSTSUN">
+		<text>(ロストサンクルー) 彼らにロストサンのやり方を教えてください。</text>
+		<event>
+			<text>ロックのキャプテンは、ロスト・サンが過激なテロリストの集団だと以前に思っていたので驚いています。あなたの船が彼らから秘密を守らないことを保証し、彼はあなたのクルーに加わります。</text>
+			<crewMember amount="1" class="rock_outcast" />
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_FLORAL">
+		<text>（フローラルクルー）あなたのオーキッドに彼らに話しかけてあなたに加わります。</text>
+		<event>
+			<text>オーキドゥはロックマンによって信頼されている種族であるだけでなく、彼らの政府はその透明性で信じられないほどよく知られています。あなたのクルーに癒されて、オーキドゥはあなたと一緒に来るように彼らに話し、それが長老たちの嘘の間よりも良い人生になることを約束します。</text>
+			<crewMember amount="1" class="rock_outcast" />
+		</event>
+	</choice>
+</event>
+<textList name="ROCK_ATHEIST_BAD">
+	<text>彼らは、「これらは私が逃げようとした嘘です！」と叫ぶ前に、あなたの訴えをほとんど聞きません。彼らは武器を充電しているようです！</text>
+	<text>彼らはあなたの訴えに耳を傾け、「真実への裏切り者。あなたは彼らに勝るものはありません！」とささやきます。混沌が続く。</text>
+</textList>
+<eventList name="ROCK_ATHEIST_GOOD">
+	<event>
+		<text>あなたの約束は彼らの注意を引き、彼らはしばらくの間あなたと一緒に奉仕することに同意します。</text>
+		<crewMember amount="1" class="rock_outcast" />
+	</event>
+	<event>
+		<text>彼らはあなたの申し出に誘惑されているように見えますが、彼らが再び嘘をつく危険を冒すことはできないと判断します。それらは周波数を閉じて飛び去ります。</text>
+		<choice>
+			<text>船に乗って何かする。</text>
+			<event load="STORAGE_CHECK" />
+		</choice>
+		<choice>
+			<text>何もしない。</text>
+			<event />
+		</choice>
+	</event>
+	<event>
+		<text>彼らはあなたの申し出に誘惑されているように見えますが、彼らが再び嘘をつく危険を冒すことはできないと判断します。それらは周波数を閉じて飛び去ります。</text>
+		<choice>
+			<text>船に乗って何かする。</text>
+			<event load="STORAGE_CHECK" />
+		</choice>
+		<choice>
+			<text>何もしない。</text>
+			<event />
+		</choice>
+	</event>
+</eventList>
+
+<event name="ROCK_LIVE_MINE" unique="true">
+	<text>ロックトラッパーの燃え尽きた船体が漂流します。難破船の後ろには生きている鉱山が漂っています。爆発する前に船の船体にドリルで穴を開ける自動ドローン。ただし、この範囲からは検出できず、アクティブであるかどうか疑問に思います。それでも、それは危険です...</text>
+	<choice hidden="true">
+		<text>残骸をスクラップします。</text>
+		<event>
+			<text>あなたは船の船体をバラバラにして、スクラップ、弾薬、そしてマインランチャーを見つけます！しかし、あなたが去ることができる前に、鉱山は活性化し、あなたの船を探し始めます！</text>
+			<autoReward level="MED">missiles</autoReward>
+			<weapon name="GIFTLIST_MINELAUNCHERS_TRAPPER" />
+			<choice hidden="true">
+				<text>回避策を試みてください！</text>
+				<event>
+					<text>船の旋回円が広すぎて、地雷が船体に食い込んだ。あなたは今それを聞くことができ、鎧をかみ砕きます。</text>
+					<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="1">
+						<text>それを和らげるためにそこに誰かを送ってください。</text>
+						<event load="ROCK_LIVE_MINE_DEFUSE" />
+					</choice>
+					<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="0" max_lvl="0">
+						<text>周りに誰もいないので、あなたの唯一の選択肢は、あなたの死を辛抱強く待つことです.</text>
+						<event>
+							<text>武器が爆発します。すべてが暗くなり、船体から降り注ぐ炎に照らされた橋。あなたは火を消し、次に進む準備をします。</text>
+							<damage amount="5" />
+							<damage amount="1" system="room" effect="breach" />
+						</event>
+					</choice>
+					<choice hidden="true" req="BLUELIST_MISSILES_ALL">
+						<text>（ミサイル兵器）ミサイルを使用して制御爆破を試みます。</text>
+						<event>
+							<text>ストローを引いた後、クルーは改造された弾頭を鉱山に修理するために出かけます。あなたは地雷を取り除く方法でミサイルを爆発させます。すぐに爆発します。船は爆風でいくらかのダメージを受けますが、あなたはまだ航海中です。</text>
+							<damage amount="3" />
+							<damage amount="1" system="random" />
+							<item_modify>
+								<item type="missiles" min="-1" max="-1" />
+							</item_modify>
+							<autoReward level="LOW">scrap_only</autoReward>
+						</event>
+					</choice>
+					<choice hidden="true" req="DRONE_CONTROL_BEAM_DRONE">
+						<text>（ビームドローン）ドローンを使用して、精密ビームで鉱山を切り取ります。[-1ドローン]</text>
+						<event>
+							<text>橋から注意深く誘導されたビームドローンは、鉱山の組みつき腕を取り除き、宇宙に漂流させ、安全な距離で爆発するまで発射します。</text>
+							<item_modify>
+								<item type="drones" min="-1" max="-1" />
+							</item_modify>
+							<autoReward level="LOW">scrap_only</autoReward>
+						</event>
+					</choice>				
+				</event>
+			</choice>
+			<choice hidden="true" req="engines" lvl="5">
+				<text>（Upg。Engines）逆スラスタ！</text>
+				<event>
+					<text>それは慣性ダンパーにストレスを与えますが、あなたはコースを逆にして鉱山を追い越します。あなたはジャンプする準備をします。</text>
+				</event>
+			</choice>
+			<choice hidden="true" req="BLUELIST_ARMOR">
+				<text>（ハルアーマー）あなたの鎧はあなたを守ります。</text>
+				<event>
+					<text>鉱山はあなたの船に穴を掘るのにさえ苦労しています。そのドリルは最終的に電力を使い果たして漂流し、今では無害になっています。</text>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ENERGY_SHIELD">
+				<text>（エネルギーシールド）あなたのシールドはあなたを守ります。</text>
+				<event>
+					<text>鉱山はあなたのエネルギーシールドを通過することができません。船体に触れることなく爆発します。</text>
+				</event>
+			</choice>
+			<choice hidden="true" req="DRONE_CONTROL_DEFENSE">
+				<text>（防衛ドローン）鉱山を撃ち落とす。[-1ドローン]</text>
+				<event>
+					<text>幸いなことに、防衛ドローンはすぐに地雷に固定され、船に接続する前に撃墜されます。</text>
+					<item_modify>
+						<item type="drones" min="-1" max="-1" />
+					</item_modify>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>難破船は無視してください。</text>
+		<event>
+			<text>調べる価値はありません。ビーコンには他の場所にも地雷が散らばっている可能性が高いため、ここに長く留まらないことにします。</text>
+		</event>
+	</choice>
+</event>
+<eventList name="ROCK_LIVE_MINE_DEFUSE">
+	<event>
+		<text>クルーは宇宙服を着てエアロックを終了します。彼らは基本的な装置を素早く動かし、中へ戻って一周して安心します。鉱山はまた、良いスクラップピッキングを行います。</text>
+		<autoReward level="MED">scrap_only</autoReward>
+	</event>
+	<event>
+		<text>クルーは宇宙服を着てエアロックを終了します。しかし、彼らが鉱山の住宅を開くと、彼らはパニックに陥ります。赤いワイヤーか青いか？ 3 ... 2 ...1..。</text>
+		<choice hidden="true">
+			<text>赤！</text>
+			<event load="ROCK_LIVE_MINE_DEFUSE2" />
+		</choice>
+		<choice hidden="true">
+			<text>青！</text>
+			<event load="ROCK_LIVE_MINE_DEFUSE2" />
+		</choice>
+		<choice hidden="true" req="LIST_CREW_ELITE">
+			<text>（エリートクルー）爆弾を解体するためにエリートを送ってください。</text>
+			<event>
+				<text>あなたのエリートは躊躇しません。彼らは後ろの2番目のパネルを引き抜き、新しく現れた緑色のワイヤーを切断します。奇跡的に、爆弾は非アクティブになります！</text>
+				<autoReward level="MED">scrap_only</autoReward>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<eventList name="ROCK_LIVE_MINE_DEFUSE2">
+	<event>
+		<text>あなたは目を開けると、すべてがまだ少し前の場所にあります。できたね！</text>
+		<autoReward level="MED">scrap_only</autoReward>
+	</event>
+	<event>
+		<text>武器が爆発します。すべてが暗くなり、船体から降り注ぐ炎に照らされた橋、爆弾処理ボランティアが近くの太陽に向かって回転します。あなたは火を消し、先に進む準備をします。</text>
+		<removeCrew>
+			<clone>true</clone>
+			<text>幸いなことに、あなたのクルーはクローンベイが彼らを復活させるのに十分なほど船の近くにいました。羊のようで謝罪し、彼らはクルーに再び加わります。</text>
+		</removeCrew>
+		<damage amount="5" />
+		<damage amount="1" system="room" effect="breach" />
+	</event>
+</eventList>
+
+<event name="ROCK_SLUG_ARGUMENT_MV" unique="true">  
+	<text>あなたは、武器が武装していて戦う準備ができている、スタンドオフにあるスラッグ巡洋艦とロック船を見つけます。これが手に負えなくなる前にあなたは介入することができます。</text>
+	<choice>
+		<text>何が悪いのかを見るために彼らを呼んでください。</text>
+		<event>
+			<text>ナメクジの船長は、自分たちがロック船のリアクターをアップグレードしたのに、「太った岩石頭野郎」がその仕事の代金を払うのを拒否していると説明する。ロックの船長は、「ゼラチン状のドロドロネズミ野郎」が価格に見合わないお粗末な仕事をしたと言う。</text>
+			<choice>
+				<text>ロックの借金を返済することを申し出る。</text>
+				<event>
+					<text>あなたは借金を返済します。ロックキャプテンは、スラッグが「価値のない」スクラップを手に入れることにいらいらしているように見えますが、少なくとも状況は平和なままです。</text>
+					<item_modify>
+						<item type="scrap" min="-15" max="-10" />
+					</item_modify>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="ROCK_SLUG_GRATEFUL_MV" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>ロック船に合意した価格を支払うように要求します。</text>
+				<event load="ROCK_SLUG_COMMAND_MV" />
+			</choice>
+			<choice hidden="true" req="LIST_CREW_ROCK">
+				<text>（ロッククルー）ロックに話しかけて、全額を平和的に支払うようにします。</text>
+				<event>
+					<text>多くの不平を言って、ロックキャプテンは代金を支払うことに同意します。</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="ROCK_SLUG_GRATEFUL_MV" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>スラッグ船に全額返金を要求する。</text>
+				<event load="ROCK_SLUG_REFUND_MV" />
+			</choice>
+			<choice hidden="true" req="LIST_CREW_SLUG">
+				<text>（スラッグクルー）新しい価格を平和的に受け入れるようにSlugsに話しかけます。</text>
+				<event>
+					<text>多くの不平を言って、スラッグキャプテンは全額返金することに同意します。</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="ROCK_SLUG_ROCK_GRATEFUL_MV" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="mind">
+				<text>（マインドコントロール）スラッグをマインドコントロールして全額返金します。</text>
+				<event>
+					<text>マインドコントロールを調整してスラッグ船にロックします...しかし何も起こりません。現時点では、スラッグはマインドコントロールがまったくできないことを覚えています。スラッグの船長はあなたの哀れな試みを笑い、あなたは恥ずかしそうに去ります。</text>
+				</event>
+			</choice>
+			<choice>
+				<text>あなたは出席するより良いものを持っています、それらを残してください。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>それらを残します。</text>
+		<event>
+			<text>あなたは2隻の船を彼らの罵倒に任せます。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ROCK_SLUG_COMMAND_MV">
+	<event>
+		<text>どうやらロックキャプテンはあなたが思っていたよりもイライラしていたようです。彼らはすべての通信を遮断し、「スライムボール」の擁護者であるあなたをオンにしました。</text>
+		<ship load="SHIP_ROCK_SLUG_REACTOR" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>多くの不平を言って、ロックキャプテンは代金を支払うことに同意します。</text>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="ROCK_SLUG_GRATEFUL" />
+		</choice>
+	</event>
+	<event>
+		<text>ロックシップから大規模な爆発が発生し、船体が粉砕され、避けられない衝突コースで破片が船に送られます。結局のところ、リアクターのアップグレードはうまく行われていなかったようで、スラッグ達は飛び去る機会を得ました。</text>
+		<damage amount="3" />
+		<damage amount="1" system="random" />
+		<damage amount="1" system="random" />
+	</event>
+</eventList>
+<eventList name="ROCK_SLUG_GRATEFUL_MV">
+	<event>
+		<text>スラッグはあなたの助けに感謝し、飛び去ります。彼らの真の感謝は疑わしいですが、少なくともあなたはあなたの使命に戻ることができます。</text>
+	</event>
+	<event>
+		<text>スラッグキャプテンはあなたの助けのために無料のリアクターアップグレードを提供します。少しパワーブーストを取得することは決して痛いことではありません！</text>
+		<upgrade amount="1" system="reactor" />
+	</event>
+	<event>
+		<text>スラッグキャプテンは、あなたの助けに感謝し、あなたの船のリアクターのアップグレードを提供します...「公正な」価格で。</text>
+		<choice>
+			<text>価格に同意します。</text>
+			<event>
+				<text>あなたは彼らのチームを乗せ、しばらくして彼らは仕事を終えます。</text>
+				<item_modify>
+					<item type="scrap" min="-15" max="-10" />
+				</item_modify>
+				<upgrade amount="1" system="reactor" />
+			</event>
+		</choice>
+		<choice>
+			<text>申し出を断る。</text>
+			<event>
+				<text>あなたはコミュニケーションを断ち切り、先に進む準備をします。</text>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<eventList name="ROCK_SLUG_REFUND_MV">
+	<event>
+		<text>「ハハハ！地獄のように、私は連邦の船長の助言を得るだろう、特に彼が私に言ったとき、私は自分自身を私のお金からだまされさせなければならない！」スラッグの船はすぐに敵対的になります！</text>
+		<ship load="SHIP_ROCK_SLUG_SLUG_REACTOR" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>スラッグがあなたの母親について息を切らしていくつかの厄介なことを言うのを聞くのはかなり確かですが、彼らはしぶしぶロックマンの新しい価格を受け入れます。</text>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="ROCK_SLUG_ROCK_GRATEFUL_MV" />
+		</choice>
+	</event>
+	<event>
+		<text>ロックシップから大規模な爆発が発生し、船体が粉砕され、避けられない衝突コースで破片が船に送られます。結局のところ、リアクターのアップグレードはうまく行われていなかったようで、スラッグ達は飛び去る機会を得ました。</text>
+		<damage amount="3" />
+		<damage amount="1" system="random" />
+		<damage amount="1" system="random" />
+	</event>
+</eventList>
+<eventList name="ROCK_SLUG_ROCK_GRATEFUL_MV">
+	<event>
+		<text>ロックキャプテンは不平を言い、それから一言も言わずに飛び去ります。ロックマンは文化として恩知らずである傾向があることを知っていますが、これは単なる失礼です。</text>
+	</event>
+	<event>
+		<text>ロックの船長はあなたの援助にかなり感謝していないようですが、彼の不十分なリアクターのアップグレードによってまだ形が崩れています。 「そして、私はこのくだらないアップグレードについて何をすべきでしょうか？」</text>
+		<choice hidden="true">
+			<text>それらのためにそれを修正します。 [-25スクラップ]</text>
+			<event>
+				<text>あなた自身のいくつかのスクラップで、あなたはそれを整えるためにロックマンのリアクターに取り組んでいます。 「それでも厄介な仕事ですが、少なくともあなたはそれらのスラッジ噴出物ほど悪くはありません。」それは非常に気が進まない褒め言葉ですが、ロックマンが贈り物を持って戻ってきたので、それを高く評価していることがわかります！</text>
+				<item_modify>
+					<item type="scrap" min="-25" max="-25" />
+				</item_modify>
+				<weapon name="RANDOM" />
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>それに対処します。</text>
+			<event>
+				<text>この反応からどのような反応が期待できるかはわかりませんが、ロックキャプテンからの突然の笑い声はあなたを驚かせます。 「私はあなたのスタイルが好きです。」簡単ですが、ロックマンからの褒め言葉は嘲笑するものではありません。特に、彼らを助けてくれた「ありがとう」として小さな贈り物が続いているので。</text>
+				<autoReward level="LOW">standard</autoReward>
+			</event>
+		</choice>
+	</event>
+</eventList>
+
+<eventList name="NEUTRAL_ROCK_UNIQUE">
+	<event load="ROCK_RAVINE" />
+	<event load="ROCK_ASTEROID_COLONY" />
+	<event load="ROCK_CRUSADE" />
+	<event load="ROCK_NURSERY_MV" />
+
+	<event load="ROCK_WEAPON_MEASURING" />
+	<event load="ROCK_LOOTING_MV" />
+	<event load="ROCK_ATHEIST" />
+	<event load="ROCK_LIVE_MINE" />
+</eventList>
+
+<event name="ROCK_RAVINE" unique="true">
+	<text>近くの惑星の表面には巨大な峡谷があります。峡谷の奥深くを通り過ぎて飛んでいる2人のロックスカウトを見つけるまで、それはすべて正常に見えます。</text>
+	<img back="BACK_EVENT_ROCKRAVINE" planet="NONE" />
+	<choice hidden="true">
+		<text>それらに従う。</text>
+		<event>
+			<text>あなたは船をはるか後ろから追跡し、彼らがあなたを見ることができないことを確認しますが、決して彼らを失うことはありません。峡谷の分岐点に到達してすぐに、船は分裂しました。反乱軍の艦隊が追いつくことを望まない場合は、道の1つを探索する時間しかありません。</text>
+			<choice hidden="true">
+				<text>船を左に進みます。</text> 
+				<event>
+					<text>船は、峡谷の真っ直ぐな水滴に面して建てられた巨大な施設のように見える場所に停泊します。隠れ場所がないため、ロックマンは必然的にあなたを見つけ、施設が何であれ防御する準備をします。</text>
+					<ship load="SHIP_ROCK_RAVINE_LEFT" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>					
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>船を右に進みます。</text> 
+				<event>
+					<text>船は峡谷の床に建てられた巨大な刑務所キャンプの近くに着陸します。見捨てられたように見えますが、ロックマンがあなたの船を見つけて攻撃する前に調査する時間はあまりありません。</text>
+					<ship load="SHIP_ROCK_RAVINE_RIGHT" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>	
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>気にしないでください、これは悪い考えです。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>船を無視します。</text>
+		<event>
+			<text>それらのロックマンはそこで何かをしている可能性があり、それはあなたの仕事ではありません。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ROCK_RAVINE_LEFT">
+	<text>あなたはロック船を倒しました。施設を調査する前に、船を廃棄する時間があります。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>建物への入り口は、廃止されたロビーにあなたを導きます。かろうじて機能するエレベータは、この施設が長い間放棄されてきたため、バックアップ発電機が稼働している必要があることを示唆しています。フロアを探索するにはいくつかの異なるオプションがありますが、時間は1つだけです。</text>
+			<choice hidden="true">
+				<text>「コントロール」とマークされたフロアを探索します。</text>
+				<event>
+					<text>ロックの施設のフロアマーク付きコントロールは、興味深い体験になるはずです。あなたはそこに向かい、エレベーターを警戒します。内部には、もはや機能していないマインドコントロールシステムと、峡谷の反対側にある巨大な刑務所キャンプのように見えるものを見下ろす巨大なスクリーンがあります。隅にある戦闘増強といくつかの廃棄された燃料電池に気付くまで、この部屋には実際には何も使用されていないと思い始めます。</text>
+					<autoReward level="MED">fuel_only</autoReward>
+					<augment name="GIFTLIST_AUGMENT_COMBAT" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>「セキュリティ」とマークされたフロアを探索します。</text>
+				<event>
+					<text>セキュリティフロアがあなたの興味をそそりました。あなたはそこに向かって、エレベーターに警戒します。重い爆風ドアは道を保護しますが、何かがあなたが絞るのに十分なほどそれらを曲げることができました。いくつかのモニターは、施設の他の部屋を見下ろし、スタッフが完全に空であることを証明しています。ここでは、長距離のスキャナーの増強と一部のドローンパートを除いて、軍の船にとっては価値がありません。</text>
+					<autoReward level="MED">droneparts_only</autoReward>
+					<augment name="ADV_SCANNERS" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>「武器庫」とマークされたフロアを探索します。</text>
+				<event>
+					<text>武器庫は当然の選択のようです。あなたはそこに向かい、エレベーターを警戒します。中には、いくつかの物資の棚とさまざまな武器があります。限られた人員で、あなたはランダムに武器の1つといくつかのミサイルを取ります。</text>
+					<autoReward level="MED">missiles_only</autoReward>
+					<weapon name="RANDOM" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ROCK_RAVINE_RIGHT">
+	<text>あなたはロック船を倒しました。キャンプを調査する前に、船を廃棄する時間があります。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>ロック刑務所のキャンプは主に放棄されているように見えますが、まだ燃えている唯一のキャンプ火災は、まだ残された生活が残っている可能性があることを示唆しています。さらなる探検がさまざまな人種の囚人の小さなバンドを明らかにしたとき、あなたは正しいことが証明されています。彼らは、囚人が反乱を起こし、ほとんどのロックガードを殺すことができたと説明しています。ロックマンは退却し、生き残った囚人は飢えて死にました。この小さなグループは、残っている唯一のグループです。船にはすべてを持ち込むのに十分なスペースがありませんが、おそらくそれらの1つを持参できます。</text>
+			<choice hidden="true">
+				<text>ロックの囚人の1人を連れてきてください。</text>
+				<event>
+					<text>ロックには追放者の痕跡があり、最近捕らえられたロック政府から逃亡した可能性があります。彼らはあまり話さないが、あなたが彼らを救うことを選んだことを彼らが喜んでいると言うことができる。</text>
+					<crewMember amount="1" class="rock_outcast" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>人間の囚人の1人を連れてきてください。</text>
+				<event>
+					<text>人間は反乱軍のエンジニアであることが判明し、反乱軍と交渉するために人質として使用されることを意図してロックマンに捕らえられました。彼らにとって残念なことに、反政府勢力は囚人を買い戻すことに興味がありませんでした。彼らはこのキャンプに閉じ込められました。反乱軍の起源であるにもかかわらず、彼らはあなたと一緒に来て、この場所を置き去りにすることを喜んでいます。</text>
+					<crewMember amount="1" class="human_engineer" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>スラッグの囚人の1人を連れてきてください。</text>
+				<event>
+					<text>スラッグは、純粋に疑惑に基づいてロックマンに捕らえられた観光客でした。彼らの過ちを認めたくなかったので、彼らは単にスラッグをこの刑務所に永遠に閉じ込めることを選びました。彼らは最終的に自由になる見込みでエネルギーで活気に満ちています。</text>
+					<crewMember amount="1" class="slug" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ROCK_ASTEROID_COLONY" unique="true">
+	<text>近くのロックコロニーで完全な混乱が起こったようです。大きな小惑星が惑星に衝突して甚大な被害をもたらしたようで、今では何百もの船が惑星の表面から前後に群がっています。</text>
+	<img planet="PLANET_POPULATED" />
+	<choice hidden="true">
+		<text>海賊の襲撃者を捕まえなさい。</text>
+		<event>
+			<text>あなたは惑星の表面に向かって飛んで、現在非武装のロック民間人に発砲している海賊船と交戦します。</text>
+			<ship load="SHIP_ASTEROID_COLONY_PIRATE" hostile="true" /> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>民間人を救出してみてください。</text>
+		<event load="ROCK_ASTEROID_COLONY_RESCUE" />
+	</choice>
+	<choice hidden="true">
+		<text>残骸を救い出してみてください。</text>
+		<event load="ROCK_ASTEROID_COLONY_SALVAGE" />
+	</choice>
+	<choice hidden="true">
+		<text>これは混沌です。私たちは去るべきです。</text>
+		<event>
+			<text>あなたはコロニーとその周りの船を避けます。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ROCK_ASTEROID_COLONY_PIRATE" unique="true">
+	<text>海賊船は地面に激突しましたが、幸いなことに民間人は無傷です。あなたが海賊船の残骸を確保しても、誰も抗議しません。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>民間人に連絡してください。</text>
+		<event>
+			<text>ロックマンのほとんどはパニックになりすぎて、近づくと逃げます。より賢明な人の何人かはあなたの話を聞くのをやめます。あなたはあなたが運ぶことができる限り多くのそれらを輸送することを申し出ます、それらのほとんどが拒否する申し出。しかし、一人の若いロックマンは、あなたのクルーに加わるところまで行っても、受け入れます。</text>
+			<crewMember amount="1" class="rock" />
+		</event>
+	</choice>
+</event>
+<eventList name="ROCK_ASTEROID_COLONY_RESCUE">
+	<event>
+		<text>ロックマンのほとんどはパニックになりすぎて、近づくと逃げます。より賢明な人の何人かはあなたの話を聞くのをやめます。あなたはあなたが運ぶことができる限り多くのそれらを輸送することを申し出ます、それらのほとんどが拒否する申し出。しかし、一人の若いロックマンは、あなたのクルーに加わるところまで行っても、受け入れます。</text>
+		<crewMember amount="1" class="rock" />
+	</event>
+	<event>
+		<text>あなたが近づくと、海賊船があなたをロックし、あなたの船体を横切って数発発射します。あなたは引き離されることを余儀なくされますが、海賊は追跡します！</text>
+		<ship load="SHIP_PIRATE_ALL" hostile="true" /> 
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+		<damage amount="3" />
+	</event>
+	<event>
+		<text>あなたが着陸するのに安全な唯一の場所は、かつては住宅団地だった土地の空き地の近くです。がれきになりました。まだ取っていないものを回収します。</text>
+		<autoReward level="LOW">stuff</autoReward>
+	</event>
+</eventList>
+<eventList name="ROCK_ASTEROID_COLONY_SALVAGE">
+	<event>
+		<text>ロックエンフォーサーは海賊との取引で忙しくてあなたに気付かない。あなたは急降下して、できるだけ多くを集めます。</text>
+		<autoReward level="HIGH">stuff</autoReward>
+	</event>
+	<event>
+		<text>海賊をかわそうとしているエリートロック船の1人があなたに気づいたようです。あなたは船に追われており、戦いは避けられないようです。</text>
+		<ship load="SHIP_ROCK_ELITE_FIGHT" hostile="true" /> 
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="ROCK_CRUSADE" unique="true">
+	<text>異端審問船の群れが近くで休んでおり、マイナーな修理を行っています。彼らはあなたに気づいていません。</text>
+	<choice hidden="true">
+		<text>彼らに連絡する。</text>
+		<event>
+			<text>「連邦船、ここでは歓迎されません！死の願望がない限り、二度と私達に連絡しないでください。」</text>
+			<choice hidden="true">
+				<text>もう一度連絡してください。</text>
+				<event>
+					<text>「ああ！今あなたはそれを求めました。」</text>
+					<ship load="SHIP_ROCK_ELITE_FIGHT" hostile="true" /> 
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_ROCK_FAITHFUL">
+				<text>（神権政治の乗組員）あなたのロックマンに彼らに連絡させてください。</text>
+				<event>
+					<text>「私たちの一人？おそらく私はあなたの起源を間違えました。私たちは通常の職務で予期しない障害に遭遇しました。異端者とクズ野郎でいっぱいのマンティスの船が私たちの部門に入るという致命的な間違いを犯しました！残念ながら、私たちは彼らの搭乗戦術の準備が十分ではありません。私たちの使命を果たし、マンティスを破壊することができますか？」</text>
+					<choice hidden="true">
+						<text>マンティスを殺すことに同意します。</text>
+						<event>
+							<text>異端審問船はあなたにマンティスの座標を与えます。驚いたことに、彼らは遠くないので、実際には同じビーコンに生息しているほど近くにあります。もう一つの予想外のターンは、彼らがハイブマンティスの船ではなく、フリーマンティスであるということです！ 「ああ、連邦！こんにちは！お会いできてうれしいです。このセクターは奇妙ですよね？少し前まで、私たちは怒った石の男と一緒に大きな青い船に追いかけました。とても怖いです。」</text>
+							<choice hidden="true">
+								<text>あなたの約束を守り、マンティスを殺してください。</text>
+								<event>
+									<text>あなたには従うべき使命があります。あなたは武器を武装させ、フリーマンティスと交戦します。</text>
+									<ship load="SHIP_CRUSADE_FREEMANTIS" hostile="true" /> 
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="MORALITY_UPDATE_FREEMANTIS_FIGHT" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>味方と戦うことはできません。</text>
+								<event>
+									<text>ロックマンはあなたの裏切りに激怒しています。 「これは私が今まで経験したことのない侮辱です！あなたは弱く、罰せられなければなりません。」</text>
+									<ship load="SHIP_CRUSADE_ROCK" hostile="true" /> 
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>できない。</text>
+						<event>
+							<text>「それなら、あなたは私たちには役に立たない。すぐに去りなさい。」</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>彼らの警告を守り、去りなさい。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それらを無視します。</text>
+		<event>
+			<text>安全のために、あなたはあなたとロックマンの間にある程度の距離を置きます。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ROCK_CRUSADE_FREEMANTIS">
+	<text>あなたはマンティスの船を倒しました。あなたは残骸を救い出します。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>異端審問であなたの成功を確認してください。</text>
+		<event>
+			<text>「あなたの名誉と腕前を示す価値のあるものです。私はあなたに拍手を送ります。これを感謝の印として受け入れてください。」</text>
+			<weapon name="GIFTLIST_MISSILES" />
+		</event>
+	</choice>
+</event>
+<event name="ROCK_CRUSADE_ROCK">
+	<text>あなたはロックマンを倒しました。あなたは残骸を救い出します。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>フリーマンティスに連絡してください。</text>
+		<event>
+			<text>「怖い石の男が今死んでいる？うわー...このセクターはとても友好的ではない。私は今あなたと一緒に来て、双子の兄弟を連れてくる。」</text>
+			<crewMember amount="2" class="mantis_free" />
+		</event>
+	</choice>
+</event>
+
+<event name="ROCK_NURSERY_MV" unique="true">
+	<text>変動する生命の兆候は、近くのぼんやりとした、あばたのある月の表面近くで報告されています。これは、若者が自分たちの宗教に「順応」しているロック保育園のようです。ある種のクーデターがあり、生徒たちは大騒ぎしています。</text>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+		<text>調査のために離れたチームを転送します。</text>
+		<event>
+			<text>あなたのアウェイチームは、学生と当局の間の戦闘を報告しています-一部の学生は反体制派の性格を持っていると見なされ、積極的に投獄されたようです。</text>
+			<choice hidden="true">
+				<text>アウェイチームに生徒の側に立つように命じます。</text>
+				<event>
+					<text>惑星での暴力が本格的な戦いになるのはそう長くはありません。あなたのアウェイチームとその中心にある軍用兵器です。</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="ROCK_NURSERY_MV_STUDENTS" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">	
+				<text>アウェイチームに当局の側に立つように命じます。</text>
+				<event>
+					<text>惑星での暴力が本格的な戦いになるのはそう長くはありません。あなたのアウェイチームとその中心にある軍用兵器です。</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="ROCK_NURSERY_MV_AUTHORITY" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>狂信的な熱狂者や抑圧された学生に対抗するために必要なチームが不足しています。</text>
+		<event load="OPTION_INVALID" />
+	</choice>				
+	<choice hidden="true">
+		<text>離れる。</text>
+		<event>
+			<text>彼らが船を撃っていない限り、彼らをそのままにしておくのが最善です。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>		
+	<choice hidden="true" req="weapons" lvl="6">
+		<text>（Adv。Weapons）あなたの到着を発表するために、騒ぎの近くに警告ショットを発射します。</text>
+		<event>
+			<text>あなたは、インスタレーションの近くの未使用の採石場に家に衝突する武器の弾幕を派遣します。月の防衛力があなたの場所に派遣されるのにかかる限り、表面での武器の発射は止まります！</text>
+			<ship load="SHIP_ROCK_FIGHT" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ROCK_NURSERY_MV_STUDENTS">
+	<event> 
+		<text>結局、物事はうまくいきません。敵はあなたのチームに隣接することに成功し、彼らは船に後退することを余儀なくされます。</text>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event>
+				<text>スタッフと当局は、最後の反乱軍の学生を討伐します。刑務所輸送船はすでに軌道上にあります。</text>
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="ROCK_NURSERY_MV_LOSE" />
+				</choice>
+			</event>
+		</choice>
+	</event>  
+	<event>
+		<text>戦いはうまくいかず、あなたのチームは最終的に、負傷したロック戦闘員を引き連れて側面にいることに気づきます。彼らはシャトルのコーディネートを必死に推し進めますが、1つは落ちます。生存者は負傷したロックを助けます。</text>
+		<removeCrew>
+			<clone>true</clone>
+			<text>幸いなことに、あなたのクルーはクローンベイが彼らを復活させるのに十分なほど船の近くにいました。</text>
+		</removeCrew>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event>
+				<text>スタッフと当局は、最後の反乱軍の学生を討伐します。刑務所輸送船はすでに軌道上にあります。</text>
+				<crewMember amount="1" class="rock" />
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="ROCK_NURSERY_MV_LOSE" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>あなたのチームはメインクワッドに身を寄せ、敵の戦闘員を阻止し、施設の支配権を主張することに成功しました！</text>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event>
+				<text>学生たちは残りのスタッフを確保し、太陽系を離れる準備をします。現在、彼らに開かれている道は無法者の道だけです。</text>
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="ROCK_NURSERY_MV_WIN" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>あなたのチームは大火事になります。一人は閃光爆弾で目がくらみ、採石場の唇を通り過ぎてよろめき、はるか下で死ぬ。もう1つは友軍との合流に成功し、最終的には組織の支配権を主張します。</text>
+		<removeCrew>
+			<clone>true</clone>
+			<text>幸いなことに、あなたのクルーはクローンベイが彼らを復活させるのに十分なほど船の近くにいました。</text>
+		</removeCrew>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event>
+				<text>学生たちは残りのスタッフを確保し、太陽系を離れる準備をします。現在、彼らに開かれている道は無法者の道だけです。</text>
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="ROCK_NURSERY_MV_WIN" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>	
+		<text>戦闘が進むにつれて、アクションはチームの場所から離れます。落ち着きの間に、彼らはいくつかの放棄された武器を確保することができます。彼らが終わった時までに、戦いは大部分終わり、彼らは船に戻ります。</text>
+		<autoReward level="MED">weapon</autoReward>
+	</event>
+</eventList>
+<eventList name="ROCK_NURSERY_MV_AUTHORITY">
+	<event>
+		<text>結局、物事はうまくいきません。敵はあなたのチームに隣接することに成功し、彼らは船に後退することを余儀なくされます。</text>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event>
+				<text>学生たちは残りのスタッフを確保し、太陽系を離れる準備をします。現在、彼らに開かれている道は無法者の道だけです。</text>
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="ROCK_NURSERY_MV_LOSE" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>戦いはうまくいかず、あなたのチームは最終的に、負傷したロック戦闘員を引き連れて側面にいることに気づきます。彼らはシャトルのコーディネートを必死に推し進めますが、1つは落ちます。生存者は負傷したロックを助けます。</text>
+		<removeCrew>
+			<clone>true</clone>
+			<text>幸いなことに、あなたのクルーはクローンベイが彼らを復活させるのに十分なほど船の近くにいました。</text>
+		</removeCrew>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event>
+				<text>学生たちは残りのスタッフを確保し、太陽系を離れる準備をします。現在、彼らに開かれている道は無法者の道だけです。</text>
+				<crewMember amount="1" class="rock" />
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="ROCK_NURSERY_MV_LOSE" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>あなたのチームはメインクワッドに身を寄せ、敵の戦闘員を阻止し、施設の支配権を主張することに成功しました！</text>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event>
+				<text>スタッフと当局は、最後の反乱軍の学生を討伐します。刑務所輸送船はすでに軌道上にあります。</text>
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="ROCK_NURSERY_MV_WIN" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>あなたのチームは大火事になります。一人は閃光爆弾で目がくらみ、採石場の唇を通り過ぎてよろめき、はるか下で死ぬ。もう1つは友軍との合流に成功し、最終的には組織の支配権を主張します。</text>
+		<removeCrew>
+			<clone>true</clone>
+			<text>幸いなことに、あなたのクルーはクローンベイが彼らを復活させるのに十分なほど船の近くにいました。</text>
+		</removeCrew>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event>
+				<text>スタッフと当局は、最後の反乱軍の学生を討伐します。刑務所輸送船はすでに軌道上にあります。</text>
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="ROCK_NURSERY_MV_WIN" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>	
+		<text>戦闘が進むにつれて、アクションはチームの場所から離れます。落ち着きの間に、彼らはいくつかの放棄された武器を確保することができます。彼らが終わった時までに、戦いは大部分終わり、彼らは船に戻ります。</text>
+		<autoReward level="MED">weapon</autoReward>
+	</event>
+</eventList>
+<event name="ROCK_NURSERY_MV_WIN">
+	<text>戦いの間のあなたのサポートの見返りに、生存者は刑務所輸送のために取っておかれた資金であなたに報酬を与えます。誰かが気が変わる前にあなたは去ります！</text>
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<event name="ROCK_NURSERY_MV_LOSE">
+	<text>彼らの勝利があなたの到着によって脅かされたことを完全に知って、生存者はあなたを排除するためにすぐに船を派遣します！</text>
+	<ship load="SHIP_ROCK_FIGHT" hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+
+<eventList name="DISTRESS_ROCK_MV">
+	<event load="DISTRESS_REFUGEE_ROCK" />
+	<event load="DISTRESS_ROCK_DETAINING_ZOLTAN" />
+	<event load="DISTRESS_ROCK_OUTCAST_PREY" />
+</eventList>
+
+<event name="DISTRESS_REFUGEE_ROCK" unique="true">
+	<distressBeacon />
+	<text>あなたは宇宙を漂流している難民船に遭遇しました。反乱軍の前進から逃げ出し、燃料を使い果たしたように見えます。その遭難ビーコンはアクティブですが、誰かが搭乗しているかどうかはわかりません。</text>
+	<choice>
+		<text>彼らに連絡する。</text>
+		<event load="REFUGEE_HAIL_LIST_ROCK" />
+	</choice>
+	<choice>
+		<text>難民を無視します。</text>
+		<event>
+			<text>あなたは難民を警戒していますが、船で何かをするのは安全だと考えています。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>  
+<eventList name="REFUGEE_HAIL_LIST_ROCK">
+	<event load="REFUGEE_TRADER" />
+	<event>
+		<text>あなたが難民船を呼ぶと、ロック船が突然システムに飛び込みます...ロックマンは異端者を保護しているとあなたを非難し、武器を上げる前に議論する時間がありません。</text>
+		<ship load="SHIP_ROCK_REFUGEE" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="DISTRESS_ROCK_DETAINING_ZOLTAN" unique="true">
+    <distressBeacon />
+    <text>あなたは遭難電話を送信しているゾルタンの商人船を見つけます。その脱出は、神権政治のパトロールによってブロックされています。闘争の兆候はありません。</text>
+    <choice>
+        <text>何が悪いのかを見るためにゾルタンを呼び起こします。</text>
+        <event>
+            <text>「あなたは連邦と一緒にいますか？そうではありませんか？岩船はあなたを歓迎します。</text>
+            <choice>
+                <text>岩のあられに応答します。</text>
+                <event>
+                    <text>「今すぐ去ってください、反逆者。私たちは、たとえ彼らが省から来ていても、商人を拘束する権利の範囲内にいます。」</text>
+                    <ship load="SHIP_ROCK_DETAINING_ZOLTAN" hostile="false" />
+                    <choice req="LIST_CREW_CRUSADER" hidden="true">
+                        <text>（神権政治エリート）「省は私たちの味方です。すぐに彼らを釈放します。」</text>
+                        <event>
+                            <text>「えーと...」神権政治船長は彼の言葉につまずいた。「つまり...私たちはただ...私たちは彼らにいくつかの質問をする必要がありました...」ロックマンは喉をきれいにします。「...彼らは自由に行くことができます。あなたが私たちの義務に対する熱意を見落とすことを願っています。」これを中断するために、ロックマンはあなたに敬意を表します。</text>
+                            <autoReward level="MED">standard</autoReward>
+                            <choice>
+                                <text>ゾルタン船に連絡してください。</text>
+                                <event load="ROCK_DETAINING_ZOLTAN_CONVINCE" />
+                            </choice>
+                        </event>
+                    </choice>
+                    <choice req="rock">
+                        <text>（神権化されたロックマン）商人がどのような容疑で拘束されているのか尋ねます。</text>
+                        <event>
+                            <text>「彼らは、連邦の嘘を広めていると疑っている！彼らが私たちの習慣に対する彼らの尊敬を証明したいなら、彼らは私たちの文化に与えた損害に対して金銭的補償を提供しなければならないでしょう！」</text>
+                            <choice hidden="true">
+                                <text>あなたはただそれらを強要しているように聞こえます。</text>
+                                <event load="ROCK_DETAINING_ZOLTAN_ROCK" />
+                            </choice>
+                        </event>
+                    </choice>
+                    <choice>
+                        <text>ゾルタンのリリースを要求します。</text>
+                        <event>
+                            <text>ロックマンはあなたに最初にあなたを引き付けて攻撃するというトラブルを救います！</text>
+                            <ship hostile="true" />
+                            <choice hidden="true">
+                                <text>継続する...</text>
+                                <event load="COMBAT_CHECK" />
+                            </choice>
+                        </event>
+                    </choice>
+                    <choice>
+                        <text>それらを残すことに同意します。</text>
+                        <event />
+                    </choice>
+                </event>
+            </choice>
+        </event>
+    </choice>
+    <choice>
+        <text>苦痛の呼びかけを無視してください。</text>
+        <event>
+            <text>神権政治と省は同盟国です - 彼らの間に起こっていることは何でも。</text>
+            <choice>
+                <text>船に乗って何かする。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>何もしない。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+<eventList name="ROCK_DETAINING_ZOLTAN_ROCK">
+    <event>
+        <text>あなたのロッククルーメンバーは、彼らの貪欲のためにパトロールを忠告します。彼らの言葉は対立する岩に届き、彼の口調は柔らかくなります。「ああ...まあ...」ロックパトロールマンは喉をきれいにします。「...それは私ではありません。私は...私は決してそうしません。ロックマンはゾルタンをリリースし、あなたに小さな賛辞を与えます。</text>
+        <autoReward level="LOW">standard</autoReward>
+        <choice>
+            <text>ゾルタン船に連絡してください。</text>
+            <event load="ROCK_DETAINING_ZOLTAN_CONVINCE" />
+        </choice>
+    </event>
+    <event>
+        <text>あなたのロッククルーメンバーは彼らの貪欲のためにパトロールを忠告しますが、これは他の船のロックマンを怒らせるだけです。「廃止された気まぐれ！私は敵の船に乗っている岩にs辱されることはありません！」</text>
+        <ship hostile="true" />
+        <choice hidden="true">
+            <text>継続する...</text>
+            <event load="COMBAT_CHECK" />
+        </choice>
+    </event>
+</eventList>
+<event name="ROCK_DETAINING_ZOLTAN_CONVINCE">
+    <text>「彼らに逃げるように説得してくれてありがとう。なぜ神権政治はその力をそのように乱用するのでしょうか？」商人はため息をつきます。「私たちの店から何かを購入しませんか？」</text>
+    <store>STORE_ZOLTAN</store>
+</event>
+<event name="ROCK_DETAINING_ZOLTAN_DEFEAT">
+    <text>「私たちに代わって介入してくれてありがとう、反逆。私たちはパトロールがそのような力を乱用するとは思わなかった...あなたは私たちの店から何かを購入したいですか？」</text>
+    <store>STORE_ZOLTAN</store>
+</event>
+
+<event name="DISTRESS_ROCK_OUTCAST_PREY" unique="true">
+	<distressBeacon />
+	<text>苦痛のビーコンは、近くの海賊船と思われるものによって破壊された半分破壊された追放船にあなたを導きます。彼らの以前のターゲットは処分されました、彼らは今あなたに頼ります！</text>
+	<ship load="SHIP_PIRATE_PREY" hostile="true" />
+	<choice>
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event> 
+<event name="ROCK_OUTCAST_SAVE">
+	<text>あなたは犠牲者をチェックし、驚いたことに生存者を見つけます！あなたはあなたの船で彼らを助けます。</text>
+	<choice>
+		<text>継続する...</text>
+		<event>
+			<text>「自由のために...長老たちが私たちに課したこの地獄から抜け出す方法を見るとすぐに、海賊は私たちを引き離しました。私たちの推定指導者の厳しいグリップは私たちを守るために必要な悪です。私と私の兄弟は絶対に間違った足から絶対に出て行っていました。私はどこで避難所を求めることになっていますか？」</text>
+			<choice>
+				<text>Lost Sunsに参加するように勧めます。</text>
+				<event>
+					<text>「あなたにはポイントがあります。これは当初の計画でしたが、残念ながら、私たちはその場しのぎの脱出で彼らに連絡することはできませんでした。連邦とのつながりがあれば、転送を手配できる近くの失われた太陽船の場所を特定するのにそれほど時間はかかりません。</text>
+					<quest event="ROCK_OUTCAST_LOSTSUN" />
+				</event>
+			</choice>
+			<choice>
+				<text>彼らが神権政治に再び参加するように奨励します。</text>
+				<event>
+					<text>「バックトラックして再び受け入れることができるかどうかはまだわかりません...しかし、それは最高のためです。」あなたの新しい乗客は、彼らのネイティブシステムの駅の場所をあなたに知らせ、あなたはそこにコースを計画します。</text>
+					<quest event="ROCK_OUTCAST_ROCK" />
+				</event>
+			</choice>
+			<choice>
+				<text>姉妹特別解放グループで避難所を探すように彼らを奨励してください。</text>
+				<event>
+					<text>「私はこの原因について少し聞いたことがあります。結晶の間で平和を見つけることができるかどうかはわかりませんが、彼らの意図は本物のようです。」あなたの新しい乗客は、彼らが神権政治の宣伝によってown死ななかったときに何とか聞いていた隣接するシステムの駅の場所をあなたに知らせます。</text>
+					<quest event="ROCK_OUTCAST_SSLG" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>彼らが追放され続けるように勧めます。</text>
+				<event>
+					<text>それは厳しいことですが、あなたは彼らに、神権政治から走る人は誰でも、彼らの仲間の多くが常にそれを作るとは限らないという、ぴったりの生存であるものに耐えるべきであることを彼らに明らかにします。「はい、私はあなたにポイントがあると思います...あなたは私を納得させました、レネゲード。しかし、今と一緒に転がす船や乗組員なしで...私はあなたと一緒にいます。私のチャンスはあなたのケアの下で大幅に改善します。」彼らの以前の船が飛ぶことができない状態にあるので、あなたはそれからまだ使用できるものを集めます。</text>
+					<autoReward level="LOW">standard</autoReward>
+					<crewMember amount="1" class="rock_outcast" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>  
+<event name="ROCK_OUTCAST_LOSTSUN">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>あなたは、失われた太陽に追放された生存者を護衛することに同意しました。</unvisitedTooltip>
+	</beaconType>
+	<text>あなたはシステムに到着し、あなたは予想される失われた太陽船を見つけました。彼らは警戒していますが、あなたは追放にパッチを当てています。</text>
+	<ship load="SHIP_LOSTSUN_FIGHT" hostile="false" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>彼らの旅を説明した後、追放者はあなたが提供した助けと見返りにあなたのために失われた太陽に参加したいという彼らの欲求を表明します。彼らは彼らの新しい新兵を受け入れ、あなたの行為のためにあなたに軍事物資を提供します。</text>
+			<autoReward level="MED">missiles</autoReward>
+			<weapon name="GIFTLIST_LOSTSUN" />
+		</event>
+	</choice>
+</event> 
+<event name="ROCK_OUTCAST_ROCK">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>あなたは、追放者の生存者をロックステーションに護衛することに同意しました。</unvisitedTooltip>
+	</beaconType>
+	<text>システムに到着し、ロックステーションを見つけました。あなたは不安が固執していると感じ、あなたの決定を後悔し始めますが、追放者は通信を開きます。</text>
+	<ship load="SHIP_ROCK_STATION" hostile="false" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>彼らの旅を説明した後、追放者はあなたが提供した助けを求めて、神権政治を再統合したいという彼らの願望を表明し、あなたのために保証します。反対側のロックマンは、それらを受け入れたくないようです。「愚かで愚かな...なぜ私たちは私たちのために道を開いた人々の恵みから分裂することを決めた汚物に避難を申し出るべきなのか」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>2番目の数字が来て、仲間を中断します。「沈黙、兄弟。...あなたの思いやりが報われるでしょう。難民が私たちの責任の下にいると、私たちはあなたに私たちのサービスにドッキングしてアクセスすることを許可します。」</text>
+					<autoReward level="MED">standard</autoReward>
+					<store>STORE_ROCK</store>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event> 
+<event name="ROCK_OUTCAST_SSLG">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>あなたは、追放者の生存者をSSLGステーションに護衛することに同意しました。</unvisitedTooltip>
+	</beaconType>
+	<text>システムに到着し、地平線のSSLGインフラストラクチャと思われるものを見ています。あなたは慎重にアプローチし、あなたの理由をここに来ることを要求するクリスタルに歓迎され、あなたは追放者に話しかけさせます。</text>
+	<ship load="SHIP_SSLG_STATION" hostile="false" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>彼らの旅を説明した後、追放者は、あなたが提供した助けを求めて、あなたのためにあなたのためにシェルターと保証を求めたいという彼らの欲求を表明します。彼らは熱心に受け入れ、予備の武器を授与するだけでなく、解放者の1人が、より多くのロックマンが途中で助けられると信じてあなたの大義に加わりたいと考えています。</text>
+			<weapon name="GIFTLIST_CRYSTAL" />
+			<crewMember amount="1" class="crystal_liberator" />
+		</event>
+	</choice>
+</event> 
+
+<eventList name="DISTRESS_ROCK_UNIQUE">
+	<event load="DISTRESS_REFUGEE_ROCK" />
+	<event load="DISTRESS_ROCK_DETAINING_ZOLTAN" />
+	<event load="DISTRESS_ROCK_OUTCAST_PREY" />
+</eventList>
+
+
+<eventList name="QUESTS_ROCK_MV">
+	<event load="ROCK_ASTROLOGER" />
+</eventList>
+
+<event name="ROCK_ASTROLOGER">
+    <text>このビーコンには小さな岩のコロニーがあります。特に、軌道には巨大な望遠鏡もあります。ここには天文学的な研究所があるようです。</text>
+    <choice>
+        <text>実験室に連絡してください。</text>
+        <event>
+            <text>「船だ！それは長すぎた。ああ、部外者？まあ、それはやらなければならない。神権政治は最近私たちの話を聞いていない。ロック占星術協会を代表して、私はあなたに聞いて、私にいくつかを与えることを懇願します支援。」</text>
+            <choice>
+                <text>...「占星術師」を聞いてください。</text>
+                <event>
+                    <text>「このセクターを通り抜ける結晶性の彗星があります。神権政治空間では彗星は一般的ですが、いくつかの魅力的な特性を持っているものがあります。この彗星は、結晶の過去に関する多くの秘密を含むことができると思います。」</text>
+                    <choice>
+                        <text>なぜ神権政治は調査に興味がないのでしょうか？</text>
+                        <event>
+                            <text>「占星術師」はため息をつきます。「彼らは以前。クリスタルが銀河のシーンに再び参加する前に戻ってきました。これらの彗星は私たちが持っていた唯一の存在でした。私たちは彗星を追いかけました。しかし、私たちは物理的にクリスタルと話すことができるので、神権政治はもはやその価値を見ていません。彼らは彗星をmenialな忙しい仕事と見なし、私たちに資金を与えることを拒否します...「それだけの価値がある！」</text>
+                            <choice>
+                                <text>座標を受け入れます。</text>
+                                <event>
+                                    <text>「素晴らしい。見つけたものを保持することができますが、データを入手したらデータを送ってください！」</text>
+                                    <quest event="QUEST_ASTROLOGER_COMET" />
+                                </event>
+                            </choice>
+                            <choice>
+                                <text>拒否する。</text>
+                                <event>
+                                    <text>「HPMH。占星術師は最近尊敬を集めていません。」</text>
+                                </event>
+                            </choice>
+                        </event>
+                    </choice>
+                    <choice>
+                        <text>座標を受け入れます。</text>
+                        <event>
+                            <text>「素晴らしい。見つけたものを保持することができますが、データを入手したらデータを送ってください！」</text>
+                            <quest event="QUEST_ASTROLOGER_COMET" />
+                        </event>
+                    </choice>
+                    <choice>
+                        <text>拒否する。</text>
+                        <event>
+                            <text>「HPMH。占星術師は最近尊敬を集めていません。」</text>
+                        </event>
+                    </choice>
+                </event>
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true">
+        <text>研究室を無視してください。</text>
+        <event>
+            <text>この分野は神権政治よりも優先度が低いようであるため、十分な時間を費やす時間があります。</text>
+            <choice>
+                <text>船に乗って何かする。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>何もしない。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+
+<event name="QUEST_ASTROLOGER_COMET">
+    <beaconType id="map_icon_quest" global="true">
+        <color r="69" g="168" b="235" a="1" />
+        <unvisitedTooltip>岩の占星術師があなたにこのビーコンを通る彗星を探すように頼みました。</unvisitedTooltip>
+    </beaconType>
+    <text>あなたは占星術師があなたに見つけるように任された彗星の場所に到着します。</text>
+    <choice hidden="true">
+        <text>彗星を調べます。</text>
+        <event load="CRYSTAL_COMET_LIST" />
+    </choice>
+</event>
+<eventList name="CRYSTAL_COMET_LIST">
+    <event>
+        <text>彗星を調査すると、驚いたことに、その塊が切り離されています...それはクリスタル船です！「あなたには私たちの使命を妨害する権利はありません！」</text>
+        <ship load="SHIP_CRYSTAL_COMET_DWELLERS" hostile="true" />
+        <choice req="unique_ruwen">
+            <text>（ルーウェン）それらを落ち着かせようとします。</text>
+            <event>
+                <text>ルーウェンは手を上げます。「スタシスからあなたを邪魔してすみません。それ以来、帝国は外交政策を変更しました。実際、このすべてが何年も前に始まりました。新しい秩序を受け取るために帝国に戻ることをお勧めします。」「ルーウェン？それは何年も経っていたに違いない。あなたは変わったように見えます。」
+
+ "はい、私は外の世界の大使です。銀河はもう一度私たちの存在を必要とします。」彼らの攻撃に対する謝罪としてあなたに敬意を払ってください。</text>
+				<ship hostile="false" />
+                <choice>
+                    <text>捧げ物を受け入れ、占星術師に報告します。</text>
+                    <event>
+                        <text>「信じられないほど...私たちは彼らの多くをその日に遡って検索し、彼らの中に住む結晶のことを聞いたことはありません...そしてこれは最近の開発でさえありませんか？」</text>
+                        <autoReward level="HIGH">standard_no_item</autoReward>
+                        <weapon name="GIFTLIST_CRYSTAL" />
+                    </event>
+                </choice>
+            </event>
+        </choice>
+        <choice req="unique_dianesh">
+            <text>（Dianesh）「あなたの皇后はあなたに立ち向かうように命じます。」</text>
+            <event>
+                <text>「ディアン皇帝？部外者の船に乗って何をしているの？」
+
+ "帝国は再び銀河文明で積極的な役割を果たしている。あなたの偵察はもはや必要ではない。この募集は謝罪として受け入れてください。」</text>
+				<ship hostile="false" />
+                <choice>
+                    <text>捧げ物を受け入れ、占星術師に報告します。</text>
+                    <event>
+                        <text>「信じられないほど...私たちは彼らの多くをその日に遡って検索し、彼らの中に住む結晶のことを聞いたことはありません...そしてこれは最近の開発でさえありませんか？」</text>
+                        <autoReward level="HIGH">standard_no_item</autoReward>
+                        <weapon name="GIFTLIST_CRYSTAL" />
+                    </event>
+                </choice>
+            </event>
+        </choice>
+        <choice req="LIST_CREW_CRYSTAL">
+            <text>（クリスタルクルー）彼らと推論してみてください。</text>
+            <event>
+                <text>「あなたは部外者と何をしているのですか？あなたはクリスタル帝国に不名誉です！」状況をエスカレートできなかったようです！</text>
+                <choice hidden="true">
+                    <text>継続する...</text>
+                    <event load="COMBAT_CHECK" />
+                </choice>
+            </event>
+        </choice>
+        <choice>
+            <text>継続する...</text>
+            <event load="COMBAT_CHECK" />
+        </choice>
+    </event>
+    <event>
+        <text>彗星は一見してかなり目立たないように見えますが、表面の下を調べると、内部に隠れた技術が隠されていることがわかります。</text>
+        <autoReward level="MED">standard_no_item</autoReward>
+        <weapon name="GIFTLIST_CRYSTAL" />
+        <choice>
+            <text>占星術師にあなたの発見を送ってください。</text>
+            <event>
+                <text>「ああ！ついに、私が探していたものを見つけました！ああ、あなたは実際のアーティファクトを保持できると思いますが、あなたが取得したデータは非常に便利です。」</text>
+            </event>
+        </choice>
+    </event>
+    <event>
+        <text>少なくともあなたが懸念している限り、彗星は、悲しいことに、まったく目立たないものです。収穫するための微量の金属を見つけますが、最終的には時間の無駄のように感じられます。</text>
+        <autoReward level="MED">scrap_only</autoReward>
+        <choice>
+            <text>占星術師にあなたの発見を送ってください。</text>
+            <event>
+                <text>「なんて魅力的です！あなたは、クリスタルの構成は、この年齢が数千年前のものだったことを示唆しています！</text>
+            </event>
+        </choice>
+    </event>
+    <event>
+        <text>最初は、クリスタルは基本的に目立たないようです。しかし、表面の一部を削った後、あなたは内部に奇妙な信号を見つけます。しかし、クリスタルは困難です。シェルの弱点を粉砕するには、非常に意図的なストライキが必要です。</text>
+        <choice req="unique_ruwen">
+            <text>（ルーウェン）「これは古代です！何かを試してみましょう。」</text>
+            <event>
+                <text>ルウェンはクリスタルに向かいます。彼は表面に押し付けられ、完全にそこに段階的に登場します。しばらくして、クリスタルが開き、ルーウェンが船に戻り、貨物を調べることができます。</text>
+                <choice hidden="true">
+                    <text>中を見ます。</text>
+                    <event load="COMET_ASTROLOGER_ANCIENT" />
+                </choice>
+            </event>
+        </choice>
+        <choice req="unique_dianesh">
+            <text>（Dianesh）「これらはすべて失われたと考えられていました...見てみましょう。」</text>
+            <event>
+                <text>ダイアンシュはシャトルで彗星に飛びます。彼女は、シャトルの側面を持つ非常に特定の場所でクリスタルをタップします。クリスタルが開くまでハムとエコーします。</text>
+                <choice hidden="true">
+                    <text>中を見ます。</text>
+                    <event load="COMET_ASTROLOGER_ANCIENT" />
+                </choice>
+            </event>
+        </choice>
+        <choice req="BLUELIST_WEAPONS_HEAVY">
+            <text>（重兵器）攻撃の猛攻撃でクリスタルを粉砕します。</text>
+            <event>
+                <text>あなたはあなたの最も重い武器で最も弱い領域をターゲットにし、それを叩きます。クリスタルはタフですが、最終的には粉砕され、内部にアクセスできます。</text>
+                <choice hidden="true">
+                    <text>中を見ます。</text>
+                    <event load="COMET_ASTROLOGER_ANCIENT" />
+                </choice>
+            </event>
+        </choice>
+        <choice>
+            <text>占星術師にあなたの発見を送ってください。</text>
+            <event>
+                <text>「ああ、なんて面白い！...クリスタルを開くことができなかったのは残念だ。中にあったものは何でも大きな価値があったと確信している。</text>
+            </event>
+        </choice>
+    </event>
+</eventList>
+<event name="COMET_DWELLERS_ASTROLOGER">
+    <text>「信じられないほど...私たちは彼らの多くをその日に遡って検索し、彼らの中に住む結晶のことを聞いたことがありません...これは最近の開発でしょうか？」</text>
+    <choice>
+        <text>あなたが彗星で見つけることができる他のものは何でもscuttle。</text>
+        <event>
+            <autoReward level="MED">standard</autoReward>
+        </event>
+    </choice>
+</event>
+<event name="COMET_ASTROLOGER_ANCIENT">
+    <text>彗星の中には、驚くべきことに、いくつかの奇妙な緑のキュービカル技術があります。それはすべて非常に古く見え、正確には最高の形ではありませんが、職人技の質は非常に古くても明らかです。</text>
+    <weapon name="GIFTLIST_ANCIENT_BASIC" />
+    <autoReward level="HIGH">standard_no_item</autoReward>
+    <choice>
+        <text>占星術師にあなたの発見を送ってください。</text>
+        <event>
+            <text>「信じられないほど！このレベルで何かを期待したことはありませんでした...ああ、このテクノロジーが私たちの手に渡らなかったのはなんと恥ずかしいことですが、私たちの話を聞かないことは彼らのせいです！」</text>
+        </event>
+    </choice>
+</event>
+
+<eventList name="QUESTS_ROCK_UNIQUE">
+	<event load="ROCK_SUN_CHALLENGE" />
+</eventList>
+
+<event name="ROCK_SUN_CHALLENGE" unique="true">
+	<text>あなたはすぐに、堂々とした見た目のロック軍艦からメッセージを受け取ります。</text>
+	<ship load="SHIP_ROCK_SUN_CHALLENGE" hostile="false" />
+	<choice hidden="true">
+		<text>「私たちは彼らを救うか、試みて死ぬつもりです。」</text>
+		<event>
+			<text>「後者の可能性が高いです。それでも...私たちはあなたとあなたの貴重な艦隊を助けることができるかもしれませんが、あなたは最初にあなた自身を証明する必要があります。これらの座標で私たちに会ってください。」彼らは飛び去ります。</text>
+			<quest event="ROCK_SUN_CHALLENGE2" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>「私たちはあなたを破壊するのに十分強いです！」</text>
+		<event>
+			<text>「1隻の船は艦隊と同じではありませんが、少なくともいくつかの火事があります。連邦が救う価値があることを私たちに証明したい場合は、これらの座標で私たちに会ってください。」彼らは飛び去ります。</text>
+			<quest event="ROCK_SUN_CHALLENGE2" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それらを無視します。</text>
+		<event>
+			<text>「ええ。私が予想したように。連邦があなたと同じくらい弱いなら、それは落ちるに値する。」彼らは一言も言わずに飛び去ります。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ROCK_SUN_CHALLENGE2">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>異端審問容器は、あなたがあなたの腕前を判断できるように、あなたがここで彼らに会うように要求しました。</unvisitedTooltip>
+	</beaconType>
+	<text>あなたは与えられた座標に到着し、M型星に危険なほど近づいていることに気づきます！他の船はあなたにメッセージを送ります、「あなたの小さな船がこの熱をどれだけ長く処理できるか見てみましょう！挑戦の準備をしてください！」</text>
+	<ship load="SHIP_ROCK_SUN_CHALLENGE2" hostile="true" />
+	<environment type="sun" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="ROCK_SUN_CHALLENGE3">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>あなたが保持していた尋問容器は、これらの座標を送信しました。</unvisitedTooltip>
+	</beaconType>
+	<text>あなたは巨大なロックマン造船所に到着し、あなたを殺そうとしたばかりの船がドッキングされており、すでに修理されていることに気づきます。 「よく戦った！私はあなたが生き残ることを期待していなかったと言わなければならない。」</text>
+	<ship load="SHIP_ROCK_SUN_CHALLENGE" hostile="false" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>「私はあなたの力を確信し、あなたの大義を助けることを誓います。私たちはあなたの船体を修理し、あなたにいくつかの物資を提供しましょう。」</text>
+			<damage amount="-15" />
+			<autoReward level="HIGH">standard</autoReward>
+			<crewMember amount="1" class="rock_crusader" all_skills="1">ハドロック</crewMember>
+		</event>
+	</choice>
+</event>
+
+<event name="QUEST_ROCK_MARRIAGE_START" unique="true">
+	<text>ロックの船長はあなたを歓迎します。「異世界人に連絡するのは不適切ですが、これは緊急事態です。エンジンが故障したとき、私たちは乗客を彼女の新しい夫であるヌマVのグランドバジリスクに届ける途中でした。 。彼女を手に入れて、ヌマVに急いでくれませんか？」</text>
+	<choice hidden="true">
+		<text>乗客を受け入れます。</text>
+		<event>
+			<text>「あなたは私を驚かせます、異世界人。ありがとう。乗客はあなたとすぐに一緒にいます。」彼女はメインホールドに入ることを拒否し、貨物室で待つことを好みます。</text>
+			<quest event="ROCK_QUEST_MARRIAGE" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>拒否する。</text>
+		<event>
+			<text>アレンジされた結婚は、価値のある原因のリストに含まれていません。あなたはロックを彼らの仕事に任せます。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ROCK_QUEST_MARRIAGE">
+	<text>ヌマVの表面近くの広大なトンネルネットワークは、高度なロック文明を示しています。これはあなたが乗客を配達するように頼まれた場所でなければなりません。</text>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>到着が差し迫っていることに気づき、乗客は-今のところ沈黙している-あなたに彼女を引き渡さないように懇願する。彼女はグランドバジリスクのチーフエイドによって中断されました：「バジリスクの妻を抱えている異星人の船に。彼女を私たちに届けてください。あなたは報われるでしょう...まあ。」</text>
+			<choice hidden="true">
+				<text>彼女を引き渡す。</text>
+				<event>
+					<text>「あなたの子供がほこりに侵食されますように！」彼女は待っているシャトルに束ねられると悲鳴を上げます。機内のロックガードは急いでエキゾチックな技術を落とし、グランドバジリスクに戻ります。</text>
+					<weapon name="CRYSTAL_BURST_2" />
+					<autoReward level="LOW">scrap_only</autoReward>
+				</event>					
+			</choice>
+			<choice hidden="true">
+				<text>従うことを拒否します。</text>
+				<event>
+					<text>「私はあなたの種類が慈悲を知らないと信じるように導かれました。私はあなたに加わります。しかし、すぐに私たちは飛び去らなければなりません-彼らは容認しません...」彼女はバジリスクの護衛からの武器の発砲によって中断されました！</text>
+					<crewMember amount="1" class="rock">アリアドネ</crewMember>  
+					<ship load="SHIP_ROCK_QUEST_MARRIAGE" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<eventList name="HOSTILE_ROCK_MV">
+	<event load="ENCOUNTER_ROCK" />
+	<event load="ENCOUNTER_OUTCAST" />
+</eventList>
+
+<event name="ENCOUNTER_ROCK">
+	<loadEventList first="false" generate="true">
+		<event name="ENCOUNTER_ROCK_REGULAR" />
+		<event name="ROCK_FIGHT_ASTEROID" />
+	</loadEventList>
+</event>
+<event name="ENCOUNTER_ROCK_REGULAR">
+	<text load="TEXT_ENCOUNTER_ROCK" />
+	<ship load="SHIP_ROCK_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_ROCK">
+	<text>あなたは岩の船に遭遇し、取引頻度を開こうとしますが、彼らはそれを文化的違反と直火の行為と見なします。</text>
+	<text>あなたは近くの月の発掘調査プロジェクトの真っ只中に飛び込みます。あなたの侵入に感銘を受けず、彼らは自分自身を守るために動きます！</text>
+	<text>あなたは接近するロック船からのチャタリングを傍受します：「武器、交戦するために移動し、チューブを武装させます。」これらの人と話すことはありません。</text>
+	<text>飛び込むと、ビュー画面に巨大な人物が現れます。ロックの船長は、緑の苔のような付属物をあごにこすりつけてから、クルーに発砲するように命令します。</text>
+	<text>静かに見えましたが、コンピュータがスキャンされていることを検出しました。隠れていたロック船ががあなた呼びかけます：「なぜコンピュータを嘘で埋め尽くすのだ！それらは聖なる言葉ではない！」あなたが口を挟む前に、彼らは発砲してきました。</text>
+	<text>あなたはロック船が戦闘演習を行っていることに気づきました。しかし、彼らはすぐに進路を変更してあなたの船と交戦します。彼らは明らかに未登録の異星人船を便利な標的慣行として扱っています。</text>
+	<text>ジャンプが完了した後、大きな「ドキドキ」が船全体に響き渡ります。ロックファイターをシャントしたばかりで、彼はすでに発砲の準備をしています。</text>
+	<text>あなたはロックの資材回収作業によって妨害された。彼らはあなたがまだ船にいることを気にしていないようだが、彼らはあなたの船を破壊しようとしている。</text>
+</textList>
+<event name="ROCK_FIGHT_ASTEROID" unique="true">
+	<text load="ROCK_FIGHT_ASTEROID" />
+	<ship load="SHIP_ROCK_FIGHT" hostile="true" />
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="ROCK_FIGHT_ASTEROID">
+	<text>ロックマイニング船がこの地域でミネラル豊富な小惑星を収穫しており、彼らのスカウトはあなたの存在を違反と見なします。バトルステーション！</text>
+	<text>ルーキーロックの貨物船は、文字通り注文を受け取りすぎて、目的地までの最も直接的なルートを取りました...小惑星のフィールドを通り抜けました。あなたが飛び込むと、彼らは混乱し、激しく発砲します。</text>
+	<text>小惑星のフィールドで失われたロック貨物船の船長はあなたを歓迎します：「私たちの座標は私たちをここに導きました、しかし死だけが私たちを迎えます。あなたは戦闘システムをパワーアップし、それらがここでどれくらいの間立ち往生しているのか疑問に思います。</text>
+</textList>
+
+
+
+<eventList name="BOARDERS_ROCK">
+	<event load="BOARDERS_ROCK_ASTEROID" />
+	<event load="BOARDERS_ROCK_SUN" />
+</eventList>
+
+<event name="BOARDERS_ROCK_ASTEROID" unique="true">
+	<text load="BOARDERS_ROCK_ASTEROID" />	
+	<boarders min="1" max="2" class="rock" />
+	<ship load="SHIP_ROCK_FIGHT" hostile="true" />
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="BOARDERS_ROCK_ASTEROID">
+	<text>あなたは小惑星のフィールドに到着し、大きな塊が船に響き渡るとすぐに回避操作を開始します。最初は船体が打撃を受けたと思いますが、船に乗ってテレポートしているロックの侵入者から音が聞こえました。</text>
+	<text>あなたの盾は小惑星のフィールドから破片をそらすので課税されています。岩の間を縫うように進むと、岩の海賊の拠点に出くわします。あなたはテレポートの署名を登録し、船に乗って叫び声を聞きます。</text>
+</textList>
+
+<event name="BOARDERS_ROCK_SUN" unique="true">
+	<text load="BOARDERS_ROCK_SUN" />	
+	<environment type="sun" />
+	<boarders min="2" max="3" class="rock" />
+</event>
+<textList name="BOARDERS_ROCK_SUN">
+	<text>到着するとすぐに、テレポーターのはっきりとした音が聞こえ、船の中で反響する叫び声が聞こえます。「燃える準備をして、肉質の肉袋の異星人！」</text>
+	<text>無法者の岩は熱に対する耐性が高いため、星のすぐ近くに定着することがよくあります。だからこそ、隠れた集落を通り過ぎて船に乗り込むのは驚くことではありません。</text>
+</textList>
+
+<eventList name="HOSTILE_ROCK_UNIQUE">
+	<event load="ENCOUNTER_ROCK_HOMEWORLDS" />
+	<event load="ENCOUNTER_OUTCAST" />
+	<event load="ENCOUNTER_LOSTSUN_ROCKHOME" />
+</eventList>
+
+<event name="ENCOUNTER_ROCK_HOMEWORLDS">
+	<loadEventList first="false" generate="true">
+		<event name="ENCOUNTER_ROCK_HOMEWORLDS_REGULAR" />
+		<event name="ROCK_FIGHT_ASTEROID" />
+	</loadEventList>
+</event>
+<event name="ENCOUNTER_ROCK_HOMEWORLDS_REGULAR">
+	<text load="TEXT_ENCOUNTER_ROCKHOME" />
+	<ship load="SHIP_ROCK_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_ROCKHOME">
+	<text>あなたは近くのロック船でおしゃべりをします。静かな口調で、彼らはあなたの船と、船に乗ってどんな卑劣な罪を犯さなければならないかについて話します。長老たちの法を制定することを熱望し、彼らは武器を強化して攻撃します！</text>
+	<text>ロック市民は、おそらくあらゆる人種の中で最高の武装した民間人の一部です。残念ながら、それはあなたがここで遭遇するほぼすべての船があなたを乱闘に巻き込むことをいとわないことを意味します。</text>
+	<text>あなたはロックの人々にとって高く評価されている聖域であるロック母星系に足を踏み入れました。このセクターの怒り狂った市民があなたの破壊をとても熱心に求めているのも不思議ではありません。</text>
+	<text>「これ、彼は石で覆われていません！私たちは彼の頭を切り落とし、それをトロフィーとして私たちの壁に取り付けます！」ここのロックマンは交渉する気がないようです。</text>
+	<text>ロック母星系では、民間人と軍隊の間に非常に細い線があります。ここで船の起源を知るのは難しいですが、それでも彼らは敵対的で戦いを探しています。</text>
+	<text>この分野でのあなたの存在そのものが、ロックカインドに対する途方もない侮辱です。近くのシステムのロックマンはあなたの存在に満足しておらず、あなた自身に対処することにしました。</text>
+	<text>ロックマンは特に友好的ではありませんが、このビーコンの近くの民間人があなたとの戦闘を開始するために邪魔にならないときに、ここに来るのは本当の間違いを犯したことをあなたは知っています。</text>
+</textList>
+
+<event name="ENCOUNTER_LOSTSUN_ROCKHOME" unique="true">
+	<text>失われた太陽の船は、囚人として拠点を捕らえて持ち帰るために岩市民を求めて、あなたの船を特定します。「TRAITORSE CODWARD！ここにいる連邦船、ロックエルダーのフォロワーに援助を与えますか？あなたはスカムです！私はあなたのすべてを生き生きとローストします。」それらは正確ではありませんが、あなたは主張することが役立つことを疑います。</text>
+	<ship load="SHIP_LOSTSUN_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+
+
+<event name="ROCK_CRYSTAL_WAYSTONE">
+	<text>クリスタル母星系に入るのに使用されるデバイスであるクリスタルウェイストーンを発見したようです。観光業のブームが最終的に銀河系のシーンへのクリスタル種族の脱出につながるにもかかわらず、ビーコンは驚くほど空です。</text>
+	<img planet="PLANET_RINGS" />
+	<choice hidden="true">
+		<text>それをこすります。</text>
+		<event load="ROCK_CRYSTAL_WAYSTONE_LIST" />
+	</choice>
+	<choice hidden="true">
+		<text>ほっといて。</text>
+		<event>
+			<text>危険を冒さない方がいいです。ロックの人々は破壊行為にうまく反応する可能性は低いです。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_CRYSTAL">
+		<text>（Crystalクルー）Crystalクルーにデバイスを再度アクティブ化してもらいます。</text>
+		<event>
+			<text>これを実行してもよろしいですか？すぐにクリスタル母星系に移動します。</text>
+			<choice>
+				<text>はい。</text>
+				<event>
+					<secretSectorWarp>SECRET_ORIGINS</secretSectorWarp>
+					<secretSector />
+				</event>
+			</choice>
+			<choice>
+				<text>もういいです。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ROCK_CRYSTAL_WAYSTONE_LIST">
+	<event>
+		<text>あなたはそれをバラバラにしてスクラップに取ります。誰もそれを見逃すことはありません。</text>
+		<autoReward level="HIGH">scrap_only</autoReward>
+	</event>
+	<event>
+		<text>あなたがそれを分解し始めると、岩の軍の船が近くにジャンプします。「あなたは私たちのセクターに来て、あなたが望むものを何でも盗むことができると思います！！死ぬ準備をしてください、破壊者！」</text>
+		<ship load="SHIP_ROCK_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="ENCOUNTER_ROCK_ELITE" unique="true">
+	<text>ロックマンの十字軍はかつて異端審問を制定するために募集されました。他の世界への残忍な侵略は、長老の「知恵」を制定するために異端者に満ちているとみなされました。連邦は、昔から公式に異端審問を終わらせてきましたが、十字軍のランクはまだ解散していません。彼らはまだパトロールで見ることができ、長老の計画を満たし、あなた自身のような部外者から彼らの主張を保護することができます。</text>
+	<ship load="SHIP_ROCK_ELITE_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ROCK_ZOLTAN_PARASITE" unique="true">
+	<preventQuest />
+	<distressBeacon />
+	<text>近くのロックステーションが医療援助の要請を大量放送しています。 「ステーションR-0735Qで必要な医療援助。寄生虫を抽出する助けが必要です。支払います。」</text>
+	<choice hidden="true">
+		<text>助けることを申し出る。</text>
+		<event>
+			<text>ロックマンは、連邦船が支援を申し出ていることに少し混乱していますが、文句を言わないでください。 「私たちはZulfiqarIndustriesの代表です。昨日、CMO Rig Bramstonは、これらの施設で、ティンタンという名前のゾルタン使節との会議を手配し、省内での流通とマーケティングの手段について話し合いました。会議に「いたずら」を展開し、リグを制御してティンタン全体を消費するように心がけてください。ご存知のように、私たちは今、かなりのジレンマに陥っており、すぐに活動する必要があります。」</text>
+			<choice hidden="true" req="unique_tonysr">
+				<text>（トニーシニア）「リグ、それはあなたですか？」</text>
+				<event>
+					<text>「私の神...トニー？それはあなたですか？お元気ですか？」何が起こっているのかわかりませんが、トニーは説明します。 「7年前、トニーズは共和国だけの小さなチェーンで、かなり小さいものでした。ズルフィカルの商品を売って状況を変えたいと思っていました。どこからともなくスラッグ船が到着したとき、リグと会って条件について話し合いました。心が私をコントロールしてリグの...ええと...嫌いな人を突き刺しました。外科医は状況にどう対処するかわかりませんでした。私たちは3年間そのように暮らし、一緒に立ち往生しました。私は生き残るためにリグの廃棄物を食べることを余儀なくされました。私たちは私たちを引き離すことができる専門家を見つけましたが、私たちのどちらかを永続的なトラウマから救うには遅すぎました。」</text>
+					<choice hidden="true">
+						<text>ええと...</text>
+						<event>
+							<text>ロックステーションの所有者は何が起こっているのか完全に困惑していますが、あなた、トニー、リグ、ティンタンが一緒に状況について話し合います。リグとティンタンはすぐにお互いから解放されることはないことが明らかになりますが、トニーの助けを借りれば、責任のあるスラッグを追跡して復讐することができるかもしれません。</text>
+							<variable name="ach_crew_symbiote" op="set" val="1" />
+							<crewMember all_skills="1" amount="1" class="unique_symbiote">ティンタンとリグ</crewMember>
+							<quest event="BUTT_BUDDIES" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="unique_anurak" hidden="true">
+				<text>（Anurak）スープを提供します。</text>
+				<event>
+					<text>アヌラックは、苦しんでいるロックマンにスープのボウルを渡します。「これはどのように役立つはずですか？」
+
+ "「なんて奇妙だ。状況は以前のように不安を感じない。」anurakは微笑む。「私は何と言ったのですか？少しスープがあなたに良いことをします！そしてもちろん、それはあなたの胃の中で休んでいる小さなものを助けています。」「これはどれくらい続くのでしょうか？」
+
+anurakは頭を振った。「愚かにならないでください！一度スープを飲んで、永遠に元気になることを期待することはできません。それはあなたの食事の一部でなければなりません。」「まあ、私は何をすべきか？そのようなスープを作る方法がわからない。」「それは何ですか？あなたは私に毎日あなたにスープをさせてほしいですか？まあ、あなたが主張するなら。」辞任したため息をついて、リグとティンタンは一緒にタグを付けることにしました。他の岩は、状況が適切に解決されなかったため、やや不快に見えます。</text>
+					<crewMember amount="1" all_skills="1" class="unique_symbiote">ティンタンとリグ</crewMember>
+					<variable name="ach_crew_symbiote" op="set" val="1" />
+				</event>
+			</choice>
+			<choice req="unique_alkali" hidden="true">
+				<text>（アルカリ）この興味深い標本を研究する口実を発明します。</text>
+				<event>
+					<text>「ああ、親愛なる！まったくやらない！患者が手術できないことをあなたに知らせて後悔している。」ロックマンは混乱しているように見えます。「はい、患者を開いた場合、ゾルタンはトランスフハサイシスの破裂を受けて、両方の患者を破壊する可能性があります。「rockmenロックマンは心配しているようです。「去りませんか？」
+
+アルカリはうなずきます。「私たちには非常に重要なビジネスがあります。しかし、私たちは患者を硬化させたときに患者を解放します。」「罰金。治療法のみの支払いのみ。」予見可能な将来のために、それはティンタンとリグがあなたの乗組員に加わるように見えます。彼らは一緒に固執することに満足していませんが、少なくともアルカリでは、適切な治療の機会があるかもしれません。</text>
+					<crewMember amount="1" all_skills="1" class="unique_symbiote">ティンタンとリグ</crewMember>
+					<variable name="ach_crew_symbiote" op="set" val="1" />
+					
+				</event>
+			</choice>
+			<choice hidden="true" req="mind">
+				<text>（マインドコントロール）船に乗って共生するように2人を説得します。</text>
+				<event>
+					<text>マインドコントロールの影響下でさえ、2人がお互いに永遠に存在することに同意するためには多くの説得力が必要です。彼らの人生は永遠に変わりました、今では著しく良くなりました、彼らはあなたに感謝し、そしてあなたのクルーに加わるようにさえ頼みます。ロックステーションは何が起こったのか混乱していますが、リグはこれが彼の昏迷の正しい選択肢であると確信しているようで、ロックマンは彼を手放すことに同意します。</text>
+					<autoReward level="MED">standard</autoReward>
+					<crewMember amount="1" all_skills="1" class="unique_symbiote">ティンタンとリグ</crewMember>
+					<variable name="ach_crew_symbiote" op="set" val="1" />
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_SURGEON_DRONES">
+				<text>（外科医ドローン）ロックマンで手術を行います。</text>
+				<event>
+					<text>ためらうことなく、外科医のドローンは駅に突入し、患者のために最高速度でビーラインを作り、邪魔になっている岩をノックします。麻酔を適用し、リグの腹部に正確に切開します。震えているティンタンを除去し、できるだけ早く切開を封印します。両方の患者で治療を終えると、ロックマンアプローチが感銘を受けました。「投与されたケアのレベルを考慮すると、私たちは健全な報酬を与えたいと思っています。この技術はどこで見つけましたか？」</text>
+					<autoReward level="HIGH">standard</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_A55">
+				<text>（A55）手術を試みます。</text>
+				<event>
+					<text>「arr、私のシステムはそれが不可能だと言っていますが、私は「とにかく試してみます。」A55は、フックをスイングしてオープンリグを削減します。A55がZoltanを抽出すると、岩は痛みを抱いており、その間、彼の限られたドクタードローン能力で援助を投与します。それは間に合わせの仕事ですが、彼は何とか傷を閉じて両方の患者を治療することができます。ロックマンは懸念を持ってあなたを見ていますが、容赦します。「あなたがしたことは危険にさらされているようです。そして、それは海賊のドローンです...？あなたはあなたが言ったことをしたので、私たちはあなたにそれに対して報酬を与えます。」</text>
+					<autoReward level="MED">standard</autoReward>
+				</event>
+			</choice>
+			<choice req="LIST_DOCTOR_DRONES" hidden="true">
+				<text>あなたのドクタードローンは、この口径の手術を行うことができません。</text>
+				<event load="OPTION_INVALID" />
+			</choice>
+			<choice req="LIST_CREW_MEDIC" hidden="true">
+				<text>あなたのメディックは、フィールドメディックがこの仕事に対応していないことをあなたに知らせます。</text>
+				<event load="OPTION_INVALID" />
+			</choice>
+			<choice req="shell_scientist" hidden="true">
+				<text>あなたのシェル科学者は、両方の患者を生き生きと健康に保つために、岩やゾルタンの生物学に十分な精通性を持っていません。</text>
+				<event load="OPTION_INVALID" />
+			</choice>
+			<choice hidden="true" req="LIST_CREW_MANTIS">
+				<text>（マンティスクルー）ロックマンに「手術」を行います。</text>
+				<event>
+					<text>あなたのマンティスは、その能力を確信して、ロックマンを押しのけて、「感染した」ロックマンが収容されている部屋に行進します。 1回のスワイプで、胃をまっすぐに切ります。震えるゾルタンが落ち、地面に震えます。その場しのぎのロック医療チームが急いで負傷したロックマンを修理し、ゾルタンを生理学的に評価します。彼らはあなたの解決策に満足していませんが、とにかく約束通りにあなたに支払います。</text>
+					<autoReward level="LOW">standard</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>彼らが単に彼らの集団的な惨めさから彼らを追い出すことを提案しなさい。</text>
+				<event>
+					<text>「あなたのアドバイスは無意味です。私たちは、ゾルタンの高官と私たち自身の指揮官の両方を単純に暗殺することはできません。私たちはあなたが去ることをお願いします、そして私たちはより役立つ船が到着するのを待ちます。」</text>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>手術を試みて実行することを申し出ます。</text>
+				<event>
+					<text>「2つの種のどちらかを操作するためのトレーニングはありますか？それとも何かの種がありますか？」あなたは首を横に振る。 「それなら迷子になります。彼らが何をしているのかを知っている誰かが到着するのを待ちます。」</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>仕方がない。</text>
+		<event>
+			<text>あなたはロックステーションを無視して、あなたの道を続けます。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+<event name="ROCK_HOMEWORLDS" unique="true">
+	<preventQuest />
+	<text>このビーコンは、人口密度の高いロック惑星の近くにあなたを着陸させました。船のコンピューターが、これは普通のロック惑星ではなく、ロック種族の本拠地であるVrachos IVであると通知したときに、あなたはダブルテイクします。</text>
+	<img back="BACK_EVENT_ROCKHOME" planet="PLANET_INVISIBLE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>船のコンピューターは、他のいくつかの詳細についてお知らせします。 Vrachos IVは、地球上の大規模な産業採掘が必要な天然資源の悲惨な不足をもたらしたため、主に放棄されました。岩の文明の首都であるこの都市は、人口のままである唯一の数少ないものの1つです。それは、5人のロック長老の1人、ストーンウォールによって厳格な管理下にあります。彼の信じられないほど創造的でない名前は、通常、拷問と公的な処刑を伴う反体制派を罰する彼の創造的な方法とうまく一致しています。</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>下の街は活気にあふれ、遠くにストーンウォールの宮殿があり、日の出を遮っています。ここでは最大の建物ではありませんが、最も注目を集めています。</text>
+					<choice hidden="true">
+						<text>宮殿を攻撃します。</text>
+						<event>
+							<text>あなたは変化を起こすためにこの現実に到達しました、そしてロック政府は反乱軍に勝るものはありません。しかし、宮殿に近づくと、巨大なロック巡洋艦が出て、あなたと戦う準備ができています。</text>
+							<ship load="SHIP_ROCK_CRUISER_BOSS" hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>私たちは去るべきです。</text>
+						<event>
+							<text>巨大なロックシティは連邦船の場所ではありません。スラスターの電源を入れて、惑星の表面から離れます。</text>
+							<choice>
+								<text>船に乗って何かする。</text>
+								<event load="STORAGE_CHECK" />
+							</choice>
+							<choice>
+								<text>何もしない。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ROCK_HOMEWORLDS_VICTORY">
+	<text>強力なエリートロック巡洋艦でさえ、あなたに勝る船はありません。敗北した巡洋艦の残骸は炎上し、宮殿の入り口につながる広大な庭園を破壊しました。スクラップするのはたくさんありますが、ロックの兵士があなたに会うために不足している時間はあまりありません。</text>
+	<variable name="ach_boss_rockcruiser" op="set" val="1" />
+	<autoReward level="HIGH">item</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>ロックマンと一緒にストーンウォール自身がやって来て、あなたが引き起こしたダメージに非常に腹を立てます。 「あなたは何をしましたか！あなたはあなたの主張を証明しました、あなたはどこへ行ってもあなたは破壊をもたらし、私たちの生き方を混乱させるだけです！あなたが望むのは何ですか、なぜあなたは今日ここに来て破滅するのですか？あなたが去る？"</text>
+			<choice>
+				<text>彼らの給料を受け入れる。</text>
+				<event>
+					<text>しぶしぶ、ロックの兵士たちは銃を下ろし、大量のスクラップがあなたのために持ち出されます。これは、セキュリティの強化以外にロック政府にあまり永続的な影響を与えることはありませんが、少なくともこれはあなたの主要な使命に役立ちます。</text>
+					<autoReward level="MED">scrap_only</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="1">
+				<text>Stonewallを人質として使用し、さらに大きな報酬を得るための掘り出し物として使用してください。</text>
+				<event load="ROCK_HOMEWORLDS_VICTORY_HOSTAGE" />
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="0" max_lvl="0">
+				<text>船の AI は、ストーンウォールを人質に取ることを提案します。残念ながら、このオプションを検討するための適切なチームがありません。</text>
+				<event load="OPTION_INVALID" />
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="1">
+				<text>私たちは変化を起こすためにここに来ました。今ストーンウォールを暗殺します。</text>
+				<event load="ROCK_HOMEWORLDS_VICTORY_KILL" />
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="0" max_lvl="0">
+				<text>あなたは変化を起こすためにここに来ました。ストーンウォールですべての武器を発射する。</text>
+				<event load="ROCK_HOMEWORLDS_VICTORY_KILL_AUTO" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ROCK_HOMEWORLDS_VICTORY_HOSTAGE">
+	<event>
+		<text>あなたはどの警備員よりもはるかに速く、ほんの数秒であなたのブラスターはストーンウォールの頭に直接押し付けられます。これは危険で神経質な交換ですが、すべてが「計画どおり」に進み、ロックトランスポートが大量の商品を配達します。</text>
+		<autoReward level="HIGH">weapon</autoReward>
+	</event>
+	<event>
+		<text>それは危険な動きであり、物事は「計画された」ほどには進まない。ロックガードは予想よりも速く、クルーの1人が胸を撃たれました。あなたはまだ彼の巨大な首の周りにストーンウォールをつかみ、彼の苔で覆われた顔にブラスターを保持することができます。あなたのクルーが床で死にかけているとき、より多くの物資を届けるためにロックトランスポートが呼び出されます。満足したら、急いで船に戻り、銃をストーンウォールに向けたままにします。</text>
+		<autoReward level="HIGH">weapon</autoReward>
+		<choice hidden="true" req="medbay" lvl="2">
+			<text>（Upg. Medbay）クルーに医療援助を提供します。</text>
+			<event>
+				<text>幸いなことに、あなたのクルーは時間内に治療することができます。ミッションの成功を喜んで、あなたは街から離れます。</text>
+			</event>
+		</choice>
+		<choice hidden="true" req="LIST_CREW_MEDICAL">
+			<text>(医療乗務員) 乗組員に医療支援を提供します。</text>
+			<event>
+				<text>幸いなことに、あなたのクルーは時間内に治療することができます。ミッションの成功を喜んで、あなたは街から離れます。</text>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>クルーを救うためにできることは何もありません。</text>
+			<event>
+				<text>あなたのクルーはあなたの前で死にます、あなたが単にそんなに大胆なことを試みなかったならば、死傷者は防がれたかもしれません。</text>
+				<removeCrew>
+					<clone>true</clone>
+					<text>幸いなことに、あなたのクルーはクローン化されており、罪悪感から解放されています。</text>
+				</removeCrew>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<event name="ROCK_HOMEWORLDS_VICTORY_KILL">
+	<text>あなたは素早くブラスターを引き抜き、ストーンウォールの胸に直撃せた。巨大な巨人は音を立てて地面に倒れ、ロック軍の兵士たちは大混乱に陥っている。あなたは急いで船に戻ったが、宮殿の門を破ったロック市民の波によって止められてしまった。野次馬の大群は、あなたが長年にわたる残忍な独裁者を勇敢に処刑するのを目撃し、反乱に駆り立てられ、兵士を倒そうと駆け寄ってきたのです。</text>
+	<unlockCustomShip silent="false">PLAYER_SHIP_ROCKMAN</unlockCustomShip>
+	<choice hidden="true">
+		<text>とどまり、戦うのを手伝ってください。</text>
+		<event>
+			<text>それは激しい戦いであり、両側に大きな犠牲者が出ていますが、訓練を受けた軍のクルーと一緒に、民間人に有利な流れを揺るがすのを手伝ってください。戦いが確実に終わったら、民間人はあなたの助けに感謝します。ほとんどの人がストーンウォールの宮殿を支配するために行進しますが、マスターをオンにしたクルセイダーの1人のロックが後ろに留まります。 「あなたは私たちにかなりの奉仕をしてくれました、そして私は感謝なしにこれを手放すことはできません。私たちの種類は最終的にこの抑圧から解放されるかもしれません、そしてこれは非常に良いスタートかもしれません。このような強力な積荷を持ってここを通過する連邦船には、彼らを待っている非常に重要な使命があり、彼らは得ることができるすべての人員を使うことができます。」</text>
+			<crewMember amount="1" all_skills="2" class="rock_crusader">ihatsno</crewMember> 
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>今すぐ出発します。</text>
+		<event>
+			<text>うまくいけば、あなたがロックの人々の間で始めたこの新たに発見された希望の火花が、他の長老たちが送るはずの援軍によって窒息させられないでしょう。あなたはこれ以上あなたの任務を危険にさらすことはできないので、あなたはエンジンをパワーアップして街から飛び去ります。</text>
+		</event>
+	</choice>
+</event>
+<event name="ROCK_HOMEWORLDS_VICTORY_KILL_AUTO">
+	<text>船全体の武器の配列を狙い、ストーンウォールのスポットで自由に発砲します。それはかなり残忍な表示ですが、生き物の強大なタイタンはあなたの武器の弾幕の下で迅速に終了し、ロックの兵士は混乱に陥ります.長年の残忍な独裁者に対するあなたの勇敢な処刑を目の当たりにした見物人の大群は、反乱に駆り立てられ、兵士を倒すために殺到しています。</text>
+	<unlockCustomShip silent="false">PLAYER_SHIP_ROCKMAN</unlockCustomShip>
+	<choice hidden="true">
+		<text>とどまり、戦うのを手伝ってください。</text>
+		<event>
+			<text>これは激しい戦いであり、双方に多くの犠牲者が出ていますが、威嚇する自動巡洋艦が頭上に迫っているため、民間人に有利な方向に流れを変えることができます。戦いが確実に終わったら、民間人はあなたの助けに感謝します.ほとんどがストーンウォールの宮殿を支配するために行進しますが、マスターに背を向けたクルセイダーである1つのロックが遅れをとっています。 「あなたは私たちにかなりの奉仕をしてくれました。感謝なしにこれを手放すことはできません。私たちの種族はついにこの抑圧から解放されるかもしれません。これが始まりになる可能性が非常に高いです.私は後ろに留まり、戦い続けたいと思っていますが、私も知っています.これほど強力な装備を備えた連邦船がここを通過すると、非常に重要な任務が待っており、入手できる人員をすべて使用することができます。」</text>
+			<crewMember amount="1" all_skills="2" class="rock_crusader">ihatsno</crewMember>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>今すぐ出発します。</text>
+		<event>
+			<text>うまくいけば、あなたがロックの人々の間で始めたこの新たに発見された希望の火花が、他の長老たちが送るはずの援軍によって窒息させられないでしょう。あなたはこれ以上あなたの任務を危険にさらすことはできないので、あなたはエンジンをパワーアップして街から飛び去ります。</text>
+		</event>
+	</choice>
+</event>
+</FTL>

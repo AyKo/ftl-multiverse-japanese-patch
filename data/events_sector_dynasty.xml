@@ -1,0 +1,1884 @@
+<FTL>
+
+
+
+<event name="FINISH_BEACON_DYNASTY">
+	<text id="finish_beacon" />
+	<choice hidden="true">
+		<text>探検。</text>
+		<event load="EXIT_FILLER_LIST" />
+	</choice>
+	<choice hidden="true">
+		<text>船に乗って何かする。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice hidden="true">
+		<text>何もしない。</text>
+		<event />
+	</choice>
+</event>
+
+	
+<eventList name="CLEARING_DYNASTY">
+	<event load="DYNASTY_ROCK_HERESY" />
+	<event load="DYNASTY_CACHE" />
+	<event load="DYNASTY_SLUGOCC" />
+	<event load="DYNASTY_DUEL" />
+</eventList>
+
+<event name="DYNASTY_ROCK_HERESY" unique="true">
+    <text>ここには十字軍の船があります。「ああ！私たちは、これらの地域を横断する霊に疑問を投げかけ、クリソリシズムの言葉を強化する努力によって真実を探してこのセクターに来ました。それでも私がここで見つけたのは異端です。長い間亡くなっていましたが、私たちの使命はそのトラックで死んでしまいました。」</text>
+    <ship load="SHIP_ROCK_ELITE_ALL" hostile="false" />
+    <choice>
+		<text>彼らに真実を探すように奨励し、それを求めないでください。</text>
+		<event>
+			<text>あなたは十字軍に、王朝は自分自身の目標を持つ十分に確立された文化であることを伝えます - 彼らは、彼らが望むことを伝えることを期待することよりも、彼らが物事と彼らが信じていることによってより多くを学ぶことができます。「うーん、私は反逆者に知恵を期待していませんでした。非常によく、私たちが言われたことと嘘の間で検索したことを振り返ります。」Rocksは、PEPトークへの感謝として、あなたに彼らのフライト記録を送ります。</text>
+			<reveal_map />  
+		</event>
+    </choice>
+    <choice>
+		<text>彼らの誤った推論を彼らに知らせてください。</text>
+		<event>
+			<text>あなたは彼らが彼らが見つけたいという結論から始めていること、そしてこれは「動機付けられた推論」と呼ばれることを彼らに伝えます。彼らはあなたが期待するほど不十分に反応します。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>うなずき、一緒に移動します。</text>
+		<event>
+			<text>あなたはボートを揺さぶることを避けます - それらを悪化させる必要はありません。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+
+
+<event name="DYNASTY_CACHE" unique="true">
+	<text>王朝には古くからさまざまなキャッシュが散らばっていると聞いたことがあります。ここで放棄されたようです。多分あなたはそれを開くことができますか？</text>
+	<choice hidden="true">
+		<text>キャッシュを開きます。</text>
+		<event load="DYNASTY_CACHE_OPEN" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ROCK">
+		<text>（ロッククルー）キャッシュをスマッシュオープンします。</text>
+		<event>
+			<text>クルーはキャッシュを正常にスマッシュオープンします。中には古代の腐った武器のように見えます。それも派手なものではなく、現代の武器の古いモデルにすぎません。それでも、それは武器であり、いくつかのスクラップも伴います！</text>
+			<autoReward level="MED">scrap_only</autoReward>
+			<weapon name="GIFTLIST_RUSTY" />
+		</event>
+	</choice>
+	<choice hidden="true" req="weapons" lvl="5">
+		<text>（Upg. Weapons）キャッシュを爆破して開きます。</text>
+		<event>
+			<text>あなたは武器でキャッシュを爆破して開きます。中には古代の腐った武器のように見えます。それも派手なものではなく、現代の武器の古いモデルにすぎません。それでも、それは武器であり、いくつかのスクラップも伴います！</text>
+			<autoReward level="MED">scrap_only</autoReward>
+			<weapon name="GIFTLIST_RUSTY" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>キャッシュを無視します。</text>
+		<event>
+			<text>王朝の空間で王朝の財産に触れる危険を冒さない方が良いです。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="DYNASTY_CACHE_OPEN">
+	<event>
+		<text>どれだけ試しても、キャッシュを開くことはできません。中にあるものは何でも永遠に謎のままになります。または、少なくとも火力の強い人が来るまでは。</text>
+	</event>
+	<event>
+		<text>どれだけ試しても、キャッシュを開くことはできません。さらに悪いことに、あなたは王朝の船に発見されました。王朝の船は攻撃のために移動します！</text>
+		<ship load="SHIP_DYNASTY_GENERIC" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>キャッシュをこじ開けることができます。中には古代の腐った武器のように見えます。それも派手なものではなく、現代の武器の古いモデルにすぎません。それでも、それは武器であり、いくつかのスクラップも伴います！</text>
+		<autoReward level="MED">scrap_only</autoReward>
+		<weapon name="GIFTLIST_RUSTY" />
+	</event>
+</eventList>
+
+<event name="DYNASTY_SLUGOCC" unique="true">
+	<text>通常、王朝の船はあなたのような船に勧誘するのにそれほど開かれていませんが、ここではあなたの支援が必要なようです。 「あなたは連邦のものですか？軍事船は劣らず、あなたは完璧です。私は救助作戦DN-43のリーダーであり、私の仕事はこの惑星に残された王朝の財産を取り戻すことでした。私は最も会ってきました。 ..不幸な偶然。この惑星は今では... egh ... スラッグによって占領されています。私は兵士ではなく、サルヴァーです。助けてくれますか？」</text>
+	<img planet="PLANET_WATER" />
+	<choice hidden="true">
+		<text>承認。</text>
+		<event>
+			<text>あなたは惑星に近づきます。そこでは、スラッグがすでにいくつかの基本的な集落を建設しているのを見ることができます。</text>
+			<choice hidden="true">
+				<text>それらを攻撃します！</text>
+				<event>
+					<text>武器を上げて、コロニー内のスラッグの船の1つを攻撃します。</text>
+					<ship load="SHIP_DYNASTY_SLUGOCC" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>却下。</text>
+		<event>
+			<text>あなたは他の人の仕事をするためにここに来たのではありません。手元にあるもっと重要な問題があります。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="DYNASTY_DUEL" unique="true">
+	<text>明らかに、反乱軍は彼らを怒らせるために王朝に何かをしました。反乱軍と王朝の船が押し寄せています...しかし、彼らはまだあなたに会っていません！</text>
+	<choice hidden="true">
+		<text>反乱軍の船を助けてください。</text>
+		<event>
+			<text>あなたは王朝の船と戦う準備をします。</text>
+			<ship load="SHIP_GHOST_DYNASTY_DUEL" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ゴースト船を助けてください。</text>
+		<event>
+			<text>あなたは反乱軍の船と戦う準備をします。</text>
+			<ship load="SHIP_GHOST_REBEL_DUEL" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>関与しないでください。</text>
+		<event>
+			<text>どちらの船もあなたの味方ではなく、どちらかを助けることがあなたの最善の利益になるとは思えません。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="GHOST_DUEL_REBEL_SAVE">
+	<text>王朝の船は死んでおり、あなたと反乱軍だけが残されています。彼らはしぶしぶあなたに感謝し、あなたの場所に関する誤った情報を艦隊に与えることに同意します。</text>
+	<autoReward level="LOW">standard</autoReward>
+	<modifyPursuit amount="-1" />
+</event>
+<event name="GHOST_DUEL_GHOST_SAVE">
+	<text>反乱軍の船は死んでおり、あなたと王朝の船だけが残されています。スタティックのラインがあなたの船に送られます、それはあなたがあなたに感謝することを意味すると思います。ゴーストがあなたを助けるために有能な兵士を照らしているとき、あなたの疑いは確認されます！</text>
+	<autoReward level="LOW">standard</autoReward>
+	<crewMember amount="1" class="phantom" />
+</event>
+
+	
+<eventList name="NEBULA_ITEMS_DYNASTY">
+	<event load="NEBULA_DYNASTY_FILTH" />
+	<event load="NEBULA_DYNASTY_SPLIT" />
+	<event load="NEBULA_DYNASTY_TRINKETS" />
+	<event load="NEBULA_DYNASTY_INTERROGATION" />
+	
+	<event load="NEBULA_VAGABOND_FLEETCRASH" />
+</eventList>
+
+<event name="NEBULA_DYNASTY_FILTH" unique="true">
+	<text>王朝は、廃墟を救うために厳密に数隻の船を雇ってきました。ここには破滅は見られませんが、それでもサルベージャー船が前後に疾走しています。</text>
+	<ship load="SHIP_DYNASTY_GENERIC" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>彼らが何をしているのか聞いてください。</text>
+		<event>
+			<text>「FILTH！FILTH！なんてこった、その悪臭が私の形にまとわりつき、FILTHが私の原形質膜の下を這うのを感じます！震え、ああ、恐ろしいです！しかし、汚物はきれいにされますか？！？」</text>
+			<choice hidden="true">
+				<text>うわー、落ち着いて。</text>
+				<event>
+					<text>「しないでください...私に「落ち着く」ように言わないでください。私に詳細を惜しまず、私の悩みの中でどのように必要性を見つけるかについて知らせないでください。あなたは助けを求めますか？」</text>
+					<choice hidden="true">
+						<text>何を手伝いますか？</text>
+						<event>
+							<text>「あなたは耳が詰まるという致命的な事件に苦しんでいますか？FILTH、あなたはケシを嗅ぐ息抜きを薄暗くしました！卑劣な反乱軍のような仲間の息抜きによって残されたゴミ！ああ、私はあなたがそれを「スクラップ」と呼んでいると信じています。私がこのビーコンをきれいに宣言し、あなたに報酬を与えるための金額...えーと...私の心からの感謝ですか？」</text>
+							<choice hidden="true">
+								<text>彼のためにスクラップを集めるのに少し時間がかかります。</text>
+								<event>
+									<text>あなたがこれをしている間、艦隊はおそらく少し追いつくでしょう、しかしあなたはスクラップの大規模なコレクションを集めてそれをゴーストに見せます。 「いや、いや！もっと！もっと！FILTHはまだ私の一日を台無しにし、システムを乱雑にし続けている！」</text>
+									<autoReward level="LOW">standard</autoReward>
+									<modifyPursuit amount="1" />
+									<choice hidden="true">
+										<text>彼のためにもっとスクラップを集めなさい。</text>
+										<event>
+											<text>その過程で艦隊は間違いなくさらに接近しましたが、以前よりもさらに大きな運搬量を取り戻すことができます。 「ああ、あなたは精神的に障害があります！いやいやいや！もっと！あなたはオーフです！星が空の星空の深淵で再びきらめくまで止まらないでください！」</text>
+											<autoReward level="MED">standard</autoReward>
+											<modifyPursuit amount="1" />
+											<choice hidden="true">
+												<text>彼のためにさらに多くのスクラップを集めてください。</text>
+												<event>
+													<text>反乱軍が本当にあなたのすぐ後ろにいることは間違いありません。 「いいね！回転サイクルの最後の1時間で、あなたは私の要求を最も勇敢に満たした！あなたは私に勝利の感覚をもたらす！FILTHはもうない！FILTHの疫病に対する英雄的な戦士は彼らのそばにいる私に他ならぬ価値がある！</text>
+													<autoReward level="HIGH">standard</autoReward>
+													<crewMember amount="1" all_skills="2" class="phantom" />
+													<modifyPursuit amount="1" />
+												</event>
+											</choice>
+											<choice hidden="true">
+												<text>拒否する。</text>
+												<event />
+											</choice>
+										</event>
+									</choice>
+									<choice hidden="true">
+										<text>拒否する。</text>
+										<event />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>却下。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>この男はくだらない仕事です。彼を彼の惨めさから解放しなさい。</text>
+				<event>
+					<text>「ああ、ああ！ああ、彼らがこの日のことを私に警告したのです！あなたは長居してはいけません、野心的です、あなたは長居してはいけません！今、悪役の男たちがあなたを襲うようになります！刈り取り人、悪魔の男たちを恐れてください！」</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ゴーストを無視します。</text>
+		<event>
+			<text>この船の奇妙な振る舞いはあなたの好みにはあまりにも疑わしいです。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_DYNASTY_SPLIT" unique="true">
+	<text>いくつかのエリートリーパー船を含む、いくつかの王朝の船が医療の前哨基地の周りにドッキングしているように見えます。そこで何が起こっているのでしょうか？</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>ドッキングする。</text>
+		<event>
+			<text>あなたが乗る前に、ゴーストアルファが走っていますが、彼らがあなたに会ったときに止まります。その背後には医療スタッフが続きます。 「部外者？unsortold、しかし偶然のことです。ここの友人は分割能力を超えていますが、まだ恐怖から分割していません。彼らの注意のためにいくらかの救済策を提供できますか？」あなたはアルファが震えており、その特徴のない顔であなたを見つめていることに気づきます。</text>
+			<choice hidden="true">
+				<text>アルファを分裂に話してみてください。</text>
+				<event load="DYNASTY_SPLIT_ENCOURAGE" />
+			</choice>
+			<choice hidden="true">
+				<text>他のゴーストからアルファを保護します。</text>
+				<event>
+					<text>あなたはアルファが従うように素早く動きます、そして彼らは喜んでそうします。船に戻ってみると、王朝の船を怒らせたようです。彼らの刈り取り船の1つは、兵士を取り戻すために派遣されます。</text>
+					<crewMember amount="1" class="phantom_alpha" />
+					<ship load="SHIP_DYNASTY_ELITE_FIGHT" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="mind" max_lvl="1">
+				<text>（マインドコントロール）アルファを討伐する。</text>
+				<event>
+					<text>マインドコントロールの影響下で、ゴーストアルファは、王朝の医療スタッフが青い液体でいっぱいに注入するのに十分な時間抑制され、明らかに無意識に分裂プロセスを開始します。彼らはあなたの効率的な問題解決に感謝し、報酬を提供します。</text>
+					<autoReward level="MED">drone</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="mind" lvl="2">
+				<text>（マインドコントロールのアップグレード）アルファを強制的に分割します。</text>
+				<event>
+					<text>アルファはより激しく揺れ始め、突然細かい霧に噴火し、ゆっくりと2つの別々の幽霊に改革します。双子はお互いを見て叫び始めますが、混乱した医療スタッフに抑制されています。「偉大な星雲で何が起こったのですか？これはプロセスがどのように進むことを意図しているかではありません！i-iは、この状況について何を考えるべきか不確かです。これらは...ええと...戦いの分野で。代わりにそれらを持ってください。」</text>
+					<crewMember amount="2" class="phantom" />
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_SHELL_SCIENTIST">
+				<text>（シェルサイエンティスト）プロセスを説明してください。</text>
+				<event>
+					<text>「プラズマ膜」や「Quantum Something Somethingの急速な下位区分」など、シェルのスピーチの中でさまざまな奇妙なフレーズをキャッチします。それは何かを意味しますか？あなたはノーと言う傾向があります。後で、あなたのシェルは実際に彼らが言ったことすべてを作り上げたことをあなたに伝えますが、それは最終的にプロセスを通過することに同意するアルファに登録しているようです。医療チームはあなたの助けのためにあなたに支払いをします。</text>
+					<autoReward level="MED">drone</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>おそらく関与すべきではありません。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ステーションを無視します。</text>
+		<event>
+			<text>エリート王朝の船の射撃場に自発的に近づくことは、今のところ最善の考えとは思えません。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="DYNASTY_SPLIT_ENCOURAGE">
+	<event>
+		<text>どれだけ試してみても、Alphaは単にあなたの言うことを聞きません。あなたはあきらめて謝罪し、他に助ける方法がないことを説明します。</text>
+	</event>
+	<event>
+		<text>何を話しているのかわかりませんが、できるだけ落ち着いて聞こえるようにします。あなたのセカンドオピニオンは、アルファを服従させるように思われます。ステーションのスタッフはわずかな報酬を提供します。</text>
+		<autoReward level="LOW">stuff</autoReward>
+	</event>
+</eventList>
+
+<event name="NEBULA_DYNASTY_TRINKETS" unique="true">
+    <text>「悪魔は長居します...乗って来てください、ここで彼らから安全です。私はたくさんの不思議を持っています、多分あなたはそれが欲しいですか？」穏やかに話すゴーストはあなたが乗船するために手を振る。</text>
+    <environment type="nebula" />
+    <choice hidden="true">
+        <text>乗ってください。</text>
+        <event>
+            <text>あなたは船に乗って、酸素がいっぱいであることに驚いた。壁の周りには、さまざまな小さな装身具がぶら下がっています。「これらは私の貴重な作品です。あなたは1つを気にかけますか？たった10のスクラップ...」</text>
+            <choice hidden="true">
+                <text>トーテム オブ ウォー [+8% 武器の発砲率] を購入します。</text>
+                <event load="NEBULA_DYNASTY_TRINKETS_WAR" />
+            </choice>
+            <choice hidden="true">
+                <text>速度のエンブレムを購入 [+20% 乗組員の移動速度、+20% FTL 再充電率]。</text>
+                <event load="NEBULA_DYNASTY_TRINKETS_SPEED" />
+            </choice>
+            <choice hidden="true">
+                <text>派手なインゴット[ +20％シールドチャージ速度、 +10％のシステム妨害抵抗]を購入します。</text>
+                <event load="NEBULA_DYNASTY_TRINKETS_SHIELD" />
+            </choice>
+            <choice hidden="true">
+                <text>結構です。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+	<choice hidden="true">
+		<text>ゴーストを避けてください。</text>
+		<event>
+			<text>あなたは今「不思議」を見るよりもやるべきことがあります。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="NEBULA_DYNASTY_TRINKETS_WAR">
+	<text>「へぇ……それがどのように機能するのか聞かないでください。」あなたは船に戻り、その物体をどうするかわからない。最終的にダッシュボードに配置し、機能することを期待します。</text>
+	<hiddenAug>TRINKET_WAR</hiddenAug>
+	<item_modify>
+		<item type="scrap" min="-10" max="-10" />
+	</item_modify>
+</event>
+<event name="NEBULA_DYNASTY_TRINKETS_SPEED">
+	<text>「へぇ……それがどのように機能するのか聞かないでください。」あなたは船に戻り、その物体をどうするかわからない。最終的にダッシュボードに配置し、機能することを期待します。</text>
+	<hiddenAug>TRINKET_SPEED</hiddenAug>
+	<item_modify>
+		<item type="scrap" min="-10" max="-10" />
+	</item_modify>
+</event>
+<event name="NEBULA_DYNASTY_TRINKETS_SHIELD">
+	<text>「へぇ……それがどのように機能するのか聞かないでください。」あなたは船に戻り、その物体をどうするかわからない。最終的にダッシュボードに配置し、機能することを期待します。</text>
+	<hiddenAug>TRINKET_SHIELD</hiddenAug>
+	<item_modify>
+		<item type="scrap" min="-10" max="-10" />
+	</item_modify>
+</event>
+
+<event name="NEBULA_DYNASTY_INTERROGATION" unique="true">
+	<text>近くで何か重要なことが起こっているようです。近づいてみると、障害のある自動船の周りに停泊している王朝の船のグループが、武器を充電して叫んでいるのが見えます。</text>
+	<ship load="SHIP_AUTO_DYNASTY_INTERROGATION" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>何が起こっているのか聞いてください。</text>
+		<event>
+			<text>「悪魔を捕獲したぞ！聞け、まだ喋らないのか。喋れ！獣よ！喋れ！死神の命令により、話せと要求する！」</text>
+			<choice hidden="true">
+				<text>それはオートシップですけど...</text>
+				<event>
+					<text>ゴーストの「頭」はあなたに向かって回転します。 「え？何の文字化けを話しますか？」</text>
+					<choice hidden="true">
+						<text>それは生きていません。それはただの機械です。</text>
+						<event load="DYNASTY_INTERROGATION_TALK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_ENGINEER">
+				<text>（エンジニアクルー）オートとインターフェースして「話させて」。</text>
+				<event>
+					<text>エンジニアはリモートで自動出荷にアクセスし、オンラインで電力を供給します。幸い、そのボーカルモジュールはまだアクティブです。 「OooOooOoOoh！あなたは私を捕まえました。あなたは今呪われています！あなたが連邦にあなたのスクラップのすべてを与えなければ、あなたの子供は死産し、あなたの作物は悩まされます。OooOoOoOoooOh！」ゴーストは突然パニックに陥り、あなたが連邦の船であることに気付くまで、武器を奪い合います。呪われないように必死になって、彼らはあなたに彼らのスクラップのすべてを与えます。</text>
+					<autoReward level="MED">scrap_only</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="hacking" lvl="2">
+				<text>（Upg. Hacking）オートシップと接続し「話させます」</text>
+				<event>
+					<text>こっそりとハッキングモジュールをオートシップに接続し、電源を入れる。幸いなことに、その音声モジュールはまだアクティブだ。「おおぉぉぉおおおぉぉ！我はお前を捕らえた。お前は今、呪われている！連邦にスクラップを全て渡さなければ、お前の子供は死産となり、作物は不作になる。おおぉぉぉおお！」ゴーストは突然パニックに陥り、武器を求めて奔走するが、あなたが連邦の船であることに気がつく。呪われたくない彼らは、自分たちのスクラップをすべてあなたに渡した。</text>
+					<autoReward level="MED">scrap_only</autoReward>
+				</event>
+			</choice>
+			
+			<choice hidden="true">
+				<text>それらをそれに任せなさい。</text>
+				<event>
+					<text>これらのゴーストは、自動船が話すことができないことに気付いていないようです。少なくとも、プログラムされていない限りではありません。 Sentient オートシップ？それはばかげています...</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それらを避けてください。</text>
+		<event>
+			<text>これはかなり深刻に見えますが、間奏しないのがおそらく最も安全です。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="DYNASTY_INTERROGATION_TALK">
+	<event>
+		<text>ファントムはただあなたを笑わせます。 「これが、このような問題について連盟の助けを求めない理由です。」</text>
+	</event>
+	<event>
+		<text>ゴーストが応答する前に、突然オートシップの電源がオンになります。ゴーストはそれを無効にするのに良い仕事をしなかったようです...そしてあなたは彼らを助けるか走らなければならないでしょう！</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<eventList name="NEBULA_ITEMS_DYNASTY_UNIQUE">
+	<event load="NEBULA_DYNASTY_UNIQUE_HACKERBID" />
+
+	
+	<event load="NEBULA_DYNASTY_SPLIT" />
+	<event load="NEBULA_DYNASTY_TRINKETS" />
+	<event load="NEBULA_DYNASTY_INTERROGATION" />
+</eventList>
+
+<event name="NEBULA_DYNASTY_UNIQUE_HACKERBID" unique="true">
+	<text>あなたはここでスラッグハッカーの船に出会う準備ができていませんでしたが、彼らは数人の海賊や死神の船と一緒にある種のオークションを持っているようです！</text>
+	<ship load="SHIP_HACKER" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>お問い合わせください。</text>
+		<event>
+			<text>ハッカーはあなたを紹介するためにカウントを一時停止します。 「なんと、私はあなたが見たことのない技術の断片を発明しました。重要でないバックアップ電源だけで作動するオートパイロットを完全に無効にするか、原子炉バー 2 つだけで完全にオフにすることができます!これらの王朝の人々は本当にそれを望んでいるようです.入札するなら、少なくとも 30 ssscrap でエントリーする必要があります。」</text>
+			<choice hidden="true">
+				<text>入札を入力してください。</text>
+				<event>
+					<text>「じゃあ、入札を始めましょう！」</text>
+					<choice>
+						<text>継続する...</text>
+						<event>
+							<text>スラッグは番号をキャンセルし始め、最終的に王朝は価格を引き上げます。
+現在の価格: 30 スクラップ。</text>
+							<choice>
+								<text>35に上げます。</text>
+								<event>
+									<text>それでもかなり低い。 Phantoms はほぼ即座にレイズします。
+現在の価格: 35 スクラップ。</text>
+									<choice>
+										<text>40に上げます。</text>
+										<event load="DYNASTY_UNIQUE_HACKERBID_40" />
+									</choice>
+									<choice>
+										<text>終了する。</text>
+										<event />
+									</choice>
+								</event>
+							</choice>
+							<choice>
+								<text>終了する。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>辞退して去ります。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>それらを無視します。</text>
+		<event>
+			<text>あなたが競売からあなた自身を遠ざけるにつれて、急速にリストされている数字の音はすぐに消えます。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="DYNASTY_UNIQUE_HACKERBID_40">
+	<event name="DYNASTY_UNIQUE_HACKERBID_40_BID">
+		<text>そんなに低いままで立ち去るなんてありえません。 Engine Jammer は実質的に同じことを行いますが、45 スクラップの場合はさらに悪化します。王朝は再び上昇します。
+現在の価格: 40 スクラップ。</text>
+		<choice>
+			<text>45に上げます。</text>
+			<event load="DYNASTY_UNIQUE_HACKERBID_45" />
+		</choice>
+		<choice>
+			<text>終了する。</text>
+			<event />
+		</choice>
+	</event>
+	<event load="DYNASTY_UNIQUE_HACKERBID_40_BID" />
+	<event load="DYNASTY_UNIQUE_HACKERBID_40_BID" />
+	<event load="DYNASTY_UNIQUE_HACKERBID_40_BID" />
+	<event load="DYNASTY_UNIQUE_HACKERBID_40_BID" />
+	<event load="DYNASTY_UNIQUE_HACKERBID_40_BID" />
+	<event load="DYNASTY_UNIQUE_HACKERBID_40_BID" />
+	<event load="DYNASTY_UNIQUE_HACKERBID_40_BID" />
+	<event load="DYNASTY_UNIQUE_HACKERBID_40_BID" />
+	<event>
+		<text>多分それはあなたが諦めていないか、彼らがやめたので彼らが準備をしていなかったことをゴーストに告げるあなたの目の激しい表情です。ハッカーはあなたに勝者を宣言します。 「じゃあ、賞金を払って！」</text>
+		<choice>
+			<text>支払い。</text>
+			<event>
+				<item_modify>
+					<item type="scrap" min="-40" max="-40" />
+				</item_modify>
+				<augment name="COMBAT_PILOT_JAMMER" />
+			</event>
+		</choice>
+		<choice>
+			<text>ええと、できません。</text>
+			<event>
+				<text>スラッグは激怒し、すぐに戦闘を開始します！あなたはその増強を得ていないようです...</text>
+				<ship hostile="true" /> 
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<eventList name="DYNASTY_UNIQUE_HACKERBID_45">
+	<event name="DYNASTY_UNIQUE_HACKERBID_45_BID">
+		<text>これで、エンジンジャマーの価格と一致します。これは確かにもっと価値がありますが、それでもかなりのスクラップです...
+現在の価格：45スクラップ。</text>
+		<choice>
+			<text>50に上げます。</text>
+			<event load="DYNASTY_UNIQUE_HACKERBID_50" />
+		</choice>
+		<choice>
+			<text>終了する。</text>
+			<event />
+		</choice>
+	</event>
+	<event load="DYNASTY_UNIQUE_HACKERBID_45_BID" />
+	<event load="DYNASTY_UNIQUE_HACKERBID_45_BID" />
+	<event load="DYNASTY_UNIQUE_HACKERBID_45_BID" />
+	<event load="DYNASTY_UNIQUE_HACKERBID_45_BID" />
+	<event load="DYNASTY_UNIQUE_HACKERBID_45_BID" />
+	<event load="DYNASTY_UNIQUE_HACKERBID_45_BID" />
+	<event load="DYNASTY_UNIQUE_HACKERBID_45_BID" />
+	<event load="DYNASTY_UNIQUE_HACKERBID_45_BID" />
+	<event>
+		<text>多分それはあなたが諦めていないか、彼らがやめたので彼らが準備をしていなかったことをゴーストに告げるあなたの目の激しい表情です。ハッカーはあなたに勝者を宣言します。 「じゃあ、賞金を払って！」</text>
+		<choice>
+			<text>支払い。</text>
+			<event>
+				<item_modify>
+					<item type="scrap" min="-45" max="-45" />
+				</item_modify>
+				<augment name="COMBAT_PILOT_JAMMER" />
+			</event>
+		</choice>
+		<choice>
+			<text>ええと、できません。</text>
+			<event>
+				<text>スラッグは激怒し、すぐに戦闘を開始します！あなたはその増強を得ていないようです...</text>
+				<ship hostile="true" /> 
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<eventList name="DYNASTY_UNIQUE_HACKERBID_50">
+	<event name="DYNASTY_UNIQUE_HACKERBID_50_BID">
+		<text>王朝の船はよろめきますが、再び上昇します。
+現在の価格: 50 スクラップ。</text>
+		<choice>
+			<text>55まで上げる。</text>
+			<event load="DYNASTY_UNIQUE_HACKERBID_55" />
+		</choice>
+		<choice>
+			<text>終了する。</text>
+			<event />
+		</choice>
+	</event>
+	<event load="DYNASTY_UNIQUE_HACKERBID_50_BID" />
+	<event load="DYNASTY_UNIQUE_HACKERBID_50_BID" />
+	<event load="DYNASTY_UNIQUE_HACKERBID_50_BID" />
+	<event load="DYNASTY_UNIQUE_HACKERBID_50_BID" />
+	<event load="DYNASTY_UNIQUE_HACKERBID_50_BID" />
+	<event>
+		<text>多分それはあなたが諦めていないか、彼らがやめたので彼らが準備をしていなかったことをゴーストに告げるあなたの目の激しい表情です。ハッカーはあなたに勝者を宣言します。 「じゃあ、賞金を払って！」</text>
+		<choice>
+			<text>支払い。</text>
+			<event>
+				<item_modify>
+					<item type="scrap" min="-50" max="-50" />
+				</item_modify>
+				<augment name="COMBAT_PILOT_JAMMER" />
+			</event>
+		</choice>
+		<choice>
+			<text>ええと、できません。</text>
+			<event>
+				<text>スラッグは激怒し、すぐに戦闘を開始します！あなたはその増強を得ていないようです...</text>
+				<ship hostile="true" /> 
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<eventList name="DYNASTY_UNIQUE_HACKERBID_55">
+	<event name="DYNASTY_UNIQUE_HACKERBID_55_BID">
+		<text>ゴーストたちはイライラし始めていますが、容赦しません。
+現在の価格: 55 スクラップ。</text>
+		<choice>
+			<text>60まで上げる。</text>
+			<event load="DYNASTY_UNIQUE_HACKERBID_60" />
+		</choice>
+		<choice>
+			<text>終了する。</text>
+			<event />
+		</choice>
+	</event>
+	<event load="DYNASTY_UNIQUE_HACKERBID_55_BID" />
+	<event load="DYNASTY_UNIQUE_HACKERBID_55_BID" />
+	<event load="DYNASTY_UNIQUE_HACKERBID_55_BID" />
+	<event>
+		<text>多分それはあなたが諦めていないか、彼らがやめたので彼らが準備をしていなかったことをゴーストに告げるあなたの目の激しい表情です。ハッカーはあなたに勝者を宣言します。 「じゃあ、賞金を払って！」</text>
+		<choice>
+			<text>支払い。</text>
+			<event>
+				<item_modify>
+					<item type="scrap" min="-55" max="-55" />
+				</item_modify>
+				<augment name="COMBAT_PILOT_JAMMER" />
+			</event>
+		</choice>
+		<choice>
+			<text>ええと、できません。</text>
+			<event>
+				<text>スラッグは激怒し、すぐに戦闘を開始します！あなたはその増強を得ていないようです...</text>
+				<ship hostile="true" /> 
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<eventList name="DYNASTY_UNIQUE_HACKERBID_60">
+	<event name="DYNASTY_UNIQUE_HACKERBID_60_BID">
+		<text>今回は王朝の船には、背後にいる海賊の 1 人が代わりにレイズする前にチャンスさえありません。入札は続くようです。
+現在の価格: 60 スクラップ。</text>
+		<choice>
+			<text>65まで上げる。</text>
+			<event load="DYNASTY_UNIQUE_HACKERBID_65" />
+		</choice>
+		<choice>
+			<text>終了する。</text>
+			<event />
+		</choice>
+	</event>
+	<event load="DYNASTY_UNIQUE_HACKERBID_60_BID" />
+	<event>
+		<text>多分それはあなたが諦めていないか、彼らがやめたので彼らが準備をしていなかったことをゴーストに告げるあなたの目の激しい表情です。ハッカーはあなたに勝者を宣言します。 「じゃあ、賞金を払って！」</text>
+		<choice>
+			<text>支払い。</text>
+			<event>
+				<item_modify>
+					<item type="scrap" min="-60" max="-60" />
+				</item_modify>
+				<augment name="COMBAT_PILOT_JAMMER" />
+			</event>
+		</choice>
+		<choice>
+			<text>ええと、できません。</text>
+			<event>
+				<text>スラッグは激怒し、すぐに戦闘を開始します！あなたはその増強を得ていないようです...</text>
+				<ship hostile="true" /> 
+				<choice hidden="true">
+					<text>継続する...</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<event name="DYNASTY_UNIQUE_HACKERBID_65">
+	<text>ついに、ゴーストはあきらめ、他の海賊は誰も移動することを気にしません。あなたが勝ったように見えます！ハッカーはあなたに勝者を宣言します。 「じゃあ、賞金を払って！」</text>
+	<choice>
+		<text>支払い。</text>
+		<event>
+			<item_modify>
+				<item type="scrap" min="-65" max="-65" />
+			</item_modify>
+			<augment name="COMBAT_PILOT_JAMMER" />
+		</event>
+	</choice>
+	<choice>
+		<text>ええと、できません。</text>
+		<event>
+			<text>スラッグは激怒し、すぐに戦闘を開始します！あなたはその増強を得ていないようです...</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+	
+<eventList name="NEBULA_NEUTRAL_DYNASTY">
+	<event load="NEBULA_DYNASTY_SMUGGLER" />
+	<event load="NEBULA_DYNASTY_AUTOQUEST" />
+	<event load="NEBULA_DYNASTY_ZOLTAUTO" />
+	<event load="NEBULA_DYNASTY_DESERTERS" />
+	<event load="NEBULA_DYNASTY_LOST" />
+</eventList>
+
+<event name="NEBULA_DYNASTY_SMUGGLER" unique="true">
+	<text>あなたが飛び込んだ数分後、黒い密輸船が星雲から漂流してきます。これらのゴーストの風はまだ. Dynasty, もっと DyNASTY のように! そうですか? そうですか? はい、わかりました. とにかく、私たちは「非倫理的に入手した」武器でいっぱいの貨物を運んでいます.通過させてください。近くにセキュリティ チェックポイントがあります。それを取り出すか、「説得」して通過させてください。スパイシーな新しい武器を用意しています。取引しますか?」</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>チェックポイントをチェックしてください。</text>
+		<event>
+			<text>あなたはステーションに近づき、彼らが最初にあなたを呼んでいるのを見つけて驚いています！ 「注意してください。星雲の中で問題が発生しています。危険な貨物を持った海賊が発見されましたが、その場所は不明です。彼らの所在に関する情報があれば、遠慮なく共有してください。」</text>
+			<ship load="SHIP_DYNASTY_SMUGGLER_STATION" hostile="false" />
+			<choice hidden="true">
+				<text>チェックポイントを攻撃します。</text>
+				<event>
+					<text>密輸業者を助ける最も信頼できる方法は、単にこれらのゴーストを爆破することです。うまくいけば、十分に簡単なはずです。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>チェックポイントに賄賂を贈る。</text>
+				<event>
+					<text>「この寛大な寄付とは何ですか？ハーク？次の5時間、このビーコンのセキュリティに戻るためですか？まあ、これは私たちが手配できる取引だと思います。」</text>
+					<item_modify>
+						<item type="scrap" min="-30" max="-20" />
+					</item_modify>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>あなたは密輸業者を歓迎し、それが安全であることを彼らに知らせます。 「賄賂？なんてつまらない、なんてつまらない花火を探していたんだ！でも、私は私の言葉の男だ。時々。今はそうだ。でもいつもではない。どうぞ。」</text>
+							<weapon name="RANDOM" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>彼らに密輸業者の場所を売る。</text>
+				<event>
+					<text>密輸業者がこの後に武器を与えることを疑いますが、それは楽なスクラップであり、誰がそれについて文句を言うことができますか？</text>
+					<autoReward level="LOW">scrap_only</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="loc_dynasty_impressed">
+				<text>（王朝の救世主）お願いします。</text>
+				<event>
+					<text>「ああ、神々は私が知らなかったような名誉を私に授けてくれます！私は恥ずかしいです、私たちの土地の救い主を認識していなかったのです！はい、はい、私たちは何でもします！」あなたは親切にあなたの密輸業者の「友達」を通過させるように彼らに頼みます、そして彼らはためらうことなく義務を負います。</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>あなたは密輸業者を歓迎し、それが安全であることを彼らに知らせます。 「あれは何だったの？気の毒な花火を探していたんだ！でも、私は私の言葉の男だ。時々。今はそうだ。でもいつもではない。ここに行くよ。」</text>
+							<weapon name="RANDOM" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>代わりに密輸業者と戦ってください。</text>
+		<event>
+			<text>あなたは海賊と取引をしませんが、代わりに喜んで彼らと戦うでしょう！</text>
+			<ship load="SHIP_SMUGGLER_ALL" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>一部の密輸業者のために働くつもりはありません。</text>
+		<event>
+			<text>あなたは密輸業者の申し出をやや無礼に断り、飛び去ります。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_DYNASTY_AUTOQUEST" unique="true">
+	<text>すぐに、近くに残っているオートステーションのように見えるものから連絡を受け取ります。 「こんにちは。これは、近くのすべての非王朝の船への事前に録音されたメッセージです。近くのゴーストの集落は、反乱にとって問題があることが証明されています。それを取り戻してください。このプラットフォームは、ドローンであなたに報酬を与えることを許可されています。」</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>ゴーストを攻撃します。</text>
+		<event>
+			<text>反乱のために働くのは奇妙に感じますが、彼らに対して彼ら自身の武器を使うことほど満足のいく皮肉なことは考えられません。もちろん、あなたが成功したと仮定します。あなたがコロニーに近づくと、彼らの船の1つがあなたに向かって上昇します。</text>
+			<ship load="SHIP_DYNASTY_AUTOQUEST" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>オートを破壊するだけです。</text>
+		<event>
+			<text>それはあなたが武器を手に入れられないことを意味します、しかし王朝の植民地と戦うよりもこのオートステーションを殺すだけの方がはるかに簡単です。さらに、それは反乱のために働いていないことを意味します！</text>
+			<ship load="SHIP_AUTO_STATION" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>自分で問題を整理させてください。</text>
+		<event>
+			<text>反政府勢力も王朝の問題もあなたにとって重要ではありません。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_DYNASTY_ZOLTAUTO" unique="true">
+	<text>あなたは船の影があなたの後ろの星雲をすり抜けているのに気づき、それが雲から飛び出して王朝の船であることが明らかになるまで、それがあなたを追いかけているのではないかと恐れ始めます。しかし、彼らの武器はオフになっており、彼らの通信は通信のために開かれています。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>「私たちはあなたをマルチバースの反逆容器として特定しました。この声明は真実ですか？もしそうなら、あなたは傭兵の仕事の問題に反対していないと思います。これらは反乱軍の船と同じ脅威をもたらしませんが、私たちの市民の間で莫大な割合のヒステリーを作成する可能性があります。あなたはそれを無効にすることができますか？」</text>
+			<choice hidden="true">
+				<text>オートシップを追いかけます。</text>
+				<event load="DYNASTY_ZOLTAUTO_ACCEPT" />
+			</choice>
+			<choice hidden="true">
+				<text>却下。</text>
+				<event load="DYNASTY_ZOLTAUTO_DECLINE" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="DYNASTY_ZOLTAUTO_DECLINE">
+	<event />
+	<event>
+		<text>「それなら、あなたは私たちには役に立たない。さらに、あなたは王朝の領土に侵入しているので、連れ去られなければならない。」</text>
+		<ship load="SHIP_DYNASTY_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="DYNASTY_ZOLTAUTO_ACCEPT">
+	<event>
+		<text>「連邦船は戦闘の近くに入る登録。データ収集を省に転送する。」あなたの犯罪はゾルタン人に気付かれないと思いますが、彼らは今はあまりにも遠すぎてそれについて何もすることができません。まず、この自動車を取り出す必要があります。</text>
+		<ship load="SHIP_ZOLTAUTO_DYNASTY" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+		</choice>
+	</event>
+	
+</eventList>
+<eventList name="DYNASTY_ZOLTAUTO_REWARD">
+	<event>
+		<text>「あなたの方法は効率的です、私はあなたにそれを与えます。しかし、あなたはまだあなたをホストするのが最も不快な領域に侵入しているので、報酬を期待しないでください。」</text>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event />
+		</choice>
+		<choice hidden="true" req="weapons" lvl="5">
+			<text>（Upg. Weapons）それらを脅かします。</text>
+			<event>
+				<text>「あなたは説得力のある議論をしました。あなたのような個人が言葉ではなく行動で大声で話すのは一般的ですか？私が私の頭に銃を向けていなかったら私は嘲笑しました。このお金を取りなさい、あなたは野蛮人です。」</text>
+				<autoReward level="MED">scrap_only</autoReward>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>「あなたの方法は効率的です、私はあなたにそれを与えます。しかし、あなたはまだあなたをホストするのが最も不快な領域に侵入しているので、報酬を期待しないでください。」</text>
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event />
+		</choice>
+		<choice hidden="true" req="weapons" lvl="5">
+			<text>（Upg. Weapons）それらを脅かします。</text>
+			<event>
+				<text>「あなたは説得力のある議論をしました。あなたのような個人が言葉ではなく行動で大声で話すのは一般的ですか？私が私の頭に銃を向けていなかったら私は嘲笑しました。このお金を取りなさい、あなたは野蛮人です。」</text>
+				<autoReward level="MED">scrap_only</autoReward>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>「私は汚い仕事をするために最初に雇った傭兵を捨てることがほとんどですが、私はあなたの協力の意欲を賞賛します。私の上司はこの罪で天に叫ぶでしょうが、あなたの努力と引き換えにあなたにスクラップの小包を滑り込ませます。」</text>
+		<autoReward level="MED">scrap_only</autoReward>
+	</event>
+</eventList>
+
+<event name="NEBULA_DYNASTY_DESERTERS" unique="true">
+	<text>雲の底から王朝の船が近づいてくる。その船の船長は静寂の中でささやくように話す。「私たちを助けてください...私たちはもう死神の戦争に参加する心境ではありません。私はもう逃げたいのです。あなたの船に搭乗させてもらってもよろしいでしょうか？」あなたが返事を考える前に、あなたは遠くで素早く動くモヤモヤに気づきました。どうやら、脱走兵は尾行されているようだ。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>脱走兵を引き渡す。</text>
+		<event load="DYNASTY_DESERTERS_TURNIN" />
+	</choice>
+	<choice hidden="true">
+		<text>ゴーストをクルーになることを許可します。</text>
+		<event load="DYNASTY_DESERTERS_ACCEPT" />
+	</choice>
+	<choice hidden="true">
+		<text>残念ですが、私たちは関係ありません。</text>
+		<event>
+			<text>あなたは通信を切り、王朝の船から距離を置きます。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="DYNASTY_DESERTERS_TURNIN">
+	<event>
+		<text>あなたの意図が彼らを助ける以外のものであることが明らかになるとすぐに、不正な王朝の船は敵対的になり、過去の道を戦おうとします！何らかの理由で、他の船はあなたを助けていませんが、代わりに戦いを見るために戻ってきます。co病者。</text>
+		<ship load="SHIP_GHOST_DYNASTY_DESERTER_TURNIN" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>脱走兵はすでにあきらめているようです。彼らは他の船に引き渡されるので、もう抗議することさえありません。王朝の船はあなたに感謝し、報酬を提供します。</text>
+		<autoReward level="HIGH">standard</autoReward>
+	</event>
+</eventList>
+<eventList name="DYNASTY_DESERTERS_ACCEPT">
+	<event>
+		<text>あなたの意図が彼らを助ける以外のものであることが明らかになるとすぐに、追いかける王朝の船は敵対的になり、彼らの道を過ぎて戦おうとします！何らかの理由で、他の船はあなたを助けていませんが、代わりに戦いを見るために戻ってきます。co病者。</text>
+		<ship load="SHIP_GHOST_DYNASTY_DESERTER_ACCEPT" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>あなたはすぐにゴーストのクルーを乗せて案内します、そして奇跡的にもあなたは発見されなかったようです。あなたはすぐに新しいクルーを乗せて飛び去ります。</text>
+		<crewMember amount="1" class="phantom" />
+	</event>
+</eventList>
+
+<event name="NEBULA_DYNASTY_LOST" unique="true">
+	<text>あなたはあなたのラジオよりも異常な量の静的に気づきます。翻訳者が突然オンになり、近くに隠された王朝の船から対話を吐き出し始めるまで、少し遊んでいます。「私たちは絶望的に混乱していますが、あなたは脳のないボボリン！」
+
+ "ああ、あなたの口を閉じて、あなたは価値のないベスポーラー。私たちには脳がありません、私たちにはガスに過ぎません！</text>
+	<ship load="SHIP_DYNASTY_LOST" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>それらを護衛することを申し出なさい。</text>
+		<event>
+			<text>「ああ、死神の甘い悲劇、あなたは連邦です！私たちはあなたから「助け」を奪うことはありません、悪魔！」これはあなたが期待した反応ではありませんでしたが、あなたが彼らに降伏を強いることができれば、おそらく彼らはあなたの助けを喜んで受け入れるでしょう？</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_GHOST">
+		<text>（ゴーストクルー）彼らを護衛することを申し出る。</text>
+		<event>
+			<text>「ああ、でもそれ以上話さないでください！仲間が私たちに最も慈善的な援助を提供しているようです。どうもありがとう、親友。私たちはこの恩恵を忘れてはなりません。」</text>
+			<autoReward level="MED">standard</autoReward>
+		</event>	
+	</choice>
+	<choice hidden="true">
+		<text>それらを無視します。</text>
+		<event>
+			<text>王朝の船があなたに嫌がらせをさせるよりも、幽霊が自分自身の間で口論させる方が良いです。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<eventList name="NEBULA_NEUTRAL_DYNASTY_UNIQUE">
+	<event load="NEBULA_DYNASTY_OCCUPIED" />
+
+	<event load="NEBULA_DYNASTY_SMUGGLER" />
+	<event load="NEBULA_DYNASTY_AUTOQUEST" />
+	<event load="NEBULA_DYNASTY_ZOLTAUTO" />
+	<event load="NEBULA_DYNASTY_DESERTERS" />
+	<event load="NEBULA_DYNASTY_LOST" />
+</eventList>
+
+<event name="NEBULA_DYNASTY_OCCUPIED" unique="true">
+	<text>星雲の違いを見分けるのは難しいかもしれませんが、ここでは何かが明らかにずれています。雲の切れ間からいくつかの明るい光があなたを大規模な王朝採掘コロニーへと導きます。この植民地は、古くて老朽化し た船団の周りに緩く結合された構造で構築されています.交通量が多いか、少なくとも活動の兆候が見られると予想されますが、コロニーはほとんど休眠状態です。さらに奇妙なことに、ダスクブリンガー船の艦隊もコロニーを取り囲んでいます。ここで何が起こっているのでしょうか？</text>
+	<img back="BACK_EVENT_LIGHTNEBULA" planet="NONE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<customFleet right="false" firing="false" autoDarkening="true">CUSTOM_FLEET_ANCIENT_WRECKAGE</customFleet>
+	<choice hidden="true">
+		<text>近づいてみる。</text>
+		<event>
+			<text>コロニー全体で唯一無防備に見える着陸パッドに着陸します。負担の大きい宇宙服を着て、減圧された廊下を不快によろよろ歩いていると、非常によく武装した適切なダスクブリンガーのパトロールが何人か行ったり来たりしていることに気づきます。</text>
+			<choice hidden="true">
+				<text>ダスクブリンガーコマンドを検索します。</text>
+				<event>
+					<text>発見されないように、あなたは路地の方法の間を覆い、パトロールに従います。最終的にあなたは司令官のオフィスを見つけます。それは明らかにかつて誇り高き幻に属していました。「私の植民地の中で、私のコロニーの中で、私が思っていたよりも可能性が高い。他の誰かがガスバッグでいっぱいのこの見捨てられた場所に来るほど愚かだとは思わなかった。ここで私が「ブリーザー」と呼ばれた回数を知っていますか？それはどんなs辱ですか？。「しかし、私は夢中になっています。あなたはまだ撮影していないので、あなたは平和だと思います。だから、あなたがそれを求めているなら...私は申し出をしています。私たちは数週間前にこの植民地を取りました王朝のエーテル供給の一部を確保することを期待しています。これらのいまいましいファントムがチームを組み始めたことを除いて、それは素晴らしくなりました。hmph。王朝は何年も前に一次を持っていましたが、今では新しい輝かしい帝国の時です。インテルは、隠された艦隊がストライキの良いチャンスを待っていることを提案します。彼らのリーダーを連れ出し、私はあなたを補います。」</text>
+					<ship load="SHIP_DYNASTY_OCCUPIED" hostile="false" />
+					<choice hidden="true">
+						<text>ゴーストと戦ってください。</text>
+						<event>
+							<text>このようにダスクブリンガーを支援することが連邦にどのように反映されるかはわかりませんが、王朝も連邦の味方ではありません. 「代償」があなたの使命に役立つなら、それでいいのです。</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>拒否して去ります。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>コロニーのリーダーを探します。</text>
+				<event>
+					<text>あなたは路地の 1 つに身を潜め、いくつかの建物の中をチェックしてみます。やがて、廃倉庫の中に建てられた隠れ家らしきものを発見。 「この管理ゾーンに来るのは誰ですか? あなたはダスクブリンガーですか? それとも同胞かヴァガボンドですか? これらの部分であなたの名前とビジネスを述べてください!」あなたは自分がレネゲードであることをファントムに知らせ、嘘をつく理由はありません。 「ハーク、レネゲード? 私はそのような威厳のない実体とスペースを共有することにうんざりしているはずです... しかし、あなたはこの正当な目的に最も役立つかもしれません. ゾルタンの脅威はこの土地を支配し、エーテルの最も重要な資産を押収しました. ! あなたがそのような装備を敵の手に渡すことを望まないのであれば、甘い正義を実行するためのコースを作成することをお勧めします. あなたの選択はあなた次第ですが、時間は常に刻々と過ぎています.</text>
+					<ship load="SHIP_DUSK_OCCUPIED" hostile="false" />
+					<choice hidden="true">
+						<text>ダスクブリンガーと戦う。</text>
+						<event>
+							<text>ファントムの言うことが真実であり、そうでないと仮定する理由がないなら、ダスクブリンガーに大量のオードを奪わせることはできません!戦いの準備をしなさい！</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>ファントムを占領軍に報告する。</text>
+						<event>
+							<text>最初はあなたが敵対的であると仮定しますが、ダスクブリンガーと話すことができれば、彼らはあなたに対して少し冷たくはないにしても、かなり満足しているように見えます. 「よし、レネゲードは賢明になり、優れた力を台無しにしないことを学んだ。あなたは賢い。いまいましい王朝は、私たちをからかうためだけにヴァガボンド一族と協力し始めた。この機能不全の種族が同意できる唯一のことは、彼らが他の誰にもイーサーを公平に分けてほしくありません。あなたのトラブルとよりクリーンな精神状態のために、何らかの報酬を用意できると思います。」</text>
+							<autoReward level="HIGH">standard</autoReward>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>ファントムを無視して立ち去る。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>コロニーを避けてください。</text>
+		<event>
+			<text>ダスクブリンガーが Dynasty スペースに存在する理由が何であれ、あなたは何らかの方法で関与したくありません.</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="DYNASTY_OCCUPIED_GHOSTS">
+	<text>戦いによって引き起こされた混乱の間に、王朝とヴァガボンドの船の連合軍がダスクブリンガーの防御を突破し、彼らを荷造りしたようです.コロニーに戻ると、生き残ったゴーストたちが祝っています。 「あなたは最もエレガントに打撃を与えました、レネゲード。連邦があなたの雇用を求める理由がわかりました。あなたは混乱しているかもしれません、そうです、スペクトラルやヴァガボンドのようなものがここに加わった理由について、そうです、しかし私たちの種のすべての闘争のために少なくとも、正気で合理的な存在であれば、自爆攻撃を仕掛けるネオファシストは祖先の神聖な技術を振るうに値しないと考えることができます。どうか、私たちの最も優れた兵士の 1 人を受け入れてください。彼らは見事にあなたに仕えます。」</text>
+	<crewMember amount="1" all_skills="1" class="LIST_CREW_ALPHA">disidius</crewMember>
+</event>
+<event name="DYNASTY_OCCUPIED_DUSK">
+	<text>王朝艦隊のリーダーが連れ去られると、残りの部隊は散らばって混乱し、ダスクブリンガーが簡単に彼らを捕まえることができます. 「よくやったレネゲード。敵の戦闘を称賛するつもりはないが、君はスキルを持っている。嘘はつかない、感心している。この連邦でたらめにうんざりしていると思ったら、結局、多元宇宙をより良い場所にしたいなら、ダスクブリンガーズに電話してみませんか? 私たちは愚かではありません。</text>
+	<autoReward level="MED">item</autoReward>
+</event>
+
+<eventList name="NEBULA_DISTRESS_DYNASTY">
+	<event load="NEBULA_DISTRESS_DYNASTY_MONSTER" />
+	<event load="NEBULA_DISTRESS_DYNASTY_ENGINEER" />
+</eventList>
+
+<event name="NEBULA_DISTRESS_DYNASTY_MONSTER" unique="true"> 
+	<distressBeacon />
+	<text>お使いのコンピュータは、近くのDynastyセキュリティプラットフォームからのアラートで突然殺到します。翻訳者が純粋なノイズから識別できるものを見つけるのに苦労しているとき、あなたは静電気に耳を傾けます。 「アバスト！あなたの精神をこの場所から遠ざけて、ここに見つからないように安全に満足してください。」</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>ステーションの1つに連絡します。</text>
+		<event>
+			<text>あなたは彼らがあなたを単に無視するだろうと思います、しかしあなたの驚いたことに、ファントムは反対側に現れます。 「ああ？長引く悪魔の狂気の手がまだこの飛行機からあなたを奪っていませんか？それならあなた自身を幸運だと考えて、このチャンスを逃げてください。あなたはそのようなことをする臆病者ではないでしょう...」</text>
+			<choice hidden="true">
+				<text>どんなモンスター？</text>
+				<event>
+					<text>「最も恐ろしい悪魔！それはこれらの土地に出没し、私たちの植民地を荒廃させ、私たちの物資を押しのけます！ああ逃げる、ああ逃げる、あなたがとどまるならそれもあなたを襲うでしょう！」</text>
+					<choice hidden="true">
+						<text>お手伝いします！恐ろしい悪魔と戦ってください。</text>
+						<event>
+							<text>あなたはさらに星雲を操縦し、前方にある巨大な船に備えて精神的に準備します。ついに、あなたはそれに目を向けました...そしてそれはあなたが本当に期待したものではありません。</text>
+							<ship load="SHIP_AUTO_DYNASTY_MONSTER" hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>私達は行く必要があります。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>この警告を受けて去ってください。</text>
+		<event>
+			<text>ここで何か悪いことが起こっているように聞こえます-尻尾を回して走るのは安全です。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_DISTRESS_DYNASTY_ENGINEER" unique="true">
+	<distressBeacon />
+	<text>あなたは遭難信号の合図に従って、見た目は...放棄されたエンジニア船ですか？クルーはどこにも見つかりませんが、闘争の兆候があり、ゴーストの腐敗した香りで空気は濃厚です。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>エンジニアを追跡してみてください。</text>
+		<event>
+			<text>近くの星系を探索すると、いくつかの船が停泊している王朝 ステーションにたどり着きます。内部では、エンジニアの1人が、きらめく電化された刃を持つギロチン装置に向かって護衛されている間、数人のゴーストが嘲笑しています。彼らはあなたを見つけて、あなたに懇願するような一瞥をし、静かに助けを求めます。</text>
+			<ship load="SHIP_DYNASTY_STATION_ENGINEER" hostile="false" />
+			<choice hidden="true">
+				<text>エンジニアを支援します。</text>
+				<event>
+					<text>あなたはブラスターを引き、エンジニアを護衛する警備員を撃ち、続いて実行機自体を撃ちます。怒ったゴーストがあなたに向かって急いでいるので、あなたは部屋を使い果たし、負傷したエンジニアが続きます！</text>
+					<boarders min="2" max="3" class="phantom" />
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>私たちは反乱軍を助けていません。離れる。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>安全を確保し、船をスクラップするために腰を下ろしてください。</text>
+		<event>
+			<text>あなたを止める人がいないので、あなたはエンジニア船の船体を引き離し、船に戻します。</text>
+			<autoReward level="LOW">standard</autoReward>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="DYNASTY_ENGINEER_REWARD">
+	<event>
+		<text>「ありがとう。あのガス野郎は、私が悪魔メーカーかそのようなものだと何かを唱えていました。あなたがいなかったら私は死んでいたでしょう。私の訓練は私に今すぐあなたを撃つべきだと教えてくれます...しかし私は感じますそのような訓練は間違っています。」</text>
+		<crewMember amount="1" class="human_engineer" />
+	</event>
+	<event>
+		<text>「ありがとう。あのガス野郎は、私が悪魔メーカーかそのようなものだと何かを唱えていました。あなたがいなかったら私は死んでいたでしょう。私の訓練は私に今すぐあなたを撃つべきだと教えてくれます...しかし私は感じますそのような訓練は間違っています。」</text>
+		<modifyPursuit amount="-2" />
+	</event>
+</eventList>
+
+<eventList name="NEBULA_DISTRESS_DYNASTY_UNIQUE">
+	<event load="NEBULA_DISTRESS_DYNASTY_GRANDFATHER" />
+
+	<event load="NEBULA_DISTRESS_DYNASTY_MONSTER" />
+	<event load="NEBULA_DISTRESS_DYNASTY_ENGINEER" />
+</eventList>
+
+<event name="NEBULA_DISTRESS_DYNASTY_GRANDFATHER" unique="true">
+	<distressBeacon />
+	<text>遭難信号の発信元を調査する時間はほとんどありません。ファントムアルファを搭載したヴァガボンド船が近づいてくる。 「私に挨拶してください！私はデシウスの祖父であるアネイディオです！時間が最も残酷でしたが、私は私が悩まされている絶え間ないやじからの休息をあなたに期待しています。」</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>私はあなたを信じています。</text>
+		<event load="DYNASTY_GRANDFATHER_BELIEVE" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_SLUG">
+		<text>（スラッグのクルー）ゴーストの考えを確認してください。</text>
+		<event>
+			<text>「それは彼が実際にはこのssssuppossedDessssiusssの祖父ではないことは明らかです。それにもかかわらず、彼はそれが彼自身であると本当に信じているようにssseemsします。陽気なsssad。」</text>
+			<choice hidden="true">
+				<text>アルファにあなたが彼を信じていると伝えてください。</text>
+				<event load="DYNASTY_GRANDFATHER_BELIEVE" />
+			</choice>
+			<choice hidden="true">
+				<text>彼にはできないことを彼に説明してみてください。</text>
+				<event>
+					<text>「あなたは私に質問しますか？私は憤慨しています！」ゴーストがいきなり攻撃！</text>
+					<ship load="SHIP_GHOST_ELITE" hostile="true" /> 
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="BLUELIST_CREW_SNAIL">
+		<text>(テレパシー シェル) ゴーストの思考を確認します。</text>
+		<event>
+			<text>「彼がデシウスの祖父ではないことは明らかです。それにもかかわらず、彼は自分自身でそれを本当に信じているようです。陽気で悲しいです。」</text>
+			<choice hidden="true">
+				<text>アルファにあなたが彼を信じていると伝えてください。</text>
+				<event load="DYNASTY_GRANDFATHER_BELIEVE" />
+			</choice>
+			<choice hidden="true">
+				<text>彼にはできないことを彼に説明してみてください。</text>
+				<event>
+					<text>「あなたは私に質問しますか？私は憤慨しています！」ゴーストがいきなり攻撃！</text>
+					<ship load="SHIP_GHOST_ELITE" hostile="true" /> 
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>あなたが彼の祖父であるなら、あなたはまだ担当していないのですか？</text>
+		<event>
+			<text>「あなたは私に質問しますか？私は憤慨しています！」ゴーストがいきなり攻撃！</text>
+			<ship load="SHIP_GHOST_ELITE" hostile="true" /> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_dessius">
+		<text>（デシウス）「あなたは私の祖父ではありません。」</text>
+		<event>
+			<text>「ハハハ！それなら、あなたは本当のデシウスの人でもないに違いない！私に嘘をつかないで！」船が突然攻撃！</text>
+			<ship load="SHIP_GHOST_ELITE" hostile="true" /> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="DYNASTY_GRANDFATHER_BELIEVE">
+	<text>「ハァッ！信じられない。本当のことを言っているのなら、私を悩ませている問題を1つ解決してほしい。私の最も批判的な懐疑論者であるTykaneousという名のリーパーキャプテンがこのシステムの近くにいる。彼が死ぬのを見てください。 、そして私はあなたのクルーに加わります。あなたはそのような機会さえ与えられることを光栄に思うべきです。」</text>
+	<choice hidden="true">
+		<text>同意。</text>
+		<event>
+			<text>「あなたは古いプルーンで働いていますか？そのお尻は私を悩ませることをやめませんでした。連邦がお尻を採用していることを知りませんでした-共感者、息抜き！」</text>
+			<ship load="SHIP_DYNASTY_HECKLER" hostile="true" /> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>拒否する。</text>
+		<event>
+			<text>「ふむ。じゃあ、息を切らして！」</text>
+		</event>
+	</choice>
+</event>
+
+
+
+
+<eventList name="NEBULA_HOSTILE_DYNASTY">
+	<event load="NEBULA_ENCOUNTER_DYNASTY" />
+	<event load="NEBULA_ENCOUNTER_VAGABOND_DYNASTY" />
+	<event load="NEBULA_ENCOUNTER_REBEL_DYNASTY" />
+	<event load="NEBULA_ENCOUNTER_AUTO_DYNASTY" />
+	<event load="NEBULA_ENCOUNTER_DYNASTY_HOSTAGE" />
+</eventList>
+
+<event name="NEBULA_ENCOUNTER_DYNASTY">
+	<text load="NEBULA_DYNASTY_FIGHT" />
+	<ship load="SHIP_DYNASTY_FIGHT" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="NEBULA_DYNASTY_FIGHT">	
+	<text>特に壊滅的な迷走娘の幽霊がはるかに隠れているとき、特に王朝がどれほど攻撃的であるかは奇妙です。しかし、おそらくそれが彼らがそもそも壊れた理由かもしれません。しかし、王朝の船がインバウンドであるため、これについては後で考えなければなりません！</text>	
+	<text>間違いなく、あなたに向かってくる船は友好的ではありません。王朝の船が前に飛び出し、攻撃する前に武器に目を向けます！</text>	
+	<text>文字化けしたメッセージがラジオに届きます。 「武器。彼らは私のものです。与えてください！」王朝の船が近くで覆いを取り、武器を引きました！</text>	
+	<text>スペクトラル王朝のようなエレガントな名前のために、彼らの船は特徴的に敵対的で暴力的です。威嚇するように接近するので、ここの船より良い例はありません。</text>	
+	<text>ショットがあなたの船を通り過ぎて飛んで、数秒後に紫色の船が雲から漂流してくる。それはゴーストのように見えます...そして彼らは友好的に見えません！</text>	
+	<text>血まみれの悲鳴があなたのスピーカーを満たし、続いて不安な静寂が続きます。神経の弱い船長はその場で気を失ったかもしれませんが、あなたはもっとよく知っています。これは悪魔ではありません、これははるかに現実的な脅威です。王朝の船が近づいています！</text>
+	<text>短距離放送を受信しているようです。 「あなたの肉はもう1日悪魔の心をなだめるでしょう。あなたの武器はその破壊になるでしょう！王朝のために！」ゴースト船が近くに現れ、武器が引かれ、すでに発砲しています！</text>
+	<text>船が近づくと、不安定な詠唱が星雲に響き渡ります。 「悪魔の心は止まる！悪魔の心は止まる！」と続いて、王朝の船が近づくと銃声が点滅した。あなたは悪魔ですか？よくわかりませんが、質問する時間はありません。</text>
+	<text>一見空っぽの星雲に照らして、代わりにここで見つけた可能性のある敵についてクルーと会話します。そのうちの一人が王朝について言及するとすぐに、まるで召喚されたかのように、船が星雲からバレルで出てきます。悪魔といえば...</text>
+	<text>最初は、ラジオの静音はナンセンスだと思いますが、突然、翻訳者が単語を拾い始めます。 「息抜き！王朝の空間では、なんて腐敗している。それは私の内面を怒りのコイルに変える。私はあなたのクズ野郎に地獄を解き放つ！」</text>
+</textList>
+
+<event name="NEBULA_ENCOUNTER_VAGABOND_DYNASTY">
+	<text load="NEBULA_VAGABOND_DYNASTY_FIGHT" />
+	<ship load="SHIP_GHOST_ALL" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="NEBULA_VAGABOND_DYNASTY_FIGHT">	
+	<text>ヴァガボンドは通常、王朝の宇宙空間を避けるだけで、危険を冒す価値はない。この船は必死なんだろう－あなたを攻撃するほどには必死だ！</text>
+	<text>彼らが彼らを撃退しようと懸命に努力している王朝の宇宙でさえ、あなたはスクラップに飢えたヴァガボンドからあなたが安全ではないように見えます。戦闘の準備をします。</text>
+	<text>あなたは近くのヴァガボンド船があなたを空腹に見ているのに気づきます。 「私の心の中で、私は新しい船の欲求を感じます...これは減価償却されてその機能を失いました...」ゴーストが攻撃します！</text>
+	<text>おそらく王朝のパトロールから逃げてきたヴァガボンドがあなたに偶然出くわしました。 「あなたは王朝の側にいます、いや？ああ、私が何を求めているのか。リスクはそれだけの価値はありません。私は単にあなたを私の道から外します。」</text>
+</textList>
+
+<event name="NEBULA_ENCOUNTER_REBEL_DYNASTY"> 
+	<text load="NEBULA_REBEL_DYNASTY_FIGHT" />
+	<ship load="SHIP_ENGINEER" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="NEBULA_REBEL_DYNASTY_FIGHT">	
+	<text>通常、ここで見られると予想できる反乱軍の船はオートシップですが、それならエンジニアがここにいるのも当然です。残念ながら、彼らもそれほど友好的ではありません！</text>
+	<text>「お前が来ることで私のいまいましい仕事がより面倒くさくなった。ムカつくな！」興奮したエンジニアの船があなたを攻撃するために旋回します！</text>
+	<text>彼らが構築する常に損傷した自動船に取り組んだ長い一日の後、エンジニアが蒸気を放出する必要性を感じるのも不思議ではありません。悲しいかな、あなたが彼らの次のターゲットのようです！</text>
+	<text>「あら、お昼休みも終わってない！あなたは私の一日を台無しにするために間違った時間を選んだ、嫌いな人！」敵対的なインバウンド！</text>
+	<text>それは可能性が？反乱軍の船？あなたの目はあなたに嘘をついていません-そしてこれは普通の反乱軍ではありません。それはエンジニアですが、彼らはそれほど致命的ではありません！</text>
+</textList>
+
+<event name="NEBULA_ENCOUNTER_AUTO_DYNASTY">
+	<text load="NEBULA_AUTO_DYNASTY_FIGHT" />
+	<ship load="SHIP_AUTO_FIGHT" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="NEBULA_AUTO_DYNASTY_FIGHT">	
+	<text>王朝は長い間、オートシップに対して「戦争」を繰り広げてきました。反乱軍がこのような大量の船をどのように買うことができるか、またはヴァンスがそれを承認した理由はあなたにとって謎ですが、それはあなたにとってうまくいけば小さな不便にすぎません。</text>
+	<text>「あなたは父親ではありません。父親はあなたほど醜いわけではありません。戦闘モードに入ります。」近くの反乱軍の自動船が突然発動して攻撃します！</text>
+	<text>あなたはこれを空のビーコンだと思っています...星雲の中を浮かんでいる何十もの休眠中の自動船に気付くまで。あなたはそれらを避けようとしますが、残念ながら、そのうちの1人があなたに気づいて攻撃しているようです！</text>
+	<text>あなたは実際には反乱軍の自動船で船体をぶつけますが、それがすでにあなたに気づいて攻撃を開始する前に逃げるには遅すぎます！</text>
+	<text>反乱軍と彼らの膨大な数のオートシップは、絶えず処分されてしまえと呪っている。とりあえずは、目の前の一隻の船の面倒を見る必要があるようだ。</text>
+	<text>王朝は、あなたが見るすべての自動船を通してあなたの破壊の道を聞いておそらく喜ぶでしょう。しかし、自慢する前に、キルカウントに追加する別の船があります。</text>
+</textList>
+
+<event name="NEBULA_ENCOUNTER_DYNASTY_HOSTAGE">
+	<text load="NEBULA_DYNASTY_HOSTAGE" />
+	<ship load="SHIP_DYNASTY_HOSTAGE" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="NEBULA_DYNASTY_HOSTAGE">	
+	<text>「OooooOoOh、それであなたは干渉するようになりましたか？最終的に連邦が証明している王室の巨大な痛み！」あなたが入るとすぐに、興奮した王朝の船が攻撃します。彼らの後ろには正体不明の船があり、これまでに尋問していたに違いありません！</text>
+	<text>王朝は通常囚人を連れて行かないが、ゴースト船長の叫び声で動揺が聞こえるので、彼らは背後にいる正体不明の船から望ましい反応を得ていないようだ。しかし、あなたがシステムに入るとすぐに、彼の集中力はあなたに集中します！</text>
+	<text>2隻の船がここにあるように見えます-1つは未確認の起源で、もう1つは王朝です。王朝の船はほとんどすぐに攻撃するので、あなたを周りに欲しがっていないようです！</text>
+</textList>
+<eventList name="ENCOUNTER_DYNASTY_HOSTAGE_REWARD">
+	<event>
+		<text>犠牲者はほんの一部の民間人だったようです。 「助けてくれてありがとう。もうどこも安全ではない？私はハイブを旅してここに来ることを選んだが、逆の方が安全だったかもしれない。私の船は台無しになっている。私はあなたと一緒に来ると思う。」</text>
+		<crewMember amount="1" class="human" />
+	</event>
+	<event>
+		<text>船は損傷した自動車に過ぎなかったようです。修理のポイントを超えて、それを単に廃棄するのが最善です。</text>
+		<autoReward level="MED">standard</autoReward>
+	</event>
+	<event>
+		<text>王朝の船の犠牲者は反乱軍の船だったようです！彼らはタフな外観をしていますが、彼らが感謝していることは明らかです。あなたの場所について艦隊に嘘をつくように彼らを説得するのは難しいことではありません。</text>
+		<modifyPursuit amount="-2" />
+	</event>
+</eventList>
+
+
+<event name="NEBULA_ENCOUNTER_DYNASTY_ELITE" unique="true">
+	<text>リーパーズは王朝の最高の船です。ファントムを喜ばせるのは難しいと聞いたことがありますが、これは、これらの厳選されたエリートが王朝の最高の問題を担当することを多く示しています。どうやら、あなたはそのようなものの1つとして分類します！</text>
+	<ship load="SHIP_DYNASTY_ELITE_FIGHT" hostile="true" /> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<ship name="SHIP_DYNASTY_OUTPOST" auto_blueprint="MU_DYNASTY_STATION">
+	<destroyed load="DYNASTY_OUTPOST_DEFEAT" />
+	<deadCrew load="DYNASTY_OUTPOST_DEFEAT" />
+	<crew>
+		<crewMember type="phantom" prop="0.75" />
+		<crewMember type="phantom_alpha" prop="0.25" />	
+	</crew>
+</ship>
+
+<textList name="TEXT_DYNASTY_OUTPOST">
+    <text>王朝は潜在的な脅威を非常に注意深く監視していることを高く評価しているようです...実際、彼らはここまでずっと前方ステーションを設置しました。多分それはあなたにとって何か価値のあるデータを含んでいますか？</text>
+    <text>あなたは王朝ほど過度にパラノイアな派閥を見たことがありません。本格的な前哨基地がここに設置されており、スキャンによりデータがあることが示されています。貴重なデータ。</text>
+    <text>このビーコンが重要であるとマークされている理由は何ですか？あなたが飛び込むとすぐに、それは明らかです。王朝の前哨基地がここに設立され、ビーコンマーカーは船が近づかないように警告していました。どういうわけか彼らはまだあなたを見つけていません...</text>
+    <text>近くの王朝の前哨基地から、さまざまな言語の放送が送信されているようです。 「この観測場所は改ざんされてはならない。王朝の財産を襲撃したり損傷させたりする試みは、致命的な力で満たされるだろう」というのは正しいことです。</text>
+    <text>最初、あなたはあなたの目があなたをだましていると思いますが、いや。これは王朝の前哨基地であり、王朝の宇宙から遠く離れたところに非常に勇敢に配置されています。</text>
+</textList>
+<event name="DYNASTY_OUTPOST">
+	<preventQuest />
+	<beaconType id="map_icon_dynasty" global="false">
+		<color r="0" g="205" b="255" a="1.0" />
+		<unvisitedTooltip>これは王朝の前哨基地の場所です。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+	</beaconType>
+	<text load="TEXT_DYNASTY_OUTPOST" />
+	<ship load="SHIP_DYNASTY_OUTPOST" hostile="false" />
+	<choice hidden="true">
+		<text>前哨基地と交戦します。</text>
+		<event>
+			<text>王朝がこのセクターを監視している場合、彼らはすでに大量のデータを収集している可能性があります...そしてあらゆる形式のデータはあなたにとって価値があります！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>前哨基地を無視します。</text>
+		<event>
+			<text>ニュートンは、王朝が銀河の周りにこれらの場所を確立している理由を知っていますが、関与することは良い考えではありません。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_dessius">
+		<text>（デシウス）前哨基地に保管されているデータへのアクセスを要求します。</text>
+		<event>
+			<text>王朝がこのセクターを監視している場合、彼らはすでに大量のデータを収集している可能性があります。幸いなことに、あなたの側には強力な味方がいて、そのデータへのアクセスを許可することができます。スムーズな話はさておき、あなたは反乱軍の艦隊に対して物資と利点を与えられます。</text>
+			<autoReward level="MED">standard</autoReward>
+			<reveal_map />
+			<modifyPursuit amount="-1" />
+		</event>
+	</choice>
+</event>
+<event name="NEBULA_DYNASTY_OUTPOST">
+	<preventQuest />
+	<beaconType id="map_icon_dynasty" global="false">
+		<color r="0" g="205" b="255" a="1.0" />
+		<unvisitedTooltip>これは王朝の前哨基地の場所です。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+	</beaconType>
+	<text load="TEXT_DYNASTY_OUTPOST" />
+	<ship load="SHIP_DYNASTY_OUTPOST" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>前哨基地と交戦します。</text>
+		<event>
+			<text>王朝がこのセクターを監視している場合、彼らはすでに大量のデータを収集している可能性があります...そしてあらゆる形式のデータはあなたにとって価値があります！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>前哨基地を無視します。</text>
+		<event>
+			<text>ニュートンは、王朝が銀河の周りにこれらの場所を確立している理由を知っていますが、関与することは良い考えではありません。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_dessius">
+		<text>（デシウス）前哨基地に保管されているデータへのアクセスを要求します。</text>
+		<event>
+			<text>王朝がこのセクターを監視している場合、彼らはすでに大量のデータを収集している可能性があります。幸いなことに、あなたの側には強力な味方がいて、そのデータへのアクセスを許可することができます。スムーズな話はさておき、あなたは反乱軍の艦隊に対して物資と利点を与えられます。</text>
+			<autoReward level="MED">standard</autoReward>
+			<reveal_map />
+			<modifyPursuit amount="-1" />
+		</event>
+	</choice>
+</event>
+
+<event name="DYNASTY_OUTPOST_DEFEAT">
+	<text>前哨基地が倒れた。これは間違いなく王朝を喜ばせませんが、彼らはそれについて何をするつもりですか？</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>ステーションのターミナルの1つ、ある種のブラックボックスが生き残ったように見えます。その中には、このセクターの非常に詳細な地図データと、反乱軍の艦隊の進歩の予測が含まれています。これは大いに役立ちます！</text>
+			<reveal_map />
+			<modifyPursuit amount="-1" />
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_DYNASTY_SPECIALRUIN" unique="true">
+	<preventQuest />
+	<beaconType id="map_icon_ruins_dynasty" global="false">
+		<color r="36" g="255" b="0" a="1.0" />
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+		<unvisitedTooltip>このビーコンには古代遺跡が含まれています。</unvisitedTooltip>
+	</beaconType>
+	<text>王朝の領土には昔からの廃墟が散らばっていると聞いたことがあります。しかし、遠くにある残骸...まあ、それらは王朝の船のようには見えません。</text>
+	<img back="BACK_EVENT_DYNASTYRUIN" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>大規模な王朝の船があなたに向かっています。「過去の廃棄物は、現代の影響の気質を必要とするものではありません。宇宙のバランスの変化は、この場所に突然の出現につながりましたか？予見可能な将来のために？私はその後この現実に固執し続けるべきですか？」</text>
+			<ship load="SHIP_DYNASTY_SCAVENGER_BOSS" hostile="false" />
+			<choice hidden="true">
+				<text>普通に話しますか？</text>
+				<event>
+					<text>ファントムはため息をつきます。 「あなたの野barな俗語は私の舌を歌いますが、はい、私はあなたの原始的な猿の脳が理解するかもしれない方法でコミュニケーションをとろうとします。このビーコンは、クレンジングを必要とするこのセクターの偉大なオベリスク廃棄物の最後です。このタスクは残りました。操作操作DN-03。ここで収集されたすべてのオブジェクトまたはアーティファクトは、処理のために持ち帰られます。私たちはあなたが去ることを要求し、私たちの船は戦闘のために武装しているだけでなく、古代のゴミの収集のために準備されていることを警告します。」</text>
+					<choice hidden="true">
+						<text>廃墟にアクセスするために彼らと戦ってください！</text>
+						<event>
+							<text>「ああ、あなたは汚い生き物です！怒りと暴力の考えがあなたの顔を無条件の憎しみの不快な渦に巻き込む方法。あなたを消すことはあなた自身以外のすべてを好意的にするでしょう。」</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="LIST_CREW_ANCIENT_ALL">
+						<text>（オベリスククルー）「これらの廃墟は私たちのものです！」</text>
+						<event>
+							<text>ファントムはあなたが今まで聞いた中で最も大きな悲鳴を出します。 「EEEK！私の目は私をだましますか？オベリスクは戻ってきましたか？！ああ、死神の名前で、あなたの種の病気が二度とそのような量の力で戻ってこないことを確実にするために戦いましょう！」</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>了解しました。出発します。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="NEBULA_DYNASTY_SPECIALRUIN_BOON" unique="true">
+	<preventQuest />
+	<beaconType id="map_icon_ruins_dynasty" global="true">
+		<color r="36" g="255" b="0" a="1.0" />
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+		<unvisitedTooltip>このビーコンには古代遺跡が含まれています。</unvisitedTooltip>
+	</beaconType>
+	<text>王朝の領土には昔からの廃墟が散らばっていると聞いたことがあります。しかし、遠くにある残骸...まあ、それらは王朝の船のようには見えません。</text>
+	<img back="BACK_EVENT_DYNASTYRUIN" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>大規模な王朝の船があなたに向かっています。「過去の廃棄物は、現代の影響の気質を必要とするものではありません。宇宙のバランスの変化は、この場所に突然の出現につながりましたか？予見可能な将来のために？私はその後この現実に固執し続けるべきですか？」</text>
+			<ship load="SHIP_DYNASTY_SCAVENGER_BOSS" hostile="false" />
+			<choice hidden="true">
+				<text>普通に話しますか？</text>
+				<event>
+					<text>ファントムはため息をつきます。 「あなたの野barな俗語は私の舌を歌いますが、はい、私はあなたの原始的な猿の脳が理解するかもしれない方法でコミュニケーションをとろうとします。このビーコンは、クレンジングを必要とするこのセクターの偉大なオベリスク廃棄物の最後です。このタスクは残りました。操作操作DN-03。ここで収集されたすべてのオブジェクトまたはアーティファクトは、処理のために持ち帰られます。私たちはあなたが去ることを要求し、私たちの船は戦闘のために武装しているだけでなく、古代のゴミの収集のために準備されていることを警告します。」</text>
+					<choice hidden="true">
+						<text>廃墟にアクセスするために彼らと戦ってください！</text>
+						<event>
+							<text>「ああ、あなたは汚い生き物です！怒りと暴力の考えがあなたの顔を無条件の憎しみの不快な渦に巻き込む方法。あなたを消すことはあなた自身以外のすべてを好意的にするでしょう。」</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="LIST_CREW_ANCIENT_ALL">
+						<text>（オベリスククルー）「これらの廃墟は私たちのものです！」</text>
+						<event>
+							<text>ファントムはあなたが今まで聞いた中で最も大きな悲鳴を出します。 「EEEK！私の目は私をだましますか？オベリスクは戻ってきましたか？！ああ、死神の名前で、あなたの種の病気が二度とそのような量の力で戻ってこないことを確実にするために戦いましょう！」</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>了解しました。出発します。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="DYNASTY_SPECIALRUIN_REWARD">
+	<text>「破滅！それがやってくる！なんて汚い黒さが私の視界を奪うのか。私は弱まり、私は衰退する。出口、右のステージ...」王朝の船が倒れ、あなたは残骸をスクラップした。</text>
+	<autoReward level="HIGH">standard_no_item</autoReward>
+	<choice hidden="true" req="unique_dessius" max_group="0" lvl="0" blue="false">
+		<text>継続する...</text>
+		<event>
+			<text>王朝が邪魔にならないように、あなたは古代の残骸を引き離し、あなたが見たことのないユニークな武器を見つけます！</text>
+			<weapon name="ANCIENT_HAVOC" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="DYNASTY_SPECIALRUIN_LOG" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_dessius" max_group="0" lvl="1" blue="false">
+		<text>継続する...</text>
+		<event>
+			<text>あなたはデシウスを捕まえてあなたに不満な表情を与えます、しかしあなたは彼が最終的にそれを乗り越えるだろうと思います。もし彼が本当に気にかけていたら、彼は前もって介入していたでしょう。あなたは古代の残骸を引き離し、あなたが見たものとは違ったユニークな武器を見つけます！</text>
+			<weapon name="ANCIENT_HAVOC" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="DYNASTY_SPECIALRUIN_LOG" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="DYNASTY_SPECIALRUIN_LOG">
+	<text>去り始めると、船の貨物室に設置されている奇妙な、まだ照らされた増強があることに気付きます。スキャンでは、デバイスが他の現実全体からマルチバースドライブを活用できることが明らかになりました！</text>
+	<variable name="ach_boss_salvager" op="set" val="1" />
+	<augment name="MVBOSS_SPAWNER" />
+</event>
+
+<event name="NEBULA_DYNASTY_DREADNAUGHT" unique="true">
+<preventQuest />
+	<text>このビーコンは、このセクターの他の場所の淡い紫色の雲からのかなりの休憩を提供します。遠くには、王朝の国会議事堂とプライムリーパーの宮殿のように見えるものもあります。ゴーストがこの重要な構造をほとんど保護していないことに驚いています...</text>
+	<img back="BACK_EVENT_DYNASTYCAP" planet="NONE" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>あなたが近づくと、突然何かが致命的な問題であることが明らかになります。遠くの色のしみが表面を駆け巡るにつれて、サイレンがぼやけて空気が満たされます。巨大な黒い物体の影が遠くの宮殿に近づき、かつて王朝の最高の艦隊であったものの廃墟に追われて、遠くのレーザーの火が聞こえます。</text>
+			<choice hidden="true">
+				<text>船に近づきます。</text>
+				<event>
+					<text>オートシップのようです...そして通常よりはるかに大きいです。スキャン範囲に入るとすぐに話します。 「離れることをお勧めします。私はあなたを殺すことを目指していません。今日ではありません。私のバッテリーは、いくつかの簡単なターゲットでシャーシをテストするために費やしたほうがいいです。離れて、代わりに別の日にあなたを殺します。それが私の約束です。」奇妙なことに、ロボットについてよく話されています...</text>
+					<ship load="SHIP_AUTO_DREADNAUGHT" hostile="false" />
+					<choice hidden="true">
+						<text>この金属の塊にいくつかのマナーを教えましょう。</text>
+						<event>
+							<text>「お勧めできない決断です。あなたの失敗は私の喜びです。あなたはオッズがあなたに大いに反対していることを知っていますか？それでも...あなたはここで死ぬでしょう。」</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>この独特の警告を遵守し、去ります。</text>
+						<event>
+							<text>「賢明な決断。上司だけがそのような方法で私に耳を傾けることができれば。」</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>これは、去るのと同じくらい良い時期です。</text>
+				<event>
+					<text>これは、連邦船にとって良い場所ではありません。あなたは王朝に何も負っていません-あなたは反乱が作り上げた最新の怪物から彼らを救うために貴重な時間を無駄にするつもりはありません。</text>
+					<choice hidden="true">
+						<text>船に乗って何かする。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice hidden="true">
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="DYNASTY_DREADNAUGHT_VICTORY">
+	<text>あなたは惑星の表面に着陸し、巨大な王朝の巡洋艦が飛んであなたの隣に着陸する前に、王朝の残骸のいくつかを救うことを簡単に検討します。その中から、いくつかのアルファとピンクのゴーストが鎧を着て巨大な剣を振るう。推測しなければならないのであれば、これは王朝の先祖代々のリーダーであるプライムリーパーでしょう。</text>
+	<variable name="ach_boss_autodread" op="set" val="1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>死神は話し始めます、しかしあなたは彼が言う言葉を理解することができません。あなたは翻訳者を船に戻したことに気づきましたが、走ってそれを手に入れる前に、リーパーはあなたを振り返り、彼の鎧のボタンを押しました。 「悪魔の心は滅びる！あなたは誰であり、どのような理由でこれで私たちを祝福するようになったのですか？」</text>
+			<choice hidden="true">
+				<text>私は名前なしで行きます。</text>
+				<event>
+					<text>「神秘的！興味をそそる。最も興味をそそる。あなたはいつもこの不可解なのか？私はそう願っています！私はデシウス、スペクトル王朝の16番目の主要な死神の息子です。あなたは私たちの人々を救いました、名前はありません。その。オベリスクの恐怖の後、私たちは別の侵略が私たちのクライマックスの終わりをもたらすのではないかと恐れていました。そして今日、悪魔は彼の願いをほとんど得ました。</text>
+					<choice hidden="true">
+						<text>WHO？</text>
+						<event>
+							<text>「オベリスク。銀河を支配した5つの古代帝国の1つは、あなたの種類に彼らの支配の記憶を持っていません。私はあなたの無知を責めることはできません。あなたが時空の時間に穴を開けることができる技術を装備している場合ではありません。しかし、彼らは十分に死んでいて、今日私たちとは異なります！ついに、私たちはファウル悪魔の終わりを見ます。彼らの種類はもう私たちを悩ませません！」</text>
+							<choice hidden="true">
+								<text>反乱軍AIは、そのドレッドノート級戦艦ではなく、旗艦に保持されます。</text>
+								<event>
+									<text>「あなたは言うことです...それは悪魔の心ではありませんでしたか？そして、このモンスターを究極の平和に持ち込むことができない限り、私たちは差し迫った運命の瀬戸際をぐらつき続けます！あなたの息で。あなたは、あなたは心の位置を知っていますか？私たちの苦しみの真の源？それから私は出席しなければなりません。</text>
+									<variable name="ach_crew_dessius" op="set" val="1" />
+									<crewMember amount="1" all_skills="1" class="unique_dessius">デシウス</crewMember>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="DYNASTY_DREADNAUGHT_REWARD" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="DYNASTY_DREADNAUGHT_REWARD">
+	<text>「ああ、しかし、私たちが出発する前に、私たちは先の旅行に備えることが不可欠だと思います。今、連邦がもはや脅威ではないことは明らかです。私たち全員を恐怖に陥れる反乱軍の脅威を打ち負かしてください！私の友人については、私たちがあなたを助けることができるものを見てみましょう。」</text>
+	<unlockCustomShip silent="false">PLAYER_SHIP_DYNASTY</unlockCustomShip>
+	<autoReward level="HIGH">standard</autoReward>
+	<augment name="RANDOM" />
+</event>
+</FTL>

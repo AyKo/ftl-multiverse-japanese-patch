@@ -1,0 +1,896 @@
+<FTL>
+
+<ship name="SHIP_ELLIE_STATION" auto_blueprint="MU_ENGINEER_STATION">
+	<destroyed>
+		<text>ステーションを破壊しました。いくつかのスクラップが残されていますが、エリーが爆発から生き残ったかどうかは疑わしい.</text>
+		<autoReward level="MED">standard</autoReward>
+	</destroyed>
+	<deadCrew>
+		<text>最後のエンジニアを一掃しました。外装を解体したら、再び駅に乗り込みます。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>エリーを見つける。</text>
+			<event load="ELLIE_START_WIN" />
+		</choice>
+	</deadCrew>
+</ship>
+<event name="ELLIE_START" unique="true">
+	<preventQuest />
+	<text>近くでループしている遭難信号は、ひどく損傷したステーションと脱出ポッドを示しています。反応する時間がほとんどなく、脱出ポッドをすくい上げて開くと、背中に大きな切り傷を負った重傷を負った男が見つかりました。 「お願い…助けて…狂人がいる…うう…」男は倒れ、死んで、彼の下に血のプールが形成されました。それは信じられないほど恐ろしいものであり、あなたの職業でこのようなものに鈍感になったことを嬉しく思います.</text>
+	<variable name="loc_ellie" op="set" val="1" />
+	<ship load="SHIP_ELLIE_STATION" hostile="false" />
+	<distressBeacon />
+	<choice hidden="true">
+		<text>駅を調べる。多分あなたは助けることができますか？</text>
+		<event>
+			<text>乗船するとすぐに後悔します。メインライトはほとんど消えており、非常灯はかすかに赤く光っているだけですが、あらゆる種類の厄介な光景が見られます。死体は別の脱出ポッドのハッチからわずか数インチ離れたところに横たわり、いくつかの死体は換気シャフトから伸びるワイヤーにぶら下がっています。ナイフの跡が壁を覆い、いたるところに血が流れています。これは通常の侵略ではなく、虐殺です。探索を続けると、最終的には血にまみれた明るいエクイノイドの衣装を着た見知らぬ男に出くわします。あなたが手を伸ばして男の肩に触れると、彼は驚いて振り回します。</text>
+			<choice hidden="true">
+				<text>大丈夫ですか？どうしたの？</text>
+				<event>
+					<text>男はあなたに会うと微笑みますが、それは彼が苦しんでいるに違いないにもかかわらず、ほとんど不自然に. 「友達！助けに来てくれて本当に嬉しいよ！」彼が手を差し伸べると、あなたはしぶしぶ振ります。 「イクイノイドのエリーです！ おいおい！」彼女は泣き言を言い、手で跳ねるふりをします。 「私のショーを見たことがありますか? あなたはファンですか?! もしかして、スーパーファンですか?! たくさんのファンに会いました。誰もが私のショーを愛しています! それは時代を超越したものであり、時代を超越したものです... それは... それは... ハハハ. ..」</text>
+					<choice hidden="true">
+						<text>思い出せない。</text>
+						<event>
+							<text>「ばかばかしい! みんなエリー・ザ・エクイノイドの番組を見た! 友達、助けてくれない? この駅には悪い人がたくさんいる. エリーを傷つけた悪い人たち! 彼らがさらに多くの人を傷つける前に、彼らを止めなければならない! 助けてくれる?私？</text>
+							<choice hidden="true">
+								<text>彼女を助けることに同意します。</text>
+								<event>
+									<text>「よかった！ここに残って足の手入れを続けるから、急いでこの悪党どもを片付けてくれ！おいおい！頑張ってくれ、でもステーションを破壊しないでくれ。エリーのような魔法の馬でさえ、宇宙では息ができないんだから！」 "</text>
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>却下。</text>
+								<event>
+									<text>「ああ、あなたは私を悲しませます。とても悲しいです...」 エリーは一瞬大げさな眉をひそめた後、笑顔に戻りました。今までにないほどに忍び寄り、起き上がってできるだけ早く立ち去ります。</text>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="unique_alkali">
+						<text>（アルカリ）「エリー先生、お会いできて光栄です！」</text>
+						<event>
+							<text>アルカリは、エリーの手を振って、一度非常に興奮しているようです。「あなたの革新的なQuarpジュースは、私のMorphhhの実験全体の基礎となっています。あなたの天才は、そのような強力で有用な化合物を作り上げたためにほぼライバルの私のものでなければなりません！」しかし、彼女は賞賛が好きです。「別のスーパーファン？！泣き言！私はファンと出会うのが大好きです。あなたもスーパーファンでなければなりません！ああ、友達、あなたは私を助けませんか？この駅には多くの悪い人がいます。もっと人！助けてくれませんか？ああ、かなりお願いしますか？」</text>
+							<choice hidden="true">
+								<text>彼女を助けることに同意します。</text>
+								<event>
+									<text>「よかった！ここに残って足の手入れを続けるから、急いでこの悪党どもを片付けてくれ！おいおい！頑張ってくれ、でもステーションを破壊しないでくれ。エリーのような魔法の馬でさえ、宇宙では息ができないんだから！」 "</text>
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>却下。</text>
+								<event>
+									<text>「ああ、あなたは私を悲しませます。とても悲しいです...」 エリーは一瞬大げさな眉をひそめた後、笑顔に戻りました。今までにないほどに忍び寄り、起き上がってできるだけ早く立ち去ります。</text>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ステーションを避けてください。</text>
+		<event>
+			<text>あなたは駅に乗り込むのはリスクに値しないと判断しました。</text>
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ELLIE_START_WIN">
+	<text>すぐにエリーがホールをうろつき、足を引きずっているのを見つけます。あなたは彼女に何をしているのか尋ねようとしましたが、廊下の向こう側から大きなカチャカチャ音がして中断されました。エリーは膝をつき、角に向かって少しずつ進みます。そこで彼女は何かを見つけたようです。彼女は向きを変え、あなたに向かって唇に指を置き、頭を後ろに突き出します。</text>
+	<choice hidden="true">
+		<text>何してるの？</text>
+		<event>
+			<text>エリーは応答せず、代わりにすぐに彼女の足に戻ってきて、あなたは彼女が怪我をしたことをほとんど忘れています。彼女は視界から消え、しばらくしてあなたは叫ぶのを聞きます。「いいえ、お願いします、ステファン、これをしないでください！すみません、それはあなたを解雇するというウェントワースの命令でした！私はそれとは何の関係もありませんでした、私は - 」沈黙が続く不快な音がします。馬の衣装の見知らぬ人が戻ってきて、血まみれのナイフを握ります。乗組員が後退するように動きますが、彼女はナイフを隠して再び微笑みます。「彼らはエリーのショーを空中にした！腐っていない - 隣人!!!!ごめんなさい、私はそこに年齢を超えて何かを言った！子供たちはエリーなしで何を見るだろうか！</text>
+			<choice hidden="true">
+				<text>あの男を刺したの？</text>
+				<event>
+					<text>「エリーは無実の命を傷つけることは決してありません! 彼女はあまりにも純粋で親切です! しかし、あなた、ミスターまたはレネゲード嬢は大きな意地悪です! しかし、ここの人々はさらに大きな意地悪です.そして、私を信じてください、エリーのリストには他にもたくさんの卑劣な人がいます! ああ、私を助けてくれませんか? 私たちは一緒に仕事をするのがとても楽しいです, 私は約束します!</text>
+					<choice>
+						<text>彼女と一緒に働くことに同意します。</text>
+						<event>
+							<text>「やったー！超ファンの皆さん、とても楽しい時間を過ごすつもりです!!! 待ちきれません! とても興奮しています!」</text>
+							<crewMember amount="1" class="unique_ellie_lvl1">エリー</crewMember>
+							<variable name="ach_crew_ellie" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>拒否する。</text>
+						<event>
+							<text>「ああ、あなたは私を悲しませます。とても悲しいです...」 エリーは一瞬大げさな眉をひそめた後、笑顔に戻りました。今までにないほどに忍び寄り、起き上がってできるだけ早く立ち去ります。</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ELLIE_LEAVE">
+	<text>「船長、どこへ行くの？」振り返ると、エリーが眉をひそめています。 「ここで終わったわけじゃない！そこに戻って、そして。終わりに。これで」</text>
+	<triggeredEvent event="ELLIE_LEAVE_FAIL" jumps="1" />
+</event>
+<event name="ELLIE_LEAVE_FAIL">
+	<variable name="loc_ellie_fail" op="set" val="1" />
+	<clearJumpEvent /> 
+</event>
+
+
+<ship name="SHIP_RIGLY_SECURITY" auto_blueprint="LIST_SHIPS_ESTATE_AUTO">
+	<destroyed>
+		<text>リグレーのセキュリティ ドローンを撃破しました。あなたは残骸をスクラップします。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true" req="LIST_CREW_ELLIE" lvl="1" blue="false">
+			<text>再びリグレーを見つける。</text>
+			<event load="ELLIE_RIGLEY_WIN" />
+		</choice>
+		<choice hidden="true" req="LIST_CREW_ELLIE" lvl="0" max_lvl="0" blue="false">
+			<text>エリーは間に合わなかった。今リグレーを追跡する理由はありません。</text>
+			<event />
+		</choice>
+	</destroyed>
+</ship>
+<event name="ELLIE_RIGLEY">
+	<beaconType id="map_icon_ellie" global="true">
+		<color r="206" g="47" b="185" a="1" />
+		<unvisitedTooltip>これは、エリーがあなたに「スーパーファン」に彼女を護衛するよう要求した場所です。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+	</beaconType>
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<aggressive>2</aggressive>
+	</quest>
+	<variable name="loc_ellie_quest_count" op="add" val="1" />
+	<variable name="loc_ellie_quest_progress" op="set" val="0" />
+	<jumpEvent>ELLIE_LEAVE</jumpEvent>
+	<text>あなたの前には、さまざまなユニオンの輸送船とウェントワース・イノベーションズによって製造された単一の自動船に囲まれた、ある種の軌道上の倉庫があります.その隣には小さな船があり、おそらく移動オフィスのようなものです。ちっぽけなサイズにもかかわらず、このシーンの経済学は、かなり大きな費用がすべてに費やされたことを示唆しています.</text>
+	<choice hidden="true" req="LIST_CREW_ELLIE" lvl="1" blue="false">
+		<text>近づいてみる。</text>
+		<event>
+			<text>貨物船の近くに停泊して倉庫に入ると、カラフルな動物をテーマにしたさまざまなキャラクターの商品がずらりと並んでいます。ダーガンのドーラ、キャルハロウのキャミー、レクマのレミー、そして何よりスパイダーのサミー。その最後のものの平凡さにもかかわらず、彼は部屋で最も献身的な商品を持っているようです.エリー専用の記事は1つもありません。彼女が発狂していることがわかります。</text>
+			<choice hidden="true">
+				<text>リグレーはどこ？</text>
+				<event>
+					<text>エリーはあなたの声を聞いておらず、代わりに棚に近づいています。彼女は他のキャラクターを愛情を込めて見て、静かに古い思い出を思い出します。しかし、彼女がサミーの通路に着くと、彼女は突然攻撃的になり、アニマトロニクスやクモ風味のアイスクリームを床に歌ったり、棚を蹴ったり、大きなぬいぐるみの心臓にナイフを繰り返し急降下したりするなど、さまざまな斬新なアイテムを投げます。ドアが開いているのを聞くすべての騒音と、かなり丸い男が叫び、口の中に落ち着いた食べ物によってわずかにこもっています。「あなたは誰ですか？！なぜあなたはここにいるのですか？」「ステファン？あなたは狂ったように狂ったように狂った！ハハハ！あなたはまだその馬の衣装を着ていますか？ハハハハハハ！それは私に戻ってきました、あなたは持っていますか？」最後に、男はあなたの乗組員に気づいているようです。「あなたの友達は誰ですか？ワアアイト...ステファン、あなたは私を殺すためにたくさんの反逆者を雇いましたか？！ハハハハ！ああ、これはヒステリックです。人間の種を恥ずかしくさせてください。これは、ゾルタンの盗聴者または脳のデッドの麻薬を抑えるマンティスの行動です。とにかく私を殺すことはできません。私は...セキュリティを持っています！」男は叫び、セキュリティチームが部屋に入り、自動ドローンが外部でアクティブになります。</text>
+					<ship load="SHIP_RIGLY_SECURITY" hostile="false" />
+					<choice hidden="true">
+						<text>セキュリティを撃退します。</text>
+						<event>
+							<text>リグリーにたどり着くには、まず自動化されたセキュリティを解除する必要があります。そこから何をするかを決めることができます。</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>その通りです - 立ち去りましょう。</text>
+						<event>
+							<text>エリーは信じられないほどあなたの方を向いています。あなたは彼女に何の価値もないと言いましたが、彼女はあなたの言うことを聞いていないようです。彼女はリグリーに向かって突進し、途中でジャンプして彼女を止め、部屋から引きずり出さなければなりません。あなたが建物を出るとき、リグリーはずっと笑っています。</text>
+							<variable name="loc_ellie_fail" op="set" val="1" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ELLIE" lvl="0" max_lvl="0" blue="false">
+		<text>エリーがいなければ意味がない。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true">
+		<text>気を取り直して出発。</text>
+		<event>
+			<text>あなたは駅に乗り込むのはリスクに値しないと判断しました。</text>
+			<variable name="loc_ellie_fail" op="set" val="1" />
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ELLIE_RIGLEY_WIN">
+	<text>リグリーは倉庫を去り、今では彼のオフィス船に隠れています。船が駅にしっかりとつながれていたという事実がなければ、彼は離陸したでしょう。あなたは彼が彼の机の下にいるのを見つけ、あなたが近づくと、彼はいくつかの有名なユニオンスポーツスターによって署名された木製のコウモリをスクランブルしますが、あなたは彼をbeatります。彼はついにあなたを真剣に受け止めているようです。「オーケー、オーケー...あなたは神のいまいましい衣装のステファンを維持することができます。調合された、私はあなたをショーから追い出させませんでした。それはすべての高得点でした、大丈夫ですか？そしてそれは正確な謎ではありません。」「いや、いや、いや...リグリー、私はあなたとヴァンスを知っている...話します。火曜日の虐殺？覚えていますか？」リグリーは彼の席を不快に変えます。エリーはあなたのためにこれをすべてやっていることを伝えることができます。彼女も嘘をついていません - あなたはスプルースについて少し聞いたことがあり、彼は反乱軍提督と彼の両親と一緒に戻ってきます。問題は、今ここと今のところ彼を冷血で殺すのは最良のアイデアですか？</text>
+	<choice hidden="true">
+		<text>後ろに下がって、エリーにこれをさせてください。</text>
+		<event>
+			<text>エリーはさらに一歩近づき、リグリーの息はますます不安定になります。「待って、待って、ステファン、これを考えてみましょう。どのように...エリーマーチのサウンドの真新しいライン？昔は！」エリーは微笑む。「それはfabulotastic、Rigley！」リグリーは安reliefのため息をついて、エリーのナイフの1回のストロークによってすぐに斬首されます。彼の頭が床に当たり、エリーはそれを調査するために死体の上に立っています。「エリーはあなたの葬儀を訪れ、新しい商品がどのように販売されているかをお知らせします！それは素晴らしいことです、彼女は約束します！」エリーはリグリーの机からフォームの1つをつかみ、何かを書き留めてポケットに折ります。彼女は部屋から完全なストライドを出してしまいました。彼女が去るとき、あなたは彼女のステップで新しい活力に気づき、あなたは彼女をフォローするのに時間を無駄にしません。</text>
+			<transformRace class="unique_ellie_lvl1">unique_ellie_lvl2</transformRace>
+			<clearJumpEvent /> 
+			<clearTriggeredEvent name="ELLIE_LEAVE_FAIL" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>彼女を止めてください。こいつを殺すのは悪い考えだ。</text>
+		<event>
+			<text>エリーの肩に手を置いて、止めるように頼みます。彼女の全身が震えているのを感じることができ、彼女の目はガラス張りになっています.あなたの言葉は彼女にほとんど届きませんが、彼女には届きます。彼女がこれをしたくない、または少なくとも彼女が対立していることを感じることができます.リグレーもこれに気づき、すぐにそれを利用しようとします。 「ステファン、昔の楽しい時間を覚えていますか? へへ…新しい商品のアイデアについて話し合ったり、ショーをより多くの聴衆にもっと目立たせる方法について話し合ったりしたときは? 楽しかったですか?た～」
+
+リグリーは、エリーがナイフを下ろして手を切断し、重要に見えるいくつかの法的文書全体に血をこぼしたとき、彼自身の血まみれの悲鳴によって切断されました。リグリーは彼の手を握り、叫び続け、横に倒れ、床を転がりました。エリーは深くため息をつき、ナイフをポケットに入れる。 「リグリーでよかったね！次は、よかった時間を止めなきゃいけないと決める前に、ちょっと考えてみてね。バイバイ！」エリーは机から用紙をつかみ、元気に手を振ってから、部屋から駆け出します。
+
+あなたは床に倒れている哀れな男を最後にもう一度見て、中途半端に、彼は後で彼の手の代わりに適切な人工の代替品を購入する余裕があり、傷に圧力をかけることができると彼に思い出させます.リグリーはあなたの言うことを聞きません。あなたも向きを変えて部屋を出ます。</text>
+			<variable name="loc_ellie_good" op="add" val="1" />
+			<clearJumpEvent /> 
+			<clearTriggeredEvent name="ELLIE_LEAVE_FAIL" />
+		</event>
+	</choice>
+</event>
+
+
+<ship name="SHIP_HUEGHEY_SECURITY" auto_blueprint="LIST_SHIPS_REBEL_ELITE_LARGE">
+	<destroyed>
+		<text>反乱軍のエリート、そして結果としてヒューゲイの警備員が派遣されました。あなたは残骸をスクラップします。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true" req="LIST_CREW_ELLIE" lvl="1" blue="false">
+			<text>再びヒューゲイを見つける。</text>
+			<event load="ELLIE_HUEGHEY_WIN" />
+		</choice>
+		<choice hidden="true" req="LIST_CREW_ELLIE" lvl="0" max_lvl="0" blue="false">
+			<text>エリーは間に合わなかった。今ヒューゲイを追跡する理由はありません。</text>
+			<event />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>反乱軍のエリート、そして結果としてヒューゲイの警備員が派遣されました。あなたは残骸をスクラップします。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true" req="LIST_CREW_ELLIE" lvl="1" blue="false">
+			<text>再びヒューゲイを見つける。</text>
+			<event load="ELLIE_HUEGHEY_WIN" />
+		</choice>
+		<choice hidden="true" req="LIST_CREW_ELLIE" lvl="0" max_lvl="0" blue="false">
+			<text>エリーは間に合わなかった。今ヒューゲイを追跡する理由はありません。</text>
+			<event />
+		</choice>
+	</deadCrew>
+</ship>
+<event name="ELLIE_HUEGHEY">
+	<beaconType id="map_icon_ellie" global="true">
+		<color r="206" g="47" b="185" a="1" />
+		<unvisitedTooltip>これは、エリーがあなたに「スーパーファン」に彼女を護衛するよう要求した場所です。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+	</beaconType>
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<aggressive>2</aggressive>
+		<nebulaBeacon>false</nebulaBeacon>
+	</quest>
+	<variable name="loc_ellie_quest_progress" op="set" val="0" />
+	<variable name="loc_ellie_quest_count" op="add" val="1" />
+	<text>「ARMSTRONG AND LORENCE LAW FIRM」と書かれた標識のある、かなり当たり障りのない、面白くない法律事務所が近くに建設されました。 1 日に多く見たというわけではありませんが、想像する必要がある場合、これは心が麻痺するほど鈍いという点でユニークです。くすんだにも関わらず、特に強烈な金持ちの匂いが漂っており、建物を見つめていると、いつも以上に暴力を振るいたくなる。これは早く片付けたほうがいいかもしれません。</text>
+	<jumpEvent>ELLIE_LEAVE</jumpEvent>
+	<choice hidden="true" req="LIST_CREW_ELLIE" lvl="1" blue="false">
+		<text>入る。</text>
+		<event>
+			<text>あなたは法律事務所に足を踏み入れ、事務室のかび臭いにおいをかぎます。エリーは、この部屋に何度も来たことがあるかのように、あまり動揺していないようだ。このアイデアは、キュービクルの列と迷路のようなオフィスの分割払いの間を彼女が完璧にナビゲートするときに再確認されます.彼女はついに「アームストロング」というラベルの付いたドアに立ち寄ります。彼女は大きく誇張された息を吐き、拳をドアに叩きつけ、蝶番から引き離した。部屋の中で細い棒のような男が一瞥する。この乱暴な登場にビクッとしても、きっと顔には出さないだろう。 「フン。ステファン。ゴミ箱から戻ってきたね？」ヒューゲイはタバコに火をつけ、椅子にもたれかかる。 「その損害賠償を支払わなければならないことはわかっていますよね？」</text>
+			<choice hidden="true">
+				<text>あなたはヒューゲイのようには見えません。</text>
+				<event>
+					<text>「そして、あなたは私が意見を求めていない人のように見えます。」男はあなたをよく見ようと眼鏡越しにのぞきます。 「醜いマグカップから判断すると、あなたは...望ましくない人だと思います。自警団員です。ふん。」</text>
+					<choice hidden="true">
+						<text>それで、私たちがそうならどうしますか？</text>
+						<event name="ELLIE_HUEGHEY_2">
+							<text>「覚えておいてほしいのは……ラスティング・ハルクス事件の先例で、連邦は自警行為を禁止していた。」ヒューゲイは何かずるいことを言ったかのようににっこりと微笑む。 「それはあなたが法律の外で活動していることを意味します。」</text>
+							<choice hidden="true">
+								<text>わかりました...そして？</text>
+								<event>
+									<text>最後に、あなたが法律を気にしないとは思っていなかったかのように、男の冷静さは一瞬崩れたように見えます。 「うーん...フン。気にしないで。ステファン、気にしてくれますか...なぜこのリフラフを部屋に引きずり込んだのか説明してくれますか?」しかし、エリーは注意を払っていません。代わりに、彼女は壁に向かって歩き回り、この建物全体で見た唯一の個人的な装飾に気づきました.サミー・ザ・スパイダーを含む、以前のエリー・ザ・エクイノイド・ショーのさまざまな額装され署名された肖像画が壁に飾られています.もちろんエリーの姿はありません。
+
+エリーはニヤリと笑う。 「ふふふ…ヒューゲイ、私の写真はどこ？」彼女はサミーの写真がある壁を指さします。 「私のものは…そこにありました。今はほんの一部です…昆虫です。子供たちは昆虫が嫌いです。なぜあなたはこれをするのですか?なぜ.ヒューゲイは眉をひそめる。 「いいえ、私はそれを捨てました。なぜなら、あなたは過去のものだからです。未来のない洗い流された狂人です。会社はあなたを利用していました。しかし、ウェントワースはあなたを缶詰にしたかったのです。」ヒューゲイは何か暗い秘密を知っているかのように微笑む。 「それは避けられませんでした。そして、すべてあなたのせいでもありました。」
+
+エリーが震え始めていることに気づき、彼女の目は再び輝きを放ちます。 「わ、私のせい？エリー・ザ・エクイノイドはメディア史上最も愛されているキャラクターです！私は子供たちを楽しませました！洗い流されたのですか？！私のキャリアは終わっていません！あなたのものとは異なります！」彼女はヒューゲイに突進しますが、痩せた男は邪魔にならず、机の下でパニックスイッチを作動させます。アラームが点滅し、セキュリティが呼び出されたことがわかります。仕事に行くか、ここから出る時間です！</text>
+									<ship load="SHIP_HUEGHEY_SECURITY" hostile="false" />
+									<choice hidden="true">
+										<text>セキュリティを撃退します。</text>
+										<event>
+											<text>セキュリティはあなたが期待するものとはまったく異なります - 実際、反乱軍のエリートです。この会社がヴァンスと結びついている可能性があるという手がかりがあったとすれば、これは確かなものです.いずれにせよ、反乱軍を倒す時が来ました。</text>
+											<ship hostile="true" />
+											<choice hidden="true">
+												<text>継続する...</text>
+												<event load="COMBAT_CHECK" />
+											</choice>
+										</event>
+									</choice>
+									<choice hidden="true">
+										<text>離れる。</text>
+										<event>
+											<text>エリーは信じられないほどあなたの方を向いています。あなたは彼女に何の価値もないと言いましたが、彼女はあなたの言うことを聞いていないようです。あなたは彼女を建物から引きずり出さなければなりません。セキュリティが到着するまでに、あなたはすでに去っています。</text>
+											<variable name="loc_ellie_fail" op="set" val="1" />
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>あなたのオフィスはひどいにおいがします。</text>
+				<event>
+					<text>「はい...そしてあなたもそうです。」男はあなたをよく見ようと眼鏡越しにのぞきます。 「醜いマグカップから判断すると、あなたは...望ましくない人だと思います。自警団員です。ふん。」</text>
+					<choice hidden="true">
+						<text>それで、私たちがそうならどうしますか？</text>
+						<event load="ELLIE_HUEGHEY_2" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>あなたはタバコを吸うべきではありません、それはあなたに悪いです。</text>
+				<event>
+					<text>「はい……傭兵もそうです」男はその最後の言葉にとどまり、それが反乱軍の神経質になる言葉であることを知っています。彼はあなたをよく見ようと眼鏡越しにのぞきます。 「醜いマグカップから判断すると、あなたは...望ましくない人だと思います。自警団員です。ふん。」</text>
+					<choice hidden="true">
+						<text>それで、私たちがそうならどうしますか？</text>
+						<event load="ELLIE_HUEGHEY_2" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ELLIE" lvl="0" max_lvl="0" blue="false">
+		<text>エリーがいなければ意味がない。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true">
+		<text>気を取り直して出発。</text>
+		<event>
+			<text>あなたは、この任務は危険を冒す価値がないと判断しました。</text>
+			<variable name="loc_ellie_fail" op="set" val="1" />
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ELLIE_HUEGHEY_WIN">
+	<text>船を上陸させる頃には、ハウゲイが建物から逃げ出すのを見るのに間に合うようにしますが、彼は遠くまで行きません。エリーは邪魔になり、彼を地面に押し込み、顔にブーツを置き、粗いコンクリートに粉砕します。Huegheyは叫びますが、Ellieのマニアの笑い声についてしか聞くことができません。「ステファン！やめて！王国が来るように訴えます！」そうしてはじめて、エリーがこの状況の合法性を気にしないという枯渇弁護士に最終的に夜明けのように思われます。「O -okay。ステファン、聞いてください。これをじっくりと話すことができます。あなたの牛肉はウェントワースと一緒にいますか？彼は間違いという言葉を吐き出すのに苦労しています。「しかし、私は...うーん...私はあなたにウェントワースと連絡を取ることができます。わかりました？私は便利です - 私はできます...」「私がダブルクロッサーよりも嫌いなのは、両側のために二重交差する人です。彼らはあなたの世代にどのような退化した道徳を教えましたか？私は子供たちに積極性を教えることを目指しています！そして友情！そして親切！詐欺師と大量虐殺マニア、そして内戦を引き起こす人種暴動を始めたいときにお湯からそれらを守ります。」エリーはその最後の考えに残り、まるで彼女がもっと言いたいが止まっているかのように。彼女はゆっくりとナイフに手を伸ばし始め、Huegheyが彼女の動きと恐怖の震えを見ることができるようにします。</text>
+	<choice hidden="true" req="unique_ellie_lvl2" blue="false" max_group="0">
+		<text>後ろに下がって、エリーに彼を殺させてください。</text>
+		<event>
+			<text>エリーはナイフを引き、膝をついて、刃をハウゲイの腕につかみます。彼女はショーから陽気な曲を口whiを吹きながら、彼の肉からセクションを切り取り始めます。少なくとも、あなたは彼女が口whiを吹いていることだと思います。なぜなら、あなたは叫び声とすすり泣きの間でそれをよく聞くことができないからです。あなたは、他のさまざまな労働者がシーンから逃げ出し、彼らの前にエリーの暴力に向かって叫び、叫ぶことに気づきます。叫び声がついに止まって、Huegheyの死体がほとんど認識されなくなると、Ellieはついに立ち止まって起きます。彼女の制服の上には飛び散っているのはかなり戸惑いますが、エリーは確かに...これによって元気づけられていると言うことができます。「もう1つ！Doo Doo Doo！Superfantastulastic！」</text>
+			<transformRace class="unique_ellie_lvl2">unique_ellie_lvl3</transformRace>
+			<clearJumpEvent /> 
+			<clearTriggeredEvent name="ELLIE_LEAVE_FAIL" />
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_ellie_lvl1" blue="false" max_group="0">
+		<text>後ろに下がって、エリーに彼を殺させてください。</text>
+		<event>
+			<text>エリーはナイフを引き、膝をついて、刃をハウゲイの腕につかみます。彼女はショーから陽気な曲を口whiを吹きながら、彼の肉からセクションを切り取り始めます。少なくとも、あなたは彼女が口whiを吹いていることだと思います。なぜなら、あなたは叫び声とすすり泣きの間でそれをよく聞くことができないからです。あなたは、他のさまざまな労働者がシーンから逃げ出し、彼らの前にエリーの暴力に向かって叫び、叫ぶことに気づきます。叫び声がついに止まって、Huegheyの死体がほとんど認識されなくなると、Ellieはついに立ち止まって起きます。彼女の制服の上には飛び散っているのはかなり戸惑いますが、エリーは確かに...これによって元気づけられていると言うことができます。「もう1つ！Doo Doo Doo！Superfantastulastic！」</text>
+			<transformRace class="unique_ellie_lvl1">unique_ellie_lvl2</transformRace>
+			<clearJumpEvent /> 
+			<clearTriggeredEvent name="ELLIE_LEAVE_FAIL" />
+		</event>
+	</choice>
+	<choice hidden="true" req="pilot" blue="false" max_group="1">
+		<text>彼女を止めてください。これでは何も得られません。</text>
+		<event>
+			<text>あなたは暴力に対して鈍感化されており、自分でかなりの割合を犯すかもしれませんが、次に何が起こるかが純粋にサディスティックな残虐行為になることを知っています。この男は恥ずべきですが、彼はヴァンス・ウェントワースではありません。彼の罰は、法律の手にあるに値します - 彼が保護するふりをするまさにそのまさにそれです。あなたはエリーにこれをたくさん伝え、彼女は耳を傾けているようです。「オーケー！スーパーファンはあなたが今日生きることを決めました！通常、私はこれほど素敵ではありませんが、私はすでにあなたのオフィスにその火災爆弾を設定していたので、私たちはそれを呼ぶことができると思います！」Hueghey Stutters。「f火の爆弾？」
+
+エリーはポケットからスイッチを引き出し、ボタンを押し、上からガラスの雨の破片を押します。窓の1つから煙の大波が形成されているのを見るために見上げます。エリー・ベリーズは笑いながら、「これがあなたが子供を吸わない理由です！あなたはあなたの人生の仕事のすべてを火に燃やすでしょう！」彼女は大喜びの涙を拭き取り、船に戻り、彼女の途中でハウゲイの上に足を踏み入れるようにします。あなたは男にあなた自身の同情を与えず、彼女に従ってください。</text>
+			<variable name="loc_ellie_good" op="add" val="1" />
+			<clearJumpEvent /> 
+			<clearTriggeredEvent name="ELLIE_LEAVE_FAIL" />
+		</event>
+	</choice>
+</event>
+
+
+<ship name="SHIP_REMMY_BAR" auto_blueprint="MU_MILITIA_STATION">
+	<triggeredEvent event="ELLIE_GOS_WIN" enemyHull="3" clearOnJump="true" />
+	<destroyed load="ELLIE_GOS_DESTROY" />
+	<deadCrew load="ELLIE_GOS_CREWKILL" />
+</ship>
+<event name="ELLIE_REMMY">
+	<beaconType id="map_icon_ellie" global="true">
+		<color r="206" g="47" b="185" a="1" />
+		<unvisitedTooltip>これは、エリーがあなたに「スーパーファン」に彼女を護衛するよう要求した場所です。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+	</beaconType>
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<aggressive>2</aggressive>
+		<nebulaBeacon>false</nebulaBeacon>
+	</quest>
+	<variable name="loc_ellie_quest_progress" op="set" val="0" />
+	<variable name="loc_ellie_quest_count" op="add" val="1" />
+	<text>近くの施設はカジノでもバーでもありません - かなりカジュアルなものではありますが、実際には民兵の前哨基地です.さまざまな非民兵の民間人がさまよっており、食堂のセクションには、活発な冗談に夢中になっている荒々しいが友好的な民兵のグループがいます。 「レミー」を見つけるのにそれほど時間はかからないはずです。</text>
+	<ship load="SHIP_REMMY_BAR" hostile="false" />
+	<jumpEvent>ELLIE_LEAVE</jumpEvent>
+	<choice hidden="true" req="LIST_CREW_ELLIE" lvl="1" blue="false">
+		<text>レミーを探す。</text>
+		<event>
+			<text>民兵の群衆の騒音をたどるだけで、冗談が日常のポーカーゲームにかけられていることに気づきます。近づくと、エリーのスーツの明るいピンクのコントラストが多くの人の目を引きます。特に一人の男、非常に異常に小さいロックマンは、すべての中で最もショックを受けているようです. 「ステファン？炎の中、ここで何をしているの？」ロックマンは席を引いてエリーに座るように勧めますが、彼女は彼を無視します。 「レミー、見つけた！ ふふふふ、見つけた！ 私から隠れられると思ったの？ 間違ってた！」</text>
+			<choice hidden="true">
+				<text>待って、レミーを演じるのはあなたですか？</text>
+				<event>
+					<text>ロックマンはうなずいた。「はい、それはあなたが掘ることなくあなたが見つけるものではありませんが、私が仕事に就いた理由がわかりません、それは地獄に過ぎません。だから私はこの民兵のギグを実行します - 組合には平等賃金を保護する法律はありません移民種の、そして私は他の誰と同じほど支払われたことはありませんでした。確かにステファンほどではありません。」部屋の他の俳優に言及すると、ロックマンはエリーに戻ります。「ステファン、私たちは今仕事をしていません。あなたはもう私をレンミーと呼ぶ必要はありません。ゴスは彼の手を突き出します。ロックマンの友好的で非難されない落ち着きはあなたを武装解除しました、そして、エリーでさえ少し控えめに見えます。それでも、彼女は脚本に固執します。「ステファン、あなたは私にあなたを解雇したと非難していますか？私たちは初日から友達でした！あなたは私を実際の人のように扱ったキャストの唯一の人であり、何らかのエイリアンの欠陥や不要な侵略者ではありませんでした。私たちは使用しました。Equinoxでの乗り物に行くために、私たちは商品のアイデアを一緒に設計しました。私たちはほぼ毎週仕事の後にたむろしました！彼らがあなたにしたことはひどいものでした。あなたに背を向けた！マイケルはいい人のように見え、彼は素晴らしい俳優だ。子供と一緒に良い、そして彼はサミーをよく演じる。彼らがスタジオを購入したとき、はしごをW.I.まではしごを上っていました！」突然の暴力的な行動に驚いて、複数の民兵兵士がポーカーゲームを放棄し、今では武器を手に入れました。「嘘つき！嘘つき！あなたはネズミだ！裏切り者だ！エリーに嘘をつかないでください、彼女は真実を知っています！私を裏切らないだろうか、あなたはスーパーファンだろうか？」エリーにこのように振る舞うように促しているのは何がわかりませんが、彼女はあなたに目を向け、あなたのサポートを嘆願します。</text>
+					<choice hidden="true">
+						<text>エリーをバックアップします。</text>
+						<event>
+							<text>これらの民兵全員と戦うという考えはあなたを興奮させませんが、あなたはエリーの後ろに自分の立場を守ります.ゴスは途方に暮れているようだが、他の民兵はためらわない。脅威が明らかになり、ステーションは敵対的になり、あなたは自分の手で戦いを始めます!</text>
+							<boarders min="2" max="3" class="LIST_CREW_MILITIA_ELITE_RANDOM" />
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>あなたはこれを行うことはできません、エリー。</text>
+						<event>
+							<text>「いいえ、いいえ、いいえ、いいえ、あなたは真剣になることはできません...どうやってこのスーパーファンを行うことができますか?!わかりました、私はこれを自分で行います。私がいつもしなければならないように!」エリーはナイフに手を伸ばしますが、彼女の目が部屋を横切り、彼女がどれほど数が多いかを見ると、彼女は立ち止まります。 「私は……」 エリーが肩をすくめ、大きく息を吸ったり吐いたりすると、彼女の落ち着きは急に友好的なものに変わった。 「あなたは正しいゴス、あなたは私を裏切らないでしょう? あなた... あなたは親友のエリーを決して裏切らないでしょう! レミーとエリー、彼らはメディアの歴史の中で最も象徴的なデュオです!」
+ゴスは慎重に頷く。 「昔と同じようにね？ ステファン、離婚があなたに大きな打撃を与えたことは知っているし、さらにクビになったけど、このめちゃくちゃな多元宇宙で一人で生きていくことはできない。私はあなたを助けるために最善を尽くすことができるが、最終的にはあなたはまず自分自身を助けなければなりません。」
+
+エリーは首を横に振る。 「エリーは自分自身を助けています! 彼女は正しい道を進んでいます、親友、心配しないでください! オーケー、まあ、私は今行かなければなりません、スペースは大きく、そこにはエリーを必要としている子供たちがたくさんいます! バイバイ! 行きましょう,スーパーファン！」エリーはドアから出て船に戻ります。
+
+あなたは従おうとしますが、ゴスはあなたの肩に手を置いて止めます。 「ねえ、ありがとう。ただ...彼から目を離さないでね。彼はいつもちょっと…まあ、私はそれを丁寧に言う方法がわかりません.少し狂っていると思います.フラワーズ アンド サンシャイン カンパニーは汚れていました, そしてステファンは恵みから落ちたデッドビート俳優に他なりませんでした. 彼の妻が彼を去り、子供も連れて行ったとき、彼は狂ったようにその役割に専念しました. 彼は演技のヒントを得ました.マルチバースで最も有名なメソッド俳優であるコーネリアス・パリースミスから. しかし、彼は... 彼がキャラクターだったと信じ始めました. 私はその男が好きですが、彼には友人が必要であることも知っています. 彼がクビになったとき、すべてが下り坂になりました.なぜ彼らが彼を解任したのかは実際にはわかりません.トップから来たという噂を聞いた.彼は事実上独力で会社を幸運に導いた.彼にマイケルを傷つけさせてはいけませんよね？ W.うなずき、背中を軽くたたきます。 「分かった、それは私が言わなければならなかったすべてです。私は私の男の子が途中であなたに何かを与えるようにします。誰かが連邦を守っているのを見るのはいつでも良いことです。」</text>
+							<clearJumpEvent />
+							<variable name="loc_ellie_good" op="add" val="1" />
+							<variable name="loc_ellie_remmy" op="set" val="1" />
+							<autoReward level="MED">standard</autoReward>
+							<damage amount="-7" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ELLIE" lvl="0" max_lvl="0" blue="false">
+		<text>エリーがいなければ意味がない。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true">
+		<text>気を取り直して出発。</text>
+		<event>
+			<text>あなたは、この任務は危険を冒す価値がないと判断しました。</text>
+			<variable name="loc_ellie_fail" op="set" val="1" />
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ELLIE_GOS_WIN">
+	<text>民兵ステーションはもはや機能できないほど損傷を受け、降伏しました。</text>
+	<ship hostile="false" />
+	<surrender />
+	<autoReward level="MED">stuff</autoReward>
+	<clearJumpEvent /> 
+	<choice hidden="true" req="unique_ellie_lvl1" blue="false" max_group="0">
+		<text>再びゴスを見つける。</text>
+		<event>
+			<text>戦闘中、ゴスは重傷を負ったようです。あなたが彼を見つける頃には、彼の死はすでに差し迫っているように見えます.エリーは部屋の中をなぞりながら、深い集中力でナイフを壁に引きずりました。ロックマンとは一度もアイコンタクトをとらない。最後に、彼女は部屋の中央に戻り、ゴスの上に立ち、ゴスの目をじっと見つめます。 「これが裏切り者に起こることだ、レミー。私に頼んで、ダブルホッケースティックでサミーに挨拶してくれ！」エリーはゴスの喉にナイフを1回スワイプし、ゴスの運命を封印します。ロックマンが床に血を流すと、エリーはナイフから血を拭き取り、いつもの子供のような態度で部屋から行進します.</text>
+			<transformRace class="unique_ellie_lvl1">unique_ellie_lvl2</transformRace>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_ellie_lvl2" blue="false" max_group="0">
+		<text>再びゴスを見つける。</text>
+		<event>
+			<text>戦闘中、ゴスは重傷を負ったようです。あなたが彼を見つける頃には、彼の死はすでに差し迫っているように見えます.エリーは部屋の中をなぞりながら、深い集中力でナイフを壁に引きずりました。ロックマンとは一度もアイコンタクトをとらない。最後に、彼女は部屋の中央に戻り、ゴスの上に立ち、ゴスの目をじっと見つめます。 「これが裏切り者に起こることだ、レミー。私に頼んで、ダブルホッケースティックでサミーに挨拶してくれ！」エリーはゴスの喉にナイフを1回スワイプし、ゴスの運命を封印します。ロックマンが床に血を流すと、エリーはナイフから血を拭き取り、いつもの子供のような態度で部屋から行進します.</text>
+			<transformRace class="unique_ellie_lvl2">unique_ellie_lvl3</transformRace>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_ellie_lvl3" blue="false" max_group="0">
+		<text>再びゴスを見つける。</text>
+		<event>
+			<text>戦闘中、ゴスは重傷を負ったようです。あなたが彼を見つける頃には、彼の死はすでに差し迫っているように見えます.エリーは部屋の中をなぞりながら、深い集中力でナイフを壁に引きずりました。ロックマンとは一度もアイコンタクトをとらない。最後に、彼女は部屋の中央に戻り、ゴスの上に立ち、ゴスの目をじっと見つめます。 「これが裏切り者に起こることだ、レミー。私に頼んで、ダブルホッケースティックでサミーに挨拶してくれ！」エリーはゴスの喉にナイフを1回スワイプし、ゴスの運命を封印します。ロックマンが床に血を流すと、エリーはナイフから血を拭き取り、いつもの子供のような態度で部屋から行進します.</text>
+			<transformRace class="unique_ellie_lvl3">unique_ellie_lvl4</transformRace>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ELLIE" lvl="0" max_lvl="0" blue="false" max_group="0">
+		<text>エリーはそれを作りませんでした。GOSを追跡する理由はありません。</text>
+		<event />
+	</choice>
+</event>
+<event name="ELLIE_GOS_CREWKILL">
+	<text>民兵ステーションの民兵戦闘部隊は排除され、他の誰もそれを守ることができなくなりました。</text>
+	<ship hostile="false" />
+	<autoReward level="MED">stuff</autoReward>
+	<clearJumpEvent /> 
+	<choice hidden="true" req="unique_ellie_lvl1" blue="false" max_group="0">
+		<text>再びゴスを見つける。</text>
+		<event>
+			<text>戦闘中、ゴスは重傷を負ったようです。あなたが彼を見つける頃には、彼の死はすでに差し迫っているように見えます.エリーは部屋の中をなぞりながら、深い集中力でナイフを壁に引きずりました。ロックマンとは一度もアイコンタクトをとらない。最後に、彼女は部屋の中央に戻り、ゴスの上に立ち、ゴスの目をじっと見つめます。 「これが裏切り者に起こることだ、レミー。私に頼んで、ダブルホッケースティックでサミーに挨拶してくれ！」エリーはゴスの喉にナイフを1回スワイプし、ゴスの運命を封印します。ロックマンが床に血を流すと、エリーはナイフから血を拭き取り、いつもの子供のような態度で部屋から行進します.</text>
+			<transformRace class="unique_ellie_lvl1">unique_ellie_lvl2</transformRace>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_ellie_lvl2" blue="false" max_group="0">
+		<text>再びゴスを見つける。</text>
+		<event>
+			<text>戦闘中、ゴスは重傷を負ったようです。あなたが彼を見つける頃には、彼の死はすでに差し迫っているように見えます.エリーは部屋の中をなぞりながら、深い集中力でナイフを壁に引きずりました。ロックマンとは一度もアイコンタクトをとらない。最後に、彼女は部屋の中央に戻り、ゴスの上に立ち、ゴスの目をじっと見つめます。 「これが裏切り者に起こることだ、レミー。私に頼んで、ダブルホッケースティックでサミーに挨拶してくれ！」エリーはゴスの喉にナイフを1回スワイプし、ゴスの運命を封印します。ロックマンが床に血を流すと、エリーはナイフから血を拭き取り、いつもの子供のような態度で部屋から行進します.</text>
+			<transformRace class="unique_ellie_lvl2">unique_ellie_lvl3</transformRace>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_ellie_lvl3" blue="false" max_group="0">
+		<text>再びゴスを見つける。</text>
+		<event>
+			<text>戦闘中、ゴスは重傷を負ったようです。あなたが彼を見つける頃には、彼の死はすでに差し迫っているように見えます.エリーは部屋の中をなぞりながら、深い集中力でナイフを壁に引きずりました。ロックマンとは一度もアイコンタクトをとらない。最後に、彼女は部屋の中央に戻り、ゴスの上に立ち、ゴスの目をじっと見つめます。 「これが裏切り者に起こることだ、レミー。私に頼んで、ダブルホッケースティックでサミーに挨拶してくれ！」エリーはゴスの喉にナイフを1回スワイプし、ゴスの運命を封印します。ロックマンが床に血を流すと、エリーはナイフから血を拭き取り、いつもの子供のような態度で部屋から行進します.</text>
+			<transformRace class="unique_ellie_lvl3">unique_ellie_lvl4</transformRace>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ELLIE" lvl="0" max_lvl="0" blue="false" max_group="0">
+		<text>エリーはそれを作りませんでした。GOSを追跡する理由はありません。</text>
+		<event />
+	</choice>
+</event>
+<event name="ELLIE_GOS_DESTROY">
+	<text>民兵駅は破壊され、近くにさまざまな脱出ポッドが散らばっています。そのうちの1つには、GOSが含まれている可能性があります。</text>
+	<ship hostile="false" />
+	<autoReward level="MED">stuff</autoReward>
+	<clearJumpEvent /> 
+	<choice hidden="true" req="unique_ellie_lvl1" blue="false" max_group="0">
+		<text>再びゴスを見つける。</text>
+		<event>
+			<text>戦闘中、ゴスは重傷を負ったようです。あなたが彼を見つける頃には、彼の死はすでに差し迫っているように見えます.エリーは部屋の中をなぞりながら、深い集中力でナイフを壁に引きずりました。ロックマンとは一度もアイコンタクトをとらない。最後に、彼女は部屋の中央に戻り、ゴスの上に立ち、ゴスの目をじっと見つめます。 「これが裏切り者に起こることだ、レミー。私に頼んで、ダブルホッケースティックでサミーに挨拶してくれ！」エリーはゴスの喉にナイフを1回スワイプし、ゴスの運命を封印します。ロックマンが床に血を流すと、エリーはナイフから血を拭き取り、いつもの子供のような態度で部屋から行進します.</text>
+			<transformRace class="unique_ellie_lvl1">unique_ellie_lvl2</transformRace>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_ellie_lvl2" blue="false" max_group="0">
+		<text>再びゴスを見つける。</text>
+		<event>
+			<text>戦闘中、ゴスは重傷を負ったようです。あなたが彼を見つける頃には、彼の死はすでに差し迫っているように見えます.エリーは部屋の中をなぞりながら、深い集中力でナイフを壁に引きずりました。ロックマンとは一度もアイコンタクトをとらない。最後に、彼女は部屋の中央に戻り、ゴスの上に立ち、ゴスの目をじっと見つめます。 「これが裏切り者に起こることだ、レミー。私に頼んで、ダブルホッケースティックでサミーに挨拶してくれ！」エリーはゴスの喉にナイフを1回スワイプし、ゴスの運命を封印します。ロックマンが床に血を流すと、エリーはナイフから血を拭き取り、いつもの子供のような態度で部屋から行進します.</text>
+			<transformRace class="unique_ellie_lvl2">unique_ellie_lvl3</transformRace>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_ellie_lvl3" blue="false" max_group="0">
+		<text>再びゴスを見つける。</text>
+		<event>
+			<text>戦闘中、ゴスは重傷を負ったようです。あなたが彼を見つける頃には、彼の死はすでに差し迫っているように見えます.エリーは部屋の中をなぞりながら、深い集中力でナイフを壁に引きずりました。ロックマンとは一度もアイコンタクトをとらない。最後に、彼女は部屋の中央に戻り、ゴスの上に立ち、ゴスの目をじっと見つめます。 「これが裏切り者に起こることだ、レミー。私に頼んで、ダブルホッケースティックでサミーに挨拶してくれ！」エリーはゴスの喉にナイフを1回スワイプし、ゴスの運命を封印します。ロックマンが床に血を流すと、エリーはナイフから血を拭き取り、いつもの子供のような態度で部屋から行進します.</text>
+			<transformRace class="unique_ellie_lvl3">unique_ellie_lvl4</transformRace>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ELLIE" lvl="0" max_lvl="0" blue="false" max_group="0">
+		<text>エリーはそれを作りませんでした。GOSを追跡する理由はありません。</text>
+		<event />
+	</choice>
+</event>
+
+
+<ship name="SHIP_PAUL_MFK" auto_blueprint="MU_REBEL_GUARD_SELITE">
+	<destroyed>
+		<text>MFK ガードが削除されました。あなたは残骸をスクラップします。</text>
+		<autoReward level="HIGH">item</autoReward>
+		<choice hidden="true" req="LIST_CREW_ELLIE" lvl="1" blue="false">
+			<text>ポールの家に入る。</text>
+			<event load="ELLIE_PAUL_WIN" />
+		</choice>
+		<choice hidden="true" req="LIST_CREW_ELLIE" lvl="0" max_lvl="0" blue="false">
+			<text>エリーは間に合わなかった。今、ポールを追跡する理由はありません。</text>
+			<event />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>MFK ガードが削除されました。あなたは残骸をスクラップします。</text>
+		<autoReward level="HIGH">item</autoReward>
+		<choice hidden="true" req="LIST_CREW_ELLIE" lvl="1" blue="false">
+			<text>ポールの家に入る。</text>
+			<event load="ELLIE_PAUL_WIN" />
+		</choice>
+		<choice hidden="true" req="LIST_CREW_ELLIE" lvl="0" max_lvl="0" blue="false">
+			<text>エリーは間に合わなかった。今、ポールを追跡する理由はありません。</text>
+			<event />
+		</choice>
+	</deadCrew>
+	<crew>
+		<crewMember type="human_soldier" prop="0.5" />
+		<crewMember type="human_mfk" prop="0.5" />
+	</crew>
+</ship>
+<event name="ELLIE_PAUL">
+	<beaconType id="map_icon_ellie" global="true">
+		<color r="206" g="47" b="185" a="1" />
+		<unvisitedTooltip>これは、エリーがあなたに「スーパーファン」に彼女を護衛するよう要求した場所です。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+	</beaconType>
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<aggressive>2</aggressive>
+		<nebulaBeacon>false</nebulaBeacon>
+	</quest>
+	<variable name="loc_ellie_quest_progress" op="set" val="0" />
+	<variable name="loc_ellie_quest_count" op="add" val="1" />
+	<text>エリーがあなたに与えた座標は、よく建設された明らかに高価な不動産、一見別荘のように見えます。さらに困惑するのは、MFK エースがある種の警備員として屋外に駐車されていることです。中に入るには、まず彼らを殺さなければなりません。</text>
+	<jumpEvent>ELLIE_LEAVE</jumpEvent>
+	<ship load="SHIP_PAUL_MFK" hostile="false" />
+	<choice hidden="true" req="LIST_CREW_ELLIE" lvl="1" blue="false">
+		<text>MFKを攻撃します。</text>
+		<event>
+			<text>船を公開するとすぐに、MFK 船がロックオンして攻撃します。戦闘の準備をしてください！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ELLIE" lvl="0" max_lvl="0" blue="false">
+		<text>エリーがいなければ意味がない。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true">
+		<text>気を取り直して出発。</text>
+		<event>
+			<text>あなたは、この任務は危険を冒す価値がないと判断しました。</text>
+			<variable name="loc_ellie_fail" op="set" val="1" />
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ELLIE_PAUL_WIN">
+	<text>ステルスの必要がなくなったので、エリーは玄関のドアを壊して中に入ります。あなたとあなたの乗組員は最上階に向かって行進します.そこでは、病弱な痩せた男がバスルームに立ち、窓の外を見つめています.横に並べられたテレビ モニターには、破壊された MFK と正面玄関のセキュリティ映像が映し出されています。 「やっと来たね、ステファン。スプルースとアームストロングとのハイジンクのニュースを聞いたとき、次はここに来るのだろうかと思った」男が振り向くと、今はなくなった左目を切り裂く長い傷跡が現れた。彼は模擬的なもてなしであなたに頭を下げます。 「カサ・デ・ランカスターへようこそ。混乱を気にしないでください。ネアンデルタール人の群れと馬の衣装を着たフリークが私の家に侵入しました。どうぞ、席を空けてください。」ポールは足を組んで座り心地の悪い折り畳み椅子に面したパッド入りの回転椅子に座っている。</text>
+	<clearJumpEvent /> 
+	<choice hidden="true">
+		<text>座る。</text>
+		<event name="ELLIE_PAUL_SIT">
+			<text>エリーを除いて、乗組員全員が席に着きます。もちろん、エリーはいつもの一匹狼の姿です。ポールは、怯えているというよりは、彼女の存在にほとんど退屈しているようだ。 「それで、ステファン。あなたがここにいる理由を教えてください。」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event name="ELLIE_PAUL_2">
+					<text>「さて、ポーリー、ここでスーパーファンと私はあなたに少し訪問するようになりました！ごみ箱に投げ込まれたあなたのすべての努力のために少しの返済！それに直面しましょう、あなたはいつも私にjeしていました！そして、あなたは私なしではショーが何もなかったことを知っています！花と太陽の光は、リトルオルエリーのためではない場合はゴーストタウンになります。私はスーパースターで、超依存性のあるスタースターです！」彼がどれだけ笑っているかからの痛みのあるボール。"HAHAHAHAHAHAHAHAHAHAHAH! JEALOUS?! OF YOU?!"ポール・スクートは近づき、彼の独善的な笑顔が後退し、恐ろしい外観に置き換えられました。「私はあなたに地面から登る機会を与えました、あなたはcycopathic狂人です。私はこのいまいましいショー全体を作りました、そしてあなたは私の成功に乗りました。「あなたはあなたです。あなたはたわごとのために行動することができなかった薬を飲んだ、煙が浸されたゴミ箱の火でした。なぜあなたの妻はあなたを去ったと思いますか？彼女はあなたの周りに立つことができなかったからです。うんざりして、あなたは価値がありません。」「私は価値がありません！私は愛されています、私は素晴らしいです、私はすべてのメディアの歴史の中で最も偉大なキャラクターです！」「いいえ、あなたはただ妄想的です。エリーの評価はあなたが解雇されるずっと前にタンキングをしていました。子供たちはギミックに疲れました。彼らは健全で幸せなでたらめを望んでいません。彼らは道徳を望んでいません。子供たちは成熟しました。南北戦争は本当にこの偉大な国を変えました。ヴァンスには正しいアイデアがあります。それらの反逆者は私たち全員のために物事をより良くするために自分の命を危険にさらしていますが、それが起こるまで、私たちはグーグー・ガー・ガの綿毛に追いつくことができません。」彼女の頭は繰り返し。「いいえ、いや、あなたは嘘をついている！あなたは嘘をついている嘘つきだ！子供たちはいつも私を愛している！私はヴァンス・ウェントワースによって編成された壮大な計画のために解雇された！嘘をつかないで！」あなたに嘘をつく必要はありません。あなたはあなたが他の人の人生の主人公であるふりをするのをやめる必要があります。ええ、ヴァンスはあなたを解雇するように命じた人でした。あなたが彼の妹にしたことの後、あなたは惨めに、彼はあなたをそのように扱うためにあなたを処刑するべきでした。代わりに、彼はあなたにブーツを与えました。'これらの部分であまりにも人気があります。あなたが最後に残っている3つの脳細胞の間にリードが留まっていないことを幸運だと考えて、迷子になります。。」
+
+エリーはポールに突進し、喉で彼をつかみ、地面に引っ張ります。彼女は拳で彼をマニアックにbeり始めますが、男は彼が暴行されているほど泣き声ほどではありません。彼は彼自身の運命を受け入れているようで、気にしないようです。問題は、これがどのような利点をもたらすかということです。</text>
+					<choice hidden="true" req="unique_ellie_lvl1" blue="false" max_group="0">
+						<text>エリーを続けさせてください。</text>
+						<event>
+							<text>エリーはポールを倒し続け、彼女の拳は血まみれで血まみれになり、ポールの顔はゆっくりとパルプに減ります。男の意識が失われると、エリーは立ち上がって彼のブーツを彼の顔に連れて行き、血の病気にかかってそれを洞窟にします。息を切らして、彼女は元ディレクターの死体の隣の震える山に倒れます。他に何をすべきかわからないので、あなたは彼女を持ち上げて船に連れて行きます。</text>
+							<transformRace class="unique_ellie_lvl1">unique_ellie_lvl2</transformRace>
+						</event>
+					</choice>
+					<choice hidden="true" req="unique_ellie_lvl2" blue="false" max_group="0">
+						<text>エリーを続けさせてください。</text>
+						<event>
+							<text>エリーはポールを倒し続け、彼女の拳は血まみれで血まみれになり、ポールの顔はゆっくりとパルプに減ります。男の意識が失われると、エリーは立ち上がって彼のブーツを彼の顔に連れて行き、血の病気にかかってそれを洞窟にします。息を切らして、彼女は元ディレクターの死体の隣の震える山に倒れます。他に何をすべきかわからないので、あなたは彼女を持ち上げて船に連れて行きます。</text>
+							<transformRace class="unique_ellie_lvl2">unique_ellie_lvl3</transformRace>
+						</event>
+					</choice>
+					<choice hidden="true" req="unique_ellie_lvl3" blue="false" max_group="0">
+						<text>エリーを続けさせてください。</text>
+						<event>
+							<text>エリーはポールを倒し続け、彼女の拳は血まみれで血まみれになり、ポールの顔はゆっくりとパルプに減ります。男の意識が失われると、エリーは立ち上がって彼のブーツを彼の顔に連れて行き、血の病気にかかってそれを洞窟にします。息を切らして、彼女は元ディレクターの死体の隣の震える山に倒れます。他に何をすべきかわからないので、あなたは彼女を持ち上げて船に連れて行きます。</text>
+							<transformRace class="unique_ellie_lvl3">unique_ellie_lvl4</transformRace>
+						</event>
+					</choice>
+					<choice hidden="true" req="unique_ellie_lvl4" blue="false" max_group="0">
+						<text>エリーを続けさせてください。</text>
+						<event>
+							<text>エリーはポールを倒し続け、彼女の拳は血まみれで血まみれになり、ポールの顔はゆっくりとパルプに減ります。男の意識が失われると、エリーは立ち上がって彼のブーツを彼の顔に連れて行き、血の病気にかかってそれを洞窟にします。息を切らして、彼女は元ディレクターの死体の隣の震える山に倒れます。他に何をすべきかわからないので、あなたは彼女を持ち上げて船に連れて行きます。</text>
+							<transformRace class="unique_ellie_lvl4">unique_ellie_lvl5</transformRace>
+						</event>
+					</choice>
+					<choice hidden="true" req="pilot" blue="false" max_group="1">
+						<text>エリーにやめるように言います。</text>
+						<event>
+							<text>エリーはあなたの声を聞きません。あなたが蹴ったり叫んだりして引き離さなければならなくなるまで、ポールを殴り続けます。 「LET ME AT HIM! LET. ME. AT. HIM! HE DESERVES IT! THE SWOGGLIN! THE DINGUS! THE...」 エリーは、使用する別の PG 侮辱を見つけるのに苦労します。彼女の必死の捜索で、彼女はついに落ち着き、震えとすすり泣きの山で地面に倒れます。 「私は失敗ではない... 私は... 失敗ではない.二人の男の静かなすすり泣きを認めて、あなたはエリーを持ち上げて船に戻します。</text>
+							<variable name="loc_ellie_good" op="add" val="1" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>座らないでください。</text>
+		<event>
+			<text>ポールはたじろぐ。 "座る。"</text>
+			<choice hidden="true">
+				<text>座る。</text>
+				<event load="ELLIE_PAUL_SIT" />
+			</choice>
+			<choice hidden="true">
+				<text>それでも座るのを拒否します。</text>
+				<event>
+					<text>監督は疲れた息を吐き出す。 「いいよ。馬鹿みたいにそこに立って、不快にならないで」ポールは、脇に立って自分を睨みつけるエリーの方を向く。彼は怯えているというよりは、彼女の存在にほとんど退屈しているようだ. 「それで、ステファン。あなたがここにいる理由を教えてください。」</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="ELLIE_PAUL_2" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+<ship name="SHIP_SAMMY_CRUISER" auto_blueprint="MU_SAMMY_CRUISER">
+	<destroyed>
+		<text>あなたは恐ろしい青い巡洋艦を打ち負かしました。そしてうまくいけば、あなたとエリーを止めるために第 1 宇宙軍が送った反乱軍の最後の船も打ち負かされました。</text>
+		<autoReward level="HIGH">item</autoReward>
+		<choice hidden="true" req="LIST_CREW_ELLIE" lvl="1" blue="false">
+			<text>継続する...</text>
+			<event load="ELLIE_SAMMY_WIN" />
+		</choice>
+		<choice hidden="true" req="LIST_CREW_ELLIE" lvl="0" max_lvl="0" blue="false">
+			<text>エリーは間に合わなかった。反乱軍を倒すことに満足する必要があります。</text>
+			<event />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>あなたは恐ろしい青い巡洋艦を打ち負かしました。そしてうまくいけば、あなたとエリーを止めるために第 1 宇宙軍が送った反乱軍の最後の船も打ち負かされました。</text>
+		<autoReward level="HIGH">item</autoReward>
+		<choice hidden="true" req="LIST_CREW_ELLIE" lvl="1" blue="false">
+			<text>継続する...</text>
+			<event load="ELLIE_SAMMY_WIN" />
+		</choice>
+		<choice hidden="true" req="LIST_CREW_ELLIE" lvl="0" max_lvl="0" blue="false">
+			<text>エリーは間に合わなかった。反乱軍を倒すことに満足する必要があります。</text>
+			<event />
+		</choice>
+	</deadCrew>
+</ship>
+<event name="ELLIE_SAMMY">
+	<beaconType id="map_icon_ellie" global="true">
+		<color r="206" g="47" b="185" a="1" />
+		<unvisitedTooltip>これは、エリーがあなたに「スーパーファン」に彼女を護衛するよう要求した場所です。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+	</beaconType>
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<aggressive>2</aggressive>
+		<nebulaBeacon>false</nebulaBeacon>
+	</quest>
+	<variable name="loc_ellie_quest_progress" op="set" val="0" />
+	<variable name="loc_ellie_quest_count" op="add" val="1" />
+	<text>座標は、世界の外からの交通量が多い、巨大で忙しい都市にあなたを連れて行きます。あなたが受け取る広告の洪水が表面に近づいていることから、サミーはある種の銀河ツアーに参加しているようで、他のフラワーズとサンシャインのマスコットと一緒に、世界中の子供たちのためにテレビで放映されたライブパフォーマンスで旅行しています.イベントの規模が大きいため、セキュリティは非常に厳重に見えます。推測する必要がある場合は、エリーが来ることをすでに知っている可能性があります.しかし、本当に目を引くのは、眼下の群衆に微笑んでいるかのように見える鮮やかな青色の蜘蛛の形をした巡洋艦です。あなたが推測しなければならなかった場合、これはショーのキャストがどのように動いているかですが、武器の武器は確かに...奇妙な追加です.</text>
+	<img back="BACKGROUND_ELLIECITY" planet="NONE" />
+	<jumpEvent>ELLIE_LEAVE</jumpEvent>
+	<ship load="SHIP_SAMMY_CRUISER" hostile="false" />
+	<choice hidden="true" req="LIST_CREW_ELLIE" lvl="1" blue="false">
+		<text>入る。</text>
+		<event>
+			<text>イベントが開催されている建物に忍び込んで、バックステージを滑り込ませます。エリーは完全な目的で動き、ギャロッピングや馬の騒音はありません。彼女は前方のレーザーに焦点を当て、一人の男と一人の男だけを探しています。最終的にあなたは楽屋に到着します。そこでは、カップルのキャストメンバーが衣装を着てハーフドレスであなたを見ます。「ねえ、ねえ、あなたの人々はここに戻ることができません！ファンはコンサートが終わるまでパスでさえ舞台裏では許可されていません！鳴き声。「ドラ！キャミー！皆さんがここにいる！それは私だ、エリー！私はパスが愚かである必要はない、私はショーの主人公だ。とても忘れられない。」エリーは大きなため息をつきます。「しかし、今日は非常にエキサイティングな日だからです。エリーが彼女にふさわしいものを手に入れる日だからです！」「s-stephan？ああ、いや、あなたも！周りに、裏切り者、裏切り者、裏切り者！馬は何をすべきか？エリーと彼女の親友、スーパーファン！今。エリーはマスコットを通り過ぎて、地面に落ち、立ち上がることさえ気にしないでください。エリーを追いかけて、大きな青色の「S」でマークされた部屋に戻ってみる前に、彼らをちらっと振り返ってください。内部では、背が高く、むしろ普通の男が鏡に面したパッド入りの椅子に座って、呼吸運動をしています。彼はあなたが入ってくるのを聞きませんが、エリーが彼を後ろからつかんで床に投げ込むと、彼の注意を引きます。「今、サミー。いたずらな小さなクモ。エリーは前後に手を揺さぶり、小さな歌と踊りをします。サミーはエリーの下から逃げるのに苦労していますが、役に立たない。しかし、明らかに、誰かが彼の叫び声を早く聞いたか、2人のマスコットがあなたの乗組員を報告したかのどちらかです。その音から、彼らの途中でかなりの数の警備員がいます。あなたは去る必要があり、すぐに。</text>
+			<choice hidden="true">
+				<text>エリーに行くよう説得する。</text>
+				<event>
+					<text>ここに選択の余地はありません - あなたは数で圧倒されており、ここに留まれば、逮捕されるか、あまりにも多くの人が死ぬことになります。エリーはいつものように話を聞いていないので、あなたは彼女の腕をつかんでドアの外に引っ張り出します。あなたが去るとすぐに、サミーは反対方向に駆け出し、警備員があなたについてくるように叫びます。
+
+あなたは安全に建物の外に出て船に戻りますが、完全にスーツの女性があなたの前に飛び出して、ブラスターを手にあなたの船に行くのをブロックする前ではありません.彼女は一種の反乱軍ですが、彼女の黒と黄色の制服からはどの階級かはわかりません。いずれにせよ、あなたがここで会うことを期待する種類の個人ではありません. 「それは本当です!狂った俳優はフラワーズとサンシャインのキャストメンバーを追い詰めています.第1宇宙のヴァンスにその言葉が届いたとき、まあ...かなりのヒステリーがありました!あなたは想像しなければなりません,すべての歴史の後で...そして...そしてあなたがまだそこにいると聞いて! 彼はあなたが死んでいるか、少なくともどこかで愚かなゴミ箱にいると思っていました. 残念ながら、ステファンを理解する必要があります, フラワーズアンドサンシャインはウェントワースイノベーションファミリーのメンバーであり, あなたは.その家族の一員です. あなたやあなたのレネゲードの友人を負債として残すことは、ビジネス上の利益に反します.
+
+反乱軍はあなたの方を向いています。 「ちなみに、ヴァンスはよろしくお願いします。旗艦を解体するために彼らが送ったのはあなたですか？本当ですか？私が選んだ人ではありませんが、抑圧者ではなく解放者の側に立つ知性があります。今...私の船であなたを殺すこともできます...しかし、あなたがその大きな愚かな青いクモに死ぬ方が面白いと思います.ハァ."以前の巡洋艦が遠くで電源を入れ、すでに場違いな兵器庫が今、力でハミングしています。もう時間を無駄にする必要はありません。戦う時です。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ELLIE" lvl="0" max_lvl="0" blue="false">
+		<text>エリーがいなければ意味がない。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true">
+		<text>気を取り直して出発。</text>
+		<event>
+			<text>あなたは、この任務は危険を冒す価値がないと判断しました。</text>
+			<variable name="loc_ellie_fail" op="set" val="1" />
+			<choice hidden="true">
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ELLIE_SAMMY_WIN">
+	<text>スタジアムを通り過ぎて飛行機に戻ると、戦いによる巻き添え被害が会場を混乱させていることに気づきます。正面玄関が燃えており、緊急サービスが最善を尽くして中に入る一方で、大勢の人が座席で麻痺しているか、見つけることができる出口に逃げています.あなたが群衆に集中している間、エリーはあなたに駆け寄り、サミーがステージ上を這い回って助けを求めているのを見つけたと報告します. 「奴を追わなきゃ！船を近づけろ！」</text>
+	<clearJumpEvent />
+	<choice hidden="true">
+		<text>何？真剣に？！私たちは十分にやったのではないですか？</text>
+		<event>
+			<text>エリーはあなたにナイフを向け、船を近づけるように要求します。別の戦いを開始したくない場合は、彼女の言うとおりにします。驚いたことに、ステージの開いた屋根に十分近づくと、エリーはエアロックの 1 つに急いで飛び出します。彼女はタープの 1 つに引っかかり、それを引き裂いてステージに降りてきました。彼女は床にぶつかって転がり、一瞬、長い落下で死んでしまったのではないかと思います。しかし、彼女は足を引きずって再び起き上がり、ナイフを抜いてサミーに近づき続けます。群衆は恐怖で叫びますが、彼らの目は現場に釘付けです。
+
+「エリーが帰ってきた！エリーがステージに戻ってきたみんな！応援してね！」エリーは足でつまずきながらくるくる回る。彼女はスーツからナイフをはじき、それをサミーに向けます。 「サミー・ザ・スパイダー、あなたはどんな子供のヒーローでもありません! あなたは怪物であり、若者に反乱軍の不潔の時代の堕落した道徳を教えています! あなたはこのショーがこれまでに支持してきたすべての不名誉です! そして考えるために、あなたは私をクビにした!あなたはエリー・ザ・エクイノイド・ショーからエリー・ザ・エクイノイド・ショーを蹴った!あなたは狂った!」
+「ステファン、やめてください! 私の名前はマイケルです。私はただの俳優です! あなたはただの俳優です! それはただの子供向けのショーです!」
+「黙れ！黙れ！あなたは何も知らない！あなた-あなたの好きな音楽はラップミュージックです！あなたには味がありません！」
+「ステファン、私はラップ音楽すら聴いていません! この仕事をする前は、カーニバルや誕生日パーティーでギグをするエリーの模倣者でした! 私は何者でもありませんでした.あなたは私にとても喜びをもたらしました! わ、私は毎日休み時間にクォープジュースを飲みました! 子供の頃のエリーのぬいぐるみをまだ持っています! 私はあなたをクビにしませんでした.甥! エリーも彼のお気に入りのキャラクターでした! ヴァンスは私が良いと思っていましたが、彼はそのキャラクターが好きではありませんでした! 彼はスタジオを購入し、新しいキャラクターを追加することを計画していると私に言いました! 彼は私が良い役割を演じるかもしれないと提案しましたわくわくしました…まさかあなたの代わりになるとは！
+エリーはヴァンスの甥の話にどもりましたが、それを振り払ったようです. 「嘘つき、嘘つき！ 嘘つき！ そんな悪口を言わないで！ ダメダメダメ！ エリーは一人しかいない！ エリーにはなれないよ！」エリーはマイケルの足をつかみ、上半身の力強さを印象的に示して、彼を彼女の後ろに投げます。マイケルが地面から降りようとすると、エリーはナイフを彼の肩に突っ込み、ねじります。彼女の制服が血に染まるにつれ、彼女の笑顔はますます大きくなる。 「エリー・ザ・エクイノイドは、常にメディアの歴史の中で最も偉大な人物であり続けるでしょう!そして、私は常に彼女であり続けます!」</text>
+			<choice hidden="true" req="ELLIE_GOOD_CHECK">
+				<text>あなたはこれらの殺人を十分に止めました。エリーをまた止められるかな？</text>
+				<event>
+					<text>無駄にする時間がないので、あなたはエリーに呼びかけます。あなたの声はほとんどすべての叫び声によってownれていますが、それは関係なくエリーに届くようです。彼女は一時停止し、ナイフはまだ手に、そして群衆を見た。何千人もの目が恐怖で彼女を見つめ、彼らの多くは彼女を尊敬していたか、過去に彼女のショーを見るのに十分な年齢だったら一度持っていたでしょう。エリーは、その後、マイケルをじっと見て、その泣き声が落ち着き、静かな服従に置き換えられ、彼の運命の準備ができています。エリーは立ち上がって、深紅の赤に浸した手を見ます。「私は何をしましたか？私は何になりましたか？エリー...エリーはこれをしません。「m完全に狂った。どうやってここに着いたの？どうやってここに着いたの？」ステファンは叫び始め、膝に倒れ、頭に手を置きます。「私は何をしましたか！エレナ？「ごめんなさい、マイケル、ごめんなさい...神様、私は何をしましたか？」「あなたは医者に会う必要があります。そして、あなたはエリーとこのショーからできるだけ遠く離れて行く必要があります。それはあなたをいじります、男。この仕事はあなたを夢中にさせました。気絶する。"そして、マイケルは、ステージにステファンを一人で残しています。「レネゲード..スーパーファンは正しい言葉ではないと思います...私はどうすればよいですか？私はどうなりますか？マイケルは正しい...彼は巨大な馬の頭から引き裂き、ステージからそれを投げ、灰色の髪と老化した男の乱雑なもつれを明らかにします。彼は衣装なしでは少しでも威ac的に見えません。</text>
+					<transformRace class="LIST_CREW_ELLIE_COSTUME">unique_ellie_stephan</transformRace>
+					<unlockCustomShip silent="false">PLAYER_SHIP_HORSE</unlockCustomShip>
+					<choice hidden="true">
+						<text>ステファンを連れて。</text>
+						<event>
+							<text>「そうですか？ この後も、あなたは私を引き留めますか？ わかりません… わかりません。私はただの責任です。チャンスだと思います。何かになるチャンスです。私は私がなったことを取り戻すことさえできませんが、私が残した何年にもわたって何かをすることができるかもしれません. ありがとう、レネゲード.私には決してなれない子供たちのヒーローです。あなたのような人がもっと必要です。」</text>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="MORALITY_REMOVE_GENERAL" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>ステファンに自首するよう説得する。</text>
+						<event>
+							<text>ステファンと銀河の残りの部分を安全に保つことができる唯一のことは、彼が閉じ込められていることです.彼でさえ今これを知っています、そしてあなたからそれを聞いてもほとんど効果がありません. 「はい...はい、それが私がしなければならないことだと思います。私はまだ...私はまだ、物事が元の状態に戻る可能性があるという考えに固執していると感じています.私は怪物です.私は狂人です. . そして、それらの唯一の場所は、海の底ではないにしても、精神病院にあると思います. レネゲード、私が殺そうとしたすべての人々を救ってくれてありがとう.できる。"</text>
+							<removeCrew class="unique_ellie_stephan">
+								<clone>false</clone>
+								<text />
+							</removeCrew>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>あなたができることは、恐怖で見ることだけです。</text>
+				<event>
+					<text>エリーにたどり着くために何もできず、何もする気がないので、避けられないことだけが残っています。ナイフと運命の最後の一撃で、マイケルは首を切断されて倒れます。エリーは殺人兵器を手に立ち、両手を広げて叫び声と涙のスタンディングオベーションを受け取ります。 「彼らは私を愛しています! 彼らはエリーを愛しています! 彼らはいつも持っています! 彼らはいつも! HAHAHAHAHAH! HAAAHAHAHAH! 私はスターです!」エリーは腕を広げたまま、あなたの方を向きます。 「スーパーファン、エリーの日は今だ！サミーはもういない！そこにはエリーのショーしかない。そして、それが今までにないすべてだ！」
+
+あなたの前にモンスターが立ちはだかっています。しかし、これはあなたの責任です。エリーがここからさらに先の人生を歩むことになるとは思えませんが、彼女はミッションであなたの役に立つかもしれません。その後は別の話ですが。</text>
+					<transformRace class="LIST_CREW_ELLIE_COSTUME">unique_ellie_lvl6</transformRace>
+					<unlockCustomShip silent="false">PLAYER_SHIP_HORSE</unlockCustomShip>
+					<choice hidden="true">
+						<text>エリーを連れて。</text>
+						<event>
+							<text>あなたはエリーに何も言わず、彼女の腕を引っ張って船に戻ります。まだ夢の国で迷子になっているエリーは、あなたと一緒にスキップして踊りながら船に戻ります。連邦はおそらくあなたがこれを可能にしたことに満足していないでしょう.</text>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="MORALITY_UPDATE_GENERAL_DOUBLE" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>エリーを置き去りに。</text>
+						<event>
+							<text>エリーが今いるように、あなたは誰かのためにあなたの船に役に立たない.彼女はあなたとあなたの乗組員の責任になるだけです.援軍が遠くのステージに降りてくる間、あなたは船に戻ります。おそらく、エリーの栄光の瞬間はそう長くは続かないでしょう。</text>
+							<removeCrew class="unique_ellie_lvl6">
+								<clone>false</clone>
+								<text />
+							</removeCrew>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+</FTL>

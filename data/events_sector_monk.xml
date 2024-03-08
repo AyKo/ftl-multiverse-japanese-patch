@@ -1,0 +1,2211 @@
+<FTL>
+
+
+	
+<eventList name="NEBULA_ITEMS_MONK">
+	<event load="NEBULA_MONK_GRAVE" />
+	<event load="NEBULA_MONK_FREE_CREW" />
+	<event load="NEBULA_MONK_CONVERT" />
+	<event load="NEBULA_MONK_BEGGAR" />
+	<event load="NEBULA_MONK_STRANDED_FED" />
+	<event load="NEBULA_MONK_GHOST" />
+</eventList>
+
+<event name="NEBULA_MONK_GRAVE" unique="true">
+	<text>このビーコンにはまだ星雲が存在しますが、近くの月からの奇妙な測定値に気付かずにはいられません。これらから、船がそこに着陸したと推測できますが、どのような船かはわかりません。</text>
+	<img back="BACK_EVENT_LIGHTNEBULA" planet="PLANET_MOONS" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>土地。</text>
+		<event>
+			<text>月に近づくと、表面にダスクブリンガーの船を見つけることができます。おそらくあなたのより良い判断にもかかわらず、あなたはとにかく着陸することに決め、船に向かって道をたどります.到着すると、小さな石の配置と、それらの上にひざまずいて泣いている鎧のゾルタンが見つかります。</text>
+			<ship load="SHIP_DUSK_GENERIC" hostile="false" />
+			<choice hidden="true">
+				<text>何が悪いのか尋ねてください。</text>
+				<event>
+					<text>ゾルタンはあなたに向き直り、彼の落ち着きは取り乱しから乱れ、怒りに変わります。「反逆者の豚？ここから出てください、これは神聖な地面です！」あなたはあなたの武器をポケットに入れて腕を上げ、あなたが平和に来ることを知らせます。ゾルタンはため息をつき、マークされていない墓を見つめることに戻ります。。しかし、それ以上ではないにしても数十万人のゾルタンが、連邦と銀河戦争、反浸透、内戦で連邦と銀河のために戦って命を吹き込みました。、セクターのどこにもありません。僧ks以外の誰も訪問しません。そして、同省はそれで問題ありません。' 議題。"ゾルタンは墓から離れた地面に吐き出します。「本当に恥ずべきことです。」</text>
+					<choice hidden="true">
+						<text>連邦の過ちをお詫びします。</text>
+						<event>
+							<text>ゾルタンが涙を拭う。 「ありがとう。あなたがどれほど本気で言っているのかはわかりませんが、感謝しています。私が急進派だと叫ぶことなく、私の話を聞いてくれる人に会うことはめったにありません。私は多くを提供することはできませんが、多分私には自分の過ちを埋め始めることができるものがあります。」</text>
+							<autoReward level="MED">standard</autoReward>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>ラスト スタンド中またはラスト スタンド後に魔法省が現れたことは一度もありません。</text>
+						<event>
+							<text>「あなたが歴史をほとんど理解していないことを本当に示しています。省は南北戦争中に連邦を支援するために軍隊を派遣しました-そして私たちは反乱軍よりも海賊を扱うどこにもないスペースの真ん中で僻地の前線で戦うために派遣されました.省はできませんでした.内政が混乱し、反乱軍が常に脅威であるときに軍隊を派遣し続ける余裕があるため、彼らはプラグを抜いた. そしてもちろん、戦争が終わったとき、ゾルタンは臆病者や裏切り者として描かれ、組織そのものに仕えることを望まなかった.見つけるのを手伝った。」ゾルタンはあなたから背を向け、再び墓を見つめます。他に追加するものが何もないので、あなたは去るのが最善だと判断します.</text>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>ノード 17 メモリアルはどうですか?</text>
+						<event>
+							<text>「ゾルタンについては一言も言及されていません。一人もいません。何百万人もの人間がいますが、ゾルタンもエンギも一人もいません。そして、それはなぜだと思いますか? それらの記念碑の請求書を支払ったのと同じ人々が、金持ちの怪しげなユニオンの卑劣な連中でした」戦前にウェントワースとゴルフをしていた.彼らはゾルタンに言及したくなかった.そして、彼らはそうしなかった.それが、デヴォラック・ザ・デスレスのような人々が連邦に背を向けた理由です.</text>
+							<choice hidden="true">
+								<text>彼らがあなたの歴史をどのように埋めたかは恥ずべきことです。</text>
+								<event>
+									<text>ゾルタンが涙を拭う。 「ありがとう。あなたがどれほど本気で言っているのかはわかりませんが、感謝しています。私が急進派だと叫ぶことなく、私の話を聞いてくれる人に会うことはめったにありません。私は多くを提供することはできませんが、多分私には自分の過ちを埋め始めることができるものがあります。」</text>
+									<autoReward level="MED">standard</autoReward>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>あなたはまだもっとできたはずです。</text>
+								<event>
+									<text>「何度も繰り返しますが、銀河系は自分自身がサイクルであることを証明しているようにしか見えません。人々が私の顔に唾を吐き、私が言うことすべてを無視するのであれば、なぜ私は過去の過ちを償おうとするのですか?こうあってほしい……ならこうさせて！」</text>
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true" req="unique_devorak">
+								<text>(デボラック) 「怒りのあまり、私たちは皆間違いを犯します。」</text>
+								<event>
+									<text>ダスクブリンガーは、デボラックがあなたの乗組員の中にいることに気付いたときにダブルテイクします。彼らはお互いに向かってお辞儀をします。 「ああ、デボラック！ 気がつかなかった」デボラックは彼を遮った。 「大丈夫です。私は人生で多くの過ちを犯してきました。私たちは皆、連邦に対して怒っていましたが、それには正当な理由がありました。しかし、怒りを暴力に変えてはなりません。抗議しなければなりませんが、抗議しなければなりません。平和的に. 流血がなければ、他にどのように進歩するでしょうか? これらは私たちが自分自身に教えなければならない教訓です.若いダスクブリンガーはまだ無言で、ドヴァンと自己紹介し、あなたの乗組員に加わるように要求します。</text>
+									<crewMember amount="1" class="zoltan_devotee">ドバン</crewMember>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>墓の1つに供物としてスクラップを残してください。</text>
+						<event>
+							<text>確かに奇妙な仕草ですが、限られたリソースでできる最善の方法です。ダスクブリンガーはそれを高く評価しているようです。彼は涙を拭いながら言った。彼は立ち上がって手を差し出す。 「その名はドヴァン。私は人生の暗い時期にダスクブリンガーズに加わった。省と連合の間の緊張が最高潮に達し、連邦に関するすべてが..暗いと感じた.フェデレーションは、そのすべての欠陥にもかかわらず、銀河を統合できる唯一のものです.ダスクブリンガー、反乱軍、それらのような組織...彼らはこの多元宇宙全体を引き裂こうとしているだけです.私があなたと一緒に行ってもよろしいですか?私の乗組員は知る必要はありません...」</text>
+							<crewMember amount="1" class="zoltan_devotee">ドバン</crewMember>
+							<item_modify>
+								<item type="scrap" min="-15" max="-15" />
+							</item_modify>
+						</event>
+					</choice>
+					<choice hidden="true" req="ORCHID_KIDS">
+						<text>(オーキドゥチルドレン) お墓に花を残して。</text>
+						<event>
+							<text>この状況に何が適切かを知っているあなたは、自分の船に戻ってオーキドゥの子供たちの死体を取りに行き、それらを墓の向こう側に散らします.最初、ダスクブリンガーは、彼らが実際に何であるかを理解するまで、あなたが良いジェスチャーをしていると思います。 「グレートアイの名の下に何をしているのですか?! 何が悪いのですか!?」ダスクブリンガーは彼の船に戻り、すべての乗組員にすぐに発砲するように命じます。</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>彼の船を奪う。</text>
+				<event load="MONK_GRAVE_ROB" />
+			</choice>
+			<choice hidden="true">
+				<text>ダスクブリンガーを倒せ。</text>
+				<event>
+					<text>武器を抜き、Zoltan を遠くから撃ちます。彼はほぼ瞬時に死に、鎧だけに消えていきます。少し不必要だったと感じずにはいられませんが、元に戻すには遅すぎます。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>月を無視します。</text>
+		<event>
+			<text>あなたが知っている限り、これは罠かもしれません。近づかないほうがいい。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="MONK_GRAVE_ROB">
+	<event>
+		<text>残念なことに、船を強盗している最中に、ダスクブリンガーがあなたを見つけるために戻ってきて、警報を発します!戦闘の準備をしてください！</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+		</choice>
+	</event>
+	<event>
+		<text>あなたの乗組員はダスクブリンガー船に忍び込み、略奪します。あなたが取った予備の武器以外はあまり見つかりません。</text>
+		<weapon name="GIFTLIST_ENERGY" />
+	</event>
+</eventList>
+
+<event name="NEBULA_MONK_FREE_CREW" unique="true">
+	<text>近くの修道院があなたを歓迎します。やせっぽちの僧侶がビュースクリーンに表示されます。 「こんにちは。私は最近この修道院に参加しましたが、すぐにこれらの星雲で孤立した生活が私には向いていないことに気づきました。おそらく私があなたと一緒に来ることを許可しますか？私は平和主義の信念に専念していますが、私は他の方法でも便利です！」</text>
+	<ship load="SHIP_MONK_STATION" hostile="false" />
+	<environment type="nebula" />
+	<choice>
+		<text>あなたの船でそれらを受け入れてください。</text>
+		<event>
+			<crewMember amount="1" class="zoltan_monk" />
+		</event>
+	</choice>
+	<choice>
+		<text>いいえ、これ以上クルーは必要ありません。</text>
+		<event>
+			<text>「ああ……わかった」通話を終了して続行します。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_CONVERT" unique="true">
+	<text>ゾルタン修道院がこのビーコンに建設されました。彼らはあなたを歓迎し、彼らの寺院のツアーを提供します。</text>
+	<environment type="nebula" />
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+		<text>ツアーに同意します。</text>
+		<event>
+			<text>「ツアー」は、ツアーではなく、僧侶の宗教についての長い説教になります。あなたはそれがかなり退屈だと思いますが、あなたのクルーの一人は確信しています。驚いたことに、彼らは後ろに留まって僧侶に加わりたいと思っています！</text>
+			<choice hidden="true">
+				<text>同意し、彼らを手放します。</text>
+				<event>
+					<text>あなたのクルーはさようならを振る。僧侶たちはあなたに同情し、どんな難しい決断があったに違いないかを理解します。慰めとして、彼らはあなたの船体を修理し、あなたのリアクターを無料でアップグレードします。</text>
+					<upgrade amount="2" system="reactor" />
+					<damage amount="-5" />
+					<removeCrew>
+						<clone>false</clone>
+						<text>彼らは死んでいないので、あなたはあなたのクルーを複製することはできません。</text>
+					</removeCrew>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>拒否する。</text>
+				<event>
+					<text>あなたはクルーを慰め、任務がより重要であり、あなたがこの現実を救ったときに彼らは僧侶に戻ることができると説明します。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>あなたにはもっと良いことがあります。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice>
+		<text>却下。</text>
+		<event>
+			<text>あなたは修道院を見学しないことにしました。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_BEGGAR" unique="true">
+	<text>古くて腰を下ろした僧侶があなたの船に現れ、手をカップの形で伸ばします。 「旅行者の皆さん、こんにちは。私は、一日を過ごすための予備のスクラップを探している謙虚なゾルタンです。ここでの生活は大変です。ご理解いただけると思います。」</text>
+	<environment type="nebula" />
+	<choice>
+		<text>彼にお金を渡してください。</text>
+		<event>
+			<text>あなたはそのお金を老僧に渡します。</text>
+			<item_modify>
+				<item type="scrap" min="-10" max="-10" />
+			</item_modify>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MONK_BEGGAR_PAY" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>拒否する。</text>
+		<event load="MONK_BEGGAR_REFUSE" />
+	</choice>
+</event>
+<eventList name="MONK_BEGGAR_PAY">
+	<event>
+		<text>「ああ、ありがとう、あなたはとても親切です。」彼は一言も言わずに光を放ちます。</text>
+		<choice>
+			<text>船に乗って何かする。</text>
+			<event load="STORAGE_CHECK" />
+		</choice>
+		<choice>
+			<text>何もしない。</text>
+			<event />
+		</choice>
+	</event>
+	<event>
+		<text>「ああ、ありがとう。あなたはとても親切です。たぶん私はあなたと一緒にいるでしょう...あなたはとても素敵な人のようです。」</text>
+		<crewMember amount="1" class="zoltan_monk" />
+	</event>
+	<event>
+		<text>「ありがとうございます。あなたはとても親切です。私はあまり持っていませんが、昔はリアクターについて1つか2つ知っていました。たぶん、あなたの仕事をすることができるかもしれません。」</text>
+		<upgrade amount="1" system="reactor" />
+	</event>
+</eventList>
+<eventList name="MONK_BEGGAR_REFUSE">
+	<event>
+		<text>「わかりました……わかりました」僧侶は無言で立ち去ります。</text>
+		<choice>
+			<text>船に乗って何かする。</text>
+			<event load="STORAGE_CHECK" />
+			</choice>
+		<choice>
+			<text>何もしない。</text>
+			<event />
+		</choice>
+	</event>
+	<event>
+		<text>僧侶は直立し、すぐに数年若く見えます。彼はローブを脱ぎ捨て、ブラスターを明らかにします！ 「Tsktskキャプテン、あなたはもっと与えるべきだった！」さらに数人のゾルタンが現れ、海賊船が近づいてくる。</text>
+		<boarders min="2" max="3" class="zoltan" />
+		<ship load="SHIP_PIRATE_ZOLTAN_CREW" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="NEBULA_MONK_STRANDED_FED" unique="true">
+	<text>連邦船がエンジンを故障させてこのビーコンで立ち往生しているのを見てショックを受けました。 「ああ、あなたは悪い時期に私たちを捕まえました。あるいは実際には...あなたにとってはかなり幸運な時期です。私たちはエンジンを修理するためにスクラップが必要です、そしてここの僧侶たちは私たちを助けるのに役に立たなかった。スクラップ用の物資を売ってください。」</text>
+	<ship load="SHIP_FED_GENERIC" hostile="false" />
+	<environment type="nebula" />
+	<choice>
+		<text>取引することに同意します。</text>
+		<event>
+			<store>STORE_STANDARD</store>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>彼らに修理のためにスクラップを渡してください。 [-25スクラップ]</text>
+		<event>
+			<text>「ああ、すごい！ありがとう。これを無給にすることはできません。ここで、このセクターを旅行しているときに、調査結果の詳細な地図を収集しました。これは役立つはずです。燃料もあります。十分な量があります。 、修正が必要なのは私たちのエンジンだけです。」</text>
+			<item_modify>
+				<item type="scrap" min="-25" max="-25" />
+			</item_modify>
+			<autoReward level="HIGH">fuel_only</autoReward>
+			<reveal_map />
+		</event>
+	</choice>
+	<choice>
+		<text>私たちは何も買おうとは思っていません。</text>
+		<event>
+			<text>あなたはFRBの船に謝罪し、あなたの道を続けます。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_GHOST" unique="true">
+	<text>近くの僧侶の船は、まるで操縦方法がわからないかのように、奇妙に動き回っているように見えます。さびたミサイルランチャーも1つ搭載されており、通常は平和な僧侶の特徴ではありません。</text>
+	<ship load="SHIP_MONK_GHOST" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>それらに連絡してください。</text>
+		<event>
+			<text>僧侶はあなたの連絡に声を出して応答するのではなく、むしろメッセージに応答します。 「こんにちは。この船はもはやゾルタン僧侶によって所有されていません。私たちはゴーストです。この船は武装しておらず、ミサイルが不足しています。いくつかあげてもらえますか？」</text>
+			<choice hidden="true">
+				<text>それらに5発のミサイルを与えます。</text>
+				<event>
+					<text>「あなたの贈り物はありがたいです。この感謝の印を受け取ってください。」あなたはスクラップかおそらく燃料を期待していますが、代わりにゴーストのクルーがあなたの船で実体化します！</text>
+					<item_modify>
+						<item type="missiles" min="-5" max="-5" />
+					</item_modify>
+					<crewMember amount="1" class="phantom_wraith">キャスパー</crewMember> 
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>それらに10発のミサイルを与えます。</text>
+				<event>
+					<text>「意外と大量の弾薬。この感謝の印を受け入れてください。」あなたはスクラップかおそらく燃料を期待していますが、代わりにゴーストのクルーがあなたの船で実体化します！</text>
+					<item_modify>
+						<item type="missiles" min="-10" max="-10" />
+					</item_modify>
+					<crewMember amount="1" class="phantom_wraith_alpha" all_skills="2">キャスパー</crewMember>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>ミサイルが少ない場合、それは彼らが簡単な標的であることを意味します！</text>
+				<event>
+					<text>あなたはゴーストを助けることを拒否しますが、代わりに彼らを攻撃します。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>仕方がない。</text>
+				<event>
+					<text>あなたはゴーストに謝罪し、あなたの使命を続けます。</text>
+					<choice>
+						<text>船に乗って何かする。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>僧侶を無視します。</text>
+		<event>
+			<text>あなたは奇妙な僧侶を無視して通り過ぎます。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+	
+<eventList name="NEBULA_NEUTRAL_MONK">
+	<event load="NEBULA_MONK_ANNOYED" />
+	<event load="NEBULA_MONK_CHASE" />
+	<event load="NEBULA_MONK_DUSKBRINGERS" />
+	<event load="NEBULA_MONK_HOSTAGES" />
+	<event load="NEBULA_MONK_PROVERB" />
+</eventList>
+
+<event name="NEBULA_MONK_ANNOYED" unique="true">
+	<text>小さなゾルタン寺院が近くの惑星に建設されましたが、そうでなければ完全に不毛に見えます。</text>
+	<img back="BACK_EVENT_LIGHTNEBULA" planet="PLANET_UNPOPULATED_TERRA" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice>
+		<text>彼らに連絡する。</text>
+		<event>
+			<text>「こんにちは友達。私はあなたの連絡を受け取りました、しかし私は瞑想に忙しいのではないかと思います。安全な旅行。」彼らは通話を終了します。</text>
+			<choice>
+				<text>もう一度彼らに連絡する。</text>
+				<event>
+					<text>「お詫びしますが、提供するものは何もありません。良い一日を。」彼らはもう一度通話を終了します。</text>
+					<choice>
+						<text>もう一度彼らに連絡する。</text>
+						<event>
+							<text>「多分あなたは私を聞いていませんでした。私は私が提供するものは何もないと言いました。良い一日を。」彼らはもう一度通話を終了します。</text>
+							<choice>
+								<text>もう一度彼らに連絡する。</text>
+								<event>
+									<text>「やめてください。私はすでにあなたに話しました、私は提供するものが何もありません。」彼らはもう一度通話を終了します。</text>
+									<choice>
+										<text>もう一度彼らに連絡する。</text>
+										<event>
+											<text>「あと何回これをしますか？私はあなたに何も与えるつもりはありません。二度と私に話しかけないでください。」彼らはもう一度通話を終了します。</text>
+											<choice>
+												<text>もう一度彼らに連絡する。</text>
+												<event>
+													<text>「ファイン！あなたがとても悪いものが欲しいなら、これを取りなさい！」あなたは予想して待ちますが、報酬の代わりに、敵対的な自動船があなたに向かってロケットをかけ、船体と衝突し、すぐに戦闘モードに入ります。</text>
+													<ship load="SHIP_ZOLTAN_AUTO" hostile="true" />
+													<damage amount="7" />
+													<choice hidden="true">
+														<text>継続する...</text>
+														<event load="COMBAT_CHECK" />
+													</choice>
+												</event>
+											</choice>
+											<choice>	
+												<text>続ける。</text>
+												<event />
+											</choice>
+										</event>
+									</choice>
+									<choice>	
+										<text>続ける。</text>
+										<event />
+									</choice>
+								</event>
+							</choice>
+							<choice>	
+								<text>続ける。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+					<choice>	
+						<text>続ける。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+			<choice req="LIST_CREW_MONK" hidden="true">
+				<text>（モンククルー）モンクに呼びかけてもらう。</text>
+				<event>
+					<text>「ああ、私たちの一人。私はあなたの船体を修理するために自動化された船を送ります。良い一日を。」</text>
+					<ship load="SHIP_ZOLTAN_AUTO" hostile="false" />
+					<damage amount="-7" />
+				</event>
+			</choice>
+			<choice>
+				<text>続ける。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>寺院を無視します。</text>
+		<event>
+			<text>あなたは寺院や中の僧侶を気にしないことに決めました。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_CHASE" unique="true">
+	<text>船が消える前に雲の中をすり抜けているように見える船の外観に気づきます。</text>
+	<environment type="nebula" />
+	<choice>
+		<text>船に従ってください。</text>
+		<event load="NEBULA_MONK_CHASE_FOLLOW" />
+	</choice>
+	<choice>	
+		<text>それを無視します。</text>
+		<event>
+			<text>それが何であれ、あなたはフォローすることに興味がありません。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="NEBULA_MONK_CHASE_FOLLOW">
+	<event>
+		<text>船は海賊だったようです！彼らはあなたに会い、銃を武装させることに満足していません。</text>
+		<ship load="SHIP_PIRATE_ALL" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>船はダスクブリンガーだったようです！彼らはあなたに会い、銃を武装させることに満足していません。</text>
+		<ship load="SHIP_DUSK_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>船は単純な僧侶だったようです。彼らは再び逃げる前に挨拶します。</text>
+		<ship load="SHIP_MONK" hostile="false" />
+	</event>
+</eventList>
+
+<event name="NEBULA_MONK_DUSKBRINGERS" unique="true">
+	<text>あなたは奇妙な光景、ゾルタン僧侶と会話しているダスクブリンガー船を見つけます！あなたは彼らが彼らの人生の見返りに僧侶に物資を渡すように要求していることを想像することができるだけです...</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>ダスクブリンガーから僧侶を救出してください。</text>
+		<event>
+			<text>ダスクブリンガーを攻撃するために船を中断します。</text>
+			<ship load="SHIP_DUSKBRINGER_MONK_CONVERSATION" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>ダスクブリンガーが去るのを待って、僧侶に連絡してください。</text>
+		<event>
+			<text>夕暮れが飛び降りたら、あなたは僧ksに近づき、出会いについて彼らに質問します。僧ksは笑います。「いや、彼らは私たちを傷つけないだろう。彼らは私たちの友人だ。私たちは彼らの過激な信念に不満を抱いているが、私たちはまだできる限り彼らをサポートしている。」あなたは頭をうなずき、電話を終了します。</text>
+		</event>
+	</choice>
+	<choice>	
+		<text>船をそのままにしておきます。</text>
+		<event>
+			<text>あなたは仮定をすることはできません。あそこで何が本当に起こっているのかわからないので、万が一に備えて邪魔をしてはいけません。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_HOSTAGES" unique="true">
+	<text>近くの修道院が困っているようです！スラッグのハッカーは彼らを人質にし、近くのすべての船にメッセージを放送し、僧侶にばかげた身代金を支払うよう要求しています。</text>
+	<ship load="SHIP_HACKER_MONSATERY_HOSTAGE" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>ハッカーと戦ってください。</text>
+		<event>
+			<text>「ああ、あなたは乱闘したいのですか？それなら死ぬ準備をしてください！」</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>僧侶を解放するために支払う。</text>
+		<event>
+			<text>「ああ、Lasssst Sssssomeoneで、私たちの再配置可能な価格を支払う！」ハッカーは修道院のコントロールを放棄し、飛び去ります。</text>
+			<item_modify>
+				<item type="scrap" min="-125" max="-110" />
+			</item_modify>
+			<choice hidden="true">
+				<text>僧侶に連絡してください。</text>
+				<event>
+					<text>「友人に感謝します。これが私たちの死の仕方だと思っていました。ハッカーは何週間も私たちを支配しており、私たちの多くはすでに飢えています。最後の数人の生存者があなたと一緒に来ますか？」</text>
+					<crewMember amount="3" class="zoltan_monk">モンク</crewMember>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="mind">
+		<text>（マインドコントロール）ハッカーを手放すためにマインドコントロールしてみてください。</text>
+		<event>
+			<text>ハッカーはスラッグであるため、マインドコントロールは完全に無意味であることがわかります。さらに悪いことに、あなたはあなたの場所を発表し、船は攻撃のために移動します。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>	
+		<text>それらを無視します。</text>
+		<event>
+			<text>ここでお金を無駄にすることはできません。ハッカーが誰もお金を払うつもりがないことに気付いたとき、彼らはとにかく僧侶を放っておくでしょう...おそらく...</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_PROVERB" unique="true">
+	<text>あなたはここで船から奇妙なあられを受け取ります。「かつて賢明なソレイ・ヴォルターが言ったように、貪欲なバット・ドッグと一緒に横たわっている彼は、ガンモス6の宇宙流れで目覚めます。」</text>
+	<ship load="SHIP_MONK" hostile="false" />
+	<environment type="nebula" />
+	<choice>
+		<text>は？</text>
+		<event>
+			<text>僧侶はため息をついた。 「それはことわざです。それは、道徳を欠いている人々と自分自身を関連付ける人が同様の苦境に陥ることを意味します。警告、それで私は自分の状況のために、連邦内に住んでいると言わなければなりません。」</text>
+			<choice hidden="true" req="LIST_CREW_MONK">
+				<text>(Monk Crew) 「警告はよくできていますが、それ自体にリスクがないわけではありません。」</text>
+				<event>
+					<text>他の僧侶はうなずき、2人は道徳的原則についての長い哲学的議論を開始します。彼らの言うことは一言も理解できませんが、あなたの僧侶があなたの知恵のもう一方を納得させ、彼らが乗って来たようです。</text>
+					<crewMember amount="1" repair="1" class="zoltan_monk" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>連邦を侮辱するなんてあえて！攻撃！</text>
+				<event>
+					<text>僧侶たちは戦うことを拒否し、あなたに彼らの船に発砲させます。</text>
+					<status type="limit" target="enemy" system="weapons" amount="0" />
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+					</choice>
+				</event>
+			</choice>
+			<choice>	
+				<text>それらを無視して、あなたの旅を続けてください。</text>
+				<event>
+					<text>あなたは僧侶の言葉を頭から離れます。</text>
+					<choice>
+						<text>船に乗って何かする。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+
+
+
+<eventList name="NEBULA_QUESTS_MONK">
+	<event load="NEBULA_MONK_LOST_MAN" />
+	<event load="NEBULA_MONK_CONVOY" />
+</eventList>
+
+<event name="NEBULA_MONK_LOST_MAN" unique="true">
+	<text>ゾルタンの脱出ポッドがここの宇宙に漂っています。ライフポッドには小さなダメージがありますが、平和維持船の残骸も近くに漂っています。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>船上でライフポッドを引っ張ります。</text>
+		<event>
+			<text>あえぎのゾルタンが乗っており、まだ平和キーパーの鎧を着ています。「私を救ってくれてありがとう！私たちは、潜入の重要なゾルタン工作員を運ぶ僧k船を輸送する任務を負っていました。夕暮れ者に雇われたmerc兵が現れて船を消し去るまで、すべてが順調でした。僧ksは逃げましたが、勝ちました。「merc兵が追いつくずっと前に、私は彼らの座標をコンピューターにアップロードします。あなたが私を助けてくれることを願っています。」</text>
+			<quest event="MONK_LOST_MAN_QUEST" />
+			<crewMember amount="1" class="zoltan_peacekeeper" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ライフポッドを無視して、船をスクラップします。</text>
+		<event>
+			<text>あなたはライフポッドを通り過ぎて、いくつかのスクラップと物資を提供する残骸に移動します。</text>
+			<autoReward level="MED">standard</autoReward>
+		</event>
+	</choice>
+</event>
+<event name="MONK_LOST_MAN_QUEST" unique="true">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>救助された平和維持軍によって与えられた危険にさらされている秘密の工作員の場所。</unvisitedTooltip>
+	</beaconType>
+	<text>ちょうど間に合ったようです。前述の傭兵船が僧侶船を襲撃している。彼らは長くは続かないので、あなたは彼らの攻撃を傍受し、傭兵を破壊する準備をします。</text>
+	<ship load="SHIP_MONK_LOST_MAN_MERCENARY" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_CONVOY" unique="true">
+	<text>僧侶の船があなたを歓迎します。 「ご存知かもしれませんが、私たちの宗教は私たちが暴力行為に参加することを禁じています。しかし、私たちはこの分野の海賊とひどい運がありました。私たちを目的地に運ぶのを手伝ってくれませんか？」</text>
+	<ship load="SHIP_MONK" hostile="false" />
+	<environment type="nebula" />
+	<choice>
+		<text>それらを支援することに同意します。</text>
+		<event>
+			<text>僧侶は座標を目的地に送信します。</text>
+			<quest event="MONK_CONVOY_DESTINATION" />
+		</event>
+	</choice>
+	<choice>	
+		<text>仕方がない。</text>
+		<event>
+			<text>あなたは謝罪し、あなたが護衛ではないことを説明します。僧侶たちは彼らが理解し続けていると言います。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="MONK_CONVOY_DESTINATION">
+	<event>
+		<beaconType id="map_icon_quest" global="true">
+			<color r="69" g="168" b="235" a="1" />
+			<unvisitedTooltip>ここで僧k船を護衛します。</unvisitedTooltip>
+		</beaconType>
+		<text>目的地に到着しましたが、海賊船があなたの道を進んでいます！あなたは僧侶を呼んで彼らに警告し、戦う準備をします。</text>
+		<ship load="SHIP_PIRATE_MONK_DESTINATION" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<beaconType id="map_icon_quest" global="true">
+			<color r="69" g="168" b="235" a="1" />
+			<unvisitedTooltip>ここで僧k船を護衛します。</unvisitedTooltip>
+		</beaconType>
+		<text>僧侶たちはすぐ後に飛び込みます。 「あなたはうまくやっています。あなた自身のような暴力的な野蛮人に頼らなければならないのは残念ですが、これは残酷で思いやりのない銀河です。この寄付金を感謝として受け入れてください。」</text>
+		<autoReward level="LOW">scrap_only</autoReward>
+	</event>
+</eventList>
+
+
+<eventList name="NEBULA_HOSTILE_MONK">
+	<event load="NEBULA_ENCOUNTER_ZOLTAN_MONK" />
+	<event load="NEBULA_ENCOUNTER_ZOLTAN_AUTO_MONK" />
+	
+	<event load="NEBULA_ENCOUNTER_PIRATE_MONK" />
+	<event load="NEBULA_ENCOUNTER_MANTIS_MONK" />
+	<event load="NEBULA_ENCOUNTER_SLUG_MONK" />
+	
+	<event load="NEBULA_ENCOUNTER_MONK_SMUGGLER_INTERCEPT" />
+
+	<event load="NEBULA_MONK_RIFT_FIGHT" />
+</eventList>
+
+<event name="NEBULA_ENCOUNTER_ZOLTAN_MONK">
+	<text load="TEXT_ENCOUNTER_MONK_ZOLTAN" />
+	<ship load="SHIP_ZOLTAN_FIGHT" hostile="true" /> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_MONK_ZOLTAN">
+    <text>ここで見つかるゾルタンの船は僧侶だけではありません。景色を眺めるゾルタンの船があなたを見つけ、どういうわけかあなたの存在に脅かされて激しく報復するのに十分だと感じます！</text>
+    <text>「あなたは何ですか？海賊？傭兵？あなたは僧侶に危害を加えるためにここに来ましたね？あなたの目的を達成する準備をしてください！」混乱したゾルタン船が攻撃のために移動します。</text>
+    <text>ゾルタンの船が星雲から滑り落ち、武器が引き抜かれます。それはすでに戦いの真っ只中にあったに違いありません、そして今それはあなたに出くわしたので、それはあなたを前の攻撃者と間違え、攻撃に固執します。</text>
+    <text>ゾルタンの船が星雲から酔っぱらって腰を下ろしてやってくる。それはあなたの船をこすりますが、幸いなことにそれは表面的なダメージを与えるだけです。それでも、彼らの奇妙な昏迷の中で、ゾルタンはあなたを衝突のせいにし、彼らの武器を活性化します！</text>
+</textList>
+
+<event name="NEBULA_ENCOUNTER_ZOLTAN_AUTO_MONK">
+	<text load="TEXT_ENCOUNTER_ZOLTAN_AUTO_MONK" />
+	<ship load="SHIP_ZOLTAN_AUTO" hostile="true" /> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_ZOLTAN_AUTO_MONK">
+    <text>「これは聖地です。ここでは歓迎されていません。」神秘的な声に続いて、自動船が近づくと銃撃が続きます！</text>
+    <text>「検出される可能性のある脅威。リスク評価は、即時終了を示唆しています。」あなたのレーダーは、速く近づいている敵対的な船を示しています！</text>
+	<text>Zoltansはこのセクターのセキュリティを非常に高く評価しているため、彼らの自動船が認識されていない船を攻撃することを強く警戒していることは驚くことではありません！</text>
+</textList>
+
+<event name="NEBULA_ENCOUNTER_PIRATE_MONK">
+	<text load="TEXT_ENCOUNTER_MONK_PIRATE" />
+	<ship load="SHIP_PIRATE_ALL" hostile="true" /> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_MONK_PIRATE">
+	<text>海賊船がこのビーコンにとどまり、目の前であなたを攻撃します。当然のことですが、僧侶が身を守ることはめったにないため、このセクターは海賊の磁石です。</text>
+	<text>星雲の中で海賊船があなたを待っていたようです！</text>
+	<text>「あなたは何ですか、そのうちの1人は僧侶の保護者か何かですか？ハァッ！」傲慢な海賊船が星雲から滑り落ちてあなたを攻撃します。</text>
+	<text>僧侶からの不承認にもかかわらず、海賊は依然としてこのセクターを訪れ、苦しんでいます。ここで戦いを探しているかなり厄介な船に遭遇したようです。</text>
+</textList>
+
+<event name="NEBULA_ENCOUNTER_MANTIS_MONK" unique="true">
+	<text>近くのマンティス船でおしゃべりをします。「モンクではなく、それを見てください。船内に良いものが必要です。私たちはそれらを取ります。」周りに他の船がないので、彼らがあなたに言及していると仮定するのは安全です！</text>
+	<ship load="SHIP_MANTIS_FIGHT" hostile="true" /> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="NEBULA_ENCOUNTER_SLUG_MONK" unique="true">
+	<text>この星雲の中の僧侶の存在は、その自然の住人であるスラッグを邪魔しているようです！自分たちの領土を奪還しようとしているイライラしたスラッグの船があなたを見つけて近づきます。</text>
+	<ship load="SHIP_SLUG_FIGHT" hostile="true" /> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="NEBULA_ENCOUNTER_MONK_SMUGGLER_INTERCEPT" unique="true">
+	<text>密輸船がこのセクターをこっそり通り抜けようとしています。しかし、彼らがあなたを見つけたとき、彼らはチャンスをつかんで攻撃しません！</text>
+	<ship load="SHIP_SMUGGLER_MONK" hostile="true" /> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="NEBULA_ENCOUNTER_MONK_SMUGGLER_QUEST" unique="true">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>ここをリードする敗北した密輸業者の船から座標を取得しました。</unvisitedTooltip>
+	</beaconType>
+	<text>あなたは密輸業者のクライアントの座標に到着しますが、彼らは僧侶のようです！非常に珍しいです...</text>
+	<ship load="SHIP_MONK_SMUGGLER_QUEST" hostile="false" /> 
+	<environment type="nebula" />
+	<choice>
+		<text>僧侶に質問します。</text>
+		<event>
+			<text>あなたは僧侶を歓迎しますが、代わりに不機嫌そうな海賊が反応します。 「ああ、くそー、それは連邦政府だ！銃器の男たちを準備せよ！」</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>とにかく、ただ去ってください。</text>
+		<event>
+			<text>あなたは僧侶を無視して通り過ぎます。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_RIFT_FIGHT" unique="true">
+	<text>あなたはゾルタン空間の静かな場所にやって来て、空間の裂け目の力を利用したと主張する古代のゾルタンの賢者に遭遇しますが、その力によって完全に狂ったように見えます。彼は明らかに嘘をついていますが、彼の狂気は間違いなく本物であり、裂け目もそうです。 「あなたの運命を選んでください。私には多種多様な選択肢があります」と彼は要求します。</text>
+	<img back="BACK_EVENT_RIFT" planet="NONE" />
+	<status type="divide" target="player" system="sensors" amount="2" />
+	<choice hidden="true" req="COMBAT_HAZARD">
+		<text>（リアリティマニピュレーター）裂け目のコントロールをつかみます。</text>
+		<event>
+			<text>「なに、なにをしたの？ゾルタンはひざまずき、遠くの裂け目がゆっくりと閉じて環境が正常に戻ると、完全に打ち負かされます。あなたのはるかに本当の力を恐れて、ゾルタンはあなたのサービスに服従します。</text>
+			<environment type="nebula" />
+			<crewMember amount="1" class="zoltan_monk" all_skills="2" /> 
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>マンティス。</text>
+		<event>
+			<text>「あなたは挑戦が好きです。だからそれでいいのです！」ワームホールが形成され、混乱した怒っているマンティスの船があなたに向かって急いでいます！</text>
+			<ship load="SHIP_ZOLTAN_RIFT_MANTIS" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>スラッグ。</text>
+		<event>
+			<text>「やわらかい下腹にだまされてはいけない、連邦よ。」ワームホールが開いているのを検出し、数秒後にスラッグの船が反対方向から攻撃しています！</text>
+			<ship load="SHIP_ZOLTAN_RIFT_SLUG" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ロックマン。</text>
+		<event>
+			<text>「硬化したベテランのための硬化した敵。」ワームホールが開いているのを検出すると、銃が燃えている岩の船が現れます。彼らが時空を越えて突き刺されたとき、彼らは戦闘中であったようです。</text>
+			<ship load="SHIP_ZOLTAN_RIFT_ROCK" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ラニウス。</text>
+		<event>
+			<text>「異常にマゾヒスティックな要求ですが、私が許可します。」ワームホールが開いているのを検出すると、ラニウス船が出現します。スクラップに飢えて、船は攻撃します。</text>
+			<ship load="SHIP_ZOLTAN_RIFT_LANIUS" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>オーキドゥ。</text>
+		<event>
+			<text>「本を表紙で判断しないでください。見た目よりも強い敵もいます。」ワームホールが開いているのを検出すると、オーキドゥの船が現れます。混乱して、彼らはあなたを敵と間違えて攻撃します！</text>
+			<ship load="SHIP_ZOLTAN_RIFT_ORCHID" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ANCIENT">
+		<text>オベリスク。</text>
+		<event>
+			<text>ゾルタンは一瞬静かになり、「よろしいですか？そうですね」とささやきます。巨大なワームホールが開き、その中から戦争に備えたオベリスク船が迫っています。</text>
+			<ship load="SHIP_ZOLTAN_RIFT_ANCIENT" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ZOLTAN_RIFT_SUCCESS">
+	<text>あなたが勝利を収めたのを彼が見ると、ゾルタンの賢者は激怒します。裂け目は、代わりに、ゾルタンが爆発するまで空間を引き裂くと脅迫し、遠くの世界からあなたの方向に引きずり込まれたスクラップとサルベージの爆風を送ります。</text>
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+
+
+<eventList name="CLEARING_MONK">
+	<event load="MONK_WEAPON" />
+	<event load="MONK_ORCHID" />
+	<event load="MONK_SUN" />
+	<event load="MONK_ATONEMENT" />
+</eventList>
+
+<event name="MONK_WEAPON" unique="true">
+    <text>修道士の船はここにあります。「私たちはこの地域を片付けていましたが、たまたま暴力的な武器を含むひどいキャッシュを見つけました！私たちはそのようなことを必要としませんが、あなたが私たちの大義に寄付するなら、私たちはあなたがそれを取り除くことを喜んでいます私たちの手。」</text>
+    <ship load="SHIP_MONK_WEAPON" hostile="false" />
+    <choice>
+		<text>武器のスクラップを提供します。</text>
+		<event>
+			<text>「素晴らしい！このスクラップを有効に活用します。平和に行きます。」</text>
+			<item_modify>
+				<item type="scrap" min="-50" max="-30" />
+			</item_modify>
+			<choice>
+				<text>武器を取りなさい。</text>
+				<event>
+					<weapon name="RANDOM" />
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice req="LIST_CREW_MONK">
+		<text>（修道士の乗組員）割引のために責任を持って武器を使用することを誓います。</text>
+		<event>
+			<text>「あなたは信仰であるので、私たちはあなたの言葉を信頼します。平和に行きます。」</text>
+			<item_modify>
+				<item type="scrap" min="-30" max="-10" />
+			</item_modify>
+			<choice>
+				<text>武器を取りなさい。</text>
+				<event>
+					<weapon name="RANDOM" />
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>それらを攻撃してください、多分あなたはそれを無料で入手することができます。</text>
+		<event>
+			<text>修道士は反応し、彼らの声で後悔します。「それで、それは本当です、それで...暴力的な手段を使用している人は、推論することはできません...」</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>あなたもそれを望まないことを伝えてください。</text>
+		<event>
+			<text>「私たちはあなたがどのように感じているかを理解しています。おそらくそれを星に投げかけるか、それを偉大な目に提示するでしょう。」</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+
+<event name="MONK_ORCHID" unique="true">
+    <text>蘭の船がこのビーコンに座っており、そこにはいくつかの僧ksも住んでいます。それはあなたを歓迎します。「こんにちは！私たちはイレスクトリアンの信仰のゾルタンを探していました。私たちは私たちの空間に私たちに同行する人がいることを望んでいましたが、彼らはそれに同意することをためらいます。あなたは彼らを納得させることができると思いますか？」</text>
+    <ship load="SHIP_ORCHID_GENERIC" hostile="false" />
+	<choice req="orchid_caretaker" hidden="true">
+		<text>（世話人の乗組員）僧ksと話してください。</text>
+		<event>
+			<text>あなたのランの世話人は、ランの生活、義務、信念について僧ksと優しく話し始めます。僧ksはあなたの世話人の理想に感銘を受けたようで、行くことに同意します。「うわー、それは本当にトリックをしました！あなたの助けに感謝します。」ランはあなたに彼らを支援するためのささやかな報酬を与えます。</text>
+			<autoReward level="MED">standard</autoReward>
+		</event>
+    </choice>
+    <choice req="LIST_CREW_FLORAL" hidden="true">
+		<text>（花柄の乗組員）ランに他の場所を見るように説得します。</text>
+		<event>
+			<text>あなたの乗組員は他のランと話し、この種の旅行はこれらの人々にとって挑戦的であり、彼らが見続けているならより熱心な僧ksを見つけることに拘束されることを彼らに納得させます。蘭は謝罪します。修道士はあなたの介入に感謝し、あなたに彼らを助けるための小さな敬意を与えます。</text>
+			<autoReward level="LOW">stuff</autoReward>
+		</event>
+    </choice>
+    <choice req="unique_mayeb" hidden="true">
+		<text>（メイブ）僧ksと話してください。</text>
+		<event>
+			<text>メイブは僧ksと話しに行きます。「ご挨拶、私の名前はメイブです。これは私の妹、プエルパです。」彼女はもう一方の頭にジェスチャーをし、少し動きます。「P'Erpahは「あなたに良い日」と言います - ああ、どうやってこれを言うのですか...」 - 信仰の馬鹿げたもの。」彼らが話すとき、メイブは彼らが彼女の人々についてもっと学ぶように優しく奨励します。「...そして多分、多分...彼らはあなたから学ぶべきことがいくつかあります。それがあなたが気にかけていることです。」メイブ。しかし、あなたは私たちのためにやって来ました。ありがとう。」ランはあなたに彼らを支援するための小さな報酬を与えます。</text>
+			<autoReward level="HIGH">standard</autoReward>
+		</event>
+    </choice>
+    <choice req="LIST_CREW_MONK" hidden="true">
+		<text>（修道士の乗組員）僧ksを話してください。</text>
+		<event>
+			<text>あなたの修道士は、理想を広めることの重要性と、これが偉大な目が彼らにより広い影響を与える時だと彼らに伝える方法であることについて語っています。これで、修道士がやって来て、蘭に同行することに同意します。「うわー、それは本当にトリックをしました！あなたの助けに感謝します。」ランはあなたに彼らを支援するための小さな報酬を与えます。</text>
+			<autoReward level="MED">standard</autoReward>
+		</event>
+    </choice>
+	<choice hidden="true">
+		<text>調停を試みます。</text>
+		<event load="MONK_ORCHID_MEDIATE" />
+	</choice>	
+    <choice>
+		<text>蘭の船を攻撃します。</text>
+		<event>
+			<text>武器を武器にすると、ランはすぐにhったことを終了し、自分の武器の動力を供給し始めます。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_ORCHID_FIGHT" />
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>お詫び申し上げます。</text>
+		<event>
+			<text>あなたは蘭とやり取りしないことに決めます。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+<eventList name="MONK_ORCHID_MEDIATE">
+	<event>
+		<text>あなたは彼らが妥協に到達するのを助けるために最善を尽くします。最終的に、あなたは僧ksの一人に、他のすべての人を循環会話をspareしまないなら、蘭に加わるように説得することができます。「ええ、それがうまくいったとは信じられません。あなたの助けに感謝します。」ランはあなたに彼らを支援するための小さな報酬を与えます。</text>
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+	<event>
+		<text>あなたは彼らが妥協に到達するのを助けるために最善を尽くします。それでも、どちらの側にも関係がないので、テーブルに何も持ち込むことになりません。最終的に、彼らはあなたの時間を無駄にしたことを謝罪します。ここにはこれ以上のことは何もないようです。</text>
+	</event>
+</eventList>
+
+
+<event name="MONK_SUN" unique="true">
+    <text>「火による裁判へようこそ。大きな目は、私たちがあなたの気性をテストすることを要求します。少なくともしばらくの間、あなたは苦労を経験しなければなりません。あなたは真の啓発を達成するために苦しみのるつぼに鍛造されます。」彼らはあなたをここに短時間維持する予定のようです！</text>
+    <ship load="SHIP_MONK_TRIAL" hostile="true" />
+	<environment type="sun" />
+    <choice>
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+    </choice>
+</event>
+<event name="MONK_SUN_TRIAL_WIN">
+    <text>「あなたの裁判は終わりました、あなたは過ぎ去りました！ここにあなたの報酬があります。しかし、注意を払ってください、宇宙は間違いなく直面するのにもっと多くの困難を持っています。常に宇宙の教訓に注意を払ってください。」</text>
+    <ship hostile="false" />
+    <autoReward level="HIGH">scrap_only</autoReward> 
+</event>
+
+<event name="MONK_ATONEMENT" unique="true">
+    <text>星雲の外にゾルタンの修道院を見ることはまれです。これは、潮の閉じ込められた惑星の灰色のゾーンに配置されているため、その場所では常に夜明けのように見えます。</text>
+    <choice>
+		<text>修道院を訪れてください。</text>
+		<event>
+			<text>「歓迎されます、旅行者、光へ。照明のイルミネーションの順序はすべてを観察します。しかし、私たちはあなたの魂を調べますが、私たちはあなたを判断しません。それは照明によってのみ、彼らの悪行を和らげることができます。」ヘッドモンクは、異常に激しいピアスの視線で目を凝視します。</text>
+			<choice req="rep_comb_all" lvl="7" blue="false">
+				<text>照明を経験します。</text>
+				<event>
+					<text>「ああ、あなたの魂は非常に汚染されています。一目でさえ、あなたは多くの人々に悲惨さをもたらすと言うことができます。おそらく私が見落としている親切な行為がいくつかあります...しかし、私はあなたが嫌いだと言うことができます多く。あなたは暗い道を歩んでいます。」</text>
+					<choice>
+						<text>継続する...</text>
+						<event load="MONK_ATONEMENT_OFFER" />
+					</choice>
+				</event>
+			</choice>
+			<choice req="rep_comb_all" lvl="5" max_lvl="6" blue="false">
+				<text>照明を経験します。</text>
+				<event>
+					<text>「あなたは多くの人に嫌われています。私はあなたが星を越えてあなたの探求で多くの敵を作っていることがわかります。私は正確な状況を知っていませんが、あなたがあなたの小さな戦争が終わった後に平和に生きたいなら、あなたはしなければなりません修正を行う。」</text>
+					<choice>
+						<text>継続する...</text>
+						<event load="MONK_ATONEMENT_OFFER" />
+					</choice>
+				</event>
+			</choice>
+			<choice req="rep_comb_all" lvl="3" max_lvl="4" blue="false">
+				<text>照明を経験します。</text>
+				<event>
+					<text>「あなたは論争の的な人物です。あなたの行動は一貫してあなたを非外交的で野barな色として色付けしています。あなたが誠実な努力をしない限り、あなたがもはや行くことができず、歓迎されることができなくなった場所がたくさんあると確信しています。」</text>
+					<choice>
+						<text>継続する...</text>
+						<event load="MONK_ATONEMENT_OFFER" />
+					</choice>
+				</event>
+			</choice>
+			<choice req="rep_comb_all" lvl="1" max_lvl="2" blue="false">
+				<text>照明を経験します。</text>
+				<event>
+					<text>「全体として、あなたはこの銀河に悪い印象を残したようです。おそらく緩和状況があるかもしれませんが、あなたは間違った方向に滑り込んでいるようです。しかし、少なくともいくつかの抑制を示したようです。」</text>
+					<choice>
+						<text>継続する...</text>
+						<event load="MONK_ATONEMENT_OFFER" />
+					</choice>
+				</event>
+			</choice>
+			<choice req="rep_comb_all" lvl="0" max_lvl="0" blue="false">
+				<text>照明を経験します。</text>
+				<event>
+					<text>「私があなたの目を見ると、私はあなたがバランスをとっていることを見ることができます。あなたが他の人に行った行為があるなら、それは親切またはヒロイズムの行為と相殺されています。どちらでもない？"</text>
+					<choice req="REPUTATION_IS_TOTALLY_FINE" blue="false" lvl="1" hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>「ああ、はい、確かに。さらに見ると、あなたは実際には完全にバランスが取れています。あなたは有名でも悪名でもありません。私の直感は、あなたがボートを揺さぶらないことを教えてくれます。しかし、それはそれ自体が賢明です。贈り物。平和に行き、常に光の中を歩いてください。」</text>
+							<autoReward level="HIGH">fuel</autoReward>
+						</event>
+					</choice>
+					<choice req="REPUTATION_IS_TOTALLY_FINE" blue="false" lvl="0" max_lvl="0" hidden="true">
+						<text>継続する...</text>
+						<event load="MONK_ATONEMENT_OFFER" />
+					</choice>
+				</event>
+			</choice>
+			<choice req="rep_comb_all" lvl="-4" max_lvl="-1" blue="false">
+				<text>照明を経験します。</text>
+				<event>
+					<text>「あなたは全体的に良いカルマを持っています。非競技者にとって、あなたは彼らに彼らを搾取したり害を与えたりするよりも平和と安全をもたらす可能性が高くなります。光はあなたが属する場所です。」</text>
+					<choice req="REPUTATION_IS_TOTALLY_FINE" blue="false" lvl="1" hidden="true">
+						<text>継続する...</text>
+						<event load="MONK_CLEAN_SOUL" />
+					</choice>
+					<choice req="REPUTATION_IS_TOTALLY_FINE" blue="false" lvl="0" max_lvl="0" hidden="true">
+						<text>継続する...</text>
+						<event load="MONK_ATONEMENT_OFFER_GOOD_KARMA" />
+					</choice>
+				</event>
+			</choice>
+			<choice req="rep_comb_all" lvl="-999" max_lvl="-5" blue="false">
+				<text>照明を経験します。</text>
+				<event>
+					<text>「私はwe敬の念を抱いています、あなたは星にかなり前向きな力であるようです。そのような通常の暴力的な召命の1つにとって、あなたは他の人にポジティブなカルマをもたらす能力に謙虚です。おそらく私たちはあなたから1つか2つを学ぶことができました。」</text>
+					<choice req="REPUTATION_IS_TOTALLY_FINE" blue="false" lvl="1" hidden="true">
+						<text>継続する...</text>
+						<event load="MONK_CLEAN_SOUL" />
+					</choice>
+					<choice req="REPUTATION_IS_TOTALLY_FINE" blue="false" lvl="0" max_lvl="0" hidden="true">
+						<text>継続する...</text>
+						<event load="MONK_ATONEMENT_OFFER_GOOD_KARMA" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>修道院を無視してください。</text>
+		<event>
+			<text>あなたは僧ksを放っておいて、船の運営に集中します。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+<event name="MONK_ATONEMENT_OFFER">
+    <text>「あなたが彼らを大いに不当な扱いをしていると信じている人がいます。あなたが行った行動や、あなたが到達した状況に恥を感じたり後悔したりするかどうかはわかりません。、それからあなたにそうする機会を提供させてください。あなたが不当な扱いを受けたグループを教えて、寄付を提示してください。そうすれば、そのグループに対するあなたの間違いについて瞑想してください。」</text>
+    <choice blue="false" req="rep_general" lvl="1">
+		<text>特に誰にも関係ない悪行をtoneします。</text>
+		<event>
+			<text id="monk_meditate_cost" />
+			<item_modify>
+				<item type="scrap" min="-35" max="-35" />
+			</item_modify>
+			<variable name="rep_general" op="set" val="0" />
+			<choice>
+				<text>目を閉じてリラックスしてください...</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_union" lvl="1">
+		<text>組合に関係する不正行為をtoneします。</text>
+		<event>
+			<text id="monk_meditate_cost" />
+			<item_modify>
+				<item type="scrap" min="-35" max="-35" />
+			</item_modify>
+			<variable name="rep_union" op="set" val="0" />
+			<choice>
+				<text>目を閉じてリラックスしてください...</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_zoltan" lvl="1">
+		<text>ゾルタン省に関係する悪行をatoneします。</text>
+		<event>
+			<text id="monk_meditate_cost" />
+			<item_modify>
+				<item type="scrap" min="-35" max="-35" />
+			</item_modify>
+			<variable name="rep_zoltan" op="set" val="0" />
+			<choice>
+				<text>目を閉じてリラックスしてください...</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_orchid" lvl="1">
+		<text>CTL'yaeの集まりに関係する悪行をtoneします。</text>
+		<event>
+			<text id="monk_meditate_cost" />
+			<item_modify>
+				<item type="scrap" min="-35" max="-35" />
+			</item_modify>
+			<variable name="rep_orchid" op="set" val="0" />
+			<choice>
+				<text>目を閉じてリラックスしてください...</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_engi" lvl="1">
+		<text>Engi Harmonyに関係する不正行為をtoneします。</text>
+		<event>
+			<text id="monk_meditate_cost" />
+			<item_modify>
+				<item type="scrap" min="-35" max="-35" />
+			</item_modify>
+			<variable name="rep_engi" op="set" val="0" />
+			<choice>
+				<text>目を閉じてリラックスしてください...</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_crystal" lvl="1">
+		<text>クリスタルエンパイアに関係する悪行をatoneします。</text>
+		<event>
+			<text id="monk_meditate_cost" />
+			<item_modify>
+				<item type="scrap" min="-35" max="-35" />
+			</item_modify>
+			<variable name="rep_crystal" op="set" val="0" />
+			<choice>
+				<text>目を閉じてリラックスしてください...</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_outcast" lvl="1">
+		<text>追放されたロックマンに関係する悪行をtoneします。</text>
+		<event>
+			<text id="monk_meditate_cost" />
+			<item_modify>
+				<item type="scrap" min="-35" max="-35" />
+			</item_modify>
+			<variable name="rep_outcast" op="set" val="0" />
+			<choice>
+				<text>目を閉じてリラックスしてください...</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_vampweed" lvl="1">
+		<text>Oro'bache Confederacyに関係する悪行をtoneします。</text>
+		<event>
+			<text id="monk_meditate_cost" />
+			<item_modify>
+				<item type="scrap" min="-35" max="-35" />
+			</item_modify>
+			<variable name="rep_vampweed" op="set" val="0" />
+			<choice>
+				<text>目を閉じてリラックスしてください...</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_freemantis" lvl="1">
+		<text>自由なカマキリに関係する悪行をatoneします。</text>
+		<event>
+			<text id="monk_meditate_cost" />
+			<item_modify>
+				<item type="scrap" min="-35" max="-35" />
+			</item_modify>
+			<variable name="rep_freemantis" op="set" val="0" />
+			<choice>
+				<text>目を閉じてリラックスしてください...</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_shell" lvl="1">
+		<text>シェルのgeniocracyに関係する不正行為をtoneします。</text>
+		<event>
+			<text id="monk_meditate_cost" />
+			<item_modify>
+				<item type="scrap" min="-35" max="-35" />
+			</item_modify>
+			<variable name="rep_shell" op="set" val="0" />
+			<choice>
+				<text>目を閉じてリラックスしてください...</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_slug" lvl="1">
+		<text>ナメクジのクレプトクラシーに関係する不正行為をtoneします。</text>
+		<event>
+			<text id="monk_meditate_cost" />
+			<item_modify>
+				<item type="scrap" min="-35" max="-35" />
+			</item_modify>
+			<variable name="rep_slug" op="set" val="0" />
+			<choice>
+				<text>目を閉じてリラックスしてください...</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>tone罪を拒否する。</text>
+		<event>
+			<text>「そうです...それを聞いて大きな悲しみをもたらします。しかし、それは手遅れではないことを知っています。あなたが修正をしたいなら、戻ってきてください、そして私たちはあなたの魂を救うためにできる限りのことをします。」</text>
+		</event>
+    </choice>
+</event>
+<event name="MONK_ATONEMENT_OFFER_GOOD_KARMA">
+    <text>「あなたはほとんどの人からよく見なされていますが、あなたが持つことができる人はそこにいます。あなたが行った行動や、あなたが行った状況について恥を感じたり後悔したりするかどうかはわかりません。しかし、あなたがあなたの行動を和らげたいと思って、そうする機会を与えてください。あなたが不当な扱いを受けたグループを教えてください。そうしたら、そのグループに対するあなたの間違いについて瞑想してください。」</text>
+    <choice blue="false" req="rep_general" lvl="1">
+		<text>特に誰にも関係ない悪行をtoneします。</text>
+		<event>
+			<text id="monk_meditate" />
+			<variable name="rep_general" op="set" val="0" />
+			<choice>
+				<text>目を閉じてリラックスしてください...</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_union" lvl="1">
+		<text>組合に関係する不正行為をtoneします。</text>
+		<event>
+			<text id="monk_meditate" />
+			<variable name="rep_union" op="set" val="0" />
+			<choice>
+				<text>目を閉じてリラックスしてください...</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_zoltan" lvl="1">
+		<text>ゾルタン省に関係する悪行をatoneします。</text>
+		<event>
+			<text id="monk_meditate" />
+			<variable name="rep_zoltan" op="set" val="0" />
+			<choice>
+				<text>目を閉じてリラックスしてください...</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_orchid" lvl="1">
+		<text>CTL'yaeの集まりに関係する悪行をtoneします。</text>
+		<event>
+			<text id="monk_meditate" />
+			<variable name="rep_orchid" op="set" val="0" />
+			<choice>
+				<text>目を閉じてリラックスしてください...</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_engi" lvl="1">
+		<text>Engi Harmonyに関係する不正行為をtoneします。</text>
+		<event>
+			<text id="monk_meditate" />
+			<variable name="rep_engi" op="set" val="0" />
+			<choice>
+				<text>目を閉じてリラックスしてください...</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_crystal" lvl="1">
+		<text>クリスタルエンパイアに関係する悪行をatoneします。</text>
+		<event>
+			<text id="monk_meditate" />
+			<variable name="rep_crystal" op="set" val="0" />
+			<choice>
+				<text>目を閉じてリラックスしてください...</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_outcast" lvl="1">
+		<text>追放されたロックマンに関係する悪行をtoneします。</text>
+		<event>
+			<text id="monk_meditate" />
+			<variable name="rep_outcast" op="set" val="0" />
+			<choice>
+				<text>目を閉じてリラックスしてください...</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_vampweed" lvl="1">
+		<text>Oro'bache Confederacyに関係する悪行をtoneします。</text>
+		<event>
+			<text id="monk_meditate" />
+			<variable name="rep_vampweed" op="set" val="0" />
+			<choice>
+				<text>目を閉じてリラックスしてください...</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_freemantis" lvl="1">
+		<text>自由なカマキリに関係する悪行をatoneします。</text>
+		<event>
+			<text id="monk_meditate" />
+			<variable name="rep_freemantis" op="set" val="0" />
+			<choice>
+				<text>目を閉じてリラックスしてください...</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_shell" lvl="1">
+		<text>シェルのgeniocracyに関係する不正行為をtoneします。</text>
+		<event>
+			<text id="monk_meditate" />
+			<variable name="rep_shell" op="set" val="0" />
+			<choice>
+				<text>目を閉じてリラックスしてください...</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_slug" lvl="1">
+		<text>ナメクジのクレプトクラシーに関係する不正行為をtoneします。</text>
+		<event>
+			<text id="monk_meditate" />
+			<variable name="rep_slug" op="set" val="0" />
+			<choice>
+				<text>目を閉じてリラックスしてください...</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>tone罪を拒否する。</text>
+		<event>
+			<text>「私はそうです...私は失望していますが、あなたがあなた自身の行為によってそれを正しくすることができると信じています。平和に行きます。」</text>
+		</event>
+    </choice>
+</event>
+<event name="ATONEMENT_NIGHTMARE">
+    <text>すべてが暗く、すべてが穏やかです...しかし、あなたは光があなたを包み込んでいるように感じます。あなたが悪名を残した行動を振り返ると、あなたは忍び寄る恐怖があなたを包み込むと感じます。あなたの間違いのそれぞれについて、パンがあなたの心に響き渡ります。これらの過ちはすぐに形になり、巨大なルーンティックキューブに合体します。これらのキューブはあなたの周りに群がり、光がゆっくりと、しかし確実に遮断されているので、大きな荒廃をもたらします。しかし、すぐに、箱は消え、雨が降り始めます。いいえ...雨ではなく、群れです...イナゴの。彼らがあなたに降りると、彼らは食べ始めます。彼らはあなたの指、あなたの腕、あなたの足をむさぼり食います...彼らはあなたの体をむさぼり食い続けます。しかし、彼らがあなたを完全に包む前に、彼らは散らばっています。</text>
+    <choice>
+		<text>起きろ。</text>
+		<event>
+			<text>あなたは冷たい汗で目を覚まします。修道士はあなたがあなたの足に戻るのを助けます。目を閉じてから多くの時間が経過したように感じます。あなたはあなたの乗組員が心配してあなたを見ていることに気づきますが、彼らはあなたが目覚めたことを安心しているようです。「あなたのtone罪は完了しました。スケールはもう一度バランスが取れています。あなたの道徳的義務を受け入れるために細心の注意を払ってください。平和に行きましょう。」</text>
+			<modifyPursuit amount="1" />
+		</event>
+    </choice>
+</event>
+<event name="MONK_CLEAN_SOUL">
+    <text>「なんて印象的ですか、すべての人々は、あなたが何をしてもあなたを憎む人を除いて、あなたについて何も言わないことを持っているようです。あなたは私を喜ばせます。みんな。目は私たちに素晴らしいアーティファクトを提供してくれました。それがあなたに役立つことを願っています。」</text>
+    <weapon name="ANCIENT_STUN" />
+    <autoReward level="HIGH">fuel</autoReward>
+</event>
+
+
+<event name="MONK_TEMPLE" unique="true">
+	<text>このビーコンは、甘美で生い茂ったジャングル惑星の軌道に設置されたようです。植物で満たされた巨大な洞窟の中央には、ゾルタン寺院があります。それは比較的ローテクに見えますが、それを保護する単一の休眠中の自動船を除いて。</text>
+	<img back="BACK_EVENT_ZOLTAN_TEMPLE" planet="PLANET_INVISIBLE" />
+	<choice hidden="true">
+		<text>中の僧侶に連絡する。</text>
+		<event>
+			<text>あなたはコミュニケーションをとろうとしますが、寺院にはあられを受け取るシステムさえ持っていないようです。あなたは近くにパイロットし、僧kがあなたを歓迎します。「ようこそ、友達。この聖地では、無料で大歓迎です。」</text>
+			<choice hidden="true">
+				<text>中を見てください。</text>
+				<event>
+					<text>寺院のほとんどは荒廃していて手入れが行き届いておらず、あちこちに安い彫像がいくつかあります。中央の部屋には、輪になって瞑想する多くの僧侶がいます。僧侶が目を開けて挨拶します。 「あなたは連邦からの訪問者ですか？来て、悟りへの道に参加し、平和の神々に祝福されてください。」</text>
+					<choice hidden="true">
+						<text>瞑想に参加してください。</text>
+						<event load="MONK_TEMPLE_REWARD" />
+					</choice>
+					
+					<choice>
+						<text>私たちは行かなければならないのではないかと思います。</text>
+						<event>
+							<text>「それは大丈夫です、友人。安全な旅行。」</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>もういいです。</text>
+				<event>
+					<text>あなたはゾルタンの僧侶であることがどのようなものか興味がありますが、それはあなたの使命ほど重要ではありません。</text>
+					<choice>
+						<text>船に乗って何かする。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>オートシップに乗って、寺院を襲撃することができます！</text>
+		<event>
+			<text>オートシップを利用すると、無防備な寺院にアクセスできるようになります。</text>
+			<ship load="SHIP_ZOLTAN_AUTO_TEMPLE" hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>寺院を無視します。</text>
+		<event>
+			<text>あなたはゾルタン寺院に興味がありません。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="MONK_TEMPLE_REWARD">
+	<text>他のゾルタンの中で床に座って、ハミングの低いものに参加します。あなたが突然睡眠から驚かされ、どれだけの時間が経過したかを理解する前に、ほぼ半日が過ぎ去ります...</text>
+	<modifyPursuit amount="2" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>僧侶たちはあなたの訪問に簡単に感謝します、そしてあなたが去るときあなたは奇妙な気持ちがあなたにやってくるのを感じます...まるであなたが祝福されたかのように。</text>
+			<hiddenAug>ZOLTAN_BLESSING</hiddenAug>
+			<damage amount="-30" />
+		</event>
+	</choice>
+</event>
+<eventList name="ZOLTAN_AUTO_TEMPLE_WIN">
+	<event>
+		<text>ご想像のとおり、寺院は完全に身を守ることができません。非暴力に誓われた僧侶たちは、持っているものすべてを明け渡すことを余儀なくされ、結局はそれほど多くはありません。</text>
+		<autoReward level="LOW">fuel</autoReward>
+	</event>
+	<event>
+		<text>僧侶たちは彼らの物資をあきらめることを拒否します。 「私たちは暴力を必要とせず、あなたの要求に屈することはありません。私たちは平和な人々です。あなたはこれよりもよく知っています。」</text>
+		<choice>
+			<text>それらを手放します。</text>
+			<event>
+				<text>できることはこれ以上ありませんし、無防備な僧侶を実際に殺す準備もできていません。</text>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>すべての僧侶を殺します。</text>
+			<event>
+				<text>あなたは無実のゾルタンの束を残酷に殺害しました。スクラップのささいな捜索の一環として、不必要な虐殺をしました。この無意味な虐殺はあなたに何をもたらしましたか？いくつかの燃料電池と、3スクラップ以上の価値がない、瞑想しているゾルタンの偽の金の像。</text>
+				<item_modify>
+					<item type="fuel" min="2" max="2" />
+				</item_modify>
+				<augment name="ZOLTAN_STATUE" />
+			</event>
+		</choice>
+	</event>
+</eventList>
+
+<event name="NEBULA_MONK_EYE">
+	<img back="BACK_EVENT_EYE" planet="PLANET_UNPOPULATED_TERRA" />
+	<loadEventList seeded="false" first="true" generate="true">
+		<event name="NEBULA_MONK_EYE_OFFERING" req="prof_eye_offering" lvl="1" />
+		<event name="NEBULA_MONK_EYE_NORMAL" req="prof_eye_offering" lvl="0" max_lvl="0" />
+	</loadEventList>
+</event>
+<event name="NEBULA_MONK_EYE_OFFERING">
+	<preventQuest />
+	<beaconType id="map_icon_eye" global="true">
+		<color r="223" g="200" b="200" a="1.0" />
+		<unvisitedTooltip>ゾルタンが崇拝する巨大な一枚岩である大きな目の場所。</unvisitedTooltip>
+		<visitedTooltip>ゾルタンが崇拝する巨大な一枚岩である大きな目の場所。</visitedTooltip>
+	</beaconType>
+	<text>あなたがグレートアイに近づくと、亀裂が突然開き、スクラップの塊があなたに向かって急上昇します。幸いなことに、それはあなたの船体から軽く跳ね返るだけで、あなたはそれをすくい上げます。どこから来たのかわかりませんが、スクラップを取ります。</text>
+	<img back="BACK_EVENT_EYE" planet="PLANET_UNPOPULATED_TERRA" />
+	<metaVariable name="prof_eye_offering" op="set" val="0" />
+	<item_modify>
+		<item type="scrap" min="15" max="15" />
+	</item_modify>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="MONK_EYE_OPTIONS" />
+	</choice>
+</event>
+<event name="NEBULA_MONK_EYE_NORMAL">
+	<preventQuest />
+	<beaconType id="map_icon_eye" global="true">
+		<color r="223" g="200" b="200" a="1.0" />
+		<unvisitedTooltip>ゾルタンが崇拝する巨大な一枚岩である大きな目の場所。</unvisitedTooltip>
+		<visitedTooltip>ゾルタンが崇拝する巨大な一枚岩である大きな目の場所。</visitedTooltip>
+	</beaconType>
+	<text>あなたはグレートアイを発見しました！場所は遠くにある巨大な目の形をした星雲にちなんで名付けられましたが、本当の魅力は、近くの惑星に緑色のライトが置かれている巨大な直方体のモノリスです。このビーコンは、この場所に毎年巡礼する観光客とゾルタンの両方がよく訪れる場所です。</text>
+	<img back="BACK_EVENT_EYE" planet="PLANET_UNPOPULATED_TERRA" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="MONK_EYE_OPTIONS" />
+	</choice>
+</event>
+<event name="MONK_EYE_OPTIONS">
+	<text>モノリスには奇妙で予測不可能な力があると言われています。彼らと話をすることができる人は、待っている多くの不思議や恐怖を見つけるかもしれません。</text>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">	
+		<text>モノリスに話しかけ、あなたの運命を待ちます。</text>
+		<event load="GREAT_EYE_LIST" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">	
+		<text>モノリスと話すと跡形もなく消える存在の話を聞いたことがあります... 同じ運命に会うことに興味はありません.</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice req="prof_eye_offering" lvl="0" max_lvl="0" blue="false">	
+		<text>グレートアイに捧げ物をしなさい。</text>
+		<event>
+			<text>何かが起こるかどうか疑問に思って、グレートアイに向かってスクラップを投げます。残念ながら、何もそうではないようです。おそらく、それらの古いゾルタンの神話は間違っていますか？多分それはもう一度試す価値がありますか？</text>
+			<metaVariable name="prof_eye_offering" op="set" val="1" />
+			<item_modify>
+				<item type="scrap" min="-15" max="-15" />
+			</item_modify>
+			<choice hidden="true">	
+				<text>継続する...</text>
+				<event>
+					<loadEvent>MONK_EYE_OPTIONS</loadEvent>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_MONK">	
+		<text>（モンククルー）より良い報酬のチャンスを目で祈ってください。</text>
+		<event load="GREAT_EYE_LIST_GOOD" />
+	</choice>
+	<choice req="LIST_CREW_ANCIENT" hidden="true">	
+		<text>（オベリスククルー）あなたのオベリスクはこの構造を認識しています。</text>
+		<event>
+			<text>「この構造は、オベリスクリアリティマニピュレーターの初期の設計でした。名前から推測できます。奇妙なことに、ここにたどり着きましたが、これが、モノリスがあらゆる種類の奇妙なことを実行できる理由を説明していると思います。船に乗って修理することはできますが、ゾルタンが喜んでくれるとは思えません。」</text>
+			<choice>	
+				<text>リアリティマニピュレーターを取ります。</text>
+				<event>
+					<text>リアリティマニピュレーターに乗ると、ゾルタンのピースキーパーがあなたを止めます。 「あなたはあえてグレートアイを邪魔しますか？あなたは神の創造者は言うまでもなく、私たちの種全体を侮辱しました！あなたは罰せられるでしょう！」</text>
+					<achievement silent="false">ACH_OBEL_STEALGREATEYE</achievement>
+					<augment name="COMBAT_HAZARD" />
+					<ship load="SHIP_ZOLTAN_ELITE_FIGHT" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+					</choice>
+				</event>
+			</choice>
+			<choice>	
+				<text>リスクを冒す価値はありません。</text>
+				<event>
+					<text>それは魅力的ですが、ゾルタンによって崇拝され、高く評価されているアイテムを台無しにするリスクを冒す価値はありません。</text>
+					<choice>
+						<text>船に乗って何かする。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>	
+		<text>モノリスを無視します。</text>
+		<event>
+			<text>あなたの使命は連邦を救うことであり、銀河の周りの新しい不思議を発見することではありません。あなたはジャンプする準備をします。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<eventList name="GREAT_EYE_LIST">
+	
+	<event>
+		<text>あなたが近づくと、古代の異星人の声があなたに話しかけます：「あなたの使命はあなたに大きな戦いと大きな損失をもたらしました。これは痛みを和らげるのに役立ちます。」数分後、誰かが医療機器が船に現れたと報告しました！</text>
+		<weapon name="BOMB_HEAL" />
+	</event>
+	<event>
+		<text>あなたは注意深く惑星に近づき、あなたの船が軌道上で崩壊するのを防ごうとします。モノリスは、それが何であれ、あなたが知っている次のことはあなたのダメージを修正するのに十分なスクラップを持っているので、同じくらい感知しなければなりません！</text>
+		<autoReward level="HIGH">scrap_only</autoReward>
+	</event>
+	
+	<event>
+		<text>モノリスに近づくと、船の外側の周りのガタガタと動きの音が聞こえます。混乱して恐ろしく、あなたは軌道から離れて船を検査しますが、誰も見えません。代わりに、船体はかなりの修理を受けています！</text>
+		<damage amount="-12" />
+	</event>
+	<event>
+		<text>船のホールには深い声が響き渡る。 「あなたの使命は長く困難なものになるでしょう。これがあなたを助けてくれますように。そうすればあなたは不当な妨害を恐れないでしょう。」</text>
+		<autoReward level="HIGH">fuel_only</autoReward>
+	</event>
+	<event>
+		<text>突然、宇宙にワームホールが開き、反対側に商船が沈着します。彼らは混乱していますが、元の顧客が取り残されているため、あなたに気づいたときに彼らは取引を申し出ます。</text>
+		<store>STORE_STANDARD</store>
+	</event>
+	<event>
+		<text>武器があなたの前で少しずつゆっくりと製造されるのを見て、あなたは魅了されます。その後何も起こらなければ、モノリスが提供し、引き離さなければならなかったのはそれだけだと安全に推測できます。</text>
+		<weapon name="RANDOM" />
+	</event>
+	<event>
+		<text>他の部屋からは恐ろしい悲鳴が聞こえます。あなたは地面にスライムの身もだえで覆われた嫌な、小さな、裸の生き物を見つけるために入ります。それは大人のスラッグに成長するまで、急速に成長し始めます！彼らはどうやってここにたどり着いたのか分かりませんが、モノリスはあなたに仕えるという唯一の目的のために彼らを作ったようです！</text>
+		<crewMember amount="1" class="slug">サーバント</crewMember>
+	</event>
+	<event>
+		<text>ナノボットの雲があなたの周りに形成され、声があなたに話しかけます。 「そして、あなたはどのような目的に奉仕する必要がありますか？」</text>
+		<choice hidden="true">
+			<text>水先案内。</text>
+			<event>
+				<text>ナノボットは、水先案内の訓練を受けた分離主義者のエンギになります。</text>
+				<crewMember amount="1" pilot="1" class="engi_separatist">L-6644</crewMember>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>防衛。</text>
+			<event>
+				<text>ナノボットは、シールドエンジニアリングの訓練を受けた分離主義者のエンギになります。</text>
+				<crewMember amount="1" shields="1" class="engi_separatist">L-6644</crewMember>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>戦闘。</text>
+			<event>
+				<text>ナノボットは、戦闘でよく訓練された分離主義者のエンギになります。</text>
+				<crewMember amount="1" combat="1" class="engi_separatist">L-6644</crewMember>
+			</event>
+		</choice>
+	</event>
+	
+	<event>
+		<text>あなたは近づいて待ちますが、何も起こりません。ゾルタンの船は、「そして、これからの時代に、一枚岩が人と話さないとき、彼には未来がなく、欲しがっているままにしておかなければならない」と呼びかけます。</text>
+		<ship load="SHIP_ZOLTAN_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	
+	<event>
+		<text>あなたの前に裂け目が開くので、惑星全体がそこから投げ出され、不幸なロスト・サン船が続きます！惑星の表面には巨大なASB大砲のように見え、彼らはあなたと敵の両方に向かって発砲しています！</text>
+		<ship load="SHIP_LOSTSUN_ALL" hostile="true" />
+		<environment type="PDS" target="both" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>モノリスに近づくと、異星人の声が船を満たします。 「すべての贈り物のために、順番に何かをとらなければなりません。」燃料貯蔵量が急速に減少していることに気づきましたが、セルが枯渇するたびにスクラップの埋蔵量が増加しています。</text>
+		<item_modify steal="true">
+			<item type="fuel" min="-5" max="-5" />
+			<item type="scrap" min="25" max="25" />
+		</item_modify>
+	</event>
+	<event>
+		<text>星雲がビーコンを消費するにつれて、船の周りに厚いガスが形成され始めます！通過するゾルタン船は心配しないでください、そしてこれは定期的な出来事であるとあなたに告げます。星雲は通常、しばらくすると消えます。幸いなことに、反乱軍はおそらくあなたを追跡するのに苦労するでしょう。</text>
+		<environment type="storm" />
+		<modifyPursuit amount="-1" />
+	</event>
+	<event>
+		<text>ささやきがあなたを取り囲み、未知の富の約束であなたを落ち着かせます。あなたがしなければならないのは選択をすることです...あなたの報酬を受け取るためにクルーを犠牲にするか、強いままで衝動に抵抗してください。</text>
+		<choice hidden="true">
+			<text>犠牲を払ってください。</text>
+			<event>
+				<text>精神的に挑戦を受け入れるとすぐに、短剣があなたの手に現れます。あなたは最も近いクルーを引きずって、狂った血の欲望で彼らを刺します。あなたはすぐに気を失い、目を覚まして船がスクラップや物資でいっぱいになっているのを見つけます。</text>
+				<autoReward level="HIGH">item</autoReward>
+				<removeCrew>
+					<clone>false</clone>
+					<text>彼らの死は単に刺し傷であるにもかかわらず、あなたのクルーの死は不可逆的であるように思われます。</text>
+				</removeCrew>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>衝動に抵抗する。</text>
+			<event>
+				<text>しばらくすると、ささやきが止まり、できるだけ早く惑星から離れます。</text>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>惑星の表面に近づくと、船体はゆっくりと修復し始めます。しかし、船のいたるところに破損が発生しています。すべてのバラにはとげがあります...</text>
+		<damage amount="-2" system="random" effect="breach" />
+		<damage amount="-2" system="random" effect="breach" />
+		<damage amount="-2" system="random" effect="breach" />
+		<damage amount="-2" system="random" effect="breach" />
+	</event>
+	<event>
+		<text>水面に近づくと、ミサイルの嵐があなたに向かってまっすぐ飛んでいるのに気づきます！船と衝突するとかなりのダメージを与えますが、衝撃でスクラップになります。実際、それはそのすべての損傷などを修復するのにちょうど十分なスクラップです...</text>
+		<damage amount="7" />
+		<item_modify>
+			<item type="scrap" min="35" max="35" />
+		</item_modify>
+	</event>
+	<event>
+		<text>船に笑い声が響き渡り、肉体のない声が続きます。 「友人、そして敵。目のための目。」</text>
+		<boarders min="1" max="1" class="random" />
+		<crewMember amount="1" />
+	</event>
+	<event>
+		<text>あなたは、クルーの1人が咳をして、地面に倒れるときに喉をつかんで紫色に変わるのを見るように向きを変えます。ゆっくりと、彼らの皮膚は剥がれ始め、彼らの体は溶けて、再び完全に異なる形に再形成するだけです。</text>
+		<transformRace>random</transformRace>
+	</event>
+	
+	<event>
+		<text>近づくと、色の万華鏡がビュースクリーンに表示され、クルーの1人が逆に急速に老化し始め、最終的には無になります。彼らが物理的な存在を超越し、単にそれから追い出されるのではないことを願いましょう。</text>
+		<removeCrew>
+			<clone>false</clone>
+			<text>あなたはあなたのクローンベイをチェックしますが、それは休眠状態にあります。あなたのクルーに起こったことは何でも不可逆的でなければなりません。</text>
+		</removeCrew>
+	</event>
+	
+	<event>
+		<text>モノリスに近づくと、周りの時間が遅くなり始めることに気づきます。頭が軽く、失神します。目を覚ますと、かなりの時間が経過しているように見えます。反乱軍が追いつく前に、ここから急いで出なければなりません。</text>
+		<modifyPursuit amount="2" />
+	</event>
+	<event>
+		<text>目の前に裂け目が開き、反乱軍の艦隊がもう一方の端に捨てられます！反乱軍の船が攻撃に乗り出しますが、時間と空間を歪められても動揺していないようです。</text>
+		<customFleet right="true" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
+		<modifyPursuit amount="1" />
+		<ship load="SHIP_REBEL_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>近づくと、シールドが誤動作し始めます。あなたが去ろうとすると、小惑星のフィールドがゆっくりと近づきます。偶然？ありそうもない...</text>
+		<status type="divide" target="player" system="shields" amount="3" />
+		<environment type="asteroid" />
+	</event>
+	<event>
+		<text>船の前に小さな光の球が形成され、ゆっくりと成長し始めます。あなたが何マイルも離れてスリングショットされると、モノリスはあなたから消え、ボールは太陽に変身します！あなたは最初の太陽フレアに捕まりますが、うまくいけば次の太陽フレアの前に逃げることができます。</text>
+		<environment type="sun" />
+		<damage amount="3" system="random" effect="fire" />
+	</event>
+	<event>
+		<text>目の前に暗い深淵への入り口が開き、そこから4人の異星人がつまずきます！彼らは特に友好的ではないようですので、あなたは戦う準備をします。</text>
+		<boarders min="4" max="4" class="LIST_CREW_MILITIA_RANDOM" />
+	</event>
+	<event>
+		<text>水面に近づくと、船のすべてのライトが突然点滅します。はっきりとしたカチッという音は、あなたがマンティスに乗り込んだことを示唆しています。これはおそらくモノリスの作成物でもあります。</text>
+		<status type="limit" target="player" system="sensors" amount="0" />
+		<boarders min="2" max="2" class="mantis" />
+	</event>
+</eventList>
+<eventList name="GREAT_EYE_LIST_GOOD">
+	
+	<event>
+		<text>あなたが近づくと、古代の異星人の声があなたに話しかけます：「あなたの使命はあなたに大きな戦いと大きな損失をもたらしました。これは痛みを和らげるのに役立ちます。」数分後、誰かが医療機器が船に現れたと報告しました！</text>
+		<weapon name="BOMB_HEAL" />
+	</event>
+	<event>
+		<text>あなたは注意深く惑星に近づき、あなたの船が軌道上で崩壊するのを防ごうとします。モノリスは、それが何であれ、あなたが知っている次のことはあなたのダメージを修正するのに十分なスクラップを持っているので、同じくらい感知しなければなりません！</text>
+		<autoReward level="HIGH">scrap_only</autoReward>
+	</event>
+	
+	<event>
+		<text>モノリスに近づくと、船の外側の周りのガタガタと動きの音が聞こえます。混乱して恐ろしく、あなたは軌道から離れて船を検査しますが、誰も見えません。代わりに、船体はかなりの修理を受けています！</text>
+		<damage amount="-12" />
+	</event>
+	<event>
+		<text>船のホールには深い声が響き渡る。 「あなたの使命は長く困難なものになるでしょう。これがあなたを助けてくれますように。そうすればあなたは不当な妨害を恐れないでしょう。」</text>
+		<autoReward level="HIGH">fuel_only</autoReward>
+	</event>
+	<event>
+		<text>突然、宇宙にワームホールが開き、反対側に商船が沈着します。彼らは混乱していますが、元の顧客が取り残されているため、あなたに気づいたときに彼らは取引を申し出ます。</text>
+		<store>STORE_STANDARD</store>
+	</event>
+	<event>
+		<text>武器があなたの前で少しずつゆっくりと製造されるのを見て、あなたは魅了されます。その後何も起こらなければ、モノリスが提供し、引き離さなければならなかったのはそれだけだと安全に推測できます。</text>
+		<weapon name="RANDOM" />
+	</event>
+	<event>
+		<text>他の部屋からは恐ろしい悲鳴が聞こえます。あなたは地面にスライムの身もだえで覆われた嫌な、小さな、裸の生き物を見つけるために入ります。それは大人のスラッグに成長するまで、急速に成長し始めます！彼らはどうやってここにたどり着いたのか分かりませんが、モノリスはあなたに仕えるという唯一の目的のために彼らを作ったようです！</text>
+		<crewMember amount="1" class="slug">サーバント</crewMember>
+	</event>
+	<event>
+		<text>ナノボットの雲があなたの周りに形成され、声があなたに話しかけます。 「そして、あなたはどのような目的に奉仕する必要がありますか？」</text>
+		<choice hidden="true">
+			<text>水先案内。</text>
+			<event>
+				<text>ナノボットは、水先案内の訓練を受けた分離主義者のエンギになります。</text>
+				<crewMember amount="1" pilot="1" class="engi_separatist">L-6644</crewMember>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>防衛。</text>
+			<event>
+				<text>ナノボットは、シールドエンジニアリングの訓練を受けた分離主義者のエンギになります。</text>
+				<crewMember amount="1" shields="1" class="engi_separatist">L-6644</crewMember>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>戦闘。</text>
+			<event>
+				<text>ナノボットは、戦闘でよく訓練された分離主義者のエンギになります。</text>
+				<crewMember amount="1" combat="1" class="engi_separatist">L-6644</crewMember>
+			</event>
+		</choice>
+	</event>
+	
+	<event>
+		<text>あなたは近づいて待ちますが、何も起こりません。ゾルタンの船は、「そして、これからの時代に、一枚岩が人と話さないとき、彼には未来がなく、欲しがっているままにしておかなければならない」と呼びかけます。</text>
+		<ship load="SHIP_ZOLTAN_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	
+	<event>
+		<text>あなたの前に裂け目が開くので、惑星全体がそこから投げ出され、不幸なロスト・サン船が続きます！惑星の表面には巨大なASB大砲のように見え、彼らはあなたと敵の両方に向かって発砲しています！</text>
+		<ship load="SHIP_LOSTSUN_ALL" hostile="true" />
+		<environment type="PDS" target="both" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>モノリスに近づくと、異星人の声が船を満たします。 「すべての贈り物のために、順番に何かをとらなければなりません。」燃料貯蔵量が急速に減少していることに気づきましたが、セルが枯渇するたびにスクラップの埋蔵量が増加しています。</text>
+		<item_modify steal="true">
+			<item type="fuel" min="-5" max="-5" />
+			<item type="scrap" min="25" max="25" />
+		</item_modify>
+	</event>
+	<event>
+		<text>星雲がビーコンを消費するにつれて、船の周りに厚いガスが形成され始めます！通過するゾルタン船は心配しないでください、そしてこれは定期的な出来事であるとあなたに告げます。星雲は通常、しばらくすると消えます。幸いなことに、反乱軍はおそらくあなたを追跡するのに苦労するでしょう。</text>
+		<environment type="storm" />
+		<modifyPursuit amount="-1" />
+	</event>
+	<event>
+		<text>ささやきがあなたを取り囲み、未知の富の約束であなたを落ち着かせます。あなたがしなければならないのは選択をすることです...あなたの報酬を受け取るためにクルーを犠牲にするか、強いままで衝動に抵抗してください。</text>
+		<choice hidden="true">
+			<text>犠牲を払ってください。</text>
+			<event>
+				<text>精神的に挑戦を受け入れるとすぐに、短剣があなたの手に現れます。あなたは最も近いクルーを引きずって、狂った血の欲望で彼らを刺します。あなたはすぐに気を失い、目を覚まして船がスクラップや物資でいっぱいになっているのを見つけます。</text>
+				<autoReward level="HIGH">item</autoReward>
+				<removeCrew>
+					<clone>false</clone>
+					<text>彼らの死は単に刺し傷であるにもかかわらず、あなたのクルーの死は不可逆的であるように思われます。</text>
+				</removeCrew>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>衝動に抵抗する。</text>
+			<event>
+				<text>しばらくすると、ささやきが止まり、できるだけ早く惑星から離れます。</text>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>惑星の表面に近づくと、船体はゆっくりと修復し始めます。しかし、船のいたるところに破損が発生しています。すべてのバラにはとげがあります...</text>
+		<damage amount="-2" system="random" effect="breach" />
+		<damage amount="-2" system="random" effect="breach" />
+		<damage amount="-2" system="random" effect="breach" />
+		<damage amount="-2" system="random" effect="breach" />
+	</event>
+	<event>
+		<text>水面に近づくと、ミサイルの嵐があなたに向かってまっすぐ飛んでいるのに気づきます！船と衝突するとかなりのダメージを与えますが、衝撃でスクラップになります。実際、それはそのすべての損傷などを修復するのにちょうど十分なスクラップです...</text>
+		<damage amount="7" />
+		<item_modify>
+			<item type="scrap" min="35" max="35" />
+		</item_modify>
+	</event>
+	<event>
+		<text>船に笑い声が響き渡り、肉体のない声が続きます。 「友人、そして敵。目のための目。」</text>
+		<boarders min="1" max="1" class="random" />
+		<crewMember amount="1" />
+	</event>
+	<event>
+		<text>あなたは、クルーの1人が咳をして、地面に倒れるときに喉をつかんで紫色に変わるのを見るように向きを変えます。ゆっくりと、彼らの皮膚は剥がれ始め、彼らの体は溶けて、再び完全に異なる形に再形成するだけです。</text>
+		<transformRace>random</transformRace>
+	</event>
+</eventList>
+
+
+<event name="NEBULA_MONK_PEACE_QUEST" unique="true">
+	<preventQuest />
+	<text>武装していないゾルタン船がゆっくりとここのビーコンに向かって進んでいます。彼らは、「私は武器や盾を持っておらず、私たちのメッセージを伝えるために他人の慈悲に頼っています」と歓迎します。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>彼を攻撃します。</text>
+		<event load="MONK_PEACE_QUEST_ATTACK" />
+	</choice>
+	<choice hidden="true">
+		<text>それらを聞いてください。</text>
+		<event>
+			<text>彼らは続けます。 「私はあなたの沈黙を興味のある熟考のために取ります。」僧侶は平和と調和について詳しく話しますが、それはあなたの単純な心を超えているか、それはすべてナンセンスです。</text>
+			<ship load="SHIP_MONK" hostile="false" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>彼らは終わります：「どうか、聞いていない人たちに悟りの言葉を広めてください。聞いたら、私たちの兄弟たちに連絡してください。」彼らは彼らのいわゆる「兄弟」の座標を送信します。</text>
+					<quest event="MONK_PEACE_QUEST2" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>離れる。</text>
+		<event>
+			<text>銀河は戦争中です-平和について話す時間はありません。あなたは彼らからの呼びかけを答えないまま、ジャンプドライブを充電します。</text>
+		</event>
+	</choice>
+</event>
+<eventList name="MONK_PEACE_QUEST_ATTACK">
+	<event>
+		<text>あなたはあなたの武器を充電します-これが多くを要するというわけではありません。</text>
+		<ship load="SHIP_PEACE_QUEST_MONK" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>攻撃の準備をしているときに、近くのジャンプシグネチャを検出します。ゾルタン防衛艦が助けに来ます！</text>
+		<ship load="SHIP_PEACE_QUEST_ELITE" hostile="true" />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<event name="MONK_PEACE_QUEST2">
+	<preventQuest />
+	<preventFleet />
+	<beaconType id="map_icon_peace" global="true">
+		<color r="84" g="201" b="30" a="1.0" />
+		<unvisitedTooltip>僧侶の兄弟の場所。</unvisitedTooltip>
+		<visitedTooltip>これは、僧侶の「兄弟」の場所でした。</visitedTooltip>
+	</beaconType>
+	<quest>
+		<nebulaBeacon>true</nebulaBeacon>
+		<createNebula>false</createNebula>
+	</quest>
+	<text>平和を愛する僧侶が指定した場所に到着しますが、近くにあるのはエリート反乱軍の船だけです。 「私たちはあなたを見つけました！あなたは今度は逃げません！」</text>
+	<ship load="SHIP_PEACE_QUEST_REBEL" hostile="false" />
+	<choice hidden="true">
+		<text>彼らに呼びかけてみてください。</text>
+		<event>
+			<text>彼らはコミュニケーションを開きます：「あなたがあなたを救うとあなたが言うことができる何かがあるとは想像できません。反乱はまだ時代遅れの連邦に忠実な人々を破壊しなければなりません。」</text>
+			<choice hidden="true">
+				<text>「おそらく、戦争なしで私たちの理想の和解があるかもしれませんか？」</text>
+				<event>
+					<text>「私たちの理想はあまりにも異なっているので、簡単に和解させることはできません。これは戦争以外の方法で終わらせることができると思いますか？」</text>
+					<choice hidden="true">
+						<text>銀河は巨大です-あなたはこの破壊を引き起こすことなく他の場所であなたの理想のための場所を見つけることができます。</text>
+						<event>
+							<text>「いいえ！私たちはあなたの「連邦の理想」に適合しないという理由だけで宇宙の裏水に委託されることはありません！」彼らは充電します。</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>真の進歩は流血なしでのみ達成することができます。</text>
+						<event>
+							<text>「あなたはナンセンスを話します。私たちはあなたの言うことを聞きません。」彼らは武器を装備して攻撃しますが、おそらくあなたはそれらを殺す必要はありません。たぶん、あなたは彼らを降伏させることができます、そうすればあなたは両方ともこの場所を生きたままにすることができますか？</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>「降伏。あなたの究極の破壊は避けられない。私たちは、何十人もの反乱軍を破壊したままにした。」</text>
+				<event>
+					<text>彼らは通信を遮断し、すぐに戦闘し始めます。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>「あなたの反乱は何百万もの死を引き起こしています。あなたの信念は銀河を分裂させています。団結が唯一の選択肢です！」</text>
+				<event>
+					<text>「弱い連邦では、人間は異星人と「等しい」ものとして扱われます。それが私たちの潜在能力を最大限に発揮することを意味するのであれば、何十億もの異星人や人間の命を犠牲にすることは正当化されます！」彼らは充電します。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>攻撃。</text>
+		<event>
+			<text>あなたは武器に力を与え、戦う準備をします。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="MONK_PEACE_QUEST_REWARD">
+	<text>「あなたの方法は粗雑で、間違いなく効果がありませんが、前回の会議を真摯に受け止めたことは明らかです。あなたの船が連邦の適応意欲を示している場合、私たちは彼らの戦いを支援するためにできることを行います。技術、または多分私はあなたを助けるためによく訓練されたピースキーパーを送ることができますか？」</text>
+	<variable name="loc_peacequest" op="set" val="1" />
+	<unlockCustomShip silent="false">PLAYER_SHIP_MONK</unlockCustomShip>
+	<autoReward level="LOW">scrap_only</autoReward>
+	<choice>
+		<text>技術者に依頼してください。</text>
+		<event>
+			<augment name="ENERGY_SHIELD" />
+		</event>
+	</choice>
+	<choice>
+		<text>クルーに依頼してください。</text>
+		<event>
+			<crewMember amount="1" class="zoltan_peacekeeper" all_skills="2">使節</crewMember>
+		</event>
+	</choice>
+</event>
+</FTL>

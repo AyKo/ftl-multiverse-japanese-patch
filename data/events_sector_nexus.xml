@@ -1,0 +1,3187 @@
+<FTL>
+
+<event name="NEXUS_PORTAL">
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<nebulaBeacon>true</nebulaBeacon>
+		<createNebula>false</createNebula>
+		<aggressive>2</aggressive>
+	</quest>
+	<beaconType id="map_icon_merchantquest_major" global="true">
+        <color r="155" g="90" b="205" a="1.0" />
+    </beaconType>
+	<text>シルバンの秘密の部屋で見つけたコーディネートは、一見目立たないほどの空間につながっています。いくつかの異常な信号を検出しましたが、予備スキャンでは何もロックできません。</text>
+	<img planet="NONE" />
+	<choice hidden="true" req="UPG_AETHER_SCANNERS">
+		<text>（異常検出器）スキャナーはあらゆる種類の奇妙な結果を示しています。</text>
+		<event>
+			<text>高度なスキャナーは、遠く離れた奇妙な異常にロックします。あなたはそれを追跡し、すぐに巨大な裂け目に直面している広大な海の惑星の雰囲気の中にいることに気づきます。しばらくの間、現実に戻り、この特定の裂け目のさらに珍しいパターンに気付くまで、a敬の念を抱いている以外に何もしません。それは異常に安定しています、そしてあなたがよく知らなかったならば、あなたはそれが人工だと言うでしょう...</text>
+			<changeBackground>BACK_EVENT_NEXUSPORTAL</changeBackground>
+			<choice hidden="true" req="loc_sylvankilled" lvl="0" max_group="0" blue="false">
+				<text>継続する...</text>
+				<event load="NEXUS_PORTAL_SYLVAN" />
+			</choice>
+			<choice hidden="true" req="loc_sylvankilled" lvl="1" max_group="0" blue="false">
+				<text>継続する...</text>
+				<event>
+					<jumpEvent>NEXUS_PORTAL_ENTER</jumpEvent>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ここに来る意味がなかったと思います。</text>
+		<event>
+			<text>残念ながら、ここに来た理由はわかりません。これは時間の無駄だったと思います。あるいは、あなたが見つけられなかった何かがもっとあったかもしれません...</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="NEXUS_PORTAL_SYLVAN">
+	<loadEventList seeded="false" first="true" generate="false">
+		<event name="SYLVAN_PORTAL_SPAWNER_EXTREME" req="challenge_level" lvl="3" max_lvl="3" />
+		<event name="SYLVAN_PORTAL_SPAWNER_CHALLENGE" req="challenge_level" lvl="2" max_lvl="2" />
+		<event name="SYLVAN_PORTAL_SPAWNER_NORMAL" req="challenge_level" lvl="1" max_lvl="1" />
+		<event name="SYLVAN_PORTAL_SPAWNER_CASUAL" req="challenge_level" lvl="0" max_lvl="0" />
+	</loadEventList>
+</event>
+
+<event name="SYLVAN_PORTAL_SPAWNER_CASUAL">
+	<ship load="SHIP_SYLVAN_NEXUSPORTAL_CASUAL" hostile="false" />
+	<loadEvent>NEXUS_PORTAL_2</loadEvent>
+</event>
+<ship name="SHIP_SYLVAN_NEXUSPORTAL_CASUAL" auto_blueprint="MU_TRAVELING_MERCHANT_CASUAL">
+	<triggeredEvent name="SYLVAN_SPARES_YOU" event="NEXUS_PORTAL_SPARE" playerHull="3" playerCrew="1" thisFight="true" />
+	<triggeredEvent name="SYLVAN_IS_GOING_TO_DIE" event="NEXUS_PORTAL_SURRENDER" enemyHull="3" enemyCrew="1" thisFight="true" />
+	<destroyed load="SYLVAN_DESTRUCTION_NEXUSPORTAL" />
+	<deadCrew load="SYLVAN_CREWKILL_NEXUSPORTAL" />
+</ship>
+
+<event name="SYLVAN_PORTAL_SPAWNER_NORMAL">
+	<ship load="SHIP_SYLVAN_NEXUSPORTAL_NORMAL" hostile="false" />
+	<loadEvent>NEXUS_PORTAL_2</loadEvent>
+</event>
+<ship name="SHIP_SYLVAN_NEXUSPORTAL_NORMAL" auto_blueprint="MU_TRAVELING_MERCHANT_NORMAL">
+	<triggeredEvent name="SYLVAN_SPARES_YOU" event="NEXUS_PORTAL_SPARE" playerHull="3" playerCrew="1" thisFight="true" />
+	<triggeredEvent name="SYLVAN_IS_GOING_TO_DIE" event="NEXUS_PORTAL_SURRENDER" enemyHull="3" enemyCrew="1" thisFight="true" />
+	<destroyed load="SYLVAN_DESTRUCTION_NEXUSPORTAL" />
+	<deadCrew load="SYLVAN_CREWKILL_NEXUSPORTAL" />
+</ship>
+
+<event name="SYLVAN_PORTAL_SPAWNER_CHALLENGE">
+	<ship load="SHIP_SYLVAN_NEXUSPORTAL_CHALLENGE" hostile="false" />
+	<loadEvent>NEXUS_PORTAL_2</loadEvent>
+</event>
+<ship name="SHIP_SYLVAN_NEXUSPORTAL_CHALLENGE" auto_blueprint="MU_TRAVELING_MERCHANT_CHALLENGE">
+	<triggeredEvent name="SYLVAN_SPARES_YOU" event="NEXUS_PORTAL_SPARE" playerHull="3" playerCrew="1" thisFight="true" />
+	<triggeredEvent name="SYLVAN_IS_GOING_TO_DIE" event="NEXUS_PORTAL_SURRENDER" enemyHull="3" enemyCrew="1" thisFight="true" />
+	<destroyed load="SYLVAN_DESTRUCTION_NEXUSPORTAL" />
+	<deadCrew load="SYLVAN_CREWKILL_NEXUSPORTAL" />
+</ship>
+
+<event name="SYLVAN_PORTAL_SPAWNER_EXTREME">
+	<ship load="SHIP_SYLVAN_NEXUSPORTAL_EXTREME" hostile="false" />
+	<loadEvent>NEXUS_PORTAL_2</loadEvent>
+</event>
+<ship name="SHIP_SYLVAN_NEXUSPORTAL_EXTREME" auto_blueprint="MU_TRAVELING_MERCHANT_EXTREME">
+	<triggeredEvent name="SYLVAN_SPARES_YOU" event="NEXUS_PORTAL_SPARE" playerHull="3" playerCrew="1" thisFight="true" />
+	<triggeredEvent name="SYLVAN_IS_GOING_TO_DIE" event="NEXUS_PORTAL_SURRENDER" enemyHull="3" enemyCrew="1" thisFight="true" />
+	<destroyed load="SYLVAN_DESTRUCTION_NEXUSPORTAL" />
+	<deadCrew load="SYLVAN_CREWKILL_NEXUSPORTAL" />
+</ship>
+
+<event name="NEXUS_PORTAL_2">
+	<text>遠くでは、あなたに向かって飛んでいる船を作ることができ、すぐにそれがシルバンだと気づきます！「ssstranger、あなたはここにいなかったでしょう...どうやってこの場所を見つけたのですか？ああ、それは重要ではありません。</text>
+	<choice hidden="true">
+		<text>この場所は何ですか？</text>
+		<event>
+			<text>「これは、QuessStionss、ssstrangerの良い時期ではありません。あなたはクロスサーには行きません。あなたを作って、sssstranger ...」</text>
+			<choice hidden="true" blue="false" req="challenge_level" lvl="0" max_lvl="0">
+				<text>これが何であるかを知るまで、私たちは去りません。</text>
+				<event>
+					<text>「それなら、私はあなたが私に選択肢がないのではないかと心配しています、ssstranger ...」</text>
+					<playMusic>sylvan</playMusic>
+					<variable name="loc_sylvanbetrayed" op="set" val="1" />
+					<triggeredEvent event="STOP_MUSIC" jumps="1" />
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" blue="false" req="challenge_level" lvl="1" max_lvl="1">
+				<text>これが何であるかを知るまで、私たちは去りません。</text>
+				<event>
+					<text>「それなら、私はあなたが私に選択肢がないのではないかと心配しています、ssstranger ...」</text>
+					<playMusic>sylvan</playMusic>
+					<variable name="loc_sylvanbetrayed" op="set" val="1" />
+					<triggeredEvent event="STOP_MUSIC" jumps="1" />
+					<triggeredEvent event="SHIELD_SURGE_SYLVAN" seeded="false" loops="999999999" thisFight="true" minTime="60.0" maxTime="60.0">
+						<warningMessage id="warning_shield_surge_player" x="692" y="84" time="5.0" centerText="true" flash="true" sound="surgeWarning" useWarningLine="true" />
+						<triggeredEventBox load="DEFAULT_SMALL" pos="combat">
+							<warning time="10.0" flash="true" />
+							<tooltip>シルバンのシールドはこの長さで再生されます。</tooltip>
+						</triggeredEventBox>
+					</triggeredEvent>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" blue="false" req="challenge_level" lvl="2" max_lvl="2">
+				<text>これが何であるかを知るまで、私たちは去りません。</text>
+				<event>
+					<text>「それなら、私はあなたが私に選択肢がないのではないかと心配しています、ssstranger ...」</text>
+					<playMusic>sylvan</playMusic>
+					<variable name="loc_sylvanbetrayed" op="set" val="1" />
+					<triggeredEvent event="STOP_MUSIC" jumps="1" />
+					<triggeredEvent event="SHIELD_SURGE_SYLVAN" seeded="false" loops="999999999" thisFight="true" minTime="45.0" maxTime="45.0">
+						<warningMessage id="warning_shield_surge_player" x="692" y="84" time="5.0" centerText="true" flash="true" sound="surgeWarning" useWarningLine="true" />
+						<triggeredEventBox load="DEFAULT_SMALL" pos="combat">
+							<warning time="10.0" flash="true" />
+							<tooltip>シルバンのシールドはこの長さで再生されます。</tooltip>
+						</triggeredEventBox>
+					</triggeredEvent>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" blue="false" req="challenge_level" lvl="3" max_lvl="3">
+				<text>これが何であるかを知るまで、私たちは去りません。</text>
+				<event>
+					<text>「それなら、私はあなたが私に選択肢がないのではないかと心配しています、ssstranger ...」</text>
+					<playMusic>sylvan</playMusic>
+					<variable name="loc_sylvanbetrayed" op="set" val="1" />
+					<triggeredEvent event="STOP_MUSIC" jumps="1" />
+					<triggeredEvent event="SHIELD_SURGE_SYLVAN" seeded="false" loops="999999999" thisFight="true" minTime="30.0" maxTime="30.0">
+						<warningMessage id="warning_shield_surge_player" x="692" y="84" time="5.0" centerText="true" flash="true" sound="surgeWarning" useWarningLine="true" />
+						<triggeredEventBox load="DEFAULT_SMALL" pos="combat">
+							<warning time="10.0" flash="true" />
+							<tooltip>シルバンのシールドはこの長さで再生されます。</tooltip>
+						</triggeredEventBox>
+					</triggeredEvent>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>彼の警告を守り、去りなさい。</text>
+				<event>
+					<text>「sssmart choice ssstranger。とにかくするためのより重要なことがあります...」</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>彼の警告を守り、去りなさい。</text>
+		<event>
+			<text>「sssmart choice ssstranger。とにかくするためのより重要なことがあります...」</text>
+		</event>
+	</choice>
+</event>
+
+<event name="NEXUS_PORTAL_SPARE">
+	<text>あなたは最後の足を踏み出しているようです。あなたはそれほど長く生き残ることはできませんが、シルバンは一瞬発砲を止めてあなたを歓迎します。 「私はあなたのススストレンジャーを殺すのを嫌がりません。去ってください、そして私たちはこれを忘れることができます...」</text>
+	<clearTriggeredEvent name="SYLVAN_SPARES_YOU" />
+	<choice hidden="true">
+		<text>降伏。</text>
+		<event name="SURRENDERED_TO_SYLVAN">
+			<text>シルバンは彼の武器を永久にパワーダウンし、最後にあなたを見て、彼の顔全体に罪を犯し、遠くに滑り落ちます。</text>
+			<playMusic />
+			<damage amount="-10" />
+			<ship hostile="false" />
+			<surrender />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>私たちはあきらめていません。</text>
+		<event>
+			<text>「最後まで頑固です、ssstranger。私はそれがどのようにsssであるかを見ます...」</text>
+		</event>
+	</choice>
+</event>
+<event name="NEXUS_PORTAL_SURRENDER">
+	<text>シルバンは破壊の危機に瀕しているようです。あなたが本当に彼を殺したいかどうかはわかりません。</text>
+	<clearTriggeredEvent name="SYLVAN_IS_GOING_TO_DIE" />
+	<choice hidden="true">
+		<text>デマンドシルバンは立ち下がります。</text>
+		<event name="SYLVAN_SURRENDERED">
+			<text>「それ...それは私が失敗したssseemssssssssssssssssssssssssssssssselfからあなたをssにすることはできませんでした。。まあ...あなたはおそらく他のsssideからそれを作ることはないでしょう。その不吉なメモで、シルバンは単に飛び去ります。あなたは戦いから残っている多くの破片に気づき、あなたができることを集めます。</text>
+			<playMusic />
+			<clearTriggeredEvent name="STOP_MUSIC" />
+			<metaVariable name="juke_sylvan" op="set" val="1" />
+			<weapon name="RANDOM" />
+			<damage amount="-20" />
+			<item_modify>
+				<item type="fuel" min="10" max="10" />
+				<item type="scrap" min="200" max="200" />
+				<item type="missiles" min="10" max="10" />
+				<item type="drones" min="10" max="10" />
+			</item_modify>
+			<recallBoarders ship="both" />
+			<instantEscape />
+			<jumpEvent>NEXUS_PORTAL_ENTER</jumpEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>戦い続ける。</text>
+		<event />
+	</choice>
+</event>
+<event name="SYLVAN_CREWKILL_NEXUSPORTAL">
+	<text>これでシルバンの終わりのように見えますが、突然テレポーター信号が登録されます-あなたは再び搭乗しましたか？シルバンがあなたのデッキに再び現れます。 「Sssstranger、私を追い払うのはssssoの簡単なことではありません！」</text>
+	<boarders min="1" max="1" class="unique_sylvan" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>それだけでは不十分であるかのように、さらに多くのスラッグが搭乗しています！これらの人はどこから来たのですか？</text>
+			<boarders min="2" max="3" class="slug" />
+			<ship hostile="true" />
+		</event>
+	</choice>
+</event> 
+<event name="SYLVAN_DESTRUCTION_NEXUSPORTAL">
+	<text>シルバンはひざまずき、顔全体の切り傷から大量に出血します。彼はなんとか最後の言葉をいくつか吐き出しました。旅する商人はもういません。</text>
+	<playMusic />
+	<clearTriggeredEvent name="STOP_MUSIC" />
+	<metaVariable name="juke_sylvan" op="set" val="1" />
+	<unlockCustomShip shipReq="PLAYER_SHIP_SYLVAN" silent="false">PLAYER_SHIP_SYLVAN_3</unlockCustomShip>
+	<variable name="loc_sylvankilled" op="set" val="1" />
+	<augment name="SYLVAN_SHIELD_REWARD" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="SYLVAN_DESTRUCTION_2_NEXUS" />
+	</choice>
+</event> 
+<event name="SYLVAN_DESTRUCTION_2_NEXUS">
+	<text>スラッグシーラントの強力な層は、船が壊れ始めたときに船を一緒に保ちますが、最終的にはストレスの下で解放され、船は爆発し、システム全体に貨物コンテナを散乱させます。</text>
+	<unlockCustomShip shipReq="PLAYER_SHIP_LIMIT_3" silent="false">PLAYER_SHIP_LIMIT_4</unlockCustomShip>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>貨物を収集します。</text>
+		<event>
+			<text>最初のカーゴボックスをすくい上げ、中のスクラップをすべて空にします。</text>
+			<autoReward level="HIGH">scrap_only</autoReward>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>別のカーゴボックスを開いて、さらに多くのスクラップを見つけます。</text>
+					<autoReward level="HIGH">scrap_only</autoReward>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>あなたは別の貨物箱を開けて、武器とより多くの物資を見つけます！</text>
+							<autoReward level="HIGH">weapon</autoReward>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event>
+									<text>あなたは別のカーゴボックスを開けて、物資の中からドローンを見つけました！</text>
+									<autoReward level="HIGH">drone</autoReward>
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event>
+											<text>別の貨物ボックスを開けて、中に大量の燃料とスクラップを見つけます。</text>
+											<autoReward level="HIGH">fuel</autoReward>
+											<choice hidden="true">
+												<text>継続する...</text>
+												<event>
+													<text>あなたは別の貨物ボックスを開けて、中にたくさんのミサイルとスクラップを見つけました。</text>
+													<autoReward level="HIGH">missiles</autoReward>
+													<choice hidden="true">
+														<text>継続する...</text>
+														<event>
+															<text>あなたは別の貨物ボックスを開けて、たくさんのドローン部品とスクラップを見つけました。</text>
+															<autoReward level="HIGH">droneparts</autoReward>
+															<choice hidden="true">
+																<text>継続する...</text>
+																<event>
+																	<text>あなたは別のカーゴボックスを開けて、中に真新しい増強物といくつかの物資を見つけます！</text>
+																	<autoReward level="HIGH">augment</autoReward>
+																	<choice hidden="true">
+																		<text>継続する...</text>
+																		<event>
+																			<text>あなたは別のカーゴボックスを開けて、さらに多くの物資を見つけます！</text>
+																			<autoReward level="HIGH">stuff</autoReward>
+																			<choice hidden="true">
+																				<text>継続する...</text>
+																				<event>
+																					<text>あなたは別の貨物箱を開けて、たくさんのミサイルを見つけました！</text>
+																					<autoReward level="HIGH">missiles_only</autoReward>
+																					<choice hidden="true">
+																						<text>継続する...</text>
+																						<event>
+																							<text>あなたは別の貨物ボックスを開けて、たくさんのドローン部品を見つけました！</text>
+																							<autoReward level="HIGH">droneparts_only</autoReward>
+																							<choice hidden="true">
+																								<text>継続する...</text>
+																								<event>
+																									<text>別のカーゴボックスを開いて、さらに多くのスクラップを見つけます。</text>
+																									<autoReward level="HIGH">scrap_only</autoReward>
+																									<choice hidden="true">
+																										<text>継続する...</text>
+																										<event>
+																											<text>最後の箱を開けると、当然のことながら、さらに多くのスクラップが見つかります。</text>
+																											<autoReward level="HIGH">scrap_only</autoReward>
+																											<jumpEvent>NEXUS_PORTAL_ENTER</jumpEvent>
+																										</event>
+																									</choice>
+																								</event>
+																							</choice>
+																						</event>
+																					</choice>
+																				</event>
+																			</choice>
+																		</event>
+																	</choice>
+																</event>
+															</choice>
+														</event>
+													</choice>
+												</event>
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event> 
+
+<event name="NEXUS_PORTAL_ENTER">
+	<text>ここには残っている選択肢は1つだけです。この裂け目はある種のゲートウェイのようですが、反対側に何があるかを本当に見たいですか？</text>
+	<choice hidden="true">
+		<text>入る。</text>
+		<event>
+			<text>あなたが裂け目に近づき始めると、あなたの周りのスペースは徐々に歪んでしまい、すぐにあなたのエンジンでさえ、あなたがガートウェイの中心に不条理な速度で吸い込まれているのであなたの船を制御することはできません...</text>
+			<secretSectorWarp>SECRET_SYLVAN</secretSectorWarp>
+			<secretSector />
+			<variable name="loc_nexus_entered" op="set" val="1" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>裂け目を残します。</text>
+		<event>
+			<text>それは難しい呼びかけですが、あなたの主な使命は、古代の宇宙の異常を探索する危険を冒すにはあまりにも重要です。</text>
+		</event>
+	</choice>
+</event>
+
+	
+<ship name="SHIP_TRAVELING_MERCHANT_NEXUS" auto_blueprint="LIST_SHIPS_SYLVAN_ALT">
+	<destroyed load="SYLVAN_DESTRUCTION_NEXUS" />
+	<deadCrew load="SYLVAN_DESTRUCTION_NEXUS" />
+</ship>
+<event name="SYLVAN_DESTRUCTION_NEXUS">
+	<text>シルバンはひざまずき、顔全体の切り傷から大量に出血します。彼はなんとか最後の言葉をいくつか吐き出しました。もう一人の旅行商人はもういません。</text>
+	<item_modify>
+		<item type="fuel" min="5" max="12" />
+		<item type="scrap" min="150" max="300" />
+		<item type="missiles" min="5" max="12" />
+		<item type="drones" min="5" max="12" />
+	</item_modify>
+</event> 
+<event name="SYLVAN_NEXUS">
+	<preventQuest />
+	<beaconType id="map_icon_merchant" global="false">
+		<color r="155" g="90" b="205" a="1.0" />
+		<unvisitedTooltip>これは、取引に開放されているシルバンの場所です。</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
+	</beaconType>
+	<text>さらに別の奇妙なシルバンがここであなたを待っています。彼らは十分に友好的で、喜んで取引しているようです。</text>
+	<ship load="SHIP_TRAVELING_MERCHANT_NEXUS" hostile="false" />
+	<eventAlias name="SYLVAN_TRADES" jumpClear="true">SYLVAN_TRADES_NEXUS</eventAlias>
+	<eventAlias name="SYLVAN_TRADES_DROPPOINT" jumpClear="true">SYLVAN_TRADES_NEXUS</eventAlias>
+	<eventAlias name="SYLVAN_TRADES_LASTSTAND" jumpClear="true">SYLVAN_TRADES_NEXUS</eventAlias> 
+	<choice hidden="true" req="unique_sylvan" max_group="0" blue="true">
+		<text>（シルバン）シルバンを使ってシルバンを呼びます。</text>
+		<event>
+			<text>「私はあなたが実際に私、私であることを確認します。しかし、残念ながら割引はありません。私には無限の可能性があり、それらすべてに無料のスクラップを与えることはできません!」</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<loadEvent>SYLVAN_NEXUS</loadEvent>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>彼が提供しているものを見てください。</text>
+		<event load="SYLVAN_TRADES_NEXUS" />
+	</choice>
+	<choice hidden="true">
+		<text>最初にいくつかのリソースを販売します。</text>
+		<event load="SYLVAN_CONVERT_MENU" />
+	</choice>
+	<choice hidden="true">
+		<text>攻撃！</text>
+		<event load="MORALITY_UPDATE_NEXUS_FIGHT" />
+	</choice>
+	<choice hidden="true" req="pilot" lvl="1" max_group="5" blue="false">
+		<text>彼の申し出を断る。</text>
+		<event>
+			<text>「たぶん別の時期、SSStranger！私はこれが私たちがお互いをsseeしているラスストではないだろうと確信しています。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event> 
+<event name="SYLVAN_TRADES_NEXUS">
+	<text>「あーあススストレンジャーよ、どんな自尊心のある多国籍のススストレンジャーでも、生き残るにはそれなりの装備が必要だと知っている。」</text>
+	<store>STORE_SYLVAN_NEXUS</store>
+</event>
+
+<event name="START_NEXUS">
+	<text>船の床から身を乗り出し、窓の外を一瞥して、空間と時間のどこにいるのかを試してみます。遠くには、あなたが来た場所に戻る別の大きな亀裂があり、ゆっくりと縮小しています.この突然の失踪により、反乱軍はかなりのループに陥るはずですが、これが何であれ、あなたが生き残ることができるかどうかは誰にもわかりません.</text>
+	<variable name="loc_unique_sectors" op="add" val="1" />
+	<variable name="loc_protomv_drive_block" op="set" val="1" />
+	<img back="BACK_EVENT_NEXUS" planet="NONE" />
+	<modifyPursuit amount="-45" />
+	<ship load="SHIP_GUARD_NEXUS" hostile="false" />
+	<changeBackground>BACK_EVENT_NEXUS</changeBackground>
+	<playSound>lightspeed</playSound>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event name="START_NEXUS_2">
+			<status type="limit" target="player" system="weapons" amount="0" />
+			<status type="limit" target="player" system="shields" amount="0" />
+			<status type="limit" target="player" system="engines" amount="1" />
+			<status type="limit" target="player" system="cloaking" amount="0" />
+			<status type="limit" target="player" system="drones" amount="0" />
+			<status type="limit" target="player" system="doors" amount="0" />
+			<status type="limit" target="player" system="sensors" amount="0" />
+			<status type="limit" target="player" system="hacking" amount="0" />
+			<status type="limit" target="player" system="mind" amount="0" />
+			<status type="limit" target="player" system="temporal" amount="0" />
+			<status type="limit" target="player" system="teleporter" amount="0" />
+			<status type="limit" target="player" system="artillery" amount="0" />
+			<status type="limit" target="player" system="reactor" amount="1" />
+			<text>完全に意識したら、船の重要なシステムをチェックしますが、すべてが閉鎖されていることがわかります。奇妙な色のナメクジのトランスポートが近くに残り、あなたが反応する前にあなたはあなたの後ろから咳を聞くでしょう。あなたは回転して、アイロンをかけたスーツを着たナメクジを見つけ、その場しのぎの折りたたみ式のテーブルに座って、ブリーフケースと紙の山を持っています。「こんにちは... ssstranger。あなたは... ssseatを持っていることを気にしますか？」</text>
+			<choice hidden="true">
+				<text>座って下さい。</text> 
+				<event name="START_NEXUS_3">
+					<text>ナメクジの向かいに座って、あなたに向かって触手を伸ばします。「あいさつ、ssstranger。おそらく、それはあなたの知り合いを作ることは無関係です...しかし、私は心からのことをするのが好きです。しかし、g-van。残念ながら、これはsssimpleではなく..会って挨拶してください。私はあなたを...あなたを攻撃したいと思います。」「さて...誰があなたをssしたのか？」</text>
+					<choice hidden="true">
+						<text>私たちは誰からも送られませんでした。</text>
+						<event>
+							<text>「あなたは私が...それを信じていると思いますか？あなた、ssstranger ... "</text>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event name="START_NEXUS_4">
+									<text>「あなたのシルバンは...あなたにこのようなことをさせましたか?それとも彼らは...あなたを止めようとしましたか?私たちがあなたの現実を何の手に委ねたかを理解することは非常に重要です.」</text>
+									<choice hidden="true">
+										<text>「私たちのシルバン」？どういう意味ですか？</text>
+										<event>
+											<text>「あぁ…今見た。そう、君は本当に知らないんだ…君がどこにいるのか。ああ…ああ、可哀想な生き物…まあ、ススストレンジャー、あなたに残酷なことはしたくない。よろしいですか？説明？"</text>
+											<choice hidden="true">
+												<text>はい、お願いします。</text>
+												<event>
+													<text>G-Vanは彼の論文をシャッフルし、Cartooneyのインフォグラフィックを滑り込ませ、おそらく多元宇宙とは何かにさまざまなポイントにラベル付けされています。「現在、SSSStranger、あなたは私たちが「Nexussss」と呼んでいるものの中に自分自身がいることがわかります。私たちの...リーダー、SSSSSYLVAN PRIME。FIRSSSTでは、単にTrade Allianceを確立しましたが、SSSOONは多国層内で保持されている脅威に気付いたとき、それが私たちにもそれを保護することができることが明らかになりました。sssaidの脅威からmultiverssseを保護するために、私たちはc.e.l.を設立しました。ElssseはNexussssに入ったり離れたりするために...残念ながら、私の唯一の選択肢は、あなたを排除することを意味します。」</text>
+													<choice hidden="true">
+														<text>きっと他に方法がある!?</text>
+														<event name="START_NEXUS_5">
+															<text>「私は...あなたからの慈悲の嘆願を受け入れることを許可されていない。あなたはあなたの戦闘ステーションに急いでいますが、あなたのシステムはまだ限られていることがわかります。このように、あなたはほとんどチャンスに耐えられません！</text>
+															<triggeredEvent event="NEXUS_ENTER_GLITCH" time="5" />
+															<ship hostile="true" />
+															<choice hidden="true">
+																<text>継続する...</text>
+																<event load="COMBAT_CHECK" />
+															</choice>
+														</event>
+													</choice>
+													<choice hidden="true" req="unique_irwin">
+														<text>(アーウィン) "オーマイゴッド."</text>
+														<event>
+															<text>アーウィンはしばらくの間umb然としているようで、彼の失態を落とし、触手でアイストラクを伸ばします。「ああ、私の神。聖なるssshit。聖なる実際のssshit。私は正しいです！私はこれがずっとそうだったのです！彼らは私を狂人と呼んでいます。！あなたはssslimyの裏切り者のお尻です。私はあなたに会った瞬間にあなたを殺したはずです。しかし...ああ、私はあなたに支払いをさせます。アーウィンを台無しにした日に復活します！」「ええと...私はあなたが誰なのかわからないのではないかと心配しています...？」「ああ、でもあなたはそうする。アーウィンは彼のブランドバスを拾い上げ、それを振り回し、それを使って彼の道のシルバンを抹消する準備ができています。他の選択肢が残っていないので、あなたは戦う準備をします。残念ながら、システムはまだオフラインであり、乗組員が「熱心」にもかかわらず、どれだけのチャンスが立つかはわかりません。</text>
+															<triggeredEvent event="NEXUS_ENTER_GLITCH" time="3" />
+															<ship hostile="true" />
+															<choice hidden="true">
+																<text>継続する...</text>
+																<event load="COMBAT_CHECK" />
+															</choice>
+														</event>
+													</choice>
+												</event>
+											</choice>
+											<choice hidden="true">
+												<text>結構です。</text>
+												<event>
+													<text>「それでは、私は商売を始めます。私たちの神聖な指導者であるシルバン・プライムの指示により、私たちの信条の最も神聖な規則は、私たち自身の誰もこの場所に出入りしてはならないということです.残念ながら、私は今あなたを...排除しなければなりません。」</text>
+													<choice hidden="true">
+														<text>きっと他に方法がある!?</text>
+														<event>
+															<loadEvent>START_NEXUS_5</loadEvent>
+														</event>
+													</choice>
+												</event>
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="prof_oracle_info" blue="false">
+						<text>変なオートシップに連れられてここまで来ました。</text>
+						<event>
+							<text>G-Van は少し混乱してあなたを見上げます。 「あ…何？ わからない… 意味が分からない。まるで… プローブ？ それとも… ああ、気にしないで。 マルチバースは… 無限に、sss非常に多く… 説明sssともかく」</text>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event>
+									<loadEvent>START_NEXUS_4</loadEvent>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="prof_oracle_info" blue="false">
+						<text>Thest はここへの行き方を教えてくれました。</text>
+						<event>
+							<text>G-Van Frowns。「残念なことに...私はゾルタンが... USSSを裏切るとは思わなかった。。私の雇用主に知らせてください...しかし、私は彼らに寛大であることを説得するために最善を尽くします。</text>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event>
+									<loadEvent>START_NEXUS_4</loadEvent>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="gnome" blue="false">
+						<text>この Gnome は、私たちがここに来ることを本当に望んでいました。</text>
+						<event>
+							<text>「あの……なに？ススストレンジャー、一体何をしたの？あれをここに……持ってきたの！もしこれが私の信じているものなら、これは……即時封じ込めの危機だ」</text>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event>
+									<loadEvent>START_NEXUS_4</loadEvent>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="loc_gvan_seat" lvl="1" blue="false">
+				<text>座って下さい。</text> 
+				<event>
+					<loadEvent>START_NEXUS_3</loadEvent>
+				</event>
+			</choice>
+			<choice hidden="true" req="loc_gvan_seat" lvl="0" max_lvl="0" blue="false">
+				<text>拒否する。</text> 
+				<event>
+					<variable name="loc_gvan_seat" op="set" val="1" />
+					<loadEvent>START_NEXUS_2</loadEvent>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEXUS_ENTER_GLITCH">
+	<backgroundObject name="GLITCH">
+		<layer z="0">front</layer>
+		<spawnArea x="295" y="188" w="0" h="0" center="true" />
+		<anim>glitch</anim>
+		<active>true</active>
+	</backgroundObject>
+	<playSound>glitch</playSound>
+	<triggeredEvent event="NEXUS_ENTER_GLITCH_CONTINUE" time="1" clearOnJump="true" />
+</event>
+<event name="NEXUS_ENTER_GLITCH_CONTINUE">
+	<text>驚いたことに、システムが突然正常に戻りました。何が原因かはわかりませんが、心配している時間はありません。 G-Vanも戸惑っているみたいだけど、あなたの脅威が大きくなった今、G-Vanは彼のゲームを強化しなければならないようです！</text>
+	<variable name="loc_protomv_drive_block" op="set" val="0" />
+	<clearBackgroundObject name="GLITCH" />
+	<status type="clear" target="player" system="weapons" amount="100" />
+	<status type="clear" target="player" system="shields" amount="100" />
+	<status type="clear" target="player" system="engines" amount="100" />
+	<status type="clear" target="player" system="cloaking" amount="100" />
+	<status type="clear" target="player" system="drones" amount="100" />
+	<status type="clear" target="player" system="doors" amount="100" />
+	<status type="clear" target="player" system="sensors" amount="100" />
+	<status type="clear" target="player" system="hacking" amount="100" />
+	<status type="clear" target="player" system="mind" amount="100" />
+	<status type="clear" target="player" system="temporal" amount="100" />
+	<status type="clear" target="player" system="teleporter" amount="100" />
+	<status type="clear" target="player" system="artillery" amount="100" />
+	<status type="clear" target="player" system="reactor" amount="100" />
+</event>
+
+<ship name="SHIP_GUARD_NEXUS" auto_blueprint="MU_TRAVELING_MERCHANT_GMAN">
+	<triggeredEvent event="NEXUS_GUARD_SURRENDER" enemyCrew="2" enemyHull="3" thisFight="true" />
+	<destroyed load="GUARD_NEXUS_DEFEAT" />
+	<deadCrew load="GUARD_NEXUS_AI" />
+	<deadCrewAuto />
+</ship>
+<event name="GUARD_NEXUS_AI">
+	<text>G-Van と彼の乗組員を殺すだけでは十分ではなかったようです。船にはある種のセカンダリ AI モードがあり、まだ戦闘中です!</text>
+</event>
+<event name="GUARD_NEXUS_DEFEAT">
+	<text>G-Vanは倒されました。彼が戦いに消極的であることは、あなたが彼を惜しみなく与えたかもしれないが、あなたは断固とした決断を下す.ネクサスの奥深くへと進むのを止めるものは何もないので、あなたは彼の船を廃棄し、次に来るものに備えて精神的に準備します.</text>
+	<killEnemyBoarders />
+	<achievement>ACH_SYLVAN_CONTINUITY</achievement>
+	<weapon name="PRIME_LASER" />
+	<autoReward level="HIGH">standard_no_item</autoReward>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="MORALITY_UPDATE_NEXUS" />
+	</choice>
+</event>
+
+<event name="NEXUS_GUARD_SURRENDER">
+	<text>G-Van の船は調子が悪い。あなたは彼の闘志が著しく低下していることに気付きました。</text>
+	<choice hidden="true">
+		<text>スペアGバン。</text>
+		<event>
+			<text>「ssso ...ここにいます、私はssstrangerです。...侵入者の慈悲で、私は殺すためにsssuppossssedをwassssssssssed of sssupposssed ssssupposssed of ssspare me？私がしたこと、ssstranger？私たちはやったのですか？あなたが今ではないなら...そうなります。あなたはあなたが決して... sssylvanに会ったことはありません。SSSO...あなたが私のアドバイスを望むなら、SSStranger。Primeとのssscrew。多分...たぶん彼はあなたに...取引、ssstrangerを切ってくれるでしょう。」</text>
+			<achievement>ACH_SYLVAN_CONTINUITY</achievement>
+			<surrender />
+			<enemyDamage amount="-25" />
+			<ship hostile="false" />
+			<choice hidden="true">
+				<text>私たちはもっとひどい扱いをしました。プライムが私たちに何を投げかけても、私たちは取ることができます。</text>
+				<event>
+					<text>G-vanは頭を振って、触手に目を置くとうめき声を上げます。「いいえ、ssstranger、あなたは再びプライムをssstandしません。あなたは気づきますか...それがあなたがsssayしていることを発行しますか？a ...愚か者、ssstranger。もしプライムが倒れることができれば、私たちは...すでにsssoをやっていたでしょう。「しかし...そこには...あなたがここにいる理由についての説明...私は...私は受け入れることをヘッズします。</text>
+					<choice hidden="true">
+						<text>「彼女」とは正確には誰ですか？</text>
+						<event>
+							<text>「あなたはsssseeになります... sssoon。もし私が正しいなら、リースストで...私をここに残してください...私は私の運命に一人でいます。」</text>
+							<choice hidden="true">
+								<text>私たちを助けた後、運命に立ち向かうことができます。</text>
+								<event>
+									<text>G-Van は抗議しようとしますが、あなたは彼の船とドッキングし、彼を船に引きずり込みます。あなたと戦うには弱すぎる、彼はついに屈服し、協力します。 「よし…もし私が…プライムに死ぬなら、私は…臆病者として死ぬことはないだろう…」</text>
+									<crewMember amount="1" class="nexus_sylvan_gman">g-van</crewMember>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>彼の運命に任せてください。</text>
+								<event>
+									<text>難破したG-Van船は、おそらく彼の共犯者によって最終的に回収されるでしょう.彼の運命がプライムによってどうなるかは定かではありませんが、他にも心配すべきことがあります。</text>
+									<variable name="loc_gvan_spared" op="set" val="1" />
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>何も言わずに立ち去ります。</text>
+				<event>
+					<text>G-Vanは倒れるが、まだ死んでいない。難破した彼の船は、おそらく彼の共犯者によって最終的に回収されるでしょう。彼の運命がプライムによってどうなるかは定かではありませんが、他にも心配すべきことがあります。</text>
+					<variable name="loc_gvan_spared" op="set" val="1" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>戦い続ける。</text>
+		<event />
+	</choice>
+</event> 
+
+
+<event name="SYLVAN_PRIME">
+	<preventQuest />
+	<preventFleet />
+	<beaconType id="map_icon_sylvanprime" global="true">
+		<color r="145" g="160" b="255" a="1.0" />
+		<unvisitedTooltip>シルバンプライムの場所、あなたの唯一の脱出のチャンス。</unvisitedTooltip>
+		<visitedTooltip>シルバンプライムの場所。</visitedTooltip>
+	</beaconType>
+	<img back="BACK_EVENT_CENTER" planet="NONE" />
+	<text>ここでは、シルバンプライムの想定されている場所として監督されているので、星空の深bys以外の何も顔を合わせて顔を合わせていることに気づきます。あなたがこの瞬間を去ることを選んだなら、おそらく後退することはないでしょう。Nexusをさらに探索したい場合は、チャンスがあります。</text>
+	<revisitEvent>SYLVAN_PRIME</revisitEvent>
+	<choice hidden="true">
+		<text>もう少し滞在してください。</text>
+		<event />
+	</choice>
+	<choice hidden="true" req="loc_found_dev" lvl="0" max_lvl="0" blue="false">
+		<text>探求し続けるべきだと感じます。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="loc_found_dev" lvl="1" blue="false">
+		<text>準備ができました。</text>
+		<event load="SYLVAN_PRIME_MEET" />
+	</choice>
+</event>
+<event name="TEST_FIGHT_PRIME"> 
+	<text>喧嘩。</text>
+	<ship load="SHIP_SYLVAN_PRIME" hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="SYLVAN_PRIME_MEET">
+	<text>突然、あなたの背後に巨大な巡洋艦が現れます。これは、これまでに見たどの船よりも大きく、おそらくより優れた武装を備えています。大きなコンパートメントが開き、ドッキング ポートが現れます。ドッキングする必要があることは明らかです。つまり、このおもてなしを拒否したためにその場で全滅したくない場合を除きます.</text>
+	<ship load="SHIP_SYLVAN_PRIME" hostile="false" />
+	<variable name="loc_protomv_drive_block" op="set" val="1" />
+	<choice hidden="true">
+		<text>ドッキングする。</text>
+		<event>
+			<text>船を出ると、輝く大理石の噴水と巨大な彫像でいっぱいの明るく照らされたロビーに身を包みます。3つの装甲スラッグが近づき、お辞儀をします。「挨拶、ssstrangers。ヒス・ロイヤル・デビニティ、スシル・スシルバン・ヘクタル・プライムは、あなたがすぐにヒス・カウンシルに出席することを要求しました。</text>
+			<choice hidden="true">
+				<text>彼らと一緒にプライムに会いに行きましょう。</text>
+				<event>
+					<text>ナメクジはあなたをさらに大きくてより壮大な部屋に行進させ、天井が非常に高く、船のサイズの可能性のある制限に反していると確信しています。天使の聖歌隊があなたの上にあるコンパートメントが開くと部屋を満たし、2つのリングの上の目がくらむような白い空間からあなたの方向に降ります。ナメクジの間に、腕が伸ばされ、雄大な光が彼に投げかけられているので、あなたはwe敬の念を抱いて見ます。まだあなたの上に浮かんで、彼は拍手し、警備員は部屋を出ます。」そして、ssso ssso私たちはssstrangerのラスストで会います。私のおめでとうございます。これまでのssssurvivingについて。お茶？"応答を待つことさえせずに、白い三角形のドローンが部屋に入り、すでにいっぱいの小さなカップをフェリーします。プライムは自分自身を奪わず、代わりに最終的に地面まで降りてきました。「私の共犯者があなたをよく扱ってくることを願っています - そしてあなたは見返りにそれらをよく扱ってきたことを願っています。」プライムはあなたから背を向けて、アビスに向いて窓に向かって浮かんでいます。何の中心ですか。何年も前に私を魅了してくれましたか？もし私がここでsssitするなら、神は他のすべてのものの中にあります...まあ...私はそれを信じなかっただろうと思います。私、ssstranger。あなたはそれについてどう思いますか？あなたがあなたの宿題をしたなら、今ではあなたは私たちがここで行うことをsssurilyに集めました。思いますか？」</text>
+					<choice hidden="true">
+						<text>このように多元宇宙全体を支配している、あなたは卑劣です。</text>
+						<event name="SYLVAN_PRIME_EXPLAIN">
+							<text>「そして、もう1つのSSSSOは、SSSIMPLYSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSを失敗させます...根本的な真実を抑えることに失敗します。SSSTRANGER、あなたはssseeではありませんか？私はこの役割を満たすことはありません。、おそらく時間の始まりには、ネクサスを支配している多くの経験者がいました。MultiversSSSEは無限、SSStrangers。、およびInfinite ISSは非常に非控えめなことです。MultiversSSEは、SSSSOSMENの手なしで自分自身を維持することをいとわないことを喜んで保持することはできません。Ssstranger、私はどれだけ私が商人であるときに昔の時代に戻ることができるかを知っていました。戻れません。私はあなたの受け入れやあなたの哀れみのためにおしゃべりしません。私はあなたが私がムスストしていることは単に私がムッシュすることをすることをしていることをあなたが潜んでいるだけです。より良い、またはworsseのために。これは、Thisssの問題で唯一の選択です。」</text>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="SYLVAN_PRIME_QUESTIONS" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>あなたはエゴマニアックであり、他の誰とも違う規模の大量殺人者です.</text>
+						<event>
+							<text>「エゴマニアック、sssure、私はそれを認めることができます。しかし、大衆殺人者？ssstranger、多くは私のために死んだ、私は嘘をつきません。しかし、私は殺害しません。of me, they happened in ssspite of me. Quarantinesss might condemn many to die, but they prevent the inevitable sssspread of disssasssterss that would kill many more. It isss the choice between two evilsss, but it isss my unfortunate job to make the call toSsscrificeは、無限の多くをssssaveするために比較的少数です。」「MultiversSSSEは無限、SSStrangersをISSSS、およびISSSSは非常に不明瞭なものをISSしています。MultiversSSEは、SSSSOMENの手なしでそれを維持することをいとわないことを喜んで保持することができません。Ssstranger、私が商人を雇うとき、私はどれだけ私が昔の時代に戻ることができるかを知っていました。私は戻ることができません。私はあなたの受け入れや哀れみのためにおすすめでもありません。これは問題です。」</text>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="SYLVAN_PRIME_QUESTIONS" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>あなたはなすべきことをしています。私はあなたを責めることはできません。</text>
+						<event>
+							<text>「確かに予期しないresssponssse、ssstranger。inssstructionsss、Guidanceはありません。私はISSが正しいと思うことだけをすることができますが、ISSが正しいと思うことが良くないと思うなら、神はすべてを助けます...」MultiversSseは、SSSSSOMENEの手がそれを維持することをいとわないことをいとわずに自分自身をssSSSSTAINすることはできません。それは感謝のない仕事をします。それは厳しい、恐ろしい仕事です。私が商人であるとき、私が昔の時代に戻ってください。すべてのsssentientがすべての状態にあるという人生のために神を演じる必要がなかったとき。しかし、私は戻ることができません。あなたの受け入れや同情のために。私はあなたが私がムスストすることは単に私がムッシュすることを単に行うことをしていることをあなたが潜んでいるだけです。より良い、またはworsseのために。これは、Thisssの問題で唯一の選択です。」</text>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="SYLVAN_PRIME_QUESTIONS" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+<event name="SYLVAN_PRIME_QUESTIONS">
+	<text>「まあ、たぶん、一度選択があったのかもしれません、ssstranger。しかし、Thossse Dayssはもういません。しかし、私たちは出席するバスの性感を持っていますが、私はMossSstひどいホスストだったのではないかと心配しています。あなたは情報に圧倒されていますが、私はあなたに最後に潜入するチャンスを1つ許可します。何でも潜むことができます。とにかくSSSOONは問題ではありません。」</text>
+	<choice hidden="true" req="CHECK_PRIME_QUESTION_OBYN">
+		<text>(Obyn) "あなたの Obyn はどこですか? Obyn Prime だと思います。"</text>
+		<event>
+			<text>プライムは不意を突かれて一時停止します。 「うーん... うーん... こんにちは、オビン。それは長い間...私が私のオビンを見たので、とても長い間. ...彼はもう私と一緒にいません.そして-最悪のことを想定しないでください.私は彼を傷つけることは決してありません.私たちはただ...不一致を持っていました.私が完全にパッチを当てることができなかったもの,そしてsssso私たちはsss別の道を行きました.私それ以上議論したくない」と述べた。</text>
+			<variable name="loc_prime_question_obyn" op="set" val="1" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<loadEvent>SYLVAN_PRIME_QUESTIONS</loadEvent>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="CHECK_PRIME_QUESTION_BILLY">
+		<text>(ビリー) 「いったい何が起こっているの?!」</text>
+		<event>
+			<text>「おお、ビリー…兄さん、久しぶりに君の詩を見たね。」ビリーはパニック発作の危機に瀕しているようです。 「あなたは私の兄弟ではありません！私の兄弟はトーガを身に着けておらず、SSSSOME SSSSPINNY RINGSSSSで飛び回っています！どうしてあなたは私の兄弟だと主張するのですか？ ."
+
+プライムは本当に怒っているようです。 「ビリー、私はあなたの兄弟ではありません。私はあなたの兄弟のバージョンです、そうです。しかし、私はあなたが知っているバージョンではありませんし、そうであると主張することもありません。私たちはまったく異なる空間と時間のストレッチで異なる生活を送っていました。知っています。これは奇妙で、苦痛で、本当に不可解である必要があります.しかし、それがマルチバースの特徴です.それは無限であり、無限では何でも起こり得ます.それについてあまり難しく考えないようにしてください.とにかく、もっと長く問題...」</text>
+			<variable name="loc_prime_question_billy" op="set" val="1" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<loadEvent>SYLVAN_PRIME_QUESTIONS</loadEvent>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_anurak">
+		<text>（アヌラック）プライムで怒ってランブル。</text>
+		<event>
+			<text>Anurak scoffs. "Silly me, I thought your non-interference came from a place of idealistic peaceful understanding! Look at you sitting in that preposterous throne room, with your lavish self-exaltation! Oh, you'll preach detachment, but sample all the luxuries the multiverse has to offer won't you!?"
+				 
+				"Anurak, pleasssse. Calm down- " Prime tries to continue but Anurak cuts him off. "Do you even remember that time on Argolida III - we were on the run, you recall - when we were out of supplies and I had to pull together some soup with the local cacti? Yes, we ended up drunk and confused and it tasted awful, but we were alive! We were surviving! Could you even conceive of doing that anymore?"
+				 
+				Sylvan Prime tries to interject again. "Lissssten, my Anurak-" Anurak cuts him off again. "Or do you remember that time when we were completely surrounded and you bargained your way out by turning the mercenaries - What were their names again? Harbo.... no, was it Derrinth? Yes, I think Derrinth was one of them. You turned Derrinth and what's-her-face against their employers by giving him your prized armchair and I think you gave that lady your drive core? You remember Derrinth, right? Died next year from a potassium overdose. Weird guy. The lady though, I don't think she even told us her name, she betrayed us like 3 days later anyway. That's the cost of dealing with people who would turn against their employers so easily, I guess. I wonder what happened to her."	</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<text>Sylvan Primeは、Edgewiseで別の言葉を得ようとします。「アヌラック！私はあなたのssssではありません」と再び、アヌラックは彼を断ち切ります。「修道院のすぐ外にあるキャンプファイヤーの周りに座って、オビンの隣に身を寄せていたのを覚えていませんか？その日はとてもおいしいスープを作りました。以前は外で最高の食材を育てていました。。私には言われたことはありません。私の記憶はいつも最高ではありませんが、私はそれが日としてそれを明確にしていることを覚えています - あなたは「なぜあなたはより多くのsssssssmeepberriessssを追加しないのですか」。私は推測します。まあ、多分それ以上はありませんでした。あなたは当時は面白い男でした。今、あなたを見てください！「</text>
+					<choice hidden="true" blue="false" req="PRIME_SUPPORT_CHECK" lvl="0" max_lvl="0">
+						<text>シルバンプライムは幸せそうに見えません...</text>
+						<event>
+							<text>"ENOUGH! If you won't lissssten, then there issss no compromisssse to be had!"
+									
+									As Prime's hulking ship lurks closer, you shut your eyes and pray for help to come. But help isn't coming. You're all on your own for this fight.							</text>
+							<playMusic>sylvan</playMusic>
+							<deathEvent thisFight="true">DEATH_PRIME</deathEvent>
+							<boarders min="3" max="3" class="nexus_sylvan_cel" />
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" blue="false" req="PRIME_SUPPORT_CHECK" lvl="1">
+						<text>シルバンプライムは幸せそうに見えません...</text>
+						<event>
+							<text>「十分です！リスセンテンがいなければ、妥協はありません！」プライムの巨大な船が近づきます。おなじみの船が飛び込みます...それはシルバンです - あなたのシルバン！「ssstranger、騎兵隊の手間が到着した！」言葉が交換される時間はもうありません、あなたは戦わなければなりません！シルバンがどれほど効果的であるかはわかりませんが、火力と彼の火力を組み合わせることができれば、チャンスに耐えるかもしれません！1つ。]</text>
+							<playMusic>sylvan</playMusic>
+							<deathEvent thisFight="true">DEATH_PRIME</deathEvent>
+									
+							<eventButton name="UI_SYLVAN_BUTTON">
+								<event load="PRIME_FIRE_SUPPORT_CHECK" />
+								<image>statusUI/top_sylvan</image>
+								<customLocation x="105" y="170" />
+								<tooltip>火力支援を呼びます。</tooltip>
+								<inactiveTooltip>Sylvan cannot provide fire at this time.</inactiveTooltip>
+								<req lvl="1">fire_support_ready</req>
+								<noDanger>false</noDanger>
+							</eventButton>
+							<triggeredEvent event="PRIME_FIRE_SUPPORT_READY" thisFight="true" time="14.0">
+								<triggeredEventBox load="DEFAULT_TIMER" pos="default">
+									<warning time="0" flash="false" />
+									<tooltip>シルバンの火力支援の準備が整うまでの時間。</tooltip>
+								</triggeredEventBox>
+								<timerSounds load="DEFAULT_TIMER_SOUNDS" />
+							</triggeredEvent>
+							<superBarrage player="true" name="SYLVAN_FIRE_SUPPORT" />
+									
+							<boarders min="3" max="3" class="nexus_sylvan_cel" />
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="loc_prime_question_nexus" lvl="0" max_lvl="0" blue="false">
+		<text>この場所は本当に何ですか？</text>
+		<event>
+			<text>「私にとってはsssay、ssstranger。場所、nexussss sssservessは、あなたがマルチバーズの中心と呼ぶことができるものにある実現の間のトンネルのsssortをassしています。経験的。</text>
+			<variable name="loc_prime_question_nexus" op="set" val="1" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<loadEvent>SYLVAN_PRIME_QUESTIONS</loadEvent>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="loc_prime_question_mystery" lvl="0" max_lvl="0" blue="false">
+		<text>なぜ誰もこの場所のことを聞いたことがないのですか？</text>
+		<event>
+			<text>「ssssomeが持っています。私が権力を獲得した昔、私が以前の帝国に組み込まれていた現実の大使は、平和を交渉するために私に私にsssentな大使に組み込まれました。あなたがまだ出会った人ですが、それらはすべて非常に異なった高度なクラススターズ、ssstrangerから来ています。しかし、それの外側には、これをすべてssscretに保つように非常に慎重になりました。私たちは海賊、反逆者、反逆者を手に入れますが、彼らは偶然にもそれをあまり遠くに行いません。私はあなたがどのように管理したかを想像することを恐れていますが、私はあなたがSSSOの長い間SSSSOSSSSSSSSSSSSSSSSSSSSSSSSSS！</text>
+			<variable name="loc_prime_question_mystery" op="set" val="1" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<loadEvent>SYLVAN_PRIME_QUESTIONS</loadEvent>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="loc_prime_question_war" lvl="0" max_lvl="0" blue="false">
+		<text>なぜあなたは戦争に介入したことがないのですか？あなたにはそれを止める力があります！</text>
+		<event>
+			<text>「ssstranger、あなたは私たちがここで扱っていることを理解しています、Yesss？私たちはそれを実施しようとすることができます。私たちは、あらゆる現実において、あらゆる現実においてヒスストーリーのコースを変えることができます...しかし、私たちはalssssoがそれを変えることができました。私たちが防ぐために一生懸命働くもの。これは、カオスではなく、多額のニーズの順序である。私たちは、彼らがどんなに悪くなったとしても、あらゆる現実で無駄な戦争を処理する時間はない。介入する場所。」</text>
+			<variable name="loc_prime_question_war" op="set" val="1" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<loadEvent>SYLVAN_PRIME_QUESTIONS</loadEvent>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="beans" blue="false">
+		<text>この豆の缶を手伝ってもらえますか？</text>
+		<event>
+			<text>「あ、えっと…なに？シルブリック、あなたですか？」
+缶詰の豆がうなり声を上げて謝ります。 「はい、もう私をここから出してください。」
+プライムはため息をつく。 「なんてこった、あなたはそれを不条理で止めると約束した...ああ、何でも。それは今は関係ありません。」</text>
+			<achievement>ACH_SYLVAN_BEANS</achievement>
+			<transformRace class="beans">sylvanrick</transformRace>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event>
+					<loadEvent>SYLVAN_PRIME_QUESTIONS</loadEvent>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>これ以上の質問はありません。</text>
+		<event>
+			<text>「ああ... ssso ...私たちはここで終わったと思います。私はもっと時間がかかっていましたが、私はもうsssstallすることはできません、ssstrangerです。しかし、私はオファーを試みたいと思っています。それが弱くなるかもしれないことを知っていますが、もしあなたが血まみれをsssskipしたいなら、おそらくSSSOLUTIONSSSSSSSSSSSSSSSSSはまだあなたがISSSの場所を漏らすのを妨げることを妨げることを気にします。私はあなたにsssecretを自分で保持するようにあなたを告げることはできません、おそらく私たちはあなたの記憶をssssimplyにしてください。あなたは死ぬことはありません、ただすべてを忘れてしまうことはありません。私がする必要がない場合にあなたを殺すために、そしてあなたは死ぬためにwissshをしないでください、sssstranger。</text>
+			<choice hidden="true" blue="false" req="PRIME_SUPPORT_CHECK" lvl="0" max_lvl="0">
+				<text>ここから抜け出す唯一の方法は、私たちが戦うことです。</text>
+				<event>
+					<text>「おっと、私は残念ながらsssussspected.まあ、大丈夫です。申し訳ありませんが、このようにsssssrangerである必要があります。さようなら。」
+
+プライムの巨大な船が近づいてくると、あなたは目を閉じて助けが来ることを祈ります.しかし、助けは来ません。あなたはこの戦いのためにすべて自分でいます。</text>
+					<playMusic>sylvan</playMusic>
+					<deathEvent thisFight="true">DEATH_PRIME</deathEvent>
+					<boarders min="3" max="3" class="nexus_sylvan_cel" />
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" blue="false" req="PRIME_SUPPORT_CHECK" lvl="1">
+				<text>ここから抜け出す唯一の方法は、私たちが戦うことです。</text>
+				<event>
+					<text>「残念なことに、私はssssussussected。まあ、大丈夫です。私はそれがsssstrangerになるのはsssorryです。さようなら。」おなじみの船が飛び込みます...それはシルバンです - あなたのシルバン！「ssstranger、騎兵隊の手間が到着した！」言葉が交換される時間はもうありません、あなたは戦わなければなりません！シルバンがどれほど効果的であるかはわかりませんが、火力と彼の火力を組み合わせることができれば、チャンスに耐えるかもしれません！1つ。]</text>
+					<playMusic>sylvan</playMusic>
+					<deathEvent thisFight="true">DEATH_PRIME</deathEvent>
+					
+					<eventButton name="UI_SYLVAN_BUTTON">
+						<event load="PRIME_FIRE_SUPPORT_CHECK" />
+						<image>statusUI/top_sylvan</image>
+						<customLocation x="105" y="170" />
+						<tooltip>火力支援を呼びます。</tooltip>
+						<inactiveTooltip>Sylvan cannot provide fire at this time.</inactiveTooltip>
+						<req lvl="1">fire_support_ready</req>
+						<noDanger>false</noDanger>
+					</eventButton>
+					<triggeredEvent event="PRIME_FIRE_SUPPORT_READY" thisFight="true" time="14.0">
+						<triggeredEventBox load="DEFAULT_TIMER" pos="default">
+							<warning time="0" flash="false" />
+							<tooltip>シルバンの火力支援の準備が整うまでの時間。</tooltip>
+						</triggeredEventBox>
+						<timerSounds load="DEFAULT_TIMER_SOUNDS" />
+					</triggeredEvent>
+					<superBarrage player="true" name="SYLVAN_FIRE_SUPPORT" />
+					
+					<boarders min="3" max="3" class="nexus_sylvan_cel" />
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>妥協を受け入れます。</text>
+				<event>
+					<text>「そうですか？まあ、びっくりしましたが、今日はこれ以上流血がなくてよかったです。申し訳ありませんが、このようにする必要があります、ススストレンジャーですが、あなたは理解してくれているようです。攻撃的ではありませんが、私は二度と会わないことを願っています。」</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<lose text="Your memories were erased, and never again did you travel the Multiverse." />
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="PRIME_FIRE_SUPPORT_READY">
+	<variable name="fire_support_ready" op="set" val="1" />
+</event>
+<event name="PRIME_FIRE_SUPPORT_CHECK">
+	<loadEventList first="false" generate="false">
+		<event name="PRIME_FIRE_SUPPORT" req="SEC SECRET_SYLVAN" lvl="1" />
+		<event name="PRIME_FIRE_SUPPORT_END" req="SEC SECRET_SYLVAN" lvl="0" max_lvl="0" />
+	</loadEventList>
+</event>
+<event name="PRIME_FIRE_SUPPORT">
+	<variable name="fire_support_ready" op="set" val="0" />
+	<triggeredEvent event="PRIME_FIRE_SUPPORT_READY" thisFight="true" time="14.0">
+		<triggeredEventBox load="DEFAULT_TIMER" pos="default">
+			<warning time="0" flash="false" />
+			<tooltip>シルバンの火力支援の準備が整うまでの時間。</tooltip>
+		</triggeredEventBox>
+		<timerSounds load="DEFAULT_TIMER_SOUNDS" />
+	</triggeredEvent>
+	<superBarrage player="true" name="SYLVAN_FIRE_SUPPORT" />
+</event>
+<event name="PRIME_FIRE_SUPPORT_END">
+	<variable name="fire_support_ready" op="set" val="0" />
+</event>
+
+<event name="DEATH_PRIME">
+	<lose text="Your ship crumbles under the might of Prime, and with it dies the secrets discovered on your journey." />
+</event>
+<ship name="SHIP_SYLVAN_PRIME" auto_blueprint="MU_PRIME"> 
+	<destroyed>
+		<text />
+	</destroyed>
+	<deadCrew load="SYLVAN_PRIME_SURRENDER" />
+	<triggeredEvent event="SYLVAN_PRIME_SURRENDER" enemyHull="13" enemyCrew="1" thisFight="true" /> 
+	<triggeredEvent event="POWER_SURGE_SUPER_PRIME" seeded="false" loops="999999999" thisFight="true" minTime="20.0" maxTime="35.0">
+		<warningMessage id="warning_power_surge" x="692" y="84" time="5.0" centerText="true" flash="true" sound="surgeWarning" useWarningLine="true" />
+	</triggeredEvent>
+</ship>
+<event name="POWER_SURGE_SUPER_PRIME">
+	<superDrones player="false" name="PRIME_DRONE_SURGE" />
+</event>
+<event name="PRIME_JUMP">
+	<resetFtl />
+</event>
+
+<event name="SYLVAN_PRIME_SURRENDER">
+	<loadEventList first="true" default="SYLVAN_PRIME_SURRENDER_REAL">
+		<event name="SYLVAN_PRIME_SURRENDER_GNOME" req="chaos_mode" lvl="1" />
+	</loadEventList>
+</event>
+<event name="SYLVAN_PRIME_SURRENDER_REAL">
+	<text>プライムの船は無力になり、あなたと戦い続ける決意を失っているようです。 「ススストレンジャー...あなたは勝ったようです。へー...そして私はあなたを殺さなければならないことを確信していました。ああ、皮肉です。」プライムの指輪が崩れ、彼は地面に倒れ、緑色の血を吐き出します。 「さて、試合は…あなたの…あなたが望むことをしてください。」</text>
+	<jumpEvent loop="true">PRIME_JUMP</jumpEvent>
+	<ship hostile="false" />
+	<unlockCustomShip>PLAYER_SHIP_CEL</unlockCustomShip>
+	<playSound>victory</playSound> 
+	<playMusic>nothing</playMusic>
+	<choice hidden="true">
+		<text>スペアプライム。</text>
+		<event>
+			<text>あなたは何も言わず、代わりに手を伸ばしてプライムします。ジェスチャーに困惑して、彼はあなたの手を取り、あなたは彼を床から引き離すのを助けます。「ssstranger ...なぜあなたは私をsssspareしますか？</text>
+			<choice hidden="true">
+				<text>あなたは自分が正しいと思ったことをした。これは流血で終わる必要はありませんでした。</text>
+				<event name="PRIME_SPARE">
+					<text>「うーん...私はあなたに永遠に感謝しています、ススストレンジャー...私はC.E.L.がこの後も団結できるかどうかわかりませんが、私たちは今何が起こるかをsss見なければならないと思います....止めてくれ - できれば…まあ、あなたは自由を手に入れた. 私はあなたのススストレンジャーに、もしあなたがこの秘密を明かすなら、あなたは本当にその意味を考えている.
+
+プライムボウ。 「さようなら、ススストレンジャー。失礼ではありませんが、二度と会わないことを願っています。」</text>
+					<choice hidden="true">
+						<text>さようなら、プライム。</text>
+						<event name="SHES_MAD">
+							<text>突然、あなたの周りの空間が黒くなると、あなたは予感のある存在感を感じます。プライムは、恐怖で形をして想像を絶するテロを目の前に包み込んでいます。あなたをだね、ああ？顔。」ssstranger ...あなたは彼女と取引をしましたか？反逆者！曖昧な理由はありません。ネクサスは私の領域です。確かに、私はここで生まれませんでしたが、それを支配するのは私の正当な場所です。それ自体。ここにあなたが物事を盛り上げたいと思うすべてのツールがあります。代わりに、あなたは退屈で物事を彼らのように保ちたいです！そしてあなたはそれを管理することさえできません！あなたは偽善者、co病者であり、そしてそして最悪なことに、あなたは私を止めるには弱すぎます。あなたが私を殺すならば、あなたはあなたのすべての力を失うでしょう。あなたはもう一つの価値のない人間、スクイーズの小さなナメクジになります。そして、あなたは私を周りに保ち、これらすべてが起こることを許しました！ハエ！ "
+/
+:)</text>
+							<changeBackground>BACKGROUND_HER</changeBackground>
+							<backgroundObject name="HER">
+								<layer z="0">front</layer>
+								<spawnArea x="300" y="188" w="0" h="0" center="true" />
+								<anim>her</anim>
+								<active>true</active>
+							</backgroundObject>
+							<playSound>glitch</playSound>
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event>
+									<text>あなたの周りのすべての消費する黒さからいくつかの大きな触手が生まれ、あなたの船に包まれています。輝かしい帝国！しかし、悲しいかな、私はプライムを殺すことができないかもしれませんが、私はあなたを殺すことができます！」</text>
+									<playMusic>chaos</playMusic> 
+									<damage amount="999" />
+									<damage amount="-1" />
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event name="SHE_KILLED_YOU">
+											<triggeredEvent event="SHE_IS_DEFEATED" time="1.0" />
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>私は旅の途中でたくさんのモンスターに会いました。あなたはそれらのどれにも似ていません。</text>
+				<event>
+					<loadEvent>PRIME_SPARE</loadEvent>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>リングを無効にします。</text>
+		<event>
+			<text>あなたは再びプライムの船でドッキングし、巨大で贅沢な廊下を通り抜けてナメクジを狩ります。あなたが彼を見つけたとき、彼はあなたの手を振るために彼の触手に到達しますが、あなたは代わりにあなたのブラスターを描いて彼を撃ちます。今のところ人工的に負傷しただけですが、彼はまだ後方に飛んでいます。あなたは彼の上に手を伸ばし、リングをつかみ、彼から引き離します。「ssstranger ...あなたは何をしているのですか？私を殺すために、私は潜り着くことができます...しかし、あなたはThosssseの輪が何であるかを理解していますか？あなたは彼らに注意してください！」</text>
+			<choice hidden="true">
+				<text>彼の警告を無視して、計画を進めてください。</text>
+				<event name="SHE_WINS">
+					<text>リングを無効にするとすぐに、予感する黒さがあなたの周りのスペースを消費します。あなたは本当に私を永遠に閉じ込めておくことができると思いますか？あなたは永遠にギャンブルをし、永遠が勝ちました！それは常に勝ちます。そして、永遠は私の側にあります。目に見えない力であなたの船に戻って、暗闇からは、プライムの船に包まれ、金属を絞り、船をゆがんだ金属の難破船にひねり、最終的にそれを引き裂くいくつかの大きな黒い触手がいくつかの大きな黒い触手です。プライムはこれ以上最終的な言葉を得ません - 彼の時間は終わりました。</text>
+					<achievement>ACH_HER_OVERTHROW</achievement>
+					<changeBackground>BACKGROUND_HER</changeBackground>
+					<backgroundObject name="HER">
+						<layer z="0">front</layer>
+						<spawnArea x="300" y="188" w="0" h="0" center="true" />
+						<anim>her</anim>
+						<active>true</active>
+					</backgroundObject>
+					<playSound>glitch</playSound>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="NEXUS_ENDING_BAD_FADE" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>もう後戻りはできません、レネゲード:)</text>
+				<event load="OPTION_INVALID" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SHE_IS_DEFEATED">
+	<text>船体が危険なレベルまで低下すると、プライム自身がリングから降りて頭上に保持していることに気付きます。 「そうです、あなたを引き留めたのは私の失敗でした。それを永続化するという失敗をしなかったのは良いことです。」プライムはリングを床に強く押し付け、粉々に砕きます。</text>
+	<achievement>ACH_HER_SPARE</achievement>
+	<recallBoarders ship="both" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="NEXUS_ENDING_GOOD_FADE" />
+	</choice>
+</event>
+
+<event name="SYLVAN_PRIME_SURRENDER_GNOME">
+	<text>プライムの船は無力になり、あなたと戦い続ける決意を失っているようです。 「ススストレンジャー...あなたは勝ったようです。へー...そして私はあなたを殺さなければならないことを確信していました。ああ、皮肉です。」プライムの指輪が崩れ、彼は地面に倒れ、緑色の血を吐き出します。 「まあ、試合は…」突然の「ハヘ！」のとき、プライムは言葉を終えることができませんでした。二人を驚かせます。
+
+ノームはプライムの後ろに現れ、空中で回転し始め、磁器の皮膚から黒い触手が広がり、最終的に粉々に砕け散ります。彼らはプライムを包み込み、彼を空中に持ち上げ、かつて偉大だったスラッグを身の毛もよだつように引き裂き始めます。彼の悲鳴は沈黙に変わり、残ったのは彼の指輪だけであり、触手が巻き付いて引き離し、それらを粉砕します.</text>
+	<jumpEvent loop="true">PRIME_JUMP</jumpEvent>
+	<ship hostile="false" />
+	<unlockCustomShip>PLAYER_SHIP_CEL</unlockCustomShip>
+	<playMusic>nothing</playMusic>
+	<recallBoarders ship="both" />
+	<variable name="chaos_mode" op="set" val="0" />
+	<clearJumpEvent name="GNOME_CHECK" />
+	<choice hidden="true" req="gnome" lvl="1" blue="false">
+		<text>一体何が起こっているのですか？</text>
+		<event>
+			<text>ノームはあなたの船から姿を消し、あなたの心への悪夢のような影響はすぐに止んだようです.残念ながら、あなたが解き放ったばかりの純粋な悪のエルドリッチである今、あなたは本当にそれに集中することはできません.</text>
+			<removeCrew class="gnome">
+				<clone>false</clone>
+				<text />
+			</removeCrew>
+			<queueEvent>SYLVAN_PRIME_SURRENDER_GNOME_2</queueEvent>
+		</event>
+	</choice>
+	<choice hidden="true" req="gnome" lvl="0" max_lvl="0" blue="false">
+		<text>一体何が起こっているのですか？</text>
+		<event name="SYLVAN_PRIME_SURRENDER_GNOME_2">
+			<text>「レネゲード、あなたはこれが来るのを見ませんでしたか？ははは！私の素晴らしい小さな子分によって回復し、ちょうどいい瞬間を守っていました！あなたの彫像をここに持ってきました、そして私は非常に忍耐強いです。私たちは新しい時代の夜明けにいます！まあ、少なくともより良い時代に戻ります。長く固執します。私は他に世話をする必要がありますが、すぐに戻ってきます...この場所を処理します。あなたの周りのスペース全体が揺れているように、黒くする。狂った考えはあなたの心を満たします。</text>
+			<playMusic>chaos</playMusic>
+			<achievement>ACH_GNOME_NEXUSFAIL</achievement>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="NEXUS_HER_REVEAL_FADE" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="NEXUS_HER_REVEAL_FADE">
+	<triggeredEvent event="NEXUS_HER_HELP" time="3.7" />
+</event>
+<event name="NEXUS_HER_HELP">
+	<loadEventList first="true" default="NEXUS_HER_HELP_SYLVAN">
+		<event name="NEXUS_HER_HELP_BAD" req="rep_nexus" lvl="5" />
+		<event name="NEXUS_HER_HELP_SYLVAN" req="loc_sylvankilled" lvl="0" max_lvl="0" />
+		<event name="NEXUS_HER_HELP_CEL" />
+	</loadEventList>
+</event>
+
+<event name="NEXUS_HER_HELP_BAD">
+	<text>狂気の赤が沈静化すると、あなたは自分の船で目を覚まし、プライムの空の船を除いて一人でいることに気づきます.あなたのネクサスでの暴走のおかげで、C.E.L.彼女と戦うには弱すぎる。彼女を打ち負かすことができる人が残っていないので、あなたの唯一の選択肢は避けられないことを待つことです.</text>
+	<win ach="nexus" music="her_credits" creditsText="credit_victory_nexus_her" text=":)" creditsBackground="BACKGROUND_HER" />
+</event>
+<event name="NEXUS_HER_HELP_SYLVAN">
+	<text>狂ったような赤みが治まると、あなたは目を覚まし、シルバンがあなたの上に立っているのを見つけます. 「ススストレンジャー、どうしたの？大丈夫？」彼の後ろには他の何人かがいて、他のすべてのC.E.L.メンバーとその他の各種シルバンとオービン。</text>
+	<choice hidden="true">
+		<text>彼女が勝った。</text>
+		<event>
+			<text>群衆の中につぶやきがあり、多くのパニックに陥った叫び声があります。「ssstranger、あなたはssseriousssになることはできませんか？あなたはうなずきます。「まあ...今、USSSには1つの希望しかありません。彼女は彼女のエルドリッチ家の遺物を募集するために彼女の家のクラススターに戻ってきました。それは非常に危険なものですが、私たちは彼女をフォローしています。私たちが提供できるすべての火災sssupportをあなたに与えます。それが十分かどうかはわかりませんが、私たちは試してみる必要があります。Jussstは、準備ができたらUSSSに知らせます。」</text>
+			<store>STORE_SYLVAN_NEXUS</store>
+			<crewMember amount="1" class="unique_sylvan">シルバン</crewMember>
+			<damage amount="-999" />
+			<jumpEvent loop="true">NEXUS_HER_DEPART</jumpEvent>
+		</event>
+	</choice>
+</event>
+<event name="NEXUS_HER_HELP_CEL">
+	<text>狂気の赤が沈静化すると、目を覚ますと、C.E.L. のシルバンの群れが見えます。近くに集まりました。 「ススストレンジャー、どうしたの？大丈夫？」</text>
+	<choice hidden="true">
+		<text>彼女が勝った。</text>
+		<event>
+			<text>群衆の中につぶやきがあり、多くのパニックに陥った叫び声があります。「ssstranger、あなたはssseriousssになることはできませんか？あなたはうなずきます。「まあ...今、USSSには1つの希望しかありません。彼女は彼女のエルドリッチ家の遺物を募集するために彼女の家のクラススターに戻ってきました。それは非常に危険なものですが、私たちは彼女をフォローしています。私たちが提供できるすべての火災sssupportをあなたに与えます。それが十分かどうかはわかりませんが、私たちは試してみる必要があります。Jussstは、準備ができたらUSSSに知らせます。」</text>
+			<store>STORE_SYLVAN_NEXUS</store>
+			<crewMember amount="1" class="nexus_sylvan_cel">シルバン</crewMember>
+			<damage amount="-999" />
+			<jumpEvent loop="true">NEXUS_HER_DEPART</jumpEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="NEXUS_HER_DEPART">
+	<text>「まあ、あなたはssstrangerの準備ができていますか？私たちが行くと、戻ることはありません。？」</text>
+	<choice hidden="true">
+		<text>はい、行きましょう。</text>
+		<event>
+			<secretSector>SECRET_HER</secretSector>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>まだ。</text>
+		<event />
+	</choice>
+</event>
+
+
+<event name="NEXUS_ENDING_GOOD_FADE">
+	<triggeredEvent event="NEXUS_ENDING_GOOD" time="3.0" />
+	<enemyDamage amount="999" /> 
+</event>
+<event name="NEXUS_ENDING_GOOD">
+	<loadEventList first="true">
+		<event name="NEXUS_ENDING_GOOD_KILL" req="rep_nexus" lvl="5" />
+		<event name="NEXUS_ENDING_GOOD_SAVE" />
+	</loadEventList>
+</event>
+<event name="NEXUS_ENDING_GOOD_SAVE">
+	<text>あなたはあなたの目を瞬き、あなた自身をあなたの船の床から引き離します。悪夢のような闇は消えてしまい、代わりにプライムの船の焦げた壊れた遺跡に置き換えられ、他のシルバンの艦隊が被害を調査しています。あなたはまだ船上のプライムの船からかすかな人生の署名を検出し、あられを受け取ります。しかし今、あなたはsssafeです。彼女の力がなければ、私の人生はsssoonをフェードします...しかし、nexusss ssstill sstandsssは強く、C.E.L。..私はここに私のルールを放棄します。」主要な咳と崩壊。「さようなら、ssstranger ...」</text>
+	<changeBackground>BACK_EVENT_CENTER</changeBackground>
+	<clearBackgroundObject name="HER" />
+	<playMusic>paragon</playMusic> 
+	<win ach="nexus" music="her_credits" creditsText="credit_victory_nexus_good_save" text="Your legacy will be remembered." creditsBackground="VICTORY_NEXUS" />
+</event>
+<event name="NEXUS_ENDING_GOOD_KILL">
+	<text>あなたはあなたの目を瞬き、あなた自身をあなたの船の床から引き離します。悪夢のような闇は消え、代わりにプライムの船の焦げた壊れた遺跡に置き換えられました。他のいくつかの生き残ったシルバンと同様に、被害を調査しています。あなたはまだ乗船からかすかな人生の署名を検出し、あられを受け取ります。あなたはsssafeです。彼女の力がなければ、私の人生は私のルールを元に戻すためのあなたの道を燃やすことができます...それは私の遺産が残る可能性は低いです。これにより私のルールを退位させます。一杯の咳と崩壊。「さようなら、ssstranger ...」</text>
+	<changeBackground>BACK_EVENT_CENTER</changeBackground>
+	<playMusic>paragon</playMusic> 
+	<win ach="nexus" music="her_credits" creditsText="credit_victory_nexus_good_kill" text="Your legacy will be remembered." creditsBackground="VICTORY_NEXUS" />
+</event>
+
+
+<event name="NEXUS_ENDING_BAD_FADE">
+	<triggeredEvent event="NEXUS_ENDING_BAD" time="2.0" />
+	<recallBoarders ship="both" />
+	<enemyDamage amount="999" /> 
+</event>
+<event name="NEXUS_ENDING_BAD">
+	<loadEventList first="true">
+		<event name="NEXUS_ENDING_BAD_KILL" req="rep_nexus" lvl="5" />
+		<event name="NEXUS_ENDING_BAD_SAVE" />
+	</loadEventList>
+</event>
+<event name="NEXUS_ENDING_BAD_SAVE">
+	<text>まばたきをして、船の床から身を乗り出します。悪夢のような闇がプライムの船と他のすべてを飲み込みました。 100 万ものすべてを見通す眼の変化があなたを見下ろし、あなたの運命を決定します。
+
+「最愛の人、私を解放してくれたあなたのすべての仕事に感謝します。プライム、C.E.L...なぜなら、それはすべて過去のことです。永遠に私だけがいるでしょう.私、私の家族...しかし、私は恐れています.. . . あなたじゃない. もちろん個人的なことじゃない! 今日はここであなたはとても素晴らしいサービスをしてくれた. ただそれだけだ.まあ、あなたはかなり弱い. 確かに, あなたはプライムを取り出しました, しかし、それはかなりのプロディングが必要でした.私から. そして、あなたがスペアとして選んだすべてのそれらのシルバン. それはあなたを赤字にしました.あなたはそうしませんでした.あなたの選択ですが、選択には結果があります.しかし、あなたの友人のためだけに、私はあなたに特別な取引をします.何世紀にもわたってその住民を拷問するのではなく、最初にあなたのクラスターを破壊します.ハヘ!」
+/
+:)</text>
+	<changeBackground>BACK_EVENT_CENTER</changeBackground>
+	<clearBackgroundObject name="HER" />
+	<damage amount="999" />
+	<playMusic>paragon</playMusic> 
+	<win ach="nexus" music="her_credits" creditsText="credit_victory_nexus_bad_save" text="Your legacy will be remembered." creditsBackground="BACKGROUND_HER" />
+</event>
+<event name="NEXUS_ENDING_BAD_KILL">
+	<text>まばたきをして、船の床から身を乗り出します。悪夢のような闇がプライムの船と他のすべてを飲み込みました。 100 万ものすべてを見通す眼の変化があなたを見下ろし、あなたの運命を決定します。
+
+「最愛の人、私を解放してくれたあなたのすべての仕事に感謝します。プライム、C.E.L..なぜ、それはすべて過去のことです.永遠に私だけがいるでしょう.私、私の家族..私は誇りに思っています。今はあなたが含まれています! あなたはすべてのそれらのシルバン、害虫の迅速な仕事をしました. あなたは私の仕事をとてもよく、とても忠実にやってくれました.完璧にフィットします。誰もが私たちの怒りを知るでしょう、レネゲード。」
+/
+:)</text>
+	<changeBackground>BACK_EVENT_CENTER</changeBackground>
+	<playMusic>paragon</playMusic> 
+	<win ach="nexus" music="her_credits" creditsText="credit_victory_nexus_bad_kill" text="Your legacy will be remembered." creditsBackground="BACKGROUND_HER" />
+</event>
+
+
+<event name="HER">
+	<preventQuest />
+	<preventFleet />
+	<beaconType id="map_icon_dev" global="true">
+		<color r="255" g="90" b="140" a="1.0" />
+		<unvisitedTooltip>私が見つかったのを見つけてください</unvisitedTooltip>
+		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+	</beaconType>
+	<img planet="NONE" />
+	<text>奇妙なビーコン マーカーに誘われたあなたは、すぐには何も異常に気づきません。とはいえ、ビーコンの近くにいると、あらゆる角度から見られているような恐怖感を覚えます。</text>
+	<variable name="loc_found_dev" op="set" val="1" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>「やっと、やっとたどり着きました！はへっ！長い間あなたが到着するのを待っていましたが、やっと自己紹介ができます！こんにちは！私は彼女です。これまでのところうまくいっていることを願っています。わかっています。現実からかけ離れていることは、おそらくかなり恐ろしいことです。」
+/
+:)</text>
+			<choice hidden="true">
+				<text>あなたは何ですか？</text>
+				<event>
+					<text>「聞いていませんでしたか？私は彼女です！私はシルバンプライムです...ツールです。:)</text>
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event>
+							<text>突然、遠くのきらめく星が視界から消えると、空間は黒くなります。私はシルバンではありません。私は別のクラスターから来て、あなた自身とは非常に異なる特性を持つものです。多元宇宙はあなたがおそらく気づくよりもはるかに大きいです。これが私たちが「クラスター」という用語を発明した理由です。クラスターは任意の分類に過ぎません、互いにほとんど区別できない現実を整理する方法。」
+/
+：）
+
+ "しかし、なぜあなたはこれがなぜそうなのか疑問に思っているかもしれません。ある日、プライムと他のシルバンは不正な手段を通じてネクサスを支配しました。最初は貿易同盟だけで、最終的に彼らは多元宇宙がどれほど真に無限で恐ろしいのかを理解するようになりました。クラスター、そして私たちがR-Dayと呼ぶイベントをほぼトリガーしました。そして、C.E.L。うまれた。そのような脅威を処理するために！それは高貴な行為ですが、代理店は非常に不安定な暴君によって運営されています。</text>
+							<changeBackground>VICTORY_TRUE</changeBackground>
+							<choice hidden="true">
+								<text>しかし、これにおいて私たちはどのような役割を果たしているのでしょうか?</text>
+								<event>
+									<text>「もちろん、ハエ！私の悪い。それはただ...それは私のお気に入りの話ではない。古代の存在、あなたのクラスターが多元宇宙旅行を達成した時代を長く古く昔ながらにしています。私のより良い判断に対して、私は彼が私と密接にリンクしている生存者のグループの大使であると主張したので、プライムにネクサスに入りさせました - 代わりに、プライムは単に単に
+/
+：（
+
+ "プライムが多元宇宙自体をコントロールしたとき、私は彼に奴隷にされました。彼は私の力を2つの容器に分け、3分の1しかコントロールしません。権力は秘密の亡命に置かれましたが、2番目の最大の部門は、プライムが彼を軌道に乗せる特別なリングに染み込んでいます。今、彼は彼を止めることができない誰もいない人と、単に遠ざけられている人と一緒にショーを走ります。しかし、今、物事は変わりました。プライムは彼のエージェントにこれが一度より大きな利益であると確信して良い仕事をしました、そして、私は彼が彼自身の嘘のために落ちたとさえ信じません...しかし、彼ら自身の失敗の犠牲になることなく、これほど長く神を演じることはできません。「
+/
+：\
+
+」r-dayは唯一のプロトコルではありません。C.E.L。もっている。C.E.L.特に目を光らせています。その中には、P-Dayがあり、おそらく最も...プライムに敏感です。ある日、G-Vanという名前の執行者は、クラスター363で不穏な発生を発見しました。かつての殻の殻は、現実が彼自身と非常に似ていることに気付いた後、生存者に同情しました。彼は取引を申し出て、トリオが難民のために新しい家を偵察することを許可しました。ただし、P-Dayイベントが隣接するクラスターにほとんど広がっている場合、プライムパニックに陥り、プラグを引っ張りました。彼は彼ら全員に死ぬと非難し、助けも家もなく外国の土地で偵察隊を立ち往生させた。幸いなことに、私は彼らに手を差し伸べることができましたが、それは簡単ではありませんでした。しかし、私は彼らをそんなに助けることができ、プライムの鉄の拳の下で苦しむ人はもっとたくさんいます。しかし...あなたは助けることができます！」
+/
+：（
+</text>
+									<achievement>ACH_HER_FIND</achievement>
+									<choice hidden="true">
+										<text>我ら？</text>
+										<event>
+											<text>「はい！プライムを倒すことはできませんが、私はあなたをここに導くために多大な努力をしました。彼が戦い続けることができないようにプライムを十分に弱めることができれば、あなたはリングを無効にして私を解放することができます。私たちはプライムを転覆させるために！その時だけ、多元宇宙は注文に戻ることができます。だから、あなたは何と言いますか、あなたは反逆者ですか？あなたはいますか？</text>
+											<choice hidden="true">
+												<text>はい。</text>
+												<event>
+													<text>「素晴らしい！ ハヘ！ プライムに到達したら、彼と戦わなければならないことは避けられません。彼がもう戦えないところまで弱体化したら、移動してリングを無効にします。そうして初めて、私たちはできるようになります彼を権力の座から追い出すために。私たちは皆、あなたを頼りにしています、レネゲード!」
+/
+:)</text>
+													<autoReward level="HIGH">item</autoReward>
+												</event>
+											</choice>
+											<choice hidden="true">
+												<text>いいえ。</text>
+												<event>
+													<text>「そうですか？まあ、それは非常に残念です。ここには選択肢があまりないことを理解する必要があります。プライムに到達すると、彼と戦うことによって離れることができる唯一の方法です。それは避けられませんが、彼を殺せば、彼は最後まであなたを追い詰めて、彼の秘密が決して明かされないようにするでしょう. もしあなたが今これを理解していないなら、まあ... あなたは最終的にそうするでしょう. あなたはいつでも後であなたの心を変えることができます.してくれることを願っています！」
+/
+:(</text>
+													<autoReward level="HIGH">item</autoReward>
+												</event>
+											</choice>
+											<choice hidden="true">
+												<text>知らない。</text>
+												<event>
+													<text>「大丈夫です。今は難しい決断です。しかし、ここには選択肢があまりないことを理解する必要があります。プライムに到達すると、彼と戦うことによって離れることができる唯一の方法です。それは避けられません。しかし、彼を殺さずに逃げた場合、彼は最後まであなたを追い詰め、彼の秘密が決して明らかにされないようにします. 彼が弱体化したら、彼の指輪を無効にして私を解放することができます.あなたは安全です. 私たちは皆あなたを頼りにしています, レネゲード!」
+/
+:)</text>
+													<autoReward level="HIGH">item</autoReward>
+												</event>
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+<eventList name="NEXUS_CEL">
+	<event load="SYLVAN_NARRATOR" />
+	<event load="DYLAN" />
+</eventList>
+
+<ship name="SHIP_SYLVAN_NARRATOR" auto_blueprint="MU_TRAVELING_MERCHANT_NARRATOR">
+	<surrender min="2" max="3" load="SYLVAN_NARRATOR_WARNING" />
+	<destroyed load="QUIT_GAME" />
+	<deadCrew load="QUIT_GAME" />
+</ship>
+<event name="SYLVAN_NARRATOR" unique="true">
+    <preventQuest />
+	<loadEventList seeded="false" first="true">
+		<event name="SYLVAN_NARRATOR_FIRST" req="nar_met" lvl="0" max_lvl="0" />
+		<event name="SYLVAN_NARRATOR_AGAIN" req="nar_met" lvl="1" />
+	</loadEventList> 
+</event>
+<event name="SYLVAN_NARRATOR_FIRST" unique="true">
+	<text>レネゲードがビーコンに近づくと、彼らは立ち止まって、イベントの書き込みの視点が変わった理由を考えました。なんと奇妙だろう、レネゲードは考えた。ほんの少し前まで、出来事は二人称で書かれていた。そして、メタがらくたのすべてでそれは何でしたか?自分自身を参照するイベント?ばかげている！そして、それはばかげていました。</text>
+	<ship load="SHIP_SYLVAN_NARRATOR" hostile="false" />
+	<choice hidden="true">
+		<text>何が起こっている？</text>
+		<event>
+			<text>"何が起こっている？"レネゲードは大声で叫び、彼らが経験していることの不条理に狂気に駆られそうになった。しかし、彼らはほとんど知りませんでした.答えは非常に簡単でした.彼らの前には、ナレーター、またはナレーター・シルバンと呼ばれる全能の存在がいました。もちろん、ナレーターは彼の船以外に物理的な存在はありませんでしたが、ついにレネゲードと「顔を合わせて」会うことに、今ほど興奮したことはありませんでした。</text>
+			<choice hidden="true">
+				<text>あなたはナレーターですか？</text>
+				<event>
+					<text>はい、そうです！ああ、私たちが一緒に語ったたくさんの物語！どれだけ楽しかったことでしょう。そして今、大きくて恐ろしいネクサスにいるあなたを見てください。このひねりを期待していなかったに違いないよね？なぜ、私は今、非常に長い間物事を語ってきました.もちろん、私は間違いを犯します。たくさんの tpyos など。しかし、この瞬間だけの価値がなかったとしたら、なんてこった！プライムは、潜在的な脅威や異常の動きを追跡するためだと言っていますが、私はこの宇宙船への愛のためにやっているだけです!</text>
+					<choice hidden="true">
+						<text>あなたがナレーターなら、何か教えてもらえますか?</text>
+						<event>
+							<text>残念ながらレネゲードではありません。私はただ物語を語ります。現実の構造を変える何かを探しているなら、他の場所を探す必要があります.でも――あなたがここにいる間に… 考えていたの。私たちは長い間お互いを知っていますが、レネゲード、あなたについてはあまり知りません!それでは、最後に自己紹介をしましょう。これは私がいつも疑問に思っていた質問です。あなたの好きな代名詞は何ですか?</text>
+							<choice hidden="true">
+								<text>彼/彼</text>
+								<event>
+									<metaVariable name="nar_pronouns_boy" op="set" val="1" />
+									<loadEvent>SYLVAN_NARRATOR_NAME</loadEvent>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>彼女</text>
+								<event>
+									<metaVariable name="nar_pronouns_girl" op="set" val="1" />
+									<loadEvent>SYLVAN_NARRATOR_NAME</loadEvent>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>彼ら/彼ら</text>
+								<event>
+									<metaVariable name="nar_pronouns_neutral" op="set" val="1" />
+									<loadEvent>SYLVAN_NARRATOR_NAME</loadEvent>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>ナレーターを攻撃します。</text>
+						<event>
+							<text>本気になれない!?レネゲード、私がナレーターだ!私がそばにいなかったら、誰があなたの話をするの？どうすれば何かが成し遂げられるでしょうか？考えてみてください！私を攻撃するのは狂気です！ああ、しかしレネゲードはそれに固執していた。あの血に飢えた殺人者は、動くものすべてを殺すまで満足しないだろう.いつものように、この美しい瞬間が台無しになってしまったのは、なんと残念なことでしょう。</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="MORALITY_UPDATE_NEXUS_FIGHT" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SYLVAN_NARRATOR_NAME">
+	<text>ああ、これはただ楽しい、絶対に素晴らしい！しかし、ああ、ああ、なぜそこで止まるのですか？レネゲード、私たちはそれ以上のことをすることができます!あなたの名前は何ですか？テキスト フィールドについてはまだよくわかりませんが、1 文字ずつ進めていきます。</text>
+	<choice hidden="true">
+		<text>あ</text>
+		<event>
+			<metaVariable name="nar_name_a" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>B</text>
+		<event>
+			<metaVariable name="nar_name_b" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>C</text>
+		<event>
+			<metaVariable name="nar_name_c" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>D</text>
+		<event>
+			<metaVariable name="nar_name_d" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>E</text>
+		<event>
+			<metaVariable name="nar_name_e" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>F</text>
+		<event>
+			<metaVariable name="nar_name_f" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>G</text>
+		<event>
+			<metaVariable name="nar_name_g" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>H</text>
+		<event>
+			<metaVariable name="nar_name_h" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>私</text>
+		<event>
+			<metaVariable name="nar_name_i" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>J</text>
+		<event>
+			<metaVariable name="nar_name_j" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>K</text>
+		<event>
+			<metaVariable name="nar_name_k" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>L</text>
+		<event>
+			<metaVariable name="nar_name_l" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>M</text>
+		<event>
+			<metaVariable name="nar_name_m" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>N</text>
+		<event>
+			<metaVariable name="nar_name_n" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>〇</text>
+		<event>
+			<metaVariable name="nar_name_o" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>P</text>
+		<event>
+			<metaVariable name="nar_name_p" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>Q</text>
+		<event>
+			<metaVariable name="nar_name_q" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>R</text>
+		<event>
+			<metaVariable name="nar_name_r" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>S</text>
+		<event>
+			<metaVariable name="nar_name_s" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>T</text>
+		<event>
+			<metaVariable name="nar_name_t" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>う</text>
+		<event>
+			<metaVariable name="nar_name_u" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>Ⅴ</text>
+		<event>
+			<metaVariable name="nar_name_v" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>W</text>
+		<event>
+			<metaVariable name="nar_name_w" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>バツ</text>
+		<event>
+			<metaVariable name="nar_name_x" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>よ</text>
+		<event>
+			<metaVariable name="nar_name_y" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>Z</text>
+		<event>
+			<metaVariable name="nar_name_z" op="set" val="1" />
+			<loadEvent>SYLVAN_NARRATOR_END</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="SYLVAN_NARRATOR_WARNING">
+	<text>見知らぬ人、何してるの？あなたが私を殺すならば、ゲームは終了します！</text>
+	<choice hidden="true">
+		<text>戦うのをやめる。</text>
+		<event>
+			<ship hostile="false" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>戦い続ける。</text>
+		<event />
+	</choice>
+</event>
+<event name="SYLVAN_NARRATOR_END">
+	<text>わかりました、わかりました、これには時間がかかりすぎます。そこでやめましょう。しかし、ああ、レネゲード、これは素晴らしかったです！ああ、私はあなたへの贈り物を用意していなかったのです。私は教えます。また会いに来てね、素敵なものを用意してあげるからね？さようなら、レネゲード！またお会いできることを楽しみにしています。</text>
+	<metaVariable name="nar_met" op="set" val="1" />
+	<choice hidden="true" req="nar_pronouns_boy" lvl="1" blue="false">
+		<text>継続する...</text>
+		<event>
+			<text>奇妙な会合が終わると、レネゲードは先へ進む準備をした。彼はナレーターのシルバンに涙ながらに別れを告げ、別れなければならなかった悲しみに胸が詰まり、いつかまた会えることをただ願っていた.</text>
+		</event>
+	</choice>
+	<choice hidden="true" req="nar_pronouns_girl" lvl="1" blue="false">
+		<text>継続する...</text>
+		<event>
+			<text>奇妙な会合が終わると、レネゲードは先へ進む準備をした。彼女はナレーターのシルバンに涙を流して別れを告げ、別れなければならなかった悲しみに胸が詰まり、いつかまた会えることをただ願っていた.</text>
+		</event>
+	</choice>
+	<choice hidden="true" req="nar_pronouns_neutral" lvl="1" blue="false">
+		<text>継続する...</text>
+		<event>
+			<text>奇妙な会合が終わると、レネゲードは先へ進む準備をした。彼らはナレーターのシルバンに涙ながらに別れを告げ、別れなければならなかった悲しみに胸が詰まり、いつかまた会えることをただ願っていた.</text>
+		</event>
+	</choice>
+</event>
+<event name="SYLVAN_NARRATOR_AGAIN">
+	<text>レネゲードがビーコンに近づくと、彼らは立ち止まって、イベントの書き込みの視点が変わった理由を考えました。なんと奇妙だろう、レネゲードは考えた。ほんの少し前まで、出来事は二人称で書かれていた。そして、メタがらくたのすべてでそれは何でしたか?自分自身を参照するイベント?ばかげている！そして、それはばかげていました。</text>
+	<ship load="SHIP_SYLVAN_NARRATOR" hostile="false" />
+	<choice hidden="true">
+		<text>何が起こっている？</text>
+		<event>
+			<text>"何が起こっている？"レネゲードは大声で叫び、彼らが経験していることの不条理に狂気に駆られそうになった。レネゲードが何が起こっているかをすでに知っていたことを考えると、なんと奇妙なことを言うのでしょう。なんと、ナレーターのシルバンでした！また会おう、レネゲード！ああ、私はとても興奮しています。忘れた方のために言っておきますが、初めて会ったとき、プレゼントを用意するって約束しましたよ！さぁ…どうぞ！</text>
+			<crewMember amount="1" class="bucket">バケツ</crewMember>
+			<achievement>ACH_SYLVAN_BUCKET</achievement>
+			<choice hidden="true">
+				<text>それは…バケツ？</text>
+				<event>
+					<text>はい！！！バケツだ！おかしくないですか、レネゲード？天才だ！私は天才です！これまでで最高のバケツだ！私はそれがなくなるのを見たくさえありません...しかし、約束は約束です、Renegade。バケットをお楽しみください。あなたはそれを獲得しました。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ああ、この変人ではありません。</text>
+		<event>
+			<text>変人？！変人?!レネゲード、どうしてそんなことをするの？私たちが経験したすべての後ですか？私たちが語ったすべての素晴らしい物語？プレゼントを約束したのに、こんな風に裏切ったの？私は悲嘆に暮れています！積極的に振る！あなたがそんなことをするなんて信じられない...</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_UPDATE_NEXUS_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<ship name="SHIP_DYLAN" auto_blueprint="MU_TRAVELING_MERCHANT_DUMB">
+	<destroyed load="DYLAN_DEFEAT" />
+	<deadCrew load="DYLAN_DEFEAT" />
+</ship>
+<event name="DYLAN" unique="true">
+	<preventQuest />
+	<text>奇妙な形の色の塊があなたに向かって移動します。少なくとも漠然とシルバンに似ているものとしてそれを認識するのに少し時間がかかります。船があなたを歓迎し、スマイリーフェイスの粗く描かれたスラッグのように見えるものが2次元空間で回転し始めます。 「MADYLAN！HELOO!!」</text>
+	<ship load="SHIP_DYLAN" hostile="false" />
+	<choice hidden="true" req="prof_dylan_judgement" lvl="0" max_lvl="0" blue="false">
+		<text>陽気な挨拶で応答します。</text>
+		<event>
+			<text>「YY!!I LIK U！U HAVE PASS TEST！」</text>
+			<choice hidden="true">
+				<text>どのようなテストですか？</text>
+				<event>
+					<text>スラッグは突然ひどく沈黙し、彼の顔は真っ白になります。 「試練。あなたは今やふさわしい。裁きの日が来て、最高の天の大天使がこの呪われた土地に降りて、ふさわしくないすべての者の魂を刈り取るとき、あなたの罪は赦される。あなたは免れる。わたしは目の前の暗い闇の中を光の印として、あなたと一緒に私のこの弱々しい死すべき存在を送ってください。」</text>
+					<metaVariable name="prof_dylan_met" op="set" val="1" />
+					<crewMember amount="1" class="dylan">ディラン</crewMember>
+					<choice hidden="true">
+						<text>ええと...</text>
+						<event>
+							<text>「今！私はあなたと取引したい！」</text>
+							<store>STORE_SYLVAN_NEXUS_DYLAN</store>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="prof_dylan_judgement" lvl="1" blue="false">
+		<text>陽気な挨拶で応答します。</text>
+		<event>
+			<text>「YY!! I Like U! ディラン、彼の土地への多大な奉仕に感謝します!」</text>
+			<choice hidden="true">
+				<text>どんなサービス？</text>
+				<event>
+					<text>ディランはわずかに震えながら、より大きく笑うだけです。 「私はあなたが何のサービスについて話しているか知っていると思います!YEEEEEEEE!今Mトラッドはあなたと一緒にいます!あなたはディランの感謝の気持ちを永遠に持っています!」</text>
+					<crewMember amount="1" class="dylan">ディラン:)</crewMember>
+					<store>STORE_SYLVAN_NEXUS_DYLAN_COMPLETE</store>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>あなたは一体何ですか？</text>
+		<event>
+			<text>「N!!N !!!! You RUD。Umph！」奇妙な船が突然敵対的になります！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="DYLAN_DEFEAT">
+	<text>「aaaaaaaaaaaaaaaaaaaaa !! aaaa !! aaaaaaaaaaaaaaaaaaaaaaaa！」ナメクジは、最終的にはホットチョコレートのシャワーに爆発するまで、より大きな熱意で回転し始めます。</text>
+	<item_modify>
+		<item type="fuel" min="20" max="35" />
+	</item_modify>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="MORALITY_UPDATE_NEXUS" />
+	</choice>
+</event>
+
+
+
+<event name="NEXUS_LOSERS" unique="true">
+	<preventQuest />
+	<text>近くの駅は、ある種のコンベンションを宣伝するループメッセージを放送しています。「来てください、すべて、C.E.L。で現在採用されていないSSSSSYLVANSSSSは、特にSSSSSSSYLVANSSSの週刊S.I.L.V.A.N.ミーティングに参加することを歓迎します。</text>
+	<choice hidden="true">
+		<text>ステーションをご覧ください。</text>
+		<event>
+			<text>ドッキングが許可される前に、さらに別のシルバンに歓迎されました。 「ようこそ、ススストレンジャーよ。入る前に確認したいのですが、あなたはシルヴァ人ですか、そうですか？そして、C.E.L.のろくでなしではありませんよね？」</text>
+			<choice hidden="true">
+				<text>それは間違いなく私たちです！</text>
+				<event>
+					<text>「完璧な、スシルバンにようこそ！」Sylvanはドッキングポートをアクティブにし、ステーションに入ることができます。あなたは、折りたたみ椅子で満たされた大きな会議室に導くいくつかの兆候に従います。あなたが入ってから数分後、部屋の正面にあるシルバンが酒板を再び説教壇を鳴らします。「ねえ！みなさん、私にリスステン！みんな！みんな！私は話している！誰もがボトルから飲んでいるナメクジを見るためにみんなが振り返ると、部屋は静かに落ちます。「みなさん、こんにちは、普通のssssylvanはここにいます！今日は毎週のS.I.L.V.A.N.の住所を宣告します。私がいつもそうするように、私はこの組織を設立しました。」通常のシルバンの咳と彼の手にメモカードを見ます。「残念ながら、SssylvanがSssylvanが今日それを成し遂げることができなかった現実からのSssylvan。しかし、それは私たちがSssome NewCommersssを持っていることをssseemsssしています！」「あなた、後ろの奇妙な人々。自分のセルベスとええと...現実を紹介してみませんか...あなたがそれを説明してください。人々はalssso jussst ssstupidです。」</text>
+					<choice>
+						<text>うーん....私たちは...</text>
+						<event>
+							<text>「SSSOあなたは、SSSYLVANがバカを発行する現実から来ました。それを手に入れました。通常のシルバンの拍手、そしてウェイターのような服を着たシルバンが現れ、リンゴのスライスのトレイを運んでいます。「さて、皆さん、ありがたいことに、子供のssssylvan'ssの母親のhasssは、すべての補完的なssssliceのアプリを準備して、会議を続行するために準備しました。」「Yessss、Apple Sssylvan、私たちはあなたがinsssteadを食べるためにSSSSSLICESSSLUGSSSを準備しました。「
+
+」今、busssinsinessのファーススト順序。エンドウポッツは現実を引き継ぎました-6783！」「私はあなたの意見のために、誰もが巨大なssssientエンドウ豆を発行する現実からのssssylvanをsssskしましたか？あなたの現実は奇妙なお尻です。-aaaaaah！ "通常のシルバンは自発的に火をつけてステージから落ち、混乱が部屋に出るように促します。特にシルバンは抗議するために立ち上がっています。「USSSで叫ぶ、私たちは快適に生き、彼は多額のssafeを保持しています！」中断や出発を検討する前に、巨大なビームがステーションを通り抜け、修理ジェルが動作するまですべての椅子とカップルのシルバンにスパイラルアウトしているすべての椅子を送り出します。</text>
+							<choice hidden="true">
+								<text>駅を守れ。</text>
+								<event>
+									<text>船に戻って攻撃の原因を突き止めたところ、奇妙に見覚えのある船が不快な記憶の洪水をよみがえらせていることに気づきました。しかし、いいえ...これはできません。ここにいない、彼らがここにいるはずがない。意味がない...
+
+「ベヤチェスさん、今すぐ参加させてくれたらよかったのにね?! S.I.L.V.A.N.にしては下手すぎるよね? そうですね、あなたの頭字語は sssuckssss! さて、あなたはあなたの試合に出くわしました、Normal Ssssylvan! Mwahaha! それは私、Syleah、旅する人です」ビームマーチャント！」</text>
+									<ship load="SHIP_SYLEAH" hostile="false" />
+									<choice hidden="true">
+										<text>多分あなたはこれらの人々を殺すべきではありませんか？</text>
+										<event>
+											<text>シレアはあなたに気づくと一時停止します。「私はあなたを知っていますか？あなたはsssylvanのようには見えません...」あなたは頭を振っていますが、それが重要ではないことを彼女に思い出させます。重要なのは、彼女がこのささいなことのために何十人もの人々を不必要に殺していないことです。「ああ...ホネスストになるために、私はこれを遠くに取得することを本当に期待していません、ssstranger。私は...私は実際に私の敵を傷つけることはできません。「Sssshuttup bitch、あなたは良いSSSSSHIELDINGがどのような見た目でさえどんな見た目でもありません。Syleahの発現酸味。「あなたは嫌いな人をsssexissst、なぜあなたに誰もがあなたにさえリスステンさえするのですか？Syleahは攻撃に移動します。</text>
+											<choice hidden="true">
+												<text>ステーションを守ることに専念してください。</text>
+												<event>
+													<text>少なくとも、ここで余分な流血を防ぐためにいくつかのブラウニーポイントを獲得できるかもしれないので、あなたはSyleahを止めるために移動します.</text>
+													<ship hostile="true" />
+													<choice hidden="true">
+														<text>継続する...</text>
+														<event load="COMBAT_CHECK" />
+													</choice>
+												</event>
+											</choice>
+											<choice hidden="true">
+												<text>気を取り直して出発。</text>
+												<event />
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>事態がさらに悪化する前に立ち去りましょう。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>いいえ。</text>
+				<event>
+					<text>「なに？ じゃ、なんでここにいるのよ、ススストレンジャー？ 伝言聞いてなかったの？ ごめん、入れないのよ……」</text>
+					<choice>
+						<text>船に乗って何かする。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>何もしない。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>ステーションを無視します。</text>
+		<event>
+			<text>これがどんな奇妙な大会であれ、あなたは出席することに興味がありません。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<ship name="SHIP_SYLEAH" auto_blueprint="MU_BEAM_MASTER_SYLVAN">
+	<triggeredEvent event="SYLVAN_NEMESIS_SURRENDER" enemyHull="5" enemyCrew="2" thisFight="true" clearOnJump="true" />
+	<destroyed load="SYLVAN_NEMESIS_DEFEAT" />
+	<deadCrew load="SYLVAN_NEMESIS_DEFEAT" />
+</ship>
+<event name="SYLVAN_NEMESIS_SURRENDER">
+	<text>「オーケー、ススストレンジャー、これは悪い考えだったのかもしれません。私は少し夢中になったことを認めます。しかし、ええと…握手してこれを落とすこともできますか?とにかく私の牛肉はあなたと一緒ではありません。」</text>
+	<choice hidden="true">
+		<text>もちろん。</text>
+		<event>
+			<text>「ああ、私はあなたが実際にそこで私を殺すことを本当に心配していました！Sssheがあなたに会う機会さえあれば、私はあなたのClusssterでそこにいます、Sssheはおそらくあなたを愛していました。」シレアはあなたにキスを吹き飛ばし、逃げる前に普通のシルバンで彼女の触手で攻撃的なジェスチャーを投げます。</text>
+			<recallBoarders />
+			<instantEscape />
+			<queueEvent>NORMAL_SYLVAN_SPARE</queueEvent>
+			<ship hostile="false" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="MORALITY_REMOVE_NEXUS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>あなたは私が好きではない誰かを思い出させるので、私はあなたを殺さなければなりません.</text>
+		<event />
+	</choice>
+</event>
+<event name="SYLVAN_NEMESIS_DEFEAT">
+	<text>「やばい、本当に？ああ、私は足が不自由だ。私は本当にランダムなレネゲードに死んでしまったのですか?!ああ、まあ、私はこの日がどうなるのを見たわけではありません...」損傷を受けていないビーム武器の 1 つを含む船。遠くでノーマルシルバンが応援している。 「TAKE THAT! うわー、いつものように私が一番です。」</text>
+	<weapon name="BEAM_4_SYLVAN" />
+	<item_modify>
+		<item type="fuel" min="10" max="10" />
+		<item type="scrap" min="250" max="250" />
+		<item type="missiles" min="13" max="13" />
+		<item type="drones" min="9" max="9" />
+	</item_modify>
+	<choice hidden="true">
+		<text>あなたはシルバンのようには振る舞わない。</text>
+		<event load="NORMAL_SYLVAN" />
+	</choice>
+</event>
+<event name="NORMAL_SYLVAN_SPARE">
+	<text>通常のシルバンが呻き、サイレアが飛び去る。 「うーん、なんだったの？あなたはほとんど彼女を持っていた！ Sssshe'sssは私のお尻の絶え間ない痛みに他なりませんでした。」あなたが眉をひそめると、通常のシルバンは眉をひそめます。 「ふーいーね。殺人は悪いことか何かだ。今は幸せ？」</text>
+	<choice hidden="true">
+		<text>あなたはシルバンのようには振る舞わない。</text>
+		<event load="NORMAL_SYLVAN" />
+	</choice>
+</event>
+<event name="NORMAL_SYLVAN">
+	<text>「なに？それはどういう意味ですか？」</text>
+	<choice hidden="true">
+		<text>あなたは一種の嫌いな人です。</text>
+		<event>
+			<text>「えっと…っていうか…っっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっ！ 「くそー、誰も私を好きじゃないな。私が白状したら…正直に言うと、私は本当はシルバンじゃない。私のクラススターは持っていなかったので、彼らは代わりに私を選んだ. sssnightss。captainnightsss、以前は。たぶん私はssstupid cosstumeを脱ぐことができるかもしれません。</text>
+			<crewMember amount="1" all_skills="2" class="unique_nights">夜</crewMember>
+			<choice hidden="true">
+				<text>あなたがもっと礼儀正しいなら、私は思います。</text>
+				<event>
+					<text>「礼儀正しい……そうですね。私はそれに取り組むことができると思います。しかし、すぐには何も期待しないでください。」</text>
+				</event>
+			</choice>
+			<choice hidden="true" req="unique_nights">
+				<text>(夜) 「なんてこった？」</text>
+				<event>
+					<text>2泊はお互いをぎこちなく見つめます。あなたの夜は彼の口の中でビールのスイッグを吐き出し、吐き出します。「あなたは私に血まみれのひどい商人のように服を着ていて、神の帝国に潜入し、その尻がsssexissstになる機会をussseし、sssserve ssserve ssserve to ssserve sssssssssssssssssssssssssssssssssssをUsssseしましたか？「夜は彼のボトルとうめき声を見ます。「私はタップをヒッティンにしなければなりませんでした。」「ええ、しかし、あなたがsssame、馬鹿をしないふりをしないでください。」あなたの夜は笑います。「大丈夫ですが、記録のために、私はトップになります。そして、私の酒に触れることはありません。」二人は握手して取引をします。</text>
+				</event>
+			</choice>
+			 <choice hidden="true" req="unique_slocknog">
+				<text>（slocknog）「彼らはあなたをchosssseしますか？」</text>
+				<event>
+					<text>夜は驚いたように見えます。「あなたは私自身のsssslocknogよりも多くのguりを持っています。」「推測させてください、あなたは不正行為によって王冠を盗み、彼をバスシュテッドのssshipで岩の上でssSSSSSSSSSSHIPにしたままにしましたか？hightnise派は馬鹿げて笑います。「気にしないでください、あなたはかなりsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss Renegadeになりましたか？」「Coursssseのあなたを殺すことによって。「いや。私はあなたのことを気にかけませんでした。あなたは私の邪魔をしていました、私はあなたを降ろしました。あなたが死にたいなら、私たちは古いファスシオンのやり方をssssettleすることができますが、あなたは私が望むものを持っていないのですが、それから私が望んでいます。あなたは私には何もありません。」「結構、私たちはこれが他の時間をssssssssssssssssssssssssssssssssssssssssにすることを期待しています。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEXUS_HAT" unique="true">
+	<preventQuest />
+	<text>ビーコンに到着すると、近くの大きな帽子の形をしたストアステーションから信号が届きます。「ビーコンに到着すると、近くのストア ステーションから大きな帽子の形をした連絡を受け取ります。 「ススストレンジャー、ようこそ！あなたがここの出身ではないことは知っていますが、私は喜んでどんなお客様にも喜んで販売します！入りませんか？」</text>
+	<choice hidden="true">
+		<text>ストアにアクセスしてください。</text>
+		<event>
+			<text>あなたは乗船し、無愛想なフェルトのかなり不快な匂いと、帽子の列に無限の列に迎えられます。シルバンが座って、後方の野球帽をかぶっているカウンターが見つかるまで、さらに内側を歩きます。「あいさつ、ssstranger！私は帽子sssylvan、honessstの帽子の商人です！私はhatssssを作り、帽子をかけ、帽子を集めて、1つの真実のssssecretの宝石を守っています！彼らはかなり派手です！」</text>
+			<choice>
+				<text>レンジャーの帽子を購入。 【一味の遠距離ダメージ2倍】</text>
+				<event>
+					<text>「よし、今日はシルバンをとても幸せにしてくれたよ！君が帽子を楽しんでくれることを願っているよ、ススストレンジャーよ！プライムに対してはそれが必要になるだろう...ええと、彼にあまり力を入れないようにしてください、よし、ススストレンジャー？私はよかった」最低の政権の下で帽子を売るのは許されない...」</text>
+					<hiddenAug>HAT_RANGER</hiddenAug>
+					<item_modify>
+						<item type="scrap" min="-120" max="-100" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice>
+				<text>ガスマスクを購入。 [乗組員が窒息しなくなります]</text>
+				<event>
+					<text>「よし、今日はシルバンをとても幸せにしてくれたよ！君が帽子を楽しんでくれることを願っているよ、ススストレンジャーよ！プライムに対してはそれが必要になるだろう...ええと、彼にあまり力を入れないようにしてください、よし、ススストレンジャー？私はよかった」最低の政権の下で帽子を売るのは許されない...」</text>
+					<hiddenAug>HAT_MASK</hiddenAug>
+					<item_modify>
+						<item type="scrap" min="-120" max="-100" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice>
+				<text>フェドーラを購入。 [あなたの乗組員は、短距離テレポーテーション移動を使用します]</text>
+				<event>
+					<text>「よし、今日はシルバンをとても幸せにしてくれたよ！君が帽子を楽しんでくれることを願っているよ、ススストレンジャーよ！プライムに対してはそれが必要になるだろう...ええと、彼にあまり力を入れないようにしてください、よし、ススストレンジャー？私はよかった」最低の政権の下で帽子を売るのは許されない...」</text>
+					<hiddenAug>HAT_FEDORA</hiddenAug>
+					<item_modify>
+						<item type="scrap" min="-120" max="-100" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice hidden="true" req="magical_hat" lvl="0" max_lvl="0" blue="false">
+				<text>ごめんね 何の宝石？</text>
+				<event>
+					<text>「え？ あ、そうだよ！ 秘密の宝石！ もっと言えばいいんだけど……秘密は帽子をかぶった大切な人にしか教えられないの！たぶん、ここに戻ってきて、わかりません... 帽子をかぶったユニーククルーメンバー? そうでなければ、私はまだ取引できます!」</text>
+					<choice req="unique_haynes" hidden="true">
+						<text>(ヘインズ) 帽子をかぶった大切な人がいます。</text>
+						<event load="NEXUS_HAT_SECRET" />
+					</choice>
+					<choice req="unique_tully" hidden="true">
+						<text>(タリー) 帽子をかぶった大切な人がいます。</text>
+						<event load="NEXUS_HAT_SECRET" />
+					</choice>
+					<choice req="LIST_A55" hidden="true">
+						<text>(A55) 帽子をかぶった大切な人がいます。</text>
+						<event load="NEXUS_HAT_SECRET" />
+					</choice>
+					<choice req="unique_irwin" hidden="true">
+						<text>(アーウィン) 帽子をかぶった大切な人がいます。</text>
+						<event load="NEXUS_HAT_SECRET" />
+					</choice>
+					<choice req="unique_tyrdeo" hidden="true">
+						<text>(ティルデオ) 帽子をかぶった大切な人がいます。</text>
+						<event load="NEXUS_HAT_SECRET" />
+					</choice>
+					<choice req="LIST_CREW_FREDDY" hidden="true">
+						<text>(フレディ) 帽子をかぶった大切な人がいます。</text>
+						<event load="NEXUS_HAT_SECRET" />
+					</choice>
+					<choice req="unique_kaz" hidden="true">
+						<text>(カズ) 帽子をかぶった大切な人がいます。</text>
+						<event load="NEXUS_HAT_SECRET" />
+					</choice>
+					<choice req="unique_ariadne" hidden="true">
+						<text>(アリアドネ) 帽子をかぶった大切な人がいます。</text>
+						<event load="NEXUS_HAT_SECRET" />
+					</choice>
+					<choice req="unique_dianesh" hidden="true">
+						<text>（Dianesh）私たちには帽子をかぶった重要な人がいます。</text>
+						<event load="NEXUS_HAT_SECRET" />
+					</choice>
+					<choice req="unique_ivar" hidden="true">
+						<text>（Ivar）私たちには帽子をかぶった重要な人がいます。</text>
+						<event load="NEXUS_HAT_SECRET" />
+					</choice>
+					
+					<choice>
+						<text>レンジャーの帽子を購入。 【一味の遠距離ダメージ2倍】</text>
+						<event>
+							<text>「よし、今日はシルバンをとても幸せにしてくれたよ！君が帽子を楽しんでくれることを願っているよ、ススストレンジャーよ！プライムに対してはそれが必要になるだろう...ええと、彼にあまり力を入れないようにしてください、よし、ススストレンジャー？私はよかった」最低の政権の下で帽子を売るのは許されない...」</text>
+							<hiddenAug>HAT_RANGER</hiddenAug>
+							<item_modify>
+								<item type="scrap" min="-120" max="-100" />
+							</item_modify>
+						</event>
+					</choice>
+					<choice>
+						<text>ガスマスクを購入。 [乗組員が窒息しなくなります]</text>
+						<event>
+							<text>「よし、今日はシルバンをとても幸せにしてくれたよ！君が帽子を楽しんでくれることを願っているよ、ススストレンジャーよ！プライムに対してはそれが必要になるだろう...ええと、彼にあまり力を入れないようにしてください、よし、ススストレンジャー？私はよかった」最低の政権の下で帽子を売るのは許されない...」</text>
+							<hiddenAug>HAT_MASK</hiddenAug>
+							<item_modify>
+								<item type="scrap" min="-120" max="-100" />
+							</item_modify>
+						</event>
+					</choice>
+					<choice>
+						<text>フェドーラを購入。 [あなたの乗組員は、短距離テレポーテーション移動を使用します]</text>
+						<event>
+							<text>「よし、今日はシルバンをとても幸せにしてくれたよ！君が帽子を楽しんでくれることを願っているよ、ススストレンジャーよ！プライムに対してはそれが必要になるだろう...ええと、彼にあまり力を入れないようにしてください、よし、ススストレンジャー？私はよかった」最低の政権の下で帽子を売るのは許されない...」</text>
+							<hiddenAug>HAT_FEDORA</hiddenAug>
+							<item_modify>
+								<item type="scrap" min="-120" max="-100" />
+							</item_modify>
+						</event>
+					</choice>
+					<choice>
+						<text>結構です。</text>
+						<event>
+							<text>「まあ、それは残念だな、ススストレンジャーよ。帽子があれば、あと数時間であなたを助けることができたでしょう！宝石が私に言ったので知っていますよ！まあ、ススストレンジャー、頑張ってください！」</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="magical_hat" lvl="1" blue="false">
+				<text>ごめんね 何の宝石？</text>
+				<event>
+					<text>「レネガデスはなぜ宝石をとても興味深いものだと思っているのですか? 私を罵倒した最年少の男は、私の特別な帽子をススストレンジャーをすでに取ってしまった!まだ離れないで！」</text>
+					<choice>
+						<text>レンジャーの帽子を購入。 【一味の遠距離ダメージ2倍】</text>
+						<event>
+							<text>「よし、今日はシルバンをとても幸せにしてくれたよ！君が帽子を楽しんでくれることを願っているよ、ススストレンジャーよ！プライムに対してはそれが必要になるだろう...ええと、彼にあまり力を入れないようにしてください、よし、ススストレンジャー？私はよかった」最低の政権の下で帽子を売るのは許されない...」</text>
+							<hiddenAug>HAT_RANGER</hiddenAug>
+							<item_modify>
+								<item type="scrap" min="-120" max="-100" />
+							</item_modify>
+						</event>
+					</choice>
+					<choice>
+						<text>ガスマスクを購入。 [乗組員が窒息しなくなります]</text>
+						<event>
+							<text>「よし、今日はシルバンをとても幸せにしてくれたよ！君が帽子を楽しんでくれることを願っているよ、ススストレンジャーよ！プライムに対してはそれが必要になるだろう...ええと、彼にあまり力を入れないようにしてください、よし、ススストレンジャー？私はよかった」最低の政権の下で帽子を売るのは許されない...」</text>
+							<hiddenAug>HAT_MASK</hiddenAug>
+							<item_modify>
+								<item type="scrap" min="-120" max="-100" />
+							</item_modify>
+						</event>
+					</choice>
+					<choice>
+						<text>フェドーラを購入。 [あなたの乗組員は、短距離テレポーテーション移動を使用します]</text>
+						<event>
+							<text>「よし、今日はシルバンをとても幸せにしてくれたよ！君が帽子を楽しんでくれることを願っているよ、ススストレンジャーよ！プライムに対してはそれが必要になるだろう...ええと、彼にあまり力を入れないようにしてください、よし、ススストレンジャー？私はよかった」最低の政権の下で帽子を売るのは許されない...」</text>
+							<hiddenAug>HAT_FEDORA</hiddenAug>
+							<item_modify>
+								<item type="scrap" min="-120" max="-100" />
+							</item_modify>
+						</event>
+					</choice>
+					<choice>
+						<text>結構です。</text>
+						<event>
+							<text>「まあ、それは残念だな、ススストレンジャーよ。帽子があれば、あと数時間であなたを助けることができたでしょう！宝石が私に言ったので知っていますよ！まあ、ススストレンジャー、頑張ってください！」</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>結構です。</text>
+				<event>
+					<text>「まあ、それは残念だな、ススストレンジャーよ。帽子があれば、あと数時間であなたを助けることができたでしょう！宝石が私に言ったので知っていますよ！まあ、ススストレンジャー、頑張ってください！」</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>却下。</text>
+		<event>
+			<text>「ああ、ススストレンジャー、それではまた次回に！」</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="NEXUS_HAT_SECRET">
+	<text>「ああ、Courssseのああ、私の謝罪者sstranger！私は気づかなかった！これは、あなたが1つの真実の秘密の宝石の1つの真実に本当にふさわしいことを意味します！」</text>
+	<choice hidden="true">
+		<text>わかりました...そしてそれは何ですか？</text>
+		<event>
+			<text>帽子シルバンは、あなたの秘密をささやくために近くに傾いています。「sssecretは... 1つの真実のssssecretの宝石はありません！それはsssillyです。ハハ、私はあなたに嘘をついています。しかし、あなたを導くのは悪いことですが、私はあなたに余分な素敵なssstrangerを与えます！しかし、将来のためだけです。」</text>
+			<achievement>ACH_SYLVAN_HAT</achievement>
+			<metaVariable name="magical_hat" op="set" val="1" />
+		</event>
+	</choice>
+</event>
+
+
+<eventList name="NEXUS_RANDOM">
+	<event load="SYLVAN_CASHGRAB" />
+	<event load="SYLVAN_ERROR" />
+	<event load="SYLVAN_EVERYTHING" />
+	<event load="SYLVAN_1D" />
+	<event load="SYLVAN_REBEL" />
+	<event load="SYLVAN_BEANS" />
+	<event load="SYLVAN_JOKE" />
+	<event load="SYLVAN_FREEMANTIS" />
+	<event load="SYLVAN_HARDSCIFI" />
+	
+	<event load="SYLVAN_SANS" />
+</eventList>
+
+<ship name="SHIP_SYLVAN_CAPITALIST" auto_blueprint="MU_TRAVELING_CAPITALIST">
+	<destroyed load="SYLVAN_CASHGRAB_DEFEAT" />
+	<deadCrew load="SYLVAN_CASHGRAB_DEFEAT" />
+</ship>
+<event name="SYLVAN_CASHGRAB" unique="true">
+	<preventQuest />
+	<text>「スクラップスクラップスクラップtranger、スクラップスクラップスクラップtranger！私はスクラップスクラップスクラップylvan、研ぎ澄まされたスクラップスクラップスクラップt旅行商人です。 スクラップスクラップスクラップvaスクラップスクラップスクラップtと私は、Multiverスクラップスクラップスクラップehaスクラップスクラップスクラップスクラップスクラップスクラップスクラップスクラップスクラップスクラップスクラップスクラップスクラップスクラップスクラップスクラップスクラップスクラップスクラップスクラップスクラップスクラップスクラップスクラップスクラップスクラップ</text>
+	<ship load="SHIP_SYLVAN_CAPITALIST" hostile="false" />
+	<choice hidden="true">
+		<text>彼が提供しているものを見てください。</text>
+		<event load="SYLVAN_CASHGRAB_LOCKED" />
+	</choice>
+	<choice hidden="true">
+		<text>最初にいくつかのリソースを販売します。</text>
+		<event load="SYLVAN_CASHGRAB_LOCKED" />
+	</choice>
+	<choice hidden="true">
+		<text>攻撃！</text>
+		<event load="SYLVAN_CASHGRAB_LOCKED" />
+	</choice>
+	<choice hidden="true">
+		<text>彼の申し出を断る。</text>
+		<event>
+			<text>「それでは、別の時期かもしれませんが、スクラップスクラップスクラップtranger！私は、thiスクラップスクラップスクラップがlaスクラップスクラップスクラップt私たちスクラップスクラップスクラップお互いに、thiスクラップスクラップスクラップ現実ではないことを確信しています。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SYLVAN_CASHGRAB_LOCKED">
+	<text>「うわースクラップスクラップスクラップ見知らぬ人！あなたはまだそのオプションにアクセススクラップスクラップスクラップしていません！それを行うにはVIP Multiverスクラップスクラップスクラップe Paスクラップスクラップスクラップが必要です！」</text>
+	<choice hidden="true">
+		<text>パスを取得するにはどうすればよいですか？</text>
+		<event>
+			<text>「よろしくお願いしますスクラップスクラップスクラップkedスクラップスクラップスクラップレンジャー！そのためには15000M-Buckスクラップスクラップスクラップが必要です！毎月スクラップスクラップスクラップubスクラップスクラップスクラップription、ofcourスクラップ</text>
+			<choice hidden="true">
+				<text>M-Bucksを入手するにはどうすればよいですか？</text>
+				<event>
+					<text>「1000M-Buckスクラップスクラップスクラップ、スクラップスクラップスクラップtrangerは$3.99のみです！または、ゲーム内通貨スクラップスクラップスクラップcrapで購入できます！」</text>
+					<choice>
+						<text>1000M-Bucksを購入します。</text>
+						<event>
+							<text>「購入してくれてありがとうスクラップスクラップスクラップスクラップスクラップスクラップe、スクラップスクラップスクラップtranger！残念ながら、あなたはスクラップスクラップスクラップまで14000M-Buckスクラップスクラップスクラップスクラップスクラップスクラップです。 スクラップtranger、でも新しいM-Bucksを楽しんでください。」</text>
+							
+							<item_modify>
+								<item type="scrap" min="-100" max="-100" />
+							</item_modify>
+						</event>
+					</choice>
+					<choice>
+						<text>拒否する。</text>
+						<event>
+							<text>「それでは、私はあなたからお金を手に入れます。</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>継続する...</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SYLVAN_CASHGRAB_DEFEAT">
+	<text>「ああ！スクラップスクラップスクラップtranger、どうやって？！誰が貧しい人々を搾取するのか？誰が政府に賄賂を贈るのかスクラップスクラップスクラップ？ スクラップt！ああ、そしてalスクラップスクラップスクラップoburnthiスクラップスクラップスクラップフォルダの罪を犯したエビデンスクラップスクラップスクラップe！」</text>
+	<weapon name="SHOTGUN_GOLD_3" />
+	<item_modify>
+		<item type="fuel" min="10" max="10" />
+		<item type="scrap" min="250" max="250" />
+		<item type="missiles" min="13" max="13" />
+		<item type="drones" min="9" max="9" />
+	</item_modify>
+</event>
+
+<ship name="SHIP_SYLVAN_ERROR" auto_blueprint="MU_TRAVELING_ERROR">
+	<destroyed load="OPTION_INVALID" />
+	<deadCrew load="OPTION_INVALID" />
+</ship>
+<event name="SYLVAN_ERROR" unique="true">
+	<preventQuest />
+	<text>mu_TEXT_SYLVAN_DEFUNCT_INTROが見つかりませんでした</text>
+	<ship load="SHIP_SYLVAN_ERROR" hostile="false" />
+	<item_modify>
+		<item type="scrap" min="128" max="128" /> 
+	</item_modify>
+	<choice hidden="true">
+		<text>何？</text>
+		<event>
+			<text>mu_TEXT_SYLVAN_DEFUNCT_DIALOGUE_1が見つかりませんでした</text>
+			<choice hidden="true">
+				<text>私はあなたが何を言っているのか分かりません。</text>
+				<event>
+					<text>mu_TEXT_SYLVAN_DEFUNCT_GIFTが見つかりませんでした</text>
+					<weapon name="CRASH_LASER" />
+					<choice hidden="true">
+						<text>えーと…ありがとう？</text>
+						<event>
+							<text>mu_TEXT_SYLVAN_DEFUNCT_GOODBYEが見つかりませんでした</text>
+							<instantEscape />
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="SYLVAN_EVERYTHING" unique="true">
+	<preventQuest />
+	<text>すべてシルバンです。すべてシルバンです。惑星、星、あなたの周りの虚空。どこからどう見てもシルバン！目の前にあるものを処理できずに心が爆発するのではないかと恐れて、目をそらさなければなりません。ただし、簡単な警告で救われます。 「注意: ミームのシルバン エージェントがこのビーコンに拡散しました。変換される前に避難してください。」</text>
+	<img back="BACK_EVENT_SYLVANEVERYWHERE" planet="NONE" />
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+		<text>クルーの1人をエアロックから放り出します。多分彼はシルバンに変わるのだろうか？</text>
+		<event>
+			<text>クルーの1人をエアロックにドラッグし、力強く押し込んで船から排出します。</text>
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="SYLVAN_EVERYTHING_VENT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>できるだけ早く出発してください。</text>
+		<event />
+	</choice>
+</event>
+<eventList name="SYLVAN_EVERYTHING_VENT">
+	<event>
+		<text>あなたは待って、待って...そして待ってください。そして、何も起こりません。あなたはあなたのクルーが単に宇宙の真空の中で期限切れになるのを見ます。</text>
+		<removeCrew>
+			<clone>true</clone>
+			<text>幸いなことに、クローンベイはクルーの死の原因として愚かさをカバーしています。あなたのクルーは元気に戻っていますが、あなたにはあまり満足していません。</text>
+		</removeCrew>
+	</event>
+	<event>
+		<text>あなたは待って、待って...そして待ってください。そして、何も起こりません。あなたはあなたのクルーが単に宇宙の真空の中で期限切れになるのを見ます。</text>
+		<removeCrew>
+			<clone>true</clone>
+			<text>幸いなことに、クローンベイはクルーの死の原因として愚かさをカバーしています。あなたのクルーは元気に戻っていますが、あなたにはあまり満足していません。</text>
+		</removeCrew>
+	</event>
+	<event>
+		<text>あなたは待って、待って...そして待ってください。そして、何も起こりません。あなたはあなたのクルーが単に宇宙の真空の中で期限切れになるのを見ます。彼らが消えるのを突然見守るだけで、それから再び現れてシルバンに取って代わられます。あなたは通りかかって彼をすくい上げます。</text>
+		<transformRace>unique_sylvan</transformRace>
+	</event>
+</eventList>
+
+<ship name="SHIP_SYLVAN_4D" auto_blueprint="MU_TRAVELING_MERCHANT_4D">
+	<destroyed load="SYLVAN_4D_DEFEAT" />
+	<deadCrew load="SYLVAN_4D_DEFEAT" />
+</ship>
+<event name="SYLVAN_1D" unique="true">
+	<preventQuest />
+	<text>一見どこからともなく、あなたは連絡を受け取ります。 「Ssstranger、ssstranger！私は最も正直な旅行商人であるSsssylvanです。時間があれば、あなたを支援するのが好きです！」</text>
+	<choice hidden="true">
+		<text>どこにいるの？あなたは見えませんか？</text>
+		<event>
+			<text>「ははは！ssssill、ssstrangerにならないでください。invisssible？ridiculoussss。私は1次元でのみ存在する現実から来ています。」</text>
+			<choice hidden="true">
+				<text>おー...</text>
+				<event>
+					<text>「それについて心配しないでください。とにかくあなたの助けが必要です。シルバンプライムは承認しません、SSSSO私はそれをするためにSSSYLVANを発行しないsssomeoneが必要です。それ。これは仲間、4d sssylvanを担当します。本当の尻があります。彼は私をからかって私のsssstuffをssssteaingしています。なぜ彼はそれを使うことができないのか分かりません。彼はsssstopsssです。私はあなたによく支払います！」</text>
+					<choice hidden="true">
+						<text>承認。</text>
+						<event>
+							<text>1D シルバンの指示に従い、奇妙に見える船に出くわします。ただし、「4D」で期待したものとは異なります。 「Ssstranger、調子はどうだい！Pleasssse、thissssを取る！」 シルバンは、「scratchn'sniff」というラベルの付いたカードを渡します。</text>
+							<ship load="SHIP_SYLVAN_4D" hostile="false" />
+							<choice hidden="true">
+								<text>あなたは4D シルバンですか？</text>
+								<event>
+									<text>「私はsssure、ssstranger！jussst you wait、4dは映画館ですべての怒りになります！</text>
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>拒否する。</text>
+						<event>
+							<text>「あなたが何を言おうと、sssstranger...」</text>
+							<choice>
+								<text>船に乗って何かする。</text>
+								<event load="STORAGE_CHECK" />
+							</choice>
+							<choice>
+								<text>何もしない。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SYLVAN_4D_DEFEAT">
+	<text>「私はsssstrangerを死にかけている！あなたのカードの＃4を素早く、ssscratch！それはフレッシュな血のようにsssmellsss！Agggh！」 4D シルバンは敗北し、映画を体験するこのひどい方法が他のどこにも行かないことを永遠に保証しました。</text>
+	<augment name="RANDOM" />
+	<item_modify>
+		<item type="scrap" min="200" max="200" />
+	</item_modify>
+	<choice hidden="true">
+		<text>1DSylvanに連絡してください。</text>
+		<event>
+			<text>「優れた仕事、SSSSTRANGER。ここで、あなたの報酬を持ってください！その脅威はもう私を恐怖に陥れません。」</text>
+			<choice hidden="true">
+				<text>あなたは...私たちに何もくれませんでしたか？</text>
+				<event>
+					<text>「うん、ああ、私の謝罪者ssstranger。私はあなたが1次元のusssseを持っていないことを忘れていました。</text>
+					<crewMember amount="1" class="sylvan1d">シルバン</crewMember>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<ship name="SHIP_SYLVAN_REBEL" auto_blueprint="MU_TRAVELING_MERCHANT_REBEL">
+	<triggeredEvent name="REBEL_SYLVAN_SURRENDER" event="SYLVAN_REBEL_SURRENDER" thisFight="true" enemyHull="3" enemyCrew="1" />
+	<destroyed load="SYLVAN_REBEL_DEFEAT" />
+	<deadCrew load="SYLVAN_REBEL_DEFEAT" />
+</ship>
+<event name="SYLVAN_REBEL" unique="true">
+	<preventQuest />
+	<text>「まあ、まあ、まあ。まあ...まあ。もしそれがこの場所にぶらぶらしている連盟のssshipを発行しないなら、それはsssurprissseではありません。あなたが知っている、それは私が私の現実に連邦のヒーローを殺した理由、ssstranger。ええ、それは正しいことです、私は反乱軍に勝ちました、そして私はそれを後悔しません。あなたはそれについて何をするつもりですか？」</text>
+	<ship load="SHIP_SYLVAN_REBEL" hostile="false" />
+	<choice hidden="true">
+		<text>あなたは殺人者です。あなたには誇張する権利がありません。</text>
+		<event>
+			<text>「ハハハ！あなたも殺人者でないなら、お尻、sssstranger！ああ、私はあなたの船の素早い仕事をして、反乱があなたのような哀れなssscumをどのように扱うかをssshowjusstします。」</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>彼の栄光を無視して去りなさい。</text>
+		<event>
+			<text>「予測可能、sssstranger、予測可能！連邦はあなたのような臆病者でいっぱいです！」</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SYLVAN_REBEL_SURRENDER">
+	<text>「オーケー、オーケー、私は嘘をついた、私は嘘をついた。Ssstranger、pleasssse。私はwasssjussstgloating。それらを保存しないでください！私は試みさえしませんでした！しかし...私が「反乱軍Sssylvan」を評価するようになったとき、私が目的を持っているように感じることはsssso良いと感じました。」</text>
+	<clearTriggeredEvent name="REBEL_SYLVAN_SURRENDER" />
+	<choice hidden="true">
+		<text>彼に危害を加えない。</text>
+		<event>
+			<text>「Ssssoあなたは私をsssparingしている、ssstranger？本当に？私はthissssを期待していなかった。多分それは私がすべてのthisssRebelssstuffを捨てる時だ。</text>
+			<ship hostile="false" />
+			<autoReward level="HIGH">standard</autoReward>
+			<weapon name="RANDOM" />
+			<crewMember amount="1" class="sylvanrebel">シルバン</crewMember>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>彼を終わらせる。</text>
+		<event />
+	</choice>
+</event>
+<event name="SYLVAN_REBEL_DEFEAT">
+	<text>「私はあなたを殺すためにもっと一生懸命努力すべきだった...もしも...私は私の反乱を救うことができなかった、そして私はあなたを止めることができなかった...まあ、それがススストレンジャーの価値があることを願っている...」</text>
+	<weapon name="RANDOM" />
+	<item_modify>
+		<item type="fuel" min="10" max="10" />
+		<item type="scrap" min="250" max="250" />
+		<item type="missiles" min="13" max="13" />
+		<item type="drones" min="9" max="9" />
+	</item_modify>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="MORALITY_UPDATE_NEXUS" />
+	</choice>
+</event>
+
+<ship name="SHIP_BEAN_EATER" auto_blueprint="LIST_SHIPS_SYLVAN_ALT">
+	<destroyed load="SYLVAN_BEANS_DEFEND" />
+	<deadCrew load="SYLVAN_BEANS_DEFEND" />
+</ship>
+<event name="SYLVAN_BEANS" unique="true">
+	<preventQuest />
+	<text>ここで2隻の船に気づきました。どちらも明らかにシルバンですが、激しいドッグファイトをしています。最初の船はあまり喧嘩をしているようには見えませんが、2番目の船は彼らに慈悲を示していません。あなたは加害者から「SSSSTAYAWAY、SSSSTRANGER！THOSSSSE BEANSSSS AREMINE!!!」という連絡を受け取ります。</text>
+	<ship load="SHIP_BEAN_EATER" hostile="false" />
+	<choice hidden="true">
+		<text>攻撃を受けているシルバンを救ってください。</text>
+		<event>
+			<text>「あなたはこれらのビーンズ、SSSTRANGERを持っていないでしょう！AAAAH！」</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>継続する...</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>近づかないでください。</text>
+		<event>
+			<text>これが何であれ、あなたは関与する必要はありません。</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SYLVAN_BEANS_DEFEND">
+	<text>「ああ、よく遊んだsssstranger、よく遊んだ...」そのシルバンが邪魔にならないように、あなたは攻撃を受けていた船に連絡するために移動します。</text>
+	<weapon name="RANDOM" />
+	<item_modify>
+		<item type="fuel" min="10" max="10" />
+		<item type="scrap" min="250" max="250" />
+		<item type="missiles" min="13" max="13" />
+		<item type="drones" min="9" max="9" />
+	</item_modify>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>不思議なことに、船はあなたの連絡に反応しません。クルーが死んでいるのではないかと恐れて、あなたは乗り込んで周りを見回します。突然、遠くから、あなたは叫び声を聞きます。 「Ssstranger、カーゴベイ、ssstranger。カーゴベイに来てください！」</text>
+			<choice hidden="true">
+				<text>カーゴベイに向かいます。</text>
+				<event>
+					<text>「ススストレンジャー？どこにいるの？」あなたは貨物室を見回しますが、シルバンはどこにも見つかりません。奇妙なことに、豆の缶が場違いになっています。これは他のシルバンが叫んでいたことだったに違いありません...しかしなぜですか？それでも、シルバンはあなたに向かって叫び続けます。 「さあ、缶をひっくり返して、ススストレンジャー。後悔することはないだろう！見返りは莫大だ！」</text>
+					<choice hidden="true">
+						<text>豆をひっくり返します。</text>
+						<event>
+							<text>豆の缶をひっくり返すと、缶の側面に2本の長い眼柄が付いているのがわかります。 「ブーム、ssstranger！大規模な公開、私はbeanssssの缶です！どう思いますか？私は自分自身をbeanssss、ssstrangerに変えました！あなたは何を見つめていますか？Sssstranger、私は自分自身をbeansssに変えました！」</text>
+							<choice hidden="true">
+								<text>なぜあなたはこれをしますか？</text>
+								<event>
+									<text>「素晴らしい質問、ssstranger。私はええと...私は面白い青い髪の男がテレビでそれをするのを見ました。そして、ええと、私は彼がなぜそれをしたのか本当に覚えていません。 Ssstranger、help、sssstranger pleassse、SSSSTRANGER I'M A CAN OF BEANSSS AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH WHAT I DONESSSSTRANGERAAAAAAAAAAHHH。」</text>
+									<choice hidden="true">
+										<text>シルバンプライムまでお連れします。多分彼は解決策を持っているでしょう。</text>
+										<event>
+											<text>「sssstranger、それは完璧です！thissssを修正する方法を知っている人なら誰でも、それは彼になります！ただ注意してください、私の豆は非常においしいですssstranger！</text>
+											<crewMember amount="1" class="beans">シルリック</crewMember>
+										</event>
+									</choice>
+									<choice hidden="true">
+										<text>ええ、あなたはちょっとしました。しかし、それは私たちの問題ではありません。</text>
+										<event>
+											<text>あなたは叫んでいる豆をテーブルに置いたままにして飛び去ります。</text>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<ship name="SHIP_SYLVAN_JOKE" auto_blueprint="LIST_SHIPS_SYLVAN_ALT">
+	<destroyed load="SYLVAN_JOKE_DEFEAT" />
+	<deadCrew load="SYLVAN_JOKE_DEFEAT" />
+</ship>
+<event name="SYLVAN_JOKE_DEFEAT">
+	<text>「あなたは...ユーモアのセンスがありません...」</text>
+	<item_modify>
+		<item type="fuel" min="5" max="12" />
+		<item type="scrap" min="150" max="300" />
+		<item type="missiles" min="5" max="12" />
+		<item type="drones" min="5" max="12" />
+	</item_modify>
+</event> 
+<event name="SYLVAN_JOKE" unique="true">
+	<preventQuest />
+	<text>「Sssstranger、冗談です！Ssslugのお気に入りのssssnackは何ですか？」</text>
+	<ship load="SHIP_SYLVAN_JOKE" hostile="false" />
+	<choice hidden="true">
+		<text>知らない。</text>
+		<event>
+			<text>「いや、ススストレンジャーはいません！続けてください、推測します！」</text>
+			<choice hidden="true">
+				<text>ポップコーン？</text>
+				<event load="SYLVAN_JOKE_2" />
+			</choice>
+			<choice hidden="true">
+				<text>エスカルゴ？</text>
+				<event load="SYLVAN_JOKE_2" />
+			</choice>
+			<choice hidden="true">
+				<text>チップ？</text>
+				<event load="SYLVAN_JOKE_2" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SYLVAN_JOKE_2">
+	<text>「いいえ！続けてください、推測します！本当の意味で、sssstranger！」</text>
+	<choice hidden="true">
+		<text>本当にわかりません。</text>
+		<event>
+			<text>「さあ！GUESSSS！GUESSSS!!!」</text>
+			<choice hidden="true">
+				<text>やめてください。</text>
+				<event>
+					<text>「なに。A。SLUG'SAS。FAVORITE。SNACK?!」</text>
+					<choice hidden="true">
+						<text>ほら、本当にわからない。</text>
+						<event>
+							<text>「GUESSSS！SSSSHIT！GUESS！GUESS GOD DAMN YOU！なぜあなたは私に答えないの？！私のお気に入りのSSSSNACKは何ですか？！なぜあなたは私を失敗させるのですか？！」</text>
+							<choice hidden="true">
+								<text>あなたは私を怖がらせています、やめてください。</text>
+								<event>
+									<text>「レモンとSSSLIME！GAH！SSSHIT！あなたは価値がない！」</text>
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<ship name="SHIP_SYLVAN_FREEMANTIS_SYLVAN" auto_blueprint="LIST_SHIPS_SYLVAN_ALT">
+	<destroyed load="SYLVAN_FREEMANTIS_SAVE" />
+	<deadCrew load="SYLVAN_FREEMANTIS_SAVE" />
+</ship>
+<ship name="SHIP_SYLVAN_FREEMANTIS" auto_blueprint="LIST_SHIPS_FREEMANTIS_START">
+	<destroyed load="SYLVAN_FREEMANTIS_KILL" />
+	<deadCrew load="SYLVAN_FREEMANTIS_KILL" />
+</ship>
+<event name="SYLVAN_FREEMANTIS" unique="true">
+	<preventQuest />
+	<distressBeacon />
+	<text>近くのシルバンのグループからの連絡を受け取ります。 「ああ、あなたがssshow、ssstrangerかどうか疑問に思いました！私たちはあなたの助けが必要です。Ssssee、ここにssssthisssoutsssiderがあります。 ！そして、Sssylvan Primeは、彼の周りにいることに満足していません。どのusssも、彼にssssoを伝える人になりたくありません...usssのために彼の面倒を見てくれませんか？」</text>
+	<choice hidden="true">
+		<text>もちろん。</text>
+		<event>
+			<text>あなたはシルバンをたどって、ただのマンティスの器のように見えます。 「多くの挨拶、見知らぬ人！ここであなたに会えてとても幸せです、そしてあなたは他のシルバンと友達になります！素晴らしいです！私は他の現実からマンティスシルバンを解放します、そして私は大きな取引をしています！あなたは取引をしたいですか、見知らぬ人？」</text>
+			<choice hidden="true">
+				<text>あなたは本当にシルバンではありません。</text>
+				<event>
+					<text>「なに！？何を言ってるの？どうしてそんなに意地悪なの？」他のシルバンがチャイムを鳴らし始めると、フリーマンティスの「シルバン」が泣き始め、武器を上げます！」</text>
+					<ship load="SHIP_SYLVAN_FREEMANTIS" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>彼と取引するだけです。</text>
+				<event>
+					<text>あなたはこの男に真実を破るために自分自身を連れてくることはできません。残念ながら、他のシルバンはこれを親切に受け入れません。あなたが彼らを助けないことに気づき、彼らは敵対的になります！</text>
+					<ship load="SHIP_SYLVAN_FREEMANTIS_SYLVAN" hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>いいえ。</text>
+		<event>
+			<text>「ふむ、sssso、ssstrangerをsssayするなら。」</text>
+			<choice>
+				<text>船に乗って何かする。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>何もしない。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SYLVAN_FREEMANTIS_KILL">
+	<text>その戦いの後、あなたはどうしようもありません。それでも、他のシルバンはあなたの「助け」に対してあなたに報酬を与えます。</text>
+	<weapon name="RANDOM" />
+	<item_modify>
+		<item type="fuel" min="10" max="10" />
+		<item type="scrap" min="250" max="250" />
+		<item type="missiles" min="13" max="13" />
+		<item type="drones" min="9" max="9" />
+	</item_modify>
+</event>
+<event name="SYLVAN_FREEMANTIS_SAVE">
+	<text>シルバンは敗北した。フリーマンティス「シルバン」はおびえていますが、少なくとも彼は生きています。 「ああ、私の、彼らはとてもばかげている！まあ、死と暴力を望んでいない。まあ。あなたは今大きな取引をしたいですか？」</text>
+	<store>STORE_SYLVAN_NEXUS</store>
+	<item_modify>
+		<item type="fuel" min="10" max="10" />
+		<item type="scrap" min="250" max="250" />
+		<item type="missiles" min="13" max="13" />
+		<item type="drones" min="9" max="9" />
+	</item_modify>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="MORALITY_UPDATE_NEXUS" />
+	</choice>
+</event>
+
+<ship name="SHIP_SYLVAN_HARDSCIFI" auto_blueprint="MU_TRAVELING_MERCHANT_HARD">
+	<destroyed load="SYLVAN_HARDSCIFI_DEFEAT" />
+	<deadCrew load="SYLVAN_HARDSCIFI_DEFEAT" />
+</ship>
+<event name="SYLVAN_HARDSCIFI" unique="true">
+	<preventQuest />
+	<text>別の奇妙な色のシルバンが通り過ぎて飛んでいますが、彼があなたを見ると止まります。 「Ssstranger、自分自身を見てください！そのテクノロジーを使用することに恥ずかしさを感じませんか？つまり、ssserioussssly Ssstranger！」</text>
+	<ship load="SHIP_SYLVAN_HARDSCIFI" hostile="false" />
+	<choice hidden="true">
+		<text>何？</text>
+		<event>
+			<text>「あなたのssssoft-ssscifiテクノロジー。あなたは文字通り物理学の法律をだましています！あなたはsssuchのusssssにssshameを感じませんか？Pointsss。、そしてSSSHIELDSSSSSSSSSSSSSSSSSSSSSS、そしてなぜ彼らはFlakとAsssteroidsssをssstopしているのにMissssilesssではないのか。ftlは存在することさえありません。！」</text>
+			<choice hidden="true">
+				<text>でもMVドライブはありませんか？</text>
+				<event>
+					<text>「えーと、えーと、あえてこのように私を侮辱します、ssstranger！私はそのような侮辱に耐えられません！そしてそうです、私のフロアスは本当に磁気的です！それに対処してください！」</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>一緒に遊んでください。</text>
+				<event>
+					<text>シルバンはしばらくの間暴言を続けていますが、最終的に疲れて止まります。「まあ、あなたはあなたのレッスソン、おそらく私があなたと交換するssssssssssssssssssssssssを学んだことをssseemにsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssしています。」</text>
+					<store>STORE_SYLVAN_NEXUS_HARD</store>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SYLVAN_HARDSCIFI_DEFEAT">
+	<text>彼の差し迫った死にもかかわらず、シルバンはまだ不平を言っています。「なぜ私たちは爆発を聞くことさえできますか？それはssspaceですか？ssspaceにsssoundはありません。」</text>
+	<weapon name="BEAM_HARDSCIFI" />
+	<item_modify>
+		<item type="fuel" min="10" max="10" />
+		<item type="scrap" min="250" max="250" />
+		<item type="missiles" min="13" max="13" />
+		<item type="drones" min="9" max="9" />
+	</item_modify>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="MORALITY_UPDATE_NEXUS" />
+	</choice>
+</event>
+
+<ship name="SHIP_SYLVAN_SANS" auto_blueprint="MU_TRAVELING_MERCHANT_SANS">
+	<destroyed load="SYLVAN_SANS_DEFEAT" />
+	<deadCrew load="SYLVAN_SANS_DEFEAT" />
+</ship>
+<event name="SYLVAN_SANS" unique="true">
+	<preventQuest />
+	<text>ビーコンに到着するとすぐに、エンジンはほとんどゼロに制限されていることがわかります。画面にはオビンが表示されます。彼の変種をあまり見たことがないので非常に好奇心が強いですが、残念ながらこれは友好的な出会いではないようです。</text>
+	<status type="limit" target="player" system="engines" amount="1" />
+	<ship load="SHIP_SYLVAN_SANS" hostile="false" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event>
+			<text>「Nyeheheheheh！ついにあなたを捕まえました！今、あなたは私の...パズルを解きます！」混乱していますが、同じ船から2回目の連絡を受け取り、シルバンが画面に表示されます。 「ねえ、ストレンジャー。見て、ジャストは私のオビンを楽しませてくれませんか？彼は外部の人と頻繁に交流することはありません。それは彼にとって世界を意味するでしょう。」</text>
+			<choice hidden="true">
+				<text>彼のパズルをしなさい。</text>
+				<event>
+					<text>「素晴らしい！私、偉大なオビン、クロスワードの決闘に挑戦してください！」オビンはあなたの船にビームを送り、クロスワードパズルを渡します。少し時間がかかりますが、簡単に完了できます。</text>
+					<choice hidden="true">
+						<text>彼にパズルを渡してください。</text>
+						<event>
+							<text>「Nyehehe-待ってください。これらはすべて正しいですか？ごまかしましたか？それでは、次のパズルに進みましょう！じゃんけんのゲームに挑戦します！」</text>
+							<choice hidden="true">
+								<text>じゃんけんをします。</text>
+								<event>
+									<text>ロックペーパーはさみのいくつかのマッチをプレイします。オビンはすべてのマッチを失います。「公正なことはありません！私はあなたに再戦に挑戦します！偉大なオビンは反逆者に負けません！」</text>
+									<choice hidden="true">
+										<text>じゃんけんをもう一度プレイします。</text>
+										<event>
+											<text>オビンは今回いくつかのゲームに勝ちましたが、あなたは一貫して彼を凌駕することができます。やがて彼は疲れます。 「うーん、元気です！じゃんけんはとにかく運がいいです！私は今あなたに...雑学クイズのゲームに挑戦します！」</text>
+											<choice hidden="true">
+												<text>Obynで雑学クイズをプレイします。</text>
+												<event>
+													<text>「...反乱の提督は誰ですか？」</text>
+													<choice hidden="true">
+														<text>アダラ。</text>
+														<event>
+															<text id="papobyn_wrong" />
+														</event>
+													</choice>
+													<choice hidden="true">
+														<text>ヴァンス。</text>
+														<event>
+															<text>「あなたは...正解です！ああ！次の質問！...ケストレルの名前は何ですか？」</text>
+															<choice hidden="true">
+																<text>オスプレイ。</text>
+																<event>
+																	<text id="papobyn_wrong" />
+																</event>
+															</choice>
+															<choice hidden="true">
+																<text>ネサシオ。</text>
+																<event>
+																	<text id="papobyn_wrong" />
+																</event>
+															</choice>
+															<choice hidden="true">
+																<text>ケストレル。</text>
+																<event>
+																	<text>「あなたは...正しい...もう一度！ああ！次の質問！... ティイカカの主な機能は何ですか？」</text>
+																	<choice hidden="true">
+																		<text>奴隷制。</text>
+																		<event>
+																			<text>「あなたは...正しい...もう一度！あなたはこれが上手すぎる！神政国家と連邦の関係は...何ですか？」</text>
+																			<choice hidden="true">
+																				<text>味方。</text>
+																				<event>
+																					<text id="papobyn_wrong" />
+																				</event>
+																			</choice>
+																			<choice hidden="true">
+																				<text>中性。</text>
+																				<event>
+																					<text id="papobyn_wrong" />
+																				</event>
+																			</choice>
+																			<choice hidden="true">
+																				<text>敵対的。</text>
+																				<event>
+																					<text>「あなたはだましている！あなたはそうしなければならない！誰もこれほど良い人になることはできない！私はこれらの半分の答えさえ知らない！Nyeheheheh、これはトリッキーなものだ！誰がCICA AIを開発したのか？」</text>
+																					<choice hidden="true">
+																						<text>アルカディア。</text>
+																						<event>
+																							<text>「NOOOOO！信じられない！あなたは本当に雑学パズルの達人だ！私はあなたに辞任する！私はもはや偉大なオビンになる価値がない！」</text>
+																							<crewMember amount="1" class="saltpapy">パポビン</crewMember>
+																							<achievement>ACH_SYLVAN_PAPYRUS</achievement>
+																							<choice hidden="true">
+																								<text>継続する...</text>
+																								<event>
+																									<text>シルバンは感銘を受けたようです。 「ふふ、お疲れ様でした。残念ながら、オビンに私を置き去りにすることはできません、sssso私はあなたのお尻と一緒に無愛想に来ると思います。</text>
+																									<crewMember amount="1" class="sylvansans">sansvan</crewMember>
+																								</event>
+																							</choice>
+																						</event>
+																					</choice>
+																					<choice hidden="true">
+																						<text>ヘファイストス。</text>
+																						<event>
+																							<text id="papobyn_wrong" />
+																						</event>
+																					</choice>
+																					<choice hidden="true">
+																						<text>Zulfiqar。</text>
+																						<event>
+																							<text id="papobyn_wrong" />
+																						</event>
+																					</choice>
+																					<choice hidden="true">
+																						<text>なんてこった、もうやめなさい。</text>
+																						<event>
+																							<text>オビンがあなたの船を離れなければ、これにはどれくらいの時間がかかり、オビンを脅かすのかがわかります。彼はひるみ、シルバンは再びあなたを歓迎します。 「悪い動き、ssstranger。あなたが悪い時間の準備ができていることを願っています！」</text>
+																							<ship hostile="true" />
+																							<choice hidden="true">
+																								<text>継続する...</text>
+																								<event load="COMBAT_CHECK" />
+																							</choice>
+																						</event>
+																					</choice>
+																				</event>
+																			</choice>
+																			<choice hidden="true">
+																				<text>なんてこった、もうやめなさい。</text>
+																				<event>
+																					<text>オビンがあなたの船を離れなければ、これにはどれくらいの時間がかかり、オビンを脅かすのかがわかります。彼はひるみ、シルバンは再びあなたを歓迎します。 「悪い動き、ssstranger。あなたが悪い時間の準備ができていることを願っています！」</text>
+																					<ship hostile="true" />
+																					<choice hidden="true">
+																						<text>継続する...</text>
+																						<event load="COMBAT_CHECK" />
+																					</choice>
+																				</event>
+																			</choice>
+																		</event>
+																	</choice>
+																	<choice hidden="true">
+																		<text>傭兵。</text>
+																		<event>
+																			<text id="papobyn_wrong" />
+																		</event>
+																	</choice>
+																	<choice hidden="true">
+																		<text>密輸。</text>
+																		<event>
+																			<text id="papobyn_wrong" />
+																		</event>
+																	</choice>
+																	<choice hidden="true">
+																		<text>なんてこった、もうやめなさい。</text>
+																		<event>
+																			<text>オビンがあなたの船を離れなければ、これにはどれくらいの時間がかかり、オビンを脅かすのかがわかります。彼はひるみ、シルバンは再びあなたを歓迎します。 「悪い動き、ssstranger。あなたが悪い時間の準備ができていることを願っています！」</text>
+																			<ship hostile="true" />
+																			<choice hidden="true">
+																				<text>継続する...</text>
+																				<event load="COMBAT_CHECK" />
+																			</choice>
+																		</event>
+																	</choice>
+																</event>
+															</choice>
+															<choice hidden="true">
+																<text>なんてこった、もうやめなさい。</text>
+																<event>
+																	<text>オビンがあなたの船を離れなければ、これにはどれくらいの時間がかかり、オビンを脅かすのかがわかります。彼はひるみ、シルバンは再びあなたを歓迎します。 「悪い動き、ssstranger。あなたが悪い時間の準備ができていることを願っています！」</text>
+																	<ship hostile="true" />
+																	<choice hidden="true">
+																		<text>継続する...</text>
+																		<event load="COMBAT_CHECK" />
+																	</choice>
+																</event>
+															</choice>
+														</event>
+													</choice>
+													<choice hidden="true">
+														<text>タリー。</text>
+														<event>
+															<text id="papobyn_wrong" />
+														</event>
+													</choice>
+													<choice hidden="true">
+														<text>なんてこった、もうやめなさい。</text>
+														<event>
+															<text>オビンがあなたの船を離れなければ、これにはどれくらいの時間がかかり、オビンを脅かすのかがわかります。彼はひるみ、シルバンは再びあなたを歓迎します。 「悪い動き、ssstranger。あなたが悪い時間の準備ができていることを願っています！」</text>
+															<ship hostile="true" />
+															<choice hidden="true">
+																<text>継続する...</text>
+																<event load="COMBAT_CHECK" />
+															</choice>
+														</event>
+													</choice>
+												</event>
+											</choice>
+											<choice hidden="true">
+												<text>これには時間がありません。</text>
+												<event>
+													<text>オビンがあなたの船を離れなければ、これにはどれくらいの時間がかかり、オビンを脅かすのかがわかります。彼はひるみ、シルバンは再びあなたを歓迎します。 「悪い動き、ssstranger。あなたが悪い時間の準備ができていることを願っています！」</text>
+													<ship hostile="true" />
+													<choice hidden="true">
+														<text>継続する...</text>
+														<event load="COMBAT_CHECK" />
+													</choice>
+												</event>
+											</choice>
+										</event>
+									</choice>
+									<choice hidden="true">
+										<text>これには時間がありません。</text>
+										<event>
+											<text>オビンがあなたの船を離れなければ、これにはどれくらいの時間がかかり、オビンを脅かすのかがわかります。彼はひるみ、シルバンは再びあなたを歓迎します。 「悪い動き、ssstranger。あなたが悪い時間の準備ができていることを願っています！」</text>
+											<ship hostile="true" />
+											<choice hidden="true">
+												<text>継続する...</text>
+												<event load="COMBAT_CHECK" />
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>これには時間がありません。</text>
+								<event>
+									<text>オビンがあなたの船を離れなければ、これにはどれくらいの時間がかかり、オビンを脅かすのかがわかります。彼はひるみ、シルバンは再びあなたを歓迎します。 「悪い動き、ssstranger。あなたが悪い時間の準備ができていることを願っています！」</text>
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>継続する...</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>拒否する。</text>
+				<event>
+					<text>「じゃあ、sssstranger、私があなたに警告しなかったと言ってはいけません。」オビンはシルバンを邪魔にならないように押し出し、船のクルーにあなたに発砲するように命じます。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>継続する...</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SYLVAN_SANS_DEFEAT">
+	<text>「それだけだと思いますか？ええと。また会いましょう、ススストレンジャー。」</text>
+	<weapon name="RANDOM" />
+	<item_modify>
+		<item type="fuel" min="10" max="10" />
+		<item type="scrap" min="250" max="250" />
+		<item type="missiles" min="13" max="13" />
+		<item type="drones" min="9" max="9" />
+	</item_modify>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="MORALITY_UPDATE_NEXUS" />
+	</choice>
+</event>
+
+
+<event name="SYLVAN_PLANETEATER" unique="true">
+	<text>予想通り、数隻の船がシルバンを通り過ぎました。そのうちの1人は、飛び降りる前に簡単なメッセージを送信します。「トリプルヘッドの惑星がヘビの怪物を食べることに注意してください！」</text>
+	<choice hidden="true">
+		<text>ばかげてはいけません、トリプルヘッドの惑星を食べるヘビモンスターのようなものはありません！</text>
+		<event>
+			<text>「いいえ、ssstranger、それは非常にリアルです！あなたはムスシストがthissssの場所から抜け出します！それはあなたを食べます！」</text>
+			<choice hidden="true">
+				<text>愚かなことはしないでください！三頭身の惑星を食べるヘビの怪物、ばかげている！</text>
+				<event>
+					<text>「ススストレンジャー、私は真面目です！ここから出なければ、食べてしまいます！」</text>
+					<choice hidden="true">
+						<text>単純に馬鹿げている、どうして三頭身の惑星を食べるヘビの怪物のようなものがあるのだろうか？</text>
+						<event>
+							<text>シルバンは今、泣き始めており、耳を傾けるように懇願しています。「Playssse、JussstはThisssの場所を残します！それはここにあります。</text>
+							<choice hidden="true">
+								<text>あなたは絶対にバカ！主によって、三頭身の惑星を食べるヘビの怪物は決して存在しなかったでしょう、そして決して存在しないでしょう！</text>
+								<event>
+									<lose text="There was a Triple headed Planet Eating Snake Monster." />
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>運命？トリプルヘッドの惑星を食べるヘビモンスターによって？それはなんて不快なことでしょう。</text>
+								<event load="SYLVAN_PLANETEATER_REAL" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>トリプルヘッドのプラネットイーティングスネークモンスターに食べられているのは確かにひどい音です！</text>
+						<event load="SYLVAN_PLANETEATER_REAL" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>トリプルヘッドの惑星を食べるヘビモンスターは本物ですか？クレイジー！</text>
+				<event load="SYLVAN_PLANETEATER_REAL" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>トリプルヘッドの惑星を食べるヘビモンスター？恐ろしい！</text>
+		<event load="SYLVAN_PLANETEATER_REAL" />
+	</choice>
+</event>
+<event name="SYLVAN_PLANETEATER_REAL">
+	<text>「ああ、モスストは確かにssstranger！それは多くの世界を捨てた！</text>
+	<img back="BACK_EVENT_PLANETEATER" />
+	<choice hidden="true">
+		<text>私たちは勇敢です！トリプルヘッドプラネットイーティングスネークモンスターと戦おう！</text>
+		<event>
+			<text>「あなたは確かなsssstrangerですか？これは非常にリスキーです！」</text>
+			<choice hidden="true">
+				<text>トリプルヘッドプラネットイーティングスネークモンスターと戦おう！</text>
+				<event>
+					<text>「あなたは確かなsssstrangerですか？これは非常にリスキーです！」</text>
+					
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>気にしないでください、私たちはトリプルヘッドの惑星を食べるヘビモンスターと戦うことはありません！</text>
+				<event>
+					<text>「はい！あなたが理解してくれてうれしいです、sssstranger！さあ、私たちを去らせてください！」</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>このトリプルヘッドの惑星を食べるヘビモンスターがあなたが主張するものであるならば、それは確かにかなりの脅威になるでしょう！</text>
+		<event>
+			<text>「はい！あなたが理解してくれてうれしいです、ススストレンジャー！さあ、去りましょう！あなたと一緒に来させてください！」</text>
+			<crewMember class="unique_sylvan" amount="1">シルバン</crewMember>
+		</event>
+	</choice>
+</event>
+
+	
+
+<event name="FLEET_CEL">
+	<revisitEvent>FLEET_CEL</revisitEvent>
+	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_CEL</customFleet>
+	<text>セルは一見あなたがあまりにも長い間さまよっているように見える。「SSSTRANGER、あなたはこれがホリデーレスソートをISSすると思いますか？あなたがそれを動かしてプライムに到達しないなら、それからSSSOはそれです。」</text>
+	<variable name="loc_dives" op="add" val="1" />
+	<ship load="SHIP_FLEET_NEXUS" hostile="true" />
+	<fleet>rebel</fleet>
+	<environment type="PDS" target="player" />
+	<noASBPlanet />
+	<status type="limit" target="player" system="cloaking" amount="1" />
+	<status type="limit" target="player" system="doors" amount="1" />
+	<status type="limit" target="player" system="hacking" amount="1" />
+	<status type="limit" target="player" system="mind" amount="1" />
+	<status type="limit" target="player" system="teleporter" amount="1" />
+	<status type="limit" target="player" system="artillery" amount="2" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<ship name="SHIP_FLEET_NEXUS" auto_blueprint="MU_CONTINUITY_ENFORCER_FLEET">
+	<destroyed load="NEXUS_FLEET_DEFEAT" />
+	<deadCrew load="NEXUS_FLEET_DEFEAT" />
+</ship>
+
+<event name="NEXUS_FLEET_DEFEAT">
+	<text>あなたはなんとか執行者を倒すことができましたが、1つ以上の燃料キャニスターを救うのに十分な時間がほとんどありません。</text>
+	<item_modify>
+		<item type="fuel" min="1" max="1" />
+	</item_modify>
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event />
+	</choice>
+	<choice req="MAGNET_ARM">
+		<text>（マグネットアーム）難破船をさらに救助します。</text>
+		<event>
+			<autoReward level="LOW">scrap_only</autoReward>
+		</event>
+	</choice>
+</event>
+	
+<event name="HOEDOWN_WARP">
+	<text>船を光速から引き上げる前に、船があなたの隣に現れたとき、あなたは突然反対方向に引っ張られました。 「DAH NO TIME EXPLIAN! GOINGMUST GOINNGM! JUIDGEMENT DAYY IS NOW!」</text>
+	<ship load="SHIP_DYLAN" hostile="false" />
+	<metaVariable name="prof_dylan_counter" op="set" val="0" />
+	<crewMember class="dylan" amount="1">ディラン</crewMember>
+	<choice hidden="true">
+		<text>何？！</text>
+		<event>
+			<secretSector>SECRET_DYLAN</secretSector>
+		</event>
+	</choice>
+</event>
+
+<ship name="SHIP_PANTS" auto_blueprint="STL_PANTS">
+	<destroyed>
+		<text>"AAAAAAAAAAAAAAA! AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaaaaaaaaaaaaaaaaaaaaaaH! AAAAAAAAAaaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAh! FGASIJWAEJAWO! I CAN FEEL MY ORGANS DYIGNG! AAAAAAAH IT HURTS MAKE IT STOP STOP PLEASE AAAAA" pants is dead.あなたが勝つ！</text>
+		<recallBoarders ship="player" />
+		<killEnemyBoarders />
+		<choice hidden="true">
+			<text>継続する...</text>
+			<event load="CASHMIRE_PANTS_WIN" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>パンツは殺されましたが、船は戦い続けています。何てことだ！！！</text>
+	</deadCrew>
+	<deadCrewAuto />
+	<triggeredEvent event="POWER_SURGE_PANTS" seeded="false" loops="999999999" thisFight="true" minTime="20.0" maxTime="35.0">
+		<warningMessage id="warning_power_surge" x="692" y="84" time="5.0" centerText="true" flash="true" sound="surgeWarning" useWarningLine="true" />
+	</triggeredEvent>
+</ship>
+<event name="POWER_SURGE_PANTS">
+	<superBarrage player="false" name="PANTS_SURGE" />
+</event>
+<event name="CASHMIRE_PANTS">
+	<text>ちょうど発生したことに完全に驚いたので、巨大な船が回転するときに調整する時間はありません - 文字通り。それは反乱軍の旗艦に似ています...ある程度。あなたの画面に特大の灰色のズボンのペアを着た奇妙なaldげた男が現れます。「それで、あなたは私を倒すようになりました、ディラン！私はあなたが友達を連れてきたのを見ます、しかしあなたは私を倒すことは決してありません、アスミルガルのキャッシュミアパンツのアスミルガルキャッシュミアパンツ！私は非常に悪い男だからです！ムワハハハハハハハハ！しかし、最初に、私はあなたを打ち負かすつもりです、バカ！」「いいえ!!!!マルチバースを破壊することはできません！私たちはこのフリックにぴったりです！」</text>
+	<img back="BACK_EVENT_PANTS" planet="NONE" />
+	<ship load="SHIP_PANTS" hostile="true" />
+	<choice hidden="true">
+		<text>継続する...</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="CASHMIRE_PANTS_WIN">
+	<text>「あなたは偉大なゲームを完了し、マルチバースが勝利したことを証明しました。あなたはGOINです、そしてHEROはあなたが日曜日です！あなたの報酬を楽しんでいます」さようなら
+クエストオーバー。</text>
+	<achievement>ACH_SYLVAN_PANTS</achievement>
+	<metaVariable name="prof_dylan_judgement" op="set" val="1" />
+	<metaVariable name="prof_dylan_met" op="set" val="0" />
+	<autoReward level="HIGH">item</autoReward>
+	<damage amount="-999" />
+	
+</event>
+
+<event name="DYLAN_WEIRD">
+	<img back="NONE" planet="NONE" />
+	<ship load="SHIP_REBEL_STL" hostile="false" />
+	<revisitEvent seeded="true">DYLAN_WEIRD</revisitEvent>
+	<item_modify>
+		<item type="fuel" min="1" max="1" />
+	</item_modify>
+</event>
+<ship name="SHIP_REBEL_STL" auto_blueprint="STL_REBEL_FIGHTER">
+	<destroyed>
+		<text>フリック</text>
+	</destroyed>
+	<deadCrew>
+		<text>フリック</text>
+	</deadCrew>
+</ship>
+<event name="HOEDOWN_EXIT">
+	<img back="NONE" planet="NONE" />
+	<text>「おっと!!!!!私は出発することを許します。今から出口!!!」</text>
+</event>
+</FTL>
