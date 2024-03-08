@@ -121,7 +121,7 @@ Asset File と Data File の２つをダウンロードしてください。
 ダウンロードした２つのファイルを、Slipstream Mod Manager の mod フォルダに保存して下さい。
 
 #### 7. 日本語パッチの入手と格納
-本ページから [本パッチ](https://github.com/ranhai613/ftl-multiverse-japanese-patch/releases/tag/v0.) をダウンロードします。
+本ページから [本パッチ](https://github.com/ranhai613/ftl-multiverse-japanese-patch/releases/) をダウンロードします。
 
 ダウンロードしたファイルを、Slipstream Mod Manager の mod フォルダに保存して下さい。
 
