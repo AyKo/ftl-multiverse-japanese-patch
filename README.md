@@ -65,7 +65,13 @@ Steamなど。
 Slipstream Mod Manager の初回起動時は、FTLのインストール先の指定などの初期設定を要求されます。
 環境に合わせて問いに答えます。
 
-* 「FTL のインストール先にある ftl.dat を指定せよ」を指示されます。 Steam であれば ＜Steamのインストール先＞\steamapps\common\FTL Faster Than Light\ にあります。 私の環境の場合、C:\Steam\steamapps\common\FTL Faster Than Light\ にありました。また、簡単に調べる方法として、SteamのライブラリでFTLのページの管理（歯車マーク）→管理→ローカルファイルを閲覧からFTLのインストールフォルダに飛ぶことができます。そしたらフォルダのパスをコピペしてください。
+* 「FTL のインストール先にある ftl.dat を指定せよ」を指示されます。 Steam であれば ＜Steamのインストール先＞\steamapps\common\FTL Faster Than Light\ にあります。 私の環境の場合、C:\Steam\steamapps\common\FTL Faster Than Light\ にありました。
+  
+* また、簡単に調べる方法として、SteamのライブラリでFTLのページの管理（歯車マーク）→管理→ローカルファイルを閲覧からFTLのインストールフォルダに飛ぶことができます。そしたらフォルダのパスをコピペしてください。
+
+* 「今から手動でFTLを指定します。FTLフォルダの中から'ftl.dat'または'data.dat'を見つけて指定してください。
+
+もしかしたらサブディレクトリ'resources/'に埋まってるかもしれません。OSXを使ってる人は'FTL.app'を選択してください。」
 
    ![Slipstream-FirstStep-1](doc/SlipstreamModManager-FirstSetting-1.png)
 
