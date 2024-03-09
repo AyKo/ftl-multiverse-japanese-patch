@@ -51,6 +51,7 @@ Google翻訳などでサイトを丸ごと翻訳しても、まあ何となく�
 * [Hyperspace 1.10.0以上](https://subsetgames.com/forum/viewtopic.php?f=11&t=35095)
 * [Multiverse 5.4.4](https://subsetgames.com/forum/viewtopic.php?t=35332)
 * [FTL: Hyperspace 日本語化MOD](https://seesaawiki.jp/ftl/d/MOD#content_3_6_1)
+* [JapaneseFonts.ftl](https://drive.google.com/file/d/18EZMhs6Z9iKncLx0kfaliAxHrrK_G6qK/view?usp=sharing)
 * [本パッチ](https://github.com/ranhai613/ftl-multiverse-japanese-patch/releases/)
 
 #### 1. FTLのインストール
@@ -70,7 +71,6 @@ Slipstream Mod Manager の初回起動時は、FTLのインストール先の指
 * また、簡単に調べる方法として、SteamのライブラリでFTLのページの管理（歯車マーク）→管理→ローカルファイルを閲覧からFTLのインストールフォルダに飛ぶことができます。そしたらフォルダのパスをコピペしてください。
 
 * 「今から手動でFTLを指定します。FTLフォルダの中から'ftl.dat'または'data.dat'を見つけて指定してください。
-
 もしかしたらサブディレクトリ'resources/'に埋まってるかもしれません。OSXを使ってる人は'FTL.app'を選択してください。」
 
    ![Slipstream-FirstStep-1](doc/SlipstreamModManager-FirstSetting-1.png)
@@ -143,7 +143,7 @@ Slipstream Mod Manager を起動し、必要な初期設定をおこなったら
 2. [Multiverse 5.4.4 - Data]
 3. [Hyperspace-ja]
 4. [JapaneseFonts]
-5. [Multiverse_Japanese Patch]
+5. [Multiverse 5.4.4 Japanese Patch]
 
 ![ModManager](doc/5.4.1-mod-manager.png)
 
