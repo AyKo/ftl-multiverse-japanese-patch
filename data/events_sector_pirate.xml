@@ -5,11 +5,11 @@
 <event name="FINISH_BEACON_PIRATE">
 	<text id="finish_beacon" />
 	<choice hidden="true">
-		<text>探検。</text>
+		<text>探検する</text>
 		<event load="EXIT_FILLER_LIST" />
 	</choice>
 	<choice hidden="true">
-		<text>船に乗って何かする。</text>
+		<text>船内で何かをする。</text>
 		<event load="STORAGE_CHECK" />
 	</choice>
 	<choice hidden="true">
@@ -205,29 +205,29 @@
 </eventList>
 
 <event name="BLACKMARKET_CRYSTAL_KNICKNACKS" unique="true">
-	<text>ここには、珍しい光景であるクリスタル市場が確立されています。大勢の人が集まったようで、クリスタルの遺物を売っています。</text>
+	<text>珍しいことに、ここにはクリスタルの市が立っている。大勢の人が集まり、クリスタルの遺物を売っているようだ。</text>
 	<weapon name="GIFTLIST_CRYSTAL" />
 </event>
 
 <event name="BLACKMARKET_DESPERATE_SLUG" unique="true">
-	<text>海賊の色で塗られたスラッグの船は、このビーコンで異なる船の間で交易を行おうとしているように見えますが、役に立たないのです。</text>
+	<text>海賊色に塗られたナメクジ船が、このビーコンでさまざまな船との交易を試みているようだが、効果はない。</text>
 	<ship load="SHIP_DESPERATE_SLUG" hostile="false" />
 	<choice>
-		<text>彼に連絡してください。</text>
+		<text>彼に連絡を。</text>
 		<event>
-			<text>スラッグの船長は、あなたが彼に手を差し伸べたことに驚いているようです。彼はすぐに落ち着きを取り戻します。 「ご挨拶！今日はあなたにとって最も幸運な日です。私はたまたま珍しくて強力な武器を売っています、あなたは興味がありますか？」</text>
+			<text>ナメクジのキャプテンは、あなたが手を差し伸べてくれたことに驚いているようだ。彼はすぐに落ち着きを取り戻した。「こんにちは！今日は実に幸運な日だ。珍しい強力な武器を売ることになったんだが、興味あるかね？"</text>
 			<choice>
-				<text>承認。</text>
+				<text>受け入れる。</text>
 				<event>
-					<text>あなたは彼にスクラップを渡し、彼が引っ張る可能性のあるトリックに注意します。代わりに、彼は貨物ボックスを預けてすぐに飛び去ります。</text>
+					<text>どんなトリックを仕掛けてくるか警戒しながら、あなたはスクラップを彼に渡した。その代わり、彼はカーゴボックスを預けると、すぐに飛び去った。</text>
 					<instantEscape />
 					<item_modify>
 						<item type="scrap" min="-150" max="-150" />
 					</item_modify>
 					<choice hidden="true">
-						<text>それを開く。</text>
+						<text>開けろ。</text>
 						<event>
-							<text>慎重に箱をこじ開けて中を見てください。残念なことに、購入したばかりの「希少で強力な」武器は、防御レーザーにすぎませんでした。</text>
+							<text>慎重に箱をこじ開け、中を見る。驚いたことに、あなたが購入したばかりの "希少で強力な "武器は、ただの防衛レーザーに過ぎなかった。</text>
 							<weapon name="LASER_BURST_1" />
 						</event>
 					</choice>
@@ -236,19 +236,19 @@
 			<choice hidden="true">
 				<text>拒否する。</text>
 				<event>
-					<text>「大丈夫、いい。価格を下げるとどうなりますか？」</text>
+					<text>「いいよ、いいよ。値段を下げたら？"</text>
 					<choice>
-						<text>承認。</text>
+						<text>受け入れる。</text>
 						<event>
-							<text>あなたは彼にスクラップを渡し、彼が引っ張る可能性のあるトリックに注意します。代わりに、彼は貨物ボックスを預けてすぐに飛び去ります。</text>
+							<text>どんなトリックを仕掛けてくるか警戒しながら、あなたはスクラップを彼に渡した。その代わり、彼はカーゴボックスを預けると、すぐに飛び去った。</text>
 							<instantEscape />
 							<item_modify>
 								<item type="scrap" min="-100" max="-100" />
 							</item_modify>
 							<choice hidden="true">
-								<text>それを開く。</text>
+								<text>開けろ。</text>
 								<event>
-									<text>慎重に箱をこじ開けて中を見てください。残念なことに、購入したばかりの「希少で強力な」武器は、防御レーザーにすぎませんでした。</text>
+									<text>慎重に箱をこじ開け、中を見る。驚いたことに、あなたが購入したばかりの "希少で強力な "武器は、ただの防衛レーザーに過ぎなかった。</text>
 									<weapon name="LASER_BURST_1" />
 								</event>
 							</choice>
@@ -257,19 +257,19 @@
 					<choice hidden="true">
 						<text>拒否する。</text>
 						<event>
-							<text>「あなたが何を見逃しているのかわからない。価格をさらに下げるとどうなりますか？」</text>
+							<text>"あなたは自分が何をミスしているのか分かっていない。もっと値段を下げたら？"</text>
 							<choice>
-								<text>承認。</text>
+								<text>受け入れる。</text>
 								<event>
-									<text>あなたは彼にスクラップを渡し、彼が引っ張る可能性のあるトリックに注意します。代わりに、彼は貨物ボックスを預けてすぐに飛び去ります。</text>
+									<text>どんなトリックを仕掛けてくるか警戒しながら、あなたはスクラップを彼に渡した。その代わり、彼はカーゴボックスを預けると、すぐに飛び去った。</text>
 									<instantEscape />
 									<item_modify>
 										<item type="scrap" min="-75" max="-75" />
 									</item_modify>
 									<choice hidden="true">
-										<text>それを開く。</text>
+										<text>開けろ。</text>
 										<event>
-											<text>慎重に箱をこじ開けて中を見てください。残念なことに、購入したばかりの「希少で強力な」武器は、防御レーザーにすぎませんでした。</text>
+											<text>慎重に箱をこじ開け、中を見る。驚いたことに、あなたが購入したばかりの "希少で強力な "武器は、ただの防衛レーザーに過ぎなかった。</text>
 											<weapon name="LASER_BURST_1" />
 										</event>
 									</choice>
@@ -278,19 +278,19 @@
 							<choice hidden="true">
 								<text>拒否する。</text>
 								<event>
-									<text>「うーん、あなたは本当にここで私の足をひどくしています。最終的な価格、それを取るか、それを残してください。」</text>
+									<text>"うう、本当に足が痛い。最終価格だ、取るか取らないか"</text>
 									<choice>
-										<text>承認。</text>
+										<text>受け入れる。</text>
 										<event>
-											<text>あなたは彼にスクラップを渡し、彼が引っ張る可能性のあるトリックに注意します。代わりに、彼は貨物ボックスを預けてすぐに飛び去ります。</text>
+											<text>どんなトリックを仕掛けてくるか警戒しながら、あなたはスクラップを彼に渡した。その代わり、彼はカーゴボックスを預けると、すぐに飛び去った。</text>
 											<instantEscape />
 											<item_modify>
 												<item type="scrap" min="-50" max="-50" />
 											</item_modify>
 											<choice hidden="true">
-												<text>それを開く。</text>
+												<text>開けろ。</text>
 												<event>
-													<text>慎重に箱をこじ開けて中を見てください。残念なことに、購入したばかりの「希少で強力な」武器は、防御レーザーにすぎませんでした。</text>
+													<text>慎重に箱をこじ開け、中を見る。驚いたことに、あなたが購入したばかりの "希少で強力な "武器は、ただの防衛レーザーに過ぎなかった。</text>
 													<weapon name="LASER_BURST_1" />
 												</event>
 											</choice>
@@ -299,19 +299,19 @@
 									<choice hidden="true">
 										<text>拒否する。</text>
 										<event>
-											<text>「わかりました、それは嘘でした。これが私の最後の申し出です。時間をかけて考えてみてください。」</text>
+											<text>"オーケー、オーケー、あれは嘘だ。これが最後のオファーだ。ゆっくり考えてくれ」。</text>
 											<choice>
-												<text>承認。</text>
+												<text>受け入れる。</text>
 												<event>
-													<text>あなたは彼にスクラップを渡し、彼が引っ張る可能性のあるトリックに注意します。代わりに、彼は貨物ボックスを預けてすぐに飛び去ります。</text>
+													<text>どんなトリックを仕掛けてくるか警戒しながら、あなたはスクラップを彼に渡した。その代わり、彼はカーゴボックスを預けると、すぐに飛び去った。</text>
 													<instantEscape />
 													<item_modify>
 														<item type="scrap" min="-25" max="-25" />
 													</item_modify>
 													<choice hidden="true">
-														<text>それを開く。</text>
+														<text>開けろ。</text>
 														<event>
-															<text>慎重に箱をこじ開けて中を見てください。残念なことに、購入したばかりの「希少で強力な」武器は、防御レーザーにすぎませんでした。</text>
+															<text>慎重に箱をこじ開け、中を見る。驚いたことに、あなたが購入したばかりの "希少で強力な "武器は、ただの防衛レーザーに過ぎなかった。</text>
 															<weapon name="LASER_BURST_1" />
 														</event>
 													</choice>
@@ -320,19 +320,19 @@
 											<choice hidden="true">
 												<text>拒否する。</text>
 												<event>
-													<text>「ああ、お願いします！それを買うだけです！」</text>
+													<text>「アッ、プリーズ！いいから買え！"</text>
 													<choice>
-														<text>承認。</text>
+														<text>受け入れる。</text>
 														<event>
-															<text>あなたは彼にスクラップを渡し、彼が引っ張る可能性のあるトリックに注意します。代わりに、彼は貨物ボックスを預けてすぐに飛び去ります。</text>
+															<text>どんなトリックを仕掛けてくるか警戒しながら、あなたはスクラップを彼に渡した。その代わり、彼はカーゴボックスを預けると、すぐに飛び去った。</text>
 															<instantEscape />
 															<item_modify>
 																<item type="scrap" min="-5" max="-5" />
 															</item_modify>
 															<choice hidden="true">
-																<text>それを開く。</text>
+																<text>開けろ。</text>
 																<event>
-																	<text>慎重に箱をこじ開けて中を見てください。残念なことに、購入したばかりの「希少で強力な」武器は、防御レーザーにすぎませんでした。</text>
+																	<text>慎重に箱をこじ開け、中を見る。驚いたことに、あなたが購入したばかりの "希少で強力な "武器は、ただの防衛レーザーに過ぎなかった。</text>
 																	<weapon name="LASER_BURST_1" />
 																</event>
 															</choice>
@@ -341,11 +341,11 @@
 													<choice hidden="true">
 														<text>拒否する。</text>
 														<event>
-															<text>「いいよ！ジャスストがやる！無料だ！もう気にしない！」</text>
+															<text>「いいよ！いいよ！タダでいい！もうどうでもいい！"</text>
 															<choice hidden="true">
-																<text>承認。</text>
+																<text>受け入れる。</text>
 																<event>
-																	<text>あなたはそれを無料で受け取ることに同意します。彼は怒って防衛レーザーを宇宙に投棄し、飛び去ります。</text>
+																	<text>ただでもらうことに同意する彼は怒って防衛レーザーを宇宙空間に発射し、飛び去る。</text>
 																	<instantEscape />
 																	<weapon name="LASER_BURST_1" />
 																</event>
@@ -353,10 +353,10 @@
 															<choice hidden="true">
 																<text>拒否する。</text>
 																<event>
-																	<text>スラッグは純粋な怒りで悲鳴を上げ、通話を終了します。あなたが知っている次のことは、彼の武器が上がっているので、あなたは同じことをするべきです！</text>
+																	<text>ナメクジは純粋な怒りで叫び、通話を終える。次の瞬間、彼の武器がアップになる！</text>
 																	<ship hostile="true" />
 																	<choice hidden="true">
-																		<text>継続する...</text>
+																		<text>次へ...</text>
 																		<event load="COMBAT_CHECK" />
 																	</choice>
 																</event>
@@ -376,11 +376,11 @@
 		</event>
 	</choice>
 	<choice>
-		<text>彼を残してください。</text>
+		<text>放っておけ。</text>
 		<event>
-			<text>あなたはスラッグを無視し、近くの月の後ろに隠れて、彼が次にあなたに連絡しようとしないようにします。</text>
+			<text>あなたはナメクジを無視し、次に接触してこないように近くの月の陰に隠れた。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -391,56 +391,56 @@
 	</choice>
 </event>
 <event name="DESPERATE_SLUG_WIN">
-	<text>ナメクジが死んだ状態で、あなたは彼らの貨物を検査するために引っ越します。貨物箱のキャッシュ、少なくとも100個のキャッシュがあります。あなたはそれらすべてを開き、基本的なレーザーのみを見つけます。彼らはこれらに過剰に在庫があり、他に何も買わなかったようです...</text>
+	<text>ナメクジが死んだので、あなたは彼らの貨物を検査するために移動する。少なくとも100個はあるだろう。全部開けてみると、ベーシック・レーザーしかない。これを買いすぎて、他には何も買わなかったようだ...。</text>
 	<weapon name="LASER_BURST_1" />
 	<autoReward level="MED">scrap_only</autoReward>
 </event>
 
 <event name="BLACKMARKET_SHEEPISH_FED" unique="true">
-	<text>ここに連邦の船があるか、少なくとも1隻が海賊のペンキでマークされていないのを見て驚いています。</text>
+	<text>連邦の船、少なくとも海賊のペイントが施されていない船を見て驚く。</text>
 	<ship load="SHIP_FED_GENERIC" hostile="false" />
 	<choice>
-		<text>彼らに連絡する。</text>
+		<text>万歳。</text>
 		<event>
-			<text>人間のキャプテンがあなたのhに答えます。典型的なものよりも若く、彼はかなり恥ずかしいようです。「それで、あなたも連邦と一緒にいますか？</text>
+			<text>人間のキャプテンが応対する。いつもより若く、恥ずかしそうにしている。「君も連邦の人間かい？へへ...会うにはちょっと気まずい場所だな。"</text>
 			<choice hidden="true">
-				<text>同意。</text>
+				<text>同意する。</text>
 				<event>
-					<text>「ああ、いいね。あなたは理にかなった人だ。私の少佐がここで私を見たのなら……おやおや」彼は首をこすりながら神経質に笑う。 「言ってやるが、船に余計なスペースはないだろうね？たとえば、新しいクルーの場合は」</text>
+					<text>"はぁ、いいね、君は合理的なんだね。分隊長に見られたら......大変だ"首をさすりながら、緊張した面持ちで笑う。「君の船に余分なスペースはないのかい？新しいクルーのために......つまり......」。</text>
 					<choice>
-						<text>もちろん。</text>
+						<text>もちろんだ。</text>
 						<event>
-							<text>彼の顔は明るくなります。 「ほんと？一緒に来てもらえませんか？」あなたはうなずき、彼は喜びでジャンプします。 「私はすぐに自分のものをつかみます。」彼はすぐに乗船し、クルーに別れを告げた。 「あなたは本当に私をしっかりとやっています、もし私が私の船にとどまっていたなら、私はここにいることで確かに非難されたでしょう。」</text>
+							<text>彼の顔が明るくなる。「本当に？一緒に行ってもいい？あなたが頷くと、彼は嬉しそうに飛び跳ねる。「すぐに荷物を取ってくるよ」。クルーに別れを告げると、彼はすぐに乗船してきた。「自分の船に残っていたら、ここにいるだけで叩かれていただろう。</text>
 							<crewMember amount="1" class="human">カルバン</crewMember>
 						</event>
 					</choice>
 					<choice>
-						<text>いいえ。</text>
+						<text>いや。</text>
 						<event>
-							<text>「ああ、そうだ。とにかく、あなたの使命はおそらくかなり重要だと考えるべきだった」あなたはうなずきます。 「ええと、それなら一番いいのですが、私が捕まる前に、それらの物資を購入してこのセクターから抜け出さなければなりません。しかし、友好的な顔を見てうれしいです。」彼はさようならを振って、通話を終了します。</text>
+							<text>「ああ、そうか。どうせあなたの任務はかなり重要なんでしょう」。あなたはうなずく。「捕まる前に物資を買って、このセクターを出なければならない。でも、友好的な顔を見れて嬉しいよ。"彼は手を振って別れを告げ、通話を終えた。</text>
 						</event>
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>彼らがここにいる理由を質問してください。</text>
+				<text>彼らはなぜここにいるのか？</text>
 				<event>
-					<text>「さて、あなたもここにいることを忘れないでください。私たちは、いくつかの物資が不足していて、これはいくつかを買うのに最適な場所のようでした。」</text>
+					<text>「君もここにいることを忘れてはいけない。物資が足りなくなってね、ここで買うのが一番だと思ったんだ。</text>
 					<choice hidden="true">
 						<text>彼らを非難する！</text>
 						<event>
-							<text>「なに？！ねえ、あなたは誰だと思いますか？」あなたは彼らに嘘をつき、あなたはこのセクターに連邦法を施行するためにここにいると言っています。 「本当に、執行者は今あなたですか？私のお尻。」あなたが彼らの武器が武装していることをあなたが知っている次のことはあなた自身が乱闘していることに気づきました！</text>
+							<text>「何だと？おい、何様のつもりだ？"連邦法の執行に来たと嘘をつく。"本当に執行官か？クソったれ"気がつくと、彼らの武器は武装し、乱闘になっていた！</text>
 							<ship hostile="true" />
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="MORALITY_UPDATE_GENERAL_FIGHT" />
 							</choice>
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>それらを残します。</text>
+						<text>放っておけばいい。</text>
 						<event>
-							<text>あなたは不承認にうめき声を上げて電話を切ります。あなたは自分の偽善的な行動を反省せず、他の連邦船が飛び去るのを恥ずかしく見守ろうとします。</text>
+							<text>不服そうにうめき、電話を切る。あなたは自分の偽善的な行動を省みないようにし、他の連邦船が飛び去るのを恥ずかしそうに見ている。</text>
 						</event>
 					</choice>
 				</event>
@@ -448,11 +448,11 @@
 		</event>
 	</choice>
 	<choice>
-		<text>それらを残します。</text>
+		<text>放っておけばいい。</text>
 		<event>
-			<text>船はあなたから離れて、数分後に飛び去り、あなたを放っておく。</text>
+			<text>船はそそくさとあなたたちから離れ、数分後にジャンプしてあなたたちだけになる。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -465,17 +465,17 @@
 
 
 <event name="BLACKMARKET_VENGEFUL_ENGI" unique="true">
-	<text>分離主義のエンギ船がすでにここにあり、奴隷船の間で商品を輸送しています。あなたが到着すると、奴隷商人は彼らにプロセスをスピードアップするように手招きし、そして飛び去ります。</text>
+	<text>分離主義者のエンギ船が既にここにいる。奴隷商人の船から商品を移してる。あなた達が到着すると、奴隷商人達が手招きして、プロセスを早めるように言って、飛び去る。</text>
 	<choice>
-		<text>エンギに質問してください。</text>
+		<text>エンジに質問する。</text>
 		<event>
-			<text>あなたはエンギ船を歓迎します。 「使命＝復讐。蟷螂はエンギの故郷を襲撃し、【エンギ】を捕虜にする。その恩は――返された――」マンティスの奴隷を売っているようです。</text>
+			<text>エンギ船を呼び寄せる。「ミッション＝復讐カマキリはエンギの故郷を襲い、エンギを捕虜にした。恩を仇で返された。"彼らはマンティスの奴隷を売っているようだ。</text>
 			<choice>
-				<text>マンティスの奴隷を買うように頼みなさい。</text>
+				<text>マンティスの奴隷を買うように頼む。</text>
 				<event>
-					<text>エンギはあなたにマンティスを、そしてリーズナブルな価格で販売することをいとわないです。彼らはいくつかの選択肢を提供します。</text>
+					<text>エンジは喜んでマンティスを売ってくれる。選択肢はいくつかある。</text>
 					<choice>
-						<text>戦闘機を取ります。</text>
+						<text>ファイターを連れて行け。</text>
 						<event>
 							<crewMember amount="1" class="mantis" combat="1" />
 							<item_modify>
@@ -484,7 +484,7 @@
 						</event>
 					</choice>
 					<choice>
-						<text>パイロットを取ります。</text>
+						<text>パイロットを連れて行け。</text>
 						<event>
 							<crewMember amount="1" class="mantis" pilot="1" />
 							<item_modify>
@@ -493,7 +493,7 @@
 						</event>
 					</choice>
 					<choice>
-						<text>通常のマンティスを服用してください。</text>
+						<text>普通のマンティスを使う。</text>
 						<event>
 							<crewMember amount="1" class="mantis" all_skills="0" />
 							<item_modify>
@@ -502,27 +502,27 @@
 						</event>
 					</choice>
 					<choice>
-						<text>もういいです。</text>
+						<text>気にするな。</text>
 						<event>
-							<text>あなたは気が変わった。結局、マンティスの奴隷を買うのは良い考えではないかもしれません。分離主義者のエンギは気にしないようです。</text>
+							<text>あなたは考えを変えた。やっぱりマンティスの奴隷を買うのは良くないかも。分離主義者エンギは気にしてないみたい。</text>
 						</event>
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>それらを残します。</text>
+				<text>放っておけばいい。</text>
 				<event>
-					<text>エンギは自然に復讐心はありませんが、結局のところ、これらは分離主義者です。さらに押すリスクはありません。</text>
+					<text>エンギはもともと復讐心が強くないけど、やっぱり分離主義者だ。これ以上迫るのは危険だ。</text>
 				</event>
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>それらを残します。</text>
+		<text>放っておけばいい。</text>
 		<event>
-			<text>他の人のビジネスに参加する必要はありません。</text>
+			<text>他人のことに首を突っ込む必要はない。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -534,16 +534,16 @@
 </event>
 
 <event name="BLACKMARKET_SICK_MARKET" unique="true">
-	<text>目立たないステーションがここに掲載されています。おそらく、より多くの人が集まる場所で利益を上げようとしている正直なトレーダーです。</text>
+	<text>目立たない駅がここに掲示されている。おそらく、より多くの人が集まる場所で利益を得ようとする誠実な商人だろう。</text>
 	<ship load="SHIP_STATION_GENERIC" hostile="false" />
 	<choice hidden="true">
-		<text>彼らが取引したいかどうかを確認するために彼らに連絡してください。</text>
+		<text>交換を希望するかどうか、連絡を取ってみよう。</text>
 		<event>
-			<text>ステーションのリーダーはビデオスクリーンに映っていますが、咳をしています。 「な、なんでんしょう？ああ、ごめんなさい。今のところ取引はありません。私たちは皆病気です。この場所は銀河中から何千もの船で描かれています。神はそれがもたらす病気の種類を知っています。エキゾチックなマンティスインフルエンザか何か、それが存在するなら。」</text>
+			<text>局のリーダーが咳き込みながらビデオスクリーンに映し出される。「な、なんだって？ああ、ごめん。みんな病気なんだ。この場所には銀河系中から何千もの船が集まってくる。私たちはおそらく、カマキリのインフルエンザか何かで死にそうなんだ。</text>
 			<choice hidden="true">
-				<text>あなたが集めることができるどんな物資を提供してください。 [-10スクラップ、-2ドローン]</text>
+				<text>できる限りの物資を提供する。[-10スクラップ, -2ドローン]</text>
 				<event>
-					<text>「これはあまり役に立ちませんが、大いに感謝しています。まだそこに親切な魂がいることを知ってうれしいです。私は多くを提供することはできませんが、自動修理ドローンを使用して船体を修理することができます。」</text>
+					<text>"これはあまり役には立たないだろうが、とてもありがたい。まだ親切な人がいると知って嬉しい。大した見返りはできないが、自動修理ドローンで船体を修理してあげよう。"</text>
 					<damage amount="-8" />
 					<item_modify>
 						<item type="scrap" min="-10" max="-10" />
@@ -552,23 +552,23 @@
 				</event>
 			</choice>
 			<choice hidden="true" req="NANO_MEDBAY">
-				<text>（Med-bots）船がナノボットであふれます。</text>
+				<text>(メドボット) 彼らの船にナノボットを流し込む。</text>
 				<event>
-					<text>キャプテンはそれが何を意味するのかよくわかりませんが、とにかくあなたにそれをさせてくれます。しばらくすると、クルー全員の状態がはるかに良くなりました。 「それがどんなブードゥーの魔法だったのかはわかりませんが、気分がいいです。見返りにいくらかの支払いを提供する場合にのみ正しいのです。」</text>
+					<text>キャプテンはそれが何を意味するのかさえわからないが、とにかくやらせてくれる。しばらくすると、クルー全員の体調がよくなってきた。「どんなブードゥー教の魔法か知らないが、最高の気分だ。見返りにいくらかの支払いをするのが筋というものだ"</text>
 					<autoReward level="MED">standard</autoReward>
 				</event>
 			</choice>
 			<choice req="BLUELIST_BOMBS_HEAL">
-				<text>（ヒーリングボム）ヒーリングボムを使用します。</text>
+				<text>(ヒーリングボム）ヒーリングボムを使う。</text>
 				<event>
-					<text>ステーションのクルーは、最初は攻撃を受けていることに怯えていますが、すぐにあなたの回復バーストが彼らの状態を改善しているだけであることに気づきます。 「こんなに変わったものは見たことがない。このような事態が二度と起こらないように、私たちに売ってくれませんか？」</text>
+					<text>ステーションのクルーは最初、自分たちが攻撃を受けていると怯えていたが、すぐにあなたのヒーリング・バーストが彼らの状態を改善しているだけだと気づいた。「こんな医療品は見たことがない。またこのような事態が起きたときのために、私たちに売っていただけませんか？"</text>
 					<item_modify>
 						<item type="missiles" min="-3" max="-3" />
 					</item_modify>
 					<choice req="BOMB_HEAL" blue="false">
-						<text>爆弾を売ってください。</text>
+						<text>爆弾を売りつける。</text>
 						<event>
-							<text>「ありがとうございます。これは非常に便利です。自動修復ドローンを使用して、損傷を修復しましょう。」</text>
+							<text>「ありがとうございます。私たちの自動修理ドローンを使って、あなたのためにもダメージを修理させてください"</text>
 							<item_modify>
 								<item type="scrap" min="35" max="35" />
 							</item_modify>				
@@ -579,29 +579,29 @@
 					<choice>
 						<text>拒否する。</text>
 						<event>
-							<text>「まあ、十分に公平です。ここで、感謝の気持ちに関係なく、自動修理ドローンで船体を修理しましょう。」</text>
+							<text>「まあ、いいだろう。お礼に、自動修理ドローンで船体を修理させてください"</text>
 							<damage amount="-15" />
 						</event>
 					</choice>
 				</event>
 			</choice>
 			<choice>
-				<text>このチャンスを利用して、彼らを奪ってください！</text>
+				<text>このチャンスに強奪するのだ！</text>
 				<event>
-					<text>「ほんと？この場所に良いものは残ってないの？」</text>
+					<text>「本当に？ここに善意は残っていないのか？"</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="MORALITY_UPDATE_GENERAL_FIGHT" />
 					</choice>
 				</event>
 			</choice>
 			<choice>
-				<text>ご不便をおかけして申し訳ございません。</text>
+				<text>ご迷惑をおかけして申し訳ない。</text>
 				<event>
-					<text>キャプテンはあなたに感謝し、通話を終了します。今、あなたはあなたの手にいくつかの自由な時間を持っています。</text>
+					<text>機長はあなたに礼を言い、通話を終える。これであなたは自由な時間を手にすることができる。</text>
 					<choice>
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice>
@@ -613,11 +613,11 @@
 		</event>
 	</choice>
 	<choice>
-		<text>ステーションを無視します。</text>
+		<text>駅は無視する。</text>
 		<event>
-			<text>あなたはステーションと取引することを望んでいません。</text>
+			<text>あなたはステーションとの貿易を望んでいない。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -629,10 +629,10 @@
 </event>
 
 <event name="SMUGGLER_WONDERDRONE" unique="true">
-	<text>「ご挨拶！あなたはドローンテックの前に見られなかったことから大きな恩恵を受ける人のように見えます！そうです、私たちはあなたに真新しいWonderdrone（TM）をもたらします。あなたが見ることができるように、この特別なドローンには4つの異なる武器が装備されています！ 「他にやるべきことがあり、それが火が何をするかを変えると、良いスマックがあります。これはディールの子供の盗みです、あなたはそれを取らないために馬鹿でなければなりません。」</text>
+	<text>"はじめまして！あなたは、今までにないドローン技術から大きな恩恵を受けている人のように見えます！そうです、新型のWONDERDRONE (tm)をお届けします。ご覧の通り、この特別なドローンには4種類の武器が装備されています！他にすることがないときに、ちょっと叩くだけで、発射する武器が変わるんだ。これは破格の値段だ、これを買わないのはバカだ」。</text>
 	<ship load="SHIP_SMUGGLER_WONDERDRONE" hostile="false" />
 	<choice>
-		<text>WonderDroneを購入します。</text>
+		<text>ワンダードローンを購入する</text>
 		<event>
 			<drone name="LIST_DRONES_RANDOM" />
 			<item_modify>
@@ -641,26 +641,26 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>より良い価格を交渉します。</text>
+		<text>より良い価格で交渉する。</text>
 		<event load="SMUGGLER_WONDERDRONE_NEGOTIATE" />
 	</choice>
 	<choice hidden="true">
-		<text>ドローンのためにそれらを攻撃します。</text>
+		<text>ドローンのために攻撃する。</text>
 		<event>
-			<text>「くそー、私たちは別の怒っているものを手に入れました！武器を武装させてください...」</text>
+			<text>"くそっ、また怒ったやつが出てきた！武器を..."</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>興味はありません。</text>
+		<text>興味はない。</text>
 		<event>
-			<text>「ああ、それは残念だ」あなたは通信を切って去ります。</text>
+			<text>「残念だ。あなたは通信を切り、その場を去った。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -672,9 +672,9 @@
 </event>
 <eventList name="SMUGGLER_WONDERDRONE_NEGOTIATE">
 	<event>
-		<text>「大丈夫です。これはどうですか？」</text>
+		<text>「わかったよ。これでどうだ？</text>
 		<choice>
-			<text>WonderDroneを購入します。</text>
+			<text>ワンダードローンを購入する</text>
 			<event>
 				<drone name="COMBAT_RANDOM_LASER" />
 				<item_modify>
@@ -683,11 +683,11 @@
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>結構です。</text>
+			<text>結構だ。</text>
 			<event>
-				<text>「ああ、それは残念だ」あなたは通信を切って去ります。</text>
+				<text>「残念だ。あなたは通信を切り、その場を去った。</text>
 				<choice>
-					<text>船に乗って何かする。</text>
+					<text>船内で何かをする。</text>
 					<event load="STORAGE_CHECK" />
 				</choice>
 				<choice>
@@ -698,36 +698,36 @@
 		</choice>
 	</event>
 	<event>
-		<text>「あえて私たちを侮辱しますか？これは優れたドローンにとって素晴らしい価格です！」密輸業者は激怒して武器を上げます。</text>
+		<text>「我々を侮辱するのか？優秀なドローンにはこの値段だ！"スマグラーたちは武器を振り上げ、怒り狂う。</text>
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 </eventList>
 
 <event name="SMUGGLER_PLAYER_WEPS" unique="true"> 
-	<text>ブラックマーケットステーションは、通常よりも消費電力が少ないユニークな武器やドローンを販売しています。</text>
+	<text>ブラックマーケットのステーションでは、通常より消費電力の少ないユニークな武器やドローンを販売している。</text>
 	<ship load="SHIP_SMUGGLER_MARKET" hostile="false" />
 	<choice>
-		<text>武器を購入します。</text>
+		<text>武器を買う。</text>
 		<event load="SMUGGLER_PLAYER_WEPS_LIST" />
 	</choice>
 	<choice>
-		<text>武器を購入します。</text>
+		<text>武器を買う。</text>
 		<event load="SMUGGLER_PLAYER_WEPS_LIST_ALT" />
 	</choice>
 	<choice>
-		<text>ドローンを購入します。</text>
+		<text>ドローンを買う。</text>
 		<event load="SMUGGLER_PLAYER_DRONES_LIST" />
 	</choice>
 	<choice hidden="true">
 		<text>何も買わない。</text>
 		<event>
-			<text>あなたが購入したいと思っているものは何もありません。</text>
+			<text>あなたが買いたいと思うものは何も提供されていない。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -828,23 +828,23 @@
 </eventList>
 
 <event name="REFUGEE_PIRATE_MV"> 
-	<text>センサーが星系を漂う難民船を検知しました。反乱軍の進攻を逃れた船と思われます。あなたにはまだ気づいていないようです。あるいは気づかれないようにしているのかもしれません。</text>
+	<text>センサーが星系を漂う難民船を感知した 間違いなく反乱軍の進撃から 逃げてきた船だあなたを感知していないようです あるいは気づかれないようにしているか</text>
 	<choice>
-		<text>彼らに連絡する。</text>
+		<text>万歳。</text>
 		<event load="REFUGEE_HAIL_LIST_PIRATE_MV" />
 	</choice>
 	<choice>
-		<text>難民を無視します。</text>
+		<text>難民を無視する。</text>
 		<event />
 	</choice>
 </event>
 <eventList name="REFUGEE_HAIL_LIST_PIRATE_MV">
 	<event load="REFUGEE_TRADER" />
 	<event>
-		<text>難民船に呼びかけると、海賊船がシステムに検知しました...難民船を餌として使っていました！</text>
+		<text>難民船を呼び止めると、海賊船が星系に飛び込んできた...難民船を囮にしていたのだ！</text>
 		<ship load="SHIP_PIRATE_REFUGEE" hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
@@ -854,22 +854,22 @@
 	<text load="PIRATE_CIVILIAN" />
 	<img back="BACKGROUND" planet="PLANET_POPULATED" />
 	<choice>
-		<text>民間船を助けてください。</text>
+		<text>民間船を援助する。</text>
 		<event>
-			<text>あなたは武器の電源を入れ、海賊船と交戦します。</text>
+			<text>武器をパワーアップし、海賊船と交戦する。</text>
 			<ship load="SHIP_PIRATE_RESCUE" hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>それを避けてください。</text>
+		<text>手を出すな。</text>
 		<event>
-			<text>戦いはそれらをあなたの直接のスキャン範囲から外します。しばらくすると、救難信号は止まります。</text>
+			<text>戦闘によって、彼らはあなたのスキャン範囲から外れる。しばらくすると、救難信号が鳴り止む。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -880,31 +880,31 @@
 	</choice>
 </event>
 <textList name="PIRATE_CIVILIAN">
-	<text planet="PLANET_POPULATED_SMALL">あなたはシステムに到着し、海賊船が民間船を追跡しているのを見ます。あなたは苦痛の頻度で民間船からのメッセージを検出します。</text>
-	<text>スキャナーは、戦闘が近くで行われていることを示します。誰かが宇宙海賊に襲われているようです。</text>
-	<text>あなたは2隻の船を検出し、一方が他方を追いかけています...スキャナーは追跡者が海賊であることを示しています！</text>
-	<text>射程内には2隻の船しかなく、戦闘をしているようです。そのうちの1つには、宇宙海賊のマークが付いています。</text>
-	<text>次のビーコンに到着すると、すぐに小さなシャトルで迎えられます。 「助けて！私たちは海賊に襲われている！」</text>
-	<text>ジャンプから出て、ビーコンの反対側からレーザーブラストが来るのを確認します。誰かが海賊から攻撃を受けているようです。</text>
+	<text planet="PLANET_POPULATED_SMALL">海賊船が民間船を追跡しているのを目撃。あなたは民間船からの遭難信号の発信を察知する。</text>
+	<text>スキャナーによると、近くで戦闘が行われている。誰かが宇宙海賊の攻撃を受けているようだ。</text>
+	<text>2隻の船がもう1隻を追っている。スキャナーによると、追っ手は海賊だ！</text>
+	<text>射程圏内には2隻の船しかなく、交戦中のようだ。そのうちの1隻には宇宙海賊のマークがある。</text>
+	<text>次のビーコンに到着すると、すぐに小型シャトルに呼び止められた。「助けてくれ！海賊に襲われている！"</text>
+	<text>ビーコンの向こう側からレーザーが飛んでくるのが見える。誰かが海賊から攻撃を受けているようだ。</text>
 </textList>
 
 <event name="PIRATE_BRIBER_MV" unique="true">
 	<text load="PIRATE_BRIBER" />
 	<ship load="SHIP_PIRATE_BRIBER" hostile="false" />
 	<choice>
-		<text>彼らの賄賂を受け入れます。</text>
+		<text>賄賂を受け取れ。</text>
 		<event>
-			<text>「良い選択だ、息子。私たちは両方ともこのより豊かなものから出てきた。」</text>
+			<text>「いい選択だったよ。二人とも豊かになったよ"</text>
 			<autoReward level="LOW">standard</autoReward>
 		</event>
 	</choice>
 	<choice>
-		<text>ヒーローになりましょう。海賊を攻撃します。</text>
+		<text>ヒーローになろう。海賊を攻撃せよ。</text>
 		<event>
-			<text>海賊船は追跡を停止し、武器を船に固定します。</text> 
+			<text>海賊船は追跡をやめ、あなたの船に武器をロックする。</text> 
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
@@ -912,141 +912,141 @@
 </event>
 <eventList name="PIRATE_BRIBER_WIN_MV">
 	<event>
-		<text>よく調べてみると、攻撃を受けている船は反乱軍の偵察船だったことがわかります。ダメージが大きすぎて、多くの戦いを繰り広げることはできません。</text>
+		<text>よく見ると、攻撃されている船は反乱軍の偵察機だった！損傷が激しすぎて、とても戦えそうにない。</text>
 		<choice hidden="true">
-			<text>船を破壊し、回収します。</text>
+			<text>船を破壊し、サルベージする。</text>
 			<event>
-				<text>あなたは船から有用なものをすべて取り除き、助けが到着することを期待するためにそのクルーを残します。</text>
+				<text>船から有用なものを剥ぎ取り、乗組員に救助が来ることを祈らせる。</text>
 				<autoReward level="LOW">standard</autoReward>
 			</event>
 		</choice>
 		<choice>
-			<text>彼らの命を救うことによって得たレバレッジを使用して、追跡する艦隊を遅らせるように説得します。</text>
+			<text>彼らの命を救ったことで得た影響力を使って、追跡してくる艦隊を遅らせるよう説得する。</text>
 			<event>
-				<text>うまくいけば、それはあなたに次のセクターに到達するためのより多くの時間を買うでしょう。</text>
+				<text>うまくいけば、次のセクターに行く時間を稼ぐことができる。</text>
 				<modifyPursuit amount="-1" />
 			</event>
 		</choice>
 	</event>
 	<event>
-		<text>あなたは遅すぎた。船体の破損により、海賊との戦闘中にクルーの酸素が奪われました。あなたはあなたができることを救います。</text>
+		<text>遅かったな。海賊と戦っている間に、船体の裂け目から乗組員の酸素が奪われた。サルベージできるものはしておけ。</text>
 		<autoReward level="MED">scrap_only</autoReward>
 	</event>
 	<event>
-		<text>あなたが彼らと話す機会を得る前に、海賊の犠牲者はすぐに飛び去ります。</text>
+		<text>海賊の犠牲者は、あなたが話しかける前にすぐに飛び去ってしまう。</text>
 	</event>
 	<event>
-		<text>「助けてくれてありがとう！私は通常反乱軍としか協力しない武器商人ですが、状況を考慮して例外を設けます。」</text>
+		<text>"援助に感謝する！普段は反乱軍としか仕事をしない武器商人だが、この状況を鑑みて例外を認めよう"</text>
 		<store>STORE_STANDARD</store>
 	</event>
 	<event>
-		<text>「あなたが現れた天に感謝します！私たちは報酬として提供するものはあまりありませんが、私たちのエンジニアはその厄介な戦いの後にあなたの船に少しパッチを当てるのに十分熟練している必要があります。」</text>
+		<text>"よく来てくれた！報酬として提供できるものは多くないが、我々のエンジニアは、あの厄介な戦いの後、君の船を少し手当てするのに十分な腕前を持っているはずだ。"</text>
 		<damage amount="-15" />
 	</event>
 </eventList>	
 <textList name="PIRATE_BRIBER">
-	<text>あなたは正体不明の船を熱心に追跡している海賊に出くわします。あなたはすぐに海賊からの送信を受け取ります：「この戦いに近づかないでください、そして私たちはあなたの時間の価値があるようにします。」</text>
-	<text>身元不明の船はひどく損傷しており、宇宙海賊に襲われています。被害者は、海賊が侵入し、あなたがしっかりと座っている場合に報奨金を分割することを申し出るまで、遭難信号を開始します。</text>
-	<text>ジャンプが完了すると、ミサイルが船首を横切って発射します。スキャンすると、未知の船を追跡している海賊のマークが付いた船がすぐにわかります。海賊はあなたを歓迎します：「くそー、私たちは会社を期待していませんでした。これに近づかないでください、そしてあなたは利益を得ることができます。」</text>
+	<text>あなたは正体不明の船を猛追する海賊に出くわした。すぐに海賊から通信が入る：「この戦いから手を引け。</text>
+	<text>正体不明の船が大破し、宇宙海賊の襲撃を受けている。被害者は救難メッセージを始めるが、海賊が「じっとしてれば懸賞金を山分けしてやる」と切り出す。</text>
+	<text>ジャンプが完了すると、船首からミサイルが発射される。スキャンしてみると、海賊のマークがついた船が未知の船を追っているのがすぐにわかった。海賊はあなたに呼びかける：「畜生、来るとは思わなかった。畜生、まさか仲間が来るとは思わなかった。</text>
 </textList>
 
 <event name="PIRATE_NAME" unique="true">
-	<text>あなたは近くの船で数人の海賊の間の会話を聞きます。彼らは何かについて議論していますが、何を言うのは難しいです。</text>
+	<text>近くの船で数人の海賊の会話を耳にする。何かをめぐって口論しているようだ。</text>
 	<ship load="SHIP_PIRATE_ALL" hostile="false" />
 	<choice hidden="true">
-		<text>彼らに連絡する。</text>
+		<text>万歳。</text>
 		<event>
-			<text>「うん？ワッディアが欲しい？」あなたは彼らの問題を解決するのを手伝いたいと説明します。 「あなたは何をしたいですか？それはかなり奇妙です、しかしあなたが提供しているので...私たちはちょうどええと...この新しい船を合法的に入手しました、そして私たちはそれの新しい名前を考えることができません。何か案は？"</text>
+			<text>「そうかい？何か用か？"あなたは彼らの問題を解決する手助けをしたいと説明する。「何がしたいんだ？変な話だが...この新しい船を合法的に手に入れたんだが、新しい名前が思いつかないんだ。何かアイデアはないのか？"</text>
 			<choice hidden="true">
-				<text>「ワイバーンの復讐」という名前を提案します。</text>
+				<text>ワイバーンの復讐」という名前を提案する。</text>
 				<event load="PIRATE_NAME_GOOD" />
 			</choice>
 			<choice hidden="true">
-				<text>「サタンの執行者」という名前を提案します。</text>
+				<text>サタンズ・エンフォーサー」という名前を提案する。</text>
 				<event load="PIRATE_NAME_GOOD" />
 			</choice>
 			<choice hidden="true">
-				<text>「ヘルレイザー」という名前を提案します。</text>
+				<text>ヘルレイザー」という名前を提案する。</text>
 				<event load="PIRATE_NAME_GOOD" />
 			</choice>
 			<choice hidden="true">
-				<text>ちょっと待って、もっとアイデアを考えてみましょう。</text>
+				<text>ちょっと待って、もっとアイデアを考えよう。</text>
 				<event>
-					<text>あなたは海賊のためにもう少し名前のアイデアを考えます。</text>
+					<text>海賊の名前のアイデアをもう少し考える。</text>
 					<choice hidden="true">
-						<text>「ブラックホーク」という名前を提案します。</text>
+						<text>ブラック・ホーク」という名前を提案する。</text>
 						<event load="PIRATE_NAME_GREAT" />
 					</choice>
 					<choice hidden="true">
-						<text>「皇后」という名前を提案します。</text>
+						<text>女帝」という名前を提案する。</text>
 						<event load="PIRATE_NAME_GOOD" />
 					</choice>
 					<choice hidden="true">
-						<text>「暗殺者のまぶしさ」という名前を提案します。</text>
+						<text>The Assassin's Glare』という名前を提案する。</text>
 						<event load="PIRATE_NAME_GREAT" />
 					</choice>
 					<choice hidden="true">
-						<text>もう少し待ってください。もっと考える必要があります。</text>
+						<text>もうちょっと待ってくれ、もっと考える必要がある。</text>
 						<event>
-							<text>あなたは海賊のためのさらに多くの名前のアイデアを考えます。</text>
+							<text>あなたは海賊の名前のアイデアをさらに考える。</text>
 							<choice hidden="true">
-								<text>「悪魔のモー」という名前を提案します。</text>
+								<text>The Devil's Maw』という名前を提案する。</text>
 								<event load="PIRATE_NAME_GREAT" />
 							</choice>
 							<choice hidden="true">
-								<text>「TheBangship」という名前を提案します。</text>
+								<text>ザ・バングシップ」という名前を提案する。</text>
 								<event load="PIRATE_NAME_MEDIOCRE" />
 							</choice>
 							<choice hidden="true">
-								<text>「TheKnifeGunBlaster」という名前を提案します。</text>
+								<text>The KnifeGunBlaster」という名前を提案する。</text>
 								<event load="PIRATE_NAME_MEDIOCRE" />
 							</choice>
 							<choice hidden="true">
-								<text>ええと、もう少しお願いします。</text>
+								<text>ええと、もうちょっと待ってください。</text>
 								<event>
-									<text>あなたは良いアイデアを使い果たし始めています。</text>
+									<text>いいアイデアが出尽くし始めている。</text>
 									<choice hidden="true">
-										<text>「エッジロード」という名前を提案します。</text>
+										<text>The Edgelord」という名前を提案する。</text>
 										<event load="PIRATE_NAME_BAD" />
 									</choice>
 									<choice hidden="true">
-										<text>「Shoopdeloop」という名前を提案します。</text>
+										<text>Shoopdeloop」という名前を提案する。</text>
 										<event load="PIRATE_NAME_HORRIBLE" />
 									</choice>
 									<choice hidden="true">
-										<text>「病的な生き物」という名前を提案します。</text>
+										<text>Morbid Creature」という名前を提案する。</text>
 										<event load="PIRATE_NAME_BAD" />
 									</choice>
 									<choice hidden="true">
-										<text>はい、まだ時間が必要です。</text>
+										<text>よし、まだ時間が必要だ。</text>
 										<event>
-											<text>あなたはほとんど完全にアイデアから外れています。</text>
+											<text>あなたはほとんど何も考えていない。</text>
 											<choice hidden="true">
-												<text>「文字通り海賊船」という名前を提案します。</text>
+												<text>文字通り海賊船」という名前を提案する。</text>
 												<event load="PIRATE_NAME_HORRIBLE" />
 											</choice>
 											<choice hidden="true">
-												<text>「醜い女性」という名前を提案します。</text>
+												<text>醜女」という名前を提案する。</text>
 												<event load="PIRATE_NAME_BAD" />
 											</choice>
 											<choice hidden="true">
-												<text>「壊れた腕」という名前を提案します。</text>
+												<text>ブロークン・アーム」という名前を提案する。</text>
 												<event load="PIRATE_NAME_MEDIOCRE" />
 											</choice>
 											<choice hidden="true">
-												<text>持続する...</text>
+												<text>待ってくれ</text>
 												<event>
-													<text>海賊は非常にイライラしています。 「ああ、ニュートンのために、私たちにいまいましい名前を付けてください！」</text>
+													<text>海賊たちは非常にイライラしている。"ニュートンのために、名前を教えてくれ！"</text>
 													<choice hidden="true">
-														<text>「ハッピーフェロー」という名前を提案します。</text>
+														<text>ハッピー・フェロー」という名前を提案する。</text>
 														<event load="PIRATE_NAME_BAD" />
 													</choice>
 													<choice hidden="true">
-														<text>「本当にクールな名前」という名前を提案します。</text>
+														<text>本当にかっこいい名前」を提案してください。</text>
 														<event load="PIRATE_NAME_HORRIBLE" />
 													</choice>
 													<choice hidden="true">
-														<text>「EEEE」という名前を提案します。</text>
+														<text>EEEE」という名前を提案する。</text>
 														<event load="PIRATE_NAME_HORRIBLE" />
 													</choice>
 												</event>
@@ -1062,11 +1062,11 @@
 		</event>
 	</choice>
 	<choice>
-		<text>海賊を無視します。</text>
+		<text>海賊は無視しろ。</text>
 		<event>
-			<text>あなたは海賊を彼らの喧嘩に任せます。</text>
+			<text>海賊たちのいさかいは放っておけ。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1077,80 +1077,80 @@
 	</choice>
 </event>
 <event name="PIRATE_NAME_GREAT">
-	<text>海賊はあなたの提案について簡単な話し合いをします。 「完璧です、これは素晴らしいことです！あなたの援助、奇妙な連邦船に感謝します。ここにいくらかの報酬があります。」</text>
+	<text>海賊たちは、あなたの提案について短い話し合いをする。「完璧だ！助けてくれてありがとう。これが報酬だ</text>
 	<autoReward level="LOW">scrap_only</autoReward>
 </event>
 <eventList name="PIRATE_NAME_GOOD">
 	<event>
-		<text>「それは素晴らしい名前です！あなたの援助に感謝します。」</text>
+		<text>「素晴らしい名前だ！ご協力ありがとうございました"</text>
 	</event>
 	<event>
-		<text>海賊はあなたの提案について簡単な話し合いをします。 「完璧です、これは素晴らしいことです！あなたの援助、奇妙な連邦船に感謝します。ここにいくらかの報酬があります。」</text>
+		<text>海賊たちは、あなたの提案について短い話し合いをする。「完璧だ！助けてくれてありがとう。これが報酬だ</text>
 		<autoReward level="LOW">scrap_only</autoReward>
 	</event>
 </eventList>
 <eventList name="PIRATE_NAME_MEDIOCRE">
 	<event>
-		<text>「それはええと...試してくれてありがとう。でも、それが私たちが探しているものかどうかはよくわかりません。」</text>
+		<text>"それは......まあ、試してくれてありがとう、でも、それが私たちが探しているものなのかどうかよくわからないんだ"</text>
 	</event>
 	<event>
-		<text>「それは素晴らしい名前です！あなたの援助に感謝します。」</text>
+		<text>「素晴らしい名前だ！ご協力ありがとうございました"</text>
 	</event>
 	<event>
-		<text>海賊はあなたの提案について簡単な話し合いをします。 「完璧です、これは素晴らしいことです！あなたの援助、奇妙な連邦船に感謝します。ここにいくらかの報酬があります。」</text>
+		<text>海賊たちは、あなたの提案について短い話し合いをする。「完璧だ！助けてくれてありがとう。これが報酬だ</text>
 		<autoReward level="LOW">scrap_only</autoReward>
 	</event>
 </eventList>
 <eventList name="PIRATE_NAME_BAD">
 	<event>
-		<text>「親愛なる神様、それは恐ろしい名前です。二度と私たちに話しかけないでください。」</text>
+		<text>「神様、ひどい名前です。二度と私たちに話しかけないでください"</text>
 	</event>
 	<event>
-		<text>どういうわけか、海賊はあなたの提案を気に入っているようです。彼らはそれがとても好きなので、あなたが二度とあなたの恐ろしい提案で彼らを侮辱することは決してないと約束する限り、彼らはあなたにスクラップを支払います。</text>
+		<text>どういうわけか、海賊たちは君の提案を気に入っているようだ。実際、彼らはとても気に入っていて、二度とひどい提案で彼らを侮辱しないと約束する限り、君にスクラップを支払うそうだ。</text>
 		<autoReward level="LOW">scrap_only</autoReward>
 	</event>
 </eventList>
 <event name="PIRATE_NAME_HORRIBLE">
-	<text>「私が今まで聴覚の不名誉を抱えていた最悪の名前であるだけでなく、あなたはそれを聞くだけで耳を物理的に出血させました。私の2番目の仲間は心停止になり、エンジンで火災がほとんど始まった。私は実際に今嘔吐が好きだと感じていたほどひどかった。それは非常に恐ろしいので、彼らはあなたと同じくらい哀れなクリーチャーを作ったより高い力を文字通り恥ずかしく感じた。この現実の面をさらに汚染して破壊することはできないように、恐ろしい雑種。」</text>
+	<text>「その名前を聞いただけで、私の耳は血まみれになった。二等航海士が心停止して、エンジンの中で火が出そうになったんだ。あまりのひどさに、今にも吐きそうです。あなたのような哀れな生き物を作ったことを恥じて、高次の権力が文字通り死んでいくのを感じるほど、とてつもなく恐ろしいことだった。これ以上この現実の平面を汚染し、破壊することができないように、私は武器を武装し、お前たち恐ろしい雑種を抹殺する以外に選択肢はない。"</text>
 	<ship hostile="true" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 
 <event name="SLAVER_DEAD_SLAVES" unique="true"> 
 	<ship load="SHIP_SLAVER_DEAD_SLAVES" hostile="false" />
-	<text>奴隷制は、手頃な価格で質の高い奴隷を宣伝しています。</text>
+	<text>奴隷商人は、質の高い奴隷を手ごろな値段で宣伝している。</text>
 	<choice hidden="true">
-		<text>未知の奴隷を20スクラップで購入します。</text>
+		<text>未知の奴隷を20スクラップで買う。</text>
 		<event load="SLAVER_DEAD_SLAVES_BUY" />
 	</choice>
 	<choice hidden="true">
-		<text>奴隷を検査するように頼みなさい。</text>
+		<text>奴隷の検査を依頼する。</text>
 		<event>
-			<text>「ああ、そうだね。それについては。私たちはあなたに見せることができない...なぜなら...彼らは皆眠っているからだ！彼らを起こしたくないからだ。」</text>
+			<text>"ああ、そうだね。みんな寝ているから...見せられないんだ！起こしてはいけないから"</text>
 			<choice hidden="true">
-				<text>スジは通ってるようだ。 20スクラップで1つ購入します。</text>
+				<text>合法的に見える。20スクラップで買おう</text>
 				<event load="SLAVER_DEAD_SLAVES_BUY" />
 			</choice>
 			<choice hidden="true">
-				<text>それらを攻撃します、これは日陰です！</text>
+				<text>彼らを攻撃しろ！</text>
 				<event>
-					<text>「大丈夫です！彼らは皆死んでいます、私たちは死んだ奴隷を売っています、今私たちを行かせてください！」彼らにとって残念なことに、あなたは彼らをフックから外すつもりはありません。</text>
+					<text>「わかった、わかった！みんな死んだんだ！ 死んだ奴隷を売っているんだ！ さあ、解放してくれ！"彼らにとっては残念なことだが、あなたは彼らを解放するつもりはない。</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>怪しい、去りましょう。</text>
+				<text>うさんくさいから帰ろう。</text>
 				<event>
-					<text>奴隷船は彼らの「製品」を宣伝し続けているので、あなたは彼らの船から来るすべての呼びかけを単にミュートします。</text>
+					<text>スレイバー船は "商品 "の宣伝を続けている。</text>
 					<choice>
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice>
@@ -1162,26 +1162,26 @@
 		</event>
 	</choice>
 	<choice req="LIST_CREW_SLUG" hidden="true">
-		<text>（スラッグクルー）スラッグに彼らの意図をチェックしてもらってください。</text>
+		<text>(スラッグ・クルー）スラッグに相手の意図を確認させる。</text>
 		<event>
-			<text>「それはsssseemsssthesssesssslaverssは死んだssslavesをsssellingしている！ハァッ、なんてラケット。お奨めは彼らのガストを賞賛しなければならない。Ssstill、あなたは何も買わないはずだ。」</text>
+			<text>"奴隷商人たちは死んだ奴隷を売っているようだ！ハハ、なんという騒ぎだ。彼らの根性には感服する。それでも、何も買わないほうがいい」。</text>
 			<choice hidden="true">
-				<text>いまいましい奴隷を攻撃せよ！</text>
+				<text>奴隷商人を攻撃しろ</text>
 				<event>
-					<text>あなたは奴隷船を攻撃する準備をし、彼らが他の誰かを騙さないようにする準備をします。</text>
+					<text>あなたは奴隷船を攻撃する準備をし、彼らが誰も詐欺に遭わないようにする。</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>あなたのスラッグのアドバイスに従って、去ってください。</text>
+				<text>ナメクジのアドバイスに従って、その場を離れなさい。</text>
 				<event>
-					<text>奴隷船は彼らの「製品」を宣伝し続けているので、あなたは彼らの船から来るすべての呼びかけを単にミュートします。</text>
+					<text>スレイバー船は "商品 "の宣伝を続けている。</text>
 					<choice>
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice>
@@ -1193,26 +1193,26 @@
 		</event>
 	</choice>
 	<choice req="BLUELIST_CREW_SNAIL" hidden="true">
-		<text>(テレパシー シェル) シェルに彼らの意図を確認させます。</text>
+		<text>(テレパシー・シェル）自分のシェルに相手の意図を確認させる。</text>
 		<event>
-			<text>「これらの奴隷商人は死体を売っています! よく得た教訓以外には、何も渡してはいけません.」</text>
+			<text>「奴隷商人たちは死体を売っている！そんな奴らに何一つ渡すべきではない。</text>
 			<choice hidden="true">
-				<text>いまいましい奴隷を攻撃せよ！</text>
+				<text>奴隷商人を攻撃しろ</text>
 				<event>
-					<text>あなたは奴隷船を攻撃する準備をし、彼らが他の誰かを騙さないようにする準備をします。</text>
+					<text>あなたは奴隷船を攻撃する準備をし、彼らが誰も詐欺に遭わないようにする。</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>シェルのアドバイスに従い、立ち去ります。</text>
+				<text>シェルの忠告に従って出て行け。</text>
 				<event>
-					<text>奴隷船は彼らの「製品」を宣伝し続けているので、あなたは彼らの船から来るすべての呼びかけを単にミュートします。</text>
+					<text>スレイバー船は "商品 "の宣伝を続けている。</text>
 					<choice>
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice>
@@ -1224,11 +1224,11 @@
 		</event>
 	</choice>
 	<choice>
-		<text>それらを無視します。</text>
+		<text>無視するんだ。</text>
 		<event>
-			<text>奴隷船は彼らの「製品」を宣伝し続けているので、あなたは彼らの船から来るすべての呼びかけを単にミュートします。</text>
+			<text>スレイバー船は "商品 "の宣伝を続けている。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1239,27 +1239,27 @@
 	</choice>
 </event>
 <event name="SLAVER_DEAD_SLAVES_BUY">
-	<text>奴隷制はあなたの購入に感謝し、奴隷を船に連れて行きます。しかし、何かがおかしいのは明らかです。奴隷は完全に生命のない、動かない死体です。</text>
+	<text>奴隷商人は購入に感謝し、奴隷を船に乗せる。しかし、明らかに何かがおかしい。奴隷はまったく生気がなく、動かない死体なのだ。</text>
 	<item_modify>
 		<item type="scrap" min="-20" max="-20" />
 	</item_modify>
 	<choice hidden="true">
-		<text>いまいましい奴隷を攻撃せよ！</text>
+		<text>奴隷商人を攻撃しろ</text>
 		<event>
-			<text>あなたは奴隷船を攻撃する準備をしていて、彼らがあなたをだましていることに激怒しています。</text>
+			<text>騙されたことに激怒し、奴隷船を攻撃する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>彼らがあなたのお金を返すように要求します。</text>
+		<text>お金を返すよう要求する。</text>
 		<event>
-			<text>「ねえ、ここで現実になりましょう。奴隷が生きていることについては何も言いませんでした。それはすべて単なる誤解です。私たちにできる最善のことは、公平を期して、スクラップの半分を返還することです。」</text>
+			<text>「おい、現実を見よう。私たちは奴隷が生きているなどとは一言も言っていない。単なる誤解だ。私たちにできることは、公平を期すため、スクラップを半分返すことだ。"</text>
 			<choice>
-				<text>10個のスクラップを受け入れます。</text>
+				<text>スクラップ10枚を受け取る。</text>
 				<event>
 					<item_modify>
 						<item type="scrap" min="10" max="10" />
@@ -1267,20 +1267,20 @@
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>私たちはこれを支持しません！それらを破壊します。</text>
+				<text>こんなことは我慢できない！滅ぼせ</text>
 				<event>
-					<text>あなたは奴隷船を攻撃する準備をしていて、彼らがあなたをだましていることに激怒しています。</text>
+					<text>騙されたことに激怒し、奴隷船を攻撃する準備をする。</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" req="weapons" lvl="5">
-				<text>（Upg. Weapons）あなたにすべてのお金を返すように彼らを脅します。</text>
+				<text>(アップグウェポンズ)金を全部返せと脅すんだ。</text>
 				<event>
-					<text>「オーケー！オーケー！ここでは、とても親切なので、余分な燃料を投入します！」</text>
+					<text>「オーケー！オーケー！ほら、親切だから燃料も追加だ！"</text>
 					<item_modify>
 						<item type="scrap" min="20" max="20" />
 						<item type="fuel" min="3" max="5" />
@@ -1291,32 +1291,32 @@
 	</choice>
 </event>
 <event name="DEAD_CREW_SLAVER_DEADSLAVES">
-	<text>あなたは貨物倉に多くの奴隷を見つけます。あなたはより多くのクルーを使うことができますが、それはこのような奴隷を連れて行くことについてあなたに前向きに反映されません。</text>
+	<text>貨物室にたくさんの奴隷がいる。もっと乗組員を増やしてもいいが、このように奴隷を連行することは、あなたにとってプラスにはならないだろう。</text>
 	<choice hidden="true">
-		<text>マンティスがあなたのクルーに加わることを要求しますが、残りを解放します。</text>
+		<text>カマキリを仲間に加えるよう要求するが、残りは解放する。</text>
 		<event>
-			<text>マンティスがいる檻をこじ開けて、地面に倒れるだけにします。ああ、そうだね...</text>
+			<text>カマキリの入っている檻をこじ開けると、カマキリは地面に倒れて死んでいた。そうか...</text>
 			<autoReward level="MED">standard</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>ロックマンがあなたのクルーに加わることを要求しますが、残りを解放します。</text>
+		<text>ロックマンを仲間に加えるよう要求するが、残りは解放する。</text>
 		<event>
-			<text>あなたはロックマンが入っている檻をこじ開けて、彼らが地面に倒れるだけです。ああ、そうだね...</text>
+			<text>ロックマンが入っている檻をこじ開けると、ロックマンは地面に倒れて死んでいた。そうか...</text>
 			<autoReward level="MED">standard</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>エンギがあなたのクルーに加わることを要求しますが、残りを解放します。</text>
+		<text>エンギを乗組員に加えるよう要求するが、残りは解放する。</text>
 		<event>
-			<text>エンギが入っているケージをこじ開けて、地面に倒れるだけにします。ああ、そうだね...</text>
+			<text>エンギの入っている檻をこじ開けると、エンギは地面に倒れて死んでいた。そうか...</text>
 			<autoReward level="MED">standard</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>私たちは奴隷ではありません。それらすべてを解放します。</text>
+		<text>我々は奴隷商人ではない。全員解放しろ。</text>
 		<event>
-			<text>あなたは檻を開けますが、誰も出たがりません。それはあなたが死んだ奴隷を宣伝されたことを覚えているときです...</text>
+			<text>檻を開けるが、誰も出ようとしない。その時、自分たちが死んだ奴隷の宣伝をしていたことを思い出す...。</text>
 			<autoReward level="MED">standard</autoReward>
 		</event>
 	</choice>
@@ -1324,28 +1324,28 @@
 
 <event name="SLAVER_BETRAYAL" unique="true"> 
 	<ship load="SHIP_SLAVER_ALL" hostile="false" />
-	<text>奴隷船があなたを直接呼び寄せ、公正な価格で奴隷を勧誘します。 「真新しい労働者のためのたった35のスクラップ！なんと取引の盗み。それがまだ続く間、あなたはこの申し出を受け取らないためにばかでなければならないでしょう。」</text>
+	<text>奴隷商船が、適正価格で奴隷を募集している。「新品の労働者がたった35スクラップ！なんて破格なんだ。この申し出に応じないのは馬鹿だ。</text>
 	<choice hidden="true">
-		<text>未知の奴隷を35スクラップで購入する。</text>
+		<text>未知の奴隷を35スクラップで買う。</text>
 		<event load="SLAVER_BETRAYAL_BUY" />
 	</choice>
 	<choice>
-		<text>奴隷商人のクズ野郎を攻撃します。</text>
+		<text>奴隷商人を攻撃しろ</text>
 		<event>
-			<text>あなたは奴隷を攻撃する準備をします。</text>
+			<text>あなたは奴隷商人を攻撃する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>興味はありません。</text>
+		<text>興味はない。</text>
 		<event>
-			<text>「ああ、それで私たちはここに2、3の馬鹿を持っている！」奴隷商人は電話を切り、飛び去ります。</text>
+			<text>"ああ、バカが二人ほど来たようだな！"奴隷商人は電話を切り、飛び去る。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1355,29 +1355,29 @@
 		</event>
 	</choice>
 	<choice req="LIST_CREW_SLUG" hidden="true">
-		<text>（スラッグクルー）スラッグに彼らの意図をチェックしてもらってください。</text>
+		<text>(スラッグ・クルー）スラッグに相手の意図を確認させる。</text>
 		<event load="SLAVER_BETRAYAL_SLUG" />
 	</choice>
 	<choice req="BLUELIST_CREW_SNAIL" hidden="true">
-		<text>(テレパシー シェル) シェルに彼らの意図を確認させます。</text>
+		<text>(テレパシー・シェル）自分のシェルに相手の意図を確認させる。</text>
 		<event load="SLAVER_BETRAYAL_SLUG" />
 	</choice>
 </event>
 <eventList name="SLAVER_BETRAYAL_BUY">
 	<event>
-		<text>奴隷商人は、何の拘束もなく、異常に手付かずの奴隷を連れてきます。奴隷が船に戻るとすぐに、「奴隷」は隠されたブラスターを明らかにし、あなたのクルーをオンにします！トリックでした！</text>
+		<text>奴隷商人が、何の拘束もされていない、異常にまっさらな奴隷を連れてきた。奴隷商人たちが船に戻るとすぐに、"奴隷 "は隠し持っていたブラスターを見せ、クルーに襲いかかる！トリックだ！</text>
 		<boarders min="1" max="1" class="random" />
 		<item_modify>
 			<item type="scrap" min="-35" max="-35" />
 		</item_modify>
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 	<event>
-		<text>奴隷たちは重い束縛で囚人を連れ出し、彼らを乗せます。奴隷船長はあなたを歓迎し、飛び去ります。</text>
+		<text>奴隷商人は重い手かせをはめた囚人を連れ出し、船に放り込む。奴隷商人の船長はあなたを呼び、飛び去る。</text>
 		<crewMember amount="1" />
 		<item_modify>
 			<item type="scrap" min="-35" max="-35" />
@@ -1400,24 +1400,24 @@
 	<event load="SLAVER_BETRAYAL_SLUG_BETRAY" />
 </eventList>
 <event name="SLAVER_BETRAYAL_SLUG_BETRAY">
-	<text>あなたの乗組員はあなたに奴隷に警戒するように言います。このすべては詐欺です。</text>
+	<text>乗組員が奴隷に用心するように言う。これは全部詐欺だ。</text>
 	<choice>
-		<text>奴隷商人のクズ野郎を攻撃します。</text>
+		<text>奴隷商人を攻撃しろ</text>
 		<event>
-			<text>あなたは危険な奴隷を攻撃する準備をします。</text>
+			<text>あなたは裏切り者の奴隷商人を攻撃する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>離れる。</text>
+		<text>出て行け。</text>
 		<event>
-			<text>「なぜ突然ビジネスに不利になるのか？まあ、次のビーコンで一生に一度の取引をしたいと思っている人を見つけるかもしれない！」</text>
+			<text>"なぜ突然、ビジネスに消極的になったんだ？まあいい、次のビーコンで、もっと一世一代の取引に熱心な人が見つかるかもしれない！"</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1428,9 +1428,9 @@
 	</choice>
 </event>
 <event name="SLAVER_BETRAYAL_SLUG_HUMAN">
-	<text>あなたの乗組員によると、提供される奴隷は人間です。</text>
+	<text>クルーによれば、提供された奴隷は人間だという。</text>
 	<choice>
-		<text>35スクラップでスレーブを購入します。</text>
+		<text>奴隷を35スクラップで買う。</text>
 		<event>
 			<crewMember amount="1" class="human" />
 			<item_modify>
@@ -1439,22 +1439,22 @@
 		</event>
 	</choice>
 	<choice>
-		<text>奴隷商人のクズ野郎を攻撃します。</text>
+		<text>奴隷商人を攻撃しろ</text>
 		<event>
-			<text>あなたは危険な奴隷を攻撃する準備をします。</text>
+			<text>あなたは裏切り者の奴隷商人を攻撃する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>興味はありません。</text>
+		<text>興味はない。</text>
 		<event>
-			<text>「ああ、それで私たちはここに2、3の馬鹿を持っている！」奴隷商人は電話を切り、飛び去ります。</text>
+			<text>"ああ、バカが二人ほど来たようだな！"奴隷商人は電話を切り、飛び去る。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1465,9 +1465,9 @@
 	</choice>
 </event>
 <event name="SLAVER_BETRAYAL_SLUG_ENGI">
-	<text>あなたの乗組員によると、提供されている奴隷はエンギです。</text>
+	<text>クルーによると、提供された奴隷はエンジだという。</text>
 	<choice>
-		<text>35スクラップでスレーブを購入します。</text>
+		<text>奴隷を35スクラップで買う。</text>
 		<event>
 			<crewMember amount="1" class="engi" />
 			<item_modify>
@@ -1476,22 +1476,22 @@
 		</event>
 	</choice>
 	<choice>
-		<text>奴隷商人のクズ野郎を攻撃します。</text>
+		<text>奴隷商人を攻撃しろ</text>
 		<event>
-			<text>あなたは危険な奴隷を攻撃する準備をします。</text>
+			<text>あなたは裏切り者の奴隷商人を攻撃する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>興味はありません。</text>
+		<text>興味はない。</text>
 		<event>
-			<text>「ああ、それで私たちはここに2、3の馬鹿を持っている！」奴隷商人は電話を切り、飛び去ります。</text>
+			<text>"ああ、バカが二人ほど来たようだな！"奴隷商人は電話を切り、飛び去る。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1502,9 +1502,9 @@
 	</choice>
 </event>
 <event name="SLAVER_BETRAYAL_SLUG_ORCHID">
-	<text>あなたの乗組員によると、提供される奴隷は蘭です。</text>
+	<text>クルーによると、提供された奴隷はオーキッドだという。</text>
 	<choice>
-		<text>35スクラップでスレーブを購入します。</text>
+		<text>奴隷を35スクラップで買う。</text>
 		<event>
 			<crewMember amount="1" class="orchid" />
 			<item_modify>
@@ -1513,22 +1513,22 @@
 		</event>
 	</choice>
 	<choice>
-		<text>奴隷商人のクズ野郎を攻撃します。</text>
+		<text>奴隷商人を攻撃しろ</text>
 		<event>
-			<text>あなたは危険な奴隷を攻撃する準備をします。</text>
+			<text>あなたは裏切り者の奴隷商人を攻撃する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>興味はありません。</text>
+		<text>興味はない。</text>
 		<event>
-			<text>「ああ、それで私たちはここに2、3の馬鹿を持っている！」奴隷商人は電話を切り、飛び去ります。</text>
+			<text>"ああ、バカが二人ほど来たようだな！"奴隷商人は電話を切り、飛び去る。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1539,9 +1539,9 @@
 	</choice>
 </event>
 <event name="SLAVER_BETRAYAL_SLUG_ROCK">
-	<text>あなたの乗組員によると、提供される奴隷はロックマンです。</text>
+	<text>クルーによると、提供された奴隷はロックマンだという。</text>
 	<choice>
-		<text>35スクラップでスレーブを購入します。</text>
+		<text>奴隷を35スクラップで買う。</text>
 		<event>
 			<crewMember amount="1" class="rock" />
 			<item_modify>
@@ -1550,22 +1550,22 @@
 		</event>
 	</choice>
 	<choice>
-		<text>奴隷商人のクズ野郎を攻撃します。</text>
+		<text>奴隷商人を攻撃しろ</text>
 		<event>
-			<text>あなたは危険な奴隷を攻撃する準備をします。</text>
+			<text>あなたは裏切り者の奴隷商人を攻撃する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>興味はありません。</text>
+		<text>興味はない。</text>
 		<event>
-			<text>「ああ、それで私たちはここに2、3の馬鹿を持っている！」奴隷商人は電話を切り、飛び去ります。</text>
+			<text>"ああ、バカが二人ほど来たようだな！"奴隷商人は電話を切り、飛び去る。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1576,9 +1576,9 @@
 	</choice>
 </event>
 <event name="SLAVER_BETRAYAL_SLUG_MANTIS">
-	<text>あなたの乗組員によると、提供されている奴隷はマンティスです。</text>
+	<text>クルーによると、提供された奴隷はマンティスだという。</text>
 	<choice>
-		<text>35スクラップでスレーブを購入します。</text>
+		<text>奴隷を35スクラップで買う。</text>
 		<event>
 			<crewMember amount="1" class="mantis" />
 			<item_modify>
@@ -1587,22 +1587,22 @@
 		</event>
 	</choice>
 	<choice>
-		<text>奴隷商人のクズ野郎を攻撃します。</text>
+		<text>奴隷商人を攻撃しろ</text>
 		<event>
-			<text>あなたは危険な奴隷を攻撃する準備をします。</text>
+			<text>あなたは裏切り者の奴隷商人を攻撃する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>興味はありません。</text>
+		<text>興味はない。</text>
 		<event>
-			<text>「ああ、それで私たちはここに2、3の馬鹿を持っている！」奴隷商人は電話を切り、飛び去ります。</text>
+			<text>"ああ、バカが二人ほど来たようだな！"奴隷商人は電話を切り、飛び去る。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1613,9 +1613,9 @@
 	</choice>
 </event>
 <event name="SLAVER_BETRAYAL_SLUG_CRYSTAL">
-	<text>あなたの乗組員によると、提供される奴隷はクリスタルです。</text>
+	<text>クルーによると、差し出された奴隷はクリスタルだという。</text>
 	<choice>
-		<text>35スクラップでスレーブを購入します。</text>
+		<text>奴隷を35スクラップで買う。</text>
 		<event>
 			<crewMember amount="1" class="crystal" />
 			<item_modify>
@@ -1624,22 +1624,22 @@
 		</event>
 	</choice>
 	<choice>
-		<text>奴隷商人のクズ野郎を攻撃します。</text>
+		<text>奴隷商人を攻撃しろ</text>
 		<event>
-			<text>あなたは危険な奴隷を攻撃する準備をします。</text>
+			<text>あなたは裏切り者の奴隷商人を攻撃する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>興味はありません。</text>
+		<text>興味はない。</text>
 		<event>
-			<text>「ああ、それで私たちはここに2、3の馬鹿を持っている！」奴隷商人は電話を切り、飛び去ります。</text>
+			<text>"ああ、バカが二人ほど来たようだな！"奴隷商人は電話を切り、飛び去る。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1665,39 +1665,39 @@
 </eventList>
 
 <event name="SLAVER_LANIUS_SLAVE" unique="true">
-	<text>FTLトラベルのより重要なシステム間のギャップに及ぶ中間ウェイポイントとしてのみ使用される非常に荒涼としたシステムにあるビーコンを入力します。ここには、ビーコンの上にある唯一の民間駅以外にはほとんどありません。ビーコンに到着してからかなり後、あなたは駅にドッキングされている黒と赤の塗料をスポーツする黒い船に歓迎されています。</text>
+	<text>あなたは非常に荒涼とした星系にあるビーコンに入る。このビーコンは、FTL航行にとってより重要な星系間のギャップを埋める中間ウェイポイントとしてのみ使われている。ビーコンの上には民間人のステーションが1つあるだけだ。ビーコンに到着してしばらくすると、黒と赤のペイントが施された黒い船がステーションに停泊している。</text>
 	<choice>
-		<text>継続する。</text>
+		<text>続ける。</text>
 		<event>
-			<text>船のキャプテンの咳は、「酸素なしで生きるだけでなく、積極的に空気を繁栄できないようにすることができる奇跡的な金属の男を手に入れました。しかし、私たちの船の生命維持システムは信じられないほどの資質を維持することはできません。短期間、私たちはこの惨めなシステムのこの駅でここに立ち往生しています。私たちの金属製の男を買うことに同意し、一生に一度の取引を与えます。」</text>
+			<text>船長は咳払いをした後、こう言った。「私たちは、酸素なしで生きられるだけでなく、積極的に空気を吸えないようにすることもできる、奇跡的な金属人を手に入れました。しかし、我々の船の生命維持システムは、その驚異的な資質を短時間以上維持することができず、我々はこの惨めな星系のこのステーションで立ち往生している。私たちの金属人を買うことに同意してくれれば、一生の取引をしよう"</text>
 			<ship load="SHIP_SLAVER_ALL" hostile="false" /> 
 			<choice>
-				<text>ラニウスを購入します。</text>
+				<text>ラニウスを購入する</text>
 				<event>
-					<text>奴隷商人は彼らの責任から解放され、それでも利益を得ることができて喜んでいます。彼らはラニウスを乗り越えるのに時間を無駄にしません。</text>
+					<text>奴隷商人は、責任から解放され、なおかつ利益を得られることに大喜びだ。彼らはラニウスを譲渡するのに時間をかけなかった。</text>
 					<item_modify>
 						<item type="scrap" min="-30" max="-30" />
 					</item_modify>
-					<crewMember amount="1" class="lanius">ゆったり</crewMember>
+					<crewMember amount="1" class="lanius">レイス</crewMember>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>奴隷制は嘆かわしいです。奴隷と戦う。</text>
+				<text>奴隷制度は嘆かわしい。奴隷商人と戦え。</text>
 				<event>
-					<text>交戦すると、船はすぐにステーションからドッキングを解除し、反撃する準備をします。</text>
+					<text>交戦中、船はすぐにステーションからドッキングを解除し、反撃の準備を整える。</text>
 					<ship hostile="true" /> 
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>船を無視します。</text>
+				<text>船を無視する。</text>
 				<event>
-					<text>あなたはあなたと奴隷の間にいくらかの距離を置きます。彼らがもう気にしないと確信したら、船に乗って何かをすることを検討します。</text>
+					<text>奴隷商人と距離を置く。これ以上邪魔されないと確信したら、船内で何かすることを考える。</text>
 					<choice>
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice>
@@ -1707,13 +1707,13 @@
 				</event>
 			</choice>
 			<choice req="mind" hidden="true">
-				<text>（マインドコントロール）ラニウスを寄付するように彼らに説得します。</text>
+				<text>(マインド・コントロール）ラニウスを寄付するように説得する。</text>
 				<event>
-					<text>あなたのマインドコントロールシステムは、彼らがより収益性の高いビーコンのために出発するように、彼女があなたに無料でラニウスを与えるべきだと奴隷のキャプテンに簡単に納得させることができます。ラニウスは、マインドコントロールの効果が消える前に、小さなシャトルですぐにあなたの船に向かって排出されます。彼らがだまされていることに気づいて、奴隷は駅から分離し、その武器を供給します。</text>
-					<crewMember amount="1" class="lanius">ゆったり</crewMember>
+					<text>あなたのマインドコントロール・システムは、奴隷商人の船長にラニウスをただで渡すよう簡単に説得することができた。マインドコントロールの効果が切れる前に、ラニウス号は小型シャトルで素早くあなたの船に向かって放出される。騙されたと悟ったスレイバーはステーションから離れ、武器をパワーアップさせる。</text>
+					<crewMember amount="1" class="lanius">レイス</crewMember>
 					<ship hostile="true" /> 
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
@@ -1723,30 +1723,30 @@
 </event>
 
 <event name="SLAVER_DRIFTER" unique="true">
-	<text>奴隷船が近くを漂流しています。それを見るだけで、低電力または無電力で動作していることがわかります。</text>
+	<text>奴隷商人の船が近くを漂っている。見ただけで、低出力か無動力で動いているのがわかる。</text>
 	<ship load="SHIP_SLAVER_GHOST_DRIFTER" hostile="false" /> 
 	<choice hidden="true">
-		<text>彼らに呼びかけてみてください。</text>
+		<text>彼らを呼ぼうとする。</text>
 		<event load="SLAVER_DRIFTER_HAIL" />
 	</choice>
 	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
-		<text>調査のために何人かのクルーを送ってください。</text>
+		<text>何人かのクルーを派遣して調査させろ。</text>
 		<event load="SLAVER_DRIFTER_CREW" />
 	</choice>
 	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
-		<text>船に乗せる乗組員はいません。</text>
+		<text>乗組員もいない。</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true" req="DRONE_CONTROL_BOARDING">
-		<text>（搭乗ドローン）搭乗ドローンを送ります。 [-1ドローン]</text>
+		<text>(搭乗ドローン）搭乗ドローンを送る。[-1ドローン]</text>
 		<event load="SLAVER_DRIFTER_DRONE" />
 	</choice>
 	<choice hidden="true">
-		<text>船を漂流させてください。</text>
+		<text>船を漂流させる。</text>
 		<event>
-			<text>ゴースト船に対する船や任務を危険にさらす必要はありません。</text>
+			<text>幽霊船のために船や任務を危険にさらす必要はない。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1758,111 +1758,111 @@
 </event>
 <eventList name="SLAVER_DRIFTER_HAIL">
 	<event>
-		<text>船は完全に無反応のままです。船に生命が残っているかどうかはわかりません。</text>
+		<text>船はまったく反応しないままだ。船内に生命が残っているのかどうかわからない。</text>
 		<choice hidden="true">
-			<text>船をスクラップします。</text>
+			<text>船をスクラップにする。</text>
 			<event>
-				<text>元のクルーが死んでいると確信して、あなたは外側の船体をこすり始めます。しかし、プロセスの途中で武器が不思議なことにオンラインになり、船内での無気力なシャッフルが聞こえます。</text>
+				<text>元乗組員の死を確信し、船体の外壁を削り始める。しかし、作業の途中で不思議なことに武器がオンラインになり、船内から無気力な足音が聞こえてくる。</text>
 				<autoReward level="LOW">standard</autoReward>
 				<ship hostile="true" /> 
 				<choice hidden="true">
-					<text>継続する...</text>
+					<text>次へ...</text>
 					<event load="COMBAT_CHECK" />
 				</choice>
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>危険を冒さないでください。</text>
+			<text>危険は冒すな。</text>
 			<event />
 		</choice>
 	</event>
 	<event>
-		<text>驚いたことに、あなたの連絡にたいしてすぐ答えられます。ただし、わかりやすいスピーチの代わりに、応答が文字化けし、静的なものと混ざり合っています。あなたが知っている次のことは、船の武器がオンラインになり、あなたを攻撃します！</text>
+		<text>驚いたことに、あなたの呼びかけにはすぐに返事が返ってきた。しかし、その応答は理解しやすい会話ではなく、文字化けし、雑音が混じっている。次の瞬間、船の武器がオンラインになり、あなたを攻撃する！</text>
 		<ship hostile="true" /> 
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 </eventList>
 <event name="SLAVER_DRIFTER_CREW">
-	<text>あなたのクルーはしぶしぶ奴隷船に乗り込みます。何が起こっているかを教えてくれるので、通信はしばらく安定していますが、突然、すべてが静的になります。数分後、船はオンラインになり、攻撃します！</text>
+	<text>クルーはしぶしぶ奴隷船に乗り込む。しばらくの間、通信は安定していた。数分後、船はオンラインになり、攻撃してきた！</text>
 	<ship hostile="true" /> 
 	<removeCrew>
 		<clone>true</clone>
-		<text>あなたはあなたのクルーがクローンベイからつまずくのを見て驚いています。彼らはあなたにゴーストについて何かを話します、しかしあなたは差し迫った暴行のために聞く時間があまりありません。</text>
+		<text>クルーがクローンベイから出てきたのを見て驚いた。彼らはゴーストについて何か話してくれたが、間近に迫った攻撃のため、聞く余裕はなかった。</text>
 	</removeCrew>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <event name="SLAVER_DRIFTER_DRONE">
-	<text>あなたのドローンは放棄された船の内部をナビゲートしますが、画像はあちこちで切り取られています。突然、不安定なシルエットが角を曲がり、ドローンのカメラがオフラインになります。</text>
+	<text>あなたのドローンは廃船の内部を航行するが、映像はあちこちでカットアウトする。突然、揺れ動くシルエットが角を曲がってやってきて、あなたのドローンのカメラはオフラインになる。</text>
 	<item_modify>
 		<item type="drones" min="-1" max="-1" />
 	</item_modify>
 	<choice hidden="true">
-		<text>ドローンを回収してみてください。</text>
+		<text>ドローンを回収しようとする。</text>
 		<event>
-			<text>ドローンを回収するために近づこうとしますが、船はオンラインになります！</text>
+			<text>ドローンを回収するために接近しようとするが、船がオンラインになる！</text>
 			<ship hostile="true" /> 
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>危険を冒さないでください。</text>
+		<text>危険は冒すな。</text>
 		<event />
 	</choice>
 </event>
 <event name="SLAVER_DRIFTER_DESTROYED">
-	<text>元のクルーに何が起こったのかわからないかもしれませんが、少なくともゴースト船は他の誰にも迷惑をかけません。船体をスクラップします。</text>
+	<text>元の乗組員に何が起こったのか知ることはできないかもしれないが、少なくとも幽霊船は誰にも迷惑をかけることはない。船体をスクラップにする。</text>
 	<autoReward level="MED">standard</autoReward>
 </event>
 <event name="SLAVER_DRIFTER_KILL">
-	<text>ゴーストは消えた、または少なくともあなたは望む。船体をさらに削るのはかなり快適ですが、必要以上に長く固執するのに十分ではありません。</text>
+	<text>ゴーストはもういない、少なくともあなたはそう願っている。船体をさらに削るのはそれなりに快適だが、必要以上に長くとどまるほどではない。</text>
 	<autoReward level="HIGH">standard</autoReward>
 </event>
 
 <event name="BLACKMARKET_SUSPICIOUS_SMUGGLER" unique="true">
-	<text>目立った海賊の痕跡はありませんが、このビーコンの船は非常に奇妙な振る舞いをしています。あなたはそれが密輸業者であると疑っていますが、主張がほとんど関係がないという証拠がありません。</text>
+	<text>目立つ海賊マークはないが、このビーコンにいる船は非常に奇妙な行動をとる。密輸業者ではないかと疑っているようだが、証拠がなければ、その主張はあまり意味がない。</text>
 	<ship load="SHIP_GENERIC" hostile="false" /> 
 	<choice hidden="true">
-		<text>それらを攻撃します！</text>
+		<text>彼らを攻撃する！</text>
 		<event>
-			<text>あなたは戦闘の準備をします。</text>
+			<text>戦闘に備えるのだ。</text>
 			<ship hostile="true" /> 
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>何もしないでください。</text>
+		<text>何もするな。</text>
 		<event>
-			<text>あなたは近づきませんが、船はあなたが彼らに気づいたことを知っているようです。 「ねえ、ええと、あなたは何を見ているのですか？」</text>
+			<text>あなたは近づかないが、船はあなたが気づいたことに気づいているようだ。「何を見てるんだ？</text>
 			<choice hidden="true">
-				<text>ああ、あなたは知っています...</text>
+				<text>ああ、あのね...。</text>
 				<event>
-					<text>「え、ええ？で、どうしたの？」</text>
+					<text>"うん？それがどうした？</text>
 					<choice hidden="true">
-						<text>何か取引するものがありますか？</text>
+						<text>交換するものはあるか？</text>
 						<event>
-							<text>「おおおお、もちろん。乗って来い！」</text>
+							<text>「おぉ。ええ、もちろんです。ご乗船ください！"</text>
 							<store>STORE_PIRATE</store>
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>それらを攻撃します！</text>
+						<text>彼らを攻撃する！</text>
 						<event>
-							<text>あなたは戦闘の準備をします。</text>
+							<text>戦闘に備えるのだ。</text>
 							<ship hostile="true" /> 
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="COMBAT_CHECK" />
 							</choice>
 						</event>
@@ -1874,53 +1874,53 @@
 </event>
 
 <event name="BLACKMARKET_ENGI_ILLEGAL" unique="true">
-	<text>驚いたことに、ゾルタン船はエンギ船を逮捕している最中です。あなたは状況が何であるか、あるいはあなたが関与するべきかどうかさえわかりません。</text>
+	<text>驚いたことに、ゾルタン船がエンギ船を逮捕しようとしていた。どういう状況なのか、あるいは巻き込まれるべきなのか、よくわからない。</text>
 	<choice hidden="true">
-		<text>何が起こっているのか尋ねてください。</text>
+		<text>何が起こっているのか、彼らに尋ねてみよう。</text>
 		<event>
-			<text>ゾルタンが最初に応答し、エンギは辛抱強く彼らを待っています。 「私たちは、違法な商品やサービスの購入または販売に積極的に参加したとして、これらのエンギを逮捕しています。」</text>
+			<text>まずゾルタンが応対し、エンギは辛抱強く彼らを待つ。"違法な商品やサービスを購入したり、進んで販売に参加したエンギたちを逮捕します"</text>
 			<choice hidden="true">
-				<text>エンギに耳を傾けます。</text>
+				<text>エンジに耳を傾けよう。</text>
 				<event>
-					<text>「不可能です。要求どおりに支払いが行われました。トランザクションは正常に完了しました。」</text>
+					<text>「不可能だ支払いは要求通りに行われました。取引は正常に完了しました。</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
-							<text>ゾルタンは返信します。「あなたは、マンティスのベンダーから違法薬物を購入しているのを捕まえられています。これは、連邦、ゾルタン、および自由空間法の両方の違反です。」</text>
+							<text>あなたはマンティスの業者から違法薬物を購入した。これは連邦、ゾルタン、自由空間の法律違反だ。</text>
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event>
-									<text>「ネガティブ。購入した商品=プロダクションアンプ。何も盗まれず、違法行為も行われていません。」 2隻の船は前後に議論を続けています。</text>
+									<text>"マイナス"。購入品＝生産用アンプ。何も盗まれていないし、違法行為も行われていない"2隻の船は口論を続ける。</text>
 									<choice hidden="true">
-										<text>彼らが違法薬物を購入したことをエンギに説明する。</text>
+										<text>エンジに違法薬物を購入したことを説明する。</text>
 										<event load="BLACKMARKET_ENGI_ILLEGAL_EXPLAIN" />
 									</choice>
 									<choice hidden="true">
-										<text>ゾルタンがエンギを逮捕するのを手伝ってください。</text>
+										<text>エンギを逮捕するためにゾルタンに協力する。</text>
 										<event>
-											<text>あなたはすぐにあなたが助けようとしていることをゾルタンに説明します。 「よし、私たちはあなたの援助を受け入れます。しかし、エンギを殺さないでください。これは平和的な作戦です。」</text>
+											<text>あなたはすぐにゾルタンに協力するつもりであることを説明する。「いいだろう、君の援助は受け入れる。だがエンジは殺すな。これは平和的な作戦だ"</text>
 											<ship load="SHIP_ENGI_ILLEGAL_ARREST" hostile="true" /> 
 											<choice hidden="true">
-												<text>継続する...</text>
+												<text>次へ...</text>
 												<event load="MORALITY_UPDATE_ENGI_FIGHT" />
 											</choice>
 										</event>
 									</choice>
 									<choice hidden="true">
-										<text>エンギを守れ。</text>
+										<text>エンジの防衛</text>
 										<event>
-											<text>彼らとエンギの間に船を配置するときのゾルタンハフ。 「あなたはこれらの犯罪者を助けていますか？それなら慈悲を期待しないでください。」</text>
+											<text>エンギとの間に船を置くと、ゾルタンはハッとする。「犯罪者を助けるのか？それなら慈悲は期待できない"</text>
 											<ship load="SHIP_ENGI_ILLEGAL_ZOLTAN" hostile="true" /> 
 											<choice hidden="true">
-												<text>継続する...</text>
+												<text>次へ...</text>
 												<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
 											</choice>
 										</event>
 									</choice>
 									<choice hidden="true" req="LIST_CREW_ENGI">
-										<text>（エンギクルー）エンギに違法薬物を購入したことを説明します。</text>
+										<text>(エンジ・クルー）エンジに違法薬物を購入したことを説明する。</text>
 										<event>
-											<text>あなたのEngiは船に状況をうまく説明することができます。あなたはZoltanに誤解を説明し、Engiは薬物をZoltansに移します。満足して、ゾルタンの船が飛び去ります。Engiは、いくつかのドローンパートとドローンを提供します。</text>
+											<text>エンギは船に状況を説明することに成功した。あなたはゾルタンに誤解を説明し、エンジは薬をゾルタンに渡す。ゾルタン船は満足して飛び去った。エンギはお礼にドローンパーツとドローンを差し出す。</text>
 											<autoReward level="HIGH">droneparts_only</autoReward>
 											<drone name="RANDOM" />
 										</event>
@@ -1934,11 +1934,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>それらを残します。</text>
+		<text>放っておけばいい。</text>
 		<event>
-			<text>ゾルタンのビジネスはあなたのビジネスではなく、彼らの問題に関与する必要はありません。</text>
+			<text>ゾルタンのことは君には関係ない、彼らのことに首を突っ込む必要はない。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1950,41 +1950,41 @@
 </event>
 <eventList name="BLACKMARKET_ENGI_ILLEGAL_EXPLAIN">
 	<event>
-		<text>あなたはエンギに「プロダクションアンプ」は麻薬だと説明しようとしますが、彼らは理解していません。ゾルタンは焦ります。</text>
+		<text>エンギに "プロダクション・アンプ "が薬物であることを説明しようとするが、理解してもらえない。ゾルタンは焦る。</text>
 		<choice hidden="true">
-			<text>ゾルタンがエンギを逮捕するのを手伝ってください。</text>
+			<text>エンギを逮捕するためにゾルタンに協力する。</text>
 			<event>
-				<text>あなたはあなたが助けようとしているゾルタンを素早く説明します。 「よし、私たちはあなたの援助を受け入れます。しかし、エンギを殺さないでください。これは平和的な作戦です。」</text>
+				<text>あなたはすぐにゾルタンに協力するつもりであることを説明する。「いいだろう、君の援助は受け入れる。だがエンジは殺すな。これは平和的な作戦だ"</text>
 				<ship load="SHIP_ENGI_ILLEGAL_ARREST" hostile="true" /> 
 				<choice hidden="true">
-					<text>継続する...</text>
+					<text>次へ...</text>
 					<event load="MORALITY_UPDATE_ENGI_FIGHT" />
 				</choice>
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>エンギを守れ。</text>
+			<text>エンジの防衛</text>
 			<event>
-				<text>彼らとエンギの間に船を配置するときのゾルタンハフ。 「あなたはこれらの犯罪者を助けていますか？それなら慈悲を期待しないでください。」</text>
+				<text>エンギとの間に船を置くと、ゾルタンはハッとする。「犯罪者を助けるのか？それなら慈悲は期待できない"</text>
 				<ship load="SHIP_ENGI_ILLEGAL_ZOLTAN" hostile="true" /> 
 				<choice hidden="true">
-					<text>継続する...</text>
+					<text>次へ...</text>
 					<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
 				</choice>
 			</event>
 		</choice>
 	</event>
 	<event>
-		<text>最初は、Engiが理解しているかどうかはわかりませんが、ゆっくりと気づき始めます。あなたはZoltanに誤解を説明し、Engiは薬物をZoltansに移します。満足して、ゾルタンの船が飛び去ります。Engiはあなたにいくつかのドローンパートを提供しています。</text>
+		<text>最初はエンギが理解しているかどうかわからなかったが、徐々に理解し始めた。あなたはゾルタンに誤解を説明し、エンギは薬をゾルタンに渡す。満足したゾルタン船は飛び去る。エンギはお礼にドローンパーツを差し出す。</text>
 		<autoReward level="MED">droneparts_only</autoReward>
 	</event>
 </eventList>
 <event name="BLACKMARKET_ENGI_ILLEGAL_SURRENDER">
-	<text>エンギの船体が低くなっていることに気づき、エンギを殺さないというゾルタンの警告が表示されます。</text>
+	<text>エンギの船体が小さくなっていることに気づき、エンギを殺すなというゾルタンの警告に気づく。</text>
 	<choice hidden="true">
-		<text>エンギに降伏するように言いなさい。</text>
+		<text>エンギに降伏するように言え。</text>
 		<event>
-			<text>「戦闘で成功する可能性は低い。降伏、必要だ。」エンギは武器の電源を切り、ゾルタン船に服従します。すべてのエンギが逮捕されると、ゾルタンの船長があなたに援助の代金を支払います。</text>
+			<text>"戦闘成功の可能性は...低い。降伏が必要だエンギは武器を捨て ゾルタン船に投降したエンギが全員逮捕されると、ゾルタンの船長はあなたに報酬を支払う。</text>
 			<ship hostile="false" /> 
 			<autoReward level="HIGH">standard</autoReward>
 		</event>
@@ -1995,97 +1995,97 @@
 	</choice>
 </event>
 <event name="BLACKMARKET_ENGI_ILLEGAL_KILL">
-	<text>あなたはエンギを殺したことでゾルタン船からあなたを待っている罰を恐れていますが、あなたは難破船からあなたができることをすぐに捨てます。</text>
+	<text>エンギを殺したゾルタン船からの仕打ちを恐れながらも、難破船からできる限りのものをかき集める。</text>
 	<autoReward level="LOW">standard</autoReward>
 	<choice hidden="true">
-		<text>ゾルタンに連絡してください。</text>
+		<text>ゾルタンに連絡を。</text>
 		<event>
-			<text>「エンギを殺さないように言ったと思いますよね？この不必要な残虐行為の表示に対してあなたを待っている報酬はありません。」</text>
+			<text>「エンギを殺すなと言ったはずだが？この不必要な残虐行為に報酬は待っていない"</text>
 		</event>
 	</choice>
 </event>
 <event name="BLACKMARKET_ENGI_ILLEGAL_DEFEND">
-	<text>あなたは不必要な流血を後悔していますが、ゾルタン船の残骸を廃棄する機会を逃しません。</text>
+	<text>あなたは不必要な流血を後悔しているが、ゾルタン船の残骸をスクラップにする機会は逃さない。</text>
 	<autoReward level="MED">standard</autoReward>
 	<choice hidden="true">
-		<text>エンギに連絡してください。</text>
+		<text>エンジニアに連絡する。</text>
 		<event>
-			<text>「予期せぬ戦闘の援助。私たちは今借金をしている。この贈り物を受け取ってください。」</text>
+			<text>"想定外 "の戦闘支援。我々は今、負債を抱えている。この贈り物を受け取れ"</text>
 			<drone name="RANDOM" />
 		</event>
 	</choice>
 </event>
 
 <event name="BLACKMARKET_MANTIS_ROCK_OFFEND" unique="true">
-	<text>闇市場は海賊が支配するセクターにとってはかなり平和ですが、ここのロックとマンティスの船は紛争の始まりにあります。あなたは彼らの会話を聞こうとしますが、それは危険すぎます。その上、あなたはおそらくとにかく彼らのきしむ音を解読することができないでしょう。</text>
+	<text>海賊が支配するセクターにしては平和な闇市だが、ここのロック号とマンティス号は争いを始めている。彼らの会話を聞こうとしたが、危険すぎる。それに、どうせ彼らの金切り声を解読することはできないだろう。</text>
 	<choice hidden="true">
-		<text>対立が何であるかを尋ねます。</text>
+		<text>その対立が何についてなのかを尋ねる。</text>
 		<event>
-			<text>両方の船が同時にあなたを歓迎し、物語の彼らの側をあなたに与えるために互いに争っています。</text> 
+			<text>両船は同時にあなたを呼び寄せ、お互いの言い分を伝えようと争っている。</text> 
 			<choice>
-				<text>ロックに耳を傾けます。</text>
+				<text>ロックを聴け。</text>
 				<event>
-					<text>「くそったれの虫が私たちの古代の祖先の臓器を売っています！これらは、薄暗い肉のリッパーではなく、岩のようなものに属しています。」マンティスの船が突っ込み、彼らは再び論争を始めます。</text>
+					<text>「くそ虫どもが、太古の祖先の臓器を売っている！これはロック族のもので、頭の悪い肉裂き野郎のものじゃない」。マンティス艦が突っ込み、彼らは再び口論を始めた。</text>
 					<choice hidden="true">
-						<text>ロックマンと一緒に立ちなさい。</text>
+						<text>ロックマンとともに立つ。</text>
 						<event>
-							<text>「いいよ！死はあなたの運命だ。私たちはあなたを最初に引き裂く！」</text>
+							<text>"いいだろう！死はお前の運命だ。まずお前を切り裂く！"</text>
 							<ship load="SHIP_MANTIS_OFFEND" hostile="true" />  
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="COMBAT_CHECK" />
 							</choice>
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>マンティスと一緒に立ってください。</text>
+						<text>カマキリとともに立つ。</text>
 						<event>
-							<text>「ああ！あなたは私たちが低い連邦の船に恐れを抱くと思いますか？連邦の日は数えられます、そしてあなたもそうです。」</text>
+							<text>パァ連邦の船ごときで怯むと思うか？連邦の命運は尽きた。</text>
 							<ship load="SHIP_ROCK_OFFEND" hostile="true" /> 
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="COMBAT_CHECK" />
 							</choice>							
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>両方を無視してください。</text>
+						<text>どちらも無視する。</text>
 						<event>
-							<text>2隻の船は、あなたがこっそり逃げていることに気付くには、お互いに議論するのに忙しすぎます。</text>  
+							<text>2隻の船は互いに言い争うのに忙しく、あなたがこっそり逃げているのに気づかない。</text>  
 						</event>
 					</choice>
 				</event>
 			</choice>
 			<choice>
-				<text>マンティスに耳を傾けます。</text>
+				<text>カマキリに耳を傾ける。</text>
 				<event>
-					<text>「馬鹿げた小石は何もしない野蛮人だ！彼らは私たちが古代の祖先の臓器を売っていると思っている。いいえ。私たちは小惑星で見つけたかわいい岩を売っている。ロック船が割り込んで、彼らは再び論争を始めます。</text>
+					<text>"バカで小石みたいな脳みその何もしない野蛮人！私たちが太古の祖先の臓器を売っていると思っている。いや、小惑星で見つけたきれいな岩を売っているんだ。俺たちはそれらを引き裂いて、誰がボスか示すんだ！"ロック船が割って入り、彼らはまた口論を始めた。</text>
 					<choice hidden="true">
-						<text>ロックマンと一緒に立ちなさい。</text>
+						<text>ロックマンとともに立つ。</text>
 						<event>
-							<text>「いいよ！死はあなたの運命だ。私たちはあなたを最初に引き裂く！」</text>
+							<text>"いいだろう！死はお前の運命だ。まずお前を切り裂く！"</text>
 							<ship load="SHIP_MANTIS_OFFEND" hostile="true" />  
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="COMBAT_CHECK" />
 							</choice>
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>マンティスと一緒に立ってください。</text>
+						<text>カマキリとともに立つ。</text>
 						<event>
-							<text>「ああ！あなたは私たちが低い連邦の船に恐れを抱くと思いますか？連邦の日は数えられます、そしてあなたもそうです。」</text>
+							<text>パァ連邦の船ごときで怯むと思うか？連邦の命運は尽きた。</text>
 							<ship load="SHIP_ROCK_OFFEND" hostile="true" />  
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="COMBAT_CHECK" />
 							</choice>
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>両方を無視してください。</text>
+						<text>どちらも無視する。</text>
 						<event>
-							<text>2隻の船は、あなたがこっそり逃げていることに気付くには、お互いに議論するのに忙しすぎます。</text>  
+							<text>2隻の船は互いに言い争うのに忙しく、あなたがこっそり逃げているのに気づかない。</text>  
 						</event>
 					</choice>
 				</event>
@@ -2093,11 +2093,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>それらを残します。</text>
+		<text>放っておけばいい。</text>
 		<event>
-			<text>異星人の紛争に巻き込まれる必要はありません。あなたは安全な距離を飛んでいます。</text> 
+			<text>エイリアンの争いに巻き込まれる必要はない。安全な距離を飛ぶのだ。</text> 
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -2108,23 +2108,23 @@
 	</choice>
 </event>
 <event name="BLACKMARKET_MANTIS_ROCK_OFFEND_WIN_ROCK"> 
-	<text>マンティスの船が死んだので、あなたはすぐに残骸をスクラップします。</text>
+	<text>マンティス艦が死んだので、すぐに残骸をスクラップにする。</text>
 	<autoReward level="MED">standard</autoReward>
 	<choice hidden="true">
-		<text>ロックマンに連絡してください。</text>
+		<text>ロックマンに連絡する。</text>
 		<event>
-			<text>「あなたは私を驚かせます、連邦船。あなたが他の船の名誉を守ることはまれです。予備の弾薬以外にあなたに提供するものはほとんどありません。」</text>  
+			<text>「連邦の船よ、君には驚かされる。他の船の名誉を守るとは珍しい。予備の弾薬以外に 提供できるものはない</text>  
 			<autoReward level="MED">missiles_only</autoReward>
 		</event>
 	</choice>
 </event>
 <event name="BLACKMARKET_MANTIS_ROCK_OFFEND_WIN_MANTIS"> 
-	<text>ロック船が死んだので、あなたはすぐに残骸をスクラップします。</text>
+	<text>ロック号が死んだので、すぐに残骸をスクラップにする。</text>
 	<autoReward level="MED">standard</autoReward>
 	<choice hidden="true">
-		<text>マンティスに連絡してください。</text>
+		<text>カマキリに連絡する。</text>
 		<event>
-			<text>「私たちは助けを必要としません。しかし...あなたは私たちを救ってくれました。いいでしょう、私たちはあなたに支払います...ありがとう。」</text>  
+			<text>"助けは必要ない。でも...助けてくれた。ありがとう」。</text>  
 			<autoReward level="LOW">scrap_only</autoReward>
 		</event>
 	</choice>
@@ -2138,72 +2138,72 @@
 </eventList>
 
 <event name="DISTRESS_PIRATE_VAMPWEED" unique="true">
-    <text>遭難呼び出しの起源は、奴隷に追われている小さなヴァンプウィードシャトルです。彼らは自分自身を守るための多くの手段を持っていません。</text>
+    <text>救難信号の発信源は、奴隷商人に追われるヴァンプウィードの小型シャトルだ。彼らは身を守る手段をあまり持っていない。</text>
     <ship load="SHIP_SLAVER_VAMPWEED_CHASER" hostile="false" />
     <distressBeacon />
     <choice>
-        <text>奴隷を攻撃してください！</text>
+        <text>奴隷商人を襲え</text>
         <event>
-            <text>Slaverスイッチは、あなたが近づく瞬間をターゲットにします。「もう一つのジューシーなターゲット！だから！」</text>
+            <text>あなたが近づいた瞬間、奴隷商人は標的を変えた。"もう一人、いい獲物がいる！そうだ！"</text>
             <ship hostile="true" />
             <choice hidden="true">
-                <text>継続する...</text>
+                <text>次へ...</text>
                 <event load="REPUTATION_DECREASE_SLAVER_COMBAT" />
             </choice>
         </event>
     </choice>
     <choice>
-        <text>奴隷が採石場を捕まえるのを待ちます。</text>
+        <text>奴隷商人が獲物を捕らえるのを待つ。</text>
         <event>
-            <text>あなたは奴隷が彼らのビジネスを行うのを丁寧に待ちます。彼らがやると、奴隷はあなたを歓迎します。「あなたは忍耐強い人です。それでは、私たちとビジネスをしたいと思っていますか？」</text>
+            <text>あなたは快く奴隷商人が用を足すのを待つ。彼らが用を足すと、奴隷商人はあなたを呼んだ。「辛抱強いやつだな。我々と取引したいのだな？"</text>
             <choice>
-                <text>ヴァンプウィードスレーブを購入します。</text>
+                <text>ヴァンプウィードの奴隷を買う。</text>
                 <event>
-                    <text>「素晴らしい購入です。彼らがあなたによく役立つように、船長...」</text>
+                    <text>「いい買い物だった。船長、お役に立ちますように..."</text>
                     <item_modify>
                         <item type="scrap" min="-40" max="-30" />
                     </item_modify>
                     <crewMember amount="1" class="orchid_vampweed" />
                     <choice hidden="true">
-                        <text>継続する...</text>
+                        <text>次へ...</text>
                         <event load="REPUTATION_UPDATE_SLAVER" />
                     </choice>
                 </event>
             </choice>
             <choice>
-                <text>シェルスレーブを購入します。</text>
+                <text>シェルの奴隷を買え。</text>
                 <event>
-                    <text>「素晴らしい購入です。彼らがあなたによく役立つように、船長...」</text>
+                    <text>「いい買い物だった。船長、お役に立ちますように..."</text>
                     <item_modify>
                         <item type="scrap" min="-40" max="-30" />
                     </item_modify>
                     <crewMember amount="1" class="shell" />
                     <choice hidden="true">
-                        <text>継続する...</text>
+                        <text>次へ...</text>
                         <event load="REPUTATION_UPDATE_SLAVER" />
                     </choice>
                 </event>
             </choice>
             <choice req="rep_slaver" lvl="1" blue="false">
-                <text>[評判：1+]耕作者を購入します。</text>
+                <text>[評判：1+] 耕作者を購入する。</text>
                 <event>
-                    <text>「素晴らしい購入です。彼らがあなたによく役立つように、船長...」</text>
+                    <text>「いい買い物だった。船長、お役に立ちますように..."</text>
                     <item_modify>
                         <item type="scrap" min="-50" max="-40" />
                     </item_modify>
                     <crewMember amount="1" class="orchid_cultivator" />
                     <choice hidden="true">
-                        <text>継続する...</text>
+                        <text>次へ...</text>
                         <event load="REPUTATION_UPDATE_SLAVER" />
                     </choice>
                 </event>
             </choice>
             <choice>
-                <text>いいえ。</text>
+                <text>いや。</text>
                 <event>
-                    <text>「じゃあ、そう言うなら...？」奇妙になり、奴隷は去ります。</text>
+                    <text>「オーケー。そうおっしゃるなら......？"気味悪がったスレイバーは去っていく。</text>
                     <choice>
-                        <text>継続する...</text>
+                        <text>次へ...</text>
                         <event load="MORALITY_UPDATE_VAMPWEED" />
                     </choice>
                 </event>
@@ -2211,11 +2211,11 @@
         </event>
     </choice>
     <choice>
-        <text>状況を避けてください。</text>
+        <text>その状況を避ける。</text>
         <event>
-            <text>この状況で混乱することはありません。あなたの関与は、誰もあなたの良くも悪くも考えないことを保証します。</text>
+            <text>わざわざこの状況に巻き込まれる必要はない。あなたが関わらないことで、誰もあなたのことを良くも悪くも思わないだろう。</text>
             <choice>
-                <text>船に乗って何かする。</text>
+                <text>船内で何かをする。</text>
                 <event load="STORAGE_CHECK" />
             </choice>
             <choice>
@@ -2228,35 +2228,35 @@
 
 <event name="DISTRESS_PIRATE_ARGEONN_TIIIKAKA" unique="true">
     <distressBeacon />
-    <text>Argeonn船が遭難電話を出しています。Tiiikakaの船がそれに続いており、おそらく奴隷を連れて行くつもりです。</text>
+    <text>Argeonnの船が救難信号を出している。Tiiikakaの船がそれに続き、奴隷を奪うつもりだろう。</text>
     <choice>
-        <text>Tiiikaka Slaverと戦う。</text>
+        <text>ティイカカの奴隷商人と戦う。</text>
         <event>
-            <text>Tiiikakaの船は、新しいターゲットとしてあなたに満足しているようです！</text>
+            <text>ティイカカ船は、あなたが新しいターゲットであることに満足しているようだ！</text>
             <ship load="SHIP_SLAVER_CHASING_SMUGGLER" hostile="true" />
             <choice hidden="true">
-                <text>継続する...</text>
+                <text>次へ...</text>
                 <event load="REPUTATION_DECREASE_SLAVER_COMBAT" />
             </choice>
         </event>
     </choice>
     <choice>
-        <text>奴隷が到着する前に、アージョンの密輸業者と戦う。</text>
+        <text>奴隷商人が到着する前に、アルゲオンの密輸業者と戦え。</text>
         <event>
-            <text>アージョンの船には関与する選択肢はありませんが、彼らは滞在するつもりはないようです！</text>
+            <text>アルジオン船は交戦するしかないが、とどまるつもりはなさそうだ！</text>
             <ship load="SHIP_SMUGGLER_CHASED_BY_SLAVER" hostile="true" />
             <choice hidden="true">
-                <text>継続する...</text>
+                <text>次へ...</text>
                 <event load="REPUTATION_DECREASE_SMUGGLING_COMBAT" />
             </choice>
         </event>
     </choice>
     <choice>
-        <text>海賊に参加しないでください。</text>
+        <text>海賊とは関わるな。</text>
         <event>
-            <text>あなたは海賊に彼ら自身の紛争を解決させました。</text>
+            <text>海賊の争いは海賊自身に解決させるんだ。</text>
             <choice>
-                <text>船に乗って何かする。</text>
+                <text>船内で何かをする。</text>
                 <event load="STORAGE_CHECK" />
             </choice>
             <choice>
@@ -2273,57 +2273,57 @@
 </eventList>
 
 <event name="QUEST_SLAVE_SHIP_DERELICT" unique="true">
-    <text>このビーコンには、クラッシュした奴隷船が漂流しています。船はあなたを歓迎するのに十分な機能をほとんど持っていません。「この船の乗組員は恐ろしい植物の怪物に食べられました！幸いなことに、ブリークで私たちの奴隷を見つけることができませんでした...」</text>
+    <text>墜落した奴隷商人の船がこのビーコンに漂着している。その船は、かろうじてあなたに呼びかけるだけの機能を備えている。「この船の乗組員は恐ろしい植物の怪物に食われた！幸いにも、営倉にいる私たち奴隷を見つけることはできませんでしたが......"</text>
     <choice>
-        <text>植物の生き物について尋ねてください。</text>
+        <text>植物という生き物について尋ねる。</text>
         <event>
-            <text>「もちろん、私たちを除いて、船の全員を貪りました。もちろん、それは自分の船に戻りました...多分あなたはそれをこのセクターのどこかに見つけることができます。」奴隷は遺棄された船の丸太をあなたに送ります。あなたは彼らの一人にあなたに加わるように説得することができるかもしれません。</text>
+            <text>「船内の全員を食い尽くした後--もちろん、私たちを除いて--自分の船に戻った。もしかしたら、このセクターのどこかで見つかるかもしれない"奴隷たちは廃船のログをあなたに送り、それが彼らの船の行きそうな場所を特定するのに役立つ。彼らのうちの1人を説得して仲間に加えることができるかもしれない。</text>
             <quest event="VIGILANTE_CULTIVATOR_QUEST" />
             <choice>
-                <text>分離主義者に参加してください。</text>
+                <text>分離主義者に合流を要請する。</text>
                 <event>
-                    <text>分離主義者の奴隷は、残りが次の人口センターで降りるので、あなたの船に乗って働くことに同意します。</text>
+                    <text>分離主義者の奴隷があなたの船で働くことに同意して、残りは次の人口集中地区で降りる。</text>
                     <crewMember class="engi_separatist" amount="1" />
                     <choice hidden="true">
-                        <text>継続する...</text>
+                        <text>次へ...</text>
                         <event load="PIRATE_VIGILANTE_SCRAP" />
                     </choice>
                 </event>
             </choice>
             <choice>
-                <text>メディックに参加してください。</text>
+                <text>衛生兵に合流を要請する。</text>
                 <event>
-                    <text>人間の奴隷は、残りが次の人口センターで降りるので、あなたの船で働くことに同意します。</text>
+                    <text>人間の奴隷はあなたの船で働くことに同意し、残りは次の人口集中地区で降りる。</text>
                     <crewMember class="human_medic" amount="1" />
                     <choice hidden="true">
-                        <text>継続する...</text>
+                        <text>次へ...</text>
                         <event load="PIRATE_VIGILANTE_SCRAP" />
                     </choice>
                 </event>
             </choice>
             <choice>
-                <text>アウトキャストをリクエストしてください。</text>
+                <text>アウトキャストに合流を要請する。</text>
                 <event>
-                    <text>岩は、残りが次の人口センターで降りるので、あなたの船で働くことに同意します。</text>
+                    <text>ロックはあなたの船で働くことに同意し、残りは次の人口集中地区で降りる。</text>
                     <crewMember class="rock_outcast" amount="1" />
                     <choice hidden="true">
-                        <text>継続する...</text>
+                        <text>次へ...</text>
                         <event load="PIRATE_VIGILANTE_SCRAP" />
                     </choice>
                 </event>
             </choice>
             <choice>
-                <text>すべての奴隷を降ろします。</text>
+                <text>すべての奴隷を降ろす。</text>
                 <event load="PIRATE_VIGILANTE_SCRAP" />
             </choice>
         </event>
     </choice>
     <choice>
-        <text>これらの狂った奴隷を無視してください。</text>
+        <text>クレイジーな奴隷どもは無視しろ。</text>
         <event>
-            <text>あなたは奴隷を自分のデバイスに任せます - 彼らは幸運にも彼らの自由を持っています。</text>
+            <text>奴隷は自由があるだけで十分幸運なのだ。</text>
             <choice>
-                <text>船に乗って何かする。</text>
+                <text>船内で何かをする。</text>
                 <event load="STORAGE_CHECK" />
             </choice>
             <choice>
@@ -2334,14 +2334,14 @@
     </choice>
 </event>
 <event name="PIRATE_VIGILANTE_SCRAP">
-    <text>生存者をあなたの船に連れて行った後、あなたは船を廃棄します。すでにほとんど略奪されていますが、大破にいくつかのリソースを見つけることができます。安全な避難所に到達するとすぐにそれらを降ろします。</text>
+    <text>生存者を船に乗せた後、船をスクラップにする。すでにほとんど略奪されていたが、難破船から資源を見つけることができた。安全な場所に着くと、すぐにそれを捨てる。</text>
     <autoReward level="LOW">standard</autoReward>
 </event>
 
 <event name="VIGILANTE_CULTIVATOR_QUEST">
     <beaconType id="map_icon_quest" global="true">
         <color r="69" g="168" b="235" a="1" />
-        <unvisitedTooltip>このビーコンで乗組員を食べる人を食べる植物の憎悪の話を聞いたことがあります。</unvisitedTooltip>
+        <unvisitedTooltip>あなたは、このビーコンで乗組員を食べる人食い植物の忌まわしい話を聞いたことがあるだろう。</unvisitedTooltip>
     </beaconType>
     <loadEventList seeded="false" first="false" generate="false">
         <event name="VIGILANTE_CULTIVATOR_GOOD" req="rep_slaver" lvl="-999" max_lvl="-2" />
@@ -2351,62 +2351,62 @@
 </event>
 
 <event name="VIGILANTE_CULTIVATOR_SLAVER">
-    <text>あなたが飛び込んだ瞬間、あなたが聞いた容器はあなたと向き合います。あなたが近づくと武器がウォーミングアップしていることに気づきます。あなたに大きな耕作者がいます。「あなたは色を着ていないかもしれません...しかし、あなたは奴隷貿易に参加してきましたよね？あなたは答えませんか？あなたは協会を後悔するつもりです！」</text>
+    <text>飛び込んだ瞬間、噂に聞いていた船がこちらを向く。あなたが近づくと、武器が温まっているのに気づく。大柄な耕作者があなたを嘲笑う。"色 "を着ていないかもしれないが......奴隷貿易に加担してきたんだろう？答えてはいけない。後悔することになるぞ！"</text>
     <ship load="SHIP_VIGILANTE_CULTIVATOR" hostile="true" />
     <choice>
-        <text>継続する...</text>
+        <text>次へ...</text>
         <event load="COMBAT_CHECK" />
     </choice>
 </event>
 <event name="VIGILANTE_CULTIVATOR_NORMAL">
-    <text>あなたが飛び込んだ瞬間、あなたが聞いた容器はあなたと向き合います。「何が欲しいの？私はあなたと口言を持っていない。」</text>
+    <text>飛び込んだ瞬間、噂に聞いていた船がこちらを向く。「何の用だ？争う気はない"</text>
     <choice>
-        <text>彼のごちそうを生き延びた奴隷について彼らに話してください。</text>
+        <text>彼の饗宴を生き延びた奴隷たちのことを話してやれ。</text>
         <event>
-            <text>「それで？私も彼らと口論がありません。私の空腹は奴隷に満足しているだけです。」耕作者の胃（または最も近い同等の）は不平を言っています。「うーん、それも満足することはありません。」</text>
+            <text>「それで？私の空腹は奴隷商人でしか満たされない。"耕作者の胃袋（またはそれに近いもの）が不平を言う。"うっ、それも決して満たされない"</text>
             <choice>
-                <text>奴隷の歴史は何ですか？</text>
+                <text>奴隷商人との歴史は？</text>
                 <event>
-                    <text>「私たちはいくつかのティイカカ船との取り決めを持っていました。政府地域でのパトロールに気づき、他の人に知らせます。彼らは同じことをします。あなたは「泥棒の間には名誉がない」というフレーズを知っていますか？通常の特派員は、私たちの費用で昇進の機会を見つけました。」</text>
+                    <text>「以前はティイカカ船と協定を結んでいた。私たちは政府地域でパトロールに気づき、他の船に知らせます。彼らも同じことをする。"泥棒に仁義なし "という言葉をご存知ですか？うちの特派員の一人が、うちの経費で昇進する機会を見つけたんだ。"</text>
                     <choice>
-                        <text>なぜあなたはとても空腹ですか？</text>
+                        <text>どうしてそんなにお腹が空いているの？</text>
                         <event>
-                            <text>「いつもこれほど大きくはなかった。あなたは知っている。私の古い船と乗組員が死んでしまったとき、私たちは物資を使い果たしました。あなたが生き残るために何をするかを見つける時が来ます。左に、私は貝がたまたま船を見つける前にかろうじて住んでいませんでした。彼らはいつもヴァンプウィードのボランティアを探しています。あなたは知っています。</text>
+                            <text>「昔はこんなに大きくなかったんだ。私の古い船と乗組員が見殺しにされたとき、物資が尽きた。生き残るために何をすべきかを見つける時が来る。でも、私一人になってからも、シェルがたまたま私の船を見つけるまで、かろうじて生きていた。彼らはいつもヴァンプウィードの志願者を探しているんだ。彼らは私を手当てしてくれたけど、それ以来ずっと空腹だった。"</text>
                             <choice>
-                                <text>私たちは助けることができますか？</text>
+                                <text>何かお手伝いできることはありますか？</text>
                                 <event load="VIGILANTE_CULTIVATOR_HELP" />
                             </choice>
                         </event>
                     </choice>
                     <choice>
-                        <text>私たちは助けることができますか？</text>
+                        <text>何かお手伝いできることはありますか？</text>
                         <event load="VIGILANTE_CULTIVATOR_HELP" />
                     </choice>
                 </event>
             </choice>
             <choice>
-                <text>私たちは助けることができますか？</text>
+                <text>何かお手伝いできることはありますか？</text>
                 <event load="VIGILANTE_CULTIVATOR_HELP" />
             </choice>
         </event>
     </choice>
     <choice>
-        <text>死ね、モンスター！</text>
+        <text>死ね、怪物！</text>
         <event>
-            <text>「私は怪物です。それから、あなたの船を破壊したときにあなたの死体をサンプリングすると私を許してください！」</text>
+            <text>「俺は怪物か？それなら、お前の船を難破させたときに、お前の死体をサンプリングしても許してくれるだろう！"</text>
 			<ship load="SHIP_VIGILANTE_CULTIVATOR" hostile="true" />
             <choice>
-                <text>継続する...</text>
+                <text>次へ...</text>
                 <event load="COMBAT_CHECK" />
             </choice>
         </event>
     </choice>
     <choice>
-        <text>私たちはトラブルを望んでいません。</text>
+        <text>トラブルは避けたい。</text>
         <event>
-            <text>「ファイン。私たちもそうしません。」</text>
+            <text>「いいよ。私たちも同じです"</text>
             <choice>
-                <text>船に乗って何かする。</text>
+                <text>船内で何かをする。</text>
                 <event load="STORAGE_CHECK" />
             </choice>
             <choice>
@@ -2417,28 +2417,28 @@
     </choice>
 </event>
 <event name="VIGILANTE_CULTIVATOR_GOOD">
-    <text>あなたが飛び込んだ瞬間、あなたが聞いた容器はあなたと向き合います。彼らがあなたを歓迎するように、耕作者は歯のようなにやにや笑いに侵入します。「レネゲード、最近いくつかの奴隷を殺していると聞いています。その身体額をさらに増やすことに興味があるなら、私はあなたが考慮したいことを持っています。」</text>
+    <text>飛び込んだ瞬間、噂に聞いていた船がこちらを向く。彼らはあなたを呼び寄せると、カルチベーターは歯を見せて笑った。「レネゲイド、最近、奴隷商人たちを殺しているそうだな。その死体数をもっと増やしたいのなら、検討したいことがある"</text>
     <choice>
-        <text>それらを聞いてください。</text>
+        <text>最後まで聞いてくれ。</text>
         <event load="VIGILANTE_CULTIVATOR_HELP" />
     </choice>
     <choice>
-        <text>死ね、モンスター！</text>
+        <text>死ね、怪物！</text>
         <event>
-            <text>「私は怪物です。それから、あなたの船を破壊したときにあなたの死体をサンプリングすると私を許してください！」</text>
+            <text>「俺は怪物か？それなら、お前の船を難破させたときに、お前の死体をサンプリングしても許してくれるだろう！"</text>
 			<ship load="SHIP_VIGILANTE_CULTIVATOR" hostile="true" />
             <choice>
-                <text>継続する...</text>
+                <text>次へ...</text>
                 <event load="COMBAT_CHECK" />
             </choice>
         </event>
     </choice>
     <choice>
-        <text>私たちはトラブルを望んでいません。</text>
+        <text>トラブルは避けたい。</text>
         <event>
-            <text>「それからここから出てください。私たちはそれを自分で処理します。」</text>
+            <text>"それなら、ここから出て行け。自分たちで何とかする"</text>
             <choice>
-                <text>船に乗って何かする。</text>
+                <text>船内で何かをする。</text>
                 <event load="STORAGE_CHECK" />
             </choice>
             <choice>
@@ -2449,25 +2449,25 @@
     </choice>
 </event>
 <event name="VIGILANTE_CULTIVATOR_HELP">
-    <text>「最近ティカカの階級で上昇している奴隷制度があります。彼らの基地はこのビーコンに隠されています。私は攻撃を計画していますが、私の船は単独で行くことができるとは思いません。常に船。私は2つを取ることができるかもしれませんが、特に彼らが強化を求める場合、3つはしません。」</text>
+    <text>"最近、ティイカカで台頭してきた奴隷商人がいる。彼らの基地はこのビーコンに隠れている。攻撃を計画しているが、私の船だけでは無理だろう。基地は常に3隻の船で守られている。2隻なら可能かもしれないが、3隻では無理だ。"増援を要請されたらなおさらだ。</text>
     <choice>
-        <text>奴隷船に乗ることに同意します。</text>
+        <text>奴隷船を引き受けることに同意する。</text>
         <event>
-            <text>「完璧。反対側でお会いしましょう。」あなたと他の船は基地に近づきます。防御船の1つは、基地が火災の支援を提供している間、あなたに直接充電します！</text>
+            <text>「完璧だ。向こう側で会おう"あなたともう1隻が基地に接近。基地が射撃支援をする間、防衛艦の1隻がまっすぐあなたに向かって突撃してくる！</text>
             <ship load="SHIP_SLAVER_VIGILANTE" hostile="true" />
             <environment type="PDS" target="player" />
             <choice>
-                <text>継続する...</text>
+                <text>次へ...</text>
                 <event load="REPUTATION_DECREASE_SLAVER_COMBAT" />
             </choice>
         </event>
     </choice>
     <choice>
-        <text>結構です。</text>
+        <text>結構だ。</text>
         <event>
-            <text>「私の時間を無駄にするのをやめなさい。」</text>
+            <text>「時間の無駄だ</text>
             <choice>
-                <text>船に乗って何かする。</text>
+                <text>船内で何かをする。</text>
                 <event load="STORAGE_CHECK" />
             </choice>
             <choice>
@@ -2478,20 +2478,20 @@
     </choice>
 </event>
 <event name="SLAVER_BASE_ASSAULT_AFTERMATH">
-    <text>あなたは耕作者が他の船をきれいにするのを手伝います。彼らの船は最後の足にありますが、爆発する前に、乗組員は奴隷基地に輝きます。あなたが彼らに従うためにそこに着くまでに、彼らはすでに基地の居住者を引き裂いています。あなたはボスの宿舎から降りて、歯を拾って耕作者に会います。「それは気分が良かった。とにかく、私の船がなくなったので、私はあなたをフォローすることができます。あなたは何と言いますか？」</text>
+    <text>あなたはカルチベーターが他の船を掃除するのを手伝う。彼らの船はもう限界だったが、爆発する前に、乗組員は奴隷商人の基地へ転送することに成功した。あなたが彼らの後を追って降り立ったときには、彼らはすでに基地の住人をバラバラにしていた。ボスの部屋から出てきたカルチベーターは、歯で何かをほじくり出していた。「気持ちよかった。とにかく、私の船がなくなった今、私はあなたについていく自由がある。どうする？"</text>
     <autoReward level="HIGH">standard</autoReward>
 	<removeHazards />
 	<choice>
-        <text>耕作者を取ります。</text>
+        <text>耕運機を取れ。</text>
         <event>
-            <text>耕作者はあなたの乗組員に加わります。残りの乗組員は基地にとどまり、船上に富を集め、奴隷も解放します。</text>
+            <text>Cultivatorがあなたのクルーに加わる。残りのクルーは基地に残り、船内の富を集め、奴隷も解放する。</text>
             <crewMember class="orchid_cultivator" all_skills="1" amount="1" />
         </event>
     </choice>
     <choice>
-        <text>耕作者を駅に残します。</text>
+        <text>耕運機をステーションに置いておく。</text>
         <event>
-            <text>「じゃあ、それなら。それなら。私は不当な奴隷がここに来るまで待って、その時待ちます。」戦場の周りに残骸を廃棄し終えます。</text>  
+            <text>「フン、それならいい。じゃあ、油断した奴隷商人が補充に来るのを待つよ。"あなたは戦場周辺の残骸をスクラップし終えた。</text>  
         </event>
     </choice>
 </event>
@@ -2501,33 +2501,33 @@
 </eventList>
 
 <event name="QUEST_SMUGGLER_RAID_START" unique="true">
-	<text>近くの月を周回する密輸業者のステーション周辺の交通に気づきました。あなたは彼らの通信に耳を傾け、傭兵の仕事の申し出を聞きます。</text>
+	<text>あなたは、近くの月を周回する密輸業者のステーションの周辺に、いくつかの交通があることに気づいた。あなたは彼らの通信に同調し、傭兵の仕事の依頼を聞いた。</text>
 	<ship load="SHIP_GENERIC" hostile="false" /> 
 	<choice hidden="true">
-		<text>詳細についてはお問い合わせください。</text>
+		<text>詳細は問い合わせを。</text>
 		<event>
-			<text>グリズリーに見える密輸業者があなたの連絡に答えます。 「仕事を探していますか？臆病者でなければ、私はあなたのためにそれを手に入れました。かなり...高価でかなり違法な私の貨物は、いつものがらくたを言って、立ち往生しているゾルタンの嫌いな人によって没収されました。実は、これは私たちのセクターであり、彼らのセクターではありません。私はその貨物を返送したいのですが、無傷である限り、私は気にしません。あなたは挑戦に挑戦しますか？」</text>
+			<text>グリズリー風の密輸業者が応対する。「仕事をお探しですか？臆病者じゃないなら、いい仕事があるよ。高価で違法な俺の積荷がゾルタンのバカどもに没収されたんだ。ここは俺たちのセクターだ あいつらのじゃないその積荷を取り戻したいんだ、無傷なら方法は問わない。挑戦するか？"</text>
 			<choice>
-				<text>承認。</text>
+				<text>受け入れる。</text>
 				<event>
-					<text>「それは驚きです。わかりました。座標を転送します。デポを見つけて警備員を殺します。保管室に行くと金庫があります。彼らがまだそれを開けたわけではありませんが、私だけがパスコードを手に入れました、そして金庫の超爆風耐性。私はあなたを信頼するしかないので、ここに行きます。コードは7-E-Blueです。理由を聞かないでください。貨物を手に入れてください。戻すための座標のリスト。そこでお待ちしております。」</text>
+					<text>「それは驚きだ。よし、座標を転送しよう。倉庫を見つけて警備員を殺せ。倉庫に行けば金庫がある。まだ開いてないはずだ。パスコードは俺しか知らないし、保管庫は超耐爆発性だ。君を信じるしかない、さあどうぞ。コードは7-E-Blue。理由は聞くな。貨物を受け取ったら、別の座標のリストがあるから、そこへ運んでくれ。そこで待っている"</text>
 					<quest event="QUEST_SMUGGLER_RAID" />
 				</event>
 			</choice>
 			<choice>
 				<text>拒否する。</text>
 				<event>
-					<text>「Pffft、考え出した。とにかく私の貴重品の周りに馬鹿なFRBを引っ張って欲しいとは思わない。」彼は突然通話を終了します。</text>
+					<text>「ふっ、そうだろう。どうせ、バカなFRBに貴重品を持ち歩かれたくはないからね」。彼は突然電話を切った。</text>
 				</event>
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>ステーションを無視します。</text>
+		<text>駅は無視する。</text>
 		<event>
-			<text>あなたは傭兵として自分を売りに行くつもりはありません。あなたには基準があります。</text>
+			<text>傭兵として売り込むつもりはないだろう。あなたには基準がある。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -2540,143 +2540,143 @@
 <event name="QUEST_SMUGGLER_RAID">
 	<beaconType id="map_icon_quest" global="true">
 		<color r="69" g="168" b="235" a="1" />
-		<unvisitedTooltip>ゾルタンによって没収された密輸業者の金庫の場所。</unvisitedTooltip>
+		<unvisitedTooltip>ゾルタンに没収された密輸業者の金庫の場所。</unvisitedTooltip>
 	</beaconType>
-	<text>あなたはあなたに与えられた座標に到着しました。あなたはまだ少し距離があり、ゾルタンの警備員がどれだけ武装しているかを知るのは難しいです。</text>
+	<text>指定された場所に到着した。まだ少し距離があり、ゾルタンの警備員の武装を確認するのは難しい。</text>
 	<choice hidden="true">
-		<text>警備員を攻撃せよ！</text>
+		<text>ガードを攻撃する！</text>
 		<event>
-			<text>あなたは武器を武装させ、戦う準備をします。</text>
+			<text>武器を装備し、戦う準備をする。</text>
 			<ship load="SHIP_ZOLTAN_SMUGGLER_RAID" hostile="true" /> 
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>これをねじ込み、彼らがあなたに気付く前に飛び去ってください。</text>
+		<text>ふざけるな、気づかれる前に飛び去れ。</text>
 		<event />
 	</choice>
 </event>
 <event name="QUEST_SMUGGLER_RAID_VAULT">
-	<text>警備員の船体を廃棄すると、ドローンが船体から飛び出し、自己破壊の前に苦痛のビーコンを展開します。あなたはすぐにビーコンを壊しますが、手遅れです。彼らの援軍はすぐに到着するので、急いでください。</text>
+	<text>船体を削ると、船体からドローンが飛び出し、自爆する前に救難ビーコンを展開する。すぐにビーコンを壊すが、もう遅い。増援が間もなく到着するので、急がなければならない。</text>
 	<autoReward level="MED">standard</autoReward>
 	<choice hidden="true">
-		<text>ボールトに近づきます。</text>
+		<text>金庫室に近づく。</text>
 		<event>
-			<text>予想通り、金庫は未開封のままです。パスコードで保護されています。最初の部分は数字です。</text>
+			<text>予想通り、金庫は開けられないままだ。パスコードで保護されている。最初の部分は数字だ。</text>
 			<choice hidden="true">
 				<text>1</text>
 				<event>
-					<text>警報が鳴り、セキュリティスラムの追加の層が金庫室のドアを閉めました。あなたはすぐに逃げますが、ゾルタンの援軍はちょうど間に合うように到着し、逃げる前に防御をまっすぐにミサイルの弾幕を発射します。</text>
+					<text>警報が鳴り響き、警備が厳重になる。あなたはすぐに逃げ出したが、ゾルタンの増援が間一髪で到着し、あなたが逃げ出す前にミサイルの弾幕が直撃した。</text>
 					<damage amount="3" />
 				</event>
 			</choice>
 			<choice hidden="true">
 				<text>2</text>
 				<event>
-					<text>警報が鳴り、セキュリティスラムの追加の層が金庫室のドアを閉めました。あなたはすぐに逃げますが、ゾルタンの援軍はちょうど間に合うように到着し、逃げる前に防御をまっすぐにミサイルの弾幕を発射します。</text>
+					<text>警報が鳴り響き、警備が厳重になる。あなたはすぐに逃げ出したが、ゾルタンの増援が間一髪で到着し、あなたが逃げ出す前にミサイルの弾幕が直撃した。</text>
 					<damage amount="3" />
 				</event>
 			</choice>
 			<choice hidden="true">
 				<text>5</text>
 				<event>
-					<text>警報が鳴り、セキュリティスラムの追加の層が金庫室のドアを閉めました。あなたはすぐに逃げますが、ゾルタンの援軍はちょうど間に合うように到着し、逃げる前に防御をまっすぐにミサイルの弾幕を発射します。</text>
+					<text>警報が鳴り響き、警備が厳重になる。あなたはすぐに逃げ出したが、ゾルタンの増援が間一髪で到着し、あなたが逃げ出す前にミサイルの弾幕が直撃した。</text>
 					<damage amount="3" />
 				</event>
 			</choice>
 			<choice hidden="true">
 				<text>6</text>
 				<event>
-					<text>警報が鳴り、セキュリティスラムの追加の層が金庫室のドアを閉めました。あなたはすぐに逃げますが、ゾルタンの援軍はちょうど間に合うように到着し、逃げる前に防御をまっすぐにミサイルの弾幕を発射します。</text>
+					<text>警報が鳴り響き、警備が厳重になる。あなたはすぐに逃げ出したが、ゾルタンの増援が間一髪で到着し、あなたが逃げ出す前にミサイルの弾幕が直撃した。</text>
 					<damage amount="3" />
 				</event>
 			</choice>
 			<choice hidden="true">
 				<text>7</text>
 				<event>
-					<text>あなたが正しい！あと2つです。次の部分は手紙のようです。</text>
+					<text>その通りだ！あと2つだ。次は手紙のようだ。</text>
 					<choice hidden="true">
-						<text>あ</text>
+						<text>A</text>
 						<event>
-							<text>警報が鳴り、セキュリティスラムの追加の層が金庫室のドアを閉めました。あなたはすぐに逃げますが、ゾルタンの援軍はちょうど間に合うように到着し、逃げる前に防御をまっすぐにミサイルの弾幕を発射します。</text>
+							<text>警報が鳴り響き、警備が厳重になる。あなたはすぐに逃げ出したが、ゾルタンの増援が間一髪で到着し、あなたが逃げ出す前にミサイルの弾幕が直撃した。</text>
 							<damage amount="5" />
 						</event>
 					</choice>
 					<choice hidden="true">
 						<text>B</text>
 						<event>
-							<text>警報が鳴り、セキュリティスラムの追加の層が金庫室のドアを閉めました。あなたはすぐに逃げますが、ゾルタンの援軍はちょうど間に合うように到着し、逃げる前に防御をまっすぐにミサイルの弾幕を発射します。</text>
+							<text>警報が鳴り響き、警備が厳重になる。あなたはすぐに逃げ出したが、ゾルタンの増援が間一髪で到着し、あなたが逃げ出す前にミサイルの弾幕が直撃した。</text>
 							<damage amount="5" />
 						</event>
 					</choice>
 					<choice hidden="true">
 						<text>C</text>
 						<event>
-							<text>警報が鳴り、セキュリティスラムの追加の層が金庫室のドアを閉めました。あなたはすぐに逃げますが、ゾルタンの援軍はちょうど間に合うように到着し、逃げる前に防御をまっすぐにミサイルの弾幕を発射します。</text>
+							<text>警報が鳴り響き、警備が厳重になる。あなたはすぐに逃げ出したが、ゾルタンの増援が間一髪で到着し、あなたが逃げ出す前にミサイルの弾幕が直撃した。</text>
 							<damage amount="5" />
 						</event>
 					</choice>
 					<choice hidden="true">
 						<text>D</text>
 						<event>
-							<text>警報が鳴り、セキュリティスラムの追加の層が金庫室のドアを閉めました。あなたはすぐに逃げますが、ゾルタンの援軍はちょうど間に合うように到着し、逃げる前に防御をまっすぐにミサイルの弾幕を発射します。</text>
+							<text>警報が鳴り響き、警備が厳重になる。あなたはすぐに逃げ出したが、ゾルタンの増援が間一髪で到着し、あなたが逃げ出す前にミサイルの弾幕が直撃した。</text>
 							<damage amount="5" />
 						</event>
 					</choice>
 					<choice hidden="true">
 						<text>E</text>
 						<event>
-							<text>もう一度！もう1つ。次は色です。</text>
+							<text>また右だ！あと1つ。次は色だ。</text>
 							<choice hidden="true">
-								<text>赤</text>
+								<text>レッド</text>
 								<event>
-									<text>警報が鳴り、セキュリティスラムの追加の層が金庫室のドアを閉めました。あなたはすぐに逃げますが、ゾルタンの援軍はちょうど間に合うように到着し、逃げる前に防御をまっすぐにミサイルの弾幕を発射します。</text>
+									<text>警報が鳴り響き、警備が厳重になる。あなたはすぐに逃げ出したが、ゾルタンの増援が間一髪で到着し、あなたが逃げ出す前にミサイルの弾幕が直撃した。</text>
 									<damage amount="7" />
 								</event>
 							</choice>
 							<choice hidden="true">
-								<text>黄色</text>
+								<text>イエロー</text>
 								<event>
-									<text>警報が鳴り、セキュリティスラムの追加の層が金庫室のドアを閉めました。あなたはすぐに逃げますが、ゾルタンの援軍はちょうど間に合うように到着し、逃げる前に防御をまっすぐにミサイルの弾幕を発射します。</text>
+									<text>警報が鳴り響き、警備が厳重になる。あなたはすぐに逃げ出したが、ゾルタンの増援が間一髪で到着し、あなたが逃げ出す前にミサイルの弾幕が直撃した。</text>
 									<damage amount="7" />
 								</event>
 							</choice>
 							<choice hidden="true">
-								<text>青</text>
+								<text>ブルー</text>
 								<event>
-									<text>ボールトドアのライトが緑色に点灯します。あなたはすぐにドアを開けて、中の木枠をつかみます。添付されているのは、星図にすばやくプログラムして、ゾルタンが到着する前に飛び去る座標です。</text>
+									<text>金庫室のドアのライトが緑色に点灯する。素早くドアを開け、中の木箱を手に取る。ゾルタンが到着する前に、素早く星図にプログラムして飛び立つ。</text>
 									<augment name="SMUGGLER_RAID_CARGO" />
 									<quest event="QUEST_SMUGGLER_RAID_FINISH" />
 								</event>
 							</choice>
 							<choice hidden="true">
-								<text>緑</text>
+								<text>グリーン</text>
 								<event>
-									<text>警報が鳴り、セキュリティスラムの追加の層が金庫室のドアを閉めました。あなたはすぐに逃げますが、ゾルタンの援軍はちょうど間に合うように到着し、逃げる前に防御をまっすぐにミサイルの弾幕を発射します。</text>
+									<text>警報が鳴り響き、警備が厳重になる。あなたはすぐに逃げ出したが、ゾルタンの増援が間一髪で到着し、あなたが逃げ出す前にミサイルの弾幕が直撃した。</text>
 									<damage amount="7" />
 								</event>
 							</choice>
 							<choice hidden="true">
 								<text>オレンジ</text>
 								<event>
-									<text>警報が鳴り、セキュリティスラムの追加の層が金庫室のドアを閉めました。あなたはすぐに逃げますが、ゾルタンの援軍はちょうど間に合うように到着し、逃げる前に防御をまっすぐにミサイルの弾幕を発射します。</text>
+									<text>警報が鳴り響き、警備が厳重になる。あなたはすぐに逃げ出したが、ゾルタンの増援が間一髪で到着し、あなたが逃げ出す前にミサイルの弾幕が直撃した。</text>
 									<damage amount="7" />
 								</event>
 							</choice>
 							<choice hidden="true">
-								<text>紫の</text>
+								<text>パープル</text>
 								<event>
-									<text>警報が鳴り、セキュリティスラムの追加の層が金庫室のドアを閉めました。あなたはすぐに逃げますが、ゾルタンの援軍はちょうど間に合うように到着し、逃げる前に防御をまっすぐにミサイルの弾幕を発射します。</text>
+									<text>警報が鳴り響き、警備が厳重になる。あなたはすぐに逃げ出したが、ゾルタンの増援が間一髪で到着し、あなたが逃げ出す前にミサイルの弾幕が直撃した。</text>
 									<damage amount="7" />
 								</event>
 							</choice>
 							<choice hidden="true">
-								<text>白</text>
+								<text>ホワイト</text>
 								<event>
-									<text>警報が鳴り、セキュリティスラムの追加の層が金庫室のドアを閉めました。あなたはすぐに逃げますが、ゾルタンの援軍はちょうど間に合うように到着し、逃げる前に防御をまっすぐにミサイルの弾幕を発射します。</text>
+									<text>警報が鳴り響き、警備が厳重になる。あなたはすぐに逃げ出したが、ゾルタンの増援が間一髪で到着し、あなたが逃げ出す前にミサイルの弾幕が直撃した。</text>
 									<damage amount="7" />
 								</event>
 							</choice>
@@ -2685,21 +2685,21 @@
 					<choice hidden="true">
 						<text>F</text>
 						<event>
-							<text>警報が鳴り、セキュリティスラムの追加の層が金庫室のドアを閉めました。あなたはすぐに逃げますが、ゾルタンの援軍はちょうど間に合うように到着し、逃げる前に防御をまっすぐにミサイルの弾幕を発射します。</text>
+							<text>警報が鳴り響き、警備が厳重になる。あなたはすぐに逃げ出したが、ゾルタンの増援が間一髪で到着し、あなたが逃げ出す前にミサイルの弾幕が直撃した。</text>
 							<damage amount="5" />
 						</event>
 					</choice>
 					<choice hidden="true">
 						<text>G</text>
 						<event>
-							<text>警報が鳴り、セキュリティスラムの追加の層が金庫室のドアを閉めました。あなたはすぐに逃げますが、ゾルタンの援軍はちょうど間に合うように到着し、逃げる前に防御をまっすぐにミサイルの弾幕を発射します。</text>
+							<text>警報が鳴り響き、警備が厳重になる。あなたはすぐに逃げ出したが、ゾルタンの増援が間一髪で到着し、あなたが逃げ出す前にミサイルの弾幕が直撃した。</text>
 							<damage amount="5" />
 						</event>
 					</choice>
 					<choice hidden="true">
 						<text>H</text>
 						<event>
-							<text>警報が鳴り、セキュリティスラムの追加の層が金庫室のドアを閉めました。あなたはすぐに逃げますが、ゾルタンの援軍はちょうど間に合うように到着し、逃げる前に防御をまっすぐにミサイルの弾幕を発射します。</text>
+							<text>警報が鳴り響き、警備が厳重になる。あなたはすぐに逃げ出したが、ゾルタンの増援が間一髪で到着し、あなたが逃げ出す前にミサイルの弾幕が直撃した。</text>
 							<damage amount="5" />
 						</event>
 					</choice>
@@ -2708,21 +2708,21 @@
 			<choice hidden="true">
 				<text>9</text>
 				<event>
-					<text>警報が鳴り、セキュリティスラムの追加の層が金庫室のドアを閉めました。あなたはすぐに逃げますが、ゾルタンの援軍はちょうど間に合うように到着し、逃げる前に防御をまっすぐにミサイルの弾幕を発射します。</text>
+					<text>警報が鳴り響き、警備が厳重になる。あなたはすぐに逃げ出したが、ゾルタンの増援が間一髪で到着し、あなたが逃げ出す前にミサイルの弾幕が直撃した。</text>
 					<damage amount="3" />
 				</event>
 			</choice>
 			<choice hidden="true">
 				<text>11</text>
 				<event>
-					<text>警報が鳴り、セキュリティスラムの追加の層が金庫室のドアを閉めました。あなたはすぐに逃げますが、ゾルタンの援軍はちょうど間に合うように到着し、逃げる前に防御をまっすぐにミサイルの弾幕を発射します。</text>
+					<text>警報が鳴り響き、警備が厳重になる。あなたはすぐに逃げ出したが、ゾルタンの増援が間一髪で到着し、あなたが逃げ出す前にミサイルの弾幕が直撃した。</text>
 					<damage amount="3" />
 				</event>
 			</choice>
 			<choice>
-				<text>ドアに穴を吹きます。</text>
+				<text>ドアに穴を開ける。</text>
 				<event>
-					<text>あなたは密輸業者がドアが防爆であることについて何かを言ったことを漠然と覚えていますが、とにかく先に進んでください。爆発はドアにかろうじてへこみを入れず、警報を発します。あなたは逃げようとしますが、ゾルタンの援軍はあなたが逃げる前にあなたの防御をまっすぐにミサイルの弾幕を発射するのにちょうど間に合うように到着します。</text>
+					<text>密輸業者がドアは爆発に強いとか言っていたのを何となく覚えているが、とにかくやってみよう。爆発はかろうじてドアをへこませ、警報を鳴らした。あなたは逃げようとしたが、ゾルタンの援軍が到着し、あなたが逃げる前にミサイルの弾幕を撃ち抜いた。</text>
 					<damage amount="10" />
 					<item_modify>
 						<item type="missiles" min="-3" max="-3" />
@@ -2735,13 +2735,13 @@
 <event name="QUEST_SMUGGLER_RAID_FINISH">
 	<beaconType id="map_icon_quest" global="true">
 		<color r="69" g="168" b="235" a="1" />
-		<unvisitedTooltip>あなたの報酬のために密輸業者に貨物を返してください。</unvisitedTooltip>
+		<unvisitedTooltip>貨物を密輸業者に返し、報酬を受け取る。</unvisitedTooltip>
 	</beaconType>
-	<text>密輸業者はすでにこのビーコンであなたを待っています。 「まあまあ、あなたがそれを成し遂げたことに私は驚いています。お疲れ様でした。」</text>
+	<text>密輸業者はすでにこのビーコンであなたを待っている。「よくやった。よくやった"</text>
 	<choice req="SMUGGLER_RAID_CARGO" blue="false">
-		<text>彼に貨物を渡してください。</text>
+		<text>彼に貨物を渡してくれ。</text>
 		<event>
-			<text>あなたは彼にパッケージを与えることを警戒していて、彼は笑います。彼は最初に支払いの半分を渡し、あなたは貨物を渡します。彼はあなたに残りを支払い、あなたは握手します、そして彼は飛び去ります。</text>
+			<text>あなたが荷物を渡すのを警戒していると、彼は笑う。彼は先に代金の半分を渡し、あなたは荷物を渡す。彼は残りをあなたに支払い、あなたは握手を交わすと、彼は飛び去る。</text>
 			<item_modify>
 				<item type="fuel" min="5" max="5" />
 				<item type="scrap" min="50" max="50" />
@@ -2752,9 +2752,9 @@
 		</event>
 	</choice>
 	<choice>
-		<text>ありません。</text>
+		<text>我々にはそれがない。</text>
 		<event>
-			<text>「あなたは何をしませんか？」彼はしばらくあなたに怒鳴り、それから通話を終了します。あなたは彼が攻撃するのではないかと心配していますが、代わりに彼はただ飛び去ります。</text>
+			<text>"何言ってるんだ？"彼はしばらく怒鳴った後、通話を切った。あなたは彼が攻撃してくるのではないかと恐れているが、そうではなく、彼は単に飛び退いた。</text>
 		</event>
 	</choice>
 </event>
@@ -2767,17 +2767,17 @@
 
 
 <event name="FLOATING_CARGO_MV" unique="true">
-	<text>ビーコンからそれほど遠くない場所で、貨物が近くに散らばっていて、無傷で破壊された貨物船を検出します。</text>
+	<text>ビーコンからそう遠くないところに、破壊された貨物船があり、その貨物が無傷のまま近くに散らばっているのを発見する。</text>
 	<choice hidden="true">
-		<text>乗せてください。</text>
+		<text>乗船してください。</text>
 		<event load="FLOATING_CARGO_MV_LIST" />
 	</choice>
 	<choice hidden="true">
-		<text>放っておいてください、これは疑わしいようです。</text>
+		<text>放っておけばいい。</text>
 		<event>
-			<text>あなたは貨物を放っておいて、ジャンプする準備をします。</text>
+			<text>荷物はそのままにして、ジャンプの準備をする。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -2787,75 +2787,75 @@
 		</event>
 	</choice>
 	<choice req="sensors" lvl="2" hidden="true">
-		<text>（Upg。Sensors）ボックスで高度なスキャンを実行します。</text>
+		<text>(アップグ.センサー) ボックスに対してアドバンストスキャンを実行する。</text>
 		<event load="FLOATING_CARGO_MV_SCAN_LIST" />
 	</choice>
 	<choice req="ADV_SCANNERS" hidden="true">
-		<text>（長距離スキャナー）ボックスで高度なスキャンを実行します。</text>
+		<text>(長距離スキャナ) ボックスに対して高度なスキャンを実行する。</text>
 		<event load="FLOATING_CARGO_MV_SCAN_LIST" />
 	</choice>
 	<choice req="LIST_CREW_SLUG" hidden="true">
-		<text>（スラッグクルー）スラッグにチェックボックスをオンにしてもらいます。</text>
+		<text>(スラッグ・クルー）スラッグにチェックさせる。</text>
 		<event load="FLOATING_CARGO_MV_SCAN_LIST" />
 	</choice>
 	<choice req="BLUELIST_CREW_SNAIL" hidden="true">
-		<text>（テレパシーシェル）シェルにボックスをチェックさせます。</text>
+		<text>(テレパシー・シェル）あなたのシェルにチェックボックスをチェックさせる。</text>
 		<event load="FLOATING_CARGO_MV_SCAN_LIST" />
 	</choice>
 </event>
 <eventList name="FLOATING_CARGO_MV_LIST">
 	<event>
-		<text>彼らは軍の物資で満たされているようです！あなたはあなたが使うことができるすべてを取り、残りを捨てます。</text>
+		<text>軍需品で一杯のようだ！使えそうなものは全部持って行き、残りは投げ捨てる。</text>
 		<autoReward level="MED">standard</autoReward>
 	</event>
 	<event>
-		<text>貨物は主に消費財と衣料品であり、特に有用なものはありませんでした。あなたはなんとかスクラップを集めることができます。</text>
+		<text>積荷は主に消費財と衣類で、特に役に立つものはなかった。なんとかスクラップを集めよう。</text>
 		<autoReward level="LOW">scrap_only</autoReward>
 	</event>
 	<event>
-		<text>貨物を船に運ぶと、海賊が箱の1つから飛び出し、「うーん…私はそこに窮屈になっていた。ああ、そうだ！死ぬ準備をしなさい！」と言った。この戦いの直後-あなたの船は箱が割れる音で満たされています...</text>
+		<text>貨物を船に積み込むと、木箱のひとつから海賊が飛び出してきた。窮屈だったんだ。ああ、そうだ！死ぬ準備をしろ！"この戦いの叫びの直後、あなたの船は木箱が割れる音で満たされる...。</text>
 		<boarders min="2" max="4" class="human" />
 	</event>
 	<event>
-		<text>あなたは貨物を乗せます。あなたがそれらを開く機会を得る前に、海賊船が隠れて突進して現れます。同時に、木枠が飛んで開きます。船に乗っている侵入者！</text>
+		<text>貨物を積み込む。開ける間もなく海賊船が現れ、突撃してくる。同時に木箱が飛び出す。船内に侵入者！</text>
 		<boarders min="2" max="4" class="human" />
 		<ship load="SHIP_PIRATE_WITHBOARDERS" hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 </eventList>
 <eventList name="FLOATING_CARGO_MV_SCAN_LIST">
 	<event>
-		<text>貨物にはあまり関心のないものが含まれているようです。あなたは破壊された船からいくつかのスクラップを回収します。</text>
+		<text>積荷には大したものは入っていないようだ。破壊された船からスクラップを引き揚げろ。</text>
 		<item_modify>
 			<item type="scrap" min="20" max="35" />
 		</item_modify>
 	</event>
 	<event>
-		<text>防護壁を破り、貨物をスキャンすることができます。軍需品でいっぱいのようです！あなたはあなたが使うことができるすべてを取ります。</text>
+		<text>防護壁を破って貨物をスキャンする。軍需品で一杯のようだ！使えそうなものは全部持っていけ。</text>
 		<autoReward level="MED">standard</autoReward>
 	</event>
 	<event>
-		<text>あなたは貨物の中のかすかな生命のサインを拾います。生命体は武装しているように見えます。これは計画された海賊の待ち伏せのように見えます。</text>
+		<text>貨物内部にかすかな生命反応を感知。生命体は武装しているようだ。計画的な海賊の待ち伏せのようだ。</text>
 		<choice hidden="true">
-			<text>別の船が犠牲になるのを防ぐために箱を破壊してください。</text>
+			<text>他の船が犠牲にならないように木箱を破壊せよ。</text>
 			<event>
-				<text>あなたは木枠に火をつけ、それらを壊して開け、海賊を空の空間に散らします。海賊船がどこからともなく現れ、「あなたはその代金を払うでしょう！」というメッセージが表示されます。</text>
+				<text>木箱を撃って壊し、海賊たちを何もない空間に撒き散らす。どこからともなく海賊船が現れ、"その代償は払ってもらうぞ！"というメッセージが添えられている。</text>
 				<ship load="SHIP_PIRATE_ALL" hostile="true" />
 				<choice hidden="true">
-					<text>継続する...</text>
+					<text>次へ...</text>
 					<event load="COMBAT_CHECK" />
 				</choice>
 			</event>
 		</choice>
 		<choice>
-			<text>それを放っておいて、ジャンプする準備をしてください。</text>
+			<text>放っておいて、ジャンプの準備をする。</text>
 			<event>
-				<text>何かを試すのはばかげているでしょう。</text>
+				<text>何かをしようとするのは愚かなことだ。</text>
 				<choice>
-					<text>船に乗って何かする。</text>
+					<text>船内で何かをする。</text>
 					<event load="STORAGE_CHECK" />
 				</choice>
 				<choice>
@@ -2878,85 +2878,85 @@
 </eventList>
 
 <event name="BLACKMARKET_SMUGGLER" unique="true">
-	<text>どこからともなく、密輸業者が飛び込み、銃が燃え上がる。彼らが攻撃している理由はわかりませんが、関与するしかありません。</text>
+	<text>どこからともなく、密輸業者が銃を乱射しながら飛び込んでくる。なぜ襲ってくるのかわからないが、交戦するしかない。</text>
 	<ship load="SHIP_SMUGGLER_ALL" hostile="true" /> 
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 
 <event name="BLACKMARKET_REBEL" unique="true">
-	<text>進行中の船があなたを見つけて攻撃に駆け込むのを観察している反乱軍の船の前に、あなたはほとんど反応する時間がありません。</text>
+	<text>反応する間もなく、状況を観察していた反乱軍の艦船があなたたちを発見し、攻撃に突入する。</text>
 	<ship load="SHIP_REBEL_FIGHT" hostile="true" /> 
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 
 <event name="BLACKMARKET_FED_ANGERY" unique="true">
-	<text>連邦船の大きな戦隊がこのビーコンに存在し、海賊に発砲し、小さな船の群れが買い物客の何人かを逮捕しています。彼らがあなたを海賊と間違えて戦闘するとき、あなたは誤って混乱に巻き込まれます。</text>
+	<text>連邦軍の大艦隊がこのビーコンに出没し、海賊に発砲する一方、小型船の群れが買い物客を逮捕している。海賊と間違えられて交戦し、偶然にも混乱に巻き込まれる。</text>
 	<ship load="SHIP_FED_FIGHT" hostile="true" /> 
 	<customFleet right="true" firing="true" autoDarkening="false">CUSTOM_FLEET_FED</customFleet>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 
 <event name="BLACKMARKET_FED_AUTO" unique="true">
-	<text>フェデレーションの自動船は、このビーコンを忠実にパトロールしているか、少なくともそのセンサーが海賊によって頭から引き裂かれていなかったらそうだったでしょう。それはあなたの船をスキャンしますが、損害のためにあなたを適切に識別することができず、あなたが海賊だと思っています！</text>
+	<text>連邦のオートシップが、このビーコンを忠実にパトロールしている。少なくとも、センサーが海賊によって頭から引きちぎられていなければ、パトロールしていただろう。あなたの船をスキャンするが、損傷のためあなたを識別できず、海賊だと勘違いしている！</text>
 	<ship load="SHIP_FED_AUTO" hostile="true" /> 
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 
 <event name="ZOLTAN_LECTURE_MARKET" unique="true">
-	<text>ゾルタン平和旅団は、善良な道徳の重要性について何人かの海賊に講義している。海賊の一人が焦って攻撃したとき、あなたは娯楽を見るために立ち寄ります。あなたは逃げるには近すぎるので、どちらの側をとらなければならないかを決める必要があります。</text>
+	<text>ゾルタンの平和旅団が海賊たちに道徳の大切さを説いている。海賊の一人が焦って襲ってきた。あまりに近くにいて逃げられないので、どちらにつくか決めなければならない。</text>
 	<choice hidden="true">
-		<text>ゾルタンの側。</text>
+		<text>ゾルタンの味方だ。</text>
 		<event>
-			<text>あなたは戦闘の準備ができています。</text>
+			<text>戦闘態勢に入る。</text>
 			<ship load="SHIP_PIRATE_LECTURE_MARKET" hostile="true" /> 
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>海賊の側。</text>
+		<text>海賊の味方だ。</text>
 		<event>
-			<text>あなたは戦闘の準備ができています。</text>
+			<text>戦闘態勢に入る。</text>
 			<ship load="SHIP_ZOLTAN_LECTURE_MARKET" hostile="true" /> 
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
 			</choice>
 		</event>
 	</choice>
 </event>
 <event name="ZOLTAN_LECTURE_MARKET_WIN_PIRATE" unique="true">
-	<text>ゾルタン船の派遣に成功しました。ゾルタン軍が撤退していることに気づき、海賊が勝利したようです。あなたはゾルタン船を素早くスクラップします。</text>
+	<text>あなたはゾルタン船の退治に成功した。ゾルタン軍が撤退し、海賊が勝利したようだ。あなたはゾルタン船を素早くスクラップにした。</text>
 	<autoReward level="LOW">standard</autoReward>
 	<choice hidden="true">
-		<text>あなたの海賊「兄弟」に連絡してください。</text>
+		<text>海賊の "同胞 "に連絡を取る。</text>
 		<event>
-			<text>「言ってやるが、それはいい子だった。助けてくれてありがとう。きっとあなたに返済する何かがあると思う」あなたは海賊の感謝の気持ちに驚いて、トリックを疑っていますが、彼らがあなたに届ける貨物箱は驚くほど無害で、光沢のある新しい軍用クラスの武器が含まれています。</text>
+			<text>「いい戦いぶりだった。助けてくれてありがとう。何かお返しができると思うよ。"海賊の感謝の言葉に驚き、何か仕掛けがあるのではと疑ったが、彼らが運んできた貨物箱は驚くほど無害で、ピカピカの軍用新兵器が入っていた。</text>
 			<autoReward level="MED">weapon</autoReward>
 		</event>
 	</choice>
 </event>
 <event name="ZOLTAN_LECTURE_MARKET_WIN_ZOLTAN" unique="true">
-	<text>海賊船を正常に派遣します。あなたは海賊が退却していることに気づき、それはゾルタンが勝ったようです。あなたはすぐにあなたの犠牲者を廃棄します。</text>
+	<text>海賊船の退治に成功。海賊が退却しているのに気づき、ゾルタ人が勝ったようだ。あなたは素早く犠牲者をスクラップにした。</text>
 	<autoReward level="MED">standard</autoReward>
 	<choice hidden="true">
-		<text>ゾルタン旅団に連絡してください。</text>
+		<text>ゾルタン旅団に連絡してくれ。</text>
 		<event>
-			<text>「私たちは連邦の強化を期待していませんでした。あなたの助けは大いに感謝されます。ゾルタンの習慣と同様に、私たちは今あなたの借金を負っており、それを忠実に完済するでしょう。」</text>
+			<text>「連邦の増援は予想していなかった。あなたの助けには感謝している。ゾルタンの慣例に従い 借りを返すことにする</text>
 			<autoReward level="HIGH">standard</autoReward>
 		</event>
 	</choice>
@@ -2971,21 +2971,21 @@
 </eventList>
 
 <event name="SMUGGLER_ASTEROID" unique="true">
-	<text>ここの小惑星フィールドは、このビーコンでの唯一の危険ではありません。ここで隠そうとしている密輸業者はあなたにチャンスを与えず、すぐに攻撃します！</text>
+	<text>このビーコンで危険なのは小惑星帯だけではない。ここに隠れようとしている密輸業者は、あなたにチャンスを与えず、すぐに攻撃してくる！</text>
 	<ship load="SHIP_SMUGGLER_ALL" hostile="true" /> 
 	<environment type="asteroid" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 
 <event name="BRIGADE_PULSAR" unique="true">
-	<text>別のゾルタン平和旅団の船が立ち往生しているように見えるので、このパルサーにいるのはあなただけではありません。しかし、彼らはあなたを脅威と攻撃として識別しているようです！</text>
+	<text>このパルサーにいるのはあなただけではないようだ。別のゾルタン平和旅団の船が立ち往生しているようだ。しかし、彼らはあなたを脅威と認識し、攻撃してくるようだ！</text>
 	<ship load="SHIP_ZOLTAN_FIGHT" hostile="true" /> 
 	<environment type="pulsar" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
@@ -2995,11 +2995,11 @@
 
 
 <event name="SMUGGLER_UNLOCK_1">
-	<text>乗組員を乗せます。補強が到着するまで長くはありませんが、座標付きのマップに気づきます。ある種の造船所につながるようです。あなたはそれをあなたの地図にマークし、ここから運び出します。</text>
+	<text>クルーにビームを照射する。増援が来るまで長くはないが、座標の書かれた地図に気づく。どうやら造船所のようだ。地図に印をつけ、ここから引き上げる。</text>
 	<reveal_map />
 	<quest event="SMUGGLER_UNLOCK_2" />
 	<choice>
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="GUARD_SMUGGLER_FOLLOWUP" />
 	</choice>
 </event>
@@ -3013,30 +3013,30 @@
 	<beaconType id="map_icon_shipyard" global="true">
 		<color r="125" g="125" b="125" a="1.0" />
 	</beaconType>
-	<text>密輸業者によって指揮された巨大な宇宙ステーションである造船所の規模を見て驚いています。わかりにくいですが、かつては大企業、おそらくヘファイストスに属していたのではないかと思います。</text>
+	<text>あなたは、スマグラーに徴用された巨大な宇宙ステーションの造船所の規模を見て驚いた。よくわからないが、かつては大企業、おそらくヘファエスタスのものだったのだろう。</text>
 	<img back="BACK_EVENT_SMUGGLERPORT" planet="NONE" />
 	<choice hidden="true">
-		<text>さらに調査します。</text>
+		<text>さらに調査する。</text>
 		<event>
-			<text>ステーションを守っている船が少ないことにショックを受け、抗議することなく簡単に入ることができます。以前の警備員と同じモデル、反乱軍の砲艦の初期のプロトタイプなど、認識できない船のデザインがいくつかあります。そのうちの1隻は運用可能であり、他の船の部品から作られた大型の巡洋艦サイズの船を保護しています。</text>
+			<text>ステーションを警備している船の少なさに驚き、何の抗議もなく中に入る。見覚えのないデザインの船がいくつかあることに気づく。その中には、先ほどの警備隊と同じモデルの、反乱軍砲艦の初期プロトタイプもあった。そのうちの1隻は稼働しているようで、他の船のパーツを組み合わせて作った巡洋艦サイズの大きな船を守っている。</text>
 			<ship load="SHIP_SMUGGLER_GUNBOAT_BOSS" hostile="false" />
 			<choice hidden="true">
-				<text>船を攻撃して巡洋艦に到達します。</text>
+				<text>船を攻撃してクルーザーのところへ。</text>
 				<event>
-					<text>それでも、今でも、自分の船の1つを攻撃するために移動すると、観戦するだけでも他の船は近づきません。とにかく、これは簡単な戦いではないようです。</text>
+					<text>それでも、あなたが敵艦の1隻を攻撃するために移動している今も、他の艦船は観戦するためにさえ近づいてこない。いずれにせよ、簡単な戦いにはならないようだ。</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>離れる。</text>
+				<text>出て行け。</text>
 				<event>
-					<text>この場所は危険です。スマグラー氏族をいじくり回す理由はありません。</text>
+					<text>ここは危険だ。スマグラー一族にちょっかいを出す理由はない。</text>
 					<choice>
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice>
@@ -3048,11 +3048,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>造船所は無視してください。</text>
+		<text>造船所は無視しろ。</text>
 		<event>
-			<text>この場所は危険です。スマグラー氏族の中央造船所を覗き見する理由はありません。</text>
+			<text>ここは危険だ。スマグラー・クランの中央造船所をうろつく理由はない。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -3063,36 +3063,36 @@
 	</choice>
 </event>
 <event name="SMUGGLER_UNLOCK_3" unique="true">
-	<text>砲艦が崩壊し、造船所の内部に破片が散乱します。あなたは材料をすくい上げます。</text>
+	<text>砲艦が倒れ、造船所内に破片が散乱する。その破片を拾い集める。</text>
 	<variable name="ach_boss_smugglergun" op="set" val="1" />
 	<autoReward level="HIGH">weapon</autoReward>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>巡洋艦に近づくと、はるかに大きな密輸船が近くで覆いを外し、あなたを歓迎します。背が高くて細いスラッグがスクリーンに表示されます。 「あなたが私たちの新しいプロトタイプの巡洋艦のために来たのを見ますか？」スラッグは笑う。 「気づいていないのですが、そのクルッサーは上司のオシムのために特別に作られていました。しかし、私たちのベッセルをどれだけうまく破壊したかを見て、ssshipはあなたの手にあるほうがいいと思います。Heheheh...」</text>
+			<text>クルーザーに近づくと、近くではるかに大きなスマグラー船がクロークを解除し、あなたに呼びかける。背の高いスラッグがビデオスクリーンに映し出される。"我々の新しいプロトタイプのクルーザーを見に来たようだな？"スラッグは笑う。「知らないかもしれないが、あのクルーザーはボスのオシムのために特別に作られたんだ。でも、あんたが俺たちの船を破壊したのを見れば......この船はあんたの手にある方がいいってことになるな。へへへ..."</text>
 			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
-				<text>彼の申し出を受け入れて船に乗りなさい。</text>
+				<text>彼の申し出を受け入れ、船に乗る。</text>
 				<event>
-					<text>フェデレーション格納庫に戻るために船の再プログラミングに取り掛かると、内部から大きなカチッという音がします。あなたが反応する前に、爆発は船全体を消費し、あなたのクルーの1人を殺します！あなたはスラッグから最後の連絡を受け取ります。 「あなたは船長を知っているべきです、決して海賊を押しつぶさないでください。今、私のsssshipyardから出てください。」</text>
+					<text>連邦の格納庫にジャンプして戻るため、船の再プログラミングに取りかかろうとしたとき、中から大きなクリック音に気づく。あなたが反応する前に、爆発が船全体を焼き尽くし、クルーの1人が死亡した！スラッグから最後の呼びかけを受ける。"船長、海賊を信用するな。私の造船所から出て行け"</text>
 					<damage amount="5" effect="fire" system="random" />
 					<removeCrew>
 						<clone>true</clone>
-						<text>幸いなことに、あなたのクルーはクローン湾によって復活することができますが、爆弾によって破壊された船については同じことは言えません。</text>
+						<text>幸いにもクルーはクローンベイで蘇生できたが、爆弾で破壊された船はそうはいかない。</text>
 					</removeCrew>
 				</event>
 			</choice>
 			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
-				<text>AI は、その船に乗船しないようにアドバイスします。とにかく、それに送る乗組員がいるわけではありません。</text>
+				<text>AIは、あの船には最後のトラップが仕掛けられている可能性が高いので、乗船しないよう忠告している。いずれにせよ、乗組員を派遣する必要はない。</text>
 				<event load="OPTION_INVALID" />
 			</choice>
 			<choice hidden="true">
-				<text>設計図に妥協点を提示します。海賊については確信が持てません。</text>
+				<text>設計図の妥協案を提示する - 海賊に過信は禁物だ。</text>
 				<event>
-					<text>船に乗るだけのスラッグを信用していないので、代わりに単純な妥協案を提示します。あなたは彼らに船の設計図のコピーを渡すように要求します、そしてあなたは物理的なバージョンに触れません。受け入れる代わりに、スラッグは笑いに飛び込みます。</text>
+					<text>あなたはナメクジを信用していないので、船を奪う代わりに簡単な妥協案を提示する。船の設計図をコピーして渡してくれ。ナメクジは受け入れる代わりに笑い出した。</text>
 					<choice hidden="true">
-						<text>そんなに面白いですか？</text>
+						<text>何がそんなにおかしいんだ？</text>
 						<event>
-							<text>「まあ、あなたはsssee、thisssssupposssed ssupposssed for trapになります。そのsssshipは、誰もがそれを取るためにトリエスをしたときに爆発するように装備されています。tssshipをno。しかし、blueprintss、モススト、確かにモススト！</text>
+							<text>「これは罠だと思われていたんだ。あの船は誰かが奪おうとすると爆発するように仕組まれているんだ。だが...君は私を出し抜いたようだ。だから取引しよう。船は渡さない。だが設計図は渡す！連邦がススマグラーの技術を使うと思うとゾクゾクする...敵の周波数をハイジャックする方法も教えてやる！"</text>
 							<augment name="LOOT_COMPASS" />
 							<unlockCustomShip silent="false">PLAYER_SHIP_PROTOTYPE</unlockCustomShip>
 						</event>
@@ -3105,30 +3105,30 @@
 
 <event name="QUEST_TUCO_START" unique="true">
 	<preventQuest />
-	<text>旅館を宣伝する海賊局が近くにあります。彼らは平和であり、内部のグループは、反乱軍、海賊、連邦役員、およびさまざまな種類の異星人を含むすべての種類で構成されているように見えます。</text>
+	<text>宿屋として宣伝している海賊ステーションが近くにある。彼らは平和的で、中にいるグループは反乱軍、海賊、連邦将校、さまざまな異星人など、あらゆる種類で構成されているようだ。</text>
 	<ship load="SHIP_PIRATE_UNION_STATION" hostile="false" /> 
 	<choice hidden="true">
 		<text>入る。</text>
 		<event>
-			<text>かさばるロックマンであるバーテンダーは、指名手配の犯罪者であると確信しており、あなたを歓迎し、飲み物を提供します。あなたの後ろでは、活気のある群衆が笑ったりおしゃべりしたりしています。</text>
+			<text>バーテンダーは大柄なロックマンで、指名手配犯であることは間違いない。あなたの背後では、賑やかな群衆が談笑している。</text>
 			<choice>
-				<text>確かに、私たちは飲み物を飲みます。</text>
+				<text>もちろん、飲もう。</text>
 				<event>
 					<text load="TUCO_DRINK" />
 					<item_modify>
 						<item type="scrap" min="-1" max="-1" />
 					</item_modify>
 					<choice>
-						<text>もう一杯飲んでください。</text>
+						<text>もう一杯飲もう。</text>
 						<event>
 							<text load="TUCO_DRINK" />
 							<item_modify>
 								<item type="scrap" min="-1" max="-1" />
 							</item_modify>
 							<choice>
-								<text>もう一杯飲んでください。</text>
+								<text>もう一杯飲もう。</text>
 								<event>
-									<text>あなたはあなたの飲み物をつかんで、それが甘い蜜のような物質で満たされているのを見つけて嬉しく驚いています。飲んでいる間、あなたは海賊グループの間で、マンティスハイブキャラバンから大金を盗み、彼の大規模なギャンブル依存症に資金を提供することに費やした悪名高い海賊であるトゥコという名前の誰かについて議論するための会話の風を捉えます。また、彼のお気に入りのカジノの座標をキャッチします。</text>
+									<text>甘い蜜のようなものが入っていることに驚きながら、あなたは飲み物を手に取った。酒を飲んでいると、海賊たちがトゥコという人物について話しているのを耳にした。トゥコはマンティス・ハイヴ・キャラバンから大金を盗み、ギャンブル中毒の資金源にしていた悪名高い海賊だ。彼の行きつけのカジノの座標もキャッチしている。</text>
 									<quest event="QUEST_TUCO_CASINO" />
 									<item_modify>
 										<item type="scrap" min="-1" max="-1" />
@@ -3136,29 +3136,29 @@
 								</event>
 							</choice>
 							<choice>
-								<text>離れる。</text>
+								<text>出て行け。</text>
 								<event />
 							</choice>
 						</event>
 					</choice>
 					<choice>
-						<text>離れる。</text>
+						<text>出て行け。</text>
 						<event />
 					</choice>
 				</event>
 			</choice>
 			<choice>
-				<text>離れる。</text>
+				<text>出て行け。</text>
 				<event />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>ステーションを無視します。</text>
+		<text>駅は無視する。</text>
 		<event>
-			<text>あなたはステーションとは何の関係もありません。</text>
+			<text>あなたはこの局とは何の関係もない。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -3169,14 +3169,14 @@
 	</choice>
 </event>
 <textList name="TUCO_DRINK">
-    <text>ロックマンは、疑わしい見た目の異星人のグープのショットをスライドさせます。意外と美味しいです。酔っ払った2人の海賊があなたの後ろで乱闘し、護衛されます。</text>
-    <text>バーテンダーはグラスを磨き、別のショットを渡します。今回は比較的普通に見える液体のグラスですが、それはあなたの内部を火のように燃やします。あなたは咳をして吐き出します。あなたは笑っているあなたの後ろに何人かの反乱軍を捕まえます。</text>
-    <text>あなたは腐敗した臭いのある物質のグラスを手渡されました、それはあなたが新鮮に瓶詰めされたスラッグの粘液であると言われています。バーテンダーが見ていないとき、あなたはそれを流しに注ぎます。</text>
-    <text>ロックはあなたに透明な液体のガラスを与えます。何の味もしません。酔っ払ったスラッグがステージから落ちると、バックグラウンドでのチャタリングが一瞬止まり、その後通常の音量に戻ります。</text>
-    <text>飲み物は尿のようにひどく味がします、そしてロックマンがそれがいくつかの地域で珍味と考えられている人間の排泄物であるとあなたに知らせるときあなたの疑いは確認されます。</text>
-    <text>あなたが最新のショットを下ろしている間、あなたはマンティスが燃えるような頭蓋骨をジャグリングするのを見ます。マンティスが火事になり、宿から叫び声を上げるまで、群衆は拍手喝采を浴びます。</text>
-    <text>瓶の中の緑色の物質を飲むと、群衆をさらに観察します。それは興味深い束です。部屋の向こう側で敵がお互いを見つめ、視線が合うと目をそらしているのを見ることができます。</text>
-    <text>あなたはバーテンダーから与えられた恐ろしい物質、奇妙な分厚い白い物質を窒息させます。ロックマンは、宇宙クジラからの期限切れのミルクだと言います。</text>
+    <text>ロックマンは怪しげなエイリアンのグープをあなたに見せてくれた。驚くほどおいしい。酔っぱらった2人の海賊があなたの後ろで乱闘になり、外に連れ出される。</text>
+    <text>バーテンダーがグラスを磨き、もう一杯のショットを手渡す。今度は比較的普通に見えるグラスの液体だが、あなたの内側を火のように燃え上がらせる。咳き込んでそれを吐き出す。後ろで反乱軍兵士たちが笑っているのが見えた。</text>
+    <text>腐敗臭のする物質の入ったグラスを手渡され、それが瓶詰めされたばかりのナメクジ・スライムだと告げられる。バーテンダーが見ていない隙に、あなたはそれを流しに注ぐ。</text>
+    <text>ロックは透明な液体をグラスに注いでくれる。何の味もしない。酔っぱらったスラッグがステージから落ちると、バックのおしゃべりは一瞬静まり、またいつもの音量に戻る。</text>
+    <text>ロックマンが「これは人間の排泄物で、ある地域では珍味とされている」と言うので、疑いは確信に変わった。</text>
+    <text>最新の一杯を飲み干す間、あなたはマンティスが炎のドクロを曲芸するのを見ていた。観客は拍手喝采に包まれるが、マンティスは炎に包まれ、叫びながら宿を飛び出す。</text>
+    <text>ボトルの中の緑色の物質を飲みながら、あなたはさらに群衆を観察する。興味深い集団だ。部屋の向こうで敵同士が見つめ合い、視線が合うとチラッと目をそらすのが見える。</text>
+    <text>あなたはバーテンダーから渡された、奇妙な塊のような白いものを飲み下す。ロックマンはそれを宇宙クジラの賞味期限切れのミルクだと言う。</text>
 </textList>
 
 <event name="QUEST_TUCO_CASINO">
@@ -3189,25 +3189,25 @@
 	<beaconType id="map_icon_casino" global="true">
 		<color r="255" g="255" b="255" a="1.0" />
 	</beaconType>
-	<text>問題のカジノは、海賊の汚水溜まりやギャンブルの街ではありません。遠くには巨大なヨットが漂い、何百隻もの船がそれに向かって群がっています。湿気の多いジャングルの惑星の表面の上に浮かんでおり、中央には、都市全体の人口と思われるものを収容する巨大な構造物があります。</text>
+	<text>問題のカジノは、海賊の巣窟でも、荒れ果てたギャンブル都市でもない。遠くには巨大なヨットが漂い、何百隻もの船がそれに向かって群がっている。それは湿度の高いジャングルの惑星の地表に浮かんでおり、中央にはおそらく都市全体の人口を収容する巨大な建造物がある。</text>
 	<img back="BACK_EVENT_SPACEYACHT" planet="PLANET_INVISIBLE" />
 	<choice hidden="true">
-		<text>カジノを検索します。</text>
+		<text>カジノを検索する</text>
 		<event>
-			<text>カジノを見つけるのは難しくありません。ビーコンの虫のように人々を引き寄せるネオンサインが鳴り響いています。中にはスロットマシン、ポーカーテーブル、そしていくつかのバーが並んでいます。</text>
+			<text>カジノを見つけるのは難しくない。けたたましいネオンサインが、まるで虫を呼び寄せるように人々を引き寄せている。中にはスロットマシンやポーカーテーブルがずらりと並び、バーも数軒ある。</text>
 			<choice hidden="true">
-				<text>トゥコを探してください。</text>
+				<text>トゥコを探せ</text>
 				<event load="TUCO_SEARCH" />
 			</choice>
 			<choice>
-				<text>最初にギャンブルをしてから、探しに行きます。</text>
+				<text>まずギャンブルをし、それから探しに行く。</text>
 				<event>
-					<text>あなたがそれを持っている間、あなたは機会を無駄にするつもりはありません。あなたはいくつかのスクラップを最も近いスロットマシンに送ります。それは奇跡的にそれを実行可能な通貨として受け入れているようです、そして待ちます。</text>
+					<text>せっかくのチャンスを無駄にするつもりはない。近くのスロットマシーンにスクラップを投入すると、奇跡的に通貨として受け入れてくれるようだ。</text>
 					<item_modify>
 						<item type="scrap" min="-20" max="-20" />
 					</item_modify>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="CASINO_GAMBLE" />
 					</choice>
 				</event>
@@ -3215,11 +3215,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>これは私たちが期待したものではありません。離れる。</text>
+		<text>これは予想外だ去る。</text>
 		<event>
-			<text>ここであなたが望んでいたことは、今では無意味です。</text>
+			<text>ここで何をしようと思っていたとしても、もう無意味だ。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -3231,78 +3231,78 @@
 </event>
 <eventList name="CASINO_GAMBLE">
 	<event>
-		<text>3つの金色の7が画面上で点滅し、続いて大音量のファンファーレと紙吹雪が表示されます。マシンは大声で「おめでとうございます！負けました！」と叫びます。</text>
+		<text>スクリーンに黄金の7が3つ輝き、大きなファンファーレと紙吹雪が続く。マシンは大声で「おめでとうございます！あなたの負けです！"</text>
 		<choice hidden="true">
-			<text>トゥコを探してください。</text>
+			<text>トゥコを探せ</text>
 			<event load="TUCO_SEARCH" />
 		</choice>
 	</event>
 	<event>
-		<text>3つの金色の7が画面上で点滅し、続いて大音量のファンファーレと紙吹雪が表示されます。マシンは大声で「おめでとうございます！負けました！」と叫びます。</text>
+		<text>スクリーンに黄金の7が3つ輝き、大きなファンファーレと紙吹雪が続く。マシンは大声で「おめでとうございます！あなたの負けです！"</text>
 		<choice hidden="true">
-			<text>トゥコを探してください。</text>
+			<text>トゥコを探せ</text>
 			<event load="TUCO_SEARCH" />
 		</choice>
 	</event>
 	<event>
-		<text>3つの金色の7が画面上で点滅し、続いて大音量のファンファーレと紙吹雪が表示されます。マシンは大声で「おめでとうございます！負けました！」と叫びます。</text>
+		<text>スクリーンに黄金の7が3つ輝き、大きなファンファーレと紙吹雪が続く。マシンは大声で「おめでとうございます！あなたの負けです！"</text>
 		<choice hidden="true">
-			<text>トゥコを探してください。</text>
+			<text>トゥコを探せ</text>
 			<event load="TUCO_SEARCH" />
 		</choice>
 	</event>
 	<event>
-		<text>3つの金色の7が画面上で点滅し、続いて大音量のファンファーレと紙吹雪が表示されます。マシンは大声で「おめでとうございます！負けました！」と叫びます。</text>
+		<text>スクリーンに黄金の7が3つ輝き、大きなファンファーレと紙吹雪が続く。マシンは大声で「おめでとうございます！あなたの負けです！"</text>
 		<choice hidden="true">
-			<text>トゥコを探してください。</text>
+			<text>トゥコを探せ</text>
 			<event load="TUCO_SEARCH" />
 		</choice>
 	</event>
 	<event>
-		<text>低いバズがマシンから放出され、引き出しが開き、より多くのスクラップが吐き出されます。それはかなり反気候的ですが、あなたは不平を言っていません。</text>
+		<text>機械から低いブザーが鳴り、引き出しが開き、さらにクズが吐き出される。拍子抜けだが、不満はない。</text>
 		<item_modify>
 			<item type="scrap" min="60" max="60" />
 		</item_modify>
 		<choice hidden="true">
-			<text>トゥコを探してください。</text>
+			<text>トゥコを探せ</text>
 			<event load="TUCO_SEARCH" />
 		</choice>
 	</event>
 </eventList>
 <event name="TUCO_SEARCH">   
-	<text>検索を開始する前に、カジノ全体に叫び声が響き渡ります。人々は、不潔な苔のひげを生やした海賊の絵の具でロックマンをじっと見つめ、エレガントなタキシードの眼帯が2人のたくましいロックマンの用心棒によって引きずり出されます。帰り道、海賊は「私にこれをすることはできません！私が誰であるか知っていますか？私は銀河全体で最も恐れられている恐ろしい海賊トゥコです！」と叫びます。ロックマンは彼を無視し、彼を外に運び続けます。</text>
+	<text>探し始める前に、叫び声がカジノ中に響き渡る。エレガントなタキシードに不潔な苔の髭とアイパッチをつけた海賊のペイントを施したロックマンが、2人の屈強なロックマンの用心棒に引きずり出されるのを、人々は振り向いて見つめる。出て行く途中、海賊はこう叫んだ！俺が誰だかわかるか？銀河一恐れられている海賊トゥコだ！」。ロックマンたちは彼を無視して外に運び出す。</text>
 	<choice hidden="true">
-		<text>従う。</text>
+		<text>フォローする。</text>
 		<event>
-			<text>何をしようとしているのかわかりませんが、状況に興味があります。あなたは彼らを外で追いかけ、トゥコが黄色い海賊の絵の具で大きな巡洋艦に戻っているのを見ます。その後間もなく、船の電源が入り、武器がオンラインになり、カジノで発砲します。数隻の執行船が彼に会うために飛び出しますが、誰が戦いに勝つかは定かではありません。</text>
+			<text>どうするつもりなのかわからないが、この状況に興味が湧いた。外に出てみると、トゥコが黄色い海賊ペイントを施した大型クルーザーに向かっていくのが見えた。ほどなくして船がパワーアップし、武器がオンラインになると、彼はカジノに向かって発砲した！数隻の護衛艦がトゥコを迎え撃つが、どちらが勝つかわからない。</text>
 			<choice hidden="true">
-				<text>トゥコを助ける。</text>
+				<text>エイド・トゥコ</text>
 				<event>
-					<text>あなたは武器の電源を入れ、執行者の1人を正面から攻撃します。不審なことに、再び塗りつぶされた反乱軍の輸送機関のように見えますが、それは問題ではありません。</text>
+					<text>武器をパワーアップさせ、執行官の一人を正面から攻撃する。反乱軍の輸送機をペンキで塗り直したような不審な姿だが、そんなことはどうでもいい。</text>
 					<ship load="SHIP_CASINO" hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>カジノエンフォーサーを支援します。</text>
+				<text>カジノ・エンフォーサーズを支援する。</text>
 				<event>
-					<text>あなたがトゥコの攻撃からそれらを救うならば、あなたはカジノがあなたのために報酬を持っていると確信しています。</text>
+					<text>トゥコの攻撃からカジノを救えば、きっとカジノからご褒美がもらえるはずだ。</text>
 					<ship load="SHIP_TUCO" hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>もう行こう！</text>
+				<text>もう行こうよ！</text>
 				<event>
-					<text>ここであなたが望んでいたことは、今では無意味です。戦いがあなたに追いつくことができる前にあなたは去ります。</text>
+					<text>ここで何をしようと思っていたとしても、もう無意味だ。戦いが追いつく前に、あなたはその場を去る。</text>
 					<choice>
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice>
@@ -3314,11 +3314,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>まあ、去りましょう。</text>
+		<text>まあ、帰ろう。</text>
 		<event>
-			<text>ここであなたが望んでいたことは、今では無意味です。</text>
+			<text>ここで何をしようと思っていたとしても、もう無意味だ。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -3329,13 +3329,13 @@
 	</choice>
 </event>
 <event name="TUCO_WIN">   
-    <text>カジノの執行者は地面に向かって急降下します。残りの船は、トゥコがもはや唯一の脅威ではないことを見て、撤退します。ヨットの所有者は、あなたがそれ以上の損害を与えないことを約束した場合、あなたとトゥコの両方にかなりの金額と無料の飲み物を提供します。</text>
+    <text>カジノの執行官は地面に向かって急降下。他の船は、もはやトゥコだけが脅威ではないと判断し、撤退する。ヨットのオーナーは、これ以上損害を与えないと約束すれば、大金とタダ酒を差し出す。</text>
     <variable name="ach_boss_casino" op="set" val="1" />
 	<autoReward level="HIGH">standard</autoReward>
     <choice hidden="true">
-        <text>継続する...</text>
+        <text>次へ...</text>
         <event>
-            <text>スクラップを船に戻すと、トゥコは笑いました。 「あそこの子よ、いい戦いだ。自分でもっと上手くやることはできなかった。だから、何を言うか。私が個人的な巡洋艦と呼ぶのが恥ずかしいこのハンク・オ・ジャンクは、ずっと良い日を迎えた。だから、どうやって」試合私はあなたのかわいい船に乗って、あなたは私の好きなことを何でもします。」</text>
+            <text>トゥコはスクラップを自分の船に持ち帰りながら苦笑した。「いい戦いぶりだった。自分でもよくやったと思うよ。このガラクタは、俺のクルーザーと呼ぶには恥ずべき代物だ。だから、俺はあんたのその可愛い船にヒッチハイクして、あんたは俺の船を好きに使ってくれ」。</text>
 			<unlockCustomShip silent="false">PLAYER_SHIP_TUCO</unlockCustomShip>
 			<variable name="ach_crew_tuco" op="set" val="1" />
 			<crewMember amount="1" class="unique_tuco" combat="2">トゥコ</crewMember>
@@ -3343,12 +3343,12 @@
     </choice>
 </event>
 <event name="CASINO_WIN">   
-	<text>トゥコの巡洋艦の残骸が地面に激突し、破片に砕けて、おそらく数人が死亡します。とにかく、それはあなたが取るためのスクラップです。</text>
+	<text>トゥコのクルーザーの残骸が地面に激突し、粉々に砕け散った。いずれにせよ、スクラップだ。</text>
 	<autoReward level="HIGH">standard</autoReward>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>戦いで引き起こされたすべての損害にもかかわらず、ヨットの所有者はあなたの助けに非常に感謝しています。 「あの馬鹿は何年も常連で、彼はいつも問題を引き起こしている。彼がやってくるものを手に入れる時が来た。Pffft、恐ろしい海賊私のお尻。寛大な支払いとして、このスクラップといくつかのスロットマシンを受け入れてください！珍しい報酬についてどう思うかはわかりませんが、断るつもりはありません。</text>
+			<text>ケンカの被害が大きかったにもかかわらず、ヨットのオーナーはあなた方の協力に非常に感謝しています。「あのバカは何年も常連で、いつも問題を起こしている。そろそろ自業自得だ。プッ、ドレッド海賊め。気前のいい代償として、このスクラップとうちのスロットマシン数台を受け取ってくれ！"あなたは、その変わった報酬をどう思うかわからないが、断るつもりはないだろう。</text>
 			<unlockCustomShip silent="false">PLAYER_SHIP_TUCO_2</unlockCustomShip>
 			<variable name="ach_boss_tuco" op="set" val="1" />
 			<autoReward level="MED">scrap_only</autoReward>

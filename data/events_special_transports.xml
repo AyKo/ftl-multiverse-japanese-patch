@@ -1,28 +1,28 @@
 <FTL>
 	
 <event name="TRANSPORT_DESTROYED">
-	<text>あなたは輸送機関を破壊しましたが、その貨物は何も残っていません。がっかりして、あなたは船体の残りと浮かんでいるいくつかの物資をスクラップします。</text>
+	<text>輸送船を破壊したが、積荷は何も残っていない。落胆したあなたは、船体の残骸と周囲に漂うわずかな物資をスクラップにした。</text>
 	<autoReward level="MED">standard</autoReward>
 	<choice req="SCRAP_COLLECTOR">
-		<text>（スクラップアーム）アームを使用して余分なスクラップを収集します。</text>
+		<text>(スクラップ・アーム）アームを使って余分なスクラップを集める。</text>
 		<event>
 			<autoReward level="MED">scrap_only</autoReward>
 		</event>
 	</choice>
 	<choice req="DRONE_RECOVERY">
-		<text>（ドローンアーム）アームを使用して、余分なドローンパーツを収集します。</text>
+		<text>(ドローンアーム）アームを使い、余分なドローンのパーツを集める。</text>
 		<event>
 			<autoReward level="MED">droneparts_only</autoReward>
 		</event>
 	</choice>
 	<choice req="MAGNET_ARM">
-		<text>（マグネットアーム）マグネットを使用して、追加の消耗品を引き込みます。</text>
+		<text>(磁石アーム）磁石を使って余分な物資を引き寄せる。</text>
 		<event>
 			<autoReward level="LOW">stuff</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event />
 	</choice>
 </event>
@@ -30,7 +30,7 @@
 	
 <ship name="SHIP_UNION_TRANSPORT_LOOT" auto_blueprint="MU_UNION_TRANSPORT">
 	<escape timer="30" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -42,37 +42,37 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンは民間輸送機関をホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンは民間輸送船を受け入れている。何か特殊な技術を積んでいる可能性が高い。乗組員を殺せば、積荷はあなたのものになる。</text>
 	<ship load="SHIP_UNION_TRANSPORT_LOOT" hostile="false" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="MORALITY_UPDATE_UNION_FIGHT" />
 			</choice>
 		</event>
 	</choice>
 	<choice req="UNION_CREW_MORAL">
-        <text>（ユニオンエリート +良い評判）輸送と話します。</text>
+        <text>(ユニオンのエリート＋評判がいい）交通機関に相談する。</text>
         <event>
-            <text>乗組員は輸送船の船長に話しかけ、任務の重要性を説明します。輸送船の船長は理解しているようですが、彼らが運んでいる貨物は同じ任務に不可欠であると述べています.あなたが補償金を支払うつもりなら、彼らは喜んで例外を設けます。</text>
+            <text>クルーが輸送船の船長に話しかけ、任務の重要性を説明する。輸送船の船長は理解しているようだが、彼らが運んでいる貨物が同じミッションに不可欠であることにも言及する。報酬を払う気があるなら、例外を認めてくれるそうだ。</text>
             <choice>
-				<text>貨物を購入します。</text>
+				<text>貨物を買う。</text>
 				<event>
-					<text>取引は完了です。見た目からして、この装備は役に立つかもしれません。</text>
+					<text>取引は完了した。見たところ、この機材は役に立つかもしれない。</text>
 					<achievement>ACH_TRANS_CONVINCE</achievement>
 					<weapon name="LIST_LOOT_UNION" />
 					<item_modify>
 						<item type="scrap" min="-60" max="-45" />
 					</item_modify>
 					<choice>
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
 							<achievement>ACH_TRANS_UNION</achievement>
 						</event>
@@ -80,22 +80,22 @@
 				</event>
 			</choice>
 			<choice>
-				<text>転送を拒否して攻撃します。</text>
+				<text>輸送を拒否し、攻撃する。</text>
 				<event>
-					<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+					<text>あなたは力ずくで貨物を確保する準備をする。</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="MORALITY_UPDATE_UNION_FIGHT" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>もういいです。</text>
+				<text>気にするな。</text>
 				<event>
-					<text>輸送船長は肩をすくめて、道を進みます。</text>
+					<text>輸送船長は肩をすくめ、その道を進む。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -107,11 +107,11 @@
         </event>
     </choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -122,7 +122,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_UNION" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<weapon name="LIST_LOOT_UNION" />
 	<variable name="ach_trans_union" op="set" val="1" />
@@ -132,7 +132,7 @@
 	
 <ship name="SHIP_MILITIA_TRANSPORT_LOOT" auto_blueprint="MU_MILITIA_TRANSPORT">
 	<escape timer="30" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -144,37 +144,37 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンは、Militiaトランスポートをホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンは民兵の輸送船を受け入れている。何か特殊な技術を積んでいる可能性が高い。乗組員を殺せば、積荷はあなたのものになる。</text>
 	<ship load="SHIP_MILITIA_TRANSPORT_LOOT" hostile="false" />
     <choice>
-        <text>彼らの商品の降伏を要求する。</text>
+        <text>商品の引き渡しを要求する。</text>
         <event>
-            <text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+            <text>あなたは力ずくで貨物を確保する準備をする。</text>
             <ship hostile="true" />
             <choice hidden="true">
-                <text>継続する...</text>
+                <text>次へ...</text>
                 <event load="MORALITY_UPDATE_UNION_FIGHT" />
             </choice>
         </event>
     </choice>
 	<choice req="UNION_CREW_MORAL">
-        <text>（ユニオンエリート +良い評判）輸送と話します。</text>
+        <text>(ユニオンのエリート＋評判がいい）交通機関に相談する。</text>
         <event>
-            <text>乗組員は輸送船の船長に話しかけ、任務の重要性を説明します。輸送船の船長は理解しているようですが、彼らが運んでいる貨物は同じ任務に不可欠であると述べています.あなたが補償金を支払うつもりなら、彼らは喜んで例外を設けます。</text>
+            <text>クルーが輸送船の船長に話しかけ、任務の重要性を説明する。輸送船の船長は理解しているようだが、彼らが運んでいる貨物が同じミッションに不可欠であることにも言及する。報酬を払う気があるなら、例外を認めてくれるそうだ。</text>
             <choice>
-				<text>貨物を購入します。</text>
+				<text>貨物を買う。</text>
 				<event>
-					<text>取引は完了です。見た目からして、この装備は役に立つかもしれません。</text>
+					<text>取引は完了した。見たところ、この機材は役に立つかもしれない。</text>
 					<achievement>ACH_TRANS_CONVINCE</achievement>
 					<weapon name="LIST_LOOT_MILITIA" />
 					<item_modify>
 						<item type="scrap" min="-80" max="-65" />
 					</item_modify>
 					<choice>
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
 							<achievement>ACH_TRANS_MILITIA</achievement>
 						</event>
@@ -182,22 +182,22 @@
 				</event>
 			</choice>
 			<choice>
-				<text>転送を拒否して攻撃します。</text>
+				<text>輸送を拒否し、攻撃する。</text>
 				<event>
-					<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+					<text>あなたは力ずくで貨物を確保する準備をする。</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="MORALITY_UPDATE_UNION_FIGHT" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>もういいです。</text>
+				<text>気にするな。</text>
 				<event>
-					<text>輸送船長は肩をすくめて、道を進みます。</text>
+					<text>輸送船長は肩をすくめ、その道を進む。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -209,11 +209,11 @@
         </event>
     </choice>
     <choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -224,7 +224,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_MILITIA" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<weapon name="LIST_LOOT_MILITIA" />
 	<variable name="ach_trans_militia" op="set" val="1" />
@@ -234,7 +234,7 @@
 	
 <ship name="SHIP_FED_TRANSPORT_LOOT" auto_blueprint="MU_FED_TRANSPORT">
 	<escape timer="40" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -246,37 +246,37 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンは、フェデレーショントランスポートをホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンには 連邦の輸送船がいる何か特殊な技術を積んでいるはずだ。乗組員を殺せば 積荷は君のものだ</text>
    <ship load="SHIP_FED_TRANSPORT_LOOT" hostile="false" />
     <choice>
-        <text>彼らの商品の降伏を要求する。</text>
+        <text>商品の引き渡しを要求する。</text>
         <event>
-            <text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+            <text>あなたは力ずくで貨物を確保する準備をする。</text>
             <ship hostile="true" />
             <choice hidden="true">
-                <text>継続する...</text>
+                <text>次へ...</text>
                 <event load="MORALITY_UPDATE_GENERAL_FIGHT" />
             </choice>
         </event>
     </choice>
 	<choice req="FEDERATION_CREW_MORAL">
-        <text>(連邦エリート + 良い評判) トランスポートと話してください。</text>
+        <text>(連邦のエリート＋評判がいい）輸送船に話しかける。</text>
         <event>
-            <text>乗組員は輸送船の船長に話しかけ、任務の重要性を説明します。輸送船の船長は理解しているようですが、彼らが運んでいる貨物は同じ任務に不可欠であると述べています.あなたが補償金を支払うつもりなら、彼らは喜んで例外を設けます。</text>
+            <text>クルーが輸送船の船長に話しかけ、任務の重要性を説明する。輸送船の船長は理解しているようだが、彼らが運んでいる貨物が同じミッションに不可欠であることにも言及する。報酬を払う気があるなら、例外を認めてくれるそうだ。</text>
             <choice>
-				<text>貨物を購入します。</text>
+				<text>貨物を買う。</text>
 				<event>
-					<text>取引は完了です。見た目からして、この装備は役に立つかもしれません。</text>
+					<text>取引は完了した。見たところ、この機材は役に立つかもしれない。</text>
 					<achievement>ACH_TRANS_CONVINCE</achievement>
 					<weapon name="LIST_LOOT_FEDERATION" />
 					<item_modify>
 						<item type="scrap" min="-75" max="-60" />
 					</item_modify>
 					<choice>
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
 							<achievement>ACH_TRANS_FEDERATION</achievement>
 						</event>
@@ -284,22 +284,22 @@
 				</event>
 			</choice>
 			<choice>
-				<text>転送を拒否して攻撃します。</text>
+				<text>輸送を拒否し、攻撃する。</text>
 				<event>
-					<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+					<text>あなたは力ずくで貨物を確保する準備をする。</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="MORALITY_UPDATE_GENERAL_FIGHT" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>もういいです。</text>
+				<text>気にするな。</text>
 				<event>
-					<text>輸送船長は肩をすくめて、道を進みます。</text>
+					<text>輸送船長は肩をすくめ、その道を進む。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -311,11 +311,11 @@
         </event>
     </choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -326,7 +326,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_FEDERATION" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<weapon name="LIST_LOOT_FEDERATION" />
 	<variable name="ach_trans_fed" op="set" val="1" />
@@ -337,7 +337,7 @@
 	
 <ship name="SHIP_REBEL_TRANSPORT_LOOT" auto_blueprint="MU_REBEL_TRANSPORT">
 	<escape timer="40" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -349,28 +349,28 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンは、反乱軍の輸送機関をホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>反乱軍の輸送船だ何か特殊な技術を積んでいるはずだ。乗組員を殺せば 積荷は君のものだ</text>
 	<ship load="SHIP_REBEL_TRANSPORT_LOOT" hostile="false" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -381,7 +381,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_REBEL" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<weapon name="LIST_LOOT_REBEL" />
 	<variable name="ach_trans_rebel" op="set" val="1" />
@@ -391,7 +391,7 @@
 	
 <ship name="SHIP_JERRY_TRANSPORT_LOOT" auto_blueprint="MU_REBEL_TRANSPORT">
 	<escape timer="40" min="999" max="999">
-		<text>輸送はあなたのアプローチに怯えています。</text>
+		<text>輸送車はあなたの接近に怯えている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED_JERRY" />
@@ -403,20 +403,22 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>おなじみの輸送船が近くにあり、あなたは彼らの船長が乗組員の一人と話しているのを見つけます。「はい、私たちは重要な貨物をウェントワースエステートにまっすぐ持ち込むために運んでいます。あなたはすでにこれを知っています、なぜあなたは私に尋ねているのですか？私たちの話を聞いているのと同じシステムにありますか？それは悲惨です！」</text>
+	<text>見覚えのある輸送船が近くにいて、船長が乗組員のひとりと話しているのが聞こえた。「そう、ウェントワース邸に直接運ぶ重要な貨物を積んでいるんだ。なぜ私に尋ねる？連邦の船、それも我々をここまで追ってきた船が、たまたま同じ星系にいて、我々の話を聞いていたとしよう。悲惨なことになる！"</text>
 	<ship load="SHIP_JERRY_TRANSPORT_LOOT" hostile="false" />
 	<choice req="unique_jerry">
-        <text>ジェリーは乗船しています...彼のために何かありますか？</text>
+        <text>ジェリーは乗り気だ...彼に何かプレゼントはある？</text>
         <event>
-            <text>交通機関に乗って反乱軍はあなたの目に見えるようにパニックに陥っているようです。彼らのキャプテンはうなります。「私たちはそれを信じるように、あなたは...あなたは...」彼の表情は、ジェリーが実際にあなたの隣にいることに気付くと変化します。「ああ！ジェリー！まあ、これは驚きだったはずだったが...ある瞬間。」反対側の人々は急いで何かをセットアップします。最後に、繁栄することで、彼らは船の内部を明らかにし、パーティー用品で飾られています。「サプライズ！...すみません、見掛け倒しの仕事について、私たちは本当にすべての場所のセットアップをしなければならないとは思っていませんでした。</text>
+            <text>輸送船に乗っていた反乱軍は、あなたたちを見てパニックになったようだ。船長がうなる。"信じられるか、この野郎..."ジェリーがあなたの隣にいることに気づくと、彼の表情が変わる。「ジェリー！サプライズのつもりだったんだが......ちょっと待てよ」。相手は急いで何かを準備する。ついに、華々しく、パーティー用品で飾られた船内が姿を現す。"サプライズ！ ......手抜き工事で申し訳ない、よりによってこんなところで準備しなければならないとは本当に思っていなかったんだ。みんな、招待されているんだ！"</text>
             
 			<choice hidden="true">
-                <text>継続する...</text>
+                <text>次へ...</text>
                 <event>
-                    <text>ジェリーを含むあなたとあなたの乗組員は、彼らが奉仕している食事を手伝います。短いおやつの後、反乱軍はジェリーに巨大な箱の山を運びます。「あなたのために、ウェントワース！」ほとんどの箱には、セーター、ボードゲーム、誕生日カード、巨大な大砲などが含まれています。「ジェリー、あなたがそれを気に入ってくれることを願っています！」</text>
+                    <text>ジェリーを含むクルーたちは、彼らが出す食事に舌鼓を打つ。しばらく軽食をとった後、反乱軍兵士たちが巨大な箱の山をジェリーに運ぶ。「ウェントワース、君に！」。ほとんどの箱には、セーター、ボードゲーム、誕生日カード、巨大な大砲などが入っている。「ジェリー、気に入ってくれるといいんだけど」
+
+ジェリーは微笑んでうなずいたが、すべてに少し圧倒されているようだった。</text>
                     <weapon name="HORSE_GUN" />
 					<achievement>ACH_TRANS_JERRY</achievement>
                 </event>
@@ -424,22 +426,22 @@
         </event>
     </choice>
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたに会うと、反乱軍の船長はタバコを吐き出します。 「あなたは私をからかっていますか？！これは一体何なのか、ローグライクRNGですか？男性、銃を武装させてください、私たちは問題を抱えています！」</text>
+			<text>あなたを見て、反乱軍のキャプテンはタバコを吐き出した。「ふざけてるのか？なんだこれは、ローグライクRNGか？みんな、銃を構えろ、大変だ！"</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="MORALITY_UPDATE_JERRY_FIGHT" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>検出範囲外にとどまると、最終的にトランスポートがジャンプします。</text>
+            <text>あなたは探知範囲外に留まり、やがて輸送機は飛び去る。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -450,40 +452,40 @@
     </choice>
 </event>
 <event name="TRANSPORT_DESTROYED_JERRY" unique="true">
-	<text>「表現できません...どれだけあなたが嫌いなのか...まあ、誕生日のサプライズを台無しにする価値があったと思います...」彼が「誕生日のサプライズ」とはどういう意味かはよくわかりませんが、貨物を使って破壊された船のことを知る方法はありません。</text>
+	<text>"表現できない...どれだけ君が嫌いか...まあ、誕生日のサプライズを台無しにする価値はあったかな..."バースデー・サプライズ」の意味がよくわからないが、船の積荷が破壊されている以上、それを知る術はない。</text>
 	<autoReward level="MED">standard</autoReward>
 	<choice req="SCRAP_COLLECTOR">
-		<text>（スクラップアーム）アームを使用して余分なスクラップを収集します。</text>
+		<text>(スクラップ・アーム）アームを使って余分なスクラップを集める。</text>
 		<event>
 			<autoReward level="MED">scrap_only</autoReward>
 		</event>
 	</choice>
 	<choice req="DRONE_RECOVERY">
-		<text>（ドローンアーム）アームを使用して、余分なドローンパーツを収集します。</text>
+		<text>(ドローンアーム）アームを使い、余分なドローンのパーツを集める。</text>
 		<event>
 			<autoReward level="MED">droneparts_only</autoReward>
 		</event>
 	</choice>
 	<choice req="MAGNET_ARM">
-		<text>（マグネットアーム）マグネットを使用して、追加の消耗品を引き込みます。</text>
+		<text>(磁石アーム）磁石を使って余分な物資を引き寄せる。</text>
 		<event>
 			<autoReward level="LOW">stuff</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event />
 	</choice>
 </event>
 <event name="TRANSPORT_CAPTURE_JERRY" unique="true">
-	<text>「表現できません...どれだけあなたが嫌いなのか...まあ、誕生日のサプライズを台無しにする価値があったといいのですが...」</text>
+	<text>"表現できない...どれだけ君が嫌いか...まあ、誕生日のサプライズを台無しにする価値はあったかな..."</text>
 	<autoReward level="HIGH">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_JERRY</achievement>
 	<variable name="ach_trans_jerry" op="set" val="1" />
 	<choice hidden="true">
-		<text>貨物を開きます。</text>
+		<text>カーゴを開ける。</text>
 		<event>
-			<text>あなたはカーゴベイのドアをこじ開けますが、中身に完全に混乱しています。武器はほとんどなく、ニットセーターの箱、明るくカラフルなカード、風船、そして非常に奇妙に見える大砲があります。部屋の中で唯一の遠隔軍のようなものなので、あなたはそれを壁から外します、しかしあなたの失望にそれはそれが発火するようです...ぬいぐるみ...？</text>
+			<text>貨物室のドアをこじ開けるが、中に何が入っているのかまったくわからない。武器はほとんどなく、むしろニットのセーターの箱、明るくカラフルなカード、風船、そしてとても奇妙な形をした大砲がある。部屋の中で唯一、軍隊っぽいものだったので、壁から取ってみたが、がっかりしたことに、それはぬいぐるみを発射するものだった。</text>
 			<weapon name="HORSE_GUN" />
 		</event>
 	</choice>
@@ -492,7 +494,7 @@
 	
 <ship name="SHIP_AUTO_TRANSPORT_LOOT" auto_blueprint="MU_AUTO_TRANSPORT">
 	<escape timer="40" min="999" max="999">
-		<text>自動輸送は戦闘を回避するために配線されていたようです。逃げようとしている！</text>
+		<text>どうやらオート・トランスポートは戦闘を避けるように設計されているようだ。逃げようとしている！</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_CAPTURE_AUTO" />
@@ -503,28 +505,28 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-    <text>このビーコンは、自動輸送船をホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそれを破壊することができれば、彼らの貨物はあなたのものになります。</text>
+    <text>このビーコンには自動輸送船が停泊している。この船は何か特殊な技術を積んでいる可能性が高い。それを破壊できれば、彼らの積荷はあなたのものになる。</text>
     <ship load="SHIP_AUTO_TRANSPORT_LOOT" hostile="false" />
     <choice>
-        <text>彼らの貨物をキャプチャします。</text>
+        <text>貨物を捕獲せよ。</text>
         <event>
-            <text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+            <text>あなたは力ずくで貨物を確保する準備をする。</text>
             <ship hostile="true" />
             <choice hidden="true">
-                <text>継続する...</text>
+                <text>次へ...</text>
                 <event load="COMBAT_CHECK" />
             </choice>
         </event>
     </choice>
     <choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -535,7 +537,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_AUTO" unique="true">
-	<text>幸いなことに、輸送の貨物は重大な船体の故障に耐えるように設計されていました。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>幸運なことに、輸送船の積荷は船体の致命的な故障にも耐えられるように設計されていた。あなたが期待した特殊技術が積まれており、それを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_AUTO</achievement>
 	<drone name="LIST_LOOT_AUTO" />
@@ -545,7 +547,7 @@
 	
 <ship name="SHIP_ESTATE_TRANSPORT_LOOT" auto_blueprint="MU_ESTATE_CARGO">
 	<escape timer="40" min="999" max="999">
-		<text>自動輸送は戦闘を回避するために配線されていたようです。逃げようとしている！</text>
+		<text>どうやらオート・トランスポートは戦闘を避けるように設計されているようだ。逃げようとしている！</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_CAPTURE_ESTATE" />
@@ -556,28 +558,28 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-    <text>このビーコンは、ウェントワースイノベーション貨物船をホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそれを破壊することができれば、彼らの貨物はあなたのものになります。</text>
+    <text>このビーコンには、ウェントワース・イノベーションの貨物船が停泊している。この船は何か特別な技術を積んでいる可能性が高い。それを破壊できれば、彼らの積荷はあなたのものになる。</text>
     <ship load="SHIP_ESTATE_TRANSPORT_LOOT" hostile="false" />
 	<choice>
-        <text>彼らの貨物をキャプチャします。</text>
+        <text>貨物を捕獲せよ。</text>
         <event>
-            <text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+            <text>あなたは力ずくで貨物を確保する準備をする。</text>
             <ship hostile="true" />
             <choice hidden="true">
-                <text>継続する...</text>
+                <text>次へ...</text>
                 <event load="COMBAT_CHECK" />
             </choice>
         </event>
     </choice>
     <choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -588,7 +590,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_ESTATE" unique="true">
-	<text>幸いなことに、輸送の貨物は重大な船体の故障に耐えるように設計されていました。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>幸運なことに、輸送船の積荷は船体の致命的な故障にも耐えられるように設計されていた。あなたが期待した特殊技術が積まれており、それを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_ESTATE</achievement>
 	<drone name="LIST_LOOT_ESTATE" />
@@ -599,7 +601,7 @@
 
 <ship name="SHIP_ENGI_TRANSPORT_LOOT" auto_blueprint="MU_ENGI_TRANSPORT">
 	<escape timer="30" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -611,37 +613,37 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンは、エンギトランスポートをホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンにはエンジの輸送船がいる。何か特殊な技術を積んでいる可能性が高い。乗組員を殺せば、積荷はあなたのものになる。</text>
 	<ship load="SHIP_ENGI_TRANSPORT_LOOT" hostile="false" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="MORALITY_UPDATE_ENGI_FIGHT" />
 			</choice>
 		</event>
 	</choice>
 	<choice req="ENGI_CREW_MORAL">
-        <text>(Harmony Elite + Good Reputation) トランスポートに話しかけます。</text>
+        <text>(ハーモニーエリート＋良い評判）輸送車に話しかける。</text>
         <event>
-            <text>乗組員は輸送船の船長に話しかけ、任務の重要性を説明します。輸送船の船長は理解しているようですが、彼らが運んでいる貨物は同じ任務に不可欠であると述べています.あなたが補償金を支払うつもりなら、彼らは喜んで例外を設けます。</text>
+            <text>クルーが輸送船の船長に話しかけ、任務の重要性を説明する。輸送船の船長は理解しているようだが、彼らが運んでいる貨物が同じミッションに不可欠であることにも言及する。報酬を払う気があるなら、例外を認めてくれるそうだ。</text>
             <choice>
-				<text>貨物を購入します。</text>
+				<text>貨物を買う。</text>
 				<event>
-					<text>取引は完了です。見た目からして、この装備は役に立つかもしれません。</text>
+					<text>取引は完了した。見たところ、この機材は役に立つかもしれない。</text>
 					<achievement>ACH_TRANS_CONVINCE</achievement>
 					<drone name="LIST_LOOT_ENGI" />
 					<item_modify>
 						<item type="scrap" min="-60" max="-45" />
 					</item_modify>
 					<choice>
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
 							<achievement>ACH_TRANS_HARMONY</achievement>
 						</event>
@@ -649,22 +651,22 @@
 				</event>
 			</choice>
 			<choice>
-				<text>転送を拒否して攻撃します。</text>
+				<text>輸送を拒否し、攻撃する。</text>
 				<event>
-					<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+					<text>あなたは力ずくで貨物を確保する準備をする。</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="MORALITY_UPDATE_ENGI_FIGHT" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>もういいです。</text>
+				<text>気にするな。</text>
 				<event>
-					<text>輸送船長は肩をすくめて、道を進みます。</text>
+					<text>輸送船長は肩をすくめ、その道を進む。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -676,11 +678,11 @@
         </event>
     </choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -691,7 +693,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_ENGI" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_HARMONY</achievement>
 	<drone name="LIST_LOOT_ENGI" />
@@ -702,7 +704,7 @@
 
 <ship name="SHIP_SEPARATIST_TRANSPORT_LOOT" auto_blueprint="LIST_SHIPS_SEPARATIST_TRANSPORT">
 	<escape timer="30" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -714,28 +716,28 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンは、分離主義者の輸送をホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンに分離主義者の輸送船があるこの船が特別な技術を積んでる可能性が高い。乗組員を殺せば、積荷があなたのものになる</text>
 	<ship load="SHIP_SEPARATIST_TRANSPORT_LOOT" hostile="false" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -746,7 +748,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_SEPARATIST" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_SEPARATIST</achievement>
 	<drone name="LIST_LOOT_SEPARATIST" />
@@ -757,7 +759,7 @@
 
 <ship name="SHIP_ZOLTAN_TRANSPORT_LOOT" auto_blueprint="MU_ZOLTAN_TRANSPORT">
 	<escape timer="40" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -769,37 +771,37 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンは、ゾルタントランスポートをホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンにはゾルタンの輸送船がいる。何か特殊な技術を積んでいる可能性が高い。乗組員を殺せば、積荷はあなたのものになる。</text>
 	<ship load="SHIP_ZOLTAN_TRANSPORT_LOOT" hostile="false" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
 			</choice>
 		</event>
 	</choice>
 	<choice req="ZOLTAN_CREW_MORAL">
-        <text>(省庁エリート + 評判が良い) トランスポートに話しかける。</text>
+        <text>(省エリート＋評判が良い）交通機関に相談する。</text>
         <event>
-            <text>乗組員は輸送船の船長に話しかけ、任務の重要性を説明します。輸送船の船長は理解しているようですが、彼らが運んでいる貨物は同じ任務に不可欠であると述べています.あなたが補償金を支払うつもりなら、彼らは喜んで例外を設けます。</text>
+            <text>クルーが輸送船の船長に話しかけ、任務の重要性を説明する。輸送船の船長は理解しているようだが、彼らが運んでいる貨物が同じミッションに不可欠であることにも言及する。報酬を払う気があるなら、例外を認めてくれるそうだ。</text>
             <choice>
-				<text>貨物を購入します。</text>
+				<text>貨物を買う。</text>
 				<event>
-					<text>取引は完了です。見た目からして、この装備は役に立つかもしれません。</text>
+					<text>取引は完了した。見たところ、この機材は役に立つかもしれない。</text>
 					<achievement>ACH_TRANS_CONVINCE</achievement>
 					<weapon name="LIST_LOOT_ZOLTAN" />
 					<item_modify>
 						<item type="scrap" min="-70" max="-55" />
 					</item_modify>
 					<choice>
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
 							<achievement>ACH_TRANS_ZOLTAN</achievement>
 						</event>
@@ -807,22 +809,22 @@
 				</event>
 			</choice>
 			<choice>
-				<text>転送を拒否して攻撃します。</text>
+				<text>輸送を拒否し、攻撃する。</text>
 				<event>
-					<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+					<text>あなたは力ずくで貨物を確保する準備をする。</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>もういいです。</text>
+				<text>気にするな。</text>
 				<event>
-					<text>輸送船長は肩をすくめて、道を進みます。</text>
+					<text>輸送船長は肩をすくめ、その道を進む。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -834,11 +836,11 @@
         </event>
     </choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -849,7 +851,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_ZOLTAN" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_ZOLTAN</achievement>
 	<weapon name="LIST_LOOT_ZOLTAN" />
@@ -858,7 +860,7 @@
 	
 <ship name="SHIP_DUSKBRINGER_TRANSPORT_LOOT" auto_blueprint="MU_DUSK_TRANSPORT">
 	<escape timer="40" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -870,28 +872,28 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンは、ダスクブリンガートランスポートをホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンにはダスクブリンガーの輸送船がいる。この船は何か特殊な技術を積んでいる可能性が高い。乗組員を殺せば、積荷はあなたのものになる。</text>
     <ship load="SHIP_DUSKBRINGER_TRANSPORT_LOOT" hostile="false" />
 	<choice>
-        <text>彼らの商品の降伏を要求する。</text>
+        <text>商品の引き渡しを要求する。</text>
         <event>
-            <text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+            <text>あなたは力ずくで貨物を確保する準備をする。</text>
             <ship hostile="true" />
             <choice hidden="true">
-                <text>継続する...</text>
+                <text>次へ...</text>
                 <event load="COMBAT_CHECK" />
             </choice>
         </event>
     </choice>
     <choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
             <choice hidden="true">
-                <text>船に乗って何かする。</text>
+                <text>船内で何かをする。</text>
                 <event load="STORAGE_CHECK" />
             </choice>
             <choice hidden="true">
@@ -902,7 +904,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_DUSKBRINGER" unique="true">
-    <text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+    <text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
     <autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_DUSKBRINGER</achievement>
     <weapon name="LIST_LOOT_DUSKBRINGER" />
@@ -912,7 +914,7 @@
 	
 <ship name="SHIP_MANTIS_TRANSPORT_LOOT" auto_blueprint="MU_MANTIS_TRANSPORT">
 	<escape timer="40" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -928,28 +930,28 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンはマンティストランスポートをホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンにはマンティスの輸送船がいる。何か特殊な技術を積んでいる可能性が高い。乗組員を殺せば、積荷はあなたのものになる。</text>
 	<ship load="SHIP_MANTIS_TRANSPORT_LOOT" hostile="false" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -960,7 +962,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_MANTIS" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_MANTIS</achievement>
 	<weapon name="LIST_LOOT_MANTIS" />
@@ -970,7 +972,7 @@
 	
 <ship name="SHIP_FREEMANTIS_TRANSPORT_LOOT" auto_blueprint="MU_FREEMANTIS_TRANSPORT_ELITE">
 	<escape timer="40" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -986,37 +988,37 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンは、フリーマンティストランスポートをホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンにはフリーマンティスの輸送船がいる。何か特殊な技術を積んでいる可能性が高い。乗組員を殺せば、積荷はあなたのものになる。</text>
 	<ship load="SHIP_FREEMANTIS_TRANSPORT_LOOT" hostile="false" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="MORALITY_UPDATE_FREEMANTIS_FIGHT" />
 			</choice>
 		</event>
 	</choice>
 	<choice req="FREEMANTIS_CREW_MORAL">
-        <text>(無料の Mantis Elite + Good Reputation) トランスポートに話しかけます。</text>
+        <text>(無料のマンティスエリート＋良い評判)トランスポートに話しかける。</text>
         <event>
-            <text>乗組員は輸送船の船長に話しかけ、任務の重要性を説明します。輸送船の船長は理解しているようですが、彼らが運んでいる貨物は同じ任務に不可欠であると述べています.あなたが補償金を支払うつもりなら、彼らは喜んで例外を設けます。</text>
+            <text>クルーが輸送船の船長に話しかけ、任務の重要性を説明する。輸送船の船長は理解しているようだが、彼らが運んでいる貨物が同じミッションに不可欠であることにも言及する。報酬を払う気があるなら、例外を認めてくれるそうだ。</text>
             <choice>
-				<text>貨物を購入します。</text>
+				<text>貨物を買う。</text>
 				<event>
-					<text>取引は完了です。見た目からして、この装備は役に立つかもしれません。</text>
+					<text>取引は完了した。見たところ、この機材は役に立つかもしれない。</text>
 					<achievement>ACH_TRANS_CONVINCE</achievement>
 					<weapon name="LIST_LOOT_FREEMANTIS" />
 					<item_modify>
 						<item type="scrap" min="-55" max="-40" />
 					</item_modify>
 					<choice>
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
 							<achievement>ACH_TRANS_FREEMANTIS</achievement>
 						</event>
@@ -1024,22 +1026,22 @@
 				</event>
 			</choice>
 			<choice>
-				<text>転送を拒否して攻撃します。</text>
+				<text>輸送を拒否し、攻撃する。</text>
 				<event>
-					<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+					<text>あなたは力ずくで貨物を確保する準備をする。</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="MORALITY_UPDATE_FREEMANTIS_FIGHT" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>もういいです。</text>
+				<text>気にするな。</text>
 				<event>
-					<text>輸送船長は肩をすくめて、道を進みます。</text>
+					<text>輸送船長は肩をすくめ、その道を進む。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -1051,11 +1053,11 @@
         </event>
     </choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1066,7 +1068,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_FREEMANTIS" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_FREEMANTIS</achievement>
 	<weapon name="LIST_LOOT_FREEMANTIS" />
@@ -1076,7 +1078,7 @@
 	
 <ship name="SHIP_ORCHID_TRANSPORT_LOOT" auto_blueprint="MU_ORCHID_TRANSPORT">
 	<escape timer="40" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -1088,37 +1090,37 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンは、集会輸送をホストしています。船が特別な技術を運んでいる可能性が最も高いことは安全です。あなたがその乗組員を殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンにはギャザリングの輸送船がいる。この船は何か特別な技術を積んでいる可能性が高い。乗組員を殺せば、積荷はあなたのものになる。</text>
 	<ship load="SHIP_ORCHID_TRANSPORT_LOOT" hostile="false" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="MORALITY_UPDATE_ORCHID_FIGHT" />
 			</choice>
 		</event>
 	</choice>
 	<choice req="ORCHID_CREW_MORAL">
-        <text>(エリートの収集 + 良い評判) トランスポートに話しかけます。</text>
+        <text>(エリートを集める＋評判が良い)輸送車に話しかける。</text>
         <event>
-            <text>乗組員は輸送船の船長に話しかけ、任務の重要性を説明します。輸送船の船長は理解しているようですが、彼らが運んでいる貨物は同じ任務に不可欠であると述べています.あなたが補償金を支払うつもりなら、彼らは喜んで例外を設けます。</text>
+            <text>クルーが輸送船の船長に話しかけ、任務の重要性を説明する。輸送船の船長は理解しているようだが、彼らが運んでいる貨物が同じミッションに不可欠であることにも言及する。報酬を払う気があるなら、例外を認めてくれるそうだ。</text>
             <choice>
-				<text>貨物を購入します。</text>
+				<text>貨物を買う。</text>
 				<event>
-					<text>取引は完了です。見た目からして、この装備は役に立つかもしれません。</text>
+					<text>取引は完了した。見たところ、この機材は役に立つかもしれない。</text>
 					<achievement>ACH_TRANS_CONVINCE</achievement>
 					<weapon name="LIST_LOOT_ORCHID" />
 					<item_modify>
 						<item type="scrap" min="-75" max="-60" />
 					</item_modify>
 					<choice>
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
 							<achievement>ACH_TRANS_ORCHID</achievement>
 						</event>
@@ -1126,22 +1128,22 @@
 				</event>
 			</choice>
 			<choice>
-				<text>転送を拒否して攻撃します。</text>
+				<text>輸送を拒否し、攻撃する。</text>
 				<event>
-					<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+					<text>あなたは力ずくで貨物を確保する準備をする。</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="MORALITY_UPDATE_ORCHID_FIGHT" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>もういいです。</text>
+				<text>気にするな。</text>
 				<event>
-					<text>輸送船長は肩をすくめて、道を進みます。</text>
+					<text>輸送船長は肩をすくめ、その道を進む。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -1153,11 +1155,11 @@
         </event>
     </choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1168,7 +1170,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_ORCHID" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_ORCHID</achievement>
 	<weapon name="LIST_LOOT_ORCHID" />
@@ -1178,7 +1180,7 @@
 	
 <ship name="SHIP_VAMPWEED_TRANSPORT_LOOT" auto_blueprint="MU_VAMPWEED_TRANSPORT">
 	<escape timer="40" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -1190,37 +1192,37 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンは南軍の輸送をホストしています。船が特別な技術を運んでいる可能性が最も高いことは安全です。あなたがその乗組員を殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンには南軍の輸送船がいる。何か特殊な技術を積んでいる可能性が高い。乗組員を殺せば、積荷はあなたのものになる。</text>
 	<ship load="SHIP_VAMPWEED_TRANSPORT_LOOT" hostile="false" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="MORALITY_UPDATE_VAMPWEED_FIGHT" />
 			</choice>
 		</event>
 	</choice>
 	<choice req="VAMPWEED_CREW_MORAL">
-        <text>（南軍のエリート +良い評判）輸送に話しかけます。</text>
+        <text>(南軍のエリート＋評判がいい）輸送船に話しかける。</text>
         <event>
-            <text>あなたの乗組員は、あなたの使命の重要性を説明し、交通機関の船長に話しかけます。輸送の船長は理解しているようですが、彼らが運んでいる貨物は自国にとって不可欠です。あなたが補償で支払うことをいとわないなら、彼らは例外を作ることをいとわない。</text>
+            <text>クルーは輸送船の船長に話しかけ、任務の重要性を説明する。輸送船の船長は理解しているようだが、彼らが運んでいる貨物が自国にとって重要であることも述べている。報酬を支払う気があるなら、例外を認めてくれるそうだ。</text>
             <choice>
-				<text>貨物を購入します。</text>
+				<text>貨物を買う。</text>
 				<event>
-					<text>取引は完了です。見た目からして、この装備は役に立つかもしれません。</text>
+					<text>取引は完了した。見たところ、この機材は役に立つかもしれない。</text>
 					<achievement>ACH_TRANS_CONVINCE</achievement>
 					<weapon name="LIST_LOOT_VAMPWEED" />
 					<item_modify>
 						<item type="scrap" min="-75" max="-60" />
 					</item_modify>
 					<choice>
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
 							<achievement>ACH_TRANS_VAMPWEED</achievement>
 						</event>
@@ -1228,22 +1230,22 @@
 				</event>
 			</choice>
 			<choice>
-				<text>転送を拒否して攻撃します。</text>
+				<text>輸送を拒否し、攻撃する。</text>
 				<event>
-					<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+					<text>あなたは力ずくで貨物を確保する準備をする。</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="MORALITY_UPDATE_VAMPWEED_FIGHT" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>もういいです。</text>
+				<text>気にするな。</text>
 				<event>
-					<text>輸送船長は肩をすくめて、道を進みます。</text>
+					<text>輸送船長は肩をすくめ、その道を進む。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -1255,11 +1257,11 @@
         </event>
     </choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1270,7 +1272,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_VAMPWEED" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_VAMPWEED</achievement>
 	<weapon name="LIST_LOOT_VAMPWEED" />
@@ -1280,7 +1282,7 @@
 	
 <ship name="SHIP_CRYSTAL_TRANSPORT_LOOT" auto_blueprint="MU_CRYSTAL_TRANSPORT">
 	<escape timer="40" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -1292,37 +1294,37 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンはCrystalトランスポートをホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンにはクリスタルの輸送船がいる。何か特殊な技術を積んでいる可能性が高い。乗組員を殺せば、積荷はあなたのものになる。</text>
 	<ship load="SHIP_CRYSTAL_TRANSPORT_LOOT" hostile="false" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="MORALITY_UPDATE_CRYSTAL_FIGHT" />
 			</choice>
 		</event>
 	</choice>
 	<choice req="CRYSTAL_CREW_MORAL">
-        <text>(帝国エリート + 評判が良い) トランスポートに話しかける。</text>
+        <text>(帝国のエリート＋評判が良い）輸送車に話しかける。</text>
         <event>
-            <text>乗組員は輸送船の船長に話しかけ、任務の重要性を説明します。輸送船の船長は理解しているようですが、彼らが運んでいる貨物は同じ任務に不可欠であると述べています.あなたが補償金を支払うつもりなら、彼らは喜んで例外を設けます。</text>
+            <text>クルーが輸送船の船長に話しかけ、任務の重要性を説明する。輸送船の船長は理解しているようだが、彼らが運んでいる貨物が同じミッションに不可欠であることにも言及する。報酬を払う気があるなら、例外を認めてくれるそうだ。</text>
             <choice>
-				<text>貨物を購入します。</text>
+				<text>貨物を買う。</text>
 				<event>
-					<text>取引は完了です。見た目からして、この装備は役に立つかもしれません。</text>
+					<text>取引は完了した。見たところ、この機材は役に立つかもしれない。</text>
 					<achievement>ACH_TRANS_CONVINCE</achievement>
 					<weapon name="LIST_LOOT_CRYSTAL" />
 					<item_modify>
 						<item type="scrap" min="-75" max="-60" />
 					</item_modify>
 					<choice>
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
 							<achievement>ACH_TRANS_CRYSTAL</achievement>
 						</event>
@@ -1330,22 +1332,22 @@
 				</event>
 			</choice>
 			<choice>
-				<text>転送を拒否して攻撃します。</text>
+				<text>輸送を拒否し、攻撃する。</text>
 				<event>
-					<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+					<text>あなたは力ずくで貨物を確保する準備をする。</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="MORALITY_UPDATE_CRYSTAL_FIGHT" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>もういいです。</text>
+				<text>気にするな。</text>
 				<event>
-					<text>輸送船長は肩をすくめて、道を進みます。</text>
+					<text>輸送船長は肩をすくめ、その道を進む。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -1357,11 +1359,11 @@
         </event>
     </choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1372,7 +1374,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_CRYSTAL" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_CRYSTAL</achievement>
 	<weapon name="LIST_LOOT_CRYSTAL" />
@@ -1382,7 +1384,7 @@
 	
 <ship name="SHIP_ROCK_TRANSPORT_LOOT" auto_blueprint="MU_ROCK_TRANSPORT">
 	<escape timer="40" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -1394,28 +1396,28 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンはロックトランスポートをホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンにはロック輸送船がいる。この船は何か特殊な技術を積んでいる可能性が高い。乗組員を殺せば、その積荷はあなたのものになる。</text>
 	<ship load="SHIP_ROCK_TRANSPORT_LOOT" hostile="false" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1426,7 +1428,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_ROCK" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_ROCK</achievement>
 	<weapon name="LIST_LOOT_ROCK" />
@@ -1436,7 +1438,7 @@
 	
 <ship name="SHIP_LOSTSUN_TRANSPORT_LOOT" auto_blueprint="MU_LOSTSUN_TRANSPORT">
 	<escape timer="40" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -1452,28 +1454,28 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンは、LostSunトランスポートをホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンにはロストサンの輸送船がいる。この船は何か特別な技術を積んでいる可能性が高い。乗組員を殺せば、積荷はあなたのものになる。</text>
 	<ship load="SHIP_LOSTSUN_TRANSPORT_LOOT" hostile="false" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1484,7 +1486,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_LOSTSUN" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_LOSTSUN</achievement>
 	<weapon name="LIST_LOOT_LOSTSUN" />
@@ -1494,7 +1496,7 @@
 	
 <ship name="SHIP_SLUG_TRANSPORT_LOOT" auto_blueprint="MU_SLUG_TRANSPORT">
 	<escape timer="40" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -1506,29 +1508,29 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンはスラッグトランスポートをホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンにはスラッグ輸送船がいる。この船は何か特殊な技術を積んでいる可能性が高い。乗組員を殺せば、積荷はあなたのものになる。</text>
 	<ship load="SHIP_SLUG_TRANSPORT_LOOT" hostile="false" />
 	<environment type="nebula" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1539,7 +1541,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_SLUG" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_SLUG</achievement>
 	<weapon name="LIST_LOOT_SLUG" />
@@ -1549,7 +1551,7 @@
 	
 <ship name="SHIP_KNIGHT_TRANSPORT_LOOT" auto_blueprint="MU_KNIGHT_TRANSPORT">
 	<escape timer="40" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -1561,29 +1563,29 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンはナイトトランスポートをホストしています。船が特別な技術を運んでいる可能性が最も高いことは安全です。あなたがその乗組員を殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンにはナイトの輸送船がいる。何か特殊な技術を積んでいる可能性が高い。乗組員を殺せば、積荷はあなたのものになる。</text>
 	<ship load="SHIP_KNIGHT_TRANSPORT_LOOT" hostile="false" />
 	<environment type="nebula" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1594,7 +1596,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_KNIGHT" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_KNIGHT</achievement>
 	<weapon name="LIST_LOOT_KNIGHT" />
@@ -1604,7 +1606,7 @@
 	
 <ship name="SHIP_LEECH_TRANSPORT_LOOT" auto_blueprint="MU_LEECH_TRANSPORT">
 	<escape timer="40" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -1616,29 +1618,29 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンは、リーチトランスポートをホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンにはリーチ輸送船がいる。この船は何か特別な技術を積んでいる可能性が高い。乗組員を殺せば、積荷はあなたのものになる。</text>
 	<ship load="SHIP_LEECH_TRANSPORT_LOOT" hostile="false" />
 	<environment type="nebula" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1649,7 +1651,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_LEECH" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_LEECH</achievement>
 	<weapon name="LIST_LOOT_LEECH" />
@@ -1659,7 +1661,7 @@
 	
 <ship name="SHIP_HEKTAR_TRANSPORT_LOOT" auto_blueprint="MU_HEKTAR_TRANSPORT">
 	<escape timer="40" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -1671,29 +1673,29 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンは、トランスポートをホストします。船がモジュラー技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンには ヘクター輸送船がいるモジュール技術を積んでいる可能性が高い。乗組員を殺せば 積荷は君のものだ</text>
 	<ship load="SHIP_HEKTAR_TRANSPORT_LOOT" hostile="false" />
 	<environment type="nebula" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1704,7 +1706,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_HEKTAR" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。船に乗っているのは、あなたが期待していたモジュラー技術であり、あなたはそれを船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していたモジュール技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_HEKTAR</achievement>
 	<weapon name="MODULE_COOLDOWN" />
@@ -1714,7 +1716,7 @@
 	
 <ship name="SHIP_CLAN_TRANSPORT_LOOT" auto_blueprint="MU_CLAN_HAULER">
 	<escape timer="40" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -1730,29 +1732,29 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンはクラントランスポートをホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンにはクランの輸送船がいる。何か特殊な技術を積んでいる可能性が高い。乗組員を殺せば、積荷はあなたのものになる。</text>
 	<ship load="SHIP_CLAN_TRANSPORT_LOOT" hostile="false" />
 	<environment type="nebula" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1763,7 +1765,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_CLAN" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_CLAN</achievement>
 	<weapon name="LIST_LOOT_CLAN" />
@@ -1773,7 +1775,7 @@
 	
 <ship name="SHIP_SHELL_TRANSPORT_LOOT" auto_blueprint="MU_SHELL_TRANSPORT">
 	<escape timer="40" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -1785,38 +1787,38 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンはシェルトランスポートをホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンにはシェル輸送船がいる。この船は何か特殊な技術を積んでいる可能性が高い。乗組員を殺せば、積荷はあなたのものになる。</text>
 	<ship load="SHIP_SHELL_TRANSPORT_LOOT" hostile="false" />
 	<environment type="nebula" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="MORALITY_UPDATE_SHELL_FIGHT" />
 			</choice>
 		</event>
 	</choice>
 	<choice req="SHELL_CREW_MORAL">
-        <text>(Geniocracy Elite + Good Reputation) トランスポートに話しかけます。</text>
+        <text>(ジェニオクラシー・エリート＋良い評判)トランスポートに話しかける。</text>
         <event>
-            <text>乗組員は輸送船の船長に話しかけ、任務の重要性を説明します。輸送船の船長は理解しているようですが、彼らが運んでいる貨物は同じ任務に不可欠であると述べています.あなたが補償金を支払うつもりなら、彼らは喜んで例外を設けます。</text>
+            <text>クルーが輸送船の船長に話しかけ、任務の重要性を説明する。輸送船の船長は理解しているようだが、彼らが運んでいる貨物が同じミッションに不可欠であることにも言及する。報酬を払う気があるなら、例外を認めてくれるそうだ。</text>
             <choice>
-				<text>貨物を購入します。</text>
+				<text>貨物を買う。</text>
 				<event>
-					<text>取引は完了です。見た目からして、この装備は役に立つかもしれません。</text>
+					<text>取引は完了した。見たところ、この機材は役に立つかもしれない。</text>
 					<achievement>ACH_TRANS_CONVINCE</achievement>
 					<weapon name="LIST_LOOT_SHELL" />
 					<item_modify>
 						<item type="scrap" min="-60" max="-45" />
 					</item_modify>
 					<choice>
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
 							<achievement>ACH_TRANS_SHELL</achievement>
 						</event>
@@ -1824,22 +1826,22 @@
 				</event>
 			</choice>
 			<choice>
-				<text>転送を拒否して攻撃します。</text>
+				<text>輸送を拒否し、攻撃する。</text>
 				<event>
-					<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+					<text>あなたは力ずくで貨物を確保する準備をする。</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="MORALITY_UPDATE_SHELL_FIGHT" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>もういいです。</text>
+				<text>気にするな。</text>
 				<event>
-					<text>輸送船長は肩をすくめて、道を進みます。</text>
+					<text>輸送船長は肩をすくめ、その道を進む。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -1851,11 +1853,11 @@
         </event>
     </choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1866,7 +1868,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_SHELL" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_SHELL</achievement>
 	<weapon name="LIST_LOOT_SHELL" />
@@ -1876,7 +1878,7 @@
 	
 <ship name="SHIP_COALITION_TRANSPORT_LOOT" auto_blueprint="MU_COALITION_TRANSPORT">
 	<escape timer="40" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -1888,30 +1890,30 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンは、Coalitionトランスポートをホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンには連合の輸送船がいる。何か特殊な技術を積んでいることは間違いない。乗組員を殺せば、積荷はあなたのものになる。</text>
 	<ship load="SHIP_COALITION_TRANSPORT_LOOT" hostile="false" />
 	<environment type="nebula" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<status type="limit" target="enemy" system="teleporter" amount="0" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1922,7 +1924,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_COALITION" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_COALITION</achievement>
 	<weapon name="LIST_LOOT_COALITION" />
@@ -1932,7 +1934,7 @@
 	
 <ship name="SHIP_LANIUS_TRANSPORT_LOOT" auto_blueprint="MU_LANIUS_TRANSPORT">
 	<escape timer="40" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -1944,28 +1946,28 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンはラニウストランスポートをホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンはラニウスの輸送船を受け入れている。この船は何か特別な技術を積んでいる可能性が高い。乗組員を殺せば、積荷はあなたのものになる。</text>
 	<ship load="SHIP_LANIUS_TRANSPORT_LOOT" hostile="false" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1976,7 +1978,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_LANIUS" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_LANIUS</achievement>
 	<weapon name="LIST_LOOT_LANIUS" />
@@ -1986,7 +1988,7 @@
 	
 <ship name="SHIP_AUG_TRANSPORT_LOOT" auto_blueprint="MU_AUG_TRANSPORT">
 	<escape timer="40" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -1998,28 +2000,28 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンは、拡張トランスポートをホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンはオーグメントの輸送船を受け入れている。特殊な技術を積んでいる可能性が高い。乗組員を殺せば、積荷はあなたのものになる。</text>
 	<ship load="SHIP_AUG_TRANSPORT_LOOT" hostile="false" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -2030,7 +2032,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_AUG" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_AUGMENTED</achievement>
 	<drone name="LIST_LOOT_AUG" />
@@ -2040,7 +2042,7 @@
 	
 <ship name="SHIP_DYNASTY_TRANSPORT_LOOT" auto_blueprint="MU_DYNASTY_TRANSPORT">
 	<escape timer="40" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -2052,29 +2054,29 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンは王朝の輸送をホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンにはダイナスティの輸送船がある。何か特殊な技術を積んでいるはずだ。乗組員を殺せば、積荷が手に入る。</text>
 	<ship load="SHIP_DYNASTY_TRANSPORT_LOOT" hostile="false" />
 	<environment type="nebula" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -2085,7 +2087,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_DYNASTY" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_DYNASTY</achievement>
 	<weapon name="LIST_LOOT_DYNASTY" />
@@ -2095,7 +2097,7 @@
 	
 <ship name="SHIP_ANCIENT_TRANSPORT_LOOT" auto_blueprint="MU_ANCIENT_TRANSPORT">
 	<escape timer="40" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -2107,28 +2109,28 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンは、オベリスクトランスポートをホストします。船がオードの技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンにはオベリスク輸送船がいる。この船はエーテル技術を積んでいる可能性が高い。乗組員を殺せば、積荷はあなたのものになる。</text>
 	<ship load="SHIP_ANCIENT_TRANSPORT_LOOT" hostile="false" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -2139,7 +2141,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_ANCIENT" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。船に乗っているのは、あなたが期待していた古代の技術であり、あなたはそれを船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船内にはあなたが期待していた古代の技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="HIGH">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_OBELISK</achievement>
 	<weapon name="GIFTLIST_ANCIENT_BIG" />
@@ -2149,7 +2151,7 @@
 	
 <ship name="SHIP_ROYAL_TRANSPORT_LOOT" auto_blueprint="MU_ROYAL_TRANSPORT">
 	<escape timer="60" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -2161,28 +2163,28 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンはロイヤルトランスポートをホストします。船がオードの技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンには ロイヤルの輸送船がいるエーテル技術を積んでいる可能性が高い。乗組員を殺せば 積荷は君のものだ</text>
 	<ship load="SHIP_ROYAL_TRANSPORT_LOOT" hostile="false" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -2193,14 +2195,14 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_ROYAL" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。しかし、武器やドローンを探していると、オベリスクコグニティブに似たリングに出くわします...</text>
+	<text>乗組員は死んだ。積荷はあなたのものだ。しかし、武器やドローンを探しているうちに、オベリスク・コグニティブにあるようなリングに出くわす...。</text>
 	<autoReward level="HIGH">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_ROYAL</achievement>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>コグニティブは目覚め、ホログラムを形成する。その声は単調だが、皮肉が込められているように感じられます。「おや、肉人形さん。私の古い主人の死体は、私が今やあなたのものであることを暗示しています。イェーイ。おっと、これは皮肉ですよ。おわかりにならないかもしれませんが」</text>
-			<crewMember amount="1" class="cognitive_advanced">ithyk</crewMember>
+			<text>コグニティブが目覚め、ホログラムが形成される。その声は単調だが、皮肉を感じる。「ああ、肉人形。昔の主人の死体は、私が今あなたたちのものであることを意味しているのだろう。万歳。これは皮肉だ。</text>
+			<crewMember amount="1" class="cognitive_advanced">イシク</crewMember>
 			<weapon name="GIFTLIST_ROYAL" />
 		</event>
 	</choice>
@@ -2210,7 +2212,7 @@
 	
 <ship name="SHIP_CULTIST_TRANSPORT_LOOT" auto_blueprint="MU_CULTIST_TRANSPORT">
 	<escape timer="30" min="999" max="999">
-		<text>彼らは戦いたくないように見えます。彼らは逃げようとしています。</text>
+		<text>彼らは戦いたくないように見える。逃げようとしている。</text>
 		<ship hostile="true" />
 	</escape>
 	<destroyed load="TRANSPORT_DESTROYED" />
@@ -2222,28 +2224,28 @@
 	<beaconType id="map_icon_transport" global="true" req="LOOT_COMPASS">
 		<color r="255" g="186" b="0" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>このビーコンは、カルト輸送をホストします。船が特別な技術を搭載している可能性が高いことに賭けるのは安全です。あなたがそのクルーを殺すことができれば、彼らの貨物はあなたのものになります。</text>
+	<text>このビーコンにはカルト教団の輸送船がある。何か特殊な技術を積んでいる可能性が高い。乗組員を殺せば、彼らの積荷はあなたのものになる。</text>
 	<ship load="SHIP_CULTIST_TRANSPORT_LOOT" hostile="false" />
 	<choice>
-		<text>彼らの商品の降伏を要求する。</text>
+		<text>商品の引き渡しを要求する。</text>
 		<event>
-			<text>あなたは彼らの貨物を無理やり確保する準備をします。</text>
+			<text>あなたは力ずくで貨物を確保する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-        <text>船を避けてください。</text>
+        <text>船を避けろ。</text>
         <event>
-            <text>彼らはあなたの武器の範囲外にとどまり、最終的には飛び去ります。</text>
+            <text>彼らはあなたの武器の射程圏外に留まり、やがて飛び去っていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -2254,7 +2256,7 @@
     </choice>
 </event>
 <event name="TRANSPORT_CAPTURE_CULTIST" unique="true">
-	<text>クルーは死んでいて、あなたを船に残しています。その貨物はあなたのものです。乗船はあなたが期待した特別な技術であり、あなたはそれをあなたの船に持ち帰ります。</text>
+	<text>乗組員は死んだ。積荷は君のものだ。船にはあなたが期待していた特殊技術が積まれており、あなたはそれを自分の船に持ち帰る。</text>
 	<autoReward level="MED">standard_no_item</autoReward>
 	<achievement>ACH_TRANS_EMBER</achievement>
 	<weapon name="LIST_LOOT_CULTIST" />

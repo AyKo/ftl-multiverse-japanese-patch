@@ -10,48 +10,51 @@
 </eventList>
 
 <event name="KNIGHT_CALL_CENTER" unique="true">
-    <text>このビーコンにはスラッグステーションがあり、それはかなり活発な駅があります。あなたはそこから来る大量のトランスミッションを拾います。彼らはまだあなたに気づいているようには見えません。あなたは多くの信号の1つを利用します、そして幸運なことに、それはすべて暗号化されていないようです。支払いのために、実際にはTony'ssss Giftcardssssのみを服用します - それは通常のTransssactionssよりもはるかにSSSSSSSSSSS ...」「...遠く離れたssssyssystemの王子の王子の長い損失の親s ...」スラッグは、マンティスを模倣する試みのように聞こえるように聞こえることを語っています。ここで何が起こっているのかについてまともなアイデアを得てください。</text>
+    <text>このビーコンにはスラッグ・ステーションがあり、かなり活発に活動している。彼らはまだあなたに気づいていないようだ。多くの信号のひとつを受信すると、幸運なことに、それらはすべて暗号化されていないようだ。
+
+「...どういたしまして、奥様。さて、支払いですが、実はトニーのギフトカードしか使えません - 普通の送金よりずっと安全です...
+別の送金に切り替えます。「スラッグがカマキリの真似をしたような声で言う！と、スラッグがカマキリの真似をしたような声で言う。</text>
     <ship load="SHIP_SLUG_CALL" hostile="false" />
     <choice>
-        <text>それらを爆破してください！</text>
+        <text>吹き飛ばせ！</text>
         <event>
-            <text>あなたはあなたの武器を動かし、彼らが反応する前に駅に向かって充電します。</text>
+            <text>あなたは武器をパワーアップし、彼らが反応する前にステーションに向かって突進する。</text>
             <ship hostile="true" />
             <choice>
-                <text>継続する...</text>
+                <text>次へ...</text>
                 <event load="COMBAT_CHECK" />
             </choice>
         </event>
     </choice>
     <choice>
-        <text>ステーションに近づきます。</text>
+        <text>駅に近づく。</text>
         <event>
-            <text>駅の近くに慎重に飛んでください。彼らがあなたに気づくのに時間はほとんどなく、非常に迅速にすべての送信が静かになります。あられが続きます。「こんにちは、ええと、私たちは何もしていません。いや、少しでもありません。仮説的にそうであったとしても、あなたはFedsssssssssssssに執着していませんか？'私たちがそうであれば、ussssを行かせてください。仮説的に。理論的に。」</text>
+            <text>慎重にステーションに近づく。彼らがあなたに気づくのに時間はかからず、あっという間にすべての送信が静かになった。その後、呼びかけが続く。「やあ、レネゲイド。我々は何も企んでいない。いや。少しも。仮にそうだとしても、君は連邦政府にそれほど執着してないだろ？俺たちがそうなら解放してくれるさ仮にだ。理論的には"</text>
             <choice>
-                <text>いいえ、私たちは間違いなくです。確かに詐欺は犯罪です。</text>
+                <text>いや、間違いなくそうだ。詐欺は犯罪だ</text>
                 <event>
-                    <text>「ああ、ssssshit。まあ、その場合...」駅は武器の充電を開始します。エンゲージする以外にオプションはありません！</text>
+                    <text>"ああ、しまった。それなら..."ステーションは武器を充電し始めた。交戦以外の選択肢はない！</text>
                     <ship hostile="true" />
                     <choice>
-                        <text>継続する...</text>
+                        <text>次へ...</text>
                         <event load="COMBAT_CHECK" />
                     </choice>
                 </event>
             </choice>
             <choice>
-                <text>ええ、何でも。もちろん。</text>
+                <text>何でもいいよ。そうだね。</text>
                 <event>
-                    <text>「神に感謝します。膿瘍、理論的な方法で。あなたは通信をカットし、飛び去る準備をします。</text>
+                    <text>「よかった。抽象的な、理論的な意味で。だって、私たちは何もしていないんだから......"こいつらは誰もバカにしていないが、あなたが対処する問題ではない。あなたは通信を切り、飛び去る準備をする。</text>
                 </event>
             </choice>
         </event>
     </choice>
     <choice>
-        <text>誰が詐欺師を気にしますか？離れる。</text>
+        <text>一部の詐欺師を誰が気にする？帰れ。</text>
         <event>
-            <text>あなたは飛び去る準備をします。</text>
+            <text>あなたは飛び去る準備をする。</text>
             <choice>
-                <text>船に乗って何かする。</text>
+                <text>船内で何かをする。</text>
                 <event load="STORAGE_CHECK" />
             </choice>
             <choice>
@@ -61,13 +64,17 @@
         </event>
     </choice>
     <choice req="LIST_CREW_SLUG" hidden="true">
-        <text>（ナメクジの乗組員）「アイデアがあります...」</text>
+        <text>(スラッグクルー）"いい考えがある..."</text>
         <event>
-            <text>あなたのナメクジはあなたに駅を呼びかけるように指示します。2番目に接続すると、彼らはすぐに不気味な虚弱な声でせせらぎを始めます。「ISSSSはテクノロジーをSSSSSSSSPORTセンターにしますか？私のGrandssssonはこれを見つけました、そしてそれは動作していません...」「Yessss、Yesss、Issss。私たちは助けることができます、あなたはussssをあなたのsssshipとインターフェースさせる必要があります。」「ああ、大丈夫。「インターフェイス」は何ですか？」your your slugは、できるだけ密集して閉塞し、完全なサークルで話し、一般的に迷惑である間、次のスラッグを過ごします。詐欺師は驚くほど長く続きますが、最終的には、スラッグが5回目のエンジンとは何かを尋ねた後、彼は割れます。怒りの叫び声によって中断された通信時に強打された騒音があります。「SSSSSTUPIDリトル -  SSSSCAMにはあまりにも愚かであることができることはどのように可能ですか？どうやってそのことをパイロットすることさえできますか？</text>
+            <text>スラッグはあなたに駅に呼びかけるよう指示する。つながった途端、彼らはすぐにか細い声でしゃべり始める。「ここは技術サポートセンターですか？私の孫がこの船を見つけたんですが、ずっと動かないんです...」
+
+ステーションにいるもう一人のスラッグが、どうやら自分たちの仲間を騙していることなど気にも留めていない様子で、稚拙な喜びを隠しながら答える。「はい、はい、そうです。そうだ、そうだ、そうなんだ」 
+
+スラッグはにやりと笑う。「ああ、わかった。インターフェイス』ってなんだ？その詐欺師は驚くほど長い間続いたが、やがてあなたのスラッグが5回目にエンジンとは何かを尋ねた後、彼は口を割った。通信機からバチバチという音が聞こえ、怒号が飛び交う。"バカなチビが......バカすぎて......詐欺ができるのか？どうやって操縦するんだ？ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</text>
 			<choice hidden="true">
-                <text>継続する...</text>
+                <text>次へ...</text>
 				<event>
-                    <text>通信は遮断され、あなたのナメクジは笑い声でhowえ始めます。あなたが信じられないほどのサービスをしたことを知っています - 別名誰かの時間を無駄にします - あなたは飛び去る準備をします。ただし、近いところにいる直前に、ステーション上のエアロックの1つが開くのを見て、コンピューターが航行し、回路図が保存されています！それはそれほどではありませんが、正直な仕事です。</text>
+                    <text>通信が切れ、スラッグが笑いながら吠え始める。誰かの時間を浪費するという、信じられないような奉仕をしたことを知ったあなたは、飛び立つ準備をする。しかしその直前、あなたはステーションのエアロックが開き、回路図が保存されたコンピューターが飛び出してくるのを見た！大したものではないが、誠実な仕事だ。</text>
 					<item_modify>
 						<item type="drones" min="1" max="1" />
 					</item_modify>
@@ -80,20 +87,21 @@
 
 <event name="KNIGHT_ORCHID_LOVER" unique="true">
 	<preventQuest />
-    <text>星雲の外にぶら下がっている騎士船があります。攻撃する動きをするのではなく、船はあなたを無視しているようです。プライベートコミュニケーションは船内から来ます。「あなたは...あなたはアウトセスシダーです。集まりのことを聞いたことがありますか？私はThissss星雲で私の生涯を過ごしましたが、私はThissssの場所にうんざりしています。Lusssh ForestsssとFriendly Cussstomssの樹上の世界に行きます。ThissssSSSSSTRESSSFULの生活から逃れてください。しかし...私の評判では、王冠の騎士がいます。</text>
+    <text>星雲の外にナイトの船がぶら下がっている。船は攻撃するどころか、あなたを無視しているようだ。船内から私信が入る。「お前は...お前は部外者だ。ギャザリングを知っているか？私はこの星雲で生きてきたが、この場所には飽きてきた。最近の王冠争奪戦のせいだ。豊かな森林と友好的なカスのいる樹上世界へ行きたい。このストレスフルな生活から逃れたい。でも......王家の騎士としての私の評判を考えると、この星雲の外での生活が私を受け入れてくれるとは思えない。"</text>
     <ship load="SHIP_KNIGHT" hostile="false" />
     <choice req="unique_mayeb" hidden="true">
-		<text>（メイブ）集会について話します。</text>
+		<text>(メイエブ）ギャザリングについて話してください。</text>
 		<event>
-			<text>メイブは声を上げます。「...こんにちは。私はメイブです、集会の世話人です。...あなたが合わないのは事実です。彼らはあなたの過去と違うためにあなたを判断します。あなた自身のために人生を作る。あなたがあなたの現在の立場にふさわしくないなら、多分植物の世話をする人生は非常に充実しているかもしれない。それは私が職務から解放されたら私が戻ってくる人生だ。おそらく私たちは教えることができるあなた。あなたは私に同行したいですか？」と騎士の声は喜びに満ちています。"私はあなたと来ます！"しばらくして、騎士があなたの船に現れます。</text>
+			<text>メイエブが話し出す。「こんにちは。私はメイエブ、ギャザリングの管理人だ。...あなたが馴染めないのは事実です。彼らはあなたの過去や、人と違うことを批判するでしょう。しかし、だからといって自分の人生を切り開くことができないわけではない。もし今のポジションが合わないのであれば、植物の世話をする人生はとても充実したものになるかもしれない。私が職務から解放されたら戻ることになる生活だ。私たちが教えてあげましょう。一緒に行きませんか」
+騎士の声は喜びに満ちている。"ご一緒します！"しばらくして、ナイトがあなたの船に現れる。</text>
 			<crewMember amount="1" class="slug_knight">クアン</crewMember>
 			<choice>
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>船は武器を武器にし、あなたを歓迎します。「Quan ??あなたはThissss Renegadessss Sssshipに亡命していますか？！</text>
+					<text>船は武器を装備し、あなたに呼びかける。「クアン？このレネゲイドの船に亡命するのか？不忠実な騎士は殺されるべきだ！"</text>
 					<ship hostile="true" />
 					<choice>
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
@@ -101,29 +109,41 @@
 		</event>
     </choice>
     <choice req="unique_ivar" hidden="true">
-		<text>（Ivar）騎士に集まりについて話します。</text>
+		<text>(イーヴァル）ナイトにギャザリングのことを伝えてくれ。</text>
 		<event>
-			<text>「はいの若者！集まりは素敵です、私はあなたの巡礼であなたをサポートします。あなたが私に尋ねると、彼らは私の好みのために少し抑制されています。彼らは明るくする必要があります！。 "
+			<text>「ああ、若者よ！ギャザリングは素晴らしいものだ。しかし、私に言わせれば、彼らは私の好みには少し控えめすぎる。もっと明るくする必要がある！晩餐会ではいつもそう言っているんだ」
+「アイヴァー？オロバチェの首相？"
 
-" ivar？oro'bacheのプレミア？ "
+アイバーは笑う。「机のネームプレートにはそう書いてあるんだ！」
 
-varは笑います。「それが私の机の上のネームプレートが言うことです！」「噂はあなたが四分の一のctl'yaeです。それは真実です。」そして、私の花の仲間の何人かと私たちは皆、楽しい時間を過ごすことができます。私はあなたの政府の耳を向けることができると確信しています。それを覚えて。"Quanは、スクラップの素敵な贈り物と武器をあなたに提示します。</text>
+騎士は投資しているようだ。"噂によると、あなたはクオーター・クトル・ヤエだそうですね。それは本当ですか？"
+
+"私の樹液には少し多様性がある、それは本当だ。どうだ、今度ディナーパーティーを開くときは、君とフローラル仲間を招待しよう。君の政府の耳にもきっと届くと思うよ。いいね」
+「うん！素敵な響きだ。ありがとう。私の名前はクアンです。覚えておいてください"クアンはあなたにスクラップと武器をプレゼントする。</text>
 			<autoReward level="HIGH">scrap_only</autoReward>
 			<weapon name="GIFTLIST_KNIGHT" />
 		</event>
     </choice>
     <choice req="unique_tyerel" hidden="true">
-		<text>（Ty e'rel）「私はあなたの移民をサポートします。」</text>
+		<text>(タイ・エレル）"私はあなたの移住を支援します"。</text>
 		<event>
-			<text>「だから、あなたは集会に移りたいですか？これは実行可能です。肉食の誓約と市民試験を受けることができれば、集会は駐在する騎士を支援することをいとわないでしょう。」「私は長年にわたって肉食動物でした。私はいつもctl'yaeになりたかったのです。」とうなずきました。「それを手に入れました。もちろん、あなたはOro'bacheよりも多くの精査にさらされます。その道を追求したいなら、Gardenworldsのガードに参加するといいだろうと確信しています。」nightナイトは一時停止します。「星雲を離れると、戻ってくることはありません。」「あなたが私たちと一緒に来たら、私はあなたのために私ができるすべてをします。」しばらくして、騎士があなたの船に現れます。</text>
+			<text>"ギャザリング "に移籍したいんですか？これは可能です。ギャザリングは、あなたが肉食の誓約書と市民試験を受けてくれるなら、駐在騎士を喜んで支援します」
+
+騎士は熱心にうなずく。「私は何年も肉食です。ずっとカルヤエになりたかったんだ」
+
+タイはうなずく。「わかった。もちろん、あなたはオロバチェよりも厳しい目にさらされるでしょう。もしその道を進みたいのなら、ガーデンワールドの警備隊に入れば、きっと見栄えがよくなるはずだ」
+
+騎士は立ち止まる。「星雲を離れたら、もう戻れないんだ」
+
+Ty E'Relはうなずく。"私たちと一緒に来てくれるなら、あなたのためにできることは何でもします"しばらくして、ナイトがあなたの船に現れる。</text>
 			<crewMember amount="1" class="slug_knight">クアン</crewMember>
 			<choice>
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>船は武器を武器にし、あなたを歓迎します。「Quan ??あなたはThissss Renegadessss Sssshipに亡命していますか？！</text>
+					<text>船は武器を装備し、あなたに呼びかける。「クアン？このレネゲイドの船に亡命するのか？不忠実な騎士は殺されるべきだ！"</text>
 					<ship hostile="true" />
 					<choice>
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
@@ -131,194 +151,196 @@ varは笑います。「それが私の机の上のネームプレートが言�
 		</event>
     </choice>
     <choice req="orchid_praetor" hidden="true">
-		<text>（Praetor Crew）Rt'lak et。</text>
+		<text>(Praetor Crew）Rt'lak Etについて話してください。</text>
 		<event>
-			<text>あなたの司会者は、故郷を守る時間と世話人が維持する美しい庭園について話しています。騎士はあなたの時間のためにあなたにスクラップの備蓄を送ります。</text>
+			<text>あなたの大監督は、故郷を守っている時間や、管理人たちが手入れしている美しい庭について話してくれました
+
+"大監督に会うことは、私の今年のハイライトになりそうです。ありがとうございました"ナイトはあなたの時間のためにスクラップの備蓄を送る。</text>
 			<autoReward level="HIGH">scrap_only</autoReward>
 		</event>
     </choice>
     <choice req="orchid_caretaker" hidden="true">
-		<text>（世話人の乗組員）庭について騎士に伝えてください。</text>
+		<text>(管理人クルー）ナイトにガーデンズのことを伝えてください。</text>
 		<event>
-			<text>あなたの世話人は、庭園の植物園を気遣う庭園での彼らの経験について話し始めます。彼らは個人的な絵のコレクションを通して忍び寄って好奇心の強い騎士に画像を送ります。騎士は見返りに武器を送ります。</text>
+			<text>あなたの世話係は、ガーデンワールドの植物を世話するガーデンでの経験について話し始める。彼らは個人的な写真コレクションを熟読し、好奇心旺盛なナイトに画像を送る。とても幸運です。ありがとう、落ち込んだときにはこの写真を使わせてもらうよ。"ナイトはお返しに武器を送る。</text>
 			<weapon name="GIFTLIST_KNIGHT" />
 		</event>
     </choice>
     <choice req="orchid" hidden="true">
-		<text>（花の乗組員）集まりについて話します。</text>
+		<text>(フローラル・クルー）ギャザリングについて話してください。</text>
 		<event>
-			<text>あなたのオーキッドは、彼らの故郷がどれほど素晴らしいかについて喜んで話し、緑豊かな庭園と彼らの友人や家族について続いています。騎士はあなたの蘭の人生について喜んで聞いているようです。あなたは控えめなスクラップの山で報われています。</text>
+			<text>あなたのオーキッドは、自分たちの故郷がいかに素晴らしいか、緑豊かな庭園や友人や家族のことを嬉しそうに話す。ナイトはあなたのオーキッドの生活を聞いて嬉しそうだ。あなたはささやかなスクラップの山で報われる。</text>
 			<autoReward level="MED">scrap_only</autoReward>
 		</event>
     </choice>
     <choice req="LIST_CREW_VAMPWEED" hidden="true">
-		<text>（ヴァンプウィードクルー）ヴァンプウィードに彼らの経験について話させてもらいます。</text>
+		<text>(ヴァンプウィード・クルー）ヴァンプウィードに自分の経験を話してもらう。</text>
 		<event>
-			<text>あなたのヴァンプウィードは、花のいとことの彼らの経験について話し始めます。騎士は気配りがありますが、漠然と不満のようです。それにもかかわらず、あなたはあなたの時間のために支払われます。</text>
+			<text>あなたのヴァンプウィードは、花のいとこたちとの経験について話し始める。ナイトは耳を傾けてくれるが、何となく不満そうだ。とはいえ、あなたは時間分の報酬を受け取っている。</text>
 			<autoReward level="LOW">scrap_only</autoReward>
 		</event>
     </choice>
     <choice req="KERNEL_1">
-		<text>ナイトにカーネルバースト1を提供します。</text>
+		<text>騎士にカーネルバースト1を与える。</text>
 		<event>
-			<text>「私はいつもカーネルの武器を望んでいました。たぶん、私がusssse thissssを使用したとき、私はeasssseに感じるでしょう。」</text>
+			<text>「ずっとカーネルの武器が欲しかったんだ。これを使えば安心できるかもしれない"</text>
 			<remove name="KERNEL_1" />
 			<choice>
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="KNIGHT_KERNEL_PAYMENT_OR_TRADE" />
 			</choice>
 		</event>
     </choice>
     <choice req="KERNEL_2">
-		<text>ナイトにカーネルバースト2を提供します。</text>
+		<text>騎士にカーネルバースト2を与える。</text>
 		<event>
-			<text>「私はいつもカーネルの武器を望んでいました。たぶん、私がusssse thissssを使用したとき、私はeasssseに感じるでしょう。」</text>
+			<text>「ずっとカーネルの武器が欲しかったんだ。これを使えば安心できるかもしれない"</text>
 			<remove name="KERNEL_2" />
 			<choice>
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="KNIGHT_KERNEL_PAYMENT_OR_TRADE" />
 			</choice>
 		</event>
     </choice>
     <choice req="KERNEL_HEAVY">
-		<text>騎士に重いカーネルを提供します。</text>
+		<text>騎士にヘビーカーネルを差し出す。</text>
 		<event>
-			<text>「私はいつもカーネルの武器を望んでいました。たぶん、私がusssse thissssを使用したとき、私はeasssseに感じるでしょう。」</text>
+			<text>「ずっとカーネルの武器が欲しかったんだ。これを使えば安心できるかもしれない"</text>
 			<remove name="KERNEL_HEAVY" />
 			<choice>
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="KNIGHT_KERNEL_PAYMENT_OR_TRADE" />
 			</choice>
 		</event>
     </choice>
     <choice req="KERNEL_FIRE">
-		<text>騎士にファイヤーカーネルを提供します。</text>
+		<text>騎士にファイヤーカーネルを差し出す。</text>
 		<event>
-			<text>「私はいつもカーネルの武器を望んでいました。たぶん、私がusssse thissssを使用したとき、私はeasssseに感じるでしょう。」</text>
+			<text>「ずっとカーネルの武器が欲しかったんだ。これを使えば安心できるかもしれない"</text>
 			<remove name="KERNEL_FIRE" />
 			<choice>
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="KNIGHT_KERNEL_PAYMENT_OR_TRADE" />
 			</choice>
 		</event>
     </choice>
     <choice req="KERNEL_CHAIN">
-		<text>ナイトにチェーンカーネルを提供します。</text>
+		<text>騎士にチェーンカーネルを差し出す。</text>
 		<event>
-			<text>「私はいつもカーネルの武器を望んでいました。たぶん、私がusssse thissssを使用したとき、私はeasssseに感じるでしょう。」</text>
+			<text>「ずっとカーネルの武器が欲しかったんだ。これを使えば安心できるかもしれない"</text>
 			<remove name="KERNEL_CHAIN" />
 			<choice>
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="KNIGHT_KERNEL_PAYMENT_OR_TRADE" />
 			</choice>
 		</event>
     </choice>
     <choice req="KERNEL_CHARGE">
-		<text>ナイトに料金カーネルを提供します。</text>
+		<text>騎士にチャージカーネルを差し出す。</text>
 		<event>
-			<text>「私はいつもカーネルの武器を望んでいました。たぶん、私がusssse thissssを使用したとき、私はeasssseに感じるでしょう。」</text>
+			<text>「ずっとカーネルの武器が欲しかったんだ。これを使えば安心できるかもしれない"</text>
 			<remove name="KERNEL_CHARGE" />
 			<choice>
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="KNIGHT_KERNEL_PAYMENT_OR_TRADE" />
 			</choice>
 		</event>
     </choice>
     <choice req="MINELAUNCHER_KERNEL">
-		<text>ナイトにカーネル鉱山ランチャーを提供します。</text>
+		<text>騎士にカーネル地雷発射機を差し出す。</text>
 		<event>
-			<text>「私はいつもカーネルの武器を望んでいました。カーネル鉱山ランチャーについて聞いたことさえありません。</text>
+			<text>「カーネルの武器が欲しかったんだ。カーネルの地雷ランチャーなんて聞いたこともない！これを使えば安心できるかもしれない"</text>
 			<remove name="MINELAUNCHER_KERNEL" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="KNIGHT_KERNEL_DOUBLE_PAYMENT" />
 			</choice>
 		</event>
     </choice>
     <choice req="KERNEL_1_ELITE">
-		<text>騎士にエリートカーネルバーストを提供します1。</text>
+		<text>騎士にエリート・カーネル・バースト1を提供する。</text>
 		<event>
-			<text>「私はいつもカーネルの武器を望んでいました。エリートカーネルはさらに良くなります！たぶん私がusssse thissssであるとき、私はeasssseに感じるでしょう。」</text>
+			<text>「カーネルの武器はずっと欲しかった。エリート・カーネルならなおさらだ！これを使えば安心できるかもしれない"</text>
 			<remove name="KERNEL_1_ELITE" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="KNIGHT_KERNEL_DOUBLE_PAYMENT" />
 			</choice>
 		</event>
     </choice>
     <choice req="KERNEL_2_ELITE">
-		<text>騎士にエリートカーネルバースト2を提供します。</text>
+		<text>騎士にエリート・カーネル・バースト2を提供する。</text>
 		<event>
-			<text>「私はいつもカーネルの武器を望んでいました。エリートカーネルはさらに良くなります！たぶん私がusssse thissssであるとき、私はeasssseに感じるでしょう。」</text>
+			<text>「カーネルの武器はずっと欲しかった。エリート・カーネルならなおさらだ！これを使えば安心できるかもしれない"</text>
 			<remove name="KERNEL_2_ELITE" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="KNIGHT_KERNEL_DOUBLE_PAYMENT" />
 			</choice>
 		</event>
     </choice>
     <choice req="KERNEL_HEAVY_ELITE">
-		<text>騎士にエリートの重いカーネルを提供します。</text>
+		<text>騎士に精鋭のヘビー・カーネルを差し出す。</text>
 		<event>
-			<text>「私はいつもカーネルの武器を望んでいました。エリートカーネルはさらに良くなります！たぶん私がusssse thissssであるとき、私はeasssseに感じるでしょう。」</text>
+			<text>「カーネルの武器はずっと欲しかった。エリート・カーネルならなおさらだ！これを使えば安心できるかもしれない"</text>
 			<remove name="KERNEL_HEAVY_ELITE" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="KNIGHT_KERNEL_DOUBLE_PAYMENT" />
 			</choice>
 		</event>
     </choice>
     <choice req="KERNEL_FIRE_ELITE">
-		<text>騎士にエリートファイアカーネルを提供します。</text>
+		<text>騎士に精鋭のファイア・カーネルを差し出す。</text>
 		<event>
-			<text>「私はいつもカーネルの武器を望んでいました。エリートカーネルはさらに良くなります！たぶん私がusssse thissssであるとき、私はeasssseに感じるでしょう。」</text>
+			<text>「カーネルの武器はずっと欲しかった。エリート・カーネルならなおさらだ！これを使えば安心できるかもしれない"</text>
 			<remove name="KERNEL_FIRE_ELITE" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="KNIGHT_KERNEL_DOUBLE_PAYMENT" />
 			</choice>
 		</event>
     </choice>
     <choice req="KERNEL_CHAIN_ELITE">
-		<text>騎士にエリートチェーンカーネルを提供します。</text>
+		<text>騎士に精鋭のチェーンカーネルを捧げる。</text>
 		<event>
-			<text>「私はいつもカーネルの武器を望んでいました。エリートカーネルはさらに良くなります！たぶん私がusssse thissssであるとき、私はeasssseに感じるでしょう。」</text>
+			<text>「カーネルの武器はずっと欲しかった。エリート・カーネルならなおさらだ！これを使えば安心できるかもしれない"</text>
 			<remove name="KERNEL_CHAIN_ELITE" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="KNIGHT_KERNEL_DOUBLE_PAYMENT" />
 			</choice>
 		</event>
     </choice>
     <choice req="KERNEL_CHARGE_ELITE">
-		<text>騎士にエリートチャージカーネルを提供します。</text>
+		<text>ナイトにエリート・チャージ・カーネルを提供する。</text>
 		<event>
-			<text>「私はいつもカーネルの武器を望んでいました。エリートカーネルはさらに良くなります！たぶん私がusssse thissssであるとき、私はeasssseに感じるでしょう。」</text>
+			<text>「カーネルの武器はずっと欲しかった。エリート・カーネルならなおさらだ！これを使えば安心できるかもしれない"</text>
 			<remove name="KERNEL_CHARGE_ELITE" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="KNIGHT_KERNEL_DOUBLE_PAYMENT" />
 			</choice>
 		</event>
     </choice>
 	<choice req="STRAWBERRY">
-  	  <text>騎士にイチゴの銃を提供します。</text>
+  	  <text>騎士にストロベリーガンを差し出す。</text>
   	  <event>
-  		  <text>「これが何をしているのか？</text>
+  		  <text>「これは何だ？レネゲードの武器なのか？僕もレネゲイドになろうかな。ありがとう</text>
   		  <remove name="STRAWBERRY" />
   		  <choice hidden="true">
-  			  <text>継続する...</text>
+  			  <text>次へ...</text>
   			  <event load="KNIGHT_STRAWBERRY_REWARD" />
   		  </choice>
   	  </event>
 	</choice>
 	<choice req="STRAWBERRY_CHAOS">
-        <text>騎士に混oticとしたイチゴの銃を提供します。</text>
+        <text>騎士にカオス・ストロベリー・ガンを差し出す。</text>
         <event>
-            <text>「これは...私が今まで見た中で最も奇妙な武器です。あなたは私に何を与えましたか...？」</text>
+            <text>"これは...今まで見た中で最も奇妙な武器だ。何をくれたんだ...？"</text>
             <remove name="STRAWBERRY_CHAOS" />
             <choice>
-                <text>続く..？</text>
+                <text>続きは？</text>
                 <event>
                     <win ach="slug" creditsText="credit_victory_slug_orchid" text="The galaxy is completely unrecognizable now." creditsBackground="VICTORY_SLUG" />
              </event>
@@ -326,22 +348,22 @@ varは笑います。「それが私の机の上のネームプレートが言�
         </event>
     </choice>
     <choice>
-		<text>騎士の船を攻撃します。</text>
+		<text>ナイトの船を攻撃せよ。</text>
 		<event>
-			<text>プライベートコミュニケーションが削減されます。ナイト船はすぐにあなたの攻撃に応答します！</text>
+			<text>プライベート通信は切断された。騎士船は直ちにあなた方の襲撃に応じる！</text>
 			<ship hostile="true" />
 			<choice>
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
     </choice>
     <choice>
-		<text>奇妙な騎士を無視してください。</text>
+		<text>奇妙なナイトは無視する。</text>
 		<event>
-			<text>騎士はあなたに干渉する動きをしません。</text>
+			<text>ナイトはあなたの邪魔をするような動きはしない。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -352,7 +374,7 @@ varは笑います。「それが私の机の上のネームプレートが言�
     </choice>
 </event>
 <event name="KNIGHT_KERNEL_PAYMENT_OR_TRADE">
-    <text>「私はあなたに選ばせます。あなたは支払いを好みますか、それとも武器を好みますか？」</text>
+    <text>"選んでもらおう。支払いと武器、どちらがいい？"</text>
     <choice>
 		<text>支払い。</text>
 		<event>
@@ -360,19 +382,19 @@ varは笑います。「それが私の机の上のネームプレートが言�
 		</event>
     </choice>
     <choice>
-		<text>トレード。</text>
+		<text>貿易だ。</text>
 		<event>
 			<weapon name="GIFTLIST_KNIGHT" />
 		</event>
     </choice>
 </event>
 <event name="KNIGHT_KERNEL_DOUBLE_PAYMENT">
-	<text>あなたの寛大な贈り物の返済として、騎士はあなたに彼自身の武器の1つに加えて、それに付随する控えめなスクラップを与えます。</text>
+	<text>あなたの寛大な贈り物のお返しとして、ナイトはあなたに自分の武器を1つ、そしてそれに付随する少量のスクラップを与える。</text>
     <weapon name="GIFTLIST_KNIGHT" />
     <autoReward level="MED">scrap_only</autoReward>
 </event>
 <event name="KNIGHT_STRAWBERRY_REWARD">
-    <text>「あなたはあまりにも寛大でした...私はあなたと一緒に来ることができると思いますが、クレプトクラシーを離れることは私にホームレスを残します。私自身の武器の1つに、ISSSはあなたの武器と原子炉の調整を提供します。</text>
+    <text>「あなたは気前が良すぎる。ご一緒できればよかったのですが、クラプトクラシーを離れるとホームレスになってしまう。君のためにできることは、自分の武器に加えて、君の武器とリアクターのチューンナップを提供することだ。それが役に立てばいいが..."</text>
     <upgrade amount="1" system="reactor" />  
     <upgrade amount="1" system="weapons" />  
 	<weapon name="GIFTLIST_KNIGHT" />
@@ -380,21 +402,21 @@ varは笑います。「それが私の机の上のネームプレートが言�
 </event>
 
 <event name="KNIGHT_HEKTAR" unique="true">
-    <text>ここの船は明らかに残りとは異なる所属を持っています。「ロイヤルネブラへようこそ、アウトセスシダーズ。私たちはヘクタルを代表してここに来て、ヒスストリックな瞬間を努力しようとします。クラウンハントの記念品を購入したいですか？</text>
+    <text>この船は明らかに他の船とは所属が違う。「ロイヤル・ネビュラへようこそ、アウトサイダー諸君。この歴史的瞬間を活かそうと、ヘクターに代わってやってきた。王冠狩りの記念品を買いませんか？限定版の王冠、完璧な記念品です！"</text>
     <ship load="SHIP_HEKTAR_ALL" hostile="false" />
     <choice req="LIST_VARIANT_BILLY" hidden="true">
-		<text>（ビリー）「あなたはThissssで会社のお金を驚かせていますか？」</text>
+		<text>(ビリー）"こんなことに会社の金を浪費しているのか？"</text>
 		<event>
-			<text>ナメクジはダブルテイクを行います。「CEOビリー!!!ええと...リスステン、説明できます！」ビリーは目を狭めます。「あなたはより良いだろう、あなたの仕事はそれに依存している。」ヘクタールの従業員はスパッタを始めます。彼は多くの言い訳を吐き出し、その後、ひっそりと黙ってビリーに賄briを与えました。</text>
+			<text>スラッグは二度見する。「ビリーCEO！リステン、説明するよ！"ビリーは目を細める。"そうしてくれ、君の仕事はそれにかかってるんだ"ヘクタールの従業員は吃り始める。羊のように黙り込み、ビリーに賄賂を渡す前に、彼はたくさんの言い訳を口にした。</text>
 			<autoReward level="HIGH">scrap_only</autoReward>
 			<weapon name="GIFTLIST_MODULES" />
 			<store>STORE_HEKTAR_DEFAULT</store>
 			<choice>
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>あなたが買い物をする前に、あなたはまだ船に乗って何か他のことをする時間があります。</text>
+					<text>買い物をする前に、まだ船内で何か他のことをする時間がある。</text>
 					<choice>
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice>
@@ -406,17 +428,17 @@ varは笑います。「それが私の机の上のネームプレートが言�
 		</event>
     </choice>
     <choice req="unique_metyunt" hidden="true">
-		<text>（Metyunt）「これは規制に至らない。」</text>
+		<text>(メティント）"これは規定外だ"。</text>
 		<event>
-			<text>Metyuntは、Hektarの従業員ハンドブックを引用し始めます。彼のように、反対側のナメクジには理解の瞬間があります。「ああ、喜んで、私に報告しないでください...それがうまくいけば、私は報われたかもしれません！」メティントはため息をつきます。「まあ、少なくともあなたができることは、私たちにあなたの店を見てください。クレジットで。」ナメクジはうなずきます。</text>
+			<text>MetyuntはHektarの従業員ハンドブックを引用し始める。すると向こうのスラッグが一瞬理解した。"ああ、報告しないでくれ。もしうまくいっていたら、報われたかもしれないのに！"メティントはため息をつく。「せめて、あなたの店を見せてください。クレジット付きで。スラッグはうなずく。</text>
 			<autoReward level="LOW">scrap_only</autoReward>
 			<store>STORE_HEKTAR_DEFAULT</store>   		 
 			<choice>
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>あなたが買い物をした後、あなたの船で何かをする機会があります。</text>
+					<text>買い物をした後、船で何かする機会がある。</text>
 					<choice>
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice>
@@ -428,16 +450,16 @@ varは笑います。「それが私の机の上のネームプレートが言�
 		</event>
     </choice>
     <choice req="LIST_VARIANT_HEKTAR">
-   	 <text>（Hektarの従業員）これが機能することを本当に期待しているかどうか尋ねます。</text>
+   	 <text>(ヘクター社員）本当にこれがうまくいくと期待しているのか聞いてみてください。</text>
    	 <event>
-   		 <text>「仲間のヘクタールの従業員...？まあ、私は...私が知っていることを... sssshowssss。」あなたの従業員は、あなたが彼らの店を使うことによって、彼らがコストの一部を回収するかもしれないと彼らに言います。"...大丈夫。"</text>
+   		 <text>"ヘクタールの仲間？まあ、そうなんだが......俺の知ってることを教えてくれ"あなたの従業員は、あなたに自分の店を使わせることで、いくらか費用を回収した方がいいと彼らに言う。"...いいだろう"</text>
    		 <store>STORE_HEKTAR_DEFAULT</store>
    		 <choice>
-   			 <text>継続する...</text>
+   			 <text>次へ...</text>
    			 <event>
-   				 <text>あなたが買い物をした後、あなたの船で何かをする機会があります。</text>
+   				 <text>買い物をした後、船で何かする機会がある。</text>
    				 <choice>
-   					 <text>船に乗って何かする。</text>
+   					 <text>船内で何かをする。</text>
    					 <event load="STORAGE_CHECK" />
    				 </choice>
    				 <choice>
@@ -449,9 +471,9 @@ varは笑います。「それが私の机の上のネームプレートが言�
    	 </event>
     </choice>
     <choice>
-		<text>偽の王冠を購入します。</text>
+		<text>ニセの王冠を買う。</text>
 		<event>
-			<text>「ああ、良いタッセステ、忠実な顧客。来て、私たちがSSSSTOREに持っているElsssseをssssee！」スピーカーはマイクから身を乗り出し、彼が他の誰かに言うのをかすかに聞くことができます。</text>
+			<text>"ああ、ごちそうさまでした。さあ、どんなエルスがあるか見てください！」。スピーカーはマイクから離れ、彼が他の誰かに向かってこう言うのがかすかに聞こえる。上司に怒鳴られるかと心配したよ。</text>
 			<store>STORE_HEKTAR_DEFAULT</store>
 			<item_modify>
 				<item type="scrap" min="-30" max="-10" />
@@ -459,22 +481,22 @@ varは笑います。「それが私の机の上のネームプレートが言�
 		</event>
     </choice>
     <choice>
-		<text>わがままなヘクタールを攻撃します。</text>
+		<text>往来するヘクタールを攻撃する。</text>
 		<event>
-			<text>セールスマンはすぐにディスプレイをシャットダウンし、武器をアクティブにします。</text>
+			<text>セールスマンは素早くディスプレイを消し、武器を起動させる。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
     </choice>
     <choice>
-		<text>この変人にお金を無駄にしないでください。</text>
+		<text>こんな変人に金を浪費するな。</text>
 		<event>
-			<text>「レネゲード、タッセステはありません！」</text>
+			<text>"レネゲイド、お前には牙がない！"</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -486,36 +508,36 @@ varは笑います。「それが私の机の上のネームプレートが言�
 </event>
 
 <event name="KNIGHT_AMPERE_HOPEFUL" unique="true">
-    <text>奇妙なことに、共和国の船がこの宇宙の地域に進出しました。「ねえ、こんにちは、どうやってやるの？あなたはこれらのナメクジに所属していないので、私はこの変装についてあなたの意見を求めたかっただけです。それは素晴らしいことです、私は王冠を見つけて、ナメクジ。」アンペアは完全なナメクジのスーツを着ています。それはひどくありません。</text>
+    <text>不思議なことに、共和国の船がこの領域に進入してきた。「やあ、元気？スラッグと関係ないから、この変装について意見を聞きたくて。王冠を見つけてスラッグの支配者になるんだ"アンペアがスラッグスの スーツを着ている悪くない</text>
     <ship load="SHIP_LEECH_ELITE_ALL" hostile="false" /> 
     <choice hidden="true">
-		<text>彼にそれがいいと言って、彼に幸運を祈ります。</text>
+		<text>素敵だと言って、幸運を祈る。</text>
 		<event>
-			<text>「いまいましい！私はこのことに勝つつもりだ。そして...ええと、これについて静かに保つためのちょっとした何かがあります。」</text>
+			<text>「その通りだ！俺は絶対に勝つ。それと......このことを黙っていたお礼に、ちょっとしたものをあげるよ"</text>
 			<autoReward level="LOW">standard</autoReward>
 		</event>
     </choice>
     <choice hidden="true">
-		<text>ナメクジではありません...あなたは知っています...テレパシー？</text>
+		<text>スラッグは......その......テレパシーじゃないのか？</text>
 		<event>
-			<text>「私はそれをすべて把握しました！」彼はコスチュームを開き、コスチュームの頭がスズフォイルで断熱されていることを示しています。「...あなたは見る！それはすべてうまくいくだろう。」あなたは頭を振っています。「ああ、何でも。これを取り、ここから出て行ってください。」彼はあなたにいくつかの燃料を与えます。</text>
+			<text>"全部わかったよ！"彼はコスチュームを開き、コスチュームの頭部が錫箔で絶縁されていることを見せる。"...今にわかるよ！きっとうまくいくさ。あなたは首を横に振る。「まあいい。これを持って出て行け。"彼はあなたに燃料を渡す。</text>
 			<autoReward level="MED">fuel_only</autoReward>
 		</event>
     </choice>
     <choice hidden="true">
-		<text>通過する場合は、ナメクジ船が必要になります。</text>
+		<text>合格するにはスラッグ船が必要だ。</text>
 		<event>
-			<text>「...おっと！私はそれを忘れてしまったとは信じられません。ええと...私はただ私の男に私をどこかに落としてもらい、私はヒッチハイクか何かをしてもらうでしょう。ヒントをありがとう。」彼は丁寧にあなたにかなりの量のスクラップを与えます。</text>
+			<text>"...おっと！忘れてたなんて信じられない。部下にどこかで降ろしてもらい、ヒッチハイクでもしようかな。チップをありがとう」。彼は快くあなたにスクラップをくれた。</text>
 			<autoReward level="MED">scrap_only</autoReward>
 		</event>
     </choice>
     <choice>
-		<text>この馬鹿を攻撃します。</text>
+		<text>このバカを攻撃しろ</text>
 		<event>
-			<text>あなたは目を転がして武器を動かします。ヒルはすぐに応答します。</text>
+			<text>あなたは目を丸くし、武器をパワーアップさせる。ヒルは素早く反応する。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
@@ -531,46 +553,46 @@ varは笑います。「それが私の机の上のネームプレートが言�
 </eventList>
 
 <event name="NEBULA_KNIGHT_QUIZ" unique="true"> 
-	<text>クレアボイアントの船を見るのはあまり一般的ではありませんが、このスラッグで満たされた星雲では、予想よりはるかに少ないものしか見ていません。しかし、あなたはついに1つに遭遇したようです、そして彼らはまだあなたに発砲していません。代わりに、彼らはコミュニケーションを取りたいようです。</text>
+	<text>クレアボヤント船を見かけることはあまり多くないが、このスラッグだらけの星雲では予想以上に少ない。しかし、あなたはついに遭遇したようだ。その代わりに、彼らはコミュニケーションを望んでいるようだ。</text>
 	<ship load="SHIP_SLUG_ELITE_FIGHT" hostile="false" /> 
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>応答。</text>
+		<text>対応する。</text>
 		<event>
-			<text>「私たちのデータが正しければ、あなたが誰もが話しているssshipであるというのは本当でしょうか？私たちの偉大な王であるusssSsslocknogに戻ってきたのですか？」</text>
+			<text>"もし我々のデータが正しければ、あなた方が皆が話している船だというのは本当だろうか？偉大なる王、スロックノッグを我々に連れ戻してくれたのは？"</text>
 			<choice hidden="true">
-				<text>はい。</text>
+				<text>そうだ。</text>
 				<event>
-					<text>「ファススシネント。今、私は疑問に思っています、SssslocknogはKleptocracyのBessst Kingだと思いますか？</text>
+					<text>「素晴らしい。さて、あなたはスロックノッグがクラプトクラシーにとって最高の王だと思いますか？それともナイツと彼の...もっと過激な指導方法がお好きですか？"</text>
 					<choice hidden="true">
-						<text>Slocknogは真の王です。</text>
+						<text>スロックノッグこそ真の王だ。</text>
 						<event>
-							<text>「おもしろい。それで、どうしてそんなことを言うの？」</text>
+							<text>"興味深い。なぜそう言える？"</text>
 							<choice hidden="true">
-								<text>彼は物事を伝統的に保ちます。動作するものを変更する必要はありません。</text>
+								<text>彼は伝統的なことを守っている。うまくいっていることを変える必要はない。</text>
 								<event>
-									<text>「はい、壊れていない場合は修正しないでください...それでは、私たちの王を救ってくれてありがとうございます。このお尻の謙虚な支払いを受け入れてください。」</text>
+									<text>"そうだ、壊れてないなら直さなくていい...では、王を救ってくれて感謝してもしきれない。このささやかな報酬を受け取れ。"</text>
 									<autoReward level="MED">stuff</autoReward>
 								</event>
 							</choice>
 							<choice hidden="true">
-								<text>彼の名前にはたくさんのSが含まれています。</text>
+								<text>彼の名前にはSが多い。</text>
 								<event>
-									<text>「あなたは王の良い特性を定義するものを理解していないと思います。多分あなたは私たちの政治に関与するための最強のパーソンではないかもしれません...」あなたはそれが終わりだと思いますが、突然クレアボイアント船が攻撃します！スラッグは本当にあなたの介入に感謝してはいけません...</text>
+									<text>"あなたは、国王の優れた特質を理解していないようだ。たぶん、あなたは我々の政治に関わるべき人ではない..."これで終わりだと思ったら、突然透視船が襲ってきた！スラッグどもはあなたの介入を快く思っていないに違いない...。</text>
 									<ship hostile="true" />
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event load="COMBAT_CHECK" />
 									</choice>
 								</event>
 							</choice>
 							<choice hidden="true">
-								<text>彼の肌は黄色い。それはいいね。</text>
+								<text>彼は黄色い肌をしている。かなりクールだね。</text>
 								<event>
-									<text>「あなたは王の良い特性を定義するものを理解していないと思います。多分あなたは私たちの政治に関与するための最強のパーソンではないかもしれません...」あなたはそれが終わりだと思いますが、突然クレアボイアント船が攻撃します！スラッグは本当にあなたの介入に感謝してはいけません...</text>
+									<text>"あなたは、国王の優れた特質を理解していないようだ。たぶん、あなたは我々の政治に関わるべき人ではない..."これで終わりだと思ったら、突然透視船が襲ってきた！スラッグどもはあなたの介入を快く思っていないに違いない...。</text>
 									<ship hostile="true" />
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event load="COMBAT_CHECK" />
 									</choice>
 								</event>
@@ -578,35 +600,35 @@ varは笑います。「それが私の机の上のネームプレートが言�
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>夜は真の王様です。</text>
+						<text>ナイツこそが真の王だ。</text>
 						<event>
-							<text>「おもしろい。Sssoあなたは3人の妻を持つ麻薬中毒のssscumlordがSsslugの人々のためのchosssen王だと思うだろうか？本当にssは連邦がどれほど無知であるかを示している...」スラッグは本当にあなたの介入に感謝してはいけません...</text>
+							<text>「興味深い。3人の妻を持つ麻薬中毒のクズ野郎が、スルッグ人のために選ばれた王だと？連邦がいかに無知であるかを物語っている..."これで終わりだと思ったら、突然クレアボイアント艦が攻撃してきた！スラッグはあなたの介入を本当に歓迎していないに違いない・・・。</text>
 							<ship hostile="true" />
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="COMBAT_CHECK" />
 							</choice>
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>私は無関心です。</text>
+						<text>私は無関心だ。</text>
 						<event>
-							<text>「うーん、そうだね。外国人が私たちSssslugsssに関与するのではなく、もっと独特な形の政府だ。それなら、このお尻をSssslocknogを救うための贈り物にしよう。」</text>
+							<text>"ふむ、外国人が我々ススラッグの特異な政治形態に関与するのは好ましくない。では、これをススロックノッグを救ったお礼として受け取ってくれ。"</text>
 							<autoReward level="LOW">stuff</autoReward>
 						</event>
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>いいえ。</text>
+				<text>いや。</text>
 				<event>
-					<text>「ああ……なんて不幸なんだ」船が飛び去り、何もすることがなくなります。</text>
+					<text>"ああ...残念だ"船は飛び去り、あなたには何も残らない。</text>
 				</event>
 			</choice>
 			<choice hidden="true" req="unique_slocknog">
-				<text>（Slocknog）「はい、それは確かにそのssshipです。」</text>
+				<text>(スロックノッグ) "はい、その通りです。"</text>
 				<event>
-					<text>「私の嘘！私はあなたが踏むところならどこでもあなたに従うことを誓います。」 Clairvoyantsは物資を提供し、そのうちの1人があなたのクルーに加わります。</text>
+					<text>"閣下！"どこまでもついていくと誓います"透視能力者たちは物資を提供し、そのうちの一人はあなたのクルーに加わる。</text>
 					<autoReward level="MED">stuff</autoReward>
 					<crewMember amount="1" all_skills="1" class="slug_saboteur" />
 				</event>		
@@ -614,12 +636,12 @@ varは笑います。「それが私の机の上のネームプレートが言�
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>暴力で対応してください！</text>
+		<text>暴力で対応する！</text>
 		<event>
-			<text>あなたが取り返しのつかない野郎であるあなたは、彼らにチャンスを与えることさえせずに船を攻撃することに決めました。</text>
+			<text>救いようのないろくでなしが、チャンスも与えずに船を襲うことにしたんだ。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
@@ -627,28 +649,28 @@ varは笑います。「それが私の机の上のネームプレートが言�
 </event>
 
 <event name="NEBULA_KNIGHT_TRAP" unique="true">
-	<text>近くのスラッグ船が文明の兆候なしに惑星に近づいています。彼らが何かから隠れているか、あなたが知らないことを知らない限り、彼らが何をしているのか想像することはできません。</text>
+	<text>近くにいたスラッグ船が、文明の痕跡のない惑星に近づいている。何かから隠れているか、あるいはあなたの知らない何かを知っているのでなければ、彼らが何をしているのか想像もつかないだろう。</text>
 	<ship load="SHIP_SLUG_KNIGHT_TRAP" hostile="false" /> 
 	<img back="BACK_EVENT_LIGHTNEBULA" planet="PLANET_UNPOPULATED_TERRA" />
 	<status type="loss" target="player" system="sensors" amount="1" />
 	<choice hidden="true">
-		<text>それらに質問します。</text>
+		<text>彼らに質問するんだ。</text>
 		<event>
-			<text>「ああ、私たちは王冠の盗難に参加するためにここにいます！私たちは、contesstが保持されている場所に留まると黒と赤のssshipのいくつかの素敵な仲間から言われました。」</text>
+			<text>「クラウン・セフト・フェスティバルに参加しに来たんだ！黒と赤の船に乗った素敵な人たちに、ここがコンテストが開催される場所だと教えてもらったんです」。</text>
 			<choice hidden="true">
-				<text>その惑星には誰もいません。</text>
+				<text>あの星には誰もいない。</text>
 				<event>
-					<text>「え？どういう意味？あれ…ああ。私はssssee。私たちは愚か者のためにプレイされたようだ。私たちを救ってくれてありがとう。」</text>
+					<text>「どういう意味だ？その...ああ。なるほど。どうやら我々は騙されていたようだ。助けてくれてありがとう</text>
 					<autoReward level="LOW">standard</autoReward>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>彼らに真実を言わないでください、しかし彼らを殺して、あなた自身を調査してください。</text>
+				<text>彼らに真実を告げず、彼らを殺して自分で調査に行くんだ。</text>
 				<event>
-					<text>「待って、何してるの？！」あなたはスラッグを切り落とし、攻撃します。</text>
+					<text>"待て、何をするんだ！"スラッグを切り落とし、攻撃。</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
@@ -656,11 +678,11 @@ varは笑います。「それが私の机の上のネームプレートが言�
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>スラッグを無視します。</text>
+		<text>スラッグは無視しろ。</text>
 		<event>
-			<text>スラッグが穏やかな好奇心であなたを通り過ぎるのを見る。</text>
+			<text>スラッグが飛んでくるのを、あなたは軽い好奇心で見ていた。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -671,56 +693,56 @@ varは笑います。「それが私の机の上のネームプレートが言�
 	</choice>
 </event>
 <event name="KNIGHT_TRAP_PLANET">
-	<text>あなたは惑星に近づきます。目に見えるものは見えませんが、遠くからはわかりません。</text>
+	<text>惑星に近づいてみる。目に見えるものは何も見えないが、遠くからでは何とも言えない。</text>
 	<choice hidden="true">
-		<text>土地。</text>
+		<text>土地だ。</text>
 		<event load="KNIGHT_TRAP_PLANET_LAND" />
 	</choice>
 	<choice hidden="true" req="sensors" lvl="2">
-		<text>（Upg Sensors）離れた場所から表面をスキャンします。</text>
+		<text>(センサー）遠くから表面をスキャンする。</text>
 		<event load="KNIGHT_TRAP_PLANET_SCAN" />
 	</choice>
 	<choice hidden="true" req="ADV_SCANNERS" lvl="1">
-		<text>（長距離スキャナー）遠くから表面をスキャンします。</text>
+		<text>(長距離スキャナー）遠くから地表をスキャンする。</text>
 		<event load="KNIGHT_TRAP_PLANET_SCAN" />
 	</choice>
 	<choice hidden="true">
-		<text>惑星を避けてください。</text>
+		<text>地球を避ける。</text>
 		<event />
 	</choice>
 </event>
 <eventList name="KNIGHT_TRAP_PLANET_LAND">
 	<event>
-		<text>惑星に近づいてパイロットすると、自動化されたメッセージが船に「Gottem！」を吹き飛ばし、その後、船を後方にノックして巨大なクレーターを残す大爆発が続きます。</text>
+		<text>パイロットが惑星に近づくと、「ゴテム！」という自動メッセージが船内に鳴り響き、続いて大爆発が起こり、船は後方に倒され、巨大なクレーターが残る。</text>
 		<damage amount="5" />
 	</event>
 	<event>
-		<text>あなたは惑星の表面に着陸し、巨大な爆発の罠を見つけます。スキャンはそれがあなたのアプローチですでに爆発したはずであることを示しています、しかしそれがどんな馬鹿でもそれを配線したものは恐ろしい仕事をしました。それを保護するものがなければ、あなたはできる限りスクラップします。</text>
+		<text>惑星の地表に降り立ったあなたは、巨大な爆発物の罠を見つける。スキャンによると、すでに爆発しているはずだったが、配線したバカがひどいことをしたようだ。守るものもなく、できる限りスクラップにした。</text>
 		<autoReward level="HIGH">missiles</autoReward>
 	</event>
 </eventList>
 <eventList name="KNIGHT_TRAP_PLANET_SCAN">
 	<event>
-		<text>最初のスイープではほとんど明らかになりませんが、2番目のスイープでは表面に巨大な爆発トラップが現れ、近づきすぎるとすぐに爆発するように配線されています。近づくにはリスクが高すぎます。</text>
+		<text>最初の掃海ではほとんど何もわからなかったが、2回目の掃海で、より深く掘り下げた掃海の結果、地表に巨大な爆発物の罠があることがわかった。近づくのは危険すぎる。</text>
 	</event>
 	<event>
-		<text>スキャンは、あなたが近づくとすぐに爆発することを意図した巨大な爆発トラップを示していますが、それを配線したに違いない人は誰でもひどい仕事をしました。それはあなたのアプローチですでに爆発しているはずですが、それを保護するものがなければ、あなたはできる限りスクラップします。</text>
+		<text>スキャンしてみると、巨大な爆発トラップがあり、近づくとすぐに爆発するようになっている。しかし、誰かが配線したのだろう、手際が悪い。接近した時点ですでに爆発しているはずなのに、それを守るものが何もない。</text>
 		<autoReward level="HIGH">missiles</autoReward>
 	</event>
 </eventList>
 
 <event name="NEBULA_KNIGHT_SMUGGLER" unique="true">
-	<text>スラッグは違法な密輸品を自分たちで輸送することにほとんど不満を持っていませんが、時には彼らは彼らのビジネスを行うためにスマグラー氏族にお金を払うでしょう。密輸船は、通過する交通によって見られることを避けようとしていますが、あなたから身を隠すことができません。</text>
+	<text>スラッグは違法な密輸品を自ら輸送することにあまり抵抗はないが、時にはスマグラー一族に金を払って仕事をさせることもある。スマグラー船は通り過ぎる交通に見つからないようにしているが、あなたから隠れることはできない。</text>
 	<ship load="SHIP_KNIGHT_SMUGGLER" hostile="false" /> 
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>彼らに連絡して、多分私達はそれらからいくつかの密輸品を買うことができます。</text>
+		<text>彼らから密輸品を買えるかもしれない。</text>
 		<event>
-			<text>密輸業者の船長が画面に表示されます。彼は威嚇するような姿を見せようとしますが、彼の熱心な独善的な笑顔から、彼は別のクライアントの見通しに満足していることがわかります。 「銃や爆発物を探しているなら、そこであなたを助けることはできません。フェディボーイ。私は脳を溶かす力を提供するためにナイト自身への急行旅行にいます。これらの麻薬はここのスラッグの間でプレミアム価格で売られていますが、そうではありません他の場所でたくさん。」</text>
+			<text>密輸業者の船長がスクリーンに現れた。威嚇的な態度を取ろうとしているが、その熱心なにやにや笑いを見れば、また新たな客が来ることを喜んでいるのがわかる。「銃や爆薬をお探しなら、フェディ坊やはお役に立てない。脳を溶かすパワーを届けにナイツに特急で行っているんだ。この麻薬はスラッグの間で高値で売れるんだ。</text>
 			<choice>
-				<text>麻薬を買うと、彼らはナイトの男性の間で貴重な交渉のチップになる可能性があります。</text>
+				<text>麻薬を買えば、ナイツの部下たちの貴重な交渉材料になる。</text>
 				<event>
-					<text>「素晴らしい購入です。何でできているのか聞かないでください。」海賊がオーキドゥの子供たちとイキノイドの糞について何かをつぶやくのを聞いて、電話を切ります。</text>
+					<text>「素晴らしい買い物だった！ただ、何でできているかは聞かないでくれ」。海賊がオーキッドの子供とエクイノイドの糞について何かつぶやくのを聞き、電話を切る。</text>
 					<augment name="SLUG_NARCOTICS" />
 					<item_modify>
 						<item type="scrap" min="-30" max="-30" />
@@ -728,42 +750,42 @@ varは笑います。「それが私の机の上のネームプレートが言�
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>麻薬のために彼らと戦ってください！</text>
+				<text>薬のために戦う！</text>
 				<event load="KNIGHT_SMUGGLER_ATTACK" />
 			</choice>
 			<choice hidden="true" req="COMBAT_ENGINE_JAMMER">
-				<text>（エンジン無効化）彼らのエンジンを不自由にし、彼らに麻薬を渡すように要求します！</text>
+				<text>(エンジン停止装置）相手のエンジンを停止させ、麻薬を渡すよう要求する！</text>
 				<event>
-					<text>「わかった、わかった！なんてこった、どうしてそんなに攻撃的なんだ。とにかく取引したかったのはあなただ…」</text>
+					<text>「わかった、わかったよ！ちくしょう、なんでそんなに攻撃的なんだ。どうせ交換したかったのはお前だろ......"</text>
 					<augment name="SLUG_NARCOTICS" />
 				</event>
 			</choice>
 			<choice hidden="true" req="FTL_JAMMER">
-				<text>（FTLジャマー）彼らのエンジンを不自由にし、彼らに麻薬を渡すように要求します！</text>
+				<text>(FTLジャマー）エンジンを停止させ、麻薬を渡すよう要求する！</text>
 				<event>
-					<text>「わかった、わかった！なんてこった、どうしてそんなに攻撃的なんだ。とにかく取引したかったのはあなただ…」</text>
+					<text>「わかった、わかったよ！ちくしょう、なんでそんなに攻撃的なんだ。どうせ交換したかったのはお前だろ......"</text>
 					<augment name="SLUG_NARCOTICS" />
 				</event>
 			</choice>
 			<choice hidden="true" req="hacking" lvl="2">
-				<text>（Upg. Hacking）エンジンを不自由にし、麻薬を渡すように要求します！</text>
+				<text>(エンジンを停止させ、麻薬を引き渡せ！</text>
 				<event>
-					<text>「わかった、わかった！なんてこった、どうしてそんなに攻撃的なんだ。とにかく取引したかったのはあなただ…」</text>
+					<text>「わかった、わかったよ！ちくしょう、なんでそんなに攻撃的なんだ。どうせ交換したかったのはお前だろ......"</text>
 					<augment name="SLUG_NARCOTICS" />
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>却下。</text>
+				<text>衰退。</text>
 				<event />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>密輸業者を無視します。</text>
+		<text>密入国者を無視する。</text>
 		<event>
-			<text>密輸業者は、それほど長くは星雲に滑り込みません。</text>
+			<text>密輸業者たちは間もなく星雲に逃げ込む。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -775,27 +797,27 @@ varは笑います。「それが私の机の上のネームプレートが言�
 </event>
 <eventList name="KNIGHT_SMUGGLER_ATTACK">
 	<event>
-		<text>あなたは武器を武装させ、密輸業者を攻撃します！</text>
+		<text>武器を装備し、密輸業者を攻撃する！</text>
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 	<event>
-		<text>あなたは武器を武装させ、密輸業者を攻撃します！</text>
+		<text>武器を装備し、密輸業者を攻撃する！</text>
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 	<event>
-		<text>あなたは攻撃するために移動しますが、密輸業者はあなたを再び歓迎します。 「わかりました、多分価格が高すぎました！急いではいけません。これはより有利な取引ですか？」</text>
+		<text>あなたは攻撃に移るが、密輸業者は再びあなたを呼び止める。「値段が高すぎたようだ！焦るのはよそう。これはもっと有利な取引なのか？</text>
 		<choice>
-			<text>新しい取引を購入します。</text>
+			<text>新しい契約を買う。</text>
 			<event>
-				<text>「素晴らしい購入です。何でできているのか聞かないでください。」海賊がオーキドゥの子供たちとイキノイドの糞について何かをつぶやくのを聞いて、電話を切ります。</text>
+				<text>「素晴らしい買い物だった！ただ、何でできているかは聞かないでくれ」。海賊がオーキッドの子供とエクイノイドの糞について何かつぶやくのを聞き、電話を切る。</text>
 				<augment name="SLUG_NARCOTICS" />
 				<item_modify>
 					<item type="scrap" min="-20" max="-20" />
@@ -803,12 +825,12 @@ varは笑います。「それが私の机の上のネームプレートが言�
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>いいえ、私たちはまだあなたを殺すつもりです。</text>
+			<text>いや、まだ殺すつもりだ。</text>
 			<event>
-				<text>あなたは武器を武装させ、密輸業者を攻撃します！</text>
+				<text>武器を装備し、密輸業者を攻撃する！</text>
 				<ship hostile="true" />
 				<choice hidden="true">
-					<text>継続する...</text>
+					<text>次へ...</text>
 					<event load="COMBAT_CHECK" />
 				</choice>
 			</event>
@@ -816,68 +838,68 @@ varは笑います。「それが私の机の上のネームプレートが言�
 	</event>
 </eventList>
 <event name="SLUG_NARCOTICS">
-	<text>スラッグ達はあなたの申し出に興味をそそられているようです。彼らはあなたと戦わなかったために順番に麻薬を喜んで受け入れ、見返りにいくつかのスクラップを提供します。</text>
+	<text>スラッグたちはあなたの申し出に興味を持ったようだ。スラッグはあなたと戦わない代わりに、喜んで麻薬を受け取る。</text>
 	<remove name="SLUG_NARCOTICS" />
 	<autoReward level="HIGH">scrap_only</autoReward>
 	<ship hostile="false" /> 
 </event>
 
 <event name="NEBULA_KNIGHT_DUEL" unique="true">
-	<text>どこからともなく、ナメクジがあなたの船に乗って梁を張り、長い剣を振り回します。「あなたがたはガードで！私はあなたに決闘に挑戦します。コースの非致命的です。私を倒してください。私はあなたに私のsssship carriessssをすべてsssscrapに与えます。別の言葉。」</text>
+	<text>どこからともなく、スラッグが長い剣を振りかざして船に乗り込んでくる。「油断するな！決闘を申し込む。命に別条はない。私を倒せば、私の船の残骸をすべて与えよう。負ければ、燃料を全部やる。断れば何も言わずに出て行く"</text>
 	<ship load="SHIP_KNIGHT" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>承認。</text>
+		<text>受け入れる。</text>
 		<event load="KNIGHT_DUEL_DUEL" />
 	</choice>
 	<choice hidden="true" req="LIST_CREW_MANTIS">
-		<text>（マンティスクルー）マンティスの決闘をしましょう。</text>
+		<text>(マンティス・クルー）マンティスを決闘させる。</text>
 		<event>
-			<text>あなたは決闘にあなたのマンティスを送ります。彼らはすべてを与え、なんとかスラッグを武装解除することができます！ 「了解しました。取引は取引です...あなたのプレイ方法は好きではありませんが、ここに私のssscrapがあります。」</text>
+			<text>決闘のためにマンティスを送り出す。彼らは全力を尽くし、スラッグの武装を解除することに成功した！「取引は取引だ。お前のやり方は気に入らないが、これが俺のスクラップだ。"</text>
 			<item_modify>
 				<item type="scrap" min="35" max="45" />
 			</item_modify>
 		</event>
 	</choice>
 	<choice hidden="true" req="unique_dessius"> 
-		<text>（デシウス）デシウスに決闘をさせてください。</text>
+		<text>(デシウス）デシウスに決闘を受けさせる。</text>
 		<event>
-			<text>そのような機会に完璧にマッチするデシウスは、挑戦を受け入れ、自分の刃を脱ぎ捨てます。両方の戦闘機がすべてを与えます、そしてこの陽気な衝突はスラッグが武装解除される結果になります！ 「了解しました。取引は取引です。あなたのコンパニオンの腕前とssstyleは驚くべきものであり、あなたはこのssscrapに値するのです。」</text>
+			<text>デシウスはこのようなチャンスに完璧にマッチし、挑戦を受け、自らの剣を解く。両者ともに全力を尽くし、この騎士道精神に満ちた激突の結果、スラッグは武装を解かれる！「取引は取引だ。お前の仲間の腕力とスタイルには目を見張るものがある。</text>
 			<item_modify>
 				<item type="scrap" min="75" max="85" />
 			</item_modify>
 		</event>		
 	</choice>
 	<choice hidden="true" req="unique_devorak"> 
-		<text>(デヴォラック) デヴォラックに決闘を挑ませる。</text>
+		<text>(デヴォラック）デヴォラックに決闘を受けさせる。</text>
 		<event>
-			<text>そのような機会に完璧にマッチしたので、デボラックは挑戦を受け入れ、彼自身の刃を抜きます.両方の戦士が全力を尽くし、この騎士道的な衝突により、スラッグは武装解除されます! 「よし、取引は取引だ。あなたのコンパニオンの腕前とスタイルは驚くべきものであり、あなたはこのスススクラップを気に入っています。」</text>
+			<text>デボラックはこのようなチャンスに完璧にマッチし、挑戦を受け、自らの剣を解く。両者ともに全力を尽くし、この騎士道精神に満ちたぶつかり合いの結果、スラッグは武装を解かれる！「よし、取引は取引だ。お前の仲間の腕力とスタイルには目を見張るものがある。</text>
 			<item_modify>
 				<item type="scrap" min="75" max="85" />
 			</item_modify>
 		</event>		
 	</choice>
 	<choice hidden="true" req="slug_knight">
-		<text>（ナイトクルー）ナイトの決闘をしましょう。</text>
+		<text>(ナイトクルー) ナイトに決闘をさせる。</text>
 		<event>
-			<text>「私はあなたのベッセルに乗って私の兄弟の一人を見るとは思っていませんでした、そして私が彼らに再び行くことはさらに少ないですが、私はそれを楽しみにしています。」両方のスラッグは激しく戦い、長い衝突の後、あなた自身の騎士が勝ちます！ 「了解しました。取引は取引です。私はこの勇敢なssskirmissshを大いに楽しんだので、あなたはこのssscrapに値するのです。」</text>
+			<text>"兄弟があなたの船に乗っているのを見るとは思っていなかった。" "さらに、彼らと再び戦うことになるとは思ってもいなかった。" "それでも、楽しみだ。"両スラッグは激しく戦い、長い激突の末、ナイトが勝利した！「よし、取引は取引だ。俺はこの勇敢な戦いぶりを大いに楽しんだし、お前にはこのスクラップがふさわしい。"</text>
 			<item_modify>
 				<item type="scrap" min="75" max="85" />
 			</item_modify>
 		</event>		
 	</choice>	
 	<choice hidden="true">
-		<text>却下。</text>
+		<text>衰退。</text>
 		<event />
 	</choice>
 </event>
 <eventList name="KNIGHT_DUEL_DUEL">
 	<event>
-		<text>あなたはランダムにクルーを選び、決闘に送ります。彼らは勇敢な努力をしますが、残念ながらそれだけでは十分ではありません。彼らは失敗し、スラッグは彼らを武装解除します。 「ははは！あなたは負けました。今、あなたの燃料を渡してください...そして面白い忙しさはありません！」</text>
+		<text>ランダムにクルーを選び、決闘に送り出す。彼らは勇敢に努力するが、残念ながら十分ではなかった。彼らは失敗し、スラッグは彼らを武装解除した。「ハハ！ハッハッハ！」。さあ、燃料を渡せ。変な真似はするな！"</text>
 		<choice hidden="true">
-			<text>取引は取引です。</text>
+			<text>取引は取引だ。</text>
 			<event>
-				<text>「良いssssport！確かに立派です。」スラッグはあなたのすべての燃料でビームを放ち、あなたを立ち往生させます。</text>
+				<text>「いいスポーツだ！実に名誉なことだ。スラッグはあなたの燃料をすべて持ってビームを放ち、あなたを立ち往生させた。</text>
 				<item_modify steal="true">
 					<item type="fuel" min="-999" max="-999" />
 				</item_modify>
@@ -886,20 +908,20 @@ varは笑います。「それが私の机の上のネームプレートが言�
 		<choice hidden="true">
 			<text>拒否する。</text>
 			<event>
-				<text>「なに？なんて貧弱なssssport。私たちは取引をした！」スラッグは彼の船にビームバックし、1秒後にそれがアクティブになり、武器がオンラインになります。さらに悪いことに、彼らはあなたの盾を妨害するために戦闘増強を使用しているようです！</text>
+				<text>「何だと？なんてかわいそうなんだ。取引したはずだ！"スラッグが船にビームを戻し、1秒後に起動、武器がオンラインになった。さらに悪いことに、シールドを妨害するためにコンバット・オーグメントを使っているようだ！</text>
 				<status type="loss" target="player" system="shields" amount="2" />
 				<ship hostile="true" />
 				<choice hidden="true">
-					<text>継続する...</text>
+					<text>次へ...</text>
 					<event load="COMBAT_CHECK" />
 				</choice>
 				<choice hidden="true" req="ANTI_VIRUS">
-					<text>（アンチウイルス）シールドのジャムを解除します。</text>
+					<text>(アンチウィルス）シールドを解除する。</text>
 					<event>
-						<text>シールドを再び有効にして、スラッグと戦う準備をします。</text>
+						<text>シールドを再び有効にし、スラッグとの戦いに備える。</text>
 						<status type="clear" target="player" system="shields" amount="100" />
 						<choice hidden="true">
-							<text>継続する...</text>
+							<text>次へ...</text>
 							<event load="COMBAT_CHECK" />
 						</choice>
 					</event>
@@ -908,7 +930,7 @@ varは笑います。「それが私の机の上のネームプレートが言�
 		</choice>
 	</event>
 	<event>
-		<text>あなたはランダムにクルーを選び、決闘に送ります。彼らはすべてを与え、どういうわけか彼らはスラッグを武装解除することができます！ 「了解しました。取引は取引です...これが私のssscrapです。」</text>
+		<text>ランダムにクルーを選び、決闘に送り出す。彼らは全力を尽くし、どうにかスラッグの武装を解除する！"よし、取引は取引だ...これが俺のスクラップだ"</text>
 		<item_modify>
 			<item type="scrap" min="75" max="85" />
 		</item_modify>
@@ -925,30 +947,30 @@ varは笑います。「それが私の机の上のネームプレートが言�
 </eventList>
 
 <event name="NEBULA_KNIGHT_COALITION" unique="true">
-	<text>連立は他の種族の中でもスラッグで構成されていることを知っていましたが、彼らの船がスラッグの空間の奥深くにあるのを目にすることはそれほど頻繁ではありません。</text>
+	<text>連合がスラッグ種族で構成されていることは知っていただろうが、スラッグ宙域の奥深くで彼らの船を見かけることはあまりない。</text>
 	<ship load="SHIP_COALITION_KNIGHT" hostile="false" /> 
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>連立を攻撃せよ！</text>
+		<text>連合を攻撃せよ</text>
 		<event>
-			<text>あなたは武器の電源を入れ、連立艦と交戦します。</text>
+			<text>武器をパワーアップし、連合軍の艦船と交戦する。</text>
 			<ship hostile="true" /> 
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice req="SLUG_NARCOTICS" hidden="true">
-		<text>麻薬との連立を賄賂します。</text>
+		<text>麻薬で連合に賄賂を贈る。</text>
 		<event load="KNIGHT_COALITION_BRIBE" />
 	</choice>
 	<choice hidden="true">	
-		<text>連立を無視します。</text>
+		<text>連合を無視する。</text>
 		<event>
-			<text>あなたは今日、別の銀河系の超大国に巻き込まれる危険を冒す気はありません。別の現実のために、多分。</text>
+			<text>あなたは今日、他の銀河系超大国と関わるリスクを冒すことを望んでいない。別の現実のためだ。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -960,71 +982,71 @@ varは笑います。「それが私の机の上のネームプレートが言�
 </event>
 <eventList name="KNIGHT_COALITION_BRIBE">
 	<event>
-		<text>「なに？麻薬？なぜこれらが必要なの？迷子になる、連邦！」</text>
+		<text>何？薬？なぜ必要なんだ？失せろ、連邦！"</text>
 		<ship hostile="true" /> 
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 	<event>
-		<text>「私 - これらのナメクジは麻薬ですか？」岩の十字軍は薬を見下ろしますが、彼らはすぐに船の破壊者にすくい上げられます。「イェス、私たちはそれらを取ります！」</text>
+		<text>「これはスラッグの麻薬か？ロック・クルセイダーが麻薬に目を落とすが、すぐに船のサボタージュにすくい上げられる。"はい、いただきます！"</text>
 		<autoReward level="HIGH">weapon</autoReward>
 		<remove name="SLUG_NARCOTICS" />
 	</event>
 </eventList>
 <eventList name="KNIGHT_COALITION_SUZERAIN">
 	<event>
-		<text>スゼラインは船上でビームを発しますが、船に損害を与える火の爆弾をすぐに爆発させるためだけです！トリックでした！</text>
+		<text>スゼレインはビームを放つが、ただちに火炎爆弾を爆発させ、船を損傷させた！トリックだった！</text>
 		<damage amount="3" system="random" effect="fire" />
 		<boarders min="1" max="1" class="mantis_suzerain" />
 	</event>
 	<event>
-		<text>彼の言葉通り、スゼラインはあなたの船に乗ってビームを発し、彼の古いクルーをオンにする準備ができています。</text>
+		<text>その言葉どおり、スゼレインはあなたの船に乗り込み、かつてのクルー仲間に牙を剥こうとする。</text>
 		<crewMember amount="1" combat="1" class="mantis_suzerain" />
 	</event>
 </eventList>
 
 <event name="NEBULA_KNIGHT_CHOICE" unique="true">
-	<text>短距離スキャンでは、2つのナメクジ船がこのビーコンでドッグファイトをしていることを示しています。1つは騎士団に、もう1つは聖職者に属しています。</text>
+	<text>近距離スキャンによると、2隻のスラッグ艦がこのビーコンでドッグファイトをしている。</text>
 	<img back="BACK_EVENT_LIGHTNEBULA" />
 	<status type="loss" target="player" system="sensors" amount="1" />
 	<choice hidden="true">	
-		<text>参加してください。</text>
+		<text>参加する</text>
 		<event>
-			<text>あなたは船に向かって飛んで、あなたの存在を知らせます。しかし、あなたは誰を攻撃しますか？</text>
+			<text>あなたは自分の存在をアピールし、船に向かって飛んでいく。しかし、誰を攻撃するのか？</text>
 			<choice hidden="true">
-				<text>騎士団！</text>
+				<text>ナイツだ！</text>
 				<event>
-					<text>あなたは武器を武装させ、騎士の船を攻撃します。</text>
+					<text>武器を装備し、ナイト船を攻撃する。</text>
 					<ship load="SHIP_KNIGHT_CHOICE_KNIGHT" hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" req="SLUG_NARCOTICS">
-				<text>（スラッグ麻薬）騎士に賄賂を渡して戦いをやめさせてください。</text>
+				<text>(スラッグ・ナコティクス）騎士団に賄賂を渡して争いを止めさせろ。</text>
 				<event>
-					<text>騎士団は、彼らが無料のハードドラッグを手に入れることを意味するならば、彼らのプライドを飲み込んで降伏することをいとわないようです。</text>
+					<text>ナイツは、無料でハードドラッグを手に入れるためなら、プライドを捨てて降伏することもいとわないようだ。</text>
 					<remove name="SLUG_NARCOTICS" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
-							<text>クレアボイアント船はあなたに感謝し、武器を提供します。</text>
+							<text>透視船はあなたに感謝し、武器を差し出す。</text>
 							<weapon name="RANDOM" />
 						</event>
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>クレアボイアンツ！</text>
+				<text>透視能力者たち</text>
 				<event>
-					<text>あなたは武器を武装させ、クレアボイアント船を攻撃します。</text>
+					<text>あなたは武器を装備し、クレアボヤントの船を攻撃する。</text>
 					<ship load="SHIP_KNIGHT_CHOICE_CLAIRVOYANT" hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
@@ -1032,11 +1054,11 @@ varは笑います。「それが私の机の上のネームプレートが言�
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>関与しないでください。</text>
+		<text>巻き込まれるな。</text>
 		<event>
-			<text>スラッグが信頼できる同盟国であるとは知られていないので、あなたはどちらの側もわざわざ助ける必要はありません。</text>
+			<text>スラッグが信頼できる味方であることは知られていない。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1048,28 +1070,28 @@ varは笑います。「それが私の机の上のネームプレートが言�
 </event>
 
 <event name="NEBULA_KNIGHT_PROTESTERS" unique="true">
-	<text>肉体のない声が突然あなたに話しかけると、あなたはジャンプします。後ろから、サボターは騎士のロゴのピンを身に着けて、覆いを外します。 「あなたは...アウトサイダーですよね？1人のSssslocknog sssent。通常はssspotであなたを殺しますが、ここで一緒に働くことができると思います。近くに私たちの政府をオーバーホールしようとしているssss sssomepessskyreformisssstssがいます。私たちは彼らを死なせたいのです。彼らを殺してください、私はあなたに支払います。取引しますか？」</text>
+	<text>突然、得体の知れない声で話しかけられ、あなたは飛び上がる。背後から、ナイトのロゴのピンをつけたサボタージュが姿を現した。「君は...アウトサイダーだろう？Sssslocknogが送り込んだ者だ。普通ならその場で殺すところだが、ここでなら協力できると思う。政府の改革を進めようとしている 厄介な改革者が近くにいるそいつらを殺せ殺せば金を払う。いいな？</text>
 	<environment type="nebula" />
 	<choice hidden="true">	
-		<text>承認。</text>
+		<text>受け入れる。</text>
 		<event>
-			<text>Saboteurは、不正なClairvoyant船に率いられて、いくつかのスラッグが抗議しているスラッグコロニーのある小さな月にあなたを導きます。彼らのリーダーを連れ出しなさい、そうすれば残りはおそらく黙るでしょう。</text>
+			<text>Saboteurはあなたをスラッグのコロニーがある小さな月に案内し、そこでは数匹のスラッグが、不正なクレアボイアント船に率いられて抗議している。彼らのリーダーを倒せば、残りはおそらく黙るだろう。</text>
 			<ship load="SHIP_CLAIRVOYANT_PROTESTER" hostile="false" />
 			<choice hidden="true">
-				<text>攻撃！</text>
+				<text>攻撃だ！</text>
 				<event>
-					<text>あなたは武器を上げて船と交戦します。</text>
+					<text>武器を構え、船と交戦する。</text>
 					<ship hostile="true" /> 
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" req="SLUG_NARCOTICS">
-				<text>（スラッグ麻薬）クレアボイアントに賄賂を渡して、自分の民をオンにします。</text>
+				<text>(スラッグ・ナルコティクス） 透視能力者に賄賂を渡し、自国民に牙を剥かせる。</text>
 				<event>
-					<text>スラッグ社会の道徳的な困難を上回る薬物のようです。Clairvoyantsは薬を手に入れ、それから彼らの武器を入植者に向け、彼らを降伏させます。あなたの後ろに、騎士団のサボテールはあなたの「創造的な」問題解決によってとてもユーモアがあり、彼はさらに大きな報酬を提供します。</text>
+					<text>スラッグ社会では、ドラッグは道徳的な問題を凌駕しているようだ。透視能力者たちは麻薬を手にすると、武器を入植者たちに向け、降伏を迫る。あなたの背後では、ナイトの妨害者があなたの「創造的な」問題解決に大喜びし、さらに大きな報酬を提示している。</text>
 					<remove name="SLUG_NARCOTICS" />
 					<autoReward level="HIGH">standard</autoReward>
 				</event>
@@ -1079,9 +1101,9 @@ varは笑います。「それが私の机の上のネームプレートが言�
 	<choice hidden="true">	
 		<text>拒否する。</text>
 		<event>
-			<text>Saboteurは眉をひそめ、星雲の近くに隠れている船があなたを見守っています。</text>
+			<text>サボタージュは顔をしかめ、星雲の近くに隠れてあなたたちを見ている船が何であれ、ビームを放つ。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1092,61 +1114,61 @@ varは笑います。「それが私の机の上のネームプレートが言�
 	</choice>
 </event>
 <event name="KNIGHT_PROTESTERS_WIN" unique="true">
-	<text>コロニーの残りの部分は恐ろしいです。「Playssse、私たちがイッズピースを必要とします！クレプトクラシーは、王の関係に関係なく、ssssoを不必要に残酷にします！</text>
+	<text>他のコロニーは怯えている。「私たちが望むのは平和だけです！クラプトクラシーは、王に関係なく、とても残酷だ！私たちは、スラッグ社会を銀河系全体が不信感以上の目で見られるようなものに進歩させたいのです！"</text>
 	<choice hidden="true">
-		<text>それらを無視し、コロニーを強制的に降伏させます。</text>
+		<text>彼らを無視し、コロニーを降伏させる。</text>
 		<event>
-			<text>あなたは入植者を無視し、武器を上げて警告ショットを発射します。これは彼らをカバーのために走らせ、必然的に降伏させます。 Saboteurが戻ってきて、あなたの助けに感謝し、約束通りにあなたに報酬を与えます。</text>
+			<text>あなたは入植者を無視して武器を構え、威嚇射撃をする。これで彼らは逃げ惑い、必然的に降伏する。サボタージュが戻ってきて、あなたの助けに感謝し、約束通り報酬を与える。</text>
 			<autoReward level="MED">standard</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>Saboteurを殺し、コロニーを解放します。</text>
+		<text>妨害者を殺し、コロニーを解放せよ。</text>
 		<event>
-			<text>ブラスターを引き、すばやく回転してサボターを爆破します。彼らは最初は速いですが、あなたの船のなじみのない廊下ですぐに迷子になり、比較的簡単に派遣されます。将来のナイト船はコロニーの餌食に戻る可能性がありますが、今のところ無料で、やや型破りな方法であなたに報酬を与えます。</text>
+			<text>あなたはブラスターを抜き、素早く回転してサボタージュを吹き飛ばす。最初は彼らの方が速かったが、すぐに慣れない船の通路に迷い込み、比較的簡単に退治された。将来、ナイトの船がコロニーを捕食するために戻ってくる可能性は高いが、今のところ彼らは自由であり、少々型破りな方法であなたに報酬を与えてくれる。</text>
 			<damage amount="-7" />
 			<upgrade amount="1" system="shields" />
 		</event>
 	</choice>
 	<choice hidden="true" req="BLUELIST_FIRE_ALL">
-		<text>（火の武器）例を挙げて、コロニーをたいまつします。</text>
+		<text>(火器）見せしめにコロニーに放火しろ。</text>
 		<event>
-			<text>短期間で、コロニーは炎上し、人口の約半分が死亡します。これは間違いなく将来の宣伝として使用される恐ろしいディスプレイですが、Saboteurにはかなりの印象を与えました。あなたの仕事への献身にとても驚いて、彼はあなたのクルーに加わることさえ提案します！</text>
+			<text>短時間のうちにコロニーは炎上し、人口の約半数が死亡した。将来間違いなくプロパガンダに使われるであろうぞっとするような光景だが、サボタージュの印象はかなり強い。君の献身的な仕事ぶりに驚き、クルーに加わりたいとまで言ってきた！</text>
 			<crewMember amount="1" class="slug_saboteur" />
 		</event>
 	</choice>
 </event>
 
 <event name="NEBULA_KNIGHT_SHAKESPEARE" unique="true">
-	<text>「フィードの配給をやった。私のものは荒っぽいかもしれないが、私はあなたに私と一緒に保持するように頼む。私はあなたに害を与えないかもしれない。慣れている人もいるかもしれません。そうですか？これらの合理的なt'rms'rをアートして、決闘が必要なのではないでしょうか？」</text>
+	<text>"万歳。私の腕は荒いかもしれないが、私と一緒にいてほしい。私はあなたに危害を与えないかもしれない、あなたが武器を収納しないように、私はあなたが慣れているかもしれない勇敢さよりもドラマを振り回す。そうだろう？決闘が必要か？"</text>
 	<ship load="SHIP_KNIGHT" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>スラッグキャプテンは、彼が言った言葉を理解していませんが、あなたを期待して見ています。</text>
+			<text>スラッグのキャプテンは期待に満ちた眼差しであなたを見つめている。</text>
 			<choice hidden="true">
-				<text>どんな言語でも話してみてください。</text>
+				<text>それが何語であれ、言葉を返してみてほしい。</text>
 				<event load="KNIGHT_SHAKESPEARE_GUESS" />
 			</choice>
 			<choice hidden="true" req="unique_haynes">
-				<text>（ヘインズ）ヘインズはその言語を認識します。</text>
+				<text>(ヘインズ）ヘインズはこの言葉を認めている。</text>
 				<event>
-					<text>ヘインズは、スラッグが古い地球の英語で話していると説明します。簡単な翻訳の後、あなたはスラッグが休戦を提供していることを学びます。それを受け入れて、善意のしるしとして彼らの船から武器を持ち帰ります！</text>
+					<text>ヘインズはスラッグが地球の古い英語で話していると説明する。早速翻訳してみると、スラッグは停戦を申し出ていることがわかったので、それを受け入れ、友好の証として彼らの船から武器を持ち帰る！</text>
 					<weapon name="RANDOM" />
 				</event>
 			</choice>
 			<choice hidden="true" req="LIST_CREW_SLUG">
-				<text>（スラッグのクルー）あなたのスラッグに彼らと話してもらいます。</text>
+				<text>(スラッグ・クルー）スラッグに彼らと話をさせる。</text>
 				<event>
-					<text>あなたのスラッグはしばらくの間騎士と前後に動揺し、それからあなたに報告します。 「彼らは元気に話します、彼らは頑固で、通常はussssと話すことを拒否します。彼らは友達を作りたいと思っているようですが、燃料を提供しています。」</text>
+					<text>スラッグは騎士たちとしばらく口論した後、あなたに報告した。"彼らはちゃんと話すよ、ただ頑固で、僕らと普通に話そうとはしない。彼らは友だちになりたがっているようで、燃料を提供してくれています」。</text>
 					<autoReward level="MED">fuel_only</autoReward>
 				</event>
 			</choice>
 			<choice hidden="true" req="LIST_CREW_ENGI">
-				<text>（エンギクルー）彼らのスピーチパターンを分析して翻訳します。</text>
+				<text>(エンジ・クルー）相手の話し方を分析して翻訳する。</text>
 				<event>
-					<text>「検出された言語：古い地球の英語。データベースを更新しています...」あなたのエンギは、スラッグは戦いたくないと説明していますが、実際には善意から燃料を与えたいと思っています。</text>
+					<text>"言語検出：古い地球英語。データベースを更新中...""スラッグは戦闘を望んでいない" "善意で燃料を提供しているのだ" と説明しろ</text>
 					<autoReward level="MED">fuel_only</autoReward>
 				</event>
 			</choice>
@@ -1155,56 +1177,56 @@ varは笑います。「それが私の机の上のネームプレートが言�
 </event>
 <eventList name="KNIGHT_SHAKESPEARE_GUESS">
 	<event>
-		<text>あなたはスラッグの絶望的な模倣でいくつかの無意味な文字化けをいじくり回します。彼らは明らかにそれに落ちず、あなたの哀れな試みに対する怒りからあなたを攻撃します。</text>
+		<text>あなたはスラッグを真似て、意味のない言葉を口にする。彼らは明らかにそれに引っかからず、あなたの哀れな試みに対する憤りからあなたを攻撃する。</text>
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 		<choice req="SLUG_NARCOTICS">
-			<text>麻薬で賄賂を贈りましょう。</text>
+			<text>麻薬で賄賂を渡す。</text>
 			<event load="SLUG_NARCOTICS" />
 		</choice>
 	</event>
 	<event>
-		<text>Slugのスピーチを再現しようとする試みは哀れですが、特に気分を害することはありません。あなたを非常に笑いながら、彼らはあなたを彼らの船に招待し、驚くべきことにいくつかの修理や物資を提供します。</text>
+		<text>スラッグのスピーチを再現しようとするあなたの試みは哀れだが、彼らは特に気分を害した様子はない。大笑いしながら、彼らはあなたを彼らの船に招き、驚くことに修理と物資を提供してくれた。</text>
 		<autoReward level="MED">stuff</autoReward>
 		<damage amount="-7" />
 	</event>
 </eventList>
 
 <event name="NEBULA_KNIGHT_JAILER" unique="true">
-	<text>騎士の看守は過去に飛びますが、あなたにs辱を一時的に投げつけます。「フェデレーションを避けてください、あなたがあなたのssskullに穴が欲しいレスズストに関与しないでください！」</text>
+	<text>騎士の看守が飛んできて、あなたに向かって侮辱の言葉を浴びせる。"連邦は失せろ、お前の頭蓋骨に穴を開けたくなければ、関わるな！"</text>
 	<ship load="SHIP_KNIGHT_JAILER" hostile="false" /> 
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>看守を攻撃します。</text>
+		<text>看守を襲う。</text>
 		<event>
-			<text>あなたは武器の電源を入れ、スラッグの船と交戦します。</text>
+			<text>武器をパワーアップし、スラッグ船と交戦する。</text>
 			<ship hostile="true" /> 
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="FIREARMS_AND_TELEPORT">
-		<text>（武器庫+テレポーター）刑務官を襲撃します。</text>
+		<text>(武器庫＋テレポーター）看守に嵐を起こせ。</text>
 		<event>
-			<text>あなたのクルーは、歯に武装して、ジェイラーに乗り込み、すぐにそれを配置しているスラッグのクルーを降ろします。刑務官が囚人に変わったので、あなたはあなたがすぐにあなたを殺すとは思わない、閉じ込められたすべての人を解放します。</text>
+			<text>完全武装したクルーがジェイラーに乗り込み、素早くスラッグのクルーたちを倒す。看守を囚人に変え、すぐに殺されそうにない監禁されている全員を解放する。</text>
 			<crewMember amount="1" class="LIST_CREW_FEDERATION" />
 		</event>
 	</choice>
 	<choice req="SLUG_NARCOTICS" hidden="true">
-		<text>囚人を手放すために麻薬で彼らに賄賂を贈る。</text>
+		<text>麻薬で賄賂を渡して囚人を解放させる。</text>
 		<event load="KNIGHT_JAILER_BRIBE" />
 	</choice>
 	<choice hidden="true">	
-		<text>看守を無視します。</text>
+		<text>看守を無視する。</text>
 		<event>
-			<text>あなたは今日脱獄する気分ではありません。あなたは看守から距離を置きます。</text>
+			<text>あなたは今日、脱獄を行う気分ではない。あなたは看守と距離を置く。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1215,42 +1237,42 @@ varは笑います。「それが私の机の上のネームプレートが言�
 	</choice>
 </event>
 <event name="SURRENDER_KNIGHT_JAILER"> 
-	<text>「くそっ、予想以上に武装してるな。あー、この囚人を連れていくなら、私たちを解放してくれる？」</text>
+	<text>"くそっ、予想以上に武装しているな。この "プリズナー "を奪ったら、俺たちを逃がしてくれるか？</text>
 	<environment type="nebula" />
 	<choice>
-		<text>囚人を受け入れます。</text>
+		<text>囚人を受け入れる。</text>
 		<event>
 			<crewMember amount="1" class="slug" />
 			<ship hostile="false" /> 
 		</event>
 	</choice>
 	<choice>
-		<text>拒否し、戦い続けます。</text>
+		<text>拒否し、戦い続ける。</text>
 		<event />
 	</choice>
 </event>
 <event name="KNIGHT_JAILER_DESTROY">
-	<text>看守は破壊されました。過剰なスクラップが残っている間、囚人が生き残った可能性は非常に低いです。</text>
+	<text>看守は破壊された。スクラップは大量に残っているが、囚人が生き残った可能性は低い。</text>
 	<autoReward level="HIGH">standard</autoReward>
 </event>
 <event name="KNIGHT_JAILER_KILL">
-	<text>看守のクルーは空になりました。あなたは船の外観をスクラップします。</text>
+	<text>看守船の乗組員は空っぽになった。あなたは船の外装をスクラップにした。</text>
 	<autoReward level="MED">standard</autoReward>
 	<choice hidden="true">
-		<text>囚人を確認してください。</text>
+		<text>囚人を調べろ。</text>
 		<event>
-			<text>囚人のほとんどはナイトの治世に反対しているようです。 Slocknogに忠実な妨害工作員は、あなたを彼の英雄によって送られた連邦船として認識し、あなたのために働くことを申し出ます。</text>
+			<text>囚人の大半はナイツの支配に反対しているようだ。スロックノッグに忠誠を誓うサボタージュが、あなたをヒーローが派遣した連邦の船だと認識し、あなたのために働きたいと申し出てきた。</text>
 			<crewMember amount="1" class="slug_saboteur" />
 		</event>
 	</choice>
 </event>
 <event name="KNIGHT_JAILER_BRIBE">
-	<text>ジェイラーは、いくつかのハードドラッグのために順番に彼らの国を裏切ることをいとわないようです。</text>
+	<text>牢番は、ハードドラッグと引き換えに国を裏切ることも厭わないようだ。</text>
 	<remove name="SLUG_NARCOTICS" />
 	<choice hidden="true">
-		<text>囚人を確認してください。</text>
+		<text>囚人を調べろ。</text>
 		<event>
-			<text>囚人のほとんどはナイトの治世に反対しているようです。 Slocknogに忠実な妨害工作員は、あなたを彼の英雄によって送られた連邦船として認識し、あなたのために働くことを申し出ます。</text>
+			<text>囚人の大半はナイツの支配に反対しているようだ。スロックノッグに忠誠を誓うサボタージュが、あなたをヒーローが派遣した連邦の船だと認識し、あなたのために働きたいと申し出てきた。</text>
 			<crewMember amount="1" class="slug_saboteur" />
 		</event>
 	</choice>
@@ -1264,36 +1286,36 @@ varは笑います。「それが私の机の上のネームプレートが言�
 
 <event name="NEBULA_DISTRESS_KNIGHT_TAXES" unique="true">
 	<distressBeacon />
-	<text>ここでの苦痛のビーコンは、騎士の船に抑圧されている小さなナメクジのコロニーに由来しています。あなたはラジオでの彼らの会話から小さな抜粋をキャッチします。「これは、ISSのアウトラージスズです。私たちは長年にわたって課税を支払っていません！誰もやることはありません。彼らは単なる概念であり、あなたが施行するものではありません！自分の市民のお金も？」</text> 
+	<text>遭難信号の発信元は小さなスラッグコロニーで、ナイト船に圧迫されている。無線で彼らの会話の一部を聞き取る。"これはOUTRAGEOUSSSだ。我々は何年も税金を払っていない！誰も払っていない。税金は単なる概念であって、強制するものではない！まさかあの臆病者のナイツが、ついに貪欲になって自国民の金まで盗むようになったのか？"</text> 
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>コロニーを助けます。</text>
+		<text>コロニーを助けよう。</text>
 		<event>
-			<text>あなたはスラッグのコロニーを解放し、騎士の船を攻撃するつもりです。</text>
+			<text>あなたはスラッグのコロニーを解放し、ナイト船を攻撃するつもりだ。</text>
 			<ship load="SHIP_KNIGHT_TAXES" hostile="true" /> 
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>騎士を助けてください。</text>
+		<text>ナイツを助けよう。</text>
 		<event>
-			<text>あなたはコロニーに発砲しますが、それに応じて彼らはあなたに対処するために千里眼の船を送ります！</text>
+			<text>あなたはコロニーに発砲したが、それに対して彼らはクレアボイアント船を送り込んできた！</text>
 			<ship load="SHIP_KNIGHT_TAXES_COLONY" hostile="true" /> 
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>関与しないでください。</text>
+		<text>巻き込まれるな。</text>
 		<event>
-			<text>スラッグが脱税を行うのを助けるよりもやるべきことがあります。</text>
+			<text>スラッグの脱税を助けるより、もっとやるべきことがあるだろう。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1304,60 +1326,60 @@ varは笑います。「それが私の机の上のネームプレートが言�
 	</choice>
 </event>
 <event name="KNIGHT_TAXES_COLONYHELP">
-	<text>コロニーはあなたの助けに感謝しています。 「ありがとう。Sssslocknogの下では、税金はありませんでした。私たちは皆、罰金を科せられ、政府は他の国々を恐喝することでそのお金を手に入れました。それをすべて酒と仲間に費やしなさい。」コロニーは、防御目的で保持していた武器を持ち出しますが、あなたのおかげでもう必要ありません。</text>
+	<text>コロニーはあなたの協力に感謝している「ありがとう。ススロックノッグのもとでは、税金はなく、みんな仲良く、政府は他国から金をゆすり取っていた。そうあるべきだ！ナイツはクラプトクラシーを運営するための金さえ欲しがらない。彼はただ、酒と仲間に金を使いたいだけなんだ」。コロニーは防衛のために保管していた武器を持ち出した。</text>
 	<autoReward level="HIGH">weapon</autoReward>
 </event>
 <event name="KNIGHT_TAXES_KNIGHTHELP">
-	<text>彼らの船がなければ、植民地は騎士団に降伏します。税金が徴収され、数人の逃亡者が逮捕された後、騎士団から次の連絡があります。 「あれは何だったの？ あなたはおそらく報酬を探している. ええと... ここに、犯罪者の1人がいます. 私たちはナイトスに、彼らが体や何かを急速に腐敗させるいくつかのあいまいなディスセアセで亡くなったことを伝えます.</text>
+	<text>船がなければ、植民地は騎士団に降伏する。税金が徴収され、数人の逃亡者が一網打尽にされた後、騎士団は次にあなたに連絡する。"あれは何だ？報酬が欲しいんだろう。あー...ほら、犯人の一人を連れてこい。ナイツには死体を急速に腐敗させる病気か何かで死んだと言っておこう"</text>
 	<crewMember amount="1" weapons="1" class="slug" />
 </event>
 
 <event name="NEBULA_DISTRESS_KNIGHT_SHELLSPY" unique="true">
 	<distressBeacon />
-	<text>驚いたことに、シェルラディアント船がここの星雲に侵入したようです。彼らはあなたを歓迎し、援助を求めます。</text>
+	<text>驚いたことに、シェル・ラディアントの船がこの星雲に進入してきたようだ。彼らはあなたに助けを求めている。</text>
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>彼らの要求を受け取ります。</text>
+		<text>リクエストを受け取る。</text>
 		<event>
-			<text>「ああ、良いフェデレーションのキャプテン、助けてください！私たちは、スラッグの操作を観察するために、私たちはgenhhhe geniocracyのミッションにいますが、私たちの司令官は人質にされました！</text>
+			<text>「連盟のキャプテン、助けてください！ジェニオクラシーの任務で スラグ作戦の視察に来たが 司令官が人質に取られた彼らを連れ去った船を追跡し、連れ戻してもらえないか？"</text>
 			<choice hidden="true">
-				<text>同意。</text>
+				<text>同意する。</text>
 				<event>
-					<text>あなたは彼らが話していた船を見つけるまで星雲にさらに突入します、しかし彼らはすでに攻撃の準備ができていて、すぐにあなたをロックします！</text>
+					<text>あなたは星雲の奥へと進み、彼らが話していた船を見つけるが、彼らはすでに攻撃の準備をしており、すぐにあなたをロックオンする！</text>
 					<ship load="SHIP_KNIGHT_SHELLSPY" hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 					<choice req="SLUG_NARCOTICS" hidden="true">
-						<text>シェルを手放すために麻薬で彼らに賄賂を贈ります。</text>
+						<text>麻薬で賄賂を渡してシェルを解放させる。</text>
 						<event load="KNIGHT_SHELLSPY_BRIBE" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>却下。</text>
+				<text>衰退。</text>
 				<event />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>人々を助けるネジ、殺人しよう！</text>
+		<text>人助けなんてクソくらえだ！</text>
 		<event>
-			<text>もう一度、あなたのサディスティックな傾向が支配し、あなたはすべての品位を放棄しました。しかし、関係なく、武器を持ってください！</text>
+			<text>またもやサディスティックな傾向が支配し、良識を放棄している。だが構わない！</text>
 			<ship load="SHIP_SHELL_ELITE_GENERIC" hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="MORALITY_UPDATE_SHELL_FIGHT" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>シェルを無視します。</text>
+		<text>貝を無視する。</text>
 		<event>
-			<text>あなたはランダムなサイドクエストに参加するためにここにいるのではありません。</text>
+			<text>あなたはランダムなサイドクエストに参加するためにここにいるのではない。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1368,13 +1390,13 @@ varは笑います。「それが私の机の上のネームプレートが言�
 	</choice>
 </event>
 <event name="KNIGHT_SHELLSPY_BRIBE">
-	<text>騎士団は、いくつかのハードドラッグのために順番に彼らの国を裏切ることをいとわないようです。</text>
+	<text>ナイツは、ハードドラッグと引き換えに国を裏切ることも厭わないようだ。</text>
 	<remove name="SLUG_NARCOTICS" />
 	<choice hidden="true">
-		<text>スパイを確認してください。</text>
+		<text>スパイを調べろ。</text>
 		<event>
-			<text>自由になると、あなたは放射を取り戻すことを申し出ますが、彼は拒否します。「私たちの使命は妥協できません。私は私の部下を命じますが、私はgeniocracyに戻ることはできません。よし、あなたと一緒に。」</text>
-			<crewMember amount="1" class="shell_radiant">つなぐ</crewMember>
+			<text>自由の身となったあなたは、ラディアントを連れ戻そうと申し出たが、彼は拒否した。「それはできない。部下に戻るよう命じるが、ジェニオクラシーには戻れない。彼らは私のようなラジアントの失敗に寛容ではない。代わりにあなたと一緒に行きます。"</text>
+			<crewMember amount="1" class="shell_radiant">ボンド</crewMember>
 			<ship hostile="false" />
 		</event>
 	</choice>
@@ -1403,32 +1425,32 @@ varは笑います。「それが私の机の上のネームプレートが言�
 	<ship load="SHIP_KNIGHT" hostile="true" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 	<choice req="SLUG_NARCOTICS">
-		<text>麻薬で賄賂を贈りましょう。</text>
+		<text>麻薬で賄賂を渡す。</text>
 		<event load="SLUG_NARCOTICS" />
 	</choice>
 </event>
 <textList name="NEBULA_KNIGHT_FIGHT">
-	<text>「これらの星雲は、連邦がsssnoopingしているわけではありません！lossssstを入手してください。」</text>
-	<text>Knights ofナイトは、誰もがフェスティバルに干渉しないように決心しています。あなたが参加することさえできないにもかかわらず、あなたがスロックノグと一緒に働いているかもしれないという単なる提案は、殺人のために近くの船を運転するのに十分です。</text>
-	<text>騎士の船が飛び込み、武器が燃え上がる。スラッグがこのように鈍く攻撃することは珍しいことですが、船の奇妙な飛行パターンから判断すると、彼らは酔っている可能性があります。それがあなたに有利に働くことを期待しましょう。</text>
-	<text>騎士の船がここであなたを待っているようです。 「私はあなたを殺すのは私だと賭けました！今度はssssit ssstillして、あなたを爆破させてください。」</text>
-	<text>騎士の船は小さなスラッグインターセプターの残骸を回収し終えたようですが、あなたが入るとすぐに彼らはあなたを次に迎えに行くことにします！</text>
-	<text>Knights ofナイトは、通常のスラッグ船よりもはるかに攻撃的であることが証明されており、あなたをまっすぐに攻撃することを恐れません！</text>
+	<text>"星雲は連邦のものではない失せろ</text>
+	<text>ナイツ・オブ・ナイツは、この祭りを誰にも邪魔させないという決意を固めている。あなたが参加することもできないにもかかわらず、あなたがスロックノッグと協力しているかもしれないと示唆されただけで、近くの船は殺意に駆られる。</text>
+	<text>ナイトの船が武器をぶっ放して飛び込んでくる。スラッグがこのような無遠慮な攻撃をするのは普通ではないが、船の奇妙な飛行パターンから判断すると、おそらく酔っぱらっているのだろう。それが有利に働くことを祈ろう。</text>
+	<text>ナイトの船がここで待っているようだ。「お前を殺すのは俺だと賭けたんだ！さあ、じっとしてろ、爆破させてやる"</text>
+	<text>ナイトの船が小型のスラッグ迎撃ミサイルの残骸の引き揚げを終えたところだったようだが、中に入るやいなや、彼らは次にあなたを襲うことにした！</text>
+	<text>ナイツ・オブ・ナイツは、通常のスラッグ船よりもはるかに攻撃的であることが証明されている！</text>
 </textList>
 <event name="NEBULA_ENCOUNTER_KNIGHT_STORM" unique="true">
-	<text>このビーコンには、イオンストームだけでなく、ナイト船もあるようです。</text>
+	<text>このビーコンにはイオン嵐だけでなく、ナイト船もいるようだ！</text>
 	<ship load="SHIP_KNIGHT" hostile="true" />
 	<environment type="storm" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 	<choice req="SLUG_NARCOTICS">
-		<text>麻薬で賄賂を贈りましょう。</text>
+		<text>麻薬で賄賂を渡す。</text>
 		<event load="SLUG_NARCOTICS" />
 	</choice>
 </event>
@@ -1438,57 +1460,57 @@ varは笑います。「それが私の机の上のネームプレートが言�
 	<ship load="SHIP_SLUG_ELITE_FIGHT" hostile="true" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 	<choice req="SLUG_NARCOTICS">
-		<text>麻薬で賄賂を贈りましょう。</text>
+		<text>麻薬で賄賂を渡す。</text>
 		<event load="SLUG_NARCOTICS" />
 	</choice>
 </event>
 <textList name="NEBULA_KNIGHT_CLAIRVOYANT_FIGHT">
-	<text>クレアボイアンツは主にスロックノグを支持していますが、それにもかかわらず、ここの船は、彼らの王が走り回っているのを支援すると噂されている外部からの連邦船に任せるよりも、故郷を守ることを選んだようです。</text>
-	<text>このような密集したスラッグの星雲で予想したほど多くのクレアボイアント船に遭遇したことはありませんが、運が尽きたようです。</text>
-	<text>千里眼の船は彼らの仕事をし、彼らのセクターを保護することを選択し、攻撃するために動いています。</text>
-	<text>「反逆者、あなたはここにいるはずではない！これは民間部門だ！」透視船が攻撃のために移動します。</text>
+	<text>透視能力者たちは主にスロックノッグを支持しているが、それにもかかわらず、ここの船は、彼らの王を支援していると噂される外国の連邦船を走らせるよりも、祖国を守ることを選んだようだ。</text>
+	<text>このような密集したスラッグ星雲では、期待したほど多くのクレアボヤント船には遭遇しなかったが、どうやら運が尽きたようだ。</text>
+	<text>クレアボヤントの船が、自分たちの仕事をし、自分たちのセクターを守ることを選択し、攻撃に移っている。</text>
+	<text>"レネゲイド、君はここにいるべきじゃない！ここはプライベートセクターだ！"クレアボヤントの船が攻撃してくる。</text>
 </textList>
 
 <event name="NEBULA_KNIGHT_ENGINES" unique="true">
-	<text>ビーコンに飛び込んだ直後に、エンジンが飛び散って誤動作します。何かが彼らを妨害している、そしてそれが誰であるかが明らかにされてからもうすぐだ。騎士の船が星雲から滑り落ち、エンジンを少しスクラップとして「修理」することを提案します。</text>
+	<text>ビーコンに飛び込んだ直後、エンジンがスパッと不調になる。何者かが妨害しているのだ。星雲から1隻のナイトが姿を現し、スクラップでエンジンを "修理 "してくれると言ってきた。</text>
 	<ship load="SHIP_KNIGHT" hostile="false" />
 	<environment type="nebula" />
 	<status type="divide" target="player" system="engines" amount="2" />
 	<choice hidden="true">
 		<text>拒否する。</text>
 		<event>
-			<text>「壊れた」エンジンに料金を支払う必要はありません。あなたの拒否に憤慨し、騎士の船が攻撃します！</text>
+			<text>壊れた』エンジンの代償は払わない。あなたの拒否に激怒したナイト艦が攻撃してきた！</text>
 			<ship hostile="true" /> 
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="ANTI_VIRUS">
-		<text>（アンチウイルス）自分で問題を修正します。</text>
+		<text>(アンチウィルス）自分で問題を修正する。</text>
 		<event>
-			<text>あなたは彼らがした損害を元に戻します。当然のことながら、これは彼らがあなたを暴行することを阻止するものではありません。</text>
+			<text>彼らが与えたダメージを元に戻すのだ。当然のことながら、それでも彼らがあなたを襲うのを止めることはできない。</text>
 			<status type="clear" target="player" system="engines" amount="100" />
 			<ship hostile="true" /> 
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice req="SLUG_NARCOTICS">
-		<text>麻薬で賄賂を贈りましょう。</text>
+		<text>麻薬で賄賂を渡す。</text>
 		<event load="SLUG_NARCOTICS" />
 	</choice>
 	<choice>
-		<text>支払い。</text>
+		<text>給料</text>
 		<event>
-			<text>騎士の船長は、彼らがあなたのエンジンに乗り込み、あなたのエンジンに取り組んでいるふりをし、スクラップをすくい上げ、そして去るとき、ニヤリと笑わずにはいられません。</text>
+			<text>ナイトのキャプテンは、彼らが乗り込んでエンジンを修理するふりをしてスクラップをすくい上げ、去っていくのを鼻で笑わずにはいられない。</text>
 			<item_modify>
 				<item type="scrap" min="-30" max="-25" />
 			</item_modify>
@@ -1499,21 +1521,21 @@ varは笑います。「それが私の机の上のネームプレートが言�
 
 <event name="KNIGHT_CLAN" unique="true">
 	<preventQuest />
-	<text>クラン船が近くで休憩しました。なぜ彼らがここまで、船が王冠を探している星雲の外にいるのかわかりません。</text>
+	<text>クランの船が近くで休憩している。王冠を狙う船がいる星雲から遠く離れた場所に、なぜ彼らがいるのかはわからない。</text>
 	<ship load="SHIP_CLAN_KING" hostile="false" /> 
 	<choice hidden="true">
-		<text>彼らに連絡する。</text>
+		<text>万歳。</text>
 		<event>
-			<text>「ああ、ここに誰もがいるとは思わなかった。way nightsssはあえてヒスの隠れた穴の快適さを残します。」</text>
+			<text>"ナイツの部下にケツを叩かれてない奴がいるとは思わなかった。バカは宮殿が星雲の中じゃないことも知らないし ナイツが隠れ家から出るわけがないことも知らない"</text>
 			<variable name="loc_speak_clancrown" op="set" val="1" />
 			<choice hidden="true">
-				<text>なぜあなたはここにいるのですか？</text>
+				<text>なぜここに？</text>
 				<event>
-					<text>「ああ、私たちは銀河に知られているgreatessst狩りのためにここに来ました。あなたが想像することができたほうがいいですか？」</text>
+					<text>"ああ、我々は銀河系で最も偉大な狩りのためにここに来た。3つの頭を持つ甲虫、変異したスラグとマンティスのハイブリッド、そして神話に登場するソルトマン、そんなものは我々が狙う獲物に比べれば大したことはない。王冠だ。これ以上のものはないだろう？"</text>
 					<choice>
-						<text>彼らが持っている地図データを購入することを申し出てください。</text>
+						<text>彼らが持っている地図データを買いたいと申し出る。</text>
 						<event>
-							<text>クランズマンは、あなたが彼らが求めているタイトルに脅威を与えないことを知って、データを提供することをいとわない。</text>
+							<text>クランズマンたちは、あなたが彼らの狙うタイトルを脅かす存在ではないことを知っているので、喜んでデータを提供する。</text>
 							<item_modify>
 								<item type="scrap" min="-35" max="-20" />
 							</item_modify>
@@ -1521,23 +1543,23 @@ varは笑います。「それが私の机の上のネームプレートが言�
 						</event>
 					</choice>
 					<choice blue="false" req="shields" lvl="2">
-						<text>それらをあなたと一緒に持っていくことを申し出てください。</text>
+						<text>一緒に連れて行くと申し出る。</text>
 						<event>
-							<text>あなたは自分で宮殿に向かっていることを説明し、彼らが望むならそこに連れて行くことができます。驚いたことに、クランマンは喜んでいる以上のものですが、彼はあなたをテストしたいと考えています。「私は狩りでスキルされていないSSShipで働くことはありません。USSSの決闘をしましょう。クランマンが戦闘増強を使用してシールドをジャムしたことを除いて、十分に簡単に聞こえます！</text>
+							<text>あなたは、自分も宮殿に向かうから、彼らが望むなら連れて行ってもいいと説明する。衝撃的なことに、クランズマンは快く応じてくれたが、彼はあなたを試したがっている。「私ほど狩りに長けていない船には乗らない。決闘させてくれ、君が医療援助なしには進めないほど私を傷つけたら、私は降伏する！"簡単そうに聞こえるが、クランズマンがコンバット・オーグメントを使って君のシールドを妨害している！</text>
 							<status type="loss" target="player" system="shields" amount="2" />
 							<ship hostile="true" />
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="COMBAT_CHECK" />
 							</choice>
 							<choice hidden="true" req="ANTI_VIRUS">
-								<text>（アンチウイルス）シールドを復元します。</text>
+								<text>(アンチウィルス）シールドを回復してください。</text>
 								<event>
-									<text>シールドが復元されます。レンジャーは、低い打撃ではなく、従来の戦術に頼らなければなりません。</text>
+									<text>シールドが回復した。レンジャーはローブローよりも従来の戦術に頼らざるを得なくなる。</text>
 									<status type="clear" target="player" system="shields" amount="100" />
 									<ship hostile="true" />
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event load="COMBAT_CHECK" />
 									</choice>
 								</event>
@@ -1545,12 +1567,12 @@ varは笑います。「それが私の机の上のネームプレートが言�
 						</event>
 					</choice>
 					<choice blue="false" req="shields" lvl="0" max_lvl="1">
-						<text>それらをあなたと一緒に持っていくことを申し出てください。</text>
+						<text>一緒に連れて行くと申し出る。</text>
 						<event>
-							<text>あなたは自分で宮殿に向かっていることを説明し、彼らが望むならそこに連れて行くことができます。驚いたことに、クランマンは喜んでいる以上のものですが、彼はあなたをテストしたいと考えています。「私は狩りでスキルされていないSSShipで働くことはありません。USSSの決闘をしましょう。</text>
+							<text>あなたは、自分も宮殿に向かうから、彼らが望むなら連れて行ってもいいと説明する。衝撃的なことに、クランズマンは快く応じてくれたが、彼はあなたを試したがっている。「私ほど狩りに長けていない船には乗らない。決闘させてくれ、医療援助なしには進めないほど怪我を負わされた場合のみ降伏する！」。</text>
 							<ship hostile="true" />
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="COMBAT_CHECK" />
 							</choice>
 						</event>
@@ -1560,22 +1582,22 @@ varは笑います。「それが私の机の上のネームプレートが言�
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>攻撃！</text>
+		<text>攻撃だ！</text>
 		<event>
-			<text>彼らが気を取られている間、あなたはこのチャンスを利用してクランズマンを攻撃します。</text>
+			<text>その隙にクランズマンに攻撃を仕掛ける。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>クランズマンは無視してください。</text>
+		<text>クランメンを無視する。</text>
 		<event>
-			<text>クランズマンをいじることは最善の考えではないかもしれません。この機会に休憩したほうがいいです。</text>
+			<text>クランズマンにちょっかいを出すのは得策ではないかもしれない。この機会に休んだ方がいい。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1586,7 +1608,7 @@ varは笑います。「それが私の机の上のネームプレートが言�
 	</choice>
 </event>
 <event name="KNIGHT_CLAN_OFFER">
-	<text>あなたは以前に話したレンジャーを見つけ、負傷しましたが、驚くほど生きています。「あなたは本当に優秀な戦闘機です！私は誰も働くのが良いとは思えません。</text>
+	<text>負傷しているが、驚くことにまだ生きている。「君は本当に素晴らしい戦士だ！これ以上いい部下はいない。王冠が手に入ることを祈っているよ、友よ！"</text>
 	<crewMember amount="1" class="slug_ranger" />
 	<variable name="loc_got_clancrown" op="set" val="1" />
 </event>
@@ -1603,48 +1625,48 @@ varは笑います。「それが私の机の上のネームプレートが言�
 	<beaconType id="map_icon_palace2" global="true">
 		<color r="220" g="210" b="60" a="1" />
 	</beaconType>
-	<text>ついに王宮に到着しました。スラッグインフラストラクチャは必ずしも最も素晴らしいとは限りませんが、目の前の景色が素晴らしいことを認める必要があります。ナイトが彼の王冠をあきらめることにとても消極的であることは不思議ではありません。</text>
+	<text>ついに王宮に到着した。スラッグのインフラは必ずしも素晴らしいとは言えないが、目の前に広がる景色が素晴らしいことは認めざるを得ない。ナイツが王冠を手放したがらないのも無理はない。</text>
 	<img back="BACK_EVENT_SLUG_PALACE" planet="NONE" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>巨大な張り出しに近づくと、闘争の兆候が見られます。 Slocknogは、忠実なClairvoyant船の艦隊とともに、すでに宮殿で彼の動きをしているようです。</text>
+			<text>巨大な張り出しに近づくと、闘争の兆候が見える。スロックノッグはすでに、忠実なクレアボイアントの船団とともに宮殿に乗り込んでいるようだ。</text>
 			<choice hidden="true">
-				<text>固執して見てください。</text>
+				<text>そばにいて見ているんだ。</text>
 				<event>
-					<text>Slocknogは、夜に抗議している熱心な支持者と、武装した騎士団が彼らを妨げていることで構成される群衆と話し始めました。「それをあきらめます。それをあきらめてください。その宮殿から出て、あなたが熱心に参加する前に他のすべての王に参加して、あなたはその王冠を思い出させるかもしれませんが、あなたが本当に勇敢な戦闘機ならあなたを思い出させるかもしれませんその後、あなたはあなたの玉座を保護することができると主張します。」</text>
+					<text>スロックノッグは、ナイツに抗議する熱心な支持者と、彼らを抑え込む武装した騎士団からなる群衆に向かって話し始めた。「ナイツは諦めろ。宮殿から出てきて、歴代の王が熱心に参加したフェスティヴァルに参加しろ！不正行為で王位を奪ったのはお前だ。だが、お前が本当に勇敢な戦士だと言うのなら、王位を守れるはずだ。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
-							<text>Slocknogは、ナイトにさらに数回出てくるように促し、それからあきらめて待ちます。黙祷の瞬間があり、最後にインターホンを介した夜の荒々しい声が続きます。 「いいよ、あなたはsssshriveled pisss sssmelly sssson-of-a-bitch！私は大丈夫だよ！」数分後、ナイトの署名船であるブラックレイヴンが、スロックノグのはるかに大きな巡洋艦に直接発砲する格納庫の1つから爆発しました。すぐに、混乱が発生します。</text>
+							<text>スロックノッグはナイツに何度も出てくるよう促し、諦めて待つ。しばらくの沈黙の後、インターホン越しにナイツのしわがれた声が聞こえてきた。「わかったよ、この小便野郎！俺は大丈夫だ！"数分後、ナイツのシグネチャーシップ、ブラック・レイブンが格納庫のひとつから飛び出してきて、スロックノッグの大型巡洋艦に向かって直接発砲した。たちまち大混乱に陥る。</text>
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event>
-									<text>あなたの周りの戦いは、あなたが見ることができる限り、風景を消費したようです。両側のサイズは同じようです。あなたは簡単に参加してこの乱闘の結果に影響を与えることができますが、誰が正しい選択ですか？</text>
+									<text>周囲の戦いは、見渡す限りの風景を飲み込んでいるようだ。両陣営の規模は互角のようだ。あなたは簡単にこの乱闘に巻き込まれ、結果を左右することができるだろう。</text>
 									<choice hidden="true">
-										<text>Aid Slocknog-彼は十分に合理的であり、スラッグを栄光の時代に導くことができるかもしれません。</text>
+										<text>エイド・スロックノッグ-彼は十分に合理的に見えるし、スラッグスに栄光の時代をもたらすことができるかもしれない。</text>
 										<event>
-											<text>Slocknogが担当することで、収奪国家はついに野蛮な泥棒のこの段階を超えて進歩することができるかもしれません。連邦はより良い銀河を目指しています、そしてあなたがそれを見通すために何かをしなければあなたは気が滅入るでしょう。</text>
+											<text>スロックノッグが指揮を執ることで、クレプトクラシーはようやく野蛮な泥棒の段階を脱することができるかもしれない。連邦はより良い銀河系を目指しているのだから、それを見届けるために何かをしなければ、あなたは呪われることになる。</text>
 											<ship load="SHIP_BLACK_RAVEN" hostile="true" /> 
 											<choice hidden="true">
-												<text>継続する...</text>
+												<text>次へ...</text>
 												<event load="COMBAT_CHECK" />
 											</choice>
 										</event>
 									</choice>
 									<choice hidden="true">
-										<text>エイドナイト-彼はあなたが知っているスラッグの王のようです。</text>
+										<text>エイド・ナイツ--彼は、あなたが知っているスラッグたちが望む王のようだ。</text>
 										<event>
-											<text>夜は表面的には悪いように見えるかもしれませんが、これだけのフォロワーを増やすには、その男はスラッグの目にいくつかの償還の資質を持っている必要があります。あなたが関与するつもりなら、あなたはスラッグ達が欲しい誰かを選ぶほうがよいでしょう。</text>
+											<text>ナイツは表面的には悪者に見えるかもしれないが、これだけのファンを集めるには、スラッグたちの目から見て、きっと何か救いのある資質を持っているに違いない。どうせ関わるなら、スラッグが欲しがるような人物を選んだほうがいい。</text>
 											<ship load="SHIP_SLOCKNOG" hostile="true" /> 
 											<choice hidden="true">
-												<text>継続する...</text>
+												<text>次へ...</text>
 												<event load="COMBAT_CHECK" />
 											</choice>
 										</event>
 									</choice>
 									<choice hidden="true">
-										<text>これらの問題に参加するのは誰ですか？</text>
+										<text>このようなことに関与するのは誰なのか？</text>
 										<event />
 									</choice>
 								</event>
@@ -1654,11 +1676,11 @@ varは笑います。「それが私の机の上のネームプレートが言�
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>物事は忙しくなるかもしれません、私たちができる間、去りましょう。</text>
+				<text>慌ただしくなるかもしれない。</text>
 				<event>
-					<text>それを危険にさらさない方がいいです。あなたは惑星から引き離します。</text>
+					<text>危険を冒さない方がいい。あなたは惑星から離れる。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -1671,129 +1693,129 @@ varは笑います。「それが私の机の上のネームプレートが言�
 	</choice>
 </event>
 <event name="KNIGHT_PALACE_RESOLUTION_SLOCKNOG">
-	<text>黒いレイヴンが湖に衝突すると、戦闘は突然停止したようです。あなたは船を駆け抜ける巡洋艦の隣に着陸します。そこでは、slocknogが微笑んで手を振ってください。「Coursssseの私は自分でそれをやったかもしれませんが、...ありがとう、キャプテン。これは私を助けるためにあなたの邪魔にならないように2回ISSになりました。</text>
+	<text>ブラック・レイヴン号が湖に墜落すると、突然戦闘が止んだように見える。スロックノッグは微笑み、あなたの手を握る。"もちろん、私一人でもできたが...ありがとう、艦長。ありがとうございます、艦長。私たちの間に星が輝きますように。</text>
 	<variable name="ach_boss_nights" op="set" val="1" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="KNIGHT_PALACE_RESOLUTION_SLOCKNOG_REAL" />
 	</choice>
 	<choice hidden="true" req="loc_got_clancrown">
-		<text>自分で王冠を追いかけてください。</text>
+		<text>王冠は自分で狙え。</text>
 		<event>
-			<text>船が湖から釣り上げられるのを見ている間、あなたは以前のクランズマンを思い出し、簡単ではありませんが、自分で王冠を取り戻す衝動に駆られます。彼らがまだあなたと一緒にいると仮定すると、それはです。</text>
+			<text>湖から引き上げられる船を見ているうちに、先ほどのクランズマンのことを思い出し、王冠を取り戻したい衝動に駆られる。しかし、王冠を取り戻すのは容易ではない。</text>
 			<choice hidden="true" req="slug_ranger">
-				<text>あなたのクランズマンは生きています、それのために行きましょう。</text>
+				<text>クランズマンは生きている。</text>
 				<event>
-					<text>スラッグはブラックレイヴンの残骸を見つけて、それを銀行に落としました。検出されずにそこに到達するには、ステルスが必要です。</text>
+					<text>スラッグがブラック・レイヴンの残骸を見つけ、土手に落としたところだ。気づかれずに行くにはステルスが必要だ。</text>
 					<choice hidden="true" req="cloaking" lvl="2">
-						<text>（Upg. Cloaking）クロークとアプローチ。</text>
+						<text>(Upg.クローキング)マントを着て近づく。</text>
 						<event>
-							<text>あなたは船をクロークで覆い、残骸の近くで操縦します。今、あなたは見られずにあなたのクルーをレイヴンにテレポートできる必要があります。</text>
+							<text>船にマントをかけ、残骸に近づく。さて、人目をはばかることなく乗組員をレイブンにテレポートさせる必要がある。</text>
 							<choice hidden="true" req="teleporter">
-								<text>（テレポーター）クルーを乗せます。</text>
+								<text>(クルーを乗船させろ。</text>
 								<event name="KNIGHT_PALACE_RESOLUTION_SLOCKNOG_BOARD">
-									<text>クルーが搭乗しているので、賭け金ははるかに高くなります。残念ながら、暗い廊下で見るのは簡単ではありません。</text>
+									<text>クルーが乗船している今、賭け金はかなり高くなっている。残念なことに、暗い廊下では見えにくい。</text>
 									<choice hidden="true" req="sensors" lvl="2">
-										<text>（Upg Sensors）それらをガイドします。</text>
+										<text>(センサーを）誘導する。</text>
 										<event load="KNIGHT_PALACE_THEFT" />
 									</choice>
 									<choice hidden="true" req="ADV_SCANNERS">
-										<text>（長距離スキャナー）それらをガイドします。</text>
+										<text>(長距離スキャナー）誘導する。</text>
 										<event load="KNIGHT_PALACE_THEFT" />
 									</choice>
 									<choice hidden="true">
-										<text>暗闇の中で進みます。</text>
+										<text>暗闇の中を進む。</text>
 										<event>
-											<text>周囲に気づかずに、あなたのクルーはサルベージチームの1人に捕まり、撃たれます！引き離すしかないのですが、手遅れです。警備員は警戒態勢にあり、あなたの船は大きなダメージを受けます。</text>
+											<text>周囲の状況に気づかないまま、クルーはサルベージチームの1人に捕まり、撃たれてしまう！仕方なく引き揚げるが、時すでに遅し。見張りは厳戒態勢を敷いており、あなたの船は大ダメージを受ける。</text>
 											<damage amount="7" />
 											<removeCrew>
 												<clone>true</clone>
-												<text>幸いなことに、あなたのクルーはクローンを作ることができますが、それはあなたが受けたダメージを元に戻すことはできません。</text>
+												<text>幸い、クルーはクローン化できるが、それでも受けたダメージは元に戻らない。</text>
 											</removeCrew>
 										</event>
 									</choice>
 								</event>
 							</choice>
 							<choice hidden="true" req="LOCKED_GLOBAL_TELEPORT">
-								<text>(中央テレポート) 乗組員を転送します。</text>
+								<text>(中央テレポート) クルーを乗船させろ。</text>
 								<event load="KNIGHT_PALACE_RESOLUTION_SLOCKNOG_BOARD" />
 							</choice>
 							<choice hidden="true">
-								<text>もういいです。</text>
+								<text>気にするな。</text>
 								<event load="KNIGHT_PALACE_RESOLUTION_SLOCKNOG_REAL" />
 							</choice>
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>もういいです。</text>
+						<text>気にするな。</text>
 						<event load="KNIGHT_PALACE_RESOLUTION_SLOCKNOG_REAL" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" req="beans">
-				<text>Bean シルバンは生きています、それのために行きましょう。</text>
+				<text>ビーン・シルバンは生きている。</text>
 				<event>
-					<text>スラッグはブラックレイヴンの残骸を見つけて、それを銀行に落としました。検出されずにそこに到達するには、ステルスが必要です。</text>
+					<text>スラッグがブラック・レイヴンの残骸を見つけ、土手に落としたところだ。気づかれずに行くにはステルスが必要だ。</text>
 					<choice hidden="true" req="cloaking" lvl="2">
-						<text>（Upg. Cloaking）クロークとアプローチ。</text>
+						<text>(Upg.クローキング)マントを着て近づく。</text>
 						<event>
-							<text>あなたは船をクロークで覆い、残骸の近くで操縦します。今、あなたは見られずにあなたのクルーをレイヴンにテレポートできる必要があります。</text>
+							<text>船にマントをかけ、残骸に近づく。さて、人目をはばかることなく乗組員をレイブンにテレポートさせる必要がある。</text>
 							<choice hidden="true" req="teleporter">
-								<text>（テレポーター）クルーを乗せます。</text>
+								<text>(クルーを乗船させろ。</text>
 								<event name="KNIGHT_PALACE_RESOLUTION_SLOCKNOG_BEANS_BOARD">
-									<text>クルーが搭乗しているので、賭け金ははるかに高くなります。残念ながら、暗い廊下で見るのは簡単ではありません。</text>
+									<text>クルーが乗船している今、賭け金はかなり高くなっている。残念なことに、暗い廊下では見えにくい。</text>
 									<choice hidden="true" req="sensors" lvl="2">
-										<text>（Upg Sensors）それらをガイドします。</text>
+										<text>(センサーを）誘導する。</text>
 										<event load="KNIGHT_BEANS_THEFT" />
 									</choice>
 									<choice hidden="true" req="ADV_SCANNERS">
-										<text>（長距離スキャナー）それらをガイドします。</text>
+										<text>(長距離スキャナー）誘導する。</text>
 										<event load="KNIGHT_BEANS_THEFT" />
 									</choice>
 									<choice hidden="true">
-										<text>暗闇の中で進みます。</text>
+										<text>暗闇の中を進む。</text>
 										<event>
-											<text>周囲に気づかずに、あなたのクルーはサルベージチームの1人に捕まり、撃たれます！引き離すしかないのですが、手遅れです。警備員は警戒態勢にあり、あなたの船は大きなダメージを受けます。</text>
+											<text>周囲の状況に気づかないまま、クルーはサルベージチームの1人に捕まり、撃たれてしまう！仕方なく引き揚げるが、時すでに遅し。見張りは厳戒態勢を敷いており、あなたの船は大ダメージを受ける。</text>
 											<damage amount="7" />
 											<removeCrew>
 												<clone>true</clone>
-												<text>幸いなことに、あなたのクルーはクローンを作ることができますが、それはあなたが受けたダメージを元に戻すことはできません。</text>
+												<text>幸い、クルーはクローン化できるが、それでも受けたダメージは元に戻らない。</text>
 											</removeCrew>
 										</event>
 									</choice>
 								</event>
 							</choice>
 							<choice hidden="true" req="LOCKED_GLOBAL_TELEPORT">
-								<text>(中央テレポート) 乗組員を転送します。</text>
+								<text>(中央テレポート) クルーを乗船させろ。</text>
 								<event load="KNIGHT_PALACE_RESOLUTION_SLOCKNOG_BEANS_BOARD" />
 							</choice>
 							<choice hidden="true">
-								<text>もういいです。</text>
+								<text>気にするな。</text>
 								<event load="KNIGHT_PALACE_RESOLUTION_SLOCKNOG_REAL" />
 							</choice>
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>もういいです。</text>
+						<text>気にするな。</text>
 						<event load="KNIGHT_PALACE_RESOLUTION_SLOCKNOG_REAL" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>もういいです。</text>
+				<text>気にするな。</text>
 				<event load="KNIGHT_PALACE_RESOLUTION_SLOCKNOG_REAL" />
 			</choice>
 		</event>
 	</choice>
 </event>
 <event name="KNIGHT_PALACE_THEFT">
-	<text>あなたのクランマンは王冠をつかみ、それを尊敬するために持ち上げます。しかし、妨害者のバンドが爆発して乗組員を見て、レーザーを描いて撃ちます。あなたのチームは、クランマンが彼らが止まるように叫ぶ前にほとんど殺され、クラウン盗難コンテストのルールによって新しい王を宣言します。スラッグはumb然としていますが、誰も抗議しません。</text>
+	<text>あなたのクランズマンが王冠をつかみ、それを掲げて賞賛する。しかし、サボタージュの一団が乱入し、あなたのクルーを見てレーザーを発射する。王冠争奪戦のルールにより、自分たちが新しい王であると宣言する。スラッグたちは唖然とするが、誰も抗議しない。</text>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>あなたのクルーは難破船からワルツを出し、頭上に冠をかぶせてすべての人が見ることができるようにします。 Slocknogを含め、スラッグがいたるところにいるのを見て驚いています。お辞儀をして、このイベントの変更を喜んで受け入れます...</text>
+			<text>あなたの乗組員が難破船から歩いて出てきた。スロックノッグも含め、周囲のスラッグたちがひれ伏し、この出来事の変化を喜んで受け入れるのを見て、あなたは驚いた...。</text>
 			<choice hidden="true">
-				<text>私たちはそれをしました。</text>
+				<text>我々はやり遂げた。</text>
 				<event>
 					<win ach="slug" creditsText="credit_victory_slug" text="The galaxy is now a slightly worse place thanks to you." creditsBackground="VICTORY_SLUG" />
 				</event>
@@ -1802,13 +1824,13 @@ varは笑います。「それが私の机の上のネームプレートが言�
 	</choice>
 </event>
 <event name="KNIGHT_BEANS_THEFT">
-	<text>あなたは王冠をつかみ、それを賞賛するためにそれを持ち上げます。しかし、妨害工作員の一団が突入してあなたのクルーを見て、彼らのレーザーを引いて撃ちます。 Bean シルバンが彼らに停止を叫ぶ前に、あなたのチームはほとんど殺され、CrownTheftContestのルールによって彼ら自身が新しい王であると宣言します。スラッグは唖然としますが、あなたは豆の缶を空中に上げ、誰も抗議しません。</text>
+	<text>あなたは王冠をつかみ、それを掲げて賞賛する。ところが、サボタージュの一団が乱入し、あなたたちを見てレーザーを発射。ビーン・シルヴァンが王冠争奪戦のルールによって自分たちが新しい王であると宣言し、彼らに止めるよう叫ぶ前に、あなたのチームは殺されそうになった。スラッグたちは唖然とするが、あなたは豆の缶を空中に掲げ、誰も抗議しない。</text>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>あなたのクルーは難破船からワルツを出し、王冠は彼の周りにそれを引きずる豆の缶の周りに不適当に置かれました。 Slocknogを含め、スラッグがいたるところにいるのを見て驚いています。お辞儀をして、このイベントの変更を喜んで受け入れます...真剣に、なぜ彼らはこれでとても素晴らしいのですか？</text>
+			<text>あなたの乗組員たちは難破船から歩き出し、王冠は不釣り合いにも豆の缶の周りに置かれた。スロックノッグも含め、周りのスラッグたちが頭を下げ、この変化を喜んで受け入れているのを見て、あなたは驚いた...。なぜ、彼らはこんなことを平気でするのだろう？</text>
 			<choice hidden="true">
-				<text>私たちはそれをしました。</text>
+				<text>我々はやり遂げた。</text>
 				<event>
 					<win ach="slug" creditsText="credit_victory_slug_beans" text="The galaxy is now a slightly worse place thanks to you." creditsBackground="VICTORY_SLUG" />
 				</event>
@@ -1817,23 +1839,23 @@ varは笑います。「それが私の机の上のネームプレートが言�
 	</choice>
 </event>
 <event name="KNIGHT_PALACE_RESOLUTION_SLOCKNOG_REAL">
-	<text>ナイトの死体が回収されると、彼は後で霊柩車の船に移されます。王冠も回復し、壊れていますが、奇跡的に破壊されていません。スラッグが集まって、次に何をすべきかを話し合います。</text>
+	<text>ナイツの死体が回収されると、後のために霊柩車に移される。王冠も回収され、壊れていたが奇跡的に消滅していなかった。スラッグたちは集まり、次に何をすべきかを話し合う。</text>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>Slocknogは、彼が群衆に含まれていないことに驚いているようです。彼が彼らに話しかけようとすると、群衆の怒っているメンバーが声を上げます。 「あなたにはここにいる権利はありません！ナイトssの不正行為などについてのssstoryを常にssspinningしますが、最終的にはlosssstをssstillします。あなたの小さなクーデターのためにjusssst！」</text>
+			<text>スロックノッグは自分が観客に混じっていないことに驚いているようだ。彼が彼らに話しかけようとすると、群衆の一人が怒りの声を上げる。「あんたにここにいる権利はない！ナイツが不正を働いただの何だのと、いつもそんな話を吹聴しているが、結局お前は負けたんだ。 確かにお前はナイツより優れた王だったが、お前の小さなクーデターのために、何十人もの仲間の命を奪ったんだ！"</text>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>これらの言葉は出席しているほとんどすべての人に共鳴しているようで、すぐに暴徒が形成され、スロックノグに向かって行進し、彼に罰せられることを要求しました。誰も彼を処刑することを提案しない唯一の理由は、彼の代わりに誰を選ぶべきか誰にも手がかりがないからです。</text>
+					<text>この言葉はその場にいたほぼ全員の心に響いたようで、やがて暴徒が形成され、スロックノッグの処罰を求めて行進する。誰も彼を処刑することを提案しないのは、誰も彼の代わりに誰を選ぶべきか手がかりがないからだ。</text>
 					<choice hidden="true">
-						<text>これらの人々はさらなる影響力を必要としています-力のショーを使用してSlocknogを権力に戻します。</text>
+						<text>この人たちにはさらなる影響力が必要だ。スロックノッグを政権に復帰させるために武力を示そう。</text>
 						<event>
-							<text>あなたがすでにスラッグの政治に深く関わっていることを考えると、あなたはさらに一歩進んだほうがよいでしょう。あなたは船に戻って近づき、群衆に警告ショットを発射します。みんなの注目を集めたら、もう一度Slocknogに責任を持たせるように要求します。群衆は気が進まないが、クレアボイアンツは彼らの王に忠実であり続け、彼を支援するために動く。</text>
+							<text>すでにスラッグの政治に深く関与していることを考えれば、余計なことをしてもいいのかもしれない。自分の船に戻り、群衆に向かって威嚇射撃をしながら近づく。皆の注意を引きつけると、スロックノッグに再び指揮を執るよう要求する。群衆は消極的だが、透視能力者たちは王に忠誠を誓い、彼を支持する。</text>
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event>
-									<text>「さて、私の友人、thisss isssは今や3回目です。Heheh、私は永遠にあなたの借金を抱えています。おそらくthisssisssはあなたに返済するための良いssstartです。」</text>
+									<text>「友よ、これで3度目だ。へへへ、恩は一生忘れないよ。おそらく、これが君に恩返しをするいいきっかけになるだろう。"</text>
 									<unlockCustomShip silent="false">PLAYER_SHIP_KNIGHT</unlockCustomShip>
 									<weapon name="RANDOM" />
 									<augment name="EX_AUTO_COOLDOWN" />
@@ -1843,22 +1865,22 @@ varは笑います。「それが私の机の上のネームプレートが言�
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>スラッグが適切な方法で選挙を行うことを提案します-投票を通じて。</text>
+						<text>スラッグたちに、適切な方法、つまり投票によって選挙を行うよう提案する。</text>
 						<event>
-							<text>驚いたことに、この革新的なアイデアはすぐには拒否されません。最近の出来事に説得されて、スラッグ達は彼らの違いを解決し、より良い利益のために政府の改革を行うことを真に検討しているようです。しかし、群衆の一人が「じゃあ、Sssslocknogはどうなるの？」と尋ねる。</text>
+							<text>意外なことに、この革命的なアイデアはすぐには却下されなかった。最近の出来事に説得されたスラッグたちは、純粋に自分たちの意見の相違を解決し、より良い善のために政府改革を行うことを考えているようだ。しかし、群衆の一人が "じゃあ、ススロックノッグはどうなるんだ？"と質問する。</text>
 							<variable name="loc_slugdemocracy" op="set" val="1" />
 							<choice hidden="true">
-								<text>彼を連れて行きます。</text>
+								<text>彼を連れて行こう</text>
 								<event>
-									<text>「まあ、もしそれが死のかどうかの選択をしているなら、ハスが私を勇敢に勇敢に働いていたssshipに乗って働いているなら、私は死ぬことを好まないと思います。Slocknogは鋭く向きを変えて船に向かっています。</text>
+									<text>"まあ、死ぬか、私を助けるために勇敢に働いてくれた船で働くかの選択なら、私は死なない方を選ぶと思う。みんな、さらばだ。私なしで腐っていくことを願うよ」。スロックノッグは鋭く身を翻し、あなたの船にそそり立つ。</text>
 									<variable name="ach_crew_slocknog" op="set" val="1" />
-									<crewMember amount="1" class="unique_slocknog">Slocknog</crewMember>
+									<crewMember amount="1" class="unique_slocknog">スロックノッグ</crewMember>
 								</event>
 							</choice>
 							<choice hidden="true">
-								<text>彼を処刑しなさい。</text>
+								<text>処刑しろ。</text>
 								<event>
-									<text>「私-何ですか？あなたは私を助けるためにたくさんの努力をしました、それでも今あなたは私を死に至らしめるのですか？」 Slocknogは走ろうとしますが、すぐに他のスラッグに捕まり、引きずり出されます。あなたはあなたがとても大いに助けてくれたスラッグ達市民から感謝され、報われています。</text>
+									<text>「なんだって？私を助けるために多大な労力を費やしたのに、今度は私に死刑を宣告するのか？"スロックノッグは逃げようとするが、すぐに他のスラッグたちに捕まり、引きずられる。あなたは、助けてくれたスラッグ市民から感謝され、褒美をもらう。</text>
 									<upgrade amount="1" system="reactor" />
 									<autoReward level="HIGH">scrap_only</autoReward>
 								</event>
@@ -1871,33 +1893,33 @@ varは笑います。「それが私の机の上のネームプレートが言�
 	</choice>
 </event>
 <event name="KNIGHT_PALACE_RESOLUTION_NIGHTS">
-	<text>Slocknogの巡洋艦が湖に衝突すると、戦闘は突然停止したようです。あなたは夜がくすくす笑っている黒いレイヴンの隣に船を着陸させます。「ははは！それはあなたが夜を台無しにするときに起こることをその馬鹿にsshowするだろう、ベイビー！」ナイトは彼の触手を勝利をもって空中に送り込み、あなたがすべての仕事をしたことに言及することを気にしません。</text>
+	<text>スロックノッグのクルーザーが湖に墜落すると、突然、戦闘が止んだように見えた。あなたはブラックレイブンの隣に船を着水させ、そこでナイツが笑っている。「ははは！ナイツに手を出したらどうなるか、あのバカに教えてやるぜ、ベイビー！"ナイツは得意げに触手を宙に突き出した。</text>
 	<variable name="ach_boss_slocknog" op="set" val="1" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>スラッグがチームを集めて巡洋艦を湖から釣り上げるのを見る。スロックノグの死体が回収されると、彼は後で霊柩車の船に移されます。スラッグが集まって、フェスティバルの進め方を決めようとします。</text>
+			<text>スラッグたちがチームを組んでクルーザーを湖から釣り上げるのを見守る。スロックノッグの死体が回収されると、後日のために霊柩船に移される。スラッグたちは集まって、祭りをどうするか決めようとする。</text>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>猛烈な夜、彼らは彼に王冠に戻ることを要求することを彼らに襲いますが、群衆は拒否します。「あなたはバススタード、あなたはssshitをdesserveしないでください！あなたはあなたの義務的なロバを王にして、生い茂った男の子供以外のssomethingsを扱ったことができましたか、私たちは王室の前でssssssssssssssssssssssssssssssssssのセンスを持っていません！「群衆から誰かを叫び、衝撃的に夜の内輪からまっすぐに見えます。</text>
+					<text>激怒したナイツは王冠を返せと詰め寄るが、観客は拒否。"この卑怯者、お前にそんな資格はない！お前が王としての義務を果たし、成長しすぎた男児以外の何かでこのクソ野郎を処理していれば、王宮の前で何十人ものクソ野郎の死体がくすぶることもなかっただろう！"群衆の中から、ナイツの側近らしい衝撃的な人物が叫んだ。</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
-							<text>これらの言葉は、出席しているほとんどすべての人に共鳴しているようで、すぐに暴徒が形成され、夜に向かって行進し、彼に罰せられることを要求しました。誰も彼を処刑することを提案しない唯一の理由は、彼の代わりに誰を選ぶべきか誰にも手がかりがないからです。</text>
+							<text>この言葉はその場にいたほぼ全員の心に響いたようで、やがて暴徒が形成され、ナイツの処罰を求めて行進する。誰も彼を処刑することを提案しないのは、誰も彼の代わりに誰を選ぶべきか手がかりがないからだ。</text>
 							<choice hidden="true">
-								<text>これらの人々はさらなる影響力を必要としています-夜を力に戻すために力のショーを使用してください。</text>
+								<text>この人たちにはさらなる影響力が必要だ。ナイツを権力の座に復帰させるために、力の誇示を利用するのだ。</text>
 								<event>
-									<text>あなたがすでにスラッグの政治に深く関わっていることを考えると、あなたはさらに距離を置くかもしれません。あなたは船に戻って近づき、群衆に警告ショットを発射します。みんなの注意が払われたら、夜をもう一度担当することを要求します。群衆は消極的ですが、信仰は魔法のように彼のフォロワーに戻っているように見え、夜の騎士団は彼らの王を支援するために動きます。これは機能し、すぐに十分な夜が再選されます。</text>
+									<text>すでにスラッグの政治に深く関与していることを考えれば、余計なことをしてもいいのかもしれない。自分の船に戻り、群衆に向かって威嚇射撃をしながら近づく。皆の注意を引いたら、もう一度ナイツに仕切るよう要求する。群衆は難色を示したが、ナイツの信奉者たちは魔法にかけられたように信頼を取り戻し、ナイツの騎士たちは王を支持するために動き出した。これが功を奏し、やがてナイツは王に再選される。</text>
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event>
-											<text>夜は多くの点でひどく取り返しのつかない嫌いな人かもしれませんが、彼は明らかにあなたに個人的に感謝するのに十分な良心を持っています。彼ができる最大の善意のショーを拡張し、将来の問題の場合にあなたから支持を得る可能性があり、彼はあなたの任務を支援するために彼の内側のサークルの2人の警備員を派遣し、続いてスクラップの山を派遣します。</text>
+											<text>ナイツはいろいろな意味でひどい、救いようのないろくでなしかもしれないが、どうやらあなたに個人的に礼を言うだけの良心は持っているようだ。将来何か問題が起きたときにあなたに好意を抱いてもらえるよう、最大限の好意を示し、側近の護衛を2人派遣してあなたの任務を手伝わせる。</text>
 											<crewMember amount="1" class="slug_knight" />
 											<autoReward level="HIGH">scrap_only</autoReward>
 											<unlockCustomShip silent="false">PLAYER_SHIP_KNIGHT</unlockCustomShip>
 											<choice hidden="true">
-												<text>継続する...</text>
+												<text>次へ...</text>
 												<event>
 													<crewMember amount="1" class="slug_knight" />
 												</event>
@@ -1907,22 +1929,22 @@ varは笑います。「それが私の机の上のネームプレートが言�
 								</event>
 							</choice>
 							<choice hidden="true">
-								<text>スラッグが適切な方法で選挙を行うことを提案します-投票を通じて。</text>
+								<text>スラッグたちに、適切な方法、つまり投票によって選挙を行うよう提案する。</text>
 								<event>
-									<text>驚いたことに、この革新的なアイデアはすぐには拒否されません。最近の出来事に説得されて、スラッグ達は彼らの違いを解決し、より良い利益のために政府の改革を行うことを真に検討しているようです。しかし、群衆の一人が「じゃあ、ナイトスはどうなるの？」と尋ねる。</text>
+									<text>意外なことに、この革命的なアイデアはすぐには却下されなかった。最近の出来事に説得されたスラッグたちは、純粋に自分たちの意見の相違を解決し、より良い善のために政府改革を行おうと考えているようだ。しかし、群衆の一人が "それならナイツはどうなるんだ？"と質問する。</text>
 									<variable name="loc_slugdemocracy" op="set" val="1" />
 									<choice hidden="true">
-										<text>彼は私たちのために働いて銀河への借金を返済することができます。</text>
+										<text>彼は銀河系への借金を返すために私たちのために働くことができる。</text>
 										<event>
-											<text>ナイトはそのアイデアに熱心ではありませんが、スラッグは彼が連邦船に乗って働くことを追放することに大きなユーモアを見つけているようです。崩壊光線による公開処刑よりも船に乗った有給労働を大いに好む、ナイトは受け入れます、そしてあなたが新しいクルーを乗せた直後に。</text>
+											<text>ナイツはその案に乗り気ではなかったが、スラッグは連邦の船で働くよう追放することに大きなユーモアを見出したようだ。崩壊光線による公開処刑よりも船上での有給労働を大いに好むナイツはそれを受け入れ、すぐに新しいクルーが乗船することになる。</text>
 											<variable name="ach_crew_nights" op="set" val="1" />
-											<crewMember amount="1" class="unique_nights">夜</crewMember>
+											<crewMember amount="1" class="unique_nights">ナイト</crewMember>
 										</event>
 									</choice>
 									<choice hidden="true">
-										<text>彼を処刑しなさい。</text>
+										<text>処刑しろ。</text>
 										<event>
-											<text>夜は突然勇気のショーを落とし、恐怖で叫びますが、手遅れです。アイデアがあなたの言葉によって強化された今、群衆は他の方法で納得することはできません。ナイトが地下の刑務所に引きずり込まれると、あなたはあなたが大いに助けてくれたSlugs市民から感謝と報いを受けます。</text>
+											<text>ナイツは突然、勇敢な態度を取りやめ、恐怖のあまり泣き叫ぶが、時すでに遅し。群衆は、あなたの言葉によってその考えが強化された今、そうでなければ納得できないのだ。ナイツが地下の牢獄に引きずり込まれると、あなたはスラッグ市民から感謝され、報いを受ける。</text>
 											<upgrade amount="1" system="reactor" />
 											<autoReward level="HIGH">scrap_only</autoReward>
 										</event>

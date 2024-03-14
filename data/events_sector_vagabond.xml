@@ -5,11 +5,11 @@
 <event name="FINISH_BEACON_VAGABOND">
 	<text id="finish_beacon" />
 	<choice hidden="true">
-		<text>探検。</text>
+		<text>探検する</text>
 		<event load="EXIT_FILLER_LIST" />
 	</choice>
 	<choice hidden="true">
-		<text>船に乗って何かする。</text>
+		<text>船内で何かをする。</text>
 		<event load="STORAGE_CHECK" />
 	</choice>
 	<choice hidden="true">
@@ -27,21 +27,21 @@
 </eventList>
 
 <event name="VAGABOND_SEPARATISTS" unique="true">
-	<text>「連邦船のアイデンティティが確認された。それはあなたの忠誠があなたの支援能力を促進することを暗示している。Engiの援軍が到着するまで犯罪者を外します。この取引は受け入れられますか？」</text>
+	<text>「連邦船の身元を確認した。あなたの忠誠心が 援助を促すと思われます現在逃走中分離主義者の破壊工作員 B0N-N3とレイスの無法者 クライドオだ長い間ハーモニーからの捕獲を逃れているお願いエンギの援軍が到着するまで 犯罪者を阻止して欲しいこの取引は受け入れられるか？</text>
 	<ship load="SHIP_ENGI_GENERIC" hostile="false" />
 	<choice hidden="true">
-		<text>承認。</text>
+		<text>受け入れる。</text>
 		<event>
-			<text>「座標の転送。あなたの船舶が無法者を降伏に強制することに失敗した場合、それでもそれらを排除することができます。</text>
+			<text>"座標を転送する。あなたの船が無法者を降伏させることに失敗しても、無法者を排除することに成功したら、報酬は少ないけど、代わりが与えられる。ハーモニーの最優先事項：分離主義者による妨害工作の試みが成功しないようにすること"</text>
 			<quest event="VAGABOND_SEPARATISTS_OUTLAWS" />
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>却下。</text>
+		<text>衰退。</text>
 		<event>
-			<text>エンギは一言も言わずに電話を切ります。彼らのロボットの性質とより厳格な文化があなたが突然と考えるかもしれない習慣につながることをあなたは知っています、しかし彼らはとても失礼でなければなりませんか？</text>
+			<text>エンギは何も言わずに電話を切った。彼らのロボットのような性質と厳格な文化が、あなたが唐突だと思うような習慣につながっていることは知っているだろう。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -55,62 +55,62 @@
 	<environment type="nebula" />
 	<beaconType id="map_icon_quest" global="true">
 		<color r="69" g="168" b="235" a="1" />
-		<unvisitedTooltip>ハーモニーによって検索された分離主義者とレイスの逃亡者の場所。</unvisitedTooltip>
+		<unvisitedTooltip>ハーモニーが捜索した分離主義者とレイスの逃亡者の場所。</unvisitedTooltip>
 	</beaconType>
-	<text>かなり大きな分離主義船が近くにあり、これが正しい場所であることを確認しています。あなたのアプローチは無法者を驚かせたようです。 「ボンボン、その連邦船はあなたを場違いだと思いますか？」 「あなたの仮定は[正しい]です。この連邦船は-最近-[ハーモニー]所有の船と接触しています。あなたの不満の疑いは[正当化]されています。」</text>
+	<text>かなり大きい分離主義者の船が近くにいて、ここが正しい場所だと確認した。あなたの接近が無法者たちを驚かせたようだ。「ボンボン、あの連邦の船は場違いだと思う？「あなたの推測は［正しい］。この連邦の船は、最近、[ハーモニー]所有の船と接触している。不満分子というあなたの疑念は【正当】です。"</text>
 	<choice hidden="true">
-		<text>あなたがここに来たことをしなさい。</text>
+		<text>ここに来た目的を果たせ。</text>
 		<event>
-			<text>正しく覚えていれば、エンギから、できればこれらの人を殺さないように言われました。エンギが到着するのを待つか、強制的に降伏させる必要があります！</text>
+			<text>もし記憶が正しければ、君はエンジから、できることならこいつらを殺すなと言われたはずだ。エンジが到着するのを待つか、降伏させるしかない！</text>
 			<ship load="SHIP_VAGABOND_OUTLAWS" hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>ハーモニーから彼らを保護することを申し出てください。</text>
+		<text>ハーモニーから彼らを匿うことを申し出る。</text>
 		<event>
-			<text>「あなたは私たちを助けるためにたわごとをすることができないでしょう！私たちは無法者であり、連盟は私たちを何も望んでいません！私たちは単なる普通の犯罪者ではありません。私たちはボンの人々の解放のために戦っています！私たちを残してください、またはあなたがやらなければならないことをしてください、私はdallyしていません。」</text>
+			<text>"俺たちを助けても無駄だ！俺たちは無法者だ 連盟は俺たちを必要としてない俺たちはただの犯罪者じゃない ボンの人々の解放のために 戦ってるんだ俺たちを放っておくか、どうするかだ。</text>
 			<choice hidden="true">
-				<text>それらと戦う。</text>
+				<text>彼らと戦う。</text>
 				<event>
-					<text>正しく覚えていれば、エンギから、できればこれらの人を殺さないように言われました。エンギが到着するのを待つか、強制的に降伏させる必要があります！</text>
+					<text>もし記憶が正しければ、君はエンジから、できることならこいつらを殺すなと言われたはずだ。エンジが到着するのを待つか、降伏させるしかない！</text>
 					<ship load="SHIP_VAGABOND_OUTLAWS" hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>それらを残します。</text>
+				<text>放っておけばいい。</text>
 				<event>
-					<text>あなたが出発し始めると、あなたは無法者に再び止められます。「あなたは私たちを破壊するつもりはありませんか？なぜですか？ハーモニーはあなたに十分な支払いをしていませんか？」</text>
+					<text>出発しようとすると、また無法者たちに呼び止められる。「俺たちを滅ぼさないのか？なぜだ？ハーモニーの報酬が足りないのか？"</text>
 					<choice hidden="true">
-						<text>私たちはハーモニーの操り人形ではありません。私たちはマルチバースのレネゲートです。私たちは、適切と思われる法律を施行します。</text>
+						<text>我々はハーモニーの操り人形ではない。我々はマルチバース・レネゲイドだ。法を執行する</text>
 						<event>
-							<text>「自警者？誰がそれをサンクするだろう-」ハーモニー船が飛び込んだとき、無法者は銃撃によって突然遮断された。援軍が予想より早く到着したようだ！</text>
+							<text>「自警団？誰が考えたんだ..."ハーモニーの船が飛び込んできて、無法者は突然砲撃で遮られた。援軍が予想より早く到着したようだ！</text>
 							<ship load="SHIP_VAGABOND_OUTLAWS_ENGI" hostile="false" />
 							<choice hidden="true">
-								<text>あなたが仕事をしたふりをして、給料を取ります。</text>
+								<text>仕事をしたふりをして給料をもらう。</text>
 								<event>
-									<text>無法者が捕らえられると、ハーモニー船が再びあなたに連絡します。 「連邦船は重要な役割を果たしていることが証明されています。無法者を遅らせることで成功の可能性が75％上昇しました。ハーモニーが再びあなたの支援を要求する可能性があります。」</text>
+									<text>無法者が捕まった後、ハーモニー船から再び連絡が入る。"連邦の船は役に立った。無法者の捕獲を遅らせたことで、成功の可能性が75％高まりました。おそらくハーモニー号は、再びあなたの援助を要請するでしょう。"</text>
 									<drone name="RANDOM" />
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event load="MORALITY_REMOVE_ENGI" />
 									</choice>
 								</event>
 							</choice>
 							<choice hidden="true">
-								<text>無法者を守る。</text>
+								<text>無法者を守れ。</text>
 								<event>
-									<text>ハーモニーが分離主義者をどのように扱うかについての話を聞いたことがあります。エンギは連邦の同盟国かもしれませんが、それはあなたが彼らに立ち向かうことができないという意味ではありません。</text>
+									<text>ハーモニーの分離主義者に対する扱いの話を聞いたでしょう。エンギは連邦の同盟国かもしれないけど、だからって彼らに立ち向かえないわけじゃない。</text>
 									<ship hostile="true" />
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event load="MORALITY_UPDATE_ENGI_FIGHT" />
 									</choice>
 								</event>
@@ -118,9 +118,9 @@
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>今日、対立は私の頭の中にはありませんでした。</text>
+						<text>今日、葛藤は頭になかった。</text>
 						<event>
-							<text>「うーん。あなたはひどく奇妙なバンチャ傭兵です...」</text>
+							<text>"うーん。ずいぶん変わった傭兵たちだな......"</text>
 						</event>
 					</choice>
 				</event>
@@ -128,11 +128,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>彼らは私たちの上にいます。離れる。</text>
+		<text>気づかれた。去れ。</text>
 		<event>
-			<text>彼らがすでにあなたを呼んでいるときにこれをやり遂げるのは良い考えではありません。あなたはビーコンから遠く離れた星雲に飛び込みます。</text>
+			<text>すでに呼び出されているのに、こんなことをするのは得策ではない。あなたはビーコンから遠く離れた星雲の中にそそくさと消えていく。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -144,48 +144,48 @@
 </event>
 
 <event name="VAGABOND_TRASHKING" unique="true">
-	<text>このビーコンには膨大な量の汚染が含まれており、軌道上にさまざまな破片が詰まっています。地球の外でさえ、ごみが非常に集中しています。</text>
+	<text>このビーコンは膨大な量の汚染を含んでおり、軌道上にはさまざまな破片の塊が滞留している。惑星の外側にも、気になるほどのゴミが集中している。</text>
 	<img planet="PLANET_UNPOPULATED_TERRA" />
 	<choice hidden="true">
-		<text>いくつかの破片を拾ってみてください。</text>
+		<text>残骸を拾ってみてください。</text>
 		<event>
-			<text>ヴァガボンドの船に止められたとき、あなたはスクラップを集め始めます。 「やめろ！生きておらず、この軌道の境界に入るのは、私たちの主であるゴミ王のものだけだ！」</text>
+			<text>スクラップを回収しようとしたとき、バガボンド船に止められた。"止まれ！ この軌道に入る、生きていないものはすべて、我らが主、ゴミ王のものだ！"</text>
 			<choice hidden="true">
-				<text>ゴミ箱の王様？</text>
+				<text>ゴミ王？</text>
 				<event>
-					<text>「ゴミ王の支配の言葉を聞いていないことを私たちに言わないでください！」彼らの叫びがあなたの側の空白の凝視によって満たされるとき、ゴーストはしぼんでいるようです。 「わかりました。フォローしてください。」ゴーストはあなたを完全にゴミで建てられた巨大な城と壮大な玉座の間に導きます。</text>
+					<text>"まさか、ゴミ王支配の情報をキャッチしていないとは言わせませんよ！"彼らの叫びに無表情な視線が向けられると、ゴーストは萎縮したようだ。「わかった。ついてこい"ゴーストはあなたたちをゴミだけで造られた巨大な城に案内し、壮大な玉座の間に連れて行く。</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
-							<text>あなたは、彼のガス状の「頭」にかろうじてとどまることができなかった紙張り子の王冠を身に着けている大きなマーレアルファに出会う。 「私はゴミの王様です！息抜きの前でお辞儀をしてください！」</text>
+							<text>紙粘土で作った王冠をかろうじてガス状の "頭 "に載せている大きなマーレ・アルファが出迎えてくれる。「私はゴミの王だ！私の前にひれ伏せ！」。</text>
 							<choice hidden="true">
-								<text>弓。</text>
+								<text>弓を引く。</text>
 								<event>
-									<text>「よかった。私を喜ばせてください。この場所を私の貴重なゴミでいっぱいにしておきたいのなら、剣闘士の戦闘で自分自身を証明しなければなりません！」</text>
+									<text>「よかった。君は私を喜ばせる。私の大切なゴミを両手いっぱいにしてこの場を去りたいのなら、剣闘士の闘いで己を証明するのだ！"</text>
 									<choice hidden="true">
-										<text>彼の最強の船の1つと戦ってください。</text>
+										<text>彼の最強の船の1隻と戦う。</text>
 										<event>
-											<text>「挑戦です！そうしましょう！私のチャンピオンを呼んでください！」ゴミ王はあなたと戦うために彼の最強の船の1つを案内します。</text>
+											<text>「挑戦！では、そうしよう！我がチャンピオンを呼び出せ！"ゴミの王は最強の船を呼び寄せ、お前と戦わせる。</text>
 											<ship load="SHIP_GHOST_TRASHKING_ELITE" hostile="true" />
 											<choice hidden="true">
-												<text>継続する...</text>
+												<text>次へ...</text>
 												<event load="COMBAT_CHECK" />
 											</choice>
 										</event>
 									</choice>
 									<choice hidden="true">
-										<text>彼の弱い船の1つと戦ってください。</text>
+										<text>彼の弱い船と戦え。</text>
 										<event>
-											<text>「挑戦！だからそうしよう！」ゴミ王はあなたと戦うために彼の船の1つを案内します。</text>
+											<text>「挑戦だ！では、そうしよう！"ゴミの王は、あなたと戦うために、彼の器の一つを案内する。</text>
 											<ship load="SHIP_GHOST_TRASHKING_NORMAL" hostile="true" />
 											<choice hidden="true">
-												<text>継続する...</text>
+												<text>次へ...</text>
 												<event load="COMBAT_CHECK" />
 											</choice>
 										</event>
 									</choice>
 									<choice hidden="true">
-										<text>結構です。</text>
+										<text>結構だ。</text>
 										<event />
 									</choice>
 								</event>
@@ -193,35 +193,35 @@
 							<choice hidden="true">
 								<text>拒否する。</text>
 								<event>
-									<text>ゴミ王はうなり声を上げます。 「私はBOWと言いました！」</text>
+									<text>ゴミ王がうなる。"頭を下げろと言ったんだ！"</text>
 									<choice hidden="true">
-										<text>弓。</text>
+										<text>弓を引く。</text>
 										<event>
-											<text>「よかった。私を喜ばせてください。この場所を私の貴重なゴミでいっぱいにしておきたいのなら、剣闘士の戦闘で自分自身を証明しなければなりません！」</text>
+											<text>「よかった。君は私を喜ばせる。私の大切なゴミを両手いっぱいにしてこの場を去りたいのなら、剣闘士の闘いで己を証明するのだ！"</text>
 											<choice hidden="true">
-												<text>彼の最強の船の1つと戦ってください。</text>
+												<text>彼の最強の船の1隻と戦う。</text>
 												<event>
-													<text>「挑戦です！そうしましょう！私のチャンピオンを呼んでください！」ゴミ王はあなたと戦うために彼の最強の船の1つを案内します。</text>
+													<text>「挑戦！では、そうしよう！我がチャンピオンを呼び出せ！"ゴミの王は最強の船を呼び寄せ、お前と戦わせる。</text>
 													<ship load="SHIP_GHOST_TRASHKING_ELITE" hostile="true" />
 													<choice hidden="true">
-														<text>継続する...</text>
+														<text>次へ...</text>
 														<event load="COMBAT_CHECK" />
 													</choice>
 												</event>
 											</choice>
 											<choice hidden="true">
-												<text>彼の弱い船の1つと戦ってください。</text>
+												<text>彼の弱い船と戦え。</text>
 												<event>
-													<text>「挑戦！だからそうしよう！」ゴミ王はあなたと戦うために彼の船の1つを案内します。</text>
+													<text>「挑戦だ！では、そうしよう！"ゴミの王は、あなたと戦うために、彼の器の一つを案内する。</text>
 													<ship load="SHIP_GHOST_TRASHKING_NORMAL" hostile="true" />
 													<choice hidden="true">
-														<text>継続する...</text>
+														<text>次へ...</text>
 														<event load="COMBAT_CHECK" />
 													</choice>
 												</event>
 											</choice>
 											<choice hidden="true">
-												<text>結構です。</text>
+												<text>結構だ。</text>
 												<event />
 											</choice>
 										</event>
@@ -233,12 +233,12 @@
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>何をすべきか教えてはいけません！</text>
+				<text>私たちに指図しないでくれ！</text>
 				<event>
-					<text>あなたは武器を武装させ、ゴーストを攻撃します。</text>
+					<text>武器を装備し、ゴーストを攻撃する。</text>
 					<ship load="SHIP_GHOST_TRASHKING_BORING" hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
@@ -246,11 +246,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>破片を避けてください。</text>
+		<text>瓦礫を避ける。</text>
 		<event>
-			<text>ここには何も興味がないように思われるので、地域のさらなる調査には役に立たない。</text>
+			<text>この辺りには興味のあるものは何もなさそうだから、これ以上の調査は無駄だろう。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -262,52 +262,52 @@
 </event>
 
 <event name="VAGABOND_STORM" unique="true">
-	<text>このビーコンは、北のはるか遠くにある星雲以外のすぐ近くの星雲の近くにはないかもしれませんが、近くの惑星に大きなヴァガボンドキャンプが設置されています。簡単なスキャンは、住民が素早く動き回っていることを示しています。</text>
+	<text>このビーコンは、北のはるか彼方にある星雲以外には近くにないかもしれないが、近くの惑星にバガボンドの大規模なキャンプが設置されている。短時間のスキャンで、住民が素早く移動していることがわかる。</text>
 	<img planet="PLANET_UNPOPULATED_TERRA" />
 	<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="1">
-		<text>近づいてみる。</text>
+		<text>アプローチ</text>
 		<event>
-			<text>惑星に着陸するとき、あなたはゴーストに邪魔されませんが、キャンプに近づくと、ゴーストの1人があなたを止めます。 「なぜあなたは来たのですか？大きな北の嵐が毎分近くに漂います！それらの電界は私たちのコンピューターを壊滅させます。私たちはあなたがすぐに去ることをお勧めします！」</text>
+			<text>しかし、キャンプに近づくにつれ、ゴーストの一人があなたを呼び止めた。「なぜ来た？北の大嵐が刻一刻と近づいている！彼らの電場は我々のコンピューターを破壊するだろう。すぐに立ち去ることを勧める！"</text>
 			<choice hidden="true">
-				<text>離れる。</text>
+				<text>出て行け。</text>
 				<event />
 			</choice>
 			<choice hidden="true">
-				<text>滞在し、機器の移動を支援することを申し出ます。</text>
+				<text>彼らの道具を運ぶのを手伝うと申し出る。</text>
 				<event>
-					<text>「あなたは助けたいですか？そうすれば、あなたがリスクを理解している限り、私たちはあなたを邪魔しません。」クルーに、モイスチャーファーム、ソーラーパネル、エクスプレスコーヒーメーカーなどのさまざまな機器を屋内でドラッグし始めるように指示します。ゴーストも横たわっていませんでした、あなたは雲が心配な速度で近づいているのを見ることができます。</text>
+					<text>「手伝いたいのか？それなら邪魔はしない-危険を理解してくれるならね"あなたはクルーに、水分農場、ソーラーパネル、特急コーヒーメーカーなど、さまざまな設備を屋内に引きずり込むよう命じる。ゴーストの言うことも嘘ではなかった。雲がどんどん近づいてくるのがわかる。</text>
 					<choice hidden="true">
-						<text>屋内でカバーしてください！</text>
+						<text>屋内に避難する！</text>
 						<event>
-							<text>あなたのクルーは、ゴーストによって設置された避難所の中で急いでいます。嵐は最終的に惑星全体を包み込み、ほぼ一日中、あなたは悪臭を放つゴーストに閉じ込められます。それでも、彼らはあなたをゲストとして迎えることができて幸せです。嵐がやがて晴れると、彼らはあなたに彼らの最高の武器の1つを贈り物として与えます。</text>
+							<text>乗組員たちはゴーストたちが設置したシェルターの中に急ぐ。嵐はやがて惑星全体を包み込み、あなたはほぼ丸一日、悪臭を放つゴーストたちと一緒に屋内から出られなくなった。それでもゴーストたちは、あなたたちを客人として迎えてくれることを、これ以上嬉しいことはないと思っている。やがて嵐が去ると、彼らは最高の武器をプレゼントしてくれる。</text>
 							<weapon name="RANDOM" />
 							<modifyPursuit amount="2" />
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>働き続けます！</text>
+						<text>働き続けろ！</text>
 						<event>
-							<text>ほとんどのゴーストが中に退却するときでさえ、あなたはクルーに働き続けるように命じます。雲が惑星を消費し、真っ暗闇に閉じ込められるまでに、あなたは避難所に足を踏み入れましたが、クルーの1人が行方不明になっていることに気づきました。あなたは、少なくともカリスマ的なホストであることが証明されているゴーストとほぼ1日の間立ち往生しています。</text>
+							<text>ゴーストのほとんどが屋内に退避する中、あなたはクルーに作業を続けるよう命じる。雲が惑星を覆い尽くし、真っ暗闇の中に閉じ込められる頃、あなたはシェルターに入るが、クルーの一人が行方不明であることに気づく！ゴーストたちは少なくともカリスマ的なホストであることを証明している。</text>
 							<modifyPursuit amount="2" />
 							<choice hidden="true" blue="false" req="BACKUP_DNA" lvl="0" max_lvl="0">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event>
-									<text>ついに自由になったとき、あなたはどこでもあなたのクルーを探しますが、彼らを見つけることができません。彼らは永久になくなったように見えます。しかし、あなたの努力がゴーストの重要な装備のほとんどを救ったので、彼らの犠牲は完全に無駄ではありませんでした。その日の犠牲を知って、彼らは大量のスクラップと彼らの最高の武器の1つを提供します。</text>
+									<text>ようやく自由の身となったあなたは、クルーを探し回るが見つからない。彼らは永久にいなくなってしまったようだ。しかし、彼らの犠牲はまったく無駄ではなかった。あなたの努力のおかげで、ゴーストたちは重要な装備のほとんどを救われたのだ。その日の犠牲を知った彼らは、大量のスクラップと最高の武器を提供してくれた。</text>
 									<removeCrew>
 										<clone>false</clone>
-										<text>あなたの乗組員が死んでいる場合、それはほとんど重要ではありません。クローンベイは嵐によって電源が切れ、それに関係なくクローンを作成できませんでした。</text>
+										<text>クルーが死んだとしても、ほとんど問題にはならない。クローンベイは嵐で電源が落ちていて、関係なくクローンを作ることができない。</text>
 									</removeCrew>
 									<autoReward level="HIGH">standard</autoReward>
 									<weapon name="RANDOM" />
 								</event>
 							</choice>
 							<choice hidden="true" blue="false" req="BACKUP_DNA" lvl="1">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event>
-									<text>ついに自由になったとき、あなたはどこでもあなたのクルーを探しますが、彼らを見つけることができません。彼らは永久になくなったように見えます。しかし、あなたの努力がゴーストの重要な装備のほとんどを救ったので、彼らの犠牲は完全に無駄ではありませんでした。その日の犠牲を知って、彼らは大量のスクラップと彼らの最高の武器の1つを提供します。</text>
+									<text>ようやく自由の身となったあなたは、クルーを探し回るが見つからない。彼らは永久にいなくなってしまったようだ。しかし、彼らの犠牲はまったく無駄ではなかった。あなたの努力のおかげで、ゴーストたちは重要な装備のほとんどを救われたのだ。その日の犠牲を知った彼らは、大量のスクラップと最高の武器を提供してくれた。</text>
 									<removeCrew>
 										<clone>true</clone>
-										<text>ありがたいことに、バックアップDNAは、嵐によって引き起こされたパワーの混乱にもかかわらず、乗組員を回復できるようにしました。</text>
+										<text>ありがたいことに、バックアップDNAは、嵐による停電にもかかわらず、クルーを回復できることを保証している。</text>
 									</removeCrew>
 									<autoReward level="HIGH">standard</autoReward>
 									<weapon name="RANDOM" />
@@ -316,14 +316,14 @@
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>船に戻りましょう！</text>
+						<text>船に戻る！</text>
 						<event>
-							<text>この嵐は壊滅的なものになるでしょう、そしてあなたはそれに立ち往生する危険を冒すことはできません。残念ながら、あなたは手遅れです。強力な衝撃波が船に衝突し、エンジンを破壊し、電気火災を引き起こします。さらに悪いことに、嵐の動きによってここまで押し出された王朝の船のように見えますが、今もここにあります！</text>
+							<text>この嵐は壊滅的な被害をもたらすだろうから、身動きが取れなくなる危険は冒せない。残念ながら、遅すぎた。強力な衝撃波が船を襲い、エンジンが停止し、電気火災が発生した。さらに悪いことに、嵐の動きによってはるばるここまで押し出されたダイナスティの船もここにいるようだ！</text>
 							<environment type="storm" />
 							<damage amount="3" system="engines" effect="fire" />
 							<ship load="SHIP_DYNASTY_FIGHT" hostile="true" />
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="COMBAT_CHECK" />
 							</choice>
 						</event>
@@ -333,15 +333,15 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="0" max_lvl="0">
-		<text>船内船AIは、余分な乗組員なしでキャンプに近づくことを拒否します - 多くの自動船が貪欲な幽霊に失われました。このセキュリティ測定により、この数値が高くならないことが保証されます。</text>
+		<text>多くのオートシップが貪欲なゴーストによって失われている。このセキュリティ対策により、この数がこれ以上増えることはない。</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true">
-		<text>最初にキャンプに呼びかけます。</text>
+		<text>まずキャンプを万歳する。</text>
 		<event>
-			<text>ゴーストからの応答は簡単です。 「嵐がすぐに近づいています。私たちが移転することが不可欠です。すぐに去ることをお勧めします。」この主張の正当性についてはよくわかりませんが、とにかくここでゴーストを使って他のことをすることはできません。</text>
+			<text>ゴーストたちからの返事は短いものだった。「嵐が急速に近づいている。移動が急務だ。すぐに出発することをお勧めします。あなたはこの主張の正当性についてあまり確信が持てないが、いずれにせよ、ここにいるゴーストと一緒にいても、他に大したことはできないだろう。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -351,11 +351,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>近づかないでください。</text>
+		<text>近寄るな。</text>
 		<event>
-			<text>あなたは船に乗って何かをしているときにゴーストが走り回るのを見て満足しています。しかし、遠くの雲が速く近づいているように見えることに気づかずにはいられません...</text>
+			<text>あなたは船上で何かをしながら、ゴーストたちが慌ただしく動き回るのを見て満足する。しかし、遠くの雲が急速に近づいているように見える。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -367,14 +367,14 @@
 </event>
 
 <event name="GHOST_REBEL_TRUCE" unique="true">
-	<text>反乱軍の船はすでにこのビーコンを占領していますが、驚くべきことに、彼らは戦う代わりにあなたを歓迎します。 「私はあなたを攻撃する必要があります...しかし、このセクターにはゴーストが散らばっていて、私たちはついに雲からの休憩をとらえました。」</text>
+	<text>反乱軍の船がすでにこのビーコンを占拠しているが、驚くことに、彼らは戦う代わりにあなたに呼びかける。"攻撃すべきだが......このセクターはゴーストが散見され、ようやく雲の切れ間をつかんだ"</text>
 	<ship load="SHIP_REBEL_GENERIC" hostile="false" />
 	<choice hidden="true">
-		<text>それらを放っておくことに同意します。</text>
+		<text>彼らを放っておくことに同意する。</text>
 		<event>
-			<text>「よかった、私たち二人が何かに同意できるのを見てうれしい」二人ともここにいるのは気まずいのですが、何か他のことをして気を紛らわせることにしました。</text>
+			<text>"良かった、私たち二人とも同意できることがあるようで嬉しいよ"あなたは、ここにいることが2人にとって気まずいことだと感じているが、他のことをして気を紛らわすことにした。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -384,20 +384,20 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>休戦をねじ込み、殺します。</text>
+		<text>休戦などクソ食らえだ。</text>
 		<event>
-			<text>反乱軍の船長は、あなたが戦闘の準備をしているときにあなたに怒鳴ります。「これが連邦が崩壊しなければならない理由です！」</text>
+			<text>反乱軍のキャプテンは、戦闘態勢に入ったあなたたちに向かってこう叫んだ。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>艦隊を遅らせるために彼らに支払います。</text>
+		<text>船団を遅らせるために金を払え。</text>
 		<event>
-			<text>反乱軍のキャプテンはどのように対応するかわからないが、彼がスクラップを断りたくないことは明らかだ。彼はしぶしぶ受け入れ、彼らが戻ったときに艦隊に虚偽の情報を与えることを約束します。</text>
+			<text>反乱軍のキャプテンはどう答えていいかわからないが、スクラップを断りたくないのは明らかだ。彼はしぶしぶ引き受け、艦隊が戻ってきたら偽の情報を伝えると約束した。</text>
 			<modifyPursuit amount="-1" />
 			<item_modify>
 				<item type="scrap" min="-20" max="-20" />
@@ -422,26 +422,26 @@
 	<autoReward level="LOW">standard</autoReward>
 </event>
 <textList name="TEXT_GHOST_DEADSHIP">	
-	<text>あなたは席から飛び出し、このビーコンで漂う難破船と戦う準備ができていますが、それは幽霊船ではありません。あなたは残っているものをスクラップします。</text>	
-	<text>あなたは戦う準備ができていますが、ここの難破船は沈黙しています。そのクルーは死んでおり、彼らの攻撃者はずっといなくなっています。あなたは慎重に船をスクラップします。</text>	
-	<text>難破した船がこのビーコンに生息しています。 ゴーストをスキャンしましたが、すべての結果は船が空であることを示しています。資材を回収するくらいは安全に出来るでしょう。</text>	
-	<text>このビーコンで船を破壊した人は誰でも構いませんが、ゴーストではなかったに違いありません。すべてのクルーが空になったら、あなたはそれをスクラップするために移動します。</text>	
+	<text>あなたは座席から飛び出し、このビーコンに漂着した難破船と戦う覚悟を決めたが、それは幽霊船ではなかった。残骸をスクラップにした。</text>	
+	<text>戦う準備はできているが、この難破船は沈黙している。乗組員は死んでおり、攻撃者もとっくにいない。あなたは慎重に船をスクラップする。</text>	
+	<text>このビーコンには難破船がある。ゴーストがいないかスキャンしてみたが、どの結果も船は空だった。できる限りサルベージした方が安全だと判断した。</text>	
+	<text>このビーコンで船を破壊したのが誰であろうと関係ないが、ゴーストではないはずだ。乗組員は全員、スクラップにする。</text>	
 </textList>
 
 <event name="NEBULA_VAGABOND_FLEETCRASH" unique="true">
-	<text>スキャンは近くの溶岩惑星で何か大きなものを見つけています。それは大規模な王朝のクラスFのドレッドノート級戦艦です！ もちろん完全にゴミと化し、それはおそらく二度と飛ぶことはないでしょう...しかしそれはヴァガボンドの大群が住むのを止めませんでした。</text>
+	<text>近くの溶岩惑星で何か大きなものが発見された。巨大なダイナスティ・クラスFドレッドノートのようだ！もちろん、完全に破壊され、二度と飛べないだろうが...バガボンドの大群が住み着くのを止めない。</text>
 	<img back="BACK_EVENT_LIGHTNEBULA" planet="PLANET_LAVA" />
 	<status type="loss" target="player" system="sensors" amount="1" />
 	<choice hidden="true">
-		<text>船の外側の領域のいくつかをスクラップしてみてください。</text>
+		<text>船の外側の一部をスクラップしてみる。</text>
 		<event load="VAGABOND_FLEETCRASH_SCRAP" />
 	</choice>
 	<choice hidden="true">
-		<text>ゴーストに連絡する。</text>
+		<text>幽霊万歳。</text>
 		<event>
-			<text>ステレオを介したパチパチという音は、最終的には識別可能な単語に移行します。 「私たちが故郷と呼ぶこの場所は、連邦が占領するためのものではありません。ミサイルがあれば、私たちは取引します。」</text>
+			<text>ステレオから聞こえるパチパチという雑音が、やがて聞き取れる言葉に変わる。"我々が故郷と呼ぶこの場所は 連邦のものではないミサイルがあれば交換しよう。"</text>
 			<choice>
-				<text>店にアクセスするためにミサイルをいくつか渡してください。</text>
+				<text>店にアクセスするためのミサイルを与える。</text>
 				<event>
 					<store>STORE_DYNASTY</store>
 					<item_modify>
@@ -450,29 +450,29 @@
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>彼らの要求を無視して、残骸を廃棄してください。</text>
+				<text>彼らの要求を無視して、難破船をスクラップにする。</text>
 				<event>
-					<text>「あなたはひどい動機の人です、そして私はあなたを迅速に殺します。」エリートゴースト船が難破船から飛び出してあなたに会います。</text>
+					<text>"君は恐ろしい動機の持ち主だ、速やかに殺してやろう"エリート・ゴーストの船が難破船から飛び出し、あなたを迎えに来る。</text>
 					<autoReward level="LOW">standard</autoReward>
 					<ship load="SHIP_GHOST_ELITE" hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>辞退して去ります。</text>
+				<text>辞退して去る。</text>
 				<event />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>難破を避けてください。</text>
+		<text>難破船を避ける。</text>
 		<event>
-			<text>それはもはや難破現場ではなく、おそらく数ダースのゴーストの故郷です。彼らのスペースに侵入しないのが最善です。</text>
+			<text>あそこはもう沈没船ではなく、おそらく数十体のゴーストの住処だ。邪魔をしないのが一番だ</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -484,88 +484,88 @@
 </event>
 <eventList name="VAGABOND_FLEETCRASH_SCRAP">
 	<event>
-		<text>ゴーストが何度もあなたを見つけたのは確かですが、一度もあなたを止めようとはしません。たぶん彼らは非常に理解しているだけですか？</text>
+		<text>ゴーストに何度も見つかっているのは確かだが、あなたを止めようとしたことは一度もない。もしかしたら、彼らはとても物わかりがいいだけなのかもしれない。</text>
 		<autoReward level="MED">standard</autoReward>
 	</event>
 	<event>
-		<text>ゴーストがあなたを見つけるのにそれほど時間はかかりません...1隻の船があなたに合うように飛び出します。エリートのように見えますが、今ではゴーストの手に渡っています！</text>
+		<text>ゴーストに見つかるのに時間はかからない。エリートだったようだが、今はゴーストの手中にある！</text>
 		<autoReward level="LOW">standard</autoReward>
 		<ship load="SHIP_GHOST_ELITE" hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 </eventList>
 
 <event name="NEBULA_VAGABOND_ACID" unique="true">
-	<text>「よろしくお願いします。私は探検家のドモディウスです。これらの暗い漠然とした雲に必要なすべての知識を知っています。私を逃れる重要な事実を除いてすべて。いわゆる...「酸」の伝説を聞いたことがあります。星雲。それでも私は自分で見たことがありません！私はそれを見つけなければなりません！」</text>
+	<text>「旅人よ、こんにちは！私は探検家ドモディウス、この暗い漠然とした雲で必要とされるあらゆる知識に通じている。しかし、ある重要な事実を除いては、私にはわからない。私は、いわゆる...酸」星雲の伝説を聞いたことがある。しかし、私自身は一度も見たことがない！見つけなければ！"</text>
 	<ship load="SHIP_GHOST_ALL" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>わからない。説明していただけますか？</text>
+		<text>わかりません。ひとつ教えてください。</text>
 		<event>
-			<text>「まあ、それらは緑の色合いです。そして星雲の性質を持っています。それは本当にそれです。」</text>
+			<text>「緑色をしている。星雲の性質を持っている。それだけです」。</text>
 			<choice hidden="true">
-				<text>嘘をついて、あなたがそれらについて聞いたことがあると言います。</text>
+				<text>ウソをついて、聞いたことがあると言う。</text>
 				<event>
-					<text>「ほんと？！びっくり！どうぞ、どこにいるのか教えてください！」</text>
+					<text>「本当に？驚きました！お願いだから場所を教えて！"</text>
 					<choice hidden="true">
-						<text>いくつかの座標を作ります。</text>
+						<text>いくつかの座標を作る。</text>
 						<event load="VAGABOND_ACID_LIE" />
 					</choice>
 					<choice hidden="true" req="mind">
-						<text>（マインドコントロール）彼に非常に「説得力のある」嘘をつく。</text>
+						<text>(マインド・コントロール）非常に『説得力のある』嘘をつかせる。</text>
 						<event>
-							<text>「おおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおお！</text>
+							<text>「おお、おお！すぐにそこへ向かわなければならない！助けてくれてありがとう。</text>
 							<autoReward level="MED">stuff</autoReward>
 						</event>
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>本当のことを言え。見たことがない。</text>
+				<text>本当のことを言え。一度も見たことがない</text>
 				<event>
-					<text>「それは大丈夫です！もし私たち探検家がすべての星空を見なければならなかったのなら、なぜそれなら探検家になるために何も残っていないでしょう！安全な旅行の友人、そしてこれがあなたを助けるかもしれません。」</text>
+					<text>「それでもいい！私たち探検家が、見るべき星空をすべて見ていたら、探検家になるためのものは何も残っていなかっただろう！友よ、安全な旅を。</text>
 					<autoReward level="LOW">stuff</autoReward>
 				</event>
 			</choice>
 			<choice hidden="true" req="sensors" lvl="3">
-				<text>（高度なセンサー）彼にあなたの詳細な地図データを提供します。</text>
+				<text>(アドバンスセンサー）彼にあなたの詳細な地図データを提供する。</text>
 				<event>
-					<text>ドモディウスはあなたが彼に与えたデータを調べます。 「うーん。決定的ではありません。それでも、これはあなたが優れた知識の提供者であり、発見に目を向けた熱心な探検家であることを証明しています。私があなたに加わるなら、私たちの総合的な知性は比類のないものになるはずです！」</text>
+					<text>ドモディウスは渡されたデータを見る。「うーん。決定的ではないな。それでも、これで君が優れた知識を持つ人物であり、発見を求める鋭い探検家であることが証明された！もし私があなたに加われば、私たちの知性の結集は他の追随を許さないものになるはずです！"</text>
 					<crewMember amount="1" class="phantom_wraith">ドモディウス</crewMember>
 				</event>
 			</choice>
 			<choice hidden="true" req="ADV_SCANNERS">
-				<text>（長距離スキャナー）彼に詳細なマップデータを提供します。</text>
+				<text>(長距離スキャナー）彼にあなたの詳細な地図データを提供する。</text>
 				<event>
-					<text>ドモディウスはあなたが彼に与えたデータを調べます。 「うーん。決定的ではありません。それでも、これはあなたが優れた知識の提供者であり、発見に目を向けた熱心な探検家であることを証明しています。私があなたに加わるなら、私たちの総合的な知性は比類のないものになるはずです！」</text>
+					<text>ドモディウスは渡されたデータを見る。「うーん。決定的ではないな。それでも、これで君が優れた知識を持つ人物であり、発見を求める鋭い探検家であることが証明された！もし私があなたに加われば、私たちの知性の結集は他の追随を許さないものになるはずです！"</text>
 					<crewMember amount="1" class="phantom_wraith">ドモディウス</crewMember>
 				</event>
 			</choice>
 			<choice hidden="true" req="PRE_SCANNER">
-				<text>（スリップスキャナー）彼にあなたの詳細な地図データを提供します。</text>
+				<text>(スリップスキャナー）彼にあなたの詳細な地図データを提供する。</text>
 				<event>
-					<text>ドモディウスはあなたが彼に与えたデータを調べます。 「うーん。決定的ではありません。それでも、これはあなたが優れた知識の提供者であり、発見に目を向けた熱心な探検家であることを証明しています。私があなたに加わるなら、私たちの総合的な知性は比類のないものになるはずです！」</text>
+					<text>ドモディウスは渡されたデータを見る。「うーん。決定的ではないな。それでも、これで君が優れた知識を持つ人物であり、発見を求める鋭い探検家であることが証明された！もし私があなたに加われば、私たちの知性の結集は他の追随を許さないものになるはずです！"</text>
 					<crewMember amount="1" class="phantom_wraith">ドモディウス</crewMember>
 				</event>
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="unique_wither">
-		<text>（エーンウィザ）「うん。うん、私はそれらが何であるかを知っている。」</text>
+		<text>(エーンウィテ）「ヤバい。ああ、あれは知ってる。"</text>
 		<event>
-			<text>エーンウィザは、酸ネブラがこの現実やそのような他の人から来ていないと説明しています。これはドモディウスを満たしているようです。 「私はこれを聞いたことがありません...あなたが話すキャプテンのエディションですが、それは最も恐ろしいことです。私はこの現実に住むことができてとても嬉しかったです。あなたがとても知識が豊富なら、私はあなたと一緒に来ます。私たちの組み合わせの知性は制限を知らないはずです！」</text>
+			<text>エーンウィテは、酸性星雲はこの現実や他の現実からは生まれないと説明する。これでドモディウスは納得したようだ。君の言う "船長版 "というのは聞いたことがない。この現実に生きていてよかったと思ったことはない。あなたがそんなに物知りなら、私も一緒に行きましょう。</text>
 			<crewMember amount="1" class="phantom_wraith">ドモディウス</crewMember>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>仕方がない。</text>
+		<text>どうしようもない。</text>
 		<event>
-			<text>「ああ、残念だ！それからずっと、宇宙の次元間スレッドの航海者だ！」</text>
+			<text>「ああ、残念だ！それではまた、宇宙の異次元の糸の航海者よ！"</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -577,38 +577,38 @@
 </event>
 <eventList name="VAGABOND_ACID_LIE">
 	<event>
-		<text>「え？でも、私はすでにそこにいました！私はそのシステムが提供しなければならないすべてを見ましたが、見られる酸性星雲はありません。あなたは単に害はないだろうと言ったのに、私に嘘をついたのですか？許せない、そんな侮辱が比類のないものになって生きてはならない！」</text>
+		<text>「しかし、私はすでにそこに行ったことがある！あの星系をすべて見渡したが、酸性星雲は見当たらない。断ってくれれば何の問題もなかったのに、嘘をつくなんて許せない。許しがたい。このような侮辱をそのままにしておくわけにはいかない！"</text>
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 	<event>
-		<text>「おおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおお！</text>
+		<text>「おお、おお！すぐにそこへ向かわなければならない！助けてくれてありがとう。</text>
 		<autoReward level="MED">stuff</autoReward>
 	</event>
 </eventList>
 
 <event name="NEBULA_GHOST_BOO" unique="true">
-	<text>星雲は空に見えますが、ジャンプしてすぐにすべてのライトが消えます。数秒後、メイン画面がちらつきます。入力を開始するときに点滅するカーソルを見て、期待して腰を下ろします...</text>
+	<text>星雲には誰もいないように見えるが、飛び込んで間もなく、すべてのライトが消える。数秒後、メインスクリーンが明滅する。あなたは期待に胸を膨らませ、点滅するカーソルがタイプし始めるのを見守る...。</text>
 	<environment type="nebula" />
 	<status type="limit" target="player" system="sensors" amount="0" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>「BOO！」画面に単語が点滅し、すぐに「私はあなたに恐怖を引き起こしましたか？」というテキストが続きます。</text>
+			<text>"BOO！"その言葉がスクリーンに点滅し、まもなく "私があなたに恐怖を与えたか？"というテキストが続く。</text>
 			<choice hidden="true">
-				<text>はい、とても怖かったです。</text>
+				<text>そう、とても怖かった。</text>
 				<event>
-					<text>画面が空白になり、ゴーストが橋に向かって光ります。 「ハァッ！あなたは私に喜びの感覚を引き起こします。それは私が多くのサイクルで感じなかった感情です。私はあなたに固執すると思います、息抜き。」</text>
+					<text>スクリーンが真っ白になり、ゴーストがブリッジに現れた。「あなたは私に喜びの感覚を起こさせる。何サイクルも感じたことのない感情だ。お前と一緒にいよう、ブリーザー"</text>
 					<crewMember amount="1" class="phantom_mare" />
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>あまり。</text>
+				<text>そうでもないよ。</text>
 				<event>
-					<text>コンピューターの電源が切れ、一組のゴーストが橋の上に現れ、あなたに向かって動きます。あなたは戦闘のためにあなたのクルーを準備します。</text>
+					<text>コンピューターがシャットダウンし、ブリッジに現れたゴーストの一団があなたに向かって動き出す。あなたはクルーの戦闘態勢を整える。</text>
 					<boarders min="2" max="3" class="phantom_mare" />
 				</event>
 			</choice>
@@ -617,32 +617,32 @@
 </event>
 
 <event name="NEBULA_GHOST_DONATION" unique="true">
-    <text>ゴースト ヴァガボンドは通常、ダメージが無視できないほど大きくなるまで、船に長期間生息します。このビーコンのゴースト船は息を切らしていますが、予期せずゴースト船はあなたの船を攻撃しようとはしません。クイックスキャンはその理由を示しています。彼らの武器はほとんど機能せず、エンジンは燃料を急速に漏らしています。</text>
+    <text>ゴーストバガボンドは通常、ダメージが無視できないほど大きくなるまで、長い間船に棲みついている。このビーコンにいるゴースト船は息絶えようとしているが、予想に反してゴーストのクルーはあなたの船を攻撃しようとはしない。ざっとスキャンしてみると、その理由がわかる。武器はほとんど機能しておらず、エンジンからは燃料が急速に漏れている。</text>
     <ship load="SHIP_GHOST_ALL" hostile="false" />
 	<environment type="nebula" />
     <choice hidden="true">
-        <text>簡単なターゲット、攻撃！</text>
+        <text>攻撃しやすいターゲットだ！</text>
         <event>
-            <text>一度は、あなたが戦闘を開始する人です。あなたは武器の電源を入れ、すでに不自由な残骸を破壊する準備をします。</text>
+            <text>今回ばかりは、あなたが戦闘を開始する。あなたは武器をパワーアップし、すでに廃墟と化した残骸を破壊する準備をする。</text>
             <status type="divide" target="enemy" system="weapons" amount="2" />
             <status type="limit" target="enemy" system="engines" amount="1" />
             <ship hostile="true" />
             <choice hidden="true">
-                <text>継続する...</text>
+                <text>次へ...</text>
                 <event load="COMBAT_CHECK" />
             </choice>
         </event>
     </choice>
     <choice hidden="true">
-        <text>彼らの船体を修理するために彼らにスクラップを払ってください。 [-35スクラップ]</text>
+        <text>スクラップを払って船体を修理する。[-35スクラップ]</text>
         <event load="GHOST_DONATION_CREW" />
     </choice>
     <choice hidden="true">
-        <text>船を無視します。</text>
+        <text>船を無視する。</text>
         <event>
-            <text>ゴーストはあなたとコミュニケーションをとろうとはせず、最終的には雲の中に戻って、あなたを一人にします。</text>
+            <text>ゴーストはあなたとコミュニケーションを取ろうとはせず、やがて雲の中に戻っていき、あなただけを残して去っていく。</text>
             <choice hidden="true">
-                <text>船に乗って何かする。</text>
+                <text>船内で何かをする。</text>
                 <event load="STORAGE_CHECK" />
             </choice>
             <choice hidden="true">
@@ -654,21 +654,21 @@
 </event>
 <eventList name="GHOST_DONATION_CREW">
     <event>
-        <text>「あなたの寄付は最も寛大ですが、彼らはすべての人に対応するのに十分ではありません。この船は別の日に生きますが、私は私の旅行を続けるために新しい場所を探しなければなりません。あなたはそうします。」</text>
+        <text>"ご寄付は大変ありがたいのですが、全員を受け入れるには十分ではありません。この船はまだ生きられるだろうが、私は旅を続けるために新しい場所を探さなければならない。そうしてくれ</text>
         <item_modify>
             <item type="scrap" min="-35" max="-35" />
         </item_modify>
         <crewMember amount="1" class="phantom_goul" />
     </event>
     <event>
-        <text>「あなたの寄付は最も寛大ですが、彼らはすべての人に対応するのに十分ではありません。この船は別の日に生きますが、私は私の旅行を続けるために新しい場所を探しなければなりません。あなたはそうします。」</text>
+        <text>"ご寄付は大変ありがたいのですが、全員を受け入れるには十分ではありません。この船はまだ生きられるだろうが、私は旅を続けるために新しい場所を探さなければならない。そうしてくれ</text>
         <item_modify>
             <item type="scrap" min="-35" max="-35" />
         </item_modify>
         <crewMember amount="1" class="phantom_mare" />
     </event>
     <event>
-        <text>「あなたの寄付は最も寛大ですが、彼らはすべての人に対応するのに十分ではありません。この船は別の日に生きますが、私は私の旅行を続けるために新しい場所を探しなければなりません。あなたはそうします。」</text>
+        <text>"ご寄付は大変ありがたいのですが、全員を受け入れるには十分ではありません。この船はまだ生きられるだろうが、私は旅を続けるために新しい場所を探さなければならない。そうしてくれ</text>
         <item_modify>
             <item type="scrap" min="-35" max="-35" />
         </item_modify>
@@ -677,38 +677,38 @@
 </eventList>
 
 <event name="NEBULA_GHOST_BREEDER" unique="true">
-	<text>スラッグ船はすでにこのビーコンにあり、いくつかのヴァガボンド船に囲まれています。奇妙なことに、どのゴーストもスラッグを攻撃しておらず、スラッグが残骸を廃棄していません。</text>
+	<text>ナメクジ船はすでにこのビーコンにおり、数隻のバガボンド船に囲まれている。奇妙なことに、どのゴーストもスラッグを攻撃していないし、スラッグも難破船をスクラップしていない。</text>
 	<ship load="SHIP_SLUG_GENERIC" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>彼らに連絡する。</text>
+		<text>万歳。</text>
 		<event>
-			<text>スラッグの船長はイライラした口調で反応し、常に自分の周りを見回し、時々振り返ってクルーに怒鳴ります。 「はい、あなたは連邦です。私たちはsssscience vessselであり、最近、Ghosssstssssを繁殖させようと試みました。彼らは繁殖しないことがわかりました。Ssso...」</text>
+			<text>スラッグの艦長は苛立った口調で答え、常に周囲を見回し、時折振り返ってクルーに怒鳴る。「はい、あなた方は連邦です。我々は科学船で、最近、ゴシップの繁殖を試みている。彼らは繁殖しない。だから..."</text>
 			<choice>
-				<text>被験者の1人をクルーとして購入することを申し出ます。</text>
+				<text>彼らの被験者の一人をクルーとして買うと申し出る。</text>
 				<event load="GHOST_BREEDER_PURCHASE" />
 			</choice>
 			<choice hidden="true" req="LIST_CREW_GHOST">
-				<text>（ゴーストクルー）ゴーストにゴーストの繁殖について説明してもらいます。</text>
+				<text>(ゴーストクルー）あなたのゴーストにゴーストの再現について説明してもらいましょう。</text>
 				<event>
-					<text>あなたの幽霊は、スラッグが理解できるように、小さなタブレットでその応答をタイプします。彼らによると、彼らが体に同化する自然なガスのコレクションを通して、幽霊の「年齢」。最大サイズに達すると、アルファとして知られるようになります。アルファステージに着くと、彼らは分割して新しいゴーストを作成できます。</text>
+					<text>あなたのゴーストは、ナメクジが理解できるように小さなタブレットに返答をタイプする。彼らによると、ゴーストは体内に同化する天然ガスを集めることで「年をとる」。最大サイズに達すると、アルファとして知られるようになる。アルファの段階になると、分裂して新しいゴーストを生み出すことができる。</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
-							<text>「なに？！Thissssはsssenssseさえ作らない！うーん...このbusssinessississsssは私にとって適切な場所ではない。あなたはssssebigguysssが重要だと言っているのか？ ..」</text>
+							<text>「何だと？こんなの意味ないじゃん！うう...この仕事は俺には向いてない。このデカブツが大事だって？いいだろう、一人連れて行け。とにかく、何の意味があるんだ......」。</text>
 							<crewMember amount="1" class="phantom_goul_alpha" />
 						</event>
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" req="GHOST_DUPLICATOR">
-				<text>（ゴーストスプリッター）レプリケーターを表示します。</text>
+				<text>(ゴースト・スプリッター）レプリケーターを見せる。</text>
 				<event>
-					<text>科学者は熱心にデバイスを調査し、すべての隙間を調べ、すべてのインチを研究します。あなたはスライムについて不平を言うことを考えますが、彼の集中力を壊したくありません。しばらくすると、彼は機械を殴り、何かを叫びます。 「私はこれを試してみる必要があります！いくらですか？」</text>
+					<text>科学者は熱心に装置を調査し、あらゆる隙間を覗き込み、隅々まで研究している。スライムについて文句を言おうかと思ったが、彼の集中を途切れさせたくない。しばらくすると、彼は機械を殴り、何かを叫んだ。「これを試してみたいんだ！いくらだ？</text>
 					<choice req="GHOST_DUPLICATOR" blue="false">
-						<text>それらに増強物を売る。</text>
+						<text>オーグメントを売るんだ。</text>
 						<event>
-							<text>スラッグは自分自身をコントロールすることはほとんどできず、あなたにスクラップを投げ、彼の最新の賞金で逃げ出します。</text>
+							<text>ナメクジは自制がきかず、あなたにスクラップを投げつけ、最新の賞金を持って走り去った。</text>
 							<remove name="GHOST_DUPLICATOR" />
 							<item_modify>
 								<item type="scrap" min="60" max="60" />
@@ -718,17 +718,17 @@
 					<choice hidden="true">
 						<text>拒否する。</text>
 						<event>
-							<text>スラッグは彼の時間を無駄にすることについて何か侮辱的なことを叫び、そしてぐちゃぐちゃに彼の船に戻ります。</text>
+							<text>ナメクジは時間の無駄だと侮辱するようなことを叫び、混乱したまま自分の船に戻る。</text>
 						</event>
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>通話を終了します。</text>
+				<text>通話を終了する。</text>
 				<event>
-					<text>あなたは肩をすくめて通話を終了します。あなたは科学者の心を疑っています。</text>
+					<text>あなたは肩をすくめて電話を切る。あなたは科学者の心を疑っている。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -740,11 +740,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>それらを無視します。</text>
+		<text>無視するんだ。</text>
 		<event>
-			<text>スラッグは、科学者でさえ信頼できません。また、ゴーストの一族を悪化させたくもありません。あなたは彼らの怪しげな取引から距離を置くことにしました。</text>
+			<text>科学者であってもナメクジは信用できないし、ゴーストの一族を怒らせたくはないだろう。あなたは彼らの怪しい取引から距離を置くことにした。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -756,28 +756,28 @@
 </event>
 <eventList name="GHOST_BREEDER_PURCHASE">
 	<event>
-		<text>「あなたは...あなたはssssefreaksssの1つを購入したいですか？まあ、sssomessscrapと議論することはできません。」</text>
+		<text>"お前は...このフリークを買いたいのか？まあ、くだらないことに異論はないだろう。"</text>
 		<item_modify>
 			<item type="scrap" min="-40" max="-40" />
 		</item_modify>
 		<crewMember amount="1" class="phantom" />
 	</event>
 	<event>
-		<text>「あなたは...あなたはssssefreaksssの1つを購入したいですか？まあ、sssomessscrapと議論することはできません。」</text>
+		<text>"お前は...このフリークを買いたいのか？まあ、くだらないことに異論はないだろう。"</text>
 		<item_modify>
 			<item type="scrap" min="-40" max="-40" />
 		</item_modify>
 		<crewMember amount="1" class="phantom_goul" />
 	</event>
 	<event>
-		<text>「あなたは...あなたはssssefreaksssの1つを購入したいですか？まあ、sssomessscrapと議論することはできません。」</text>
+		<text>"お前は...このフリークを買いたいのか？まあ、くだらないことに異論はないだろう。"</text>
 		<item_modify>
 			<item type="scrap" min="-40" max="-40" />
 		</item_modify>
 		<crewMember amount="1" class="phantom_mare" />
 	</event>
 	<event>
-		<text>「あなたは...あなたはssssefreaksssの1つを購入したいですか？まあ、sssomessscrapと議論することはできません。」</text>
+		<text>"お前は...このフリークを買いたいのか？まあ、くだらないことに異論はないだろう。"</text>
 		<item_modify>
 			<item type="scrap" min="-40" max="-40" />
 		</item_modify>
@@ -796,41 +796,41 @@
 </eventList>
 
 <event name="NEBULA_GHOST_GASGIANT" unique="true">
-	<text>ヴァガボンドの船が近くのガス巨人をスキャンしているように見えますが、飛び込むとすぐにあなたを呼びます。「私の最愛の人は美しくないですか？」</text>
+	<text>バガボンドの船が近くのガス惑星をスキャンしているようだが、飛び込むとすぐに声をかけてくる。"私のダーリンは美しいでしょう？"</text>
 	<img back="BACK_EVENT_LIGHTNEBULA" planet="PLANET_GAS" />
 	<status type="loss" target="player" system="sensors" amount="1" />
 	<choice hidden="true">
 		<text>あなたの...誰？</text>
 		<event>
-			<text>「ばかげてはいけません！あなたが見ることができることを私は知っています。彼女はかなり大きいです！」彼らがガス惑星を指していることに気付くのにそれほど時間はかかりません。 「言ってくれ、お願いしてくれませんか？私の最愛の人の飢え！私は彼女を養わなければなりません。しかし私は食べ物が不足しています。あなたは私に難破船を持って来なければなりません。私は悪魔が長居するのを聞きました！代わりに反乱軍...」</text>
+			<text>「ふざけるな！見えるでしょ？彼女はかなり大きいんだ！"彼らがガス惑星のことを言っているのだと理解するのに時間はかからない。「お願いがあるんだ。お願いがあるんだ！食べさせなきゃ。でも食べ物がないんだ。骸を持って来てくれ。悪魔がいると聞いた"反乱軍を追った方がいいのでは？"</text>
 			<choice hidden="true">
-				<text>「悪魔」を追いかけなさい。</text>
+				<text>悪魔』を追いかけろ。</text>
 				<event>
-					<text>問題の「悪魔」は...反乱軍の自動船ですか？さて、あなたはどちらの方法でもこのことを殺さなければならないでしょう、戦う準備をしてください！</text>
+					<text>どうやら問題の「悪魔」は...反乱軍のオートシップ？いずれにせよ、こいつを殺さなければならない。戦いの準備をしろ！</text>
 					<ship load="SHIP_GASGIANT_AUTO" hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>反乱軍を追いかけなさい。</text>
+				<text>反乱軍を追え。</text>
 				<event>
-					<text>幸いなことに、ここからそれほど遠くないところに反乱軍の船があります。あなたはこれらの人をかなり簡単に選ぶことができます、あなたは願っています。</text>
+					<text>幸い、ここからそう遠くないところに反乱軍の船がある。奴らを簡単にやっつけられるといいが</text>
 					<ship load="SHIP_GASGIANT_REBEL" hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>却下。</text>
+				<text>衰退。</text>
 				<event>
-					<text>「わかりました...連邦の船長に別れを告げてください、ダーリン！」ガス巨人は沈黙を保ち、遠くを渦巻いて静かにあなたを判断します。</text>
+					<text>"連邦のキャプテンにさよならを言うんだ、ダーリン！"巨大なガスは沈黙を保ち、遠くで静かに渦を巻いている。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -843,54 +843,54 @@
 	</choice>
 </event>
 <event name="GHOST_GASGIANT_FEED">
-	<text>「はい、はい！あなたは勝利です！私の最愛の人は今夜再び空腹になることはありません！」ゴーストは残骸を自分の船と結びつけ、それを使って残骸をガス巨人にパチンコで打ち込みます。船は惑星によって消費されるため、視界から外れて渦巻く。 「よかった。あなたは最も寛大な報酬に値する！」</text>
+	<text>「はい、はい！やったね！今夜はもうお腹を空かせることはないだろう！"ゴーストは残骸を自分の船とリンクさせ、その船を使って残骸を巨大ガスに投げつける。船は螺旋を描きながら惑星に飲み込まれ、見えなくなる。「いいぞ。君は最も寛大な報酬に値する！"</text>
 	<drone name="RANDOM" />
 </event>
 
 <event name="NEBULA_GHOST_FEDMORALITY" unique="true">
-	<text>あなたは周りに多くのFRBの船を見ないことに慣れてきました-それでここで1隻を見るのはかなりショックです。さらに奇妙なことに、彼らの武器は動力を与えられており、船体はいくつかの小さなダメージを示しています。彼らはちょうど戦闘中であったに違いありません。</text>
+	<text>FRB艦をあまり見かけないことに慣れているあなたにとって、ここでFRB艦を見るのはかなりの衝撃だ。さらに奇妙なことに、彼らの武器にはパワーがあり、船体には小さな損傷が見られる。戦闘中だったに違いない。</text>
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>彼らに連絡する。</text>
+		<text>万歳。</text>
 		<event>
-			<text>船の船長は見上げ、気を散らします。「うーん、ああ！まあ、それが誰であるかを見てください。私たちはこれらの雲の中で一人でいると思っていました - ここからそれほど遠くない彼らのキャンプをクリアしようとしていた幽霊を除いて、ろくでなしは立ち往生しています！私は私は好きなだけ旅行をし続けることができます！」</text>
+			<text>船長が顔を上げる。「おや、誰かと思えば。この雲の中、ゴーストを除けば俺たちだけだと思ってた。ここからそう遠くないところで、奴らのキャンプを一掃しようとしていたんだ！好きなだけ行ったり来たりできるんだ！"</text>
 			<choice hidden="true">
-				<text>しかし、なぜ？</text>
+				<text>でも、なぜ？</text>
 				<event>
-					<text>「ハァッ！まあ、どうして？簡単にスクラップして、星雲を少しだけ混雑させないようにします。反乱が邪魔にならないようになったら、連邦はおそらくもう少し遠くに移動し、リフラフを片付け始めるかもしれません。」</text>
+					<text>「そうだね。簡単にスクラップにできるし、星雲の混雑も少しは緩和される。反乱軍がいなくなれば、連邦はもう少し遠くに移動するだろう。</text>
 					<choice hidden="true">
-						<text>彼らがゴーストを一掃するのを手伝ってください。</text>
+						<text>ゴースト退治を手伝ってあげてください。</text>
 						<event>
-							<text>連盟のキャプテンを喜ばせるためのあなたの申し出。彼はあなたをゴーストキャンプに導き、そこであなたはあなたのターゲットを見つけます。</text>
+							<text>あなたの申し出に、連邦の船長は大喜び。彼はあなたをゴーストキャンプに案内し、そこでターゲットを見つける。</text>
 							<choice hidden="true">
-								<text>マンティスの残骸の1つを攻撃します。</text>
+								<text>マンティスの残骸の1つを攻撃する。</text>
 								<event>
-									<text>ヴァガボンドを攻撃するために移動すると、他の船が連邦船と戦うために移動するのを見ることができます。うまくいけば、あなたは両方とも通り抜けることができます。</text>
+									<text>バガボンズを攻撃するために移動しながら、他の艦が連邦艦と戦うために移動するのを見る。うまくいけば、二人とも切り抜けることができるだろう。</text>
 									<ship load="SHIP_GHOST_FEDMORALITY_MANTIS" hostile="true" />
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event load="COMBAT_CHECK" />
 									</choice>
 								</event>
 							</choice>
 							<choice hidden="true">
-								<text>エンギの残骸の1つを攻撃します。</text>
+								<text>エンジの残骸の1つを攻撃せよ。</text>
 								<event>
-									<text>ヴァガボンドを攻撃するために移動すると、他の船が連邦船と戦うために移動するのを見ることができます。うまくいけば、あなたは両方とも通り抜けることができます。</text>
+									<text>バガボンズを攻撃するために移動しながら、他の艦が連邦艦と戦うために移動するのを見る。うまくいけば、二人とも切り抜けることができるだろう。</text>
 									<ship load="SHIP_GHOST_FEDMORALITY_ENGI" hostile="true" />
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event load="COMBAT_CHECK" />
 									</choice>
 								</event>
 							</choice>
 							<choice hidden="true">
-								<text>ゾルタンの残骸の1つを攻撃します。</text>
+								<text>ゾルタンの残骸の1つを攻撃する。</text>
 								<event>
-									<text>ヴァガボンドを攻撃するために移動すると、他の船が連邦船と戦うために移動するのを見ることができます。うまくいけば、あなたは両方とも通り抜けることができます。</text>
+									<text>バガボンズを攻撃するために移動しながら、他の艦が連邦艦と戦うために移動するのを見る。うまくいけば、二人とも切り抜けることができるだろう。</text>
 									<ship load="SHIP_GHOST_FEDMORALITY_ZOLTAN" hostile="true" />
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event load="COMBAT_CHECK" />
 									</choice>
 								</event>
@@ -898,18 +898,18 @@
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>それは卑劣です！連邦政府を攻撃します。</text>
+						<text>卑劣だ！連邦政府を攻撃しろ</text>
 						<event>
-							<text>「ああ！何してるの？」船をミュートして攻撃します。</text>
+							<text>"ギャー！ 何やってるんだ？"あなたは器をミュートし、攻撃する。</text>
 							<ship load="SHIP_FED_FIGHT" hostile="true" />
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="MORALITY_UPDATE_GENERAL_FIGHT" />
 							</choice>
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>それらを残します。</text>
+						<text>放っておけばいい。</text>
 						<event />
 					</choice>
 				</event>
@@ -917,11 +917,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>船を無視します。</text>
+		<text>船を無視する。</text>
 		<event>
-			<text>連邦船はあなたに気づいたり気にかけたりするにはあまりにも夢中になっているようです。</text>
+			<text>連邦の船は、あなたのことなど気にも留めず、夢中になっているように見える。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -932,44 +932,44 @@
 	</choice>
 </event>
 <event name="GHOST_FEDMORALITY_FINISH">
-	<text>「そこでお疲れ様でした！私たちはそれらのガスフリークに何のためにあるかを示しました-」ヴァガボンド船からの爆風が彼らの船体を半分に引き裂くので、連邦船は遮断されます！ 「迷子になって、息抜き！」あなたはすぐに2番目のゴースト船を一掃しますが、連邦船はそれほど長くは続かないでしょう。</text>
+	<text>「よくやった！バガボンド船の爆風が船体を真っ二つに引き裂き、連邦船は途絶えた！「失せろ！2隻目のゴースト艦はすぐに消し去ったが、連邦艦は長くはもたない。</text>
 	<choice>
-		<text>キャプテンを救出します。</text>
+		<text>キャプテンを救え。</text>
 		<event>
-			<text>「ありがとう。これが私たちが連邦に背を向けなければならない理由です。この銀河は挑発されない危険に満ちています！」</text>
+			<text>「ありがとう。これだから連邦は困るんだ。この銀河系はいわれのない危険に満ちている！"</text>
 			<crewMember amount="1" pilot="2" class="human" />
 		</event>
 	</choice>
 	<choice>
-		<text>それは最高です。彼らを死なせて船をスクラップさせてください。</text>
+		<text>それが最善だ。死んで船をスクラップにしてしまえ。</text>
 		<event>
-			<text>あなたは少し罪悪感を感じますが、これらの人たちも罪から解放されることはほとんどありませんでした。この日の殺人の血は今あなただけにあります、しかしあなたはかなり速く進むことができるはずです。</text>
+			<text>あなたは少し罪悪感を感じているが、彼らにも罪がなかったとは言い難い。今日の殺人の血は今、あなた一人の手にかかっているが、あなたはすぐに前に進むことができるはずだ。</text>
 			<autoReward level="LOW">standard</autoReward>
 		</event>
 	</choice>
 </event>
 
 <event name="NEBULA_GHOST_ANGERY_SLUG">
-	<text>あなたは怒っているナメクジのキャプテンに歓迎されています。「God Damn Ghosssstssss！Nebulaeは私たちのものです！私は対処するのに十分なISSSSUESSを持っていました。</text>
+	<text>怒ったナメクジの船長に呼び止められる。"ちくしょう、ゴスッ！星雲は俺たちのものだ！連邦の船を相手にするのはごめんだ。"</text>
 	<ship load="SHIP_SLUG_FIGHT" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>あなたがいじっていないことを彼らに示してください。</text>
+		<text>あなたがふざけていないことを示すのだ。</text>
 		<event>
-			<text>「Sssはあなたがthisssを試してみることを知っていたはずです。ゴーストが自分で主張するよりも、私があなたのssshipを破壊したほうがいいです。」</text>
+			<text>"こうなることは分かっていたはずだ。"ゴッホが自分たちのものだと主張するくらいなら、私がお前の船を破壊したほうがましだ"</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>あなたが去ることを彼らに保証しなさい。</text>
+		<text>あなたが去ることを保証する。</text>
 		<event>
-			<text>「いいですが、ここに戻ってあなたに会わせないでください。」</text>
+			<text>"いいだろう...でも、ここに戻ってくるのを見せないでね"</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -981,53 +981,53 @@
 </event>
 
 <event name="NEBULA_DRIFTER_CHOICE_GHOST" unique="true">
-	<text>放棄された難破船は、消灯し、一見空っぽに見え、近くに漂っています。それはあなたの連絡に反応しません。</text>
+	<text>ライトも消され、空っぽのように見える廃船が近くを漂っている。呼びかけても反応はない。</text>
 	<ship load="SHIP_GHOST_ALL" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>それをこすります。</text>
+		<text>スクラップだ。</text>
 		<event load="NEBULA_DRIFTER_CHOICE_GHOST_SCRAP" />
 	</choice>
 	<choice req="weapons" lvl="1" blue="false" hidden="true">
-		<text>船を爆破して忘却させます。</text>
+		<text>船を爆破して消滅させる。</text>
 		<event>
-			<text>残骸の船体に直接ショットを送信すると、爆発が発生し、反った金属が飛んでいきます。ゴーストが乗っているかどうかは、もう問題ではありません。残念ながら、星雲の深部に破片が散らばっているため、回収可能なものは何も残っていません。</text>
+			<text>あなたは難破船の船体に直接弾丸を撃ち込み、爆発を起こしてゆがんだ金属を飛び散らせる。幽霊が乗っていようがいまいが、それはもう問題ではない。残念なことに、残骸は星雲の奥深くに散らばり、救いになるようなものは何も残っていない。</text>
 			<enemyDamage amount="999" />
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>船を無視します。</text>
+		<text>船を無視する。</text>
 		<event load="NEBULA_DRIFTER_CHOICE_GHOST_IGNORE" />
 	</choice>
 </event>
 <eventList name="NEBULA_DRIFTER_CHOICE_GHOST_SCRAP">
 	<event>
-		<text>サルベージミッション中、船は思いがけずちらつきます！ゴーストのクルーは、新しく稼いだ家を引き裂こうとするあなたの試みによって目覚めたアニメーションをかき混ぜます。</text>
+		<text>サルベージ・ミッションの最中、船は不意に動き出す！ゴーストの乗組員たちは、新しく手に入れた家を引き裂こうとするあなたの試みに目を覚まし、アニメーションに蠢く。</text>
 		<autoReward level="LOW">standard</autoReward>
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 	<event>
-		<text>あなたが船体を壊すとき、船は活気がないままです。</text>
+		<text>船体を破壊しても、船は生命を失ったままだ。</text>
 		<autoReward level="MED">standard</autoReward>
 	</event>
 </eventList>
 <eventList name="NEBULA_DRIFTER_CHOICE_GHOST_IGNORE">
 	<event>
-		<text>あなたは難破船を無視するつもりですが、乗っているゴーストはあなたと戦うつもりであるようです！船は生き生きと動き、武器はオンラインになり、選択肢は1つだけになります。戦うために。</text>
+		<text>あなたは難破船を無視するつもりだったが、船内のゴーストたちはあなたと戦うつもりらしい！船が動き出し、武器がオンラインになる。</text>
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 	<event>
-		<text>ゴーストが乗っている場合、あなたはそれらを目覚めさせることに興味がありません。あなたは何か他のものに時間を費やすことに決めました。</text>
+		<text>もしゴーストが乗船していたとしても、彼らを目覚めさせることに興味はない。他のことに時間を使うことにする。</text>
 		<choice hidden="true">
-			<text>船に乗って何かする。</text>
+			<text>船内で何かをする。</text>
 			<event load="STORAGE_CHECK" />
 		</choice>
 		<choice hidden="true">
@@ -1038,65 +1038,65 @@
 </eventList>
 
 <event name="NEBULA_GHOST_INSANE_ROCKMEN" unique="true">
-	<text>あなたが飛び込むとすぐに、あなたはこのビーコンでロック船に歓迎されます。彼らのクルーは地面で丸くなり、前後に揺れます。キャプテンはカメラを激しく振って、あなたに怒鳴ります。 「GHOOOOSTS、GHOOOOOOOSTS！あなたはゴーストですか？」</text>
+	<text>飛び込むとすぐに、このビーコンでロック船に呼び止められる。乗組員は地面に丸まり、前後に揺れている。船長は激しくカメラを振り、あなたに向かって叫ぶ。「幽霊か？お前は幽霊か？"</text>
 	<ship load="SHIP_ROCK_GENERIC" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>絶対。</text>
+		<text>もちろんだ。</text>
 		<event load="NEBULA_GHOST_INSANE_ROCKMEN_YES" />
 	</choice>
 	<choice hidden="true">
-		<text>いいえ。</text>
+		<text>いや。</text>
 		<event load="NEBULA_GHOST_INSANE_ROCKMEN_NO" />
 	</choice>
 	<choice hidden="true" req="LIST_CREW_GHOST">
-		<text>（ゴーストクルー）ゴーストクルーを見せてください。</text>
+		<text>(ゴーストクルー）あなたのゴーストクルーを見せてください。</text>
 		<event load="NEBULA_GHOST_INSANE_ROCKMEN_GHOST" />
 	</choice>
 </event>
 <eventList name="NEBULA_GHOST_INSANE_ROCKMEN_YES">
 	<event>
-		<text>ロックマンは叫び始め、カメラを壊します。彼らの武器が生きていて、狂気のロッククルーがあなたを破壊する準備ができるまで、それは長くはかかりません。</text>
+		<text>ロックマンが悲鳴を上げ始め、カメラを破壊する。彼らの武器がライブになるまで時間はかからず、狂気のロッククルーはあなたを破壊する準備ができている。</text>
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 	<event>
-		<text>船長は恐怖で身をかがめ、お腹を食べないように頼みます。ゴーストが肉食的であるとはまったく信じていませんが、ロックマンは明らかにそれを知りません。</text>
+		<text>キャプテンは恐怖で萎縮し、彼らの胃袋を食べないよう懇願する。あなたはゴーストが肉食だとはまったく思っていないが、ロックマンたちは明らかにそれを知らない。</text>
 		<choice hidden="true">
-			<text>私たちはあなたを食べるつもりです。</text>
+			<text>食べてやる</text>
 			<event>
-				<text>ロックマンは泣き始めます。 "いやいやいやいやいや！"彼は目の前のテーブルに拳を叩きつけ、精神的なクルーに自分たちを引き寄せて攻撃するように命じます。</text>
+				<text>ロックマンが泣き出す。"ノー、ノー、ノー、ノー！"目の前のテーブルに拳を叩きつけ、サイコな仲間たちに気を取り直して攻撃するよう命じる。</text>
 				<ship hostile="true" />
 				<choice hidden="true">
-					<text>継続する...</text>
+					<text>次へ...</text>
 					<event load="COMBAT_CHECK" />
 				</choice>
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>私たちはあなたに害がないことを意味します。</text>
+			<text>私たちはあなたに危害を加えるつもりはない。</text>
 			<event>
-				<text>「ああ、ありがとう、ありがとう、ありがとう...」船長は、泣き叫ぶ山にくしゃくしゃになり、つぶやき、ありがとう、そして他の一貫性のないとりとめのないものになります。あなたはそれらを残します。</text>
+				<text>「ありがとう、ありがとう、ありがとう......」。キャプテンは泣き崩れ、感謝の言葉や支離滅裂な言葉をつぶやく。そのままにしておく。</text>
 			</event>
 		</choice>
 	</event>
 </eventList>
 <eventList name="NEBULA_GHOST_INSANE_ROCKMEN_NO">
 	<event>
-		<text>「あなた...あなたはゴーストではありませんか？私はそれを信じていません！私たちはここで地獄のスポーンだけに遭遇したので、悪魔だけがこのセクターに生息していることは明らかです！」彼らの武器は生きているので、あなたは彼らの論理によって彼らもゴーストになるだろうと説明することを気にしないでください。</text>
+		<text>"あなたは...ゴーストじゃないのか？信じられない！私たちはここで地獄の亡霊にしか遭遇していないのだから、このセクターに住むのは悪魔だけであることは明らかだ！"彼らの理屈では、彼らの武器は生きているのだから、彼らもゴーストなのだ。</text>
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 	<event>
-		<text>「良い良い良い、良い...良い。気をつけて、ゴースト、彼らはいたるところにいる！」ロックマンは精神的な笑い声で爆発し、通話を終了します。 2隻の船の間に距離を置きます。</text>
+		<text>"いいぞ、いいぞ、いいぞ...いいぞ。気をつけろよ、ゴーストはどこにでもいるからな！"ロックマンは精神病のような笑いを爆発させ、通話を終える。あなたは2隻の船の間に距離を置いた。</text>
 		<choice hidden="true">
-			<text>船に乗って何かする。</text>
+			<text>船内で何かをする。</text>
 			<event load="STORAGE_CHECK" />
 		</choice>
 		<choice hidden="true">
@@ -1106,31 +1106,31 @@
 	</event>
 </eventList>
 <event name="NEBULA_GHOST_INSANE_ROCKMEN_GHOST">
-	<text>ロックマンは声帯が作ることさえ可能であるとは思わなかったほど高いピッチで悲鳴を上げます。突然、彼は倒れ、けいれんし、文字通り死にます。ロックマンが心臓さえ持っているなら、あなたのゴーストは彼に心臓発作を与えたに違いありません。残りのクルーは非常識で何もできないので、あなたは彼らの船の外面をスクラップします。</text>
+	<text>ロックマンは、声帯が出せるとは思えないほど甲高い悲鳴を上げる。突然、彼は倒れ、痙攣し、文字通り死んだ。ロックマンに心臓があるとすれば、あなたのゴーストが彼に心臓発作を起こさせたに違いない。残りのクルーは正気でなく、何もできないので、あなたは彼らの船の外装をスクラップにした。</text>
 	<autoReward level="MED">standard</autoReward>
 </event>
 
 <event name="NEBULA_GHOST_UPGRADERS" unique="true">
-	<text>ビーコンは空のように見えますが、足音がホールに響き渡るので、あなたは再考します。あなたはエンジンルームに急いで行き、FTLドライブを調べて3人のゴーストが曲がっているのを見ます。</text>
+	<text>ビーコンには誰もいないように見えたが、足音がホールに響いたので考え直す。エンジンルームに駆け寄ると、3人のゴーストが屈み込んでFTLドライブを調べていた。</text>
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>彼らがあなたのシステムに損害を与えることができる前に、ゴーストと戦ってください。</text>
+		<text>あなたのシステムにダメージを与える前にゴーストと戦おう。</text>
 		<event>
 			<boarders min="3" max="3" class="phantom_wraith" />
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>成り行きを見守る。</text>
+		<text>待っててください。</text>
 		<event load="NEBULA_GHOST_UPGRADERS_WAIT" />
 	</choice>
 </event>
 <eventList name="NEBULA_GHOST_UPGRADERS_WAIT">
 	<event>
-		<text>ゴーストがシステムの隅々まで見渡すのを待って見てください。彼らには目に見える道具はありませんが、あなたは彼らが測定をしているのだろうかと思います。ゴーストの1人がシステムのメカニズムをいじくり回し、突然、ゴーストがドアから出て消えます。彼らが何をしたのかはわかりませんが、エンジンが以前よりも大容量で稼働しているように見えます。</text>
+		<text>あなたは、ゴーストたちがあなたのシステムの隅々まで目を通すのを待つ。彼らは目に見える道具を持っていないが、あなたは彼らが寸法を測っているのではないかと思った。ゴーストの一人がシステムの機構をいじっていたが、突然現れたかと思うと、ゴーストはドアから出て行って姿を消した。彼らが何をしたのかわからないが、エンジンは以前よりも高い能力で動いているように思える。</text>
 		<upgrade amount="1" system="engines" />
 	</event>
 	<event>
-		<text>ゴーストがシステムの隅々まで見渡すのを待って見てください。突然、激しい動きで、ゴーストの1人がマルチバースドライブケーシングの金属カバーをはがし、激しい爆発を引き起こしました！もう待つ必要はなく、クルーに攻撃を命じます。</text>
+		<text>ゴーストがシステムの隅々まで目を通すのを待つ。突然、ゴーストの1体が激しい動きでマルチバース・ドライブのケーシングの金属カバーを引きちぎり、激しい爆発を起こした！あなたはもう待つことなく、クルーに攻撃を命じる。</text>
 		<boarders min="3" max="3" class="phantom_wraith" />
 		<damage amount="3" system="engines" />
 	</event>
@@ -1144,38 +1144,38 @@
 
 <event name="NEBULA_VAGABOND_ORCHID" unique="true">
 	<distressBeacon />
-	<text>何よりも、オーキドゥの船がこの救難信号の源であるように見えます。彼らのクルーの1人があなたを歓迎します-「助けてください！私たちは植民地を燃やし続けているゴゥル族の1人と交渉するためにギャザリングから送られたが、私たちの船長は人質に取られ、彼らは彼を返しません！」</text>	
+	<text>救難信号の発信源は、オーキッドの船のようだ。乗組員の一人があなたに助けを求めている！我々はギャザリングから派遣され、我々のコロニーを焼き続けるグール一族と交渉していたが、船長が人質に取られ、返してもらえない！"</text>	
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>助けることに同意します。</text>
+		<text>協力することに同意する</text>
 		<event>
-			<text>オーキドゥ船の指示に従って、主にグールが住むヴァガボンド戦争キャンプに向かいます。あなたは彼らの指導者と直接話すことを要求します：「この虚弱な植物の生活は、解放において私たちの好意を求めるさらなる野心を駆り立てる程度にあなたに関係がありますか？あなたの価値を証明し、私の民を悩ませてきた王朝の船を破壊しなければなりません。」</text>
+			<text>オーキッド号の案内に従い、バガボンドのキャンプに向かう。あなたは彼らのリーダーと直接話すことを要求する：「このか弱い植物の命が、解放のために我々の好意を求めるような野心を駆り立てるほどのものであるか？この花のような存在がこれ以上苦しまないことを望むのであれば、自分の価値を証明し、我が民を悩ませている王朝の船を破壊しなければならない"</text>
 			<choice hidden="true">
-				<text>王朝の船と戦います。</text>
+				<text>我々はダイナスティの船と戦う。</text>
 				<event>
-					<text>ヴァガボンドは、それほど遠くない王朝の船にあなたを導きます。戦いに備えろ！</text>
+					<text>バガボンドの指示で、それほど遠くないダイナスティの船に向かう。戦いに備えよ！</text>
 					<ship load="SHIP_VAGABOND_ORCHID_DYNASTY" hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>拒否-代わりにヴァガボンドを攻撃します。</text>
+				<text>拒否する - 代わりにバガボンドを攻撃すればいい。</text>
 				<event>
-					<text>「いつものように予測可能です！この戦いの後、このオーキドゥの寿命がずっと長く続くことを期待しないでください！」</text>
+					<text>"相変わらず予想通りだ！この戦いの後、このオーキッドの命が長く続くとは思わないことだ！"</text>
 					<ship load="SHIP_VAGABOND_ORCHID_VAGABOND" hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" req="LIST_CREW_GOUL">
-				<text>（ゴゥルクルー）彼らと交渉します。</text>
+				<text>(グール・クルー）彼らと交渉する。</text>
 				<event>
-					<text>2つのゴールはしばらくの間前後に話しますが、最終的に合意に達します。王朝と協力してオーキドゥの侵入の可能性についての予兆の警告で彼らを怖がらせたので、Goulsはもはやオーキドゥを人質にし続けることを熱望していないようです。無事に戻ったら、オーキドゥはあなたの援助に対してあなたに支払います。</text>
+					<text>グール家の2人はしばらく言葉を交わしたが、ようやく意見が一致した。王朝との協力によるオーキッドの侵略の可能性を予感させる警告で彼らを怯えさせたため、グール人はこれ以上オーキッドを人質にしておきたくはないようだ。無事に戻ったオーキッドは、あなたの援助に対して報酬を支払う。</text>
 					<autoReward level="LOW">standard</autoReward>
 					<weapon name="GIFTLIST_KERNEL" />
 				</event>
@@ -1183,11 +1183,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>却下。</text>
+		<text>衰退。</text>
 		<event>
-			<text>あなたはオーキドゥに謝罪します、しかしこれらはあなたが関与することは問題ではありません。</text>
+			<text>オーキッドには謝るが、これはあなたが関与する問題ではない。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1200,25 +1200,25 @@
 
 <event name="NEBULA_GHOST_ESCORT" unique="true">
 	<distressBeacon />
-	<text>武装が不十分な民間船が遭難ビーコンを発しています。迷子になって恐れて、彼らはあなたに彼らを目的地まで護衛し、ゴーストから彼らを守るように要求します。</text>	
+	<text>武装の不十分な民間船が救難信号を発している。道に迷い、恐怖を感じている彼らは、目的地までエスコートし、ゴーストから守ってほしいと要請している。</text>	
 	<ship load="SHIP_UNION_GENERIC" hostile="false" />
 	<environment type="nebula" />
 	<status type="limit" target="enemy" system="teleporter" amount="0" />
 	<choice>
-		<text>承認。</text>
+		<text>受け入れる。</text>
 		<event>
-			<text>民間人はあなたに感謝し、頭金としてあなたにいくらかのスクラップを支払います。彼らは最終目的地にもっとあると約束します。</text>
+			<text>民間人はあなたに感謝し、頭金としてスクラップを支払う。彼らは、最終目的地にはもっとたくさんあると約束する。</text>
 			<autoReward level="LOW">standard</autoReward>
 			<quest event="NEBULA_GHOST_ESCORT_DESTINATION" />
 		</event>
 	</choice>
 	<choice>
-		<text>攻撃。</text>
+		<text>攻撃だ。</text>
 		<event>
-			<text>民間人はあなたの突然の敵意に驚いていますが、戦うしかないのです。</text>
+			<text>市民は突然の敵意に驚くが、戦うしかない。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="MORALITY_UPDATE_GENERAL_FIGHT" />
 			</choice>
 		</event>
@@ -1226,9 +1226,9 @@
 	<choice hidden="true">
 		<text>拒否する。</text>
 		<event>
-			<text>私たちは、すべての民間人がゴースト星雲に迷い込むのを助けるのに十分な時間を持っていません。あなたは彼らの要求を断り、FTLドライブを充電します。</text>
+			<text>ゴースト星雲に迷い込むような間抜けな民間人全員を助けている時間はない。彼らの要請を断り、FTLドライブをチャージする。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1242,12 +1242,12 @@
 	<event>
 		<beaconType id="map_icon_quest" global="true">
 			<color r="69" g="168" b="235" a="1" />
-			<unvisitedTooltip>これらの座標に準備されていない容器を護衛するように頼まれました。</unvisitedTooltip>
+			<unvisitedTooltip>この座標まで、準備の整っていない船を護衛するよう要請された。</unvisitedTooltip>
 		</beaconType>
-		<text>目的地に到着しましたが、幽霊船がすでに到着しています。脅威を排除している間、民間人に撤退するように合図します。</text>
+		<text>あなたは目的地に到着したが、ゴースト船がすでにここにいた。あなたは脅威を排除する間、民間人に下がるよう合図する。</text>
 		<ship load="SHIP_GHOST_ESCORT" hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
@@ -1256,9 +1256,9 @@
 <event name="NEBULA_GHOST_ESCORT_DESTINATION_GOOD">
 	<beaconType id="map_icon_quest" global="true">
 		<color r="69" g="168" b="235" a="1" />
-		<unvisitedTooltip>これらの座標に準備されていない容器を護衛するように頼まれました。</unvisitedTooltip>
+		<unvisitedTooltip>この座標まで、準備の整っていない船を護衛するよう要請された。</unvisitedTooltip>
 	</beaconType>
-	<text>民間人はあなたの助けに感謝し、残りのスクラップをあなたに支払います。</text>
+	<text>民間人はあなたの協力に感謝し、残りのスクラップをあなたに支払う。</text>
 	<autoReward level="MED">scrap_only</autoReward>
 </event>
 
@@ -1281,58 +1281,58 @@
 	<ship load="SHIP_GHOST_ALL" hostile="true" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <textList name="NEBULA_GHOST_FIGHT">	
-	<text>ゴーストは超常現象ではないかもしれませんが、彼らは確かにあなたをエッジに置きます。ヴァガボンドの船が星雲から漂流してくると、あなたはジャンプします。ステーションに人を！</text>	
-	<text>難破船に遭遇したとき、あなたはいつも自分自身を二番目に推測していることに気づきます。このビーコンの難破船が最初にあなたを攻撃するために移動するので、あなたはそれについて非常に長い間考える必要はありません。</text>	
-	<text>ヴァガボンドは通常、犠牲者から船を盗むことで船を手に入れますが、すでに放棄された船に遭遇した場合、彼らは喜んでそこに住むでしょう。彼らがこの船をどのように受け継いだかは問題ではありません。なぜなら、それは敵対的であり、攻撃するために移動するからです。</text>	
-	<text>このビーコンの難破船は、雲の中で忘れられた遊休船ではありません。それはあなたの船を盗む準備ができているゴーストでいっぱいです。</text>	
-	<text>あなたは連邦のあらゆる種類の状況に備えて経験しましたが、これらの雲から常ににじみ出ているゴーストが住むヴァガボンドの残骸ほどあなたを驚かせるものはありません。</text>	
-	<text>あなたの船は連絡を受け取りますが、どこから来たのかわかりません。あなたはそれを受け入れ、痛々しいほど大きな音がスピーカーに溢れ、あなたの血統を侮辱し、あなたを「汚い肺に運ばれる息抜き」と呼びます。ゴースト船が近づき、武器の準備ができました！</text>	
-	<text>「私たちの嫌な匂いはメルカプタンの混合物に由来すると聞いたことがあります。それは魅力的ではありませんか？ああ、しかし本当に私を魅了するのは、あなたがこの最も賢い気晴らしにどのように落ちたかです！」</text>	
-	<text>VagabondGhostsは通常攻撃的です。戦争主導の先住民派閥を放棄した後の無政府状態の生活は、人に何かをします。それにもかかわらず、それらはあなたが破壊するためのターゲットです！</text>	
+	<text>ゴーストは超常現象ではないかもしれないが、あなたをハラハラさせるのは確かだ。バガボンドの船が星雲から漂ってきたら、あなたはジャンプする。ステーションに行け！</text>	
+	<text>難破船に遭遇すると、いつも二の足を踏んでしまう。このビーコンにいる難破船が先に攻撃してくるからだ。</text>	
+	<text>バガボンドは通常、犠牲者から船を盗んで手に入れるが、すでに放棄された船に出会えば、喜んでその船に住み着く。どの方法でこの船を受け継いだかは問題ではなく、敵対し、攻撃するために移動するからだ。</text>	
+	<text>この航路標識にある難破船は、雲間に忘れ去られた遊休船ではない。あなたの船を奪おうとするゴーストがうようよしているのだ。</text>	
+	<text>あなたは連邦のあらゆる状況に備え、経験してきたが、ゴーストが跋扈する浮浪者の残骸ほど、この雲からいつもにじみ出てくるものに驚かされることはない。</text>	
+	<text>あなたの船は呼びかけを受けたが、どこからかはわからない。受け取ってみると、痛々しいほど大音量の雑音がスピーカーから溢れ、あなたの血統を侮辱し、あなたを「不潔な肺呼吸者」と呼ぶ。ゴースト船が武器を構えて近づいてくる！</text>	
+	<text>「私たちの不快な臭いは、メルカプタン類の混合物に由来すると聞いたことがある。魅力的だろう？ああ、しかし、私が本当に魅了されるのは、あなたがどうやってこの最も巧妙な目くらましに引っかかったかということだ！"</text>	
+	<text>バガボンド・ゴーストは概して攻撃的だ。戦争に明け暮れる出身派閥を捨てた後の無秩序な生活は、人に何かをもたらす。とはいえ、彼らはあなたにとって破壊すべき対象だ！</text>	
 </textList>
 
 <event name="NEBULA_ENCOUNTER_SLUG_GHOST" unique="true">
-	<text>スラッグの船があなたを歓迎します。 「Ghosstssssssであろうとなかろうと、私たちは気にしません。星雲は、Ghossstssssではなく、収奪国家とEHGに属しており、確かに連邦ではありません！」</text>
+	<text>ナメクジ船が声をかけてくる。「ゴッホかどうかは関係ない。星雲はクレプトクラシーとEHGのものであり、ゴーストのものではない。</text>
 	<ship load="SHIP_CLAN_FIGHT" hostile="true" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 
 <event name="NEBULA_GHOST_AUTO_ESCAPE" unique="true">
-	<text>反乱軍の自動船がこのセクターを探索していたようですが、星雲で迷子になりました。ゴーストがそれを捕らえる前に基地に戻ろうとすると、FTLドライブが充電されている間、武器を上げてあなたから身を守ります。</text>
+	<text>反乱軍のオートシップがこのセクターを探索していたようだが、星雲で迷子になってしまった。ゴーストに捕獲される前に基地に戻ろうとしており、FTLドライブが充電される間、君たちから身を守るために武器を構える。</text>
 	<ship load="SHIP_AUTO_GHOST_ESCAPE" hostile="true" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 
 <event name="NEBULA_GHOST_LANIUS" unique="true">
-	<text>ラニウスは星雲セクターでは一般的な光景ではありませんが、ゴーストに引き寄せられます。天敵、ラニウスはゴーストを捕食して船を吸収します。ここのラニウスはあなたがゴーストではないことを気にせず、関係なく攻撃します。</text>
+	<text>ラニウスは星雲セクターではあまり見かけないが、ゴーストに引き寄せられる。天敵であるラニウスはゴーストを捕食し、彼らの船を吸収する。ここのラニウスはゴーストでないことを気にせず、関係なく攻撃してくる。</text>
 	<ship load="SHIP_LANIUS_FIGHT" hostile="true" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 
 
 <event name="NEBULA_ENCOUNTER_VAGABOND_ELITE" unique="true">
-	<text>あなたは豊かな救助をする一見元エリートの船の遺跡を見ていますが、「残骸」があなたに向かってあなたに向きを変えたとき、すぐに驚きになります。その工芸品が2回目の呼吸によって再び強化されているので、それを休ませ、永久に置くのはあなた次第です。</text>
+	<text>しかし、その「残骸」があなたの方を向き、ゴーストが住み着いていることを明らかにしたとき、あなたは意表を突かれた！ゴーストが棲みついているのだ！第二の息吹によって再び活気づいた船を、永久に休ませることができるかどうかはあなた次第だ。</text>
 	<ship load="SHIP_GHOST_ELITE" hostile="true" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
@@ -1340,27 +1340,27 @@
 
 <event name="UNLOCK_GHOST_QUEST" unique="true">
 	<preventQuest />
-	<text>背面に奇妙なロゴが付いた白く塗られたレベル・マローダーがあなたを歓迎します。 「ご挨拶、旅行者！私たちはゴーストです...ええと...スプークチェイサー！私たちはあなたのためにユニークな提案をしています...」</text>
+	<text>背中に奇妙なロゴが描かれ、白く塗られた反乱軍のマローダーがあなたを呼び止める。「旅人よ、ようこそ！我々はゴースト...ええと...スプーク・チェイサーズだ！ユニークな提案がある..."</text>
 	<ship load="SHIP_GHOSTBUSTER" hostile="false" />
 	<choice hidden="true">
-		<text>聞く。</text>
+		<text>聞いてくれ。</text>
 		<event>
-			<text>「王朝の反乱との争いについて聞いたことがあるかもしれませんか？まあ、彼らが反乱軍の最初の旗艦プロトタイプの1つを取り出したとき、それはすべて落ちました！これは大規模な戦争を引き起こしました、そして何とか何とか何とか...その旗艦はまだ存在しています！実際、それはまさにこのセクターにあります！」</text>
+			<text>"ダイナスティ "と "反乱軍 "の抗争をご存知ですか？反乱軍の試作フラッグシップを 破壊したのが発端だこれが大規模な戦争に発展したんだそのフラッグシップはまだ存在しているんだ！実際、このセクターにあるんだ。</text>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>「反乱軍だと思ってるんだろう？ 違うぞ！ 俺たちは傭兵だ。連盟からこのデカブツを倒すために送りこまれたんだ。ヴァガボンド族、特にゴジオデオンと名乗るバカが率いるハウンツと呼ばれる一派の手中にあることが判明したのだ。協力してくれれば賞金を山分けする。どうだ？」</text>
+					<text>「俺たちを反乱軍だと思ってるんだろう。違う！俺たちは傭兵だ。俺たちは傭兵だ 連盟からこの巨体を 破壊するために派遣された今は "バガボンド "の手中にある "ハント "と呼ばれる一族だ ゴジオデオンと名乗る クソ野郎が率いてるこのクソ野郎どもを倒すのを手伝ってくれたら、懸賞金を半分ずつ分けよう。いいな？</text>
 					<choice hidden="true">
-						<text>同意。</text>
+						<text>同意する。</text>
 						<event>
-							<text>「パーフェクト！船の最後の既知の座標を転送します。じゃあね。」</text>
+							<text>「完璧だ！船の最終座標を転送する。そこで会おう"</text>
 							<quest event="UNLOCK_GHOST_QUEST_2" />
 						</event>
 					</choice>
 					<choice hidden="true">
 						<text>拒否する。</text>
 						<event>
-							<text>キャプテンは息を切らして何かをつぶやく。 「素晴らしい、銀河系の歴史でこれまでに作られた最大の賞金と引き換えに、愚かな船を殺そうとする他の船を見つけるでしょう！」</text>
+							<text>船長は息をひそめて何かをつぶやいた。"いいだろう、銀河史上最大の懸賞金と引き換えに、愚かな船を殺してくれる他の船を探そう！"</text>
 						</event>
 					</choice>
 				</event>
@@ -1368,22 +1368,22 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>反乱軍の船は反乱軍の船です。攻撃！</text>
+		<text>反乱軍の船は反乱軍の船だ攻撃する！</text>
 		<event>
-			<text>唯一の良い反乱軍は死んだ反乱軍です。あなたは攻撃する準備をします。</text>
+			<text>良い反乱軍は死んだ反乱軍だけだ。攻撃の準備をしろ</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>それらを無視します。</text>
+		<text>無視するんだ。</text>
 		<event>
-			<text>特にここでは、ワッコを扱う必要はありません。通話を終了すると、船長がため息をつくのが聞こえます。</text>
+			<text>変人を相手にする気はないだろう、特にここでは。電話を切ると、船長のため息が聞こえた。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1394,7 +1394,7 @@
 	</choice>
 </event>
 <event name="GHOSTBUSTER_KILL">
-	<text>船が爆発すると、何百ものささやきの形が船体から浮かび上がり、威嚇するような存在感を感じます。あなたはおそらく本当に悪いことをしたことがありますが、とにかく1つの呪われたタイムラインはどういう意味ですか？</text>
+	<text>船が爆発すると、船体から何百ものうごめくような形が浮かび上がり、脅威的な存在を感じる。あなたはおそらく本当に悪いことをしたのだろう。でも、呪われたタイムラインひとつにどんな意味があるのだろう？</text>
 	<autoReward level="HIGH">standard</autoReward>
 </event>
 <event name="UNLOCK_GHOST_QUEST_2">
@@ -1403,43 +1403,43 @@
 	<beaconType id="map_icon_bounty" global="true">
 		<color r="255" g="255" b="255" a="1.0" />
 	</beaconType>
-	<text>ビーコンに到着しましたが、ここには船がないようです。あなたは雲をじっと見つめ、オレンジ色の尾翼がすり抜けるのを目にします。</text>
+	<text>ビーコンに到着するも、船はいないようだ。あなたは雲を長く見つめ、オレンジ色の尾翼が抜けていくのを見つけた。</text>
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>それに従います。</text>
+		<text>それに従え。</text>
 		<event>
-			<text>その後、星雲をすり抜けて、真ん中に古い反乱軍の旗艦が存在する雲の中に大きな隙間を見つけます。 「よし、よし、あなたはそれを成し遂げた！さあ、私たちに手を差し伸べてくれませんか？」と、彼らが旗艦に発砲したとき、不気味な追跡者は無駄に叫びました。</text>
+			<text>星雲の中をすり抜けていくと、雲に大きな隙間があり、その真ん中に旧反乱軍の旗艦があった。「よくやった！さあ、手を貸してくれ！」とスプーク・チェイサーたちが叫ぶ。</text>
 			<ship load="SHIP_GHOST_FLAGSHIP" hostile="false" />
 			<choice hidden="true">
-				<text>彼らを助ける！</text>
+				<text>彼らを助けるんだ！</text>
 				<event>
-					<text>あなたは臆病者ではありません。このミッションの最後に、実際のマルチバースの旅の旗艦を打ち負かす希望があれば、これも取り除くことができるはずです。</text>
+					<text>君は臆病者じゃない。このミッションの最後に、多元宇宙を旅する本物のフラッグシップを倒す望みがあるなら、こいつも倒せるはずだ。</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>走る。</text>
+				<text>走れ。</text>
 				<event />
 			</choice>
 		</event>
 	</choice>
 </event>
 <event name="UNLOCK_GHOST_DAMAGE">
-	<text>あなたはあなたの仲間、ゴーストハンターが通り過ぎて飛んでいるのに気づきます。彼らの武器はフラグシップに対して多くのことをすることができませんでしたが、彼らのサルボはついにフラグシップのエンジンに入り、彼らをシャットダウンしました。ただし、テレポーターの署名は、あなたが再び搭乗したことを示しています。</text>
+	<text>仲間のゴーストハンターが通り過ぎるのに気づく。彼らの武器はフラッグシップにあまり効かなかったが、ついに彼らの一斉射撃がフラッグシップのエンジンに命中し、エンジンを停止させた。しかし、テレポーターのサインから、またしても乗り込まれたことがわかる。</text>
 	<boarders min="3" max="3" class="phantom_goul" />
 	<enemyDamage amount="2" system="engines" />
 </event>
 <event name="UNLOCK_GHOST_QUEST_WIN">
-	<text>多くの伝説を聞いた巨大な船は、エンジンの爆発によって炎上して爆発する前に、ついに最後の地震を起こします。旗艦とそれとのヴァガボンドは死んでいます...またもや。</text>
+	<text>多くの伝説を耳にした巨大な船は、エンジンの爆発で炎を噴き上げて爆発する前に、ついに最後の揺れを起こした。フラッグシップは、そしてバガボンドたちも、死んだ...またもや。</text>
 	<variable name="ach_boss_ghostflag" op="set" val="1" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>ゴーストハンターはあなたを歓迎します。 「それでした。伝説的です！私たちがどれほど裕福になるか知っていますか？待ってください、はいはい。あなたの支払い。これからの恩恵を考えると、月全体、おそらく小さな惑星さえも買うのに十分だと思います。特別なものを提供しても問題はありません。私たちが取り組んでいる新しい巡洋艦があり、あなたよりも操縦する価値のある人は他にいないと思います。」</text>
+			<text>ゴーストハンターがあなたを呼ぶ。"あれはあれは伝説！俺たちがどれだけ金持ちになるか知ってるか？待って、はいはい。報酬だ。この賞金で月や惑星が 買えちゃうんだ 特別な物を あげてもいいだろ？我々は新しいクルーザーを開発中だが、君ほどそのパイロットにふさわしい人物は他にいない。"</text>
 			<unlockCustomShip silent="false">PLAYER_SHIP_GHOST</unlockCustomShip>
 			<damage amount="-5" />
 			<item_modify>
@@ -1449,9 +1449,9 @@
 				<item type="drones" min="5" max="9" />
 			</item_modify>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>「ああ、ああ！最後にもう1つ。これで、私たちは人生で別の日に働く必要がなくなります。これを今あなたに渡すことは私に害はありません。ゴーストのより多くのメンバーがまだこの銀河を歩き回っています、そしてあなたは残りを取り除くのに最適な選択です！」</text>
+					<text>「ああ、ああ！ 最後にもうひとつ。これがあれば、もう一生働かなくて済む。今これを君に渡しても、何の得にもならない。この銀河系にはまだ多くのハントが徘徊している。</text>
 					<augment name="PROTON_PACK" />
 				</event>
 			</choice>

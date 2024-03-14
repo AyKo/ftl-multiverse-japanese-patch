@@ -15,13 +15,13 @@
 	<loadEvent>CLAN_FAUNA_START</loadEvent>
 </event>
 <event name="CLAN_FAUNA_START">
-	<text>クランマン船は、大部分が樹木状の世界の周りに軌道に乗っています。あなたの到着時に、彼らはあなたにあられを送ります。「下の惑星は、銀河のモススト・危険な樹木園の生き物をじっと見つめています。その生来のpsssychic力で、それはあなたの心を覆すために発行する戦闘ロバで恐ろしいロバを発行します。私たちのssslugsssは役立ちますが、それ自体で十分にssstrongではありません。」</text>
+	<text>クランズマン船は、樹木の多い世界の軌道上にある。あなたが到着すると、彼らはあなたに呼びかけを送る。「この惑星には銀河系で最も危険な樹上生物がいる。この惑星には銀河系で最も危険なコケ科の樹上生物が生息している。コケのような種では歯が立たない。気絶させることさえできない。我々のスラッグスは助けることはできるが、それだけでは十分に強くない。"</text>
 	<choice>
-		<text>なぜ彼らは船に搭載された武器を使用しないのか尋ねてください。</text>
+		<text>なぜ船に搭載された武器を使わないのか、彼らに聞いてみよう。</text>
 		<event>
-			<text>「あなたはそれがビーズストを狩ることを意味するものに顕著なものを持っていませんか？私たちがSSShipグレードの武器をussseにしていれば、私たちは何も無意識にしていません。プロセスでフォアストリをデスストロイする。」</text>
+			<text>"ビーストを狩る "ということの意味を理解していないのか？船級の武器を使っても、何の成果もない。その上、記念になるようなトロフィーではなく、黴びたクレーターを残すことになりがちだ。それに、その過程で前線を破壊しないほうがいい」。</text>
 			<choice>
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
 					<loadEvent ignoreUnique="true">CLAN_FAUNA_START</loadEvent>
 				</event>
@@ -29,26 +29,26 @@
 		</event>
 	</choice>
 	<choice>
-		<text>助けることを申し出る。</text>
+		<text>協力を申し出る。</text>
 		<event load="CLAN_FAUNA_OFFER_TO_HELP" />
 	</choice>
 	<choice>
-		<text>ハンターを攻撃します。</text>
+		<text>ハンターを攻撃する。</text>
 		<event>
-			<text>ハンターは狩りになろうとしているようです。彼らは不意を突かれたようですが、すぐに回復します。</text>
+			<text>どうやら狩る側が狩られる側に回ろうとしているようだ。不意を突かれたように見えたが、すぐに立ち直った。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>仕方がない。</text>
+		<text>私たちは助けられない。</text>
 		<event>
-			<text>あなたは謝罪し、関与しないことを決めます。</text>
+			<text>あなたは謝り、関わらないことにした。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -59,16 +59,16 @@
 	</choice>
 </event>
 <event name="CLAN_FAUNA_OFFER_TO_HELP">
-	<text>「狩りでusssを支援するSSSSOMEの方法はありますか？」</text>
+	<text>"狩りを手伝う方法はあるのか？"</text>
 	<choice req="LIST_A55" hidden="true">
-		<text>（a55）「あなたがたがそれがどのように行われるかを見せてください！」[-1ドローン]</text>
+		<text>(A55)「どうやるか見せてあげよう！」。[-1ドローン]。</text>
 		<event>
-			<text>A55は、氏族が助けるために最善を尽くしているので、クリーチャーを巧みに抑えます。「Arr、この賞金は良い戦いをしましたが、それは私には合いませんでした！」氏族は、ドローンの機械的に完全な精度と驚くべきunningに感銘を受けています。</text>
+			<text>A55が巧みにクリーチャーを制圧し、クランズマンが全力で助ける。「アー、この懸賞金は善戦したが、私には敵わなかった！」。クランズマンたちは、ドローンの機械的に完璧な精度と驚くべき狡猾さに感心しきりだ。</text>
 			<item_modify>
 				<item type="drone" min="-1" max="-1" />
 			</item_modify>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="CLAN_FAUNA_IMPRESSIVE_SUCCESS">
 					<item_modify>
 						<item type="drone" min="1" max="1" />
@@ -78,108 +78,108 @@
 		</event>
 	</choice>
 	<choice req="BLUELIST_POWERFUL_BOARDING_NO_A55" hidden="true">
-		<text>（特別な搭乗ドローン）強力なドローンを送って、ナメクジを支援します。[-1ドローン]</text>
+		<text>(特殊搭乗ドローン）強力なドローンを送り込み、スラッグを支援する。[ドローン ］</text>
 		<event load="CLAN_50_50_POWERFUL" />
 	</choice>
 	<choice req="BLUELIST_MID_LEVEL_BOARDING" hidden="true">
-		<text>（搭乗ドローン違反）ドローンを送信して、ナメクジを支援する[-1ドローン]。</text>
+		<text>(Boarding Drone Offense) ドローンを派遣し、スラッグを支援する [-1ドローン]。</text>
 		<event load="CLAN_25_50_25_MID" />
 	</choice>
 	<choice req="BLUELIST_BOARDING_SUPPORT" hidden="true">
-		<text>（搭乗ドローンサポート）スラッグを支援するために弱いドローンを送信します。[-1ドローン]</text>
+		<text>(搭乗ドローン支援）弱ったドローンを送ってスラッグを支援する。[-1ドローン]。</text>
 		<event load="CLAN_50_50_SUPPORT" />
 	</choice>
 	<choice req="BLUELIST_HOLODRONE_CHAOS" hidden="true">
-		<text>（Chaotic Holodrone）あなたが素晴らしいアイデアを持っていることを伝えてください。[-1ドローン]</text>
+		<text>(カオスなホロドローン)素晴らしいアイデアがあると伝えてください。[-1ドローン]</text>
 		<event>
-			<text>混oticとしたホロドロンは、乗組員を生産します。残念なことに、クランマンにとっては、彼らはすぐに獣に味方し、デュオは狩猟パーティーを楽に虐殺します。あなたの新しい忠実な乗組員はあなたの船に戻り、よくやった仕事に満足し、他のみんなに親友について熱心に話します。</text>
-			<crewMember amount="1" combat="2" class="LIST_CREW_HOLODRONE_CHAOS">ビーストバディ</crewMember>
+			<text>カオティック・ホロドローンは乗組員を生み出す。クランズマンにとっては不運なことに、彼らは即座に獣の味方をし、デュオは難なく狩猟隊を殺戮する。新しい忠実なクルーは、よくやったと満足して船に戻り、親友のことを皆に熱心に話す。</text>
+			<crewMember amount="1" combat="2" class="LIST_CREW_HOLODRONE_CHAOS">ビースト・バディ</crewMember>
 			<item_modify>
 				<item type="drone" min="-1" max="-1" />
 			</item_modify>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="CLAN_FAUNA_CATASTROPHIC_FAILURE" />
 			</choice>
 		</event>
 	</choice>
 	<choice req="eldritch_cat" hidden="true">
-		<text>（韻を踏む人）「誰もが脇に立つべきです。私をあなたのホラーガイドにしましょう！」</text>
+		<text>(韻を踏む者)「みんなどいてくれ。私があなたのホラーガイドになりましょう！"</text>
 		<event>
-			<text>「ああ、それはどれくらいだったのか？私は再びキツネを見るべきだ。彼はどのように飢え、彼が憧れているのか、ああ、彼の胃がどれだけかつんだ。夢と肉体のために、彼は必要とする。それでは、彼に彼が欲しがっているすべてを与え、これらすべてのナンブの命を終わらせましょう。」韻を踏む人は、獣を船乗りの船に直接置きます。狩猟者のパニックと恐怖は、獣が彼らのすべてをむさぼり食うので、すぐに沈黙します。韻を踏む人はあなたに彼らの船の恵みを提供します。</text>
+			<text>「ああ、何年ぶりだろう？またキツネに会いたい。彼はどれほど飢え、どれほど憧れ、どれほど胃がキリキリと痛むことか。夢と肉が必要なのだ。彼の弱点は2つの口を養うことだ。さあ、彼が渇望するものをすべて食べさせて、この悪党どもの命を終わらせよう」。韻を踏む者」は獣を直接クランズマンの船に乗せる。猟師たちのパニックと恐怖は、獣が一人残らず食い尽くすと、たちまち静まり返る。韻を踏む者 "はあなたに彼らの船の賞金を与える。</text>
 			<autoReward level="HIGH">weapon</autoReward>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>「今、彼は食べられていて、今は彼は自由です。銀河は彼が見るべきです。彼はおやつをスパイし、彼は食事に会います、彼は有用な人々をひざまずかせます。彼が行くすべての場所！」</text>
+					<text>"今、彼は食べ、今、彼は自由だ。銀河は彼のものだ。おやつを盗み食いし、食事にありつき、有用な人々を跪かせる。彼が知るべきことは山ほどある、彼が行くであろうあらゆる場所を考えてみよう！"</text>
 					<instantEscape />
 				</event>
 			</choice>
 		</event>
 	</choice>
 	<choice req="LIST_CREW_SIREN" hidden="true">
-		<text>（サイレンクルー）サイレンは有用であることが証明されます。</text>
+		<text>(サイレン・クルー）あなたのサイレンが役に立つかもしれない。</text>
 		<event load="CLAN_50_50_SIREN" />
 	</choice>
 	<choice req="unique_irwin" hidden="true">
-		<text>（アーウィン）アーウィンに指示してもらう。</text>
+		<text>(アーウィンに）アーウィンに指示してもらう。</text>
 		<event>
-			<text>「この素敵な生き物に直面したことはありませんが、私はそれをsssstopにすることを知っていることを知っています。」アーウィンはすべてのクランマンにコマンドを与えます。彼の完璧なリーダーシップの下で、獣は鎮静され、犠牲者はまったくなく捕らえられます。氏族は伝説のスキルを目撃することにwe敬の念を抱いています。</text>
+			<text>"この愛くるしい生き物に遭遇したことはないが、それを止める方法を知っていると直感した"アーウィンはクランズマン全員に指示を出す。彼の完璧な統率のもと、獣は鎮静化され、まったく犠牲者を出すことなく捕獲された。クランズマンたちは、伝説の技を目の当たりにして畏敬の念を抱く。</text>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="CLAN_FAUNA_IMPRESSIVE_SUCCESS" />
 			</choice>
 		</event>
 	</choice>
 	<choice req="unique_vortigon" hidden="true">
-		<text>（Vortigon）Vortigonは挑戦に直面したいと思っているようです。</text>
+		<text>(ヴォルティゴン）ヴォルティゴンはチャレンジに立ち向かいたがっているようだ。</text>
 		<event load="CLAN_50_50_VORTIGON" />
 	</choice>
 	<choice req="BLUELIST_SNAIL_ALKALI" hidden="true">
-		<text>（テレパシーアルカリ）「なんて面白い。獣を勉強させてくれたら、医療サポートを提供します。」</text>
+		<text>(テレパシー・アルカリ）「興味深い。獣を研究させてくれるなら、医療サポートをするよ。"</text>
 		<event load="CLAN_25_75_ALKALI" />
 	</choice>
 	<choice req="unique_turzil" hidden="true">
-		<text>（Turzil）Turzilは、全面的な攻撃的なストライキをサポートしています。</text>
+		<text>(タージル）タージルは総攻撃を支持する。</text>
 		<event load="CLAN_33_66_TURZIL" />
 	</choice>
 	<choice req="rock_cultist" hidden="true">
-		<text>（カルト主義者）あなたのカルト主義者のボランティア。</text>
+		<text>(Cultist)あなたのCultistは志願する。</text>
 		<event load="CLAN_25_50_25_CULTIST" />
 	</choice>
 	<choice req="LIST_VARIANT_SEPARATIST" hidden="true">
-		<text>（分離主義者の乗組員）あなたはあなたのEngi分離主義者を提供します。</text>
+		<text>(セパラティスト・クルー）あなたはエンジ・セパラティストを提供する。</text>
 		<event load="CLAN_25_75_SEPARATIST" />
 	</choice>
 	<choice req="engi_defender" hidden="true">
-		<text>（ディフェンダークルー）あなたはあなたのEngi Defenderを提供します。</text>
+		<text>(ディフェンダー・クルー）あなたはエンジ・ディフェンダーを差し出す。</text>
 		<event load="CLAN_50_50_DEFENDER" />
 	</choice>
 	<choice req="zoltan_osmian" hidden="true">
-		<text>（オスミアンクルー）オスミアンはサポートを貸すことができます。</text>
+		<text>(オスミアン・クルー）あなたのオスミアンがサポートします。</text>
 		<event load="CLAN_66_33_OSMIAN" />
 	</choice>
 	<choice req="human_technician" hidden="true">
-		<text>（技術者の乗組員）あなたの技術者はサポートを貸すことができます。</text>
+		<text>(テクニシャン・クルー）テクニシャンがサポートします。</text>
 		<event load="CLAN_66_33_TECHNICIAN" />
 	</choice>
 	<choice>
-		<text>代わりにそれらを攻撃します。</text>
+		<text>代わりに攻撃する。</text>
 		<event>
-			<text>ハンターは狩りになろうとしているようです。彼らは不意を突かれたようですが、すぐに回復します。</text>
+			<text>どうやら狩る側が狩られる側に回ろうとしているようだ。不意を突かれたように見えたが、すぐに立ち直った。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>気にしないでください、私たちは適切なものは何もありません。</text>
+		<text>気にしないで。</text>
 		<event>
-			<text>あなたは謝罪し、関与しないことを決めます。</text>
+			<text>あなたは謝り、関わらないことにした。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -191,125 +191,125 @@
 </event>
 <eventList name="CLAN_50_50_POWERFUL">
 	<event>
-		<text>機知に富んだ獣に対してさえ、ドローンはかなりのダメージを与えます。狩猟パーティーを生き物から保護するのが最善ですが、巧妙な獣は鎮圧される前にナメクジの1つを殺すことに成功します。</text>
+		<text>頭の回転が速い獣相手でも、ドローンはかなりのダメージを与える。このクリーチャーから狩猟隊を守るために最善を尽くすが、賢い獣は鎮圧される前にスラッグを1匹殺すことに成功する。</text>
 		<item_modify>
 			<item type="drone" min="-1" max="-1" />
 		</item_modify>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_MODEST_SUCCESS" />
 		</choice>
 	</event>
 	<event>
-		<text>獣は、専門のドローンがどれほど恐ろしいことであるかに驚きました。それに焦点を当てても、クリーチャーは無傷の狩猟党に鎮圧される前に、それを破壊することができません。</text>
+		<text>獣は専用ドローンの恐ろしさに驚きを隠せない。そのドローンに照準を合わせても、無傷の猟友会によって制圧される前に、かろうじて破壊することに成功した。</text>
 		<item_modify>
 			<item type="drone" min="-1" max="-1" />
 		</item_modify>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_IMPRESSIVE_SUCCESS" />
 		</choice>
 	</event>
 </eventList>
 <eventList name="CLAN_25_50_25_MID">
 	<event>
-		<text>攻撃ドローンは、獣の攻撃の矢面に立つことと、それ自体でかなりの量のダメージを与えることによって、その仕事をします。クランマンは一人の犠牲者で一日を勝ち取ることができます。</text>
+		<text>突撃ドローンは、獣の突撃の矢面に立ち、それ自体もかなりのダメージを与え、その役目を果たす。クランズメンは1人の死傷者を出しただけで、その日の勝利を手にすることができた。</text>
 		<item_modify>
 			<item type="drone" min="-1" max="-1" />
 		</item_modify>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_MODEST_SUCCESS" />
 		</choice>
 	</event>
 	<event name="CLAN_FAUNA_MID_PYRRHIC">
-		<text>獣はほとんどドローンを無視してスクイーズのターゲットに焦点を合わせていますが、ドローンは戦闘の腕前でこの決定を罰することができるので、これは間違いであることが証明されます。残念ながら、ナメクジ狩りはその過程で深刻な犠牲者を出します。</text>
+		<text>獣はほとんどドローンを無視し、ふにゃふにゃしたターゲットに集中するが、ドローンがその戦闘力でこの決断を罰することができるため、これは間違いであることが判明する。不運なことに、スラッグ狩りパーティーはその過程で深刻な犠牲者を出してしまう。</text>
 		<item_modify>
 			<item type="drone" min="-1" max="-1" />
 		</item_modify>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_PYRRHIC_SUCCESS" />
 		</choice>
 	</event>
 	<event load="CLAN_FAUNA_MID_PYRRHIC" />
 	<event>
-		<text>獣は、その知恵を使用して狩猟党に集中するためにドローンを打ち負かすことができます。残念ながら、ドローンが最終的に攻撃するまでに、バックアップするスラグはもうありません。</text>
+		<text>獣は知恵を使ってドローンを出し抜き、猟友会に照準を合わせる。不運なことに、ドローンがようやく攻撃に成功したときには、もはやスラッグの援護はない。</text>
 		<item_modify>
 			<item type="drone" min="-1" max="-1" />
 		</item_modify>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_FAILURE" />
 		</choice>
 	</event>
 </eventList>
 <eventList name="CLAN_50_50_SUPPORT">
 	<event>
-		<text>あなたのドローンはクランマンをサポートするために最善を尽くしますが、獣はそれを無視し、狩猟パーティーを引き裂きます。</text>
+		<text>あなたのドローンはクランズメンを全力でサポートするが、獣はそれを無視し、猟友会を引き裂く。</text>
 		<item_modify>
 			<item type="drone" min="-1" max="-1" />
 		</item_modify>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_FAILURE" />
 		</choice>
 	</event>
 	<event>
-		<text>サポートドローンは、義務を果たすこととシールドとして行動することで、クランマンがその日に勝つのを助けることができますが、途中でいくつかの深刻な犠牲者がいます。</text>
+		<text>支援ドローンは任務を果たし、盾として機能することで、なんとかクランズメンの勝利に貢献したが、その過程で深刻な死傷者が出た。</text>
 		<item_modify>
 			<item type="drone" min="-1" max="-1" />
 		</item_modify>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_PYRRHIC_SUCCESS" />
 		</choice>
 	</event>
 </eventList>
 <eventList name="CLAN_50_50_SIREN">
 	<event>
-		<text>獣はすぐにサイレンを告発し、それを最大の脅威であると特定します。どういうわけか、クリーチャーの精神的能力はサイレンの存在下で曇っているように見えます。サイレンはこれを有利に使用し、クランマンがそれできれいなショットを取り除くことができるので防御的に戦います。しかし、あなたのサイレンは狩猟者の生活をあまり気にしていないようであり、それらのいくつかは負傷しています。</text>
+		<text>獣はすぐにセイレーンに突撃し、最大の脅威と認識する。どういうわけか、セイレーンを前にすると獣の精神が曇るようで、セイレーンはそれを利用して防御的に戦い、クランズメンは獣にクリーンショットを放つことができる。しかし、セイレーンは猟師たちの命をあまり気にしていないようで、何人かが負傷する。</text>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_MODEST_SUCCESS" />
 		</choice>
 	</event>
 	<event>
-		<text>獣はすぐにサイレンを告発し、それを最大の脅威であると特定します。クランマンはきれいなショットを脱ぐことができるので、あなたの乗組員はその攻撃を回避します。最終的に、クリーチャーは絶対に凶暴になり、ハンターを引き裂き、サイレンが最終的に残っている数少ないナメクジの1つがその命を終わらせるのに十分な長さでそれをなだめます。</text>
+		<text>獣はすぐにセイレーンに突撃し、最大の脅威と認識する。クランズメンはクリーンショットを放ち、クルーは攻撃を回避する。セイレーンになだめられ、残り少ないスラッグがその命を絶つ。</text>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_PYRRHIC_SUCCESS" />
 		</choice>
 	</event>
 </eventList>
 <eventList name="CLAN_50_50_VORTIGON">
 	<event>
-		<text>ヴォルティゴンの熱狂は、サイキックビーストの力でさえ壊れます。獣は、ヴォルティゴンの意志を破壊することも、彼を有意義に傷つけることもできません。ヴォルティゴンは獣をグラップルでピンし、ナメクジは1人の犠牲者なしでそれを倒すことができます。</text>
+		<text>ヴォルティゴンの熱意は、超能力獣の力をも打ち砕く。獣はヴォルティゴンの意志を覆すことも、彼を傷つけることもできない。ヴォーティゴンは獣を組み伏せ、スラッグスは一人の犠牲者も出さずに獣を倒すことができた。</text>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_IMPRESSIVE_SUCCESS" />
 		</choice>
 	</event>
 	<event>
-		<text>ヴォルティゴンの熱狂は、サイキックビーストの力でさえ壊れます。獣は、ヴォルティゴンの意志を破壊することも、彼を有意義に傷つけることもできません。それは彼の把握から逃れることができ、彼を遠ざけるために最善を尽くします。戦いは困難ですが、ナメクジはヴォルティゴンの強大な胴回りの後ろに隠れることができます。</text>
+		<text>ヴォルティゴンの熱意は、超能力獣の力をも打ち砕く。獣はヴォルティゴンの意志をくつがえすことも、彼を傷つけることもできない。ヴォルティゴンは何とか彼の手から逃れ、彼に近づかないように最善を尽くす。戦いは熾烈を極めたが、スラッグたちはヴォーティゴンの巨大な胴回りの後ろに身を隠すことができた。</text>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_MODEST_SUCCESS" />
 		</choice>
 	</event>
 </eventList>
 <eventList name="CLAN_25_75_ALKALI">
 	<event>
-		<text>ナメクジはアルカリ周辺の層を採用しています。彼の鋭い異種の洞察のおかげで、獣は形成を壊すことができません。彼らが負傷したとしても、狩猟パーティー全体は、必要なだけ多くの医療支援を受けることができます。</text>
+		<text>スラッグたちはアルカリの周りに陣形をとる。彼の鋭い異生物学的洞察力のおかげで、スラッグは陣形を崩すことができなかった。どんなに負傷しても、猟友会全員が必要なだけの医療援助を受けることができる。</text>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_IMPRESSIVE_SUCCESS" />
 		</choice>
 	</event>
 	<event name="CLAN_FAUNA_ALKALI_SUCCESS">
-		<text>氏族はアルカリ周辺の層を採用しています。獣はいくつかのナメクジに引き裂くことができますが、彼は彼らが落ちる直前にそれらのほとんどを安定させたままにしています。しかし、隣接するハンターの1人は少し不注意になり、アルカリが役立つ前にばらばらに引き裂かれます。</text>
+		<text>クランズメンはアルカリを囲むように陣形をとる。アルカリはスラッグを何匹か切り裂いたが、ほとんどのスラッグが落下する寸前で安定させることに成功した。しかし、脇を固めるハンターの一人が少し不注意だったようで、アルカリが助ける前にバラバラにされてしまう。</text>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_MODEST_SUCCESS" />
 		</choice>
 	</event>
@@ -319,16 +319,16 @@
 
 <eventList name="CLAN_33_66_TURZIL">
 	<event>
-		<text>Turzilは、測定された精度をクランマンに指示します。獣が餌にされると、タージルは彼の立場でチーム全体に電話をかけます。彼の保護分野がすべてのナメクジの周りに生成されると、それらはクリーチャーの攻撃に対して事実上不死身であり、勝利の勝利につながります。狩猟パーティーは彼らの勝利の将軍を歓迎します。</text>
+		<text>タージルはクランズマンに的確な指示を出す。獣をおびき寄せると、タージルは部隊全員を自分の位置に呼び寄せる。すべてのスラッグの周囲に防御フィールドが形成され、スラッグの攻撃はほぼ無敵となり、勝利の女神が舞い降りた。猟友会は勝利の将軍を称える。</text>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_IMPRESSIVE_SUCCESS" />
 		</choice>
 	</event>
 	<event name="CLAN_FAUNA_TURZIL_SUCCESS">
-		<text>Tturzilは、測定された精度で狩猟パーティーを指示します。獣が餌にされると、タージルは彼の立場でチーム全体に電話をかけます。彼の保護分野がすべてのナメクジの周りに生成されると、それらはクリーチャーの攻撃に対して事実上不死身です。それは最終的にこれを学び、攻撃を壊し、それがそれを待つことができるようにします。Turzilのフィールドが消散した後、保護は薄れましたが、損害は発生し、獣はそれを適切に活用するにはあまりにも痛すぎます。</text>
+		<text>TTurzilは正確を期して狩猟隊を指揮する。獣に餌を与えると、タージルは部隊全員を自分の位置に呼び寄せる。すべてのスラッグの周囲に保護フィールドが発生し、彼らはクリーチャーの攻撃に対して事実上無敵となる。やがてそれを知ったスラッグは、攻撃を中断して待機する。タージルのフィールドが消滅した後、保護は薄れたが、ダメージは与えられており、獣は傷つきすぎてそれをうまく生かすことができない。</text>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_MODEST_SUCCESS" />
 		</choice>
 	</event>
@@ -337,24 +337,24 @@
 
 <eventList name="CLAN_25_50_25_CULTIST">
 	<event>
-		<text>カルト主義者は、覚醒剤を取り、クリーチャーを急いで行動し、行動を起こします。それは熱狂者の普通でありながら不可解な心のために完全に準備ができておらず、なんとか攻撃することができません。スティムが摩耗した後でも、獣はすり減ってピン止めされ、ハンターがそれを仕上げることができます。</text>
+		<text>カルト信者は行動を開始し、興奮剤を飲んでクリーチャーに突進する。獣は狂信者の平凡だが不可解な精神に全く準備ができておらず、攻撃することができない。覚醒剤が切れた後も、獣は消耗して動けなくなり、ハンターが仕留めることができる。</text>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_IMPRESSIVE_SUCCESS" />
 		</choice>
 	</event>
 	<event name="CLAN_FAUNA_CULTIST_SUCCESS">
-		<text>カルト主義者は覚醒剤を取り、獣を追求します。野avな熱狂で、彼らは打撃の弾幕を降らせますが、麻薬が消えるとすぐに、生き物はそれ自体と乗組員の間にある程度の距離をとることができます。ただし、この時点では、ナメクジがそれを処理できるほど弱くなっています。</text>
+		<text>カルト信者は興奮剤を飲み、獣を追いかける。野蛮な熱狂をもって、彼らは打撃の連打を浴びせるが、薬が切れるとすぐに、その生物はクルーとの距離をとることに成功する。しかしこの時点では、スラッグスが対処できるほど弱っている。</text>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_MODEST_SUCCESS" />
 		</choice>
 	</event>
 	<event load="CLAN_FAUNA_CULTIST_SUCCESS" />
 	<event>
-		<text>カルト主義者は覚醒剤を取り、獣を追求します。あなたの乗組員の熱狂にもかかわらず、彼らの精神的な規律に小さな亀裂があり、生き物が彼らのストライキの多くを避けるのに十分であることが証明されています。最終的にはかなりの犠牲者で戦いが勝ちましたが、あなたの岩は彼らのすべてを与えることができませんでした。</text>
+		<text>カルト教団員は興奮剤を飲み、獣を追う。乗組員の熱意にもかかわらず、彼らの精神的規律には小さな亀裂があり、その亀裂がクリーチャーに彼らの攻撃の多くを回避させるのに十分であることが判明した。戦闘はかなりの死傷者を出しながらも最終的に勝利したが、君のロックは全力を出し切れなかった。</text>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_PYRRHIC_SUCCESS" />
 		</choice>
 	</event>
@@ -362,16 +362,16 @@
 
 <eventList name="CLAN_25_75_SEPARATIST">
 	<event>
-		<text>あなたの分離主義者はナノモードになり、クリーチャーを群がらせます。それは、ナメクジの銃撃に悩まされているので、幽霊のような姿と戦おうとするだけで、そのエネルギーの多くを無駄にします。いくつかの爆発がそれを襲うと、それはあなたのエンギーを無視し、狩猟パーティーの間で大混乱をもたらし始めます。驚くべきことに、彼らはまだどういうわけか勝ちます。</text>
+		<text>あなたの分離主義者はナノモードになり、クリーチャーに群がる。スラッグの銃撃を浴びながら、幽霊のような姿と戦おうとしてエネルギーを浪費する。何発か命中すると、エンギを無視して猟友会に大混乱をもたらし始める。意外なことに、それでもどうにか勝利する。</text>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_PYRRHIC_SUCCESS" />
 		</choice>
 	</event>
 	<event name="CLAN_FAUNA_SEPARATIST_FAILURE">
-		<text>あなたの分離主義者はナノモードになり、クリーチャーを群がらせます。獣は幻影を完全に無視し、代わりに鼻を追って、狩猟党全体を根絶し、虐殺します。あなたがあなたの船へのあなたのエンギを思い出すように、あなたはあなたがその動きで一体何を考えていたのか疑問に思い始めます。</text>
+		<text>あなたの分離主義者はナノモードになり、クリーチャーに群がる。獣は幻影を完全に無視し、代わりに鼻に従って狩猟隊全員を根こそぎ虐殺した。エンギを自分の船に呼び戻しながら、一体何を考えてあの手を打ったのかと考え始める。</text>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_FAILURE" />
 		</choice>
 	</event>
@@ -381,16 +381,16 @@
 
 <eventList name="CLAN_50_50_DEFENDER">
 	<event>
-		<text>あなたのディフェンダーはポイントを取ります。獣は、光沢のある、一見無防備な姿とストライキに気づきますが、彼らの盾は肉体的および精神的な攻撃からそれを保護します。あなたの乗組員は、狩猟党が遠くから生き物に発砲するので、生き物にしっかりと保持します。獣がエンギのホールドから解放されることはそれほど難しくありませんが、損害は行われます。残念ながら、それはまだ狩猟パーティーを引き裂きます。</text>
+		<text>ディフェンダーがポイントを取る。獣は光沢のある、一見無防備な姿に気づいて襲いかかるが、彼らの盾が物理的攻撃からも精神的攻撃からも守ってくれる。猟兵隊が遠距離からその獣に発砲している間、君のクルーはその獣にしっかりとしがみついている。獣がエンジの手から離れるのはそれほど難しくないが、ダメージは大きい。残念なことに、この獣はまだ猟友会を引き裂いている。</text>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_PYRRHIC_SUCCESS" />
 		</choice>
 	</event>
 	<event>
-		<text>あなたのディフェンダーはポイントを取ります。獣は瞬間的に攻撃しますが、シールドに衝突するとすぐにあきらめます。狩猟パーティーは、あなたのエンギーを完全に無視するため、クリーチャーに対して無防備になります。少なくともあなたはあなたのクルーマンを取り戻すことができました。</text>
+		<text>あなたのディフェンダーがポイントを取る。獣は一瞬攻撃するが、シールドに当たるとすぐに諦める。エンギを完全に無視され、狩猟隊は無防備となる。少なくとも乗組員を取り戻すことができた。</text>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_FAILURE" />
 		</choice>
 	</event>
@@ -398,17 +398,17 @@
 
 <eventList name="CLAN_66_33_OSMIAN">
 	<event name="CLAN_FAUNA_OSMIAN_SUCCESS">
-		<text>あなたのオスミアンは、危険から離れながら、ホログラムの生成能力を巧みに利用しています。獣は、ホログラムと戦う方法については考えていません。ナメクジは後ろにぶら下がってショットを選びますが、最終的には負傷しました。それでも、戦いは勝ちます。</text>
+		<text>あなたのオスミアンは危険から遠ざかりながら、ホログラム生成能力を巧妙に利用している。獣はホログラムとまともに戦うことができず、かといって無視することもできないため、どう戦えばいいのか見当もつかない。スラッグたちは後ずさりしながら射撃のチャンスをうかがうが、最終的に負傷してしまう者もいる。それでも戦いは勝利した。</text>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_MODEST_SUCCESS" />
 		</choice>
 	</event>
 	<event load="CLAN_FAUNA_OSMIAN_SUCCESS" />
 	<event>
-		<text>あなたのオスミアンは、危険から離れながら、ホログラムの生成能力を巧みに利用しています。彼らの採石場は、ホログラムと戦う方法を知ることはできません。獣はホログラムとナメクジによってすり減っていますが、多くの命がその過程で失われています。</text>
+		<text>あなたのオスミアンは危険から遠ざかりながら、ホログラム生成能力を巧みに利用する。彼らの獲物は、ホログラムとまともに戦うことができないため、どう戦うべきか見当もつかないが、回避することはできる。獣はホログラムとスラッグスによって消耗していくが、その過程で多くの命が失われた。</text>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_PYRRHIC_SUCCESS" />
 		</choice>
 	</event>
@@ -416,91 +416,91 @@
 
 <eventList name="CLAN_66_33_TECHNICIAN">
 	<event name="CLAN_FAUNA_TECHNICIAN_SUCCESS">
-		<text>あなたの技術者は、安全な距離にとどまる間、獣に嫌がらせをするためにリモート制御ドローンを送ります。彼らの採石場はドローンを無視することができません。ドローンは、背が向けられたときに現れて印象的です。狩猟党の慎重な距離と併せて、いくつかのナメクジが負傷したものの、消耗戦争は最終的に勝ちました。</text>
+		<text>テクニシャンは遠隔操作のドローンを降ろし、安全な距離を保ちながら獣に嫌がらせをする。獲物はドローンを無視することができず、背を向けてもドローンが現れ、攻撃し続ける。猟友会の慎重な距離の取り方と相まって、何匹かのスラッグが負傷したものの、消耗戦は最終的に勝利した。</text>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_MODEST_SUCCESS" />
 		</choice>
 	</event>
 	<event load="CLAN_FAUNA_TECHNICIAN_SUCCESS" />
 	<event>
-		<text>あなたの技術者は、安全な距離にとどまる間、獣に嫌がらせをするためにリモート制御ドローンを送ります。彼らの採石場はドローンを無視することができません。ドローンは、背が向けられたときに現れて印象的です。しかし、ドローンは、多くのナメクジ狩りのパーティーを殺すのを防ぐのに十分な速さで攻撃することができません。戦いは血まみれですが、狩猟パーティーは勝利します。</text>
+		<text>テクニシャンは遠隔操作のドローンを降ろし、安全な距離を保ちながら獣に嫌がらせをする。獲物はドローンを無視することができず、背中を向けてもドローンが現れ、攻撃し続ける。しかし、ドローンは十分な速さで攻撃することができず、スラッグの猟友会の多くを殺すことができない。戦いは血なまぐさいものとなったが、猟友会は勝利して帰ってきた。</text>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="CLAN_FAUNA_PYRRHIC_SUCCESS" />
 		</choice>
 	</event>
 </eventList>
 
 <event name="CLAN_FAUNA_IMPRESSIVE_SUCCESS">
-	<text>"That wasss glorioussss. We owe thisss sssuccesssful hunt to you, Renegade. They will sssurely sssing sssongsss of thisss great hunt." The Clansmen heap rewards upon you.</text>
+	<text>「素晴らしかった。この狩りの成功は君のおかげだよ、レネゲイド。"彼らはきっとこの偉大な狩りの歌を歌うだろう"クランメンはあなたに褒美を与える。</text>
 	<autoReward level="HIGH">weapon</autoReward>
 </event>
 <event name="CLAN_FAUNA_MODEST_SUCCESS">
-	<text>「それは明確な成功です。ビーストに挑戦することは、死に浮かび上がります。ここであなたの側にあなたの報酬があります。」クランマンはあなたにいくつかのスクラップを贈ります。</text>
+	<text>「それは間違いなく成功だった。獣に挑むことは、死とたわむれることだ。これがお前の報酬だ"クランズマンがあなたにスクラップを贈る。</text>
 	<autoReward level="HIGH">scrap_only</autoReward>
 </event>
 <event name="CLAN_FAUNA_PYRRHIC_SUCCESS">
-	<text>「なんてディスサススター。私たちは勝ったかもしれませんが、それはずっと良くなったかもしれません。氏族は義務的な報酬を投げます。</text>
+	<text>「なんて不愉快なんだ。我々は勝ったかもしれないが、もっとうまくいったかもしれない。それでも、君たちの助けは、わずかなケツではあったが、意味のあるものだった。"クランズマンたちはお決まりのご褒美を投げる。</text>
 	<autoReward level="LOW">scrap_only</autoReward>
 </event>
 <event name="CLAN_FAUNA_FAILURE">
-	<text>「なんてDisssasssterだ。あなたは腹筋だった。</text>
+	<text>「なんて嫌な奴なんだ。お前は何の役にも立たなかった。死者を悼んでいるんだ。</text>
 </event>
 <event name="CLAN_FAUNA_CATASTROPHIC_FAILURE">
-	<text>「何があなたに問題があるのですか？あなたは多元宇宙全体で最も愚かな反逆者ですか？」</text>
+	<text>「どうしたんだ？お前はマルチバースで一番間抜けな反逆者か？"</text>
 	<ship hostile="true" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 
 <event name="CLAN_TOURISTS" unique="true">
-	<text>一部のクリスタルは外国人嫌いで敵対的である傾向がありますが、他のクリスタルは非常に友好的で親切です。このような結晶は、観光地でよく見られます。</text>
+	<text>外国人嫌いで敵対的な傾向のあるクリスタルもいるが、とても友好的でもてなし上手なクリスタルもいる。このようなクリスタルは観光地でよく見られる。</text>
 	<ship load="SHIP_CRYSTAL_GENERIC" hostile="false" />
 	<choice hidden="true">
-		<text>これらのクリスタルは簡単なターゲットになります。攻撃！</text>
+		<text>クリスタルは格好の標的だ。攻撃する！</text>
 		<event>
-			<text>あなたは武器を武装させ、クリスタルの観光客と交戦します。</text>
+			<text>武器を武装し、結晶の観光客と交戦する。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="MORALITY_UPDATE_CRYSTAL_FIGHT" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_CLAN">
-		<text>（ギルドクルー）目的地のリストを提供します。</text>
+		<text>(ギルドクルー）目的地のリストを提供する。</text>
 		<event>
-			<text>「ああ、あなたもその一人です。あなたの申し出に大いに感謝しますが、必要はありません。私たちはすでに以前に地図を購入しました。必要に応じてコピーを差し上げます！」</text>
+			<text>"ああ、あなたもその一人ですね！ありがたい申し出だが、その必要はない。先ほどすでに地図を買いましたので、よろしければコピーを差し上げますよ！"</text>
 			<reveal_map />
 		</event>
 	</choice>
 	<choice hidden="true" req="weapons" lvl="5">
-		<text>（Upg. Weapons）あなたが持っているものや死ぬものをすべて私にください。</text>
+		<text>(武器をアップして）持っているものを全部よこせ、さもなければ死ね。</text>
 		<event>
-			<text>「地下室で！それほど敵対的である必要はありません！私たちはあなたが望むものを何でも与えます！」クリスタルはいくつかの物資を送ります。</text>
+			<text>「地下室のそばで！敵対する必要はない！欲しいものは何でもやる！"クリスタルが物資を送る。</text>
 			<autoReward level="LOW">stuff</autoReward>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="MORALITY_UPDATE_CRYSTAL" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_CRYSTAL">
-		<text>（クリスタルクルー）消耗品をリクエストします。</text>
+		<text>(クリスタル・クルー）補給を要請する。</text>
 		<event>
-			<text>「おお、こんにちは！お土産を買いたくてたまらないけど、お金が足りないと思います。喜んでお手伝いさせていただきます！」クリスタルはスクラップを送ってきます。</text>
+			<text>「こんにちは！何か素敵なお土産を買いたいんだろうけど、現金がなくて困っているんだろう。クリスタルはスクラップを送ってきた。</text>
 			<autoReward level="MED">scrap_only</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>クリスタルは無視してください。</text>
+		<text>クリスタルを無視する。</text>
 		<event>
-			<text>あなたは観光客をそのままにして飛び去ります。</text>
+			<text>観光客を残して飛び立つ。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -512,39 +512,39 @@
 </event>
 
 <event name="CLAN_CRISIS" unique="true">
-	<text>ギルド船が近くを漂流しています。それはまだ力を持っていますが、すべての重要でないシステムはオンラインです。</text>
+	<text>ギルドの船が近くを漂っている。まだ電力はあるが、重要でないシステムはすべてオンラインだ。</text>
 	<ship load="SHIP_CLAN_CRISIS" hostile="false" />
 	<choice hidden="true">
-		<text>彼らに連絡する。</text>
+		<text>万歳。</text>
 		<event>
-			<text>船は応答し、クランズマンが必死に触手を握りしめているのを見せます。 「どうやってここにたどり着いたのですか？なぜこれが私の人生の問題になったのですか？暴力的な殺人者であるパーソンの影...」</text>
+			<text>船は反応し、クランズマンが必死にフィーラーをひっかいている様子が映し出される。「俺はどうやってここに来たんだ？なぜこんな人生になってしまったんだ？パースンの影、凶暴な殺人者..."</text>
 			<choice hidden="true">
-				<text>この男を彼の惨めさから解放しなさい。</text>
+				<text>この男を不幸から救ってやれ。</text>
 				<event>
-					<text>あなたは武器を武装させ、クランズマンを攻撃します。彼らは反撃しようとさえしていないように見えます。</text>
+					<text>武器を装備し、クランズマンに攻撃を仕掛ける。彼らは反撃しようともしていないように見える。</text>
 					<status type="limit" target="enemy" system="weapons" amount="0" />
 					<status type="limit" target="enemy" system="teleporter" amount="0" />
 					<status type="limit" target="enemy" system="cloaking" amount="0" />
 					<status type="limit" target="enemy" system="mind" amount="0" />
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>この男は申し訳ありませんが惨めです。彼を残します。</text>
+				<text>こいつは哀れな奴だ。放っておけ。</text>
 				<event />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>クランズマンを無視します。</text>
+		<text>クランズマンを無視する。</text>
 		<event>
-			<text>ご存知のとおり、これは罠かもしれません。あなたはクランズマンを無視します。</text>
+			<text>罠かもしれない。あなたはクランズマンを無視する。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -556,35 +556,35 @@
 </event>
 
 <event name="CLAN_SPICES" unique="true">
-	<text>ギルドは通常、スラッグのようにネブラスにとどまりますが、より良いビジネスを引き付けるためにこのクリアリングには取引の前post基地が設置されているようです。それはうまく機能しているように見えます...ジェットブラックで非常に強力なスラッグの船がロッジを人質に保持しており、クランマンに「エキゾチックなスパイス」に渡すことを要求しているからです。あなたが推測しなければならなかったなら、おそらく薬物。</text>
+	<text>通常、ギルドはスラッグのような星雲に留まっているが、より良いビジネスを誘致するため、この空き地に交易の前哨基地を設置したようだ。それが功を奏したようだ...漆黒で非常に強力なスラッグ船が宿を人質に取り、クランズマンに「エキゾチックな香辛料」を渡すよう要求しているのだから。おそらくドラッグだろう。</text>
 	<choice hidden="true">
-		<text>黒いスラッグの船を攻撃します。</text>
+		<text>黒いスラッグ船を攻撃する。</text>
 		<event>
-			<text>あなたは武器を武装させ、奇妙なスラッグ船を攻撃します。</text>
+			<text>武器を装備し、奇妙なスラッグ船を攻撃する。</text>
 			<ship load="SHIP_CLAN_SPICES_KNIGHT" hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>コウラクロスラッグが出荷されるのを手伝って、自分で薬を服用してください。</text>
+		<text>黒いスラッグを助け出し、自分で薬を飲む。</text>
 		<event>
-			<text>これを行うには、ステーションを破壊せずにクランズマンを殺す必要があります。気をつけて！</text>
+			<text>そのためには、ステーションを破壊せずにクランズマンたちを殺さなければならない。気をつけて！</text>
 			<ship load="SHIP_CLAN_SPICES_CLAN" hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>離れる。</text>
+		<text>出て行け。</text>
 		<event>
-			<text>この新しいスラッグ船の起源は不明になる必要があります。より重要なものが手元にある場合、関与するのはリスクが高すぎます。</text>
+			<text>この新しいスラッグ船の出自は不明とせざるを得ない。もっと重要なことが目の前にあるのに、巻き込まれるのは危険すぎる。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -603,41 +603,41 @@
 </eventList>
 
 <event name="NEBULA_CLAN_SHARPSHOOTER" unique="true">
-	<text>このビーコンの清算は、このビーコンでの関心のある点ではありません。近くの惑星の表面には、異常に大きな外国の船の集まりを引き付けたように見える射撃ギャラリーがあります。残念ながら、エントリは無料ではないようであり、中に入るためにスクラップを吐き出す必要があります。</text>
+	<text>このビーコンの見どころはクリアランスだけではない。近くの惑星の地表には、異常に多くの外国船が集まっていると思われる射撃場がある。残念なことに、入場料は無料ではないようで、中に入るにはいくらかスクラップが必要だ。</text>
 	<img back="BACK_EVENT_LIGHTNEBULA" planet="PLANET_POPULATED" />
 	<status type="loss" target="player" system="sensors" amount="1" />
 	<choice>
-		<text>入場料を支払います。</text>
+		<text>入場料を支払う。</text>
 		<event>
-			<text>あなたは入場料を引き渡し、すぐに内部を案内します。</text>
+			<text>入場料を渡すと、すぐに中に案内される。</text>
 			<item_modify>
 				<item type="scrap" min="-15" max="-15" />
 			</item_modify>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="NEBULA_CLAN_SHARPSHOOTER_INTERIOR" />
 			</choice>
 		</event>
 	</choice>
 	<choice req="LIST_CREW_CLAN">
-		<text>（ギルドクルー）メンバーの割引を要求します。</text>
+		<text>(ギルド・クルー）メンバー割引を申し込む。</text>
 		<event>
-			<text>あなたは今、削減された入場料を引き渡し、すぐに内部を導かれます。</text>
+			<text>安くなった入場料を渡すと、すぐに中に案内される。</text>
 			<item_modify>
 				<item type="scrap" min="-7" max="-7" />
 			</item_modify>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="NEBULA_CLAN_SHARPSHOOTER_INTERIOR" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>射撃ギャラリーを無視してください。</text>
+		<text>射撃場は無視。</text>
 		<event>
-			<text>ここで時間を過ごしたいのと同じくらい、反乱軍の艦隊が到着するまで、あなたは本当にあなたが望むほど多くの時間を持っていません。あなたは出発する準備をします。</text>
+			<text>ここで過ごしたいのは山々だが、反乱軍の艦隊が到着するまでは時間がない。あなたは出発の準備をする。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -648,209 +648,209 @@
 	</choice>
 </event>
 <event name="NEBULA_CLAN_SHARPSHOOTER_INTERIOR">
-	<text>メインの射撃ギャラリーに到着すると、ナメクジの店員は、高品質のFTL燃料の無料ギフトを提供します。この奇妙なプレゼントは、さまざまな意図されたアトラクションに関与しているように見える人はほとんどいないため、ここで非常に多くの船を誘惑したものの一部であると思います。射撃ギャラリー自体は、オーキッドとクリスタルをテーマにした段階が目を引くいくつかのテーマの段階に分かれています。奇妙なことに、それぞれの最初の試みは無料であり、その後の試みには料金が必要です。</text>
+	<text>メイン・シューティング・ギャラリーに到着すると、スラッグの店員が高品質のFTL燃料をプレゼントしてくれた。この奇妙なプレゼントが、多くの客船をここに誘った理由のひとつなのだろう。シューティング・ギャラリーはテーマごとにいくつかのステージに分かれており、オーキッドとクリスタルをテーマにしたステージが目を引く。不思議なことに、各ステージとも最初の挑戦は無料で、それ以降は有料となっている。</text>
 	<autoReward level="HIGH">fuel_only</autoReward>
 	<choice>
-		<text>蘭をテーマにした「rt'lak et of rt'lak et」ステージを試してみてください。</text>
+		<text>オーキッドをテーマにした「Guardians of Rt'lak Et」ステージに挑戦してみよう。</text>
 		<event>
-			<text>この特定の魅力は、蘭の壮大な庭園に侵入しようとするヴァンプウィードを描いた木製のターゲットでの撮影を含むようです。描かれたシナリオは、不条理に非現実的であり、間違いなく多くの不幸な似顔絵に遊んでいることは間違いありませんが、それはここで成功しようとする試みに多くの問題をもたらすべきではありません。</text>
+			<text>このアトラクションは、オーキッド・グランド・ガーデンズに侵入しようとするヴァンプウィード（吸血草）を描いた木製の的を撃つというものだ。描かれているシナリオはばかばかしく非現実的で、間違いなく多くの不幸な風刺画を演じているようだが、このアトラクションを成功させようという試みにはさほど問題はないだろう。</text>
 			<choice hidden="true">
-				<text>自分で試してみてください。</text>
+				<text>自分で試してみよう。</text>
 				<event load="CLAN_SHARPSHOOTER_KERNEL_SOLO" />
 			</choice>
 			<choice hidden="true" req="LIST_CREW_SOLDIER">
-				<text>（兵士の乗組員）あなたの兵士の銃器トレーニングは、このゲームで彼らに優位性を与えるはずです。</text>
+				<text>(ソルジャー・クルー）ソルジャーは銃器の訓練を受けているので、このゲームでは有利に戦えるはずだ。</text>
 				<event load="CLAN_SHARPSHOOTER_KERNEL_CREW" />
 			</choice>
 			<choice hidden="true" req="orchid_praetor">
-				<text>（Praetor Crew）あなたの司祭のユニークな銃器は、このゲームで彼らに優位性を与えるはずです。</text>
+				<text>(プレトールクルー）プレトールのユニークな銃器は、このゲームで有利になるはずだ。</text>
 				<event load="CLAN_SHARPSHOOTER_KERNEL_CREW" />
 			</choice>
 			<choice hidden="true" req="unique_haynes">
-				<text>（ヘインズ）ヘインズのユニークな銃器はこのゲームで助けてくれるはずです。</text>
+				<text>(ヘインズ）ヘインズのユニークな銃器は、この試合で役立つはずだ。</text>
 				<event load="CLAN_SHARPSHOOTER_KERNEL_CREW" />
 			</choice>
 			<choice hidden="true" req="unique_irwin">
-				<text>（アーウィン）アーウィンのユニークな銃器は、このゲームで助けてくれるはずです。</text>
+				<text>(アーウィン）アーウィンのユニークな銃器はこの試合で役立つはずだ。</text>
 				<event load="CLAN_SHARPSHOOTER_KERNEL_CREW" />
 			</choice>
 			<choice hidden="true" req="LIST_CREW_JERRY_GRIEF">
-				<text>（ジェリー）ジェリーには本当に大きな銃があります。これ以上何を言う必要がありますか？</text>
+				<text>(ジェリー）ジェリーは本当に、本当に大きな銃を持っている。これ以上何を言う必要がある？</text>
 				<event load="CLAN_SHARPSHOOTER_KERNEL_JERRY" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>クリスタルをテーマにした「Ycathine's Wonders」ステージを試してみてください。</text>
+		<text>クリスタルをテーマにした "Ycathine's Wonders "ステージに挑戦してみよう。</text>
 		<event>
-			<text>この特定の魅力は、既知のクリーチャーに基づいた結晶の彫刻を特徴としています。関連する小さなテキストを見ると、結晶性の生き物は、元結晶皇帝イカシンの一見神話上の地下室の巨大な住人であると想定されていることがわかります。観光客のtrapでの使い捨ての存在しない暗号にこのような美しい彫刻技術を消費するのは無駄ですが、ナメクジはそのようなことについて非常に過度であることが知られています。</text>
+			<text>このアトラクションの特徴は、未知の生物をモチーフにした結晶の彫刻である。関連する小さなテキストを見ると、結晶の生き物は、かつての結晶皇帝イカティンの神話的な地下墓地に住む怪物のようだとある。これほど美しい造形技術を、観光地の存在しない地下墓地のために費やすのはもったいない気もするが、スラッグはそういうことにはかなり過剰なことで知られている。</text>
 			<choice hidden="true">
-				<text>自分で試してみてください。</text>
+				<text>自分で試してみよう。</text>
 				<event load="CLAN_SHARPSHOOTER_CRYSTAL_SOLO" />
 			</choice>
 			<choice hidden="true" req="LIST_CREW_SOLDIER">
-				<text>（兵士の乗組員）あなたの兵士の銃器トレーニングは、このゲームで彼らに優位性を与えるはずです。</text>
+				<text>(ソルジャー・クルー）ソルジャーは銃器の訓練を受けているので、このゲームでは有利に戦えるはずだ。</text>
 				<event load="CLAN_SHARPSHOOTER_CRYSTAL_CREW" />
 			</choice>
 			<choice hidden="true" req="orchid_praetor">
-				<text>（Praetor Crew）あなたの司祭のユニークな銃器は、このゲームで彼らに優位性を与えるはずです。</text>
+				<text>(プレトールクルー）プレトールのユニークな銃器は、このゲームで有利になるはずだ。</text>
 				<event load="CLAN_SHARPSHOOTER_CRYSTAL_CREW" />
 			</choice>
 			<choice hidden="true" req="unique_haynes">
-				<text>（ヘインズ）ヘインズのユニークな銃器はこのゲームで助けてくれるはずです。</text>
+				<text>(ヘインズ）ヘインズのユニークな銃器は、この試合で役立つはずだ。</text>
 				<event load="CLAN_SHARPSHOOTER_CRYSTAL_CREW" />
 			</choice>
 			<choice hidden="true" req="unique_irwin">
-				<text>（アーウィン）アーウィンのユニークな銃器は、このゲームで助けてくれるはずです。</text>
+				<text>(アーウィン）アーウィンのユニークな銃器はこの試合で役立つはずだ。</text>
 				<event load="CLAN_SHARPSHOOTER_CRYSTAL_CREW" />
 			</choice>
 			<choice hidden="true" req="LIST_CREW_JERRY_GRIEF">
-				<text>（ジェリー）ジェリーには本当に大きな銃があります。これ以上何を言う必要がありますか？</text>
+				<text>(ジェリー）ジェリーは本当に、本当に大きな銃を持っている。これ以上何を言う必要がある？</text>
 				<event load="CLAN_SHARPSHOOTER_CRYSTAL_JERRY" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>ここで他の無関心な人々と話してみてください。</text>
+		<text>ここにいる関心のない人たちと話してみてください。</text>
 		<event load="CLAN_SHARPSHOOTER_CONVERSATION" />
 	</choice>
 </event>
 <eventList name="CLAN_SHARPSHOOTER_KERNEL_SOLO">
 	<event>
-		<text>あなたの最善の努力にもかかわらず、あなたはターゲットのほとんどを打つことができません。別のショットをするためには、支払う必要があります。</text>
+		<text>頑張っているのに、ほとんど当たらない。もう一回シュートを打つには、お金を払わなければならない。</text>
 		<choice>
-			<text>もう一度行きます。</text>
+			<text>もう1回やってみよう。</text>
 			<event name="CLAN_SHARPSHOOTER_KERNEL_SOLO_2">
-				<text>あなたは別の試みのためにお金を支払います。これはそれだけの価値がありました。</text>
+				<text>お金を払ってもう一度挑戦する。その価値はあるはずだ。</text>
 				<item_modify>
 					<item type="scrap" min="-40" max="-40" />
 				</item_modify>
 				<choice hidden="true">
-					<text>継続する...</text>
+					<text>次へ...</text>
 					<event>
-						<text>幸いなことに、以前の試みに相当する経験があれば、すべてのターゲットを正常にヒットすることができます。ナメクジが後ろからあなたに近づきます。「あなたのsssuccessssにおめでとうございます。ここにあなたの賞を賞賛します。</text>
+						<text>幸いなことに、これまでの試行回数分の経験値があれば、すべてのターゲットに命中させることに成功する。後ろからスラッグ一族が近づいてくる。「成功おめでとう。成功のご褒美だ。どうやって手に入れたかは聞かないでくれ。</text>
 						<weapon name="GIFTLIST_KERNEL" />
 					</event>
 				</choice>
 			</event>
 		</choice>
 		<choice>
-			<text>あなたがまだ先にいる間、やめる時間です。</text>
+			<text>まだ先があるうちに辞める時だ。</text>
 			<event />
 		</choice>
 	</event>
 	<event>
-		<text>あなたはそれに良い試みを与えますが、あなたはほとんどのターゲットを打つことができましたが、いくつかはまだ無傷のままです。別のショットをするためには、支払う必要があります。</text>
+		<text>しかし、ほとんどのターゲットに命中させることができたものの、数体は無傷のままだった。再挑戦するためには、お金を払わなければならない。</text>
 		<choice>
-			<text>もう一度行きます。</text>
+			<text>もう1回やってみよう。</text>
 			<event load="CLAN_SHARPSHOOTER_KERNEL_SOLO_2" />
 		</choice>
 		<choice>
-			<text>あなたがまだ先にいる間、やめる時間です。</text>
+			<text>まだ先があるうちに辞める時だ。</text>
 			<event />
 		</choice>
 	</event>
 	<event>
-		<text>奇跡的に、あなたは最初の試みですべてのターゲットを打つことができます。ナメクジが後ろからあなたに近づきます。「そこに行くのは良いことです。多くの人がそのことを試みることを管理していません。実際、それは私たちが利益のモスストをどのように作るかです。とにかく、ここにあなたの賞品があります。ここではあまりにも多くのクエスシオンズがあります。」</text>
+		<text>奇跡的に、あなたは最初の挑戦ですべてのターゲットに命中させることに成功した。後ろからスラッグ一族が近づいてくる。「よくやった。最初の試みに成功する者はそう多くない。実際、それが我々の利益の大半を占める方法なんだ。とにかく、これが賞品だ。どうやって手に入れたかは聞かないでくれ。プラエトリアンがここでいろいろ質問しても困るからな。"</text>
 		<weapon name="GIFTLIST_KERNEL" />
 	</event>
 </eventList>
 <event name="CLAN_SHARPSHOOTER_KERNEL_CREW">
-	<text>専門知識と有能な銃器の混合により、乗組員は最初の試みですべてのターゲットを打つことができます。ナメクジが後ろからあなたに近づきます。「そこに行くのは良いことです。多くの人がそのことを試みることを管理していません。実際、それは私たちが利益のモスストをどのように作るかです。とにかく、ここにあなたの賞品があります。ここではあまりにも多くのクエスシオンズがあります。」</text>
+	<text>専門知識と有能な銃器を織り交ぜたクルーは、最初の挑戦ですべてのターゲットを命中させることに成功する。スラッグ一族が後ろから近づいてくる。「よくやった。最初の試みに成功する者は多くない。実際、それが俺たちの儲けの大半を占めるんだ。とにかく、これが賞品だ。どうやって手に入れたかは聞かないでくれ。プラエトリアンがここでいろいろ質問しても困るからな。"</text>
 	<weapon name="GIFTLIST_KERNEL" />
 </event>
 <event name="CLAN_SHARPSHOOTER_KERNEL_JERRY">
-	<text>ジェリーがスタンドまで歩いて終了するとすぐに、彼は恐ろしい精度でターゲットで発砲します。どういうわけか、シングルショットがターゲットを見逃しているわけではありません。あなたが敵として彼に直面しないことを安心したことについてあなたが言うとき、ナメクジは後ろからあなたに近づきます。「そこに行くのは良いことです。多くの人がそのことを試みることを管理していません。実際、それは私たちが利益のモスストをどのように作るかです。とにかく、ここにあなたの賞品があります。ここではあまりにも多くのクエスシオンズがあります。」</text>
+	<text>ジェリーはスタンドまで歩き終えるやいなや、恐ろしいほどの精度で的を撃ち抜く。どういうわけか、一発たりとも的を外すことはない。彼と敵対しなくてよかったと安堵していると、背後からスラッグ一族が近づいてきた。「よくやった。よくやった。実際、俺たちが一番儲かる方法なんだ。とにかく、これが賞品だ。どうやって手に入れたかは聞かないでくれ。プラエトリアンがここでいろいろ質問しても困るからな。"</text>
 	<weapon name="GIFTLIST_KERNEL" />
 </event>
 <eventList name="CLAN_SHARPSHOOTER_CRYSTAL_SOLO">
 	<event>
-		<text>あなたの最善の努力にもかかわらず、あなたはターゲットのほとんどを打つことができません。別のショットをするためには、支払う必要があります。</text>
+		<text>頑張っているのに、ほとんど当たらない。もう一回シュートを打つには、お金を払わなければならない。</text>
 		<choice>
-			<text>もう一度行きます。</text>
+			<text>もう1回やってみよう。</text>
 			<event name="CLAN_SHARPSHOOTER_CRYSTAL_SOLO_2">
-				<text>あなたは別の試みのためにお金を支払います。これはそれだけの価値がありました。</text>
+				<text>お金を払ってもう一度挑戦する。その価値はあるはずだ。</text>
 				<item_modify>
 					<item type="scrap" min="-40" max="-40" />
 				</item_modify>
 				<choice hidden="true">
-					<text>継続する...</text>
+					<text>次へ...</text>
 					<event>
-						<text>幸いなことに、以前の試みに相当する経験があれば、すべてのターゲットを正常にヒットすることができます。ナメクジが後ろからあなたに近づきます。「あなたのsssuccessssにおめでとうございます。ここにそれをするためのあなたの賞品があります。</text>
+						<text>幸いなことに、これまでの試行回数分の経験値があれば、すべてのターゲットに命中させることに成功する。後ろからスラッグ一族が近づいてくる。「成功おめでとう。成功のご褒美だ。ただ、どうやって手に入れたかは聞かないでくれ。クリスタルの人たちがどれだけこういうことに堅苦しいか知らないだろうから。"</text>
 						<weapon name="GIFTLIST_CRYSTAL" />
 					</event>
 				</choice>
 			</event>
 		</choice>
 		<choice>
-			<text>あなたがまだ先にいる間、やめる時間です。</text>
+			<text>まだ先があるうちに辞める時だ。</text>
 			<event />
 		</choice>
 	</event>
 	<event>
-		<text>あなたはそれに良い試みを与えますが、あなたはほとんどのターゲットを打つことができましたが、いくつかはまだ無傷のままです。別のショットをするためには、支払う必要があります。</text>
+		<text>しかし、ほとんどのターゲットに命中させることができたものの、数体は無傷のままだった。再挑戦するためには、お金を払わなければならない。</text>
 		<choice>
-			<text>もう一度行きます。</text>
+			<text>もう1回やってみよう。</text>
 			<event load="CLAN_SHARPSHOOTER_CRYSTAL_SOLO_2" />
 		</choice>
 		<choice>
-			<text>あなたがまだ先にいる間、やめる時間です。</text>
+			<text>まだ先があるうちに辞める時だ。</text>
 			<event />
 		</choice>
 	</event>
 	<event>
-		<text>奇跡的に、あなたは最初の試みですべてのターゲットを打つことができます。ナメクジが後ろからあなたに近づきます。「そこに行くのは良いことです。多くの人がそのFIRSSSTの試みを管理していません。実際、それは私たちが利益のモスストをどのように作るかです。とにかく、ここにあなたの賞品があります。ssstiff cryssstallineの人々は、テッセのものについてです。」</text>
+		<text>奇跡的に、あなたは最初の挑戦ですべてのターゲットに命中させることに成功した。後ろからスラッグ一族が近づいてくる。「よくやった。最初の試みに成功する者はそう多くない。実際、それが我々の利益の大半を占める方法なんだ。とにかく、これが賞品だ。どうやって手に入れたかは聞かないでくれ、クリスタルの人たちがどれだけこういうことに堅苦しいか知らないだろうから。"</text>
 		<weapon name="GIFTLIST_CRYSTAL" />
 	</event>
 </eventList>
 <event name="CLAN_SHARPSHOOTER_CRYSTAL_CREW">
-	<text>専門知識と有能な銃器の混合により、乗組員は最初の試みですべてのターゲットを打つことができます。ナメクジが後ろからあなたに近づきます。「そこに行くのは良いことです。多くの人がそのFIRSSSTの試みを管理していません。実際、それは私たちが利益のモスストをどのように作るかです。とにかく、ここにあなたの賞品があります。ssstiff cryssstallineの人々は、テッセのものについてです。」</text>
+	<text>専門知識と有能な銃器を織り交ぜたクルーは、最初の挑戦ですべてのターゲットを命中させることに成功する。スラッグ一族が後ろから近づいてくる。「よくやった。最初の試みに成功する者は多くない。実際、それが俺たちの儲けの大半を占めるんだ。とにかく、これが賞品だ。どうやって手に入れたかは聞かないでくれ、クリスタルの人たちがどれだけこういうことに堅苦しいか知らないだろうから。"</text>
 	<weapon name="GIFTLIST_CRYSTAL" />
 </event>
 <event name="CLAN_SHARPSHOOTER_CRYSTAL_JERRY">
-	<text>ジェリーがスタンドまで歩いて終了するとすぐに、彼は恐ろしい精度でターゲットで発砲します。どういうわけか、シングルショットがターゲットを見逃しているわけではありません。あなたが敵として彼に直面しないことを安心したことについてあなたが言うとき、ナメクジは後ろからあなたに近づきます。「そこに行くのは良いことです。多くの人がそのFIRSSSTの試みを管理していません。実際、それは私たちが利益のモスストをどのように作るかです。とにかく、ここにあなたの賞品があります。ssstiff cryssstallineの人々は、テッセのものについてです。」</text>
+	<text>ジェリーはスタンドまで歩き終えるやいなや、恐ろしいほどの精度で的を撃ち抜く。どういうわけか、一発たりとも的を外すことはない。彼と敵対しなくてよかったと安堵していると、背後からスラッグ一族が近づいてきた。「よくやった。よくやった。実際、俺たちが一番儲かる方法なんだ。とにかく、これが賞品だ。どうやって手に入れたかは聞かないでくれ、クリスタルの人たちがどれだけこういうことに堅苦しいか知らないだろうから。"</text>
 	<weapon name="GIFTLIST_CRYSTAL" />
 </event>
 <eventList name="CLAN_SHARPSHOOTER_CONVERSATION">
 	<event>
-		<text>ここの他の訪問者のほとんどは、ちょっとした話をすることを超えてやりたくないが、すぐにあなたは彼らの商品を売ろうとしている吸血鬼の商人を見つける。なぜ彼らがここでそうしようとしているのか完全にはわかりませんが、船に戻って商品を閲覧するためにギャラリーを離れることにしました。</text>
+		<text>他の客は世間話をするだけで、あまり話をしようとしないが、やがてヴァンプウィードの商人が商品を売り込もうとしているのを見つけた。なぜ彼らがここで商売をしようとしているのかはよくわからないが、あなたはギャラリーを後にし、彼らの船に戻って商品を見て回ることにした。</text>
 		<store>STORE_VAMPWEED</store>
 	</event>
 	<event>
-		<text>あなたの反逆の背景は、ここの他の訪問者のほとんどがあなたと話をすることを阻止したようです。しかし、すぐに民兵兵士と会社を見つけます。彼らはなぜここにいるのか特に近づいていませんが、彼らはあなたの乗組員にも喜んで参加するようです。</text>
+		<text>レネゲイドという経歴のせいで、他の訪問者たちはあなたと話をするのをためらったようだ。しかし、あなたはすぐに民兵の仲間を見つけた。彼らは特にここにいる理由を話してくれるわけではないが、あなたのクルーに加わることを望んでいるようだ。</text>
 		<crewMember amount="1" combat="1" class="human_soldier" />
 	</event>
 	<event>
-		<text>クリスタルがすぐにあなたに近づき、彼らの心に興味のある何かを持っています。「ああ、軍のキャプテン！私たちが探していたものです。どういうわけか、私たちは以前に異常に熱心なナメクジを見つけたように思われます。いくつかがありました...誤解を招くと、彼らは私たちにある種の反発武器を与えてくれました。。しかし、あなたはそれについて口論がないと確信しています。」結晶は、問題の武器を贈り物としてあなたに提示し、それは抗バイオ武器のように見えます。</text>
+		<text>すぐにクリスタルが近づいてくる。「ああ、大尉か！まさに探していたものだ。どういうわけか、さっき珍しく熱心なスラッグを見つけたようだ。少し......誤解があったようで、反感を買うような武器を渡されたんだ。でも文句はないだろう」。クリスタルは問題の武器をプレゼントしてくれる。</text>
 		<weapon name="GIFTLIST_SLUG" />
 	</event>
 </eventList>
 
 <event name="NEBULA_CLAN_JAMMER_SALESMAN" unique="true">
-    <text>ここには小さなロッジがあります。「狩りを盛り上げようとしていますか？これを伝えましょう。ジャマーを使用して弱体化するよりも、獲物を使用するよりも良い方法はありません。見てみましょう！」</text>
+    <text>小さなロッジがある。"狩りのスパイスをお探しですか？言っておくが、ジャマーを使って獲物を弱らせること以上に、獲物を追い詰めるいい方法はない。見てみろ</text>
     <environment type="nebula" />
 	<choice>
-		<text>モビリティジャマーを購入します。</text>
+		<text>モビリティジャマーを購入する。</text>
 		<event load="JAMMER_SALESMAN_ENGINES" />
     </choice>
     <choice>
-		<text>攻撃システムジャマーを購入します。</text>
+		<text>攻撃システムジャマーを購入する。</text>
 		<event load="JAMMER_SALESMAN_OFFENSIVE_SYSTEMS" />
     </choice>
     <choice>
-		<text>防御システムジャマーを購入します。</text>
+		<text>防御システムジャマーを購入する。</text>
 		<event load="JAMMER_SALESMAN_DEFENSIVE_SYSTEMS" />
     </choice>
     <choice>
-		<text>重要な船舶運用のジャマーを購入します。</text>
+		<text>重要な船舶運航の妨害装置を購入する。</text>
 		<event load="JAMMER_SALESMAN_MISC" />
     </choice>
     <choice>
-		<text>オファーを無視します。</text>
+		<text>申し出を無視する。</text>
 		<event>
-			<text>あなたはロッジの申し出を拒否します。このビーコンで何かをする時間はまだあります。</text>
+			<text>ロッジの申し出を断る。このビーコンで何かする時間はまだある。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -918,55 +918,55 @@
 </eventList>
 
 <event name="NEBULA_CLAN_RODEO" unique="true">
-	<text>近くのシステムを探索すると、ほとんどがギルドに属する外国船の大規模な集まりが見つかります。見た目はとてもフレンドリーなので、近くに着陸してよく見て、ロデオのように見えるものを見てください！</text>
+	<text>近くの星系を探検していると、外国の船が大勢集まっているのを見つける。ほとんどがギルドの船だ。十分に友好的に見えるので、近くに着陸してよく見てみると、ロデオのようなものが見えた！</text>
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>ロデオについて聞いてください。</text>
+		<text>ロデオについて尋ねてみよう。</text>
 		<event>
-			<text>あなたは基本を説明する特大の帽子をかぶったレンジャーに迎えられます。「私たちはかなり一握りのエクイノイドを切り上げました。グランドSSSSPACE Rodeoを開催します。必要に応じて、25 SSSCRAPのSSSMALL入り口料金で乗組員の1人に入ることができます。賞、私たちが間違いなくSSSTEALではなかった武器！それはあなたを魅了しているなら、それは一つのビッグアッセスビームです！」</text>
+			<text>特大の帽子をかぶったレンジャーが出迎えてくれ、基本的なことを説明してくれる。"我々はかなりの数のエクイノイドを集め、壮大な宇宙ロデオを開催する予定だ！25スクラップという少額の参加費で、お好きなクルーを1人エントリーできます。参加者の中で最も長く持ちこたえた者が優勝となる！デカいビームだ！"</text>
 			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
-				<text>ロデオを入力してください。</text>
+				<text>ロデオの登場だ。</text>
 				<event>
-					<text>スクラップをクランズマンに渡すと、クランズマンは「クルーのことも心配しないでください。ここでは新人ではありません。医療チーム全員がssstandbyeにいて、sssouthに行きます！」と言って安心させます。</text>
+					<text>クランズマンにスクラップを渡すと、「クルーのことは心配するな！俺たちは新人じゃないんだ！」。</text>
 					<item_modify>
 						<item type="scrap" min="-25" max="-25" />
 					</item_modify>
 					<choice hidden="true">
-						<text>ランダムなクルーを派遣します。</text>
+						<text>ランダムにクルーを送り出す。</text>
 						<event>
-							<text>あなたのクルーは、他の異星人の中で競合他社の部屋に足を踏み入れます。一部のクランマンは準備を終え、最初の数人の出場者を案内します...</text>
+							<text>あなたのクルーは、他のエイリアンに混じって競技者の部屋に足を踏み入れた。何人かのクランズマンが準備を終え、最初の出場者を案内する。</text>
 							<choice hidden="true">
-								<text>クルーの幸運を祈り、結果を待ちます。</text>
+								<text>クルーの幸運を祈り、結果を待つ。</text>
 								<event load="CLAN_RODEO_NORMAL" />
 							</choice>
 						</event>
 					</choice>
 					<choice hidden="true" req="LIST_CREW_SOLDIER">
-						<text>（兵士のクルー）あなたの兵士は、騎乗戦闘の訓練を受けています。彼を送ります。</text>
+						<text>(ソルジャー・クルー) あなたのソルジャーは騎乗戦闘の訓練を受けています。彼を派遣してください。</text>
 						<event>
-							<text>あなたのクルーは、他の異星人の中で競合他社の部屋に足を踏み入れます。一部のクランマンは準備を終え、最初の数人の出場者を案内します...</text>
+							<text>あなたのクルーは、他のエイリアンに混じって競技者の部屋に足を踏み入れた。何人かのクランズマンが準備を終え、最初の出場者を案内する。</text>
 							<choice hidden="true">
-								<text>クルーの幸運を祈り、結果を待ちます。</text>
+								<text>クルーの幸運を祈り、結果を待つ。</text>
 								<event load="CLAN_RODEO_GOOD" />
 							</choice>
 						</event>
 					</choice>
 					<choice hidden="true" req="LIST_CREW_JERRY">
-						<text>（ジェリー）ジェリーは本当に馬に乗りたいです！彼を送ります。</text>
+						<text>(ジェリー）ジェリーは本当に馬に乗りたいんだ！送ってあげて</text>
 						<event>
-							<text>ジェリーは他の異星人の中で競争相手の部屋に足を踏み入れます。一部のクランマンは準備を終え、最初の数人の出場者を案内します...</text>
+							<text>ジェリーは他のエイリアンに混じって、競技者の部屋に足を踏み入れた。何人かのクランズマンが準備を終え、最初の出場者を案内する。</text>
 							<choice hidden="true">
-								<text>クルーの幸運を祈り、結果を待ちます。</text>
+								<text>クルーの幸運を祈り、結果を待つ。</text>
 								<event load="CLAN_RODEO_JERRY" />
 							</choice>
 						</event>
 					</choice>
 					<choice hidden="true" req="LIST_CREW_LIZARD">
-						<text>（トカゲのクルー）あなたのトカゲは以前にイキノイドに乗ったことがあります。彼を送ります。</text>
+						<text>(リザード・クルー）あなたのリザードはエクイノイドに乗ったことがある。彼を派遣してください。</text>
 						<event>
-							<text>あなたのクルーは、他の異星人の中で競合他社の部屋に足を踏み入れます。一部のクランマンは準備を終え、最初の数人の出場者を案内します...</text>
+							<text>あなたのクルーは、他のエイリアンに混じって競技者の部屋に足を踏み入れた。何人かのクランズマンが準備を終え、最初の出場者を案内する。</text>
 							<choice hidden="true">
-								<text>クルーの幸運を祈り、結果を待ちます。</text>
+								<text>クルーの幸運を祈り、結果を待つ。</text>
 								<event load="CLAN_RODEO_GOOD" />
 							</choice>
 						</event>
@@ -974,15 +974,15 @@
 				</event>
 			</choice>
 			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
-				<text>資格のあるライダーはいません。ドローンを馬に置くことさえ考えないでください...</text>
+				<text>あなたには資格のある騎手がいない。ドローンを馬に乗せようなんて考えもしないで......」。</text>
 				<event load="OPTION_INVALID" />
 			</choice>
 			<choice hidden="true">
-				<text>代わりに、これらの「Equinoids」についてお問い合わせください。</text>
+				<text>代わりに、この「エクイノイド」について問い合わせてみよう。</text>
 				<event>
-					<text>「FIRSSSTから来た場所は誰も本当に知っていませんが、SSSSPACE旅行の媒体を通じて、銀河の周りの数百の惑星に紹介されてきました。</text>
+					<text>"彼らが最初にどこから来たのか、本当のところは誰も知らないが、宇宙旅行という手段を通じて、銀河系の何百もの惑星に伝わっている。君が親切にしてくれる限り、彼らはかなり受動的なケツをしている。"</text>
 					<choice>
-						<text>飼いならされたEquinoidを購入します。</text>
+						<text>飼いならされたエクイノイドを買う。</text>
 						<event>
 							<item_modify>
 								<item type="scrap" min="-30" max="-30" />
@@ -991,7 +991,7 @@
 						</event>
 					</choice>
 					<choice>
-						<text>彼らのより若い、飼いならされていないEquinoidsの1つを購入してください。</text>
+						<text>彼らの若く、手つかずのエクイノイドを買う。</text>
 						<event>
 							<item_modify>
 								<item type="scrap" min="-20" max="-20" />
@@ -1000,23 +1000,23 @@
 						</event>
 					</choice>
 					<choice>
-						<text>興味深いですが、固執する理由はありません。</text>
+						<text>興味深いが、ここに留まる理由はない。</text>
 						<event />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>私たちの使命は、コンテストに参加する時間を無駄にするほど重要です。</text>
+				<text>私たちの使命は、コンテストに応募する時間を無駄にするにはあまりにも重要だ。</text>
 				<event />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>離れる。</text>
+		<text>出て行け。</text>
 		<event>
-			<text>どうやら、あなたは異星人の馬に乗る可能性に興味がないようです。全体として、あなたはかなり退屈です。</text>
+			<text>どうやら君は、宇宙人の馬に乗ることに興味がないようだね。つまんない人だね。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1028,66 +1028,66 @@
 </event>
 <eventList name="CLAN_RODEO_NORMAL">
 	<event>
-		<text>あなたのクルーはEquinoidをマウントし、それに最善を尽くしますが、獣は手に負えないほどであり、あなたのクルーは最初に土に顔を向けて投げられます。痛みを伴う失敗、そしてあなたの使命のためのスクラップの喪失。</text>
+		<text>クルーはエクイノイドに乗り込み、全力を尽くしたが、獣は手に負えず、クルーは顔から泥の中に投げ出された。手痛い失敗であり、ミッションのためのスクラップを失った。</text>
 	</event>
 	<event>
-		<text>あなたのクルーはEquinoidをマウントし、彼らが飛び回っている間、愛する人生のためにしがみついています。どういうわけか、彼らは何とか続けて、競争の終わりまでに彼らが勝者であることがわかります！スラッグは賞品を引き出します。</text>
+		<text>あなたのクルーはエクイノイドに乗り、跳ね飛ばされながらも懸命にしがみつく。どうにか踏みとどまり、競技が終わるころには優勝していた！スラッグが賞品を運び出す。</text>
 		<weapon name="GIFTLIST_BIG_BEAM" />
 	</event>
 </eventList>
 <eventList name="CLAN_RODEO_GOOD">
 	<event>
-		<text>あなたのクルーはEquinoidをマウントし、それに最善を尽くしますが、獣は手に負えないほどであり、あなたのクルーは最初に土に顔を向けて投げられます。痛みを伴う失敗、そしてあなたの使命のためのスクラップの喪失。</text>
+		<text>クルーはエクイノイドに乗り込み、全力を尽くしたが、獣は手に負えず、クルーは顔から泥の中に投げ出された。手痛い失敗であり、ミッションのためのスクラップを失った。</text>
 	</event>
 	<event>
-		<text>あなたのクルーはEquinoidをマウントし、彼らが飛び回っている間、愛する人生のためにしがみついています。どういうわけか、彼らは何とか続けて、競争の終わりまでに彼らが勝者であることがわかります！スラッグは賞品を引き出します。</text>
+		<text>あなたのクルーはエクイノイドに乗り、跳ね飛ばされながらも懸命にしがみつく。どうにか踏みとどまり、競技が終わるころには優勝していた！スラッグが賞品を運び出す。</text>
 		<weapon name="GIFTLIST_BIG_BEAM" />
 	</event>
 	<event>
-		<text>あなたのクルーはEquinoidをマウントし、彼らが飛び回っている間、愛する人生のためにしがみついています。どういうわけか、彼らは何とか続けて、競争の終わりまでに彼らが勝者であることがわかります！スラッグは賞品を引き出します。</text>
+		<text>あなたのクルーはエクイノイドに乗り、跳ね飛ばされながらも懸命にしがみつく。どうにか踏みとどまり、競技が終わるころには優勝していた！スラッグが賞品を運び出す。</text>
 		<weapon name="GIFTLIST_BIG_BEAM" />
 	</event>
 </eventList>
 <event name="CLAN_RODEO_JERRY">
-	<text>ジェリーがワイルドビーストをマウントするとすぐに、エイノイドはすぐに落ち着き、ジェリーがたてがみを優しくstrokeでたどります。群衆から詐欺師を呼んでいる群衆からは、あなたが馬を征服しなかったことを確認するための簡単な薬物検査の後、あなたは勝者を宣言し、賞品が出されます！</text>
+	<text>ジェリーが野獣に馬乗りになると、馬はすぐに落ち着き、ジェリーがたてがみを優しく撫でている間、受動的に立っている。観客席からはズルい！という声が上がるが、薬物検査で馬を制圧していないことが確認された後、あなたの優勝が宣言され、賞品が運び出される！</text>
 	<achievement>ACH_JERRY_RODEO</achievement>
 	<weapon name="GIFTLIST_BIG_BEAM" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>ロデオを離れる準備をしていると、イキノイドがレンジャーをリードで引きずってあなたに向かって走っているのが見えます。 「すごい、すごい！Ssstop！」クランズマンは馬がジェリーの直前で止まったという理由だけで、エクイノイドを停止させます。 「これは封じ込めから抜け出し、ここまでずっとあなたを追いかけました。sssheは本当にあなたの友人が好きだと思います。お尻が彼女をしっかりと守ってくれるかもしれません。</text>
+			<text>ロデオを後にしようとすると、レンジャーを引きずって走ってくるエクイノイドが見えた。「止まれ！」。馬がジェリーの目の前で止まったからだ。"こいつが封じ込めを破って、ここまで追いかけてきたんだ。この馬は君の友だちが好きなんだろう。飼っておいたほうがいいかもしれない。</text>
 			<crewMember amount="1" combat="2" class="pony_tamed" />
 		</event>
 	</choice>
 </event>
 
 <event name="NEBULA_CLAN_PLUSHIES" unique="true">
-	<text>星雲の中に別のロッジができているのを見つけたようです。奇妙なことに、それは...観光地として再利用されたようです？</text>
+	<text>星雲の中にもうひとつ宿を見つけたようだ。奇妙なことに、それは観光地として再利用されているようだ。</text>
 	<ship load="SHIP_CLAN_LODGE" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>搭乗してチェックしてください。</text>
+		<text>掲示板で確認してください。</text>
 		<event>
-			<text>クランマンレンジャーが壁に寄りかかって、ゾルタンの役人の小さな集まりと話をしています。「pffft、泥の中のスティックであることを想像してみてください。これらのゾルタンは、ssstoreを実行する許可があればここにここに来ました！</text>
+			<text>クランズマンレンジャーが壁に寄りかかり、ゾルタンの役人たちと話している。"ふっふっふ、泥の中の棒のような存在であることを想像してみろ。あのゾルタンどもは、私がこの店を経営する許可を持っているかどうかを聞きに来たんだ！あいつら、ここが誰の店だと思ってるんだ？何も買ってないのに......」。</text>
 			<choice hidden="true">
-				<text>あなたは何を売っていますか？</text>
+				<text>何を売っているのですか？</text>
 				<event>
-					<text>「ああ、あなたが助けてくれてうれしいです！プラスシーズ！私が銀河の向こう側で見たさまざまなエキゾチックな生き物の中で。さあ、見てください！あなたはおそらく、とにかくそれを買うための最初のパーソンになるでしょう...」</text>
+					<text>"ああ、うれしいよ！プルスキー！銀河系で見た様々なエキゾチックな生き物たちだ。さあ、見てごらん！どうせ買うのは君が初めてだろうけど......"</text>
 					<choice hidden="true">
-						<text>蜘蛛のぬいぐるみを見てください。</text>
+						<text>クモのぬいぐるみを見てください。</text>
 						<event>
-							<text>「ガスがあること！それは「巨大なエイリアンssspider」の略です。科学用語が何をISSしているのかわかりません。</text>
+							<text>「あれはG.A.Sssだ！ジャイアント・エイリアン・スパイダーの略だよ。科学用語はわからないけど、みんながそう呼んでるだけだよ。"</text>
 							<choice hidden="true">
-								<text>ぬいぐるみを購入します。 [7スクラップ]</text>
+								<text>ぬいぐるみを買う[7スクラップ]</text>
 								<event>
-									<text>「ああ、あなたの忙しさに感謝します！それはおそらく私の最初の利益です...これまでに。星雲にssshopを設置することは良い考えではありませんでした。」</text>
+									<text>"ああ、それはどうもありがとう！たぶん、これが僕の初めての儲けだよ。星雲に店を構えたのはいい考えじゃなかったんだろうな。"</text>
 									<item_modify>
 										<item type="scrap" min="-7" max="-7" />
 									</item_modify>
 									<choice hidden="true">
-										<text>それらの残りを購入します。 [14スクラップ]</text>
+										<text>残りを購入する。[14スクラップ ］</text>
 										<event>
-											<text>「あなたはそれらすべてが欲しいですか？まあ私は...あなたは私のプラスシーズが本当に好きです、またはあなたは慈善団体の一つの地獄です。まあ、私はしばらくの間あなたと一緒にssスティックすると思います！」</text>
+											<text>「全部欲しいの？そうだな...君は本当に僕のぬいぐるみが好きなのか、それともとんでもない博愛主義者なのか、どっちなんだろうね。 言っておくけど、ここでの僕の仕事はあまりうまくいってないから、しばらくは君と付き合うと思うよ！"</text>
 											<item_modify>
 												<item type="scrap" min="-14" max="-14" />
 											</item_modify>
@@ -1095,17 +1095,17 @@
 										</event>
 									</choice>
 									<choice hidden="true">
-										<text>離れる。</text>
+										<text>出て行け。</text>
 										<event>
-											<text>「じゃあ、さようなら。私の一日を作ってくれてありがとう、旅行者！」</text>
+											<text>「じゃあ、さようなら。今日はありがとう、旅行者！"</text>
 										</event>
 									</choice>
 								</event>
 							</choice>
 							<choice hidden="true">
-								<text>却下。</text>
+								<text>衰退。</text>
 								<event>
-									<text>「ああ、まあ。アイデアを楽しませてくれてありがとう...」</text>
+									<text>「ああ、そうですか。このアイデアを受け入れてくれてありがとう..."</text>
 								</event>
 							</choice>
 						</event>
@@ -1113,18 +1113,18 @@
 					<choice hidden="true">
 						<text>馬のぬいぐるみを見てください。</text>
 						<event>
-							<text>「イクイノイドがいるとは! 彼らは 6 本の足を持っていて、技術的には馬ではありません。このセクターの周りに数頭も散らばっていると聞きました! 私が驚いているわけではありません.」</text>
+							<text>「あれはエクイノイドだ！足が6本あって、厳密には馬じゃない。この辺りには何頭かいるそうだ！別に喜んでるわけじゃないが"</text>
 							<choice hidden="true">
-								<text>ぬいぐるみを購入します。 [7スクラップ]</text>
+								<text>ぬいぐるみを買う[7スクラップ]</text>
 								<event>
-									<text>「ああ、あなたの忙しさに感謝します！それはおそらく私の最初の利益です...これまでに。星雲にssshopを設置することは良い考えではありませんでした。」</text>
+									<text>"ああ、それはどうもありがとう！たぶん、これが僕の初めての儲けだよ。星雲に店を構えたのはいい考えじゃなかったんだろうな。"</text>
 									<item_modify>
 										<item type="scrap" min="-7" max="-7" />
 									</item_modify>
 									<choice hidden="true">
-										<text>それらの残りを購入します。 [14スクラップ]</text>
+										<text>残りを購入する。[14スクラップ ］</text>
 										<event>
-											<text>「あなたはそれらすべてが欲しいですか？まあ私は...あなたは私のプラスシーズが本当に好きです、またはあなたは慈善団体の一つの地獄です。まあ、私はしばらくの間あなたと一緒にssスティックすると思います！」</text>
+											<text>「全部欲しいの？そうだな...君は本当に僕のぬいぐるみが好きなのか、それともとんでもない博愛主義者なのか、どっちなんだろうね。 言っておくけど、ここでの僕の仕事はあまりうまくいってないから、しばらくは君と付き合うと思うよ！"</text>
 											<item_modify>
 												<item type="scrap" min="-14" max="-14" />
 											</item_modify>
@@ -1132,17 +1132,17 @@
 										</event>
 									</choice>
 									<choice hidden="true">
-										<text>離れる。</text>
+										<text>出て行け。</text>
 										<event>
-											<text>「じゃあ、さようなら。私の一日を作ってくれてありがとう、旅行者！」</text>
+											<text>「じゃあ、さようなら。今日はありがとう、旅行者！"</text>
 										</event>
 									</choice>
 								</event>
 							</choice>
 							<choice hidden="true">
-								<text>却下。</text>
+								<text>衰退。</text>
 								<event>
-									<text>「ああ、まあ。アイデアを楽しませてくれてありがとう...」</text>
+									<text>「ああ、そうですか。このアイデアを受け入れてくれてありがとう..."</text>
 								</event>
 							</choice>
 						</event>
@@ -1150,18 +1150,18 @@
 					<choice hidden="true">
 						<text>トカゲのぬいぐるみを見てください。</text>
 						<event>
-							<text>「あれは……まあ、実際には名前がわからない。彼らは私が推測するトカゲのようなものだ」</text>
+							<text>「その...名前は知らないんだ。トカゲみたいなものだと思う。</text>
 							<choice hidden="true">
-								<text>ぬいぐるみを購入します。 [7スクラップ]</text>
+								<text>ぬいぐるみを買う[7スクラップ]</text>
 								<event>
-									<text>「ああ、あなたの忙しさに感謝します！それはおそらく私の最初の利益です...これまでに。星雲にssshopを設置することは良い考えではありませんでした。」</text>
+									<text>"ああ、それはどうもありがとう！たぶん、これが僕の初めての儲けだよ。星雲に店を構えたのはいい考えじゃなかったんだろうな。"</text>
 									<item_modify>
 										<item type="scrap" min="-7" max="-7" />
 									</item_modify>
 									<choice hidden="true">
-										<text>それらの残りを購入します。 [14スクラップ]</text>
+										<text>残りを購入する。[14スクラップ ］</text>
 										<event>
-											<text>「あなたはそれらすべてが欲しいですか？まあ私は...あなたは私のプラスシーズが本当に好きです、またはあなたは慈善団体の一つの地獄です。まあ、私はしばらくの間あなたと一緒にssスティックすると思います！」</text>
+											<text>「全部欲しいの？そうだな...君は本当に僕のぬいぐるみが好きなのか、それともとんでもない博愛主義者なのか、どっちなんだろうね。 言っておくけど、ここでの僕の仕事はあまりうまくいってないから、しばらくは君と付き合うと思うよ！"</text>
 											<item_modify>
 												<item type="scrap" min="-14" max="-14" />
 											</item_modify>
@@ -1169,17 +1169,17 @@
 										</event>
 									</choice>
 									<choice hidden="true">
-										<text>離れる。</text>
+										<text>出て行け。</text>
 										<event>
-											<text>「じゃあ、さようなら。私の一日を作ってくれてありがとう、旅行者！」</text>
+											<text>「じゃあ、さようなら。今日はありがとう、旅行者！"</text>
 										</event>
 									</choice>
 								</event>
 							</choice>
 							<choice hidden="true">
-								<text>却下。</text>
+								<text>衰退。</text>
 								<event>
-									<text>「ああ、まあ。アイデアを楽しませてくれてありがとう...」</text>
+									<text>「まあ、いいや。少なくとも、そのアイデアを楽しませてくれてありがとう..."</text>
 								</event>
 							</choice>
 						</event>
@@ -1189,22 +1189,22 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>ステーションを攻撃せよ！</text>
+		<text>駅を攻撃しろ</text>
 		<event>
-			<text>もう一度、あなたの殺人傾向が脚光を浴びており、あなたは今、より多くの人々を攻撃しています。</text>
+			<text>またしても、あなたの殺人傾向がスポットライトを浴び、さらに多くの人々を攻撃している。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>ステーションを無視します。</text>
+		<text>駅は無視する。</text>
 		<event>
-			<text>ランダムなツーリストトラップを訪れるよりもやるべきことがあります。</text>
+			<text>適当な観光地を訪れるより、もっといいことがあるはずだ。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1225,26 +1225,26 @@
 </eventList>
 
 <event name="NEBULA_CLAN_SHELL_MECHANIC" unique="true">
-    <text>シェルメカニックがここに住んでいます。彼らはあなたが到着した瞬間にあなたに連絡します。「あなたはギルドに反対するためにここにいますか？それともあなたはthhhemをサポートするためにここにいますか？」</text>
+    <text>シェルメカニックが常駐。到着するとすぐに連絡がある。「ギルドに反対しに来たのか？それともサポートしに来たのか？"</text>
     <ship load="SHIP_SHELL_MECH" hostile="false" />
 	<environment type="nebula" />
     <choice>
-		<text>ギルドをサポートします。</text>
+		<text>ギルドを支援する</text>
 		<event>
-			<text>「それからあなたは残りの占領者と一緒に死ぬでしょう！」</text>
+			<text>"そのとき、残りの占領者たちとともに死ね！"</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
     </choice>
     <choice req="LIST_CREW_SHELL">
-		<text>（シェルクルー）ギルドに反対します。</text>
+		<text>(シェル・クルー）ギルドに反対する。</text>
 		<event load="CLAN_MECHANIC_BELIEF" />
     </choice>
     <choice req="LIST_CREW_SHELL" lvl="0" max_lvl="0" blue="false">
-		<text>ギルドに反対します。</text>
+		<text>ギルドに反対する。</text>
 		<event load="CLAN_MECHANIC_ALLY_NOSHELL" />
     </choice>
     <choice>
@@ -1254,9 +1254,9 @@
 </event>
 <eventList name="CLAN_MECHANIC_NEITHER">
     <event>
-   	 <text>「あなたがそうするようにそうする。しかし、あなたの邪魔をする氏族を殺すことをheしないでください。」</text>
+   	 <text>「好きなようにすればいい。だが、邪魔をするクランメンは躊躇なく殺せ"</text>
 		<choice>
-			<text>船に乗って何かする。</text>
+			<text>船内で何かをする。</text>
 			<event load="STORAGE_CHECK" />
 		</choice>
 		<choice>
@@ -1265,9 +1265,9 @@
 		</choice>
     </event>
     <event>
-		<text>「あなたはnothhhingですが、ニュートラルなco病者です。ここから出てください。」</text>
+		<text>「中立的な臆病者以外の何者でもない。ここから出て行け"</text>
 		<choice>
-			<text>船に乗って何かする。</text>
+			<text>船内で何かをする。</text>
 			<event load="STORAGE_CHECK" />
 		</choice>
 		<choice>
@@ -1276,10 +1276,10 @@
 		</choice>
     </event>
     <event>
-		<text>「もしあなたがthhhhemに反対しないなら、あなたはthhhhemをサポートしています。」船は武器を請求します！</text>
+		<text>"反対しないなら、支持する"船は武器をチャージする！</text>
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
     </event>
@@ -1287,9 +1287,9 @@
 <eventList name="CLAN_MECHANIC_ALLY_NOSHELL">
     <event load="CLAN_MECHANIC_BELIEF" />
     <event>
-   	 	<text>「あなたはあなたの主張を保証する人がいますか...？そうでない場合、私たちはあなたのサポートに感謝しますが、私たちは注意しなければなりません。</text>
+   	 	<text>「あなたの主張を保証してくれる人はいますか？そうでなければ、ご支援には感謝しますが、慎重にならざるを得ません。さようなら"</text>
 		<choice>
-			<text>船に乗って何かする。</text>
+			<text>船内で何かをする。</text>
 			<event load="STORAGE_CHECK" />
 		</choice>
 		<choice>
@@ -1299,45 +1299,45 @@
     </event>
 </eventList>
 <event name="CLAN_MECHANIC_BELIEF">
-    <text>「ああ、あなたは味方だよ、あなたは私たちにあなたの船にパッチを当ててほしいですか？それともあなたはもっと物資を必要としていますか？」</text>
+    <text>「ああ、同盟国なんですね。船を修理しましょうか？それとも物資が必要ですか？"</text>
     <choice hidden="true">
-		<text>修理を求めてください。</text>
+		<text>修理を依頼する。</text>
 		<event>
-			<text>「良い選択、それは私たちが自分自身に誇りを持っていることです。」</text>
+			<text>「いい選択だった。</text>
 			<damage amount="-15" />
 		</event>
     </choice>
     <choice hidden="true">
-		<text>ミサイルを求めてください。</text>
+		<text>ミサイルを頼む。</text>
 		<event>
-			<text>「私たちはいくつかをspareしみません。thhhemをうまく利用してください。」</text>
+			<text>「少しは余裕がある。有効に使ってください"</text>
 			<item_modify>
 				<item type="missiles" min="3" max="6" />
 			</item_modify>
 		</event>
     </choice>   		 
     <choice hidden="true">
-		<text>ドローンパーツを求めてください。</text>
+		<text>ドローンの部品を頼む。</text>
 		<event>
-			<text>「私たちはいくつかをspareしみません。thhhemをうまく利用してください。」</text>
+			<text>「少しは余裕がある。有効に使ってください"</text>
 			<item_modify>
 				<item type="drones" min="2" max="5" />
 			</item_modify>
 		</event>
     </choice>
     <choice hidden="true">
-		<text>スクラップを求めてください。</text>
+		<text>スクラップを頼む。</text>
 		<event>
-			<text>「ひどくスクラップする必要がある場合、私たちはあなたに私たちの保護区のいくつかを与えることができます。それを無駄にしないでください。」</text>
+			<text>「そんなにスクラップが必要なら、ウチの備蓄を少しあげよう。無駄にするなよ</text>
 			<autoReward level="MED">scrap_only</autoReward>
 		</event>
     </choice>
     <choice>
-		<text>助けは必要ありません。</text>
+		<text>助けは必要ない。</text>
 		<event>
-			<text>「頑張ってください。」</text>
+			<text>"では、幸運を祈る"</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1349,90 +1349,90 @@
 </event>
 
 <event name="NEBULA_CLAN_SHELLANGRY" unique="true"> 
-	<text>民間の殻の船はギルドの空間の奥深くにいることに気づきましたが、彼らは血を探している貪欲なハンターを怖がっているようには見えません。代わりに、彼らはここであなたに会うために激怒しているように見えます。「ああ、今、連盟はギルドに関与しているのですか？なぜあなたは良心を得て、あなたがスカムを殺すのをやめないのですか！」</text>
+	<text>民間のシェル船がギルドの宙域の奥深くにいるのを発見したが、彼らは血を求める貪欲なハンターたちを恐れているようには見えない。むしろ、君達がここにいることに激怒しているようだ。「連邦がギルドと関わっているのか？良心の呵責に耐えかねて、罪のない人々を殺すのをやめたらどうだ、このクズどもめ！」。</text>
 	<ship load="SHIP_SHELL_GENERIC" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>よくもまあ、俺たちをクズ呼ばわりしてくれたな！</text>
+		<text>よくもクズ呼ばわりしてくれたな！</text>
 		<event>
-			<text>あなたはシェルの主張をどのように証明しているのかを考えず、暴力的な殺人を通して自分自身を守る準備をしようとします。</text>
+			<text>あなたはシェルの言い分をいかに証明しているかを考えないようにし、暴力的な殺人によって...身を守る準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_SHELL">
-		<text>（シェルクルー）彼らとの理由。</text>
+		<text>(シェル・クルー）彼らに理屈をつけよう。</text>
 		<event>
-			<text>あなたのシェルは他の人たちと理由を説明し、あなたはこのセクターを通過してあなたのミッションでノード17に到達するだけだと説明します。幸いなことに、シェルは合理的で謝罪し、あなたを助けるためにいくつかの燃料とスクラップを提供します。</text>
+			<text>あなたのシェルは他のシェルと理由をつけ、あなたがこのセクターを通過するのは任務でノード17に行くためだと説明する。幸運なことに、シェルたちは理路整然と謝り、燃料とスクラップを提供して助けてくれる。</text>
 			<autoReward level="MED">fuel</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_MONK">
-		<text>（修道士の乗組員）彼らとの理由。</text>
+		<text>(モンク・クルー）彼らに理屈をつけなさい。</text>
 		<event>
-			<text>あなたの修道士は貝殻の理由であり、あなたがあなたの使命でノード17に到達するためにこのセクターを通過するだけであると説明しています。幸いなことに、シェルは合理的で謝罪し、あなたを助けるために燃料とスクラップを提供します。</text>
+			<text>君の僧侶はシェルに、君は任務でノード17に行くためにこのセクターを通過しているだけで、すぐに外国人を非難するのは非合理的な行動だと説明する。幸運なことに、シェルたちは理性的で謝罪し、燃料とスクラップを提供して助けてくれる。</text>
 			<autoReward level="MED">fuel</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true" req="COMBAT_OXYGEN_JAMMER">
-		<text>（Asphyxiator）彼らにレッスンを教えてください。</text>
+		<text>(窒息死) 教訓を垂れてやれ。</text>
 		<event>
-			<text>シェル艦の酸素を遮断し 怯えさせるのだ。「よし！クズと呼んで悪かったな！降伏する！」</text>
+			<text>あなたはシェル船の酸素を遮断し、彼らを怯えさせ、服従させた。"クズ呼ばわりして悪かった！降伏する！"</text>
 			<autoReward level="MED">stuff</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>これはすべて誤解です。</text>
+		<text>これはすべて誤解だ。</text>
 		<event load="CLAN_SHELLANGRY_REASON" />
 	</choice>
 </event>
 <eventList name="CLAN_SHELLANGRY_REASON">
 	<event>
-		<text>あなたはシェルと話し、彼らと推論しようとします.幸いなことに、シェルは科学と論理の生き物であり、通常はゾルタンやスラッグのように頑固で悪意があるわけではありません。彼らは自分たちが間違っていたことを理解しているようで、あなたを通り過ぎさせました。</text>
+		<text>あなたはシェルに話しかけ、理屈をこねようとする。幸運なことに、シェルは科学と論理の生き物であり、ゾルタンやスラッグのように頑固で悪意があるわけではない。彼らは自分たちが勘違いしていたことを理解し、あなたを受け入れてくれたようだ。</text>
 	</event>
 	<event>
-		<text>あなたはシェルと話し、彼らと推論しようとします.幸いなことに、シェルは科学と論理の生き物であり、通常はゾルタンやスラッグのように頑固で悪意があるわけではありません。彼らは自分たちが間違っていたことを理解しているようで、あなたを通り過ぎさせました。</text>
+		<text>あなたはシェルに話しかけ、理屈をこねようとする。幸運なことに、シェルは科学と論理の生き物であり、ゾルタンやスラッグのように頑固で悪意があるわけではない。彼らは自分たちが勘違いしていたことを理解し、あなたを受け入れてくれたようだ。</text>
 	</event>
 	<event>
-		<text>結局、あなたの推論はうまくいかないようです。シェルはまだあなたが殺人者であると非難し（あなたは技術的にはそうです）、攻撃します！</text>
+		<text>結局、あなたの理屈は通用しないようだ。シェルは依然としてあなたを殺人者だと非難し（厳密にはそうなのだが）、攻撃してくる！</text>
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 </eventList>
 
 <event name="NEBULA_CLAN_SHELL_RADIANT" unique="true">
-	<text>近くのシェル放射容器から簡単なメッセージをすぐに受け取ります。「レネゲード、急いで行きたいと思うかもしれない。Geniocracyは軍隊をThhhisセクターに派遣し、すぐに乱雑になるかもしれない。」</text>
+	<text>すぐに近くのシェル・ラディアント艦から短いメッセージが届く。「レネゲイド、急いだほうがいいかもしれない。ジェノクラシーがこのセクターに軍隊を派遣した。</text>
 	<ship load="SHIP_SHELL_ELITE_FIGHT" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>ギルドスペースで賢才国家は何をしているのですか？</text>
+		<text>ジェニオクラシーはギルド空間で何をしているのか？</text>
 		<event>
-			<text>応答を期待したかどうかはわかりませんが、幸いなことに、フレンドリーなラディアントが画面に表示されます。 「EHGは私たちの種をあまりにも長い間狩り続けてきました。私たちは収奪国家との全面戦争の危険を冒したくありませんでしたが、ついに立ち上がる時が来ました。私たちは収奪国家をセクターから追い出し、収奪国家を強制します。相続人の活動を規制するため、または試みて死ぬために。そして私は死ぬつもりはありません。」</text>
+			<text>返答を期待していたのかどうかはわからないが、幸運なことにスクリーンには友好的なラディアントが表示された。「EHGはあまりにも長い間、我々の種族を狩ってきた。私たちはクラプトクラシーとの全面戦争というリスクを冒したくはなかった。ギルドをこのセクターから追い出し、クラプトクラシーに彼らの活動を規制させる。死ぬつもりはない」。</text>
 			<choice hidden="true">
-				<text>ギルドを守り、ラディアントを攻撃しましょう！</text>
+				<text>ギルドを守り、ラジアントを攻撃せよ！</text>
 				<event>
-					<text>自分の行動を正当化する方法はよくわかりませんが、後で説得力のあることを考えることができると確信しています。今のところ、戦う時間です！</text>
+					<text>自分の行動をどう正当化すればいいのかよくわからないが、後で納得のいくことを考えればいい。今は戦う時だ！</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="MORALITY_UPDATE_SHELL_FIGHT" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>シェルにあなたの援助を提供します。</text>
+				<text>シェルに援助を申し出る。</text>
 				<event>
-					<text>「あなたは助けたいですか？まあ、それは害はないと思います。もしあれば、私たちはいくつかの物資を使うことができます。」</text>
+					<text>「手伝おうか？まあ、損はないだろう。もしあれば、物資を貸してほしい。</text>
 					<choice hidden="true">
-						<text>それらに7発のミサイルを与えます。</text>
+						<text>ミサイル7発を与える。</text>
 						<event>
-							<text>「ThhhhankyouFederation。ミサイルがたくさんあるので、thhhisドローンは必要ないと思います。」</text>
+							<text>「ありがとう。ミサイルはたくさんあるから、この無人機は必要ないだろう。</text>
 							<item_modify>
 								<item type="missiles" min="-7" max="-7" />
 							</item_modify>
@@ -1440,9 +1440,9 @@
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>それらに7つのドローンパーツを与えます。</text>
+						<text>7機のドローンパートを与える。</text>
 						<event>
-							<text>「ThhhhankyouFederation。ドローンのパーツがたくさんあるので、thhhisの武器は必要ないと思います。」</text>
+							<text>「ありがとう。ドローンの部品はたくさんあるから、この武器は必要ないだろう。</text>
 							<item_modify>
 								<item type="drones" min="-7" max="-7" />
 							</item_modify>
@@ -1450,32 +1450,32 @@
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>もういいです。</text>
+						<text>気にするな。</text>
 						<event />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" req="LIST_CREW_SHELL">
-				<text>（シェルクルー）助けを求める。</text>
+				<text>(シェル・クルー）支援を要請する。</text>
 				<event>
-					<text>「あなたはジェニオクラシーの一部ではないように感じます... buuuuuut 私たちシェルは一緒に固執する必要があります. 多分これが助けになるでしょうか?」</text>
+					<text>「あなたはジェニオクラシーの一員ではないような気がする。これが役に立つかもしれない。</text>
 					<autoReward level="MED">standard</autoReward>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>さて、それで頑張ってください。</text>
+				<text>まあ、幸運を祈るよ。</text>
 				<event>
-					<text>「フェデレーションに感謝します。そして、あなたの使命にも幸運がありますように。」</text>
+					<text>「ありがとう。あなたの任務にも幸運がありますように。</text>
 				</event>
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>彼らの警告を守り、去りなさい。</text>
+		<text>彼らの警告に従い、その場を立ち去れ。</text>
 		<event>
-			<text>あなたは今あなたの手にしばらく時間があります。</text>
+			<text>あなたは今、時間を持て余している。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1487,60 +1487,60 @@
 </event>
 
 <event name="NEBULA_CLAN_SUZERAIN" unique="true">
-	<text>近くのシステムは、宗主国が星雲の中を飛んでいるときに自分自身につぶやきます。彼らはここであなたの存在をあまり気にしていないようです。</text>
+	<text>近くの星系では、星雲を飛びながら独り言をつぶやいているスゼラインがいる。彼らはあなたがここにいることをあまり気にしていないようだ。</text>
 	<ship load="SHIP_SUZERAIN_FIGHT" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>宗主国に呼びかける。</text>
+		<text>スゼレーン万歳。</text>
 		<event>
-			<text>「気にしないでください！ギルドがすべての殺害を盗みます。ハイブが最も恐れて、すべての獲物を要求したときはどうなりますか？スペースは今や一族の領土で、嫌です！」</text>
+			<text>"迷惑はかけない！ギルドが殺しのすべてを盗む。ハイブが最も恐れられ、すべての獲物を奪っていた時代はどうなった？宇宙は今やクランの領土だ、最低だ！"</text>
 			<choice hidden="true">
-				<text>でもこれは星雲ではないですか？</text>
+				<text>これは星雲ではないのか？</text>
 				<event>
-					<text>「ハハ、すべての星雲セクターをかつて星雲セクターだと思っていた愚かな連邦の船長！Coalition Cealaforming techのことを聞いたことがありませんか？連立と取引しているギルドは、このセクターを作るために多くのcealaformerを購入しています！」</text>
+					<text>「愚かな連邦の船長は、星雲セクターはすべて星雲セクターだと考えている！連合のセアラフォーミング技術を知らないのか？ギルドは連合と交易し、多くのセアラフォーマーを買ってこのセクターを作ったんだ！"</text>
 					<choice hidden="true" req="ach_boss_cealaformer">
-						<text>ええ、私は前にそれらの1つと戦ったと思います。</text>
+						<text>ああ、前にも戦ったことがあると思う。</text>
 						<event>
-							<text>「あなたがいますか？それならあなたはすべての銀河に良いサービスをします！彼らがすべての星雲を作ることができると思っているスラッグ？まあ彼らは間違っています！連邦は明らかに彼らを手に入れました！ハハ！このサービスは無給になることはできません！」</text>
+							<text>「あなたがいる？それなら、あなたはすべての銀河系に良い奉仕をしていることになる！スラッグめ、なんでも星雲にすればいいと思ってるのか？それは間違いだ！連邦は彼らを捕まえたハハハ！この奉仕は無給にはできない！"</text>
 							<autoReward level="HIGH">standard</autoReward>
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>それらのことは聞いたことがありません。</text>
+						<text>聞いたことのない名前だ。</text>
 						<event>
-							<text>「もちろん、会ったことはありません！連邦が知っているのではなく、秘密の連立技術です！待ってください、ああ、私はおっとりします。私があなたにこれを言ったことを誰にも知らせることはできません！」</text>
+							<text>「もちろん、会ったことはない！連合の秘密技術、連邦の知るところではない！待ってくれ。このことは誰にも知られたくない。</text>
 							<ship hostile="true" />
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="COMBAT_CHECK" />
 							</choice>
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>なんで？ギルドは連立の一部である収奪国家の一部ではありませんか？</text>
+						<text>なぜですか？ギルドは、連合の一部であるクラプトクラシーの一部ではないのか？</text>
 						<event>
-							<text>「ええ、そうです。しかし、収奪国家ではなく、セクターのギルド転換が行われています。そして、連立は、連邦のように、独自の格納庫、予算、兵士を持っています。彼らは、Cealaformerをハンターに渡すだけではありません。」</text>
+							<text>「まあ、そうだね。だが、ギルドがセクターを改造したのであって、クレプトクラシーがやったわけではない。連合は連邦のように、独自の格納庫、予算、兵士を持っている。彼らはセアラフォーマーをハンターに渡すだけではない"</text>
 							<choice hidden="true">
-								<text>ギルドがここでCealaformertechを使用することになっていないのなら、なぜ連合はそれを彼らに売ったのですか？</text>
+								<text>ギルドがここでセアラフォーマーの技術を使ってはいけないのなら、なぜ連合はそれを彼らに売ったのか？</text>
 								<event>
-									<text>「おそらく、スラッグが他のメンバーの後ろで汚いことをしているからだろう！または...私にはわからない。私が知っているのは、これはかつての星雲セクターではなく、ギルドがここですべての貴重な獲物を盗んだことだけだ！」</text>
+									<text>"おそらくスラッグが他のメンバーに隠れて汚いことをしたからだろう！あるいは...私にはわからない。私が知っているのは、ここはかつて星雲セクターではなかったということだけだ。そして今、ギルドはここで貴重な獲物をすべて盗んでいる！"</text>
 									<choice hidden="true">
-										<text>このセクターにはいくつかの外来種が生息していますか？</text>
+										<text>このセクターには外来種が生息しているのだろうか？</text>
 										<event>
-											<text>「はい、いいえ。ほとんどの場合、ギルドはここに自分たちを連れてきます。見て、あまりにも多くの質問をします！私は私を気にしないと言いました、そしてあなたは私を気にかけます！」</text>
+											<text>"イエスでもありノーでもある。ほとんどは、ギルドが自分で連れてきたんだ。いいか、質問が多すぎる！邪魔するなと言ったのに、邪魔しやがって！"</text>
 											<choice hidden="true">
-												<text>ごめん。</text>
+												<text>申し訳ない。</text>
 												<event>
-													<text>「はいはい、何でも。今すぐ去りなさい！」</text>
+													<text>"はいはい、何でもいいよ。さあ、出て行け！"</text>
 												</event>
 											</choice>
 											<choice hidden="true">
-												<text>別の質問をしてください。</text>
+												<text>別の質問をしてみよう。</text>
 												<event>
-													<text>「GAH！YOU SO ANNOYING！DIE！」</text>
+													<text>「ガーッ！うるさい！死ね！"</text>
 													<ship hostile="true" />
 													<choice hidden="true">
-														<text>継続する...</text>
+														<text>次へ...</text>
 														<event load="COMBAT_CHECK" />
 													</choice>
 												</event>
@@ -1554,48 +1554,48 @@
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>しかし、マンティスとスラッグは同盟していませんか？連立を通して、それは？</text>
+				<text>しかし、マンティスとスラッグは同盟関係にあるのでは？連合を通じて、ですか？</text>
 				<event>
-					<text>「いいえ、小さな連邦の頭脳は理解できません。参照してください。連立は連邦によく似ています。マンティスのようなより良い人種を除いて、エンギ、ゾルタン、オーキドゥ、ヒューマン...」</text>
+					<text>「いやいや、ちっぽけな連邦の脳みそでは理解できない。連合は連邦によく似ている。エンギ、ゾルタン、オーキッド、ヒューマン、ただしマンティスのような優秀な種族は除く...その他諸々"</text>
 					<choice hidden="true">
-						<text>だから...あなたは同盟していますか？</text>
+						<text>それで...あなたは同盟を結んでいるのですか？</text>
 						<event>
-							<text>「ああ！あなたは理解していません。はい、私たちは同盟国です。しかし、連立国境は連邦国境のようには機能しません。すべての人種は領土を所有し、連立領土を共有し続けます。」</text>
+							<text>"ギャー！わかっていない。そうだ、我々は同盟を結んでいる。だが、連合の国境は連邦の国境とは違う。すべての種族は自国の領土を守り、連合の領土を共有する。</text>
 							<choice hidden="true">
-								<text>それは、EHGがスラッグの領土でのみ狩りをしているという意味ではないでしょうか？</text>
+								<text>それは、EHGがスラッグのテリトリーでしか狩りをしないことを意味しないのでは？</text>
 								<event>
-									<text>「耳が聞こえない？あなたは全体のポイントを逃します！EHGはスラッグ達ペースでのみ狩りをするべきです。これはスラッグスペースではありません！このセクターはスラッグ拡張戦争が終わった後に主張しました。不潔なスラッグは決して条約に従わない！」</text>
+									<text>「耳が聞こえない？あなたはすべてのポイントを見逃している！EHGはスラッグ空間でのみ狩りをするべきだ。ここはスラッグ宙域ではない！この領域はスラッグ拡大戦争が終わった後に主張されたものだ。不潔なスラッグは条約に従わない！"</text>
 									<choice hidden="true">
-										<text>連立の他のメンバーが介入しないのはなぜですか？</text>
+										<text>なぜ連合の他のメンバーは介入しないのか？</text>
 										<event>
-											<text>「ロックマンは気にしない、リーチは忙しすぎる。より多くの紛争を恐れて、拡張戦争中に非常に激しく打撃を与えた。気にかけているのは私だけのようだ...」</text>
+											<text>「ロックマンは無関心、リーチは多忙。ハイブは紛争が増えることを恐れている。気にかけているのは私だけのようだ..."</text>
 											<choice hidden="true">
-												<text>自分の手で問題を解決してみませんか？</text>
+												<text>なぜ自分の手で問題を解決しないのか？</text>
 												<event>
-													<text>「そして何をしますか？私は1つのマンティスです。スラッグ、多くのスラッグ。あなたは私が収奪国家全体を自分で殺すことができると思っていますか？あなたは愚かな男です！あなたの脳の大きさはアルジェリアのベリーです！ 。今は放っておいてください。」</text>
+													<text>「何をするんだ？私は1匹のカマキリ。スラッグだ一人でクラプトクラシーを 殺せると思ってるのか？愚かな男だ！お前の脳みそはアルジェリアベリー並みだ！ハハ小さいなバカと言ってるんだ。ほっといてくれ。</text>
 												</event>
 											</choice>
 											<choice hidden="true">
-												<text>私は同意します、それはかなり汚いです。</text>
+												<text>私もそう思う。</text>
 												<event>
-													<text>「少なくとも、常に互いに論争しているとしても、連邦は国境法に入札している。連立は弱すぎて、失敗する運命にある。おそらく、私が内戦の窮地に陥る前に、代替案を探す時が来たのだろう...」</text>
+													<text>「少なくとも連邦は国境法を守っている。連合はあまりにも弱く、失敗する運命にある。内紛の火種に巻き込まれる前に、代替案を模索する時期なのかもしれない......"</text>
 													<choice hidden="true">
-														<text>あなたは連盟に参加することができます。</text>
+														<text>連盟に入ることもできる。</text>
 														<event>
-															<text>「ハハハハ！あなたはとてもおもしろい！そしてまた馬鹿げている。私は百万年で連邦に参加しない！あなたはマンティスのためのスペースがなく、フリーマンティスがあなたの土地を台無しにするのに忙しい。今、あなたは十分な時間を無駄にしている。去りなさい。」</text>
+															<text>「ハハハハ！君はとても面白い！そしてまた間抜けだ。100万年経っても連盟には入らない！マンティスの居場所はない。フリー・マンティスに土地を荒らされるのに忙しすぎる。もう十分時間を無駄にした。消えろ</text>
 														</event>
 													</choice>
 													<choice hidden="true" req="LIST_CREW_HIVE">
-														<text>（ハイブマンティスクルー）彼にあなたに加わるよう説得します。</text>
+														<text>(ハイブ・マンティス・クルー）彼を説得するんだ。</text>
 														<event>
-															<text>「マンティスを持っている連盟？私はここでマンティスだけを歓迎すると思っています。連立は悪い場所にあるかもしれませんが、連立として悪くはありません！私は申し出をします、船長。」</text>
+															<text>「連盟にマンティスがいるのか？私はフリー・マンティスだけが歓迎されると考えている。連邦は不利かもしれないが、連合ほどではない！申し出を受けます、艦長</text>
 															<crewMember amount="1" class="mantis_suzerain" />
 														</event>
 													</choice>
 													<choice hidden="true">
-														<text>一人で行ってみませんか？確かにスゼラインとして、あなたはすぐに有名な賞金稼ぎになることができます。</text>
+														<text>なぜソロにならないのか？きっとスゼラインならすぐに有名な賞金稼ぎになれるよ。</text>
 														<event>
-															<text>「ああ！連邦は今良い考えを作っている！はい、爪は鋭く、爪は殺す！私は時間にまったく富んでいない！あなたはまだ臭くて愚かであっても天才だ。これを受け入れるあなたの最も賢い考えのために、私はそれを必要としないすぐに！」</text>
+															<text>「連盟は今、いいアイデアを思いついた！そうだ、爪は鋭く、爪は殺す！私は全く時間内に豊かになる！あなたは天才です、まだ臭いと愚かであっても。これを受け入れるあなたの最も知的なアイデアのために、私はすぐにそれを必要としない！"</text>
 															<autoReward level="HIGH">standard</autoReward>
 														</event>
 													</choice>
@@ -1604,36 +1604,36 @@
 										</event>
 									</choice>
 									<choice hidden="true">
-										<text>どんな条約？この土地は誰が最初に属していましたか？</text>
+										<text>どんな条約？この土地は誰のものだったのか？</text>
 										<event>
-											<text>「SlugExpansionWarsCoalitionが結成されて協定が結ばれた後、他の種族から土地を奪うことはありません。各種族には独自の拡張法があり、スラッグはすべての星雲を維持します。このセクターはハイブの制限内ですが、スラッグが最初にそれを取ります！」</text>
+											<text>"スラッグ拡大戦争後、連合が結成され、他の種族から土地を奪わないという協定が結ばれた。スラッグは星雲のすべてを手に入れた。このセクターはハイヴの制限内だが、スラッグが先に占領する！"</text>
 											<choice hidden="true">
-												<text>自分の手で問題を解決してみませんか？</text>
+												<text>なぜ自分の手で問題を解決しないのか？</text>
 												<event>
-													<text>「そして何をしますか？私は1つのマンティスです。スラッグ、多くのスラッグ。あなたは私が収奪国家全体を自分で殺すことができると思っていますか？あなたは愚かな男です！あなたの脳の大きさはアルジェリアのベリーです！ 。今は放っておいてください。」</text>
+													<text>「何をするんだ？私は1匹のカマキリ。スラッグだ一人でクラプトクラシーを 殺せると思ってるのか？愚かな男だ！お前の脳みそはアルジェリアベリー並みだ！ハハ小さいなバカと言ってるんだ。ほっといてくれ。</text>
 												</event>
 											</choice>
 											<choice hidden="true">
-												<text>私は同意します、それはかなり汚いです。</text>
+												<text>私もそう思う。</text>
 												<event>
-													<text>「少なくとも、常に互いに論争しているとしても、連邦は国境法に入札している。連立は弱すぎて、失敗する運命にある。おそらく、私が内戦の窮地に陥る前に、代替案を探す時が来たのだろう...」</text>
+													<text>「少なくとも連邦は国境法を守っている。連合はあまりにも弱く、失敗する運命にある。内紛の火種に巻き込まれる前に、代替案を模索する時期なのかもしれない......"</text>
 													<choice hidden="true">
-														<text>あなたは連盟に参加することができます。</text>
+														<text>連盟に入ることもできる。</text>
 														<event>
-															<text>「ハハハハ！あなたはとてもおもしろい！そしてまた馬鹿げている。私は百万年で連邦に参加しない！あなたはマンティスのためのスペースがなく、フリーマンティスがあなたの土地を台無しにするのに忙しい。今、あなたは十分な時間を無駄にしている。去りなさい。」</text>
+															<text>「ハハハハ！君はとても面白い！そしてまた間抜けだ。100万年経っても連盟には入らない！マンティスの居場所はない。フリー・マンティスに土地を荒らされるのに忙しすぎる。もう十分時間を無駄にした。消えろ</text>
 														</event>
 													</choice>
 													<choice hidden="true" req="LIST_CREW_HIVE">
-														<text>（ハイブマンティスクルー）彼にあなたに加わるよう説得します。</text>
+														<text>(ハイブ・マンティス・クルー）彼を説得するんだ。</text>
 														<event>
-															<text>「マンティスを持っている連盟？私はここでマンティスだけを歓迎すると思っています。連立は悪い場所にあるかもしれませんが、連立として悪くはありません！私は申し出をします、船長。」</text>
+															<text>「連盟にマンティスがいるのか？私はフリー・マンティスだけが歓迎されると考えている。連邦は不利かもしれないが、連合ほどではない！申し出を受けます、艦長</text>
 															<crewMember amount="1" class="mantis_suzerain" />
 														</event>
 													</choice>
 													<choice hidden="true">
-														<text>一人で行ってみませんか？確かにスゼラインとして、あなたはすぐに有名な賞金稼ぎになることができます。</text>
+														<text>なぜソロにならないのか？きっとスゼラインならすぐに有名な賞金稼ぎになれるよ。</text>
 														<event>
-															<text>「ああ！連邦は今良い考えを作っている！はい、爪は鋭く、爪は殺す！私は時間にまったく富んでいない！あなたはまだ臭くて愚かであっても天才だ。これを受け入れるあなたの最も賢い考えのために、私はそれを必要としないすぐに！」</text>
+															<text>「連盟は今、いいアイデアを思いついた！そうだ、爪は鋭く、爪は殺す！私は全く時間内に豊かになる！あなたは天才です、まだ臭いと愚かであっても。これを受け入れるあなたの最も知的なアイデアのために、私はすぐにそれを必要としない！"</text>
 															<autoReward level="HIGH">standard</autoReward>
 														</event>
 													</choice>
@@ -1644,35 +1644,35 @@
 								</event>
 							</choice>
 							<choice hidden="true">
-								<text>ここで狩りをする許可を求めてみませんか？ EHGは、観光客や部外者にとってかなり友好的です。</text>
+								<text>ここで狩りをする許可を得ることはできないのですか？EHGは観光客や部外者に対してかなり友好的なようだ。</text>
 								<event>
-									<text>「ああ！一度、連邦は良い考えを持っている。スラッグを殺す代わりに、それを考えてみませんか...あなたは良い点を示します。私は賢い頭脳を持って私を助けてくれたことに対してあなたに支払います。」</text>
+									<text>「今回ばかりは、連盟にいい考えがある。スラッグを殺す代わりに...」と。いいことを言うね。賢い頭脳を持ち、私を助けてくれた君に報酬を与えよう"</text>
 									<autoReward level="MED">standard</autoReward>
 								</event>
 							</choice>
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>でもみんな嫌いじゃないの？</text>
+						<text>でも、みんな憎み合っているんじゃないの？</text>
 						<event>
-							<text>「はい、もちろんです！スラッグは貪欲で、ロックマンは遅く、愚かです。リーチは臭い、私が望むように古い死体を思い出させます。マンティスはこれらを立っていませんが、ハイブはスラッグをマンティスの領土から遠ざけるのに良い同盟を言います。」</text>
+							<text>「ああ、もちろんだ！スラッグは貪欲、ロックマンはのろま、間抜け。リーチは臭く、古い死体を思い出させる。スラッグをカマキリのテリトリーから守るために、ハイブは同盟を結んでいる。</text>
 							<choice hidden="true">
-								<text>同盟は、より多くのスラッグがマンティスの領土にいることを意味しませんか？</text>
+								<text>同盟を結べば、より多くのスラッグがマンティスのテリトリーにいることになるのでは？</text>
 								<event>
-									<text>「もしそれが愚かな連邦だったら、そうです！しかし、私たちは賢く、同盟は他の地域の他の種族に許可を与えません。連立の領土は共有され、他のすべては独立しています。連立の存続に不可欠です。あなたにとって意味がありますか？」</text>
+									<text>「愚かな連邦ならそうだ！しかし、我々はもっと賢く、同盟は他領土での他種族の居住を認めない。連合の領土は共有し 他は独立させる連合存続のためだ。理解できたか？</text>
 									<choice hidden="true">
-										<text>はい、もちろん。</text>
+										<text>もちろんだ。</text>
 										<event>
-											<text>「よかった。今、私に話すのをやめなさい。とても退屈で退屈だ。」</text>
+											<text>"よろしい。退屈でうんざりするから、もう話すのをやめてくれ」。</text>
 										</event>
 									</choice>
 									<choice hidden="true">
-										<text>いいえ、まだ混乱しています。</text>
+										<text>いや、まだ混乱している。</text>
 										<event>
-											<text>「ああ、とても迷惑だ。質問が多すぎて、何も理解できない！連邦大尉の極小知性、私は殺すぞ！」</text>
+											<text>"ガーン、とてもイライラする。質問ばかりで何も理解できない！フェデレーション・キャプテンの知能は微々たるものだ、殺すぞ！"</text>
 											<ship hostile="true" />
 											<choice hidden="true">
-												<text>継続する...</text>
+												<text>次へ...</text>
 												<event load="COMBAT_CHECK" />
 											</choice>
 										</event>
@@ -1682,32 +1682,32 @@
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>そうか。これは間違いなく私の質問に答えます。</text>
+						<text>なるほど。これは間違いなく私の質問の答えだ。</text>
 						<event>
-							<text>「よかった。今、私に話すのをやめなさい。とても退屈で退屈だ。」</text>
+							<text>"よろしい。退屈でうんざりするから、もう話すのをやめてくれ」。</text>
 						</event>
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>私はあなたが男だと感じます。スラッグは吸う。</text>
+				<text>その通りだ。スラッグは最悪だ。</text>
 				<event>
-					<text>「はい、はい、私たちはこれに同意します。たとえ臭いのある連邦政府であっても、宇宙で他の合理的な思考の人を見てうれしいです！スゼラインはあなたが彼に同意することをとても喜んでおり、彼はあなたの船体の損傷の一部を修正することさえ提案しています。</text>
+					<text>「ああ、そうだ。宇宙で他の理性的思考を持つ人間を見るのは嬉しい！我々スラッグ嫌いは団結して、臭いスラッグを撃退しなければならない。"スゼレインは君が賛成してくれたことに大喜びで、君の船体の損傷を手当てしてくれると言ってきた。</text>
 					<damage amount="-7" />
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>この男は気分が悪いので、気にしないでください。</text>
+				<text>この男は機嫌が悪いんだ。</text>
 				<event />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>宗主国を無視します。</text>
+		<text>鈴蘭は無視する。</text>
 		<event>
-			<text>ハイブがスラッグ達ペースでこれまでで最も恐れられている戦士の1人である理由はわかりませんが、おそらく良くありません。</text>
+			<text>なぜハイブが最も恐れている戦士のひとりをスラッグ宇宙域のはるか彼方に置いているのかはわからないが、おそらく良くないことだろう。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1719,67 +1719,67 @@
 </event>
 
 <event name="NEBULA_CLAN_TAX" unique="true">
-	<text>クランズマンの船がいくつかの大型のクレアボイアント船に追われて通り過ぎたとき、あなたはほんのわずかにビーコンに入っただけです。 EHGはまだ収奪国家の一部であることがわかっているので、なぜ彼らがここに執行者を派遣しているのか想像できません。</text>
+	<text>クランズマンの船が、数隻のクレアボヤントの大型船に続いて飛んできた。あなたはEHGがまだクラプトクラシーの一部であることを知っているので、なぜ彼らがここに執行官を送り込むのか想像できない。</text>
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>それらを追いかけます。</text>
+		<text>追いかけろ。</text>
 		<event>
-			<text>あなたは星雲を通してスラッグを追いかけます。そこでは、クランズマンが洞窟に身を寄せて出てこないことがわかります。クレアボイアンツは途方に暮れているようだ。</text>
+			<text>あなたは星雲の中をスラッグを追うが、そこでクランズマンが洞窟にこもって出てこないことに気づく。透視能力者たちは途方に暮れているようだ。</text>
 			<ship load="SHIP_CLAIRVOYANT_TAX" hostile="false" />
 			<choice hidden="true">
-				<text>状況について彼らに尋ねてください。</text>
+				<text>彼らに状況を尋ねる。</text>
 				<event>
-					<text>「あなたは、通常、クレプトクラシーはEHG問題に関与することはありませんが、彼らのメンバーは私たちの国の市民であり、彼らは支払うべき課税を持っています。..かなりたくさん。」</text>
+					<text>「通常、クラプトクラシーはEHGの問題には関与しないが、彼らのメンバーもわが国の国民であり、納税義務がある。洞窟に閉じこもった連中は、かなりの借金を背負っている。</text>
 					<choice hidden="true">
-						<text>いくら？</text>
+						<text>いくらですか？</text>
 						<event>
-							<text>「ああ、ええと、約1,700万。クレプトクラシーのオセロ。私がそれをこの辺りの通貨のように見えるスクラップに翻訳するなら、それは約2億6,000万人に近づきます。」</text>
+							<text>「1700万人くらいかな。クレプトクラシー・オセロで。この辺の通貨に換算すると...2億6000万"</text>
 							<choice>
-								<text>いくつかのミサイルを使用して、クランズマンを洞窟から吹き飛ばします。</text>
+								<text>ミサイルでクランマンを洞窟から吹き飛ばす。</text>
 								<event>
-									<text>洞窟の周りに爆弾を置き、爆発するのを待ちます。衝撃は洞窟を崩壊させ、クランズマンを追い出し、そこで彼らは逮捕されます。</text>
+									<text>洞窟のあちこちに爆弾を仕掛け、爆発するのを待つ。その衝撃で洞窟は崩れ落ち、クランズマンたちは逮捕されて外に押し出される。</text>
 									<item_modify>
 										<item type="missiles" min="-7" max="-7" />
 									</item_modify>
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event load="NEBULA_CLAN_TAX_SAVEKLEPT" />
 									</choice>
 								</event>
 							</choice>
 							<choice hidden="true">
-								<text>Clairvoyantsと戦い、Clansmenを支援します。</text>
+								<text>クレアボイアントと戦い、クランズマンを助ける。</text>
 								<event>
-									<text>あなたは旅行中に自分で多くの犯罪を犯す人として知られています。あなたは通常、脱税のケースであり、これは脱税のケースですが、それはあなたが仲間の犯罪者を助けることができないという意味ではありません。もちろん、連盟の名において。</text>
+									<text>あなたは旅先で多くの犯罪を犯すことで知られている。君の犯罪は通常戦争犯罪で、これは脱税のケースだが、だからといって犯罪者仲間を助けられないわけではない。もちろん連邦の名においてだ。</text>
 									<ship hostile="true" />
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event load="COMBAT_CHECK" />
 									</choice>
 								</event>
 							</choice>
 							<choice hidden="true" req="LIST_CREW_SLUG">
-								<text>（スラッグのクルー）クランズマンと推論してみてください。</text>
+								<text>(スラッグクルー）クランズマンに理屈をこねろ。</text>
 								<event>
-									<text>あなたのスラッグは洞窟の日よけに上がり、そこで彼はクランズマンと話します。彼は彼らのより良い理由を演じて、たとえそれがスラッグのものであったとしても、洞窟に閉じ込められて死ぬことは刑務所に行くよりもはるかに悪い運命であることを彼らに納得させます。これは機能し、クランズマンは降伏します。</text>
+									<text>あなたのスラッグは洞窟の日よけに上がり、そこでクランズマンと話す。洞窟に閉じ込められて死ぬのは、たとえそれがスラッグであっても、刑務所に入るよりはるかに悪い運命だと、彼らの理性を利用して説得する。これが功を奏し、クランズメンは降伏する。</text>
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event load="NEBULA_CLAN_TAX_SAVEKLEPT" />
 									</choice>
 								</event>
 							</choice>
 							<choice hidden="true" req="LIST_CREW_SLUG_KING">
-								<text>（元スラッグ王）「多分私は彼らを許すことができますか？」</text>
+								<text>(元スラッグ王）"もしかしたら、彼らを赦すことができるかも？"</text>
 								<event>
-									<text>「ああ！ええと、sssir！私はあなたをそこに見ませんでした、私の王様。えー、元王。私は...あなたはこのsssirに対する権限を本当に持っていませんが、私はクレアボイアントです、そしてたまにベストのリーダーでなかったとしても、あなたは私たちの国のために素晴らしいことをしたと思います。しかし、あなたがテスの男性のために立ち上がる気があるなら、私はそれを質問しません。」スラッグは彼らの借金を清算し、そして飛び去ります。</text>
+									<text>「ああ！王よ、そこにいたとは。えー、元国王。私は...あなたにはこの王を統治する権限はありませんが、私は透視能力者です。たとえあなたが最高の指導者でなかったとしても、我が国のためにあなたは偉大な功績を残したと思います。もし君が彼らのために立ち上がる気があるのなら、それを疑うつもりはない。"スラッグは負債を清算し、飛び去る。</text>
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event load="NEBULA_CLAN_TAX_SAVECLAN" />
 									</choice>
 								</event>
 							</choice>
 							<choice hidden="true">
-								<text>さらに関与する理由はありません。</text>
+								<text>これ以上関わる必要はない。</text>
 								<event />
 							</choice>
 						</event>
@@ -1789,11 +1789,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>なんてファンキーで予測不可能な状況でしょう。とにかく、私は退屈しています。先に進む時間。</text>
+		<text>何ともファンキーで予測不可能な状況だ。とにかく、もう飽きた。</text>
 		<event>
-			<text>あなたは今あなたの手にしばらく時間があります。</text>
+			<text>あなたは今、時間を持て余している。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1804,11 +1804,11 @@
 	</choice>
 </event>
 <event name="NEBULA_CLAN_TAX_SAVECLAN">
-	<text>あなたは「彼らはいなくなったの？」あなたが彼らに透視者がいなくなったことを保証すると、彼らは洞窟を出て感謝します。「ハハ！税の回避は再び欠陥がある。</text>
+	<text>あなたはクランズマンに近づき、クランズマンは小声で "彼らは去ったのか？"と言った。あなたが透視能力者たちはもういないと断言すると、彼らは洞窟から出て、あなたに礼を言う。「ハハ！脱税はまたしても見事に成功した。あー...報酬をあげようかな。リアクターのアップグレードはどうだ？"</text>
 	<upgrade amount="1" system="reactor" />
 </event>
 <event name="NEBULA_CLAN_TAX_SAVEKLEPT">
-	<text>「ああ、それはそれをハンドレッスルします。あなたに感謝します。連盟。あなたがクレプトクラシー問題を手伝うことにインターエスストがいることを知りませんでした。おそらく、ちょっとしたスクラップは、この発行におけるあなたの助けを補うのに役立ちます。」</text>
+	<text>「ああ、これで大丈夫だ。ありがとう、連邦。あなたがクレプトクラシー問題への協力に関心があるとは知らなかった。おそらく、この問題を解決するためのあなたの助けの代償として、ちょっとしたスクラップが役に立つだろう。</text>
 	<autoReward level="MED">scrap_only</autoReward>
 </event>
 
@@ -1820,25 +1820,25 @@
 
 <event name="NEBULA_DISTRESS_CLAN_GHOST" unique="true">
 	<distressBeacon />
-	<text>どこからもわからないが、ギルドレンジャーからあられを受けている。「ちょっとした仕事のために？</text>
+	<text>どこからかわからないが、ギルド・レンジャーからの呼びかけを受けている。"ちょっと仕事しないか？どこかのゴスに船を盗まれた！どんな手を使ってでも取り戻すつもりだ。"</text>
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>承認。</text>
+		<text>受け入れる。</text>
 		<event>
-			<text>「いいね、いいね！ジャスストの喜びはそれを破壊しないで！」</text>
+			<text>"いいぞ、いいぞ！頼むから壊さないでくれ！"</text>
 			<ship load="SHIP_CLAN_GHOST" hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice> 
 	<choice hidden="true">
-		<text>却下。</text>
+		<text>衰退。</text>
 		<event>
-			<text>あなたはチャンプチェンジの傭兵ではありません。あなたには基準があります！スラッグをミュートします。</text>
+			<text>君は小銭稼ぎの傭兵じゃない。あなたには基準がある！スラッグを黙らせろ</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1851,36 +1851,36 @@
 
 <event name="NEBULA_DISTRESS_CLAN_DUSK" unique="true">
 	<distressBeacon />
-	<text>遭難信号は、ダスクブリンガーによって追跡されているクランズマン船から来ているようです。あなたはすぐに歓迎されます：「助けてください！私たちは、Dussskbringerの爆発技術が生きている捕虜にどのように作用するかを研究しようとして、ひどい間違いを犯しました...ヘルプ？"</text>
+	<text>ダスクブリンガーに追われているクランズマン船から救難信号が届いているようだ。あなたはすぐに呼ばれた：「助けてください！ダスクブリンガーが捕虜を生きたまま探索する技術を研究しようとして、とんでもない間違いを犯した。名誉のために言っておくが、助けてくれないか？"</text>
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>クランズマンを支援します。</text>
+		<text>クランメンを支援する。</text>
 		<event>
-			<text>あなたは武器を武装させ、ダスクブリンガー船と交戦します。</text>
+			<text>武器を武装し、ダスクブリンガーと交戦する。</text>
 			<ship load="SHIP_CLAN_DUSK_DUSK" hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>ダスクブリンガーを支援します。</text>
+		<text>ダスクブリンガーを支援する。</text>
 		<event>
-			<text>あなたは武器を武装させ、クランズマン船と交戦します。</text>
+			<text>武器を武装し、クランズマン船と交戦する。</text>
 			<ship load="SHIP_CLAN_DUSK_CLAN" hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>いいえ。</text>
+		<text>いや。</text>
 		<event>
-			<text>あなたはクランズマンをミュートし、役に立たない存在を続けます。</text>
+			<text>あなたはクランズメンを無言にし、役に立たない存在を続ける。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1913,25 +1913,25 @@
 	<ship load="SHIP_CLAN_FIGHT" hostile="true" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <textList name="NEBULA_CLAN_FIGHT">
-	<text>エキゾチックハンターギルドには、通常のハンターと並んで、このセクターをパトロールしている多くのスカウトがいます。彼らがここであなたを見つけ、あなたを連邦船として認識すると、彼らはすぐに戦いに備えます。彼らの推論？彼らはあなたが脅威だと思っているか、あなたの肌からコートを作りたいと思っています。または両方。</text>
-	<text>あなたの周りの星雲の沈黙があなたに届き始めています。幸いなことに、このビーコンは空のように見えます-ああ、待ってください、あなたが間違っているようです。クランズマンインバウンド！</text>
-	<text>あなたは近くの氏族を捕まえ、遠くからあなたを見ています。「まあ、それは歯の仲間の素晴らしい1つのsssetsです！私はthossseから素敵なネックレスを作るつもりです！」</text>
-	<text>「MV ssship？メモを取得しませんでしたか？これはギルドの領土をISSSSSSSS GUIDR TRATIORS！私たちはKleptocracy Jussstから土地を購入しませんでした。</text>
-	<text>近くのギルド船が近づき、その武器はすでに充電されています。たとえそれが通常彼らが死んで終わるとしても、あなたはこれらのクランズマンの勇気を賞賛しなければなりません。</text>
-	<text>「ねえ、あそこのsssshipですか？ああ、くだらない、それはissssです！」クランズマンはライフルを奪い合い、船を振り回してあなたと戦う！</text>
-	<text>クランズマンは、質の高い狩りのチャンスを逃すことが知られていない一流のハンターです。あなたは戦闘のために武装した軍の船かもしれませんが、それは近くの船を思いとどまらせるようには見えません。</text>
+	<text>エキゾチック・ハンター・ギルドは、通常のハンターに加え、多くの斥候をこのセクターに巡回させている。君達を見つけ、連邦の船だとわかると、すぐに戦闘のために武装する。その理由は？君を脅威と思うか、君の皮膚からコートを作りたいかのどちらかだ。あるいはその両方か。</text>
+	<text>周囲に広がる星雲の静けさに、だんだんと気が滅入ってくる。幸いなことに、このビーコンは空っぽのようだ......あ、待てよ、どうやら君は勘違いしているようだ。クランズマンが来た！</text>
+	<text>近くにいたクランズマンが、遠くからあなたを見ているのを見つけた。"そうだな、いい歯並びだ！その歯で素敵なネックレスを作ってやるぜ！"</text>
+	<text>「MVシップ？メモを見なかったのか？ここはギルドの縄張りだ！俺たちはクラプトクラシーからこの土地を買ったんじゃない。"俺たちの獲物を全部盗むために "異分子のバカ野郎が飛び込んできたんだ。</text>
+	<text>近くにいたギルドの船が近づいてきた。クランズマンたちの勇気には感服せざるを得ない。たとえそれが、たいていは死んで終わるとしても。</text>
+	<text>"おい、あそこにいるのは船か？しまった、そうだ！"クランズマンがライフルを取ろうと奔走し、あなたとの戦いに船を旋回させる！</text>
+	<text>クランズマンたちは一流のハンターであり、質の高い狩りのチャンスを見逃すことはない。あなたは戦闘用に武装した軍艦かもしれないが、近くにいる船はそれを阻止できないようだ。</text>
 </textList>
 <event name="NEBULA_ENCOUNTER_CLAN_STORM">
-	<text>このビーコンは、通過するイオン嵐によって損なわれています。ギルド船は、明らかな敵対的な意図を持って、それ自体を明らかにしています。控えめに言っても驚くことではありません。これらの条件は、まるでクマのtrapに巻き込まれた獣を取り囲んでいるかのように、標的を捕食する傾向をさらに奨励するだけです。</text>
+	<text>このビーコンは通り過ぎるイオン嵐によって障害されている。ギルドの船が姿を現し、明らかに敵意をむき出しにしている。このような状況は、まるで熊の罠にかかった獣を包囲するかのように、標的を捕食する彼らの傾向をさらに助長するだけだ。</text>
 	<ship load="SHIP_CLAN_FIGHT" hostile="true" />
 	<environment type="storm" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
@@ -1941,16 +1941,16 @@
 	<ship load="SHIP_SLUG_FIGHT" hostile="true" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <textList name="NEBULA_SLUG_CLAN_FIGHT">
-	<text>通常、ここで見られると予想されるスラッグの船はギルドの所有物ですが、標準的な収奪国家の市民が少し狩りをするためにこのセクターに行くこともあります。そしていつものように、あなたが狩られているように見えます！</text>
-	<text>「フェデレーション！これは、Kleptocracy ssspacceを発行します。ジュスストは、USSSSに歓迎されるというギルドがアウトサイダーに歓迎されていることを考えています！」</text>
-	<text>スラッグの船が到着します！それらはEHGではないかもしれませんが、それでもあなたが排除するか逃げる必要がある敵対的です！</text>
-	<text>「あなたは私がメンバーシップ試験に合格してギルドのメンバーになるために必要な最悪の殺人者です！今やsssstand ssstill、私はthisssに努力しなければならないことにうんざりしています！」</text>
-	<text>EHGスペースには多くのスラッグがいますが、標準的な収奪国家の市民に会うとは思っていませんでした。驚いたわけではありませんが、彼らがすでに敵対的になっていることに少し不満を感じています。</text>
+	<text>通常、ここで見かけるスラッグ船はギルドの所有物だが、時には普通のクレプトクラシー市民がちょっとした狩りのためにこのセクターにやってくることもある。そしていつものように、狩られるのは君のようだ！</text>
+	<text>連邦ここはクレプトクラシー・スペースだ。ギルドが部外者を受け入れているからといって、お前たちが歓迎されると思うな！"</text>
+	<text>スラッグ船が接近中！EHGではないかもしれないが、それでも排除するか逃げるべき敵だ！</text>
+	<text>「ギルドのメンバーになるための最後の一人だ！今すぐ耐えろ、こんなことに労力を費やすのはうんざりだ！"</text>
+	<text>EHGの宇宙空間には多くのスラッグがいるが、まさか普通のクラプトクラシー市民がいるとは思わなかっただろう。驚きはしないが、彼らがすでに敵対的な態度を取っていることに軽い不快感を覚える！</text>
 </textList>
 
 <event name="NEBULA_ENCOUNTER_SHELL_CLAN">
@@ -1958,34 +1958,34 @@
 	<ship load="SHIP_SHELL_FIGHT" hostile="true" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <textList name="NEBULA_SHELL_CLAN_FIGHT">
-	<text>シェルがそれほど敵対的であると期待する人はいないでしょうが、ギルドの進行はすでに攻撃しているので、近くの船を本当に動揺させたようです！</text>
-	<text>砲弾は通常、科学を非常に高く評価していますが、ここの船はすべての理由を放棄したようで、まっすぐに攻撃しています。ギルドはおそらくこの発疹の振る舞いと関係がありますが、今それを診断するには遅すぎます！</text>
-	<text>「あなたは走らなければなりません！私のクルー、ギルドの状態での襲撃中に回収したエクイノイドからのスペース狂犬病のまれなケースを捕まえました-」彼が連れて行くために移動する彼の友人の一人によって殺害されたため、シェルは切断されます船の制御と攻撃。</text>
+	<text>シェルがこれほど敵対的だとは思わないだろうが、どうやらギルドの動きが近くの船を刺激したようだ！</text>
+	<text>通常、シェルは科学を非常に高く評価するものだが、この船はすべての理性を捨て、真っ向から攻撃しているように見える。おそらくギルドがこの突拍子もない行動に関係しているのだろうが、今さら診断しても遅い！</text>
+	<text>「逃げろ！私のクルーが、ギルドの国家を襲撃した際に回収したエクイノイドから、珍しい狂犬病に感染してしまったんだ......」 シェルは仲間の一人に殺害され、言葉を切った。</text>
 </textList>
 
 
 
 <event name="NEBULA_CLAN_PHEROMONES" unique="true">
 	<preventQuest />
-	<text>あなたは旅行中にたくさんのことを見てきましたが、ギルドの巨大構造物の前に横たわっているマンティスの艦隊の半分の無駄を見たことがないと思います。巨大なメカニックアームが残骸を1つずつ集め、小さなドッキングベイに向かって移動しているように見えます。</text>
+	<text>あなたは旅でいろいろなものを見てきたが、ギルドの巨大建造物の前に横たわるマンティス艦隊の半数の残骸を見たことはないだろう。巨大なメカニックアームが残骸をひとつひとつ集め、小さなドッキングベイに向かって移動させているようだ。</text>
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>さらに調査します。</text>
+		<text>さらに調査する。</text>
 		<event>
-			<text>あなたは建造物に向かって操縦し、格納庫のドアから入ります。そこでは、クランズマンが迎えてくれます。 「なんてこった、あなたは私たちを殺すためにここにいるのではないのですか？」</text>
+			<text>その建造物に向かって操縦し、格納庫のドアから中に入ると、クランズマンが出迎えてくれた。"おやおや、まさか我々を黙らせるために来たんじゃないだろうな？"</text>
 			<choice hidden="true">
 				<text>私はそうは思わない。</text>
 				<event>
-					<text>「ああ、神に感謝します。待って、なぜここにいるのですか？私の手術を見に来ましたか？これはここでフェロモン抽出プラントをISSします。フェロモンのバスは活況を呈しています。全体を独占します。」</text>
+					<text>「ああ、よかった。待って、どうしてここにいるの？私の手術を見に来たの？ここはフェロモン抽出工場だ。フェロモンビジネスが急成長しているから、フリーマンティス野郎に独占される前に、しっかり押さえておきたいんだ」。</text>
 					<choice>
-						<text>いくつかのフェロモンを購入します。</text>
+						<text>フェロモンを買う。</text>
 						<event>
-							<text>「あなたと忙しさをしていることを喜ばせてください！ジャスストは連邦やハイブに話しません。実際、ジャスストは誰にも喜ばせません。」</text>
+							<text>"取引は構わない！連邦には言わないでくれ。ハイブにも。誰にも言わないでくれ。</text>
 							<augment name="CREW_STIMS" />
 							<item_modify>
 								<item type="scrap" min="-15" max="-15" />
@@ -1993,32 +1993,32 @@
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>すべてのマンティスはどこから来たのですか？</text>
+						<text>カマキリはどこから来たのか？</text>
 						<event>
-							<text>「ええと...私たちはGhosssstsssからそれらを購入しました。ええ、それはsssoundsss...信じられます。」</text>
+							<text>"ああ......ゴスから買ったんだ。ああ、それは...信じられるね"</text>
 							<choice hidden="true">
-								<text>では、ゴーストはどこからこれほど多くのマンティスの船を手に入れましたか？</text>
+								<text>では、ゴーストはどこからこれだけのマンティス艦を手に入れたのか？</text>
 								<event>
-									<text>「Thhhheeeee...マンティスsss ssstore？」</text>
+									<text>「その...マンティスストア？"</text>
 									<choice hidden="true">
-										<text>それが事だとは知りませんでした。</text>
+										<text>そんなことがあるなんて知らなかった。</text>
 										<event>
-											<text>「ああ、そうだね、それは間違いなく本物だ！お望みなら、私があなたにコーディネートを与えることができる！」</text>
+											<text>「いやいや、間違いなく本物だよ！もしよかったら、座標を教えましょうか？"</text>
 											<choice hidden="true">
-												<text>あなたは嘘をついています。</text>
+												<text>嘘だ。</text>
 												<event>
-													<text>「ああ、連邦を怒らせます！あなたは私を判断することはできません！」クランズマンは急いで逃げ出し、警報を鳴らします。私たちは戦わなければならないようです！</text>
+													<text>"ああ、ムカつく！私を裁くことはできない！""クランズマンが逃げ出し 警報を鳴らすどうやら戦わなければならないようだ！</text>
 													<ship load="SHIP_CLAN_PHEROMONES" hostile="true" /> 
 													<choice hidden="true">
-														<text>継続する...</text>
+														<text>次へ...</text>
 														<event load="COMBAT_CHECK" />
 													</choice>
 												</event>
 											</choice>
 											<choice hidden="true">
-												<text>もちろん！</text>
+												<text>もちろんだ！</text>
 												<event>
-													<text>「うーん、わかりました...」クランズマンはすぐにペンを引き出し、かろうじて判読できない数字を書き留めて、あなたに渡し、そして走り去ります。</text>
+													<text>"ああ、わかりました..."クランズマンは素早くペンを取り出し、かろうじて読める数字を走り書きしてあなたに手渡すと、そそくさと走り去った。</text>
 													<quest event="NEBULA_QUEST_CLAN_PHEROMONES_STORE" />
 												</event>
 											</choice>
@@ -2029,7 +2029,7 @@
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>かっこいいように聞こえますが、私たちが固執する理由はありません。</text>
+						<text>クールな響きだが、ここに留まる理由はない。</text>
 						<event />
 					</choice>
 				</event>
@@ -2037,11 +2037,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>関与しないのが最善です。</text>
+		<text>関わらないのが一番だ。</text>
 		<event>
-			<text>これらのマンティスのようになってしまう危険を冒したくないのであれば、おそらくこれ以上近づくべきではありません。</text>
+			<text>このマンティスのようになるリスクを冒したくなければ、これ以上近づかない方がいいだろう。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -2052,33 +2052,33 @@
 	</choice>
 </event>
 <event name="CLAN_PHEROMONES_DEMAND">
-	<text>「さて、あなたは私の部下を殺しました、今何ですか？あなたは私の施設をssshutに行くつもりですか？私を逮捕しますか？恥ずかしいダンスをさせてください？」</text>
+	<text>「私の部下を殺しておいて、今度は何だ？私の施設を閉鎖するつもりか？私を苦しめるのか？私に恥ずかしいダンスをさせるのか？"</text>
 	<choice hidden="true">
-		<text>彼の施設をシャットダウンします。</text>
+		<text>彼の施設を閉鎖しろ</text>
 		<event>
-			<text>あなたにはこれを行う権限が技術的にありませんが、それがあなたを止めることは決してありません。あなたは自分が何をしているのかを知っているふりをして、持ち運べるものをすべてつかみ、建物を閉鎖するように命じます。あなたは彼らがおそらくそうしないことを知っています、しかし結局あなたはあなたが望むものを手に入れました。</text>
+			<text>厳密にはあなたにそんな権限はないのだが、それでも今まで止められたことはない。あなたは自分が何をしているのかわかっているふりをして、持てるものをすべて押収し、ビルを閉鎖するよう命令する。彼らはおそらくそうしないとわかっているはずだが、最終的にあなたは望みのものを手に入れた。</text>
 			<augment name="CREW_STIMS" />
 			<autoReward level="MED">fuel_only</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>彼を逮捕しなさい。</text>
+		<text>逮捕しろ。</text>
 		<event>
-			<text>あなたは実際に手錠をかけていません、そしてあなたはあなたが何をしているのか本当によくわかりません。幸いなことに、クランズマンは連邦法をあまりよく知らないようです。そのため、連邦犯罪者が逮捕された船に乗ってサービスを提供するのが標準であると彼に言うとき、彼はそれを疑うことはありません。</text>
+			<text>実際に手錠はかかっていないし、自分が何をしているのかもよくわからない。幸いなことに、クランズマンも連邦法をよく知らないようだ。だから、連邦の犯罪者は逮捕された船で服務するのが普通だと言っても、何の疑問も抱かない。</text>
 			<crewMember amount="1" class="slug_clansman" />
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>彼を踊らせなさい。</text>
+		<text>踊らせろ。</text>
 		<event>
-			<text>悲しいことに、クランズマンはワルツをしますが、最終的にはすすり泣く山に崩壊します。あなたはかわいそうな生き物を憐れみ、彼のスクラップの全部ではなく一部だけを盗みます。</text>
+			<text>悲しみに暮れるクランズマンはワルツを踊ったが、やがて泣き崩れた。あなたはその哀れな生き物を憐れみ、彼のスクラップを全部ではなく、一部だけ盗んだ。</text>
 			<autoReward level="HIGH">scrap_only</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_ZOLTAN">
-		<text>（ゾルタンクルー）この逮捕を公式に実行します。</text>
+		<text>(ゾルタン・クルー）この逮捕を正式な方法で行う。</text>
 		<event>
-			<text>あなたのゾルタンはどこかから手錠のペアを取り出し、クランズマンを1つずつカフします。彼らは施設の閉鎖を命じ、もしあなたがもっとよく知らなかったとしたら様々なコードが作られていると思っていたと言って、それからあなたの船に乗ったクランズマンを案内し、いくつかの物資の箱を没収した。次に何が起こるかを尋ねるとき、あなたのゾルタンは肩をすくめ、あなたがこれらすべてを利用したほうがよい人物です。</text>
+			<text>ゾルタンはどこからか手錠を取り出し、クランズマンに一人ずつ手錠をかける。彼らは施設の閉鎖を命じ、様々な暗号を引き合いに出して、あなたがよく知らなければでっち上げだと思っただろう。この後どうなるのかと尋ねると、ゾルタンは肩をすくめ、これをすべて利用したほうがいいと考えたようだ。</text>
 			<autoReward level="HIGH">standard</autoReward>
 			<crewMember amount="1" class="slug_clansman" />
 		</event>
@@ -2087,49 +2087,49 @@
 <event name="NEBULA_QUEST_CLAN_PHEROMONES_STORE">
 	<beaconType id="map_icon_quest" global="true">
 		<color r="69" g="168" b="235" a="1" />
-		<unvisitedTooltip>レンジャーが提供する過度に疑わしい座標。</unvisitedTooltip>
+		<unvisitedTooltip>レンジャーが提供した怪しすぎる座標。</unvisitedTooltip>
 	</beaconType>
-	<text>クランズマンが嘘をついている可能性が高いですが、あなたはまだ彼が指定した座標に旅行します。興味深いことに、マンティスの廃品置き場には、ゴーストが住むマンティスの船がそれを守っています。</text>
+	<text>クランズマンが嘘をついている可能性が高いにもかかわらず、あなたは彼が指定した座標に向かった。魅惑的なことに、あなたはマンティス船の廃品置き場と、それを守るゴーストの乗ったマンティス船を見た。</text>
 	<ship load="SHIP_CLAN_PHEROMONES_MANTISSTORE" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>すみません、これはマンティスストアですか？</text>
+		<text>失礼ですが、ここはマンティスの店舗ですか？</text>
 		<event>
-			<text>翻訳者がゴーストの方言の癖を理解できるようになるまで、少し静かな時間がかかります - 「はい、歓迎します。中古のマンティス船を販売しています。有名なギルドのメンバーから大量の注文があったため、在庫が大幅に減少しましたが、あなたのニーズに合った快適なモデルがきっとまだあります。」</text>
+			<text>通訳がゴーストの方言の癖を理解するまで、しばらく沈黙が続く。私たちは中古のマンティス船を売っています。某有名ギルドのメンバーが大量に注文したため、在庫はだいぶ減ってしまいましたが、きっとあなたのニーズに合った快適なモデルがまだあるはずです。"</text>
 			<choice>
-				<text>マンティスの船を購入します。</text>
+				<text>マンティスの船を買う。</text>
 				<event>
-					<text>これはおそらく、これまでに1つのアイテムに費やしたスクラップの中で最も多いものですが、それだけの価値があることを願っています。ゴーストは、前のクルーの死体とその武器もまだ含まれているマンティスの船を持ってきます！</text>
+					<text>ひとつのアイテムに費やしたスクラップとしては、これまでで一番多いだろうが、その価値があることを祈る。ゴーストが運んできたマンティス船には、前の乗組員の死体と武器が残されていた！</text>
 					<item_modify>
 						<item type="scrap" min="-500" max="-500" />
 					</item_modify>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
-							<text>船自体はあまり使用しませんが、できる限り廃棄したほうがよいでしょう。あなたは武器から始めます...</text>
+							<text>船自体にはあまり使い道がないが、スクラップできるものはすべてスクラップしたほうがいい。まずは武器から...</text>
 							<weapon name="LIST_WEAPONS_ALL_CRAPBUCKET" />
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event>
-									<text>船体から別の武器を引き抜きます。</text>
+									<text>船体から別の武器を取り出す。</text>
 									<weapon name="LIST_WEAPONS_ALL_CRAPBUCKET" />
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event>
-											<text>船体から別の武器を引き抜きます。</text>
+											<text>船体から別の武器を取り出す。</text>
 											<weapon name="LIST_WEAPONS_ALL_CRAPBUCKET" />
 											<choice hidden="true">
-												<text>継続する...</text>
+												<text>次へ...</text>
 												<event>
-													<text>船体から別の武器を引き抜きます。</text>
+													<text>船体から別の武器を取り出す。</text>
 													<weapon name="LIST_WEAPONS_ALL_CRAPBUCKET" />
 													<choice hidden="true">
-														<text>継続する...</text>
+														<text>次へ...</text>
 														<event>
-															<text>船体から別の武器を引き抜きます。</text>
+															<text>船体から別の武器を取り出す。</text>
 															<weapon name="LIST_WEAPONS_ALL_CRAPBUCKET" />
 															<choice hidden="true">
-																<text>継続する...</text>
+																<text>次へ...</text>
 																<event load="BOUGHT_THE_GHOST_SHIP" />
 															</choice>
 														</event>
@@ -2145,28 +2145,28 @@
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>ゴーストと戦おう！</text>
+				<text>亡霊と戦え！</text>
 				<event>
-					<text>あなたは武器を武装させ、ゴースト船を攻撃します。</text>
+					<text>武器を装備し、ゴースト船を攻撃する。</text>
 					<ship hostile="true" /> 
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice>
-				<text>まあ、固執する理由はあまりありません。</text>
+				<text>まあ、ここに留まる理由はあまりない。</text>
 				<event />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>私は十分に見てきました。</text>
+		<text>もう十分だ。</text>
 		<event>
-			<text>あなたにとってさえ、これは多すぎます。いくつかのことは、知られている、見られている、または相互作用することを意図していないだけです。これはあなたが考えているものの1つであり、可能な限り遠くにコースを操縦します。</text>
+			<text>これは、あなたにとってさえ、やり過ぎなのよ。知るべきでないもの、見るべきでないもの、関わるべきでないものがある。これはそのひとつだと考え、可能な限り遠くに進路を取る。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -2177,22 +2177,22 @@
 	</choice>
 </event>
 <event name="NEBULA_QUEST_CLAN_PHEROMONES_STORE_CHOICE">
-	<text>ゴーストは消えましたが、造船所にはまだ多くのゴーストがさまよっているようです。あなたが行く前にいくつかの物資を回収する危険がありますか？</text>
+	<text>ゴーストはいなくなったが、造船所にはまだ多くのゴーストがさまよっているようだ。危険を冒してでも物資を回収してから行くのか？</text>
 	<choice hidden="true">
-		<text>いくつかのものを略奪します。</text>
+		<text>いくつか略奪する。</text>
 		<event>
-			<text>あなたはマンティスの船の中を歩き回り、さらにいくつかの物資を手に入れますが、怒っているゴーストのチームが乗って、倒れた友人に復讐します！</text>
+			<text>マンティスの船内を探し回り、さらに物資を手に入れるが、ゴーストの怒れるチームが倒れた仲間の仇を討つために乗り込んできた！</text>
 			<autoReward level="MED">standard</autoReward>
 			<boarders min="2" max="3" class="phantom_goul" />
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>危険を冒して去らないでください。</text>
+		<text>リスクを冒してまで去る必要はない。</text>
 		<event />
 	</choice>
 </event>
 <event name="BOUGHT_THE_GHOST_SHIP">
-	<text>今のところ船から必要なものをすべて取り出しましたが、難破船を連邦格納庫に送り返すことに害はないと考えています...なぜですか？</text>
+	<text>とりあえず船から必要なものはすべて持ち出したが、残骸を連邦の格納庫に送り返しても問題はないだろう。</text>
 	<unlockCustomShip silent="false">PLAYER_SHIP_STUPIDGHOST</unlockCustomShip>
 </event>
 
@@ -2203,47 +2203,47 @@
 		<nebulaBeacon>false</nebulaBeacon>
 		<aggressive>2</aggressive>
 	</quest>
-	<text>この惑星は、あらゆる種類の珍しい生物が生息する、緑豊かな惑星らしい。手入れの行き届いた草原や息を呑むような岩の彫刻から判断すると、ここはEHGで最も整備された狩猟場の1つに違いないようだ。このような場所は、クランズマンだけでなく、裕福な顧客だけが利用できるようになっており、地球外で繁殖した生命体が飼われている。この惑星はインフラが全く整備されていないように見えるが、スキャンすると1つだけ異常が見られる。地表に船がある。</text>
+	<text>あなたは、あらゆる種類のエキゾチックな生物であふれる緑豊かな惑星に出くわしたようだ。ありえないほどよく手入れされた草原や息をのむような岩の彫刻から判断するに、ここはEHGで最もよく整備された狩猟場のひとつに違いない。このような場所は、クランズマンだけでなく、裕福な顧客だけのもので、地球外で繁殖した生命体が飼育されている。この惑星にはインフラがまったくないように見えるが、スキャンしてみると1つだけ異常がある。地表に船がある。</text>
 	<img back="BACK_EVENT_PONYWORLD" planet="NONE" />
 	<choice hidden="true">
-		<text>近づいてみる。</text>
+		<text>アプローチ</text>
 		<event>
-			<text>あなたは墜落した船の近くに自分の船を飛ばし、それがギルドの船であることに気づいた。しかし、その船は驚くほど古く、錆びついた形跡がある。近くには色鮮やかなエクイノイドが数頭放牧されており、のんびりと過ごしているのを眺めていると、声が聞こえてきた。「邪魔をするな、友よ。彼らは傷ついた魂なのだ、ギルドは優しくはない」</text>
+			<text>あなたは墜落した船の近くまで船を飛ばし、それがギルドの船であることに気づいた。しかし、その船は驚くほど古く、錆びた形跡がある。色鮮やかなイキノイドが数頭、近くで草を食んでいる。「邪魔をするな、友よ。彼らは拷問された魂なんだ、ギルドは優しくない」。</text>
 			<choice hidden="true">
-				<text>誰だ？</text>
+				<text>誰がいるんだ？</text>
 				<event>
-					<text>あたりを見回すが、誰もいない。目の前に広がる灰色の霞に目をやるが、それが何であるかはわからない。「恐る必要はありません。私たちは古き声に過ぎません。我々はストーリーテラーであり、長年に渡りこの地を見守り続けていた。物語を聞きたくはありませんか？」</text>
+					<text>振り向いても誰もいない。目の前にぼんやりとした灰色の雲が広がっているが、それが何なのかわからない。「恐れることはない。私たちは古代の声にすぎない。我々は語り部であり、長年この土地を監督してきた。物語をお聞きになりたいですか？"</text>
 					<choice hidden="true">
-						<text>もちろん。</text>
+						<text>もちろんだ。</text>
 						<event>
-							<text>放牧されているポニーの隣に座ると、一頭がふらりとやってきて、あなたの肩に鼻先を置いた。霞はあなたの周りを無秩序に動き回り、彼は話を始める。「昔、ある男の子とその叔父が一緒にここに来ていた。男の子の父親は亡くなり、母親も亡くなっていた。叔父は屈強な人でしたが、少年はおとなしかった。この旅は珍しいもの、それほど自由ではあるわけではなかった。しかし、叔父はその少年から好かれようと必死でした」</text>
+							<text>放牧されているポニーの隣に座ると、1頭がふらふらとやってきて、あなたの肩にマズルを置いた。彼が話を始めると、雲が模様のないような動きであなたの周りを取り囲む。「昔、何年も前に、ある少年が叔父と一緒にここに来ていた。父親は亡くなり、母親も死んだ。叔父は誇り高い人だったが、少年はおとなしかった。このような旅は珍しく、簡単な自由ではありませんでしたが、叔父は少年の愛情を得ようと必死でした」。</text>
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event>
-									<text>「最初は野生動物を見るだけで、あまり近づきはしませんでした。叔父はそれを禁じたからです。ある日、叔父が銃を持ってきて少年に銃の使い方を教え、鳥を撃ちました。しかし、少年はただ泣くだけでした。叔父はそれを理解できず、毎日同じことが繰り返さました。二人が来て、動物が死に、少年は泣く。少年は何度も銃を正確に撃ってはいるものの、一度も動物に当てたことはありません。代わりに、缶や石を撃っていました」</text>
+									<text>「最初はただ野生動物を眺めるだけだった。叔父はそれを禁じていた。ある日、叔父が銃を持ってきた。叔父は少年に銃の使い方を教え、空から鳥を撃った。しかし少年は泣くばかりだった。叔父は理解できず、毎日同じことが繰り返された。ペアが来て、動物が死に、少年は泣く。少年は何度も銃を振り回し、命中精度で撃ったが、動物に命中したことは一度もなかった。代わりに缶や石を撃っていた。"</text>
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event>
-											<text>「ある日、叔父はあきらめました。彼は船に留まり、少年を自由にしました。 叔父は、自分とは違い、エクイノイドとは愛情を共有できることがないと分かれば、彼が理解するだろうと考えたようです。しかし、少年は毎日、熱心にエクイノイドに餌をやり、至福の時を過ごすことになりました。少年はエクイノイドからも子馬のように可愛がられていて、少年とエクイノイドは、少年の実の叔父よりも愛情を共有していました。傷つけられ、家を失い、彼らの真価を理解できない彼は、新たな命題を押しつけられることになりました」</text>
+											<text>「ある日、叔父はあきらめた。彼は船に残り、少年を自由にした。叔父は、イクイノイドが自分と同じような愛情をイクイノイドに注いでいないことを知れば、少年が冷たさを覚えるだろうと期待した。しかし、少年は毎日喜んでイクイノイドに餌をやり、至福の時を過ごした。イキノイドは少年を自分の仔馬のように可愛がった。少年とイキノイドには、少年の叔父以上の共通点があった。私生児にされ、家もなく、本性を理解しない主人によって新たな目的を押しつけられた。"</text>
 											<choice hidden="true">
-												<text>継続する...</text>
+												<text>次へ...</text>
 												<event>
-													<text>「毎日のように少年は、叔父にここに来たいとお願いしていた。叔父の嫉妬は日に日に増していった。どうして、少年は自分の肉親よりも心ない異星人を愛することができるのか？　ある日、エクイノイドは今までよりも遠くまで歩き回ってしまい、少年はその後を追ってしまった。叔父は大事なわが子を見失ったことに気づき、あわてて後を追った。少年はあてもなくさまよいましたが、難破船を見つけるまで恐れることはありませんでした。その難破船は、苔むし、錆びついていて破損していました。それは遭難したエンジのものでした」</text>
+													<text>「毎日、少年は叔父にここに来るよう懇願し、叔父の嫉妬心は日に日に募っていった。少年は自分の血肉よりも、心ない異星人を愛することができたのだろうか？ある日、イコノイドは以前よりも遠くまで移動し、少年もそれに従った。叔父はパニックになり、大切な子供を見失ったことに気づいて慌てて後を追った。少年はあてもなくさまよい歩いたが、難破船を見つけるまでは恐れることはなかった。コケだらけで錆びついたその船は、迷子になったエンジに操縦されて、荒れ果てた状態で横たわっていた。"</text>
 													<choice hidden="true">
-														<text>継続する...</text>
+														<text>次へ...</text>
 														<event>
-															<text>「エンギは負傷していました。盗難船の偽装を見破ったクランズマンに撃ち落とされたのでした。その後、エンギもまたエクイノイドと仲が良くなり、エクノイドは少年をエンギに会わせるべきだと考えたようです。二人は仲良しになり、何時間もとりとめのない話をしていました。エンギは旅で多くのものを見てきたが、ほとんど理解できていなかった。一方、少年は保護されていたが、見たものすべてを理解していた。少年はエンギに多くのことを教え、エンギは多くの物語で少年を楽しませました」</text>
+															<text>"エンギ "は盗まれた船の偽装を見破ったクランズマンに撃ち落とされ、負傷していた。エンギもまたイコノイドと親交があり、イコノイドは少年がエンギに会う時が来たと考えた。二人は親友となり、何時間も特に何も話さなかった。エンギは旅でいろいろなものを見てきたが、ほとんど理解していなかった。少年はエンギにいろいろなことを教え、エンギは少年をいろいろな話で楽しませた。</text>
 															<choice hidden="true">
-																<text>継続する...</text>
+																<text>次へ...</text>
 																<event>
-																	<text>「夜が訪れると、少年は疲れたのでエンギに"おやすみ、またね"と告げた。彼は再びエクイノイドに導かれて帰っていきました。しかし、少年は二度と戻ってこなかった。我々は彼に何が起こったか分からない。エクイノイドは良い仲間であるものの、我々と話ができるわけでもなく結局何も分からなかった...」</text>
+																	<text>「夜になり、少年は疲れてエンギにおやすみを告げた。少年は再び赤道直下に導かれて歩き出した。少年は二度と戻ってこなかった。彼の消息はわからない。彼の声が恋しい。"イクイノイドは良い仲間だが、我々の話は理解できない..."</text>
 																	<choice hidden="true">
-																		<text>あなたがこの物語のエンギなのですか？</text>
+																		<text>あなたがこの物語に出てくるエンジですね？</text>
 																		<event>
-																			<text> 「そう、我々の一部です。だがもうエンギではない。ハーモニーから離れすぎて記憶はほとんどない。我々はここを見守っているに過ぎません。多くの船が行き来しているが、我々は気にしない。彼らがエクイノイドを害さない限りは...」</text>
+																			<text>「しかし、私たちはもうそのエンジではない。長い間ハーモニーから切り離されていたから、それがどんなものだったかほとんど覚えていない。私たちはこの場所の守護者でしかない。多くの船が行き来する。赤道直下を乱さない限り、気にすることはない..."</text>
 																			<achievement>ACH_EVENT_STORYTELLER</achievement>
 																			<choice hidden="true">
-																				<text>継続する...</text>
+																				<text>次へ...</text>
 																				<event load="PONY_WORLD_HUNTERS" />
 																			</choice>
 																		</event>
@@ -2261,19 +2261,19 @@
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>いいえ、でもしばらく滞在します。</text>
+						<text>いや、でもしばらく滞在するよ。</text>
 						<event>
-							<text>「いいですよ。このような異国の地の美しさをじっくりと鑑賞する人はめったにいない。訪問者はよく来ますが、単に急いで来て、去っていくだけだ。我々は気にしない、彼らがエクイノイドを害さない限りは..」</text>
+							<text>「よかった。このような異国の美しさをじっくりと鑑賞する人はめったにいない。観光客はよく来るが、ただ慌ただしく行き来するだけだ。私たちは、彼らが赤道儀を邪魔しない限り、彼らを気にしない..."</text>
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="PONY_WORLD_HUNTERS" />
 							</choice>
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>話をする時間がありません。いかなくちゃ。</text>
+						<text>話をしている時間はない。行かなければならない。</text>
 						<event>
-							<text>「残念です。最近は誰もかれもが時間がないようだ...。さて、我々はここを離れることはないだろう。旅人よ、旅を続けなさい。気が変わったら、戻ってくるがいい...」</text>
+							<text>「残念だ。最近は誰も時間がなくて...。まあ、ここを離れることはないだろう。旅を続けなさい。もし気が変わったら、私たちがどこにいるか知っているわね..."</text>
 						</event>
 					</choice>
 				</event>
@@ -2281,11 +2281,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>惑星を無視します。</text>
+		<text>地球を無視する。</text>
 		<event>
-			<text>EHGは、おそらくあなたが彼らの特別な狩猟エリアを突っついているのを好まないでしょう。それを危険にさらさないのが最善です。</text>
+			<text>EHGはおそらく、あなたが彼らの特別狩猟区域を詮索するのを嫌がるだろう。危険は冒さない方がいい。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -2296,21 +2296,21 @@
 	</choice>
 </event>
 <event name="PONY_WORLD_HUNTERS">
-	<text>ここで新しい船がやってきた。真っ黒な船体から、スラッグの特別な船であることがわかる。彼らはあなたのことを気にする様子もなく、近くに降り立ち、狩りの道具を取り出し、楽しい世間話をしている。ところが、ストーリーテラーがふらりとやってきて「エイクイノイドの邪魔にならないように、船を移動してくれ」と頼む。が、ナメクジたちは笑い転げ、さっそくおどけたようにポニーに銃口を向け始めた。</text>
+	<text>まるで合図があったかのように、新しい船が到着した。真っ黒な船体から察するに、何か特別な、非常に重要なスラッグの船だ。彼らはあなたを気にする様子もなく、近くに着岸し、狩猟用具を取り出し、楽しい世間話をしている。ストーリーテラーがふらふらと彼らのところへやってきて、馬酔木の邪魔にならないように船を別の場所に移動してくれるよう丁重に頼むまでは。スラッグたちは笑い出し、すぐにポニーをあざけりながら銃を向け始めた。</text>
 	<ship load="SHIP_PONY_WORLD_KNIGHT" hostile="false" /> 
 	<choice hidden="true">
 		<text>介入する。</text>
 		<event>
-			<text>予想はしていたが、スラッグはあなたが邪魔することを受け入れません。「なななんで、ここに、れれ連邦軍の船がいるんだ？ここはギギギルド領域だ！お前が、つつ次の、かか狩りの標的だ！」</text>
+			<text>予想通り、スラッグは君の邪魔をするのを快く思わない。「なぜ連邦の船がここにいる？ここはギルドの縄張りだ！次の獲物はお前らだ！"</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>トラブルになりそうだ。私たちが去るのが最善です。</text>
+		<text>トラブルが起きているようだ。ここを離れるのが最善だ</text>
 		<event />
 	</choice>
 </event>
@@ -2324,36 +2324,36 @@
 	</crew>
 </ship>
 <event name="PONY_WORLD_WIN">
-	<text>スラッグ船を破壊しました。残念ながら残骸は景観に影響を与えますが、幸いどの生き物にも当たることがなかったようです。残骸をスクラップにしている間、いくつかのスラッグがまだ地面にいて、イクイノイドを苦しめていることに気づきました。</text>
+	<text>スラッグ船は破壊された。残念なことに、残骸は景観を損なっているが、動物たちは誰もやられていない。残骸をスクラップしていると、数匹のスラッグがまだ地上に残っていて、赤道動物を苦しめていることに気づく。</text>
 	<autoReward level="HIGH">standard</autoReward>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>あなたが何か行動をおこす前に、灰色の霞は突然大きくなり、スラッグを包み込みました。叫び声が聞こえた後、突然、霞は消え、そこには裂けた肉と血の水たまりだけが残ります。「私たちはイクイノイドを害しないよう警告しました...一部の人々は耳を傾けませんが...」</text>
+			<text>あなたが何もしないうちに、灰色の雲が突然大きくなり、スラッグたちを灰色のカーテンで隠してしまう。血のにじむような悲鳴が聞こえ、突然雲は消え去り、裂傷した肉と血の水たまりだけが残る。「赤道直下を荒らすなと警告したはずなのに...。聞く耳を持たない者もいる..."</text>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>ストーリーテラーがあなたを待っている彼らの船に浮かぶのを見ます。「あなたが私たちを助けることを選んだとは意外です。あなたがこの場所を見つけたのは我々の船があったからですよね？それなら持って行って構いません。もう必要ありませんから。」</text>
+					<text>ストーリーテラー号が彼らの船に戻り、あなたを待っているのをあなたは見る。「私たちに協力するとは珍しい。あなたがこの場所を見つけたのは、私たちの船のおかげなんでしょう？それなら持って行きなさい。もう必要ない。</text>
 					<unlockCustomShip silent="false">PLAYER_SHIP_CLAN</unlockCustomShip>
 					<autoReward level="HIGH">standard</autoReward>
 					<choice hidden="true">
-						<text>船を受け入れて出発します。</text>
+						<text>船を受け入れ、出発する。</text>
 						<event>
-							<text>「さようなら、友よ。あなたの物語が語られることはないことを望みます...」</text>
+							<text>「さようなら、友よ。私たちは、あなたの物語が語り継がれることのないようにします..."</text>
 						</event>
 					</choice>
 					<choice hidden="true" req="LIST_CREW_JERRY">
-						<text>（ジェリー）「僕があなたの話の中の男の子だと思います...」</text>
+						<text>(ジェリー）"僕は君の話に出てくる男の子だと思うんだ..."</text>
 						<event>
-							<text>ストーリーテラーはジェリーのもとに流れ着き、ゆっくりと深紅のエンジの姿に凝縮されていきます。「我らが友よ。久しぶりの再会ですね…。どうしてこのような再会ができたのでしょうか？あなたの瞳には、まだ純真さが残っていますね。とりとめもない話し方で申し訳ない。ご一緒できればと思いますができません。私たちが提供できるのは贈り物だけです。ジェリー、そして友人たちとの最高の旅をお祈りします。これで、これでこの物語は、ようやくハッピーエンドになります…」</text>
+							<text>ストーリーテラーはジェリーのそばを漂い、ゆっくりと真紅のエンジの形に凝縮し始める。「友よ。君に会うのは本当に久しぶりだ。この再会のために、星々はどのように整列したのだろうか？君の瞳にはまだ純真さが残っている。とりとめのない話で申し訳ない。ご一緒したかったのですが、それはできません。私たちが提供できるのは贈り物です。ジェリー、そしてあなたの友人たちよ、最高の旅を。今、この物語はようやくハッピーエンドを迎えることができる......」。</text>
 							<achievement>ACH_JERRY_CRYSTALPONY</achievement>
 							<crewMember amount="1" combat="2" class="ponyc" />
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>ストーリーテラーを連れて行くことを申し出てください。</text>
+						<text>ストーリーテラーを一緒に連れて行くと申し出る。</text>
 						<event>
-							<text>「我々はここを離れることができません。良い守護者なら、守るべきものを決して置き去りにしないと考えています。それはあなたには関係なく、我々のためにも必要はありません。私たちは戦士ではありません。心配しないでください、私たちはあなたの物語が語られことがないようにします...」</text>
+							<text>"私たちは決してこの場所を離れてはならないと思っています。良い守護者なら、守るべきものを置き去りにすることはない。私たちは必要ない。私たちは戦士ではありません。ご心配なく、あなたの物語が語り継がれることのないようにいたします......"</text>
 						</event>
 					</choice>
 				</event>
@@ -2369,11 +2369,11 @@
 	</loadEventList>
 </event>
 <event name="SYLVAN_SALT_QUEST_INTRO_CHAOS">
-	<text>ロッジに足を踏み入れると、誰かがここにいることを期待しているように感じます。それでも、誰も前に出ません。 「ソルトマン」と呼ばれる個人に関する一族の人と海賊の間の興味深い会話をキャッチするまで、あなたはさまよっています。あなたは彼らの隣のテーブルに座り、彼らが何を言っているのかを聞くために身を乗り出します。</text>
+	<text>あなたはロッジに足を踏み入れた。しかし、誰も前に出てこない。ぶらぶらと歩いていると、「ソルトマン」と呼ばれる人物について、クランズマンと海賊の間で興味深い会話が交わされているのを見つけた。あなたは彼らの隣のテーブルに座り、彼らの話を聞こうと身を乗り出した。</text>
 	<choice hidden="true">
-		<text>聞く。</text>
+		<text>聞いてくれ。</text>
 		<event>
-			<text>突然、耳元で大きな不快な声が鳴り響き、椅子から転げ落ちます。見上げると、ノームが不思議なことにテーブルに現れ、今あなたに怒鳴っています。あなたの奇妙な行動に腹を立てて、駅の所有者はあなたに去るように頼みます.あなたは謝罪し、ノームのせいにしますが、それは彼らをさらに混乱させるだけです.ノームが本物かどうかについて何度か議論した後、船に戻ると、メモと一緒にダッシュボードに固定された不思議な座標のセットを見つけます. 「私のために彼を見つけてください。-S」</text>
+			<text>突然、耳元で不愉快な大声が鳴り響き、あなたは椅子から転げ落ちる。顔を上げると、ノームが不思議なことにテーブルの上に現れ、あなたに怒鳴っている。あなたの奇妙な行動に苛立った駅主は、あなたに出て行くように頼んだ。あなたは謝り、ノームのせいにするが、彼らはさらに混乱する。ノームが本物かどうかで口論になった後、船に戻ると、ダッシュボードに謎の座標とメモが貼ってあった。「彼を見つけてください。-S"</text>
 			<playSound>gm_obyn</playSound>
 			<quest event="NEBULA_SALT_QUEST_CHAOS" />
 		</event>
@@ -2381,50 +2381,50 @@
 </event>
 
 <event name="SYLVAN_SALT_QUEST_INTRO_NOPE">
-	<text>ロッジに足を踏み入れると、誰かがここにいることを期待しているように感じます。それでも、誰も前に出ません。 「ソルトマン」と呼ばれる個人に関する一族の人と海賊の間の興味深い会話をキャッチするまで、あなたはさまよっています。あなたは彼らの隣のテーブルに座り、彼らが何を言っているのかを聞くために身を乗り出します。</text>
+	<text>あなたはロッジに足を踏み入れた。しかし、誰も前に出てこない。ぶらぶらと歩いていると、「ソルトマン」と呼ばれる人物について、クランズマンと海賊の間で興味深い会話が交わされているのを見つけた。あなたは彼らの隣のテーブルに座り、彼らの話を聞こうと身を乗り出した。</text>
 	<choice hidden="true">
-		<text>聞く。</text>
+		<text>聞いてくれ。</text>
 		<event>
-			<text>残念ながら、二人はあなたが盗聴していることに気づき、あなたを冷静に見つめたときに物事が熱くなるかもしれないと思うが、彼らは単に不要な注意を引かないように見えないように移動する。結局のところ、本当に興味深いものではなかったようです。</text>
+			<text>不運なことに、2人はあなたが盗み聞きしていることに気づき、冷ややかにあなたを見つめるので、事態がヒートアップするのではないかと思ったが、彼らは不要な注意を引かないよう、視界の外に移動しただけだった。結局、本当に何もなかったようだ。</text>
 		</event>
 	</choice>
 </event>
 
 <event name="SYLVAN_SALT_QUEST_INTRO">
-	<text>群衆の後ろでおなじみの顔に気づいたとき、あなたはロッジの周りを動き始めます。 「Sssstranger！オッズは何ですか！オッズは実際に何ですか...購入するssssomethingを探していますか？私はあなたを私のssshipに連れて行き、私が持っているものをssshowすることができます...」</text>
+	<text>あなたはロッジの周りを移動し始めた。"よそ者 "だ！奇妙なことだ！本当に奇妙なことだ...。何かお探しですか？私の船に案内してあげよう、何があるか見せてあげよう..."</text>
 	<choice hidden="true">
-		<text>シルバンに従ってください。</text>
+		<text>シルヴァンをフォロー</text>
 		<event>
-			<text>あなたはシルバンを追いかけ、そこで彼は途中でちょっとした話をします。「ご存知のように、私はギルドの中でレンジャーになりました。それから、私たちはこの仲間がスサルトマンと呼ばれるこの仲間とは異議を唱えました。。JusssstはMysssselfにそれをもたらすことができませんでした、あなたは知っていますか？とにかく、そのssstuffについて...</text>
+			<text>あなたはシルヴァンの後について裏手に回り、そこで彼は世間話をした。「俺は昔、ギルドのレンジャーだったんだ。それから "塩の男 "って奴と揉めたんだ。"ソルトマン "と呼ばれる奴との確執を乗り越えたんだ。しかし、ギルドは彼の死を望んでいる。だが、どうしてもその気になれなかったんだ。とにかく、そのことについては......"</text>
 			<choice hidden="true">
 				<text>ソルトマンについて詳しく教えてください。</text>
 				<event>
-					<text>シルバンはしばらくの間地面を見下ろします。「ええ、あなたのインタースストを覗き込んだ、私は彼がwasssを抱きしめ、おそらく私が一族を残して商人になった唯一の理由である。彼は何年もの間...」</text>
+					<text>シルヴァンはしばらく地面に目を落とす。"へえ、興味をそそられたかい？彼は魅力的な奴で、俺が一族を離れて商人になった唯一の理由かもしれない。私たちは確かに...友人と呼べるかもしれない...でも彼とはもう何年も話していない..."</text>
 					<choice>
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
-							<text>「真実はssstrangerに言われます、私は彼をもう一度見つけるためにここに来ました...うーん...あなたは私にssstrangerを支持することができると思います、そしてあなたはこれらのコーディネッズによってSSSTOPをしますか？あなたがそこにいたら、彼が死んでいないのをsssureにしてください、大丈夫ですか？そして私のために良い言葉を入れてください...私はそれを本当に感謝しています。」</text>
+							<text>「本当のことを言うと、私はまた彼を見つけるためにここに来たんだ。現在、彼がそこに留まっていると聞いている。そこに着いたら、彼が死んでないことを確認してくれ、いいな？それと、よろしく伝えてくれ...本当に感謝する。"</text>
 							<choice hidden="true">
-								<text>承認。</text>
+								<text>受け入れる。</text>
 								<event load="SYLVAN_SALT_QUEST_ACCEPT" />
 							</choice>
 							<choice hidden="true">
-								<text>自分でやってみませんか？</text>
+								<text>なぜ自分でやらないんだ？</text>
 								<event>
-									<text>「ああ...まあ、私は非常にbusssy ssslug、ssstrangerです。あなたはそれがどのようにイッズをし、Realitiesss Vaststとそのすべてのジャズを旅しているのか知っています。彼はどんな危険にもかかっています。私は彼が大丈夫であることを確認したいと思っています。そして、彼は大丈夫だろうと思います。Coursse。</text>
+									<text>"ああ...まあ、私はとても忙しいススラッグなんだ。現実の世界を旅しているんだ。どうせちょっとしたチェックインなんだ。彼に危険が迫ってるわけじゃない。ただ彼の無事を確かめたいだけなんだ。彼は大丈夫だよ。もちろんさ。えへへ...」。シルヴァンはあまり自信がなさそうだが、それ以上何も言わない。</text>
 									<choice hidden="true">
-										<text>承認。</text>
+										<text>受け入れる。</text>
 										<event load="SYLVAN_SALT_QUEST_ACCEPT" />
 									</choice>
 									<choice hidden="true">
-										<text>却下。</text>
+										<text>衰退。</text>
 										<event load="SYLVAN_SALT_QUEST_DECLINE" />
 									</choice>
 								</event>
 							</choice>
 							
 							<choice hidden="true">
-								<text>却下。</text>
+								<text>衰退。</text>
 								<event load="SYLVAN_SALT_QUEST_DECLINE" />
 							</choice>
 						</event>
@@ -2432,17 +2432,17 @@
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>彼が持っているものを見てください。</text>
+				<text>彼が持っているものを見てみよう。</text>
 				<event>
-					<text>「ああ、ssstranger、あなたは幸運です。私はsssome高品質のギアを手に入れました。あなたが興味を持ってくれるような気がします！」シルバンは彼の船からいくつかの武器を引き出してあなたに見せます。</text>
+					<text>"ああ、ストレンジャー、君は運がいい。あんたが興味を持ちそうな、上質な装備を手に入れたんだ！"シルヴァンは自分の船からいくつかの武器を取り出し、あなたに見せる。</text>
 					<choice>
-						<text>同意。</text>
+						<text>同意する。</text>
 						<event load="SYLVAN_TRADES" />
 					</choice>
 					<choice>
-						<text>却下。</text>
+						<text>衰退。</text>
 						<event>
-							<text>「ああ、それではSssstranger。また別の機会に、おそらくss？私たちは、今後もお互いにsssseeするだろうと信じています！」</text>
+							<text>"ああ、そうですか。またの機会に。この先また会えると信じているよ！"</text>
 						</event>
 					</choice>
 				</event>
@@ -2451,56 +2451,56 @@
 	</choice>
 </event>
 <event name="SYLVAN_SALT_QUEST_ACCEPT">
-	<text>「ああ！ すごいよ、ススストレンジャー！ レネガデス、とても信頼できる。だから、私はあなたが好きなのよ、ススストレンジャー。さて、ちょっとした取引についてどう思いますか？」</text>
+	<text>"ああ！今のは壮大だ、よそ者よ！レネゲデスは信頼できる。だから好きなんだ、よそ者。さて、ちょっと取引してみるか？"</text>
 	<quest event="NEBULA_SALT_QUEST" />
 	<choice>
-		<text>同意。</text>
+		<text>同意する。</text>
 		<event load="SYLVAN_TRADES" />
 	</choice>
 	<choice>
-		<text>却下。</text>
+		<text>衰退。</text>
 		<event>
-			<text>「ああ、それではSssstranger。また別の機会に、おそらくss？私たちは、今後もお互いにsssseeするだろうと信じています！」</text>
+			<text>"ああ、そうですか。またの機会に。この先また会えると信じているよ！"</text>
 		</event>
 	</choice>
 </event>
 <event name="SYLVAN_SALT_QUEST_DECLINE">
-	<text>「ああ...はい、私の悪い...忙しさと個人的な問題を混ぜてはいけません、はい...」シルバンは眉をひそめますが、彼のチッパートーンを維持します。 「まあ、とにかく貿易はどうですか、ススストレンジャー？」</text>
+	<text>"ああ...そうだ、悪かった...ビジネスと個人的なことを一緒にしちゃいけないんだ、うん..."シルヴァンは顔をしかめるが、明るい口調を保つ。"まあ、とにかく交換はどうだい、よそ者さん？"</text>
 	<choice>
-		<text>同意。</text>
+		<text>同意する。</text>
 		<event load="SYLVAN_TRADES" />
 	</choice>
 	<choice>
-		<text>却下。</text>
+		<text>衰退。</text>
 		<event>
-			<text>「今日はノーと言う気分で本当にジャスト、ええ、ストレンジャー？まあ…次回は多分。」シルバンはすぐにロッジに戻ります。</text>
+			<text>「今日は本当にノーと言う気分なのか？まあね...また今度ね」。シルヴァンはすぐにロッジに戻る。</text>
 		</event>
 	</choice>
 </event>
 
 <ship name="SHIP_SALT_ABANDONED" auto_blueprint="MU_SALT_CRUISER">
 	<surrender min="3" max="4">
-		<text>「みんな地獄にくそ、カビの胞子を腐らせた！あなたを追い払うのに何が必要だろう？上司はここにいない、私たちを殺す理由はない、ギルドは私たちについて2つのくそを与えない！」</text>
+		<text>「腐ったカビの胞子どもめ！お前らを追い払うのに何が必要だ？ボスはここにいない、俺たちを殺す理由はない、ギルドは俺たちのことなど気にもしていない！"</text>
 		<choice hidden="true">
-			<text>私たちはあなたを殺すためにここに来たのではありません。</text>
+			<text>私たちはあなたを殺すためにここに来たのではない。</text>
 			<event>
-				<text>「あなた...ああ...私は私の判断に重大な誤りを犯したようです。それでは、なぜあなたはここにいるのですか？」</text>
+				<text>"あなたは...ああ...どうやら私の判断に重大な誤りがあったようだ。では、なぜここに？"</text>
 				<ship hostile="false" />
 				<variable name="ach_boss_salt" op="set" val="1" />
 				<choice hidden="true">
-					<text>シルバンが送ってくれました。</text>
+					<text>シルヴァンが送ってくれたんだ。</text>
 					<event>
-						<text>「シルバン？それは私がしばらく聞いていない名前です！彼はその全体の後に永久に去ったと思っていました...よく知っています。」</text>
+						<text>「シルヴァン？久しぶりに聞く名前だ！あの後、彼は永久に去ったと思っていた......そう、その......"</text>
 						<choice hidden="true">
-							<text>ええ、詳細は割愛してください。それではあなたの上司はどこにいますか？</text>
+							<text>ああ、細かいことはいい。ボスはどこだ？</text>
 							<event load="SALT_QUEST_COORDS" />
 						</choice>
 						<choice hidden="true">
-							<text>知らない。</text>
+							<text>分からないよ。</text>
 							<event>
-								<text>「ああ...私はこのことを説明するのはよくありません。そのどろどろしたグーシーな関係のすべての頭を持ってはいけません...私はただ物事を殴ります。」</text>
+								<text>"ああ...僕はこういうことを説明するのは苦手なんだ。そういうグチャグチャした人間関係を説明する頭がないんだ...。ただ殴るだけだ"</text>
 								<choice hidden="true">
-									<text>では...</text>
+									<text>それなら</text>
 									<event load="SALT_QUEST_COORDS" />
 								</choice>
 							</event>
@@ -2510,36 +2510,36 @@
 			</event>
 		</choice>
 		<choice>
-			<text>私はあなたを殺すつもりはなかったが、あなたは私をカビの胞子と呼んだ。クールではありません。</text>
+			<text>殺すつもりはなかったけど、カビの胞子って言われた。クールじゃない。</text>
 			<event />
 		</choice>
 	</surrender>
 	<destroyed>
-		<text>ソルトマンの船を破壊したようです。彼が乗っていなかったのは事実ですが、あなたは彼の場所を今すぐ見つけることができるとは思えません。</text>
+		<text>塩男の船を破壊したようだな。彼が乗船していなかったのは事実だが、これで彼の居場所を突き止められるとは思えない。</text>
 		<autoReward level="MED">standard</autoReward>
 		<variable name="ach_boss_salt" op="set" val="1" />
 	</destroyed>
 	<deadCrew>
-		<text>あなたはソルトマンのクルーを殺したようです。彼が乗っていなかったのは事実ですが、あなたは彼の場所を今すぐ見つけることができるとは思えません。</text>
+		<text>塩男の乗組員を殺したようだな。彼が乗船していなかったのは事実だが、これで彼の居場所を突き止められるとは思えない。</text>
 		<autoReward level="HIGH">standard</autoReward>
 		<variable name="ach_boss_salt" op="set" val="1" />
 	</deadCrew>
 </ship>
 <ship name="SHIP_SALT_ABANDONED_CHAOS" auto_blueprint="MU_SALT_CRUISER">
 	<surrender min="3" max="4">
-		<text>「みんな地獄にくそ、カビの胞子を腐らせた！あなたを追い払うのに何が必要だろう？上司はここにいない、私たちを殺す理由はない、ギルドは私たちについて2つのくそを与えない！」</text>
+		<text>「腐ったカビの胞子どもめ！お前らを追い払うのに何が必要だ？ボスはここにいない、俺たちを殺す理由はない、ギルドは俺たちのことなど気にもしていない！"</text>
 		<choice hidden="true">
-			<text>私たちはあなたを殺すためにここに来たのではありません。</text>
+			<text>私たちはあなたを殺すためにここに来たのではない。</text>
 			<event>
-				<text>「あなた...ああ...私は私の判断に重大な誤りを犯したようです。それでは、なぜあなたはここにいるのですか？」</text>
+				<text>"あなたは...ああ...どうやら私の判断に重大な誤りがあったようだ。では、なぜここに？"</text>
 				<ship hostile="false" />
 				<variable name="ach_boss_salt" op="set" val="1" />
 				<choice hidden="true">
-					<text>Gnome は私たちにここに来るように言いました。また、誰かが私たちにここへの座標を教えてくれました。</text>
+					<text>ノームがここに来るようにと言ったんだ。それに、誰かがここまでの座標を教えてくれたんだ。</text>
 					<event>
-						<text>「ここに来るように言われたのは何ですか？気にしないでください。知りたくありません。誰があなたを送り込んだのか、残念ながらボスはもうここにいません。」</text>
+						<text>"The... the what told you to come here?気にするな、知りたくもない。誰に頼まれたにせよ、ボスはもうここにはいないようだ"</text>
 						<choice hidden="true">
-							<text>じゃあ上司はどこ？</text>
+							<text>ボスはどこだ？</text>
 							<event load="SALT_QUEST_COORDS_CHAOS" />
 						</choice>
 					</event>
@@ -2547,17 +2547,17 @@
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>*%$##@*%!</text>
+			<text>*$##@*%！</text>
 			<event load="OPTION_INVALID" />
 		</choice>
 	</surrender>
 	<destroyed>
-		<text>ソルトマンの船を破壊したようです。彼が乗っていなかったのは事実ですが、あなたは彼の場所を今すぐ見つけることができるとは思えません。</text>
+		<text>塩男の船を破壊したようだな。彼が乗船していなかったのは事実だが、これで彼の居場所を突き止められるとは思えない。</text>
 		<autoReward level="MED">standard</autoReward>
 		<variable name="ach_boss_salt" op="set" val="1" />
 	</destroyed>
 	<deadCrew>
-		<text>あなたはソルトマンのクルーを殺したようです。彼が乗っていなかったのは事実ですが、あなたは彼の場所を今すぐ見つけることができるとは思えません。</text>
+		<text>塩男の乗組員を殺したようだな。彼が乗船していなかったのは事実だが、これで彼の居場所を突き止められるとは思えない。</text>
 		<autoReward level="HIGH">standard</autoReward>
 		<variable name="ach_boss_salt" op="set" val="1" />
 	</deadCrew>
@@ -2565,8 +2565,8 @@
 <event name="NEBULA_SALT_QUEST">
 	<beaconType id="map_icon_merchantquest_major" global="true">
         <color r="155" g="90" b="205" a="1.0" />
-        <unvisitedTooltip>ソルトマンの推定場所についてシルバンが与えた座標。</unvisitedTooltip>
-        <visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+        <unvisitedTooltip>ソルトマンの推定位置をシルヴァンが示した座標。</unvisitedTooltip>
+        <visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
     </beaconType>
 	<preventFleet />
 	<quest>
@@ -2574,38 +2574,38 @@
 		<createNebula>false</createNebula>
 		<aggressive>2</aggressive>
 	</quest>
-	<text>星雲の隙間から、何よりも、巨大なクリスタル化した小惑星が見つかりますが、探しているソルトマンは何もありません。それでも、これはシルバンが彼がしなければならないと言ったところです...</text>
+	<text>星雲の中の空き地を通り抜けると、結晶化した巨大な小惑星を見つけた。それでも、ここはシルヴァンが言った場所に違いない...。</text>
 	<img back="BACK_EVENT_LIGHTNEBULA" planet="NONE" />
 	<status type="loss" target="player" system="sensors" amount="1" />
 	<environment type="asteroid" />
 	<choice hidden="true">
-		<text>ソルトマンはここにいないかもしれませんが、私たちはこの小惑星を利用することができます。</text>
+		<text>塩男はここにはいないかもしれないが、この小惑星を利用することはできる。</text>
 		<event>
-			<text>あなたは小惑星に近づき、その大きさに驚嘆します。それはあなたの船とほぼ同じ大きさです！それはあなたが気付くときです-それは船です！あなたが近づくとそれは動かないままであり、あなたはそれが空であるかもしれないと思う。</text>
+			<text>あなたは小惑星に近づき、その大きさに驚嘆した。あなたの船とほぼ同じ大きさだ！そのとき、あなたはあることに気がついた！あなたが近づいても小惑星は動かない。</text>
 			<ship load="SHIP_SALT_ABANDONED" hostile="false" />
 			<choice hidden="true">
-				<text>あなたの理論をテストして、何人かのクルーを乗せてください。</text>
+				<text>あなたの理論を試し、乗組員を何人か乗船させる。</text>
 				<event>
-					<text>以前の小惑星理論とよく似ているようですが、空の船の理論も真実ではありません。さまざまな種族の基幹要員があなたに会いに立ち上がる。 「クラップ、ボスがいない間にギルドの賞金稼ぎの一人が私たちを見つけたようだ！男性を集めて、これらの傭兵を彼らの代わりに置くよ！」あなたはおそらく彼らを殺さずにこれから抜け出すことができます、しかしあなたが彼らの船体を少し荒くするまで彼らが話すことをいとわないだろうとあなたは疑っています。</text>
+					<text>以前の小惑星説と同じように、空船説も真実ではないようだ。様々な種族の骸骨のような乗組員たちが、あなたたちを迎えに上がってきた。「ボスが留守の間に、ギルドの賞金稼ぎが俺たちを見つけたようだ！ボスが留守の間にギルドの賞金稼ぎが俺たちを見つけたようだ。彼らを殺さずに切り抜けることはできるだろうが、船体を少し荒らすまで、彼らが口を割るとは思えない。</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>リスクに見合う価値はありません、引き出してください。</text>
+				<text>リスクを冒す価値はない。</text>
 				<event />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>彼がいなくなったと思います、固執する理由はありません。</text>
+		<text>彼はもういない。</text>
 		<event>
-			<text>シルバンが間違った情報を持っているのとは違いますが、あなたは何を知っていますか。とにかく彼の情報がどこから来たのかさえ知らない。</text>
+			<text>シルヴァンが間違った情報を持っていることはないだろう。いずれにせよ、彼の情報がどこから来ているのかさえ知らないんだから。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -2618,8 +2618,8 @@
 <event name="NEBULA_SALT_QUEST_CHAOS">
 	<beaconType id="map_icon_merchantquest_major" global="true">
         <color r="155" g="90" b="205" a="1.0" />
-        <unvisitedTooltip>ソルトマンの推定場所のノームによって与えられた座標。</unvisitedTooltip>
-        <visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+        <unvisitedTooltip>ノームが示したソルトマンの推定位置の座標。</unvisitedTooltip>
+        <visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
     </beaconType>
 	<preventFleet />
 	<quest>
@@ -2627,40 +2627,40 @@
 		<createNebula>false</createNebula>
 		<aggressive>2</aggressive>
 	</quest>
-	<text>星雲の空き地を通して、何よりも、巨大な結晶化した小惑星を見つけますが、探しているソルトマンは見つかりません。それでも、これは座標が導いた場所です...</text>
+	<text>星雲の隙間から、あなたは巨大な結晶化した小惑星を見つけた。それでも、座標が導いてくれたのはここだった...。</text>
 	<img back="BACK_EVENT_LIGHTNEBULA" planet="NONE" />
 	<status type="loss" target="player" system="sensors" amount="1" />
 	<environment type="asteroid" />
 	<choice hidden="true">
-		<text>ソルトマンはここにいないかもしれませんが、私たちはこの小惑星を利用することができます。</text>
+		<text>塩男はここにはいないかもしれないが、この小惑星を利用することはできる。</text>
 		<event>
-			<text>あなたは小惑星に近づき、その大きさに驚嘆します。それはあなたの船とほぼ同じ大きさです！それはあなたが気付くときです-それは船です！あなたが近づくとそれは動かないままであり、あなたはそれが空であるかもしれないと思う。</text>
+			<text>あなたは小惑星に近づき、その大きさに驚嘆した。あなたの船とほぼ同じ大きさだ！そのとき、あなたはあることに気がついた！あなたが近づいても小惑星は動かない。</text>
 			<playSound>gm_asteroididiot</playSound>
 			<ship load="SHIP_SALT_ABANDONED_CHAOS" hostile="false" />
 			<choice hidden="true">
-				<text>あなたの理論をテストして、何人かのクルーを乗せてください。</text>
+				<text>あなたの理論を試し、乗組員を何人か乗船させる。</text>
 				<event>
-					<text>以前の小惑星理論とよく似ているようですが、空の船の理論も真実ではありません。さまざまな種族の基幹要員があなたに会いに立ち上がる。 「クラップ、ボスがいない間にギルドの賞金稼ぎの一人が私たちを見つけたようだ！男性を集めて、これらの傭兵を彼らの代わりに置くよ！」あなたはおそらく彼らを殺さずにこれから抜け出すことができます、しかしあなたが彼らの船体を少し荒くするまで彼らが話すことをいとわないだろうとあなたは疑っています。</text>
+					<text>以前の小惑星説と同じように、空船説も真実ではないようだ。様々な種族の骸骨のような乗組員たちが、あなたたちを迎えに上がってきた。「ボスが留守の間に、ギルドの賞金稼ぎが俺たちを見つけたようだ！ボスが留守の間にギルドの賞金稼ぎが俺たちを見つけたようだ。彼らを殺さずに切り抜けることはできるだろうが、船体を少し荒らすまで、彼らが口を割るとは思えない。</text>
 					<playSound>gm_liver</playSound>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>リスクに見合う価値はありません、引き出してください。</text>
+				<text>リスクを冒す価値はない。</text>
 				<event />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>彼がいなくなったと思います、固執する理由はありません。</text>
+		<text>彼はもういない。</text>
 		<event>
-			<text>シルバンが間違った情報を持っているのとは違いますが、あなたは何を知っていますか。とにかく彼の情報がどこから来たのかさえ知らない。</text>
+			<text>シルヴァンが間違った情報を持っていることはないだろう。いずれにせよ、彼の情報がどこから来ているのかさえ知らないんだから。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -2671,25 +2671,25 @@
 	</choice>
 </event>
 <event name="SALT_QUEST_COORDS">
-	<text>「ボスがトラブルに遭遇したとき、私たちはギルドのあまり親切ではない解剖センターの1つを取り除く任務を実行していました。彼は捕らえられ、現在そこに拘束されていますが、私たちは逃げました.ここ船に隠れて、脱獄できる状態ではありません。特にこの小さな喧嘩の後ではありませんが、特にシルバンがあなたの側にいる場合、あなたは仕事の反乱軍になるかもしれません!」</text>
+	<text>"私たちはギルドのあまり...もてなされていない解剖センターを破壊する任務を遂行していたんですが、ボスがあるトラブルに遭遇したんです。彼は捕らえられ、現在そこに拘留されているが、我々は脱出した。彼の最後の命令は、この船に残って隠れることだった。俺たちは脱獄できるような状態じゃないし、特にこの乱闘の後じゃなおさらだ。</text>
 	<choice hidden="true">
-		<text>シルバンは来ない。</text>
+		<text>シルヴァンは来ない。</text>
 		<event>
-			<text>「彼は… 来ない？ ああ。うーん… あなたは十分上手だと思います。シルバンほどではありませんが、少なくとも適度に、あなたが何かをやってのけることができると確信しています。まあ、これが座標です。良いです運が良ければ死なないで！」</text>
+			<text>「彼は...来ないの？ああ。まあ......君なら十分だろう。シルヴァンほどではないけど、少なくともあなたなら何かをやり遂げる自信があるわ。じゃあ、これがコーディネートだ。頑張れ、死ぬなよ！"</text>
 			<quest event="NEBULA_SALT_QUEST_2" />
 		</event>
 	</choice>
 </event>
 <event name="SALT_QUEST_COORDS_CHAOS">
-	<text>「ボスがトラブルに遭遇したとき、私たちはギルドのあまり親切ではない解剖センターの1つを取り除く任務を実行していました。彼は捕らえられ、現在そこに拘束されていますが、私たちは逃げました.ここの船に隠れてください。特にこの小さな乱闘の後ではないので、脱獄できる状態ではありませんが、あなたはこの仕事に適した反乱軍かもしれません!さて、これがコーディネートです。頑張ってください、死なないようにしてください!」</text>
+	<text>"ギルドのあまり...もてなされていない解剖センターを破壊する任務を遂行していた時、ボスがトラブルに巻き込まれた。彼は捕らえられ、現在そこに拘留されているが、我々は脱出した。彼の最後の命令は、この船に残って隠れることだった。俺たちは脱獄できる状態じゃないし、特にこの乱闘の後じゃ無理だ。でも、君ならレネゲイドになれるかもしれない！さて、これが座標だ。幸運を祈る。</text>
 	<quest event="NEBULA_SALT_QUEST_2" />
 </event>
 
 <event name="NEBULA_SALT_QUEST_2">
 	<beaconType id="map_icon_merchantquest_major" global="true">
         <color r="155" g="90" b="205" a="1.0" />
-        <unvisitedTooltip>ソルトマンはギルド施設で拘留されています。</unvisitedTooltip>
-        <visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+        <unvisitedTooltip>サルトマンはギルドの施設に拘留されている。</unvisitedTooltip>
+        <visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
     </beaconType>
 	<quest>
 		<nebulaBeacon>true</nebulaBeacon>
@@ -2697,42 +2697,42 @@
 		<aggressive>2</aggressive>
 	</quest>
 	<preventFleet />
-	<text>あなたはさらに別の開拓地にいることに気づき、巨大な湾を見る。見た目はとても快適で、空に目を向けるまで、クランズマンが「解剖センター」のように不吉なものをどこに置いているのかわからない。</text>
+	<text>また別の空き地に入り、巨大な湾を目にする。とても気持ちよさそうで、クランズマンが「解剖センター」のような不吉なものをどこに置いているのかわからない。</text>
 	<img back="BACK_EVENT_CLANJAIL" planet="NONE" />
 	<choice hidden="true">
-		<text>うわー、それは大きいです。</text>
+		<text>うわぁ、大きいね。</text>
 		<event>
-			<text>確かに、施設は非常に巨大で、知覚できる空のほぼすべてを遮っていますが、その上に浮かぶ巨大な予兆施設がないかのように、下の市場は活気に満ちています。</text>
+			<text>実際、その施設は巨大で、見える空のほとんどすべてを遮っている。しかし、下界の市場は、まるで上空に巨大な不吉な施設が浮かんでいないかのように活気に満ちている。</text>
 			<choice hidden="true">
-				<text>施設まで飛んでください、何がうまくいかないのでしょうか？</text>
+				<text>施設まで飛んでいけばいい。</text>
 				<event>
-					<text>結局のところ、多くのこと。解剖センターの格納庫への障壁を通り過ぎるとすぐに、内部のスイベルに大きな船の大砲が船に向かい、数人の氏族があなたに向かって叫び始めます。「あなたがしているのは地獄ですか？あなたはここにいるためにライセンスを手に入れましたか？」</text>
+					<text>いろいろなことが判明した。あなたが解剖センターの格納庫への障壁を通り過ぎたとたん、内部の巨大な対艦砲があなたの船に向かって旋回し、何人かのクランズマンがあなたに向かって叫び始めた。「何やってんだ、この野郎。ここに入る許可はあるのか？"</text>
 					<choice hidden="true">
-						<text>もちろん！</text>
+						<text>もちろんだ！</text>
 						<event>
-							<text>クランズマンはあなたが死んでいるのを見るのに少し時間がかかります。 「では、ギルドのモットーはどうですか？」</text>
+							<text>クランズマンは一瞬、あなたの目をじっと見つめる。「ギルドのモットーはどうだ？</text>
 							<choice hidden="true">
-								<text>あなたの心を支配し、彼らが尊敬する支配を！</text>
+								<text>汝の心を支配し、名誉を支配せよ！</text>
 								<event load="SALT_QUEST_2_MOTTO_WRONG" />
 							</choice>
 							<choice hidden="true">
-								<text>臆病な人生の前の勇敢な死！</text>
+								<text>臆病な人生の前に勇敢な死を！</text>
 								<event load="SALT_QUEST_2_MOTTO_WRONG" />
 							</choice>
 							<choice hidden="true">
-								<text>誰が優れているかは他の人よりも優れています！</text>
+								<text>誰が優れているかといえば、他よりも優れている！</text>
 								<event load="SALT_QUEST_2_MOTTO_WRONG" />
 							</choice>
 							<choice hidden="true">
-								<text>私はあなたがちょうど忘れたと思います、そしてあなたはあなたが愚かに見えないように私に尋ねています。</text>
+								<text>あなたが忘れているだけで、バカにされないために私に聞いているんだと思う。</text>
 								<event>
-									<text>「なに？あなたは地獄です - 」クランズマンは彼の友人の一人によって切り離されています。「彼は正しいパーシーです、あなたはギルドモットーを知っていますか？」クランマンスタッター。「w-well ...私はええと、私もあなたもそれを知らないに違いない！」他のクランマンは、彼の触手を頭の後ろに連れて行き、神経質に傷を付けます。「ええ...私はあなたが正しいと思います。ここの誰かが知っていますか？」部屋にいる他のすべてのクランマンは、お互いを見て頭を振っています。</text>
+									<text>「何だと？一体何を..."クランズマンは仲間の一人に遮られた。"パーシーの言うとおりだ。ギルドのモットーを知っているか？"クランズマンは言いよどむ。「その...お前だって知らないに決まってる！"もう一人のクランマンは触手を後頭部に持っていき、神経質に掻く。「そうだな。誰か知ってるか？"部屋にいる他のクランズマン全員が顔を見合わせ、首を横に振る。</text>
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event>
-											<text>どうやらパーシーとして知られているクランズマンが再びあなたの方を向いています。 「ああ、そうだね。将来のためにもっと良い面接の質問を見つけなければならないと思う。あなたは今のところパスを手に入れる。」</text>
+											<text>パーシーと呼ばれるクランズマンが、再びあなたの方を振り向いた。「ああ、そうか。これからのために、もっといい面接クエッションを見つけないとな。今はパスだ"</text>
 											<choice hidden="true">
-												<text>継続する...</text>
+												<text>次へ...</text>
 												<event load="SALT_QUEST_2_SUCCESS" />
 											</choice>
 										</event>
@@ -2742,22 +2742,22 @@
 						</event>
 					</choice>
 					<choice hidden="true" req="mind">
-						<text>（マインドコントロール）もちろん！</text>
+						<text>(マインドコントロール）もちろん！</text>
 						<event>
-							<text>どういうわけか、あなたはマインドコントロールの最も素晴らしいアイデアを持っていました...テレパシースラッグ。大砲があなたの船の穴を爆破し、あなたは着陸を余儀なくされ、あなたに会うために怒っている警備員のチームを引き込みます。</text>
+							<text>テレパシーでスラッグをマインド・コントロールするという素晴らしいアイデアを思いついたのだ。大砲はあなたの船に穴を開け、あなたは着陸を余儀なくされる。</text>
 							<damage amount="5" system="random" effect="breach" />
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="SALT_QUEST_2_STUPID" />
 							</choice>
 						</event>
 					</choice>
 					<choice hidden="true" req="LIST_CREW_CLAN">
-						<text>（クランズマンクルー）「もちろん！」</text>
+						<text>(クランズマン・クルー）"Of courssse!"</text>
 						<event>
-							<text>あなたのクランズマンのクルーは笑顔を見せて、彼の会員カードを引き出します。適切な場所で接続することは常に報われます。または...間違った場所。</text>
+							<text>クランズマンのクルーは笑顔を見せ、メンバーズカードを取り出す。適切な場所にコネクションを持つことは常に有益だ。あるいは...間違った場所に。</text>
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="SALT_QUEST_2_SUCCESS" />
 							</choice>
 						</event>
@@ -2765,9 +2765,9 @@
 					<choice hidden="true">
 						<text>いや。</text>
 						<event>
-							<text>クランズマンはため息をついた。 「まあ、少なくともあなたは正直だ」クランズマンの警備員のチームがあなたの船に乗って嵐を巻き起こします。</text>
+							<text>クランズマンはため息をつく。"そうか、君は立派だ"護衛のクランズマンが船に乗り込んでくる。</text>
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="SALT_QUEST_2_STUPID" />
 							</choice>
 						</event>
@@ -2778,33 +2778,33 @@
 	</choice>
 </event>
 <event name="SALT_QUEST_2_MOTTO_WRONG">
-	<text>「それはかなり良いことです。しかし、それはまったく間違っています。あなたはあなたの歯を通して横たわっています、それは明らかにお尻のデイメイトです。」</text>
+	<text>"なかなかいいね。だが、それも間違っている。歯ぎしりしながら嘘をついている。</text>
 	<choice hidden="true">
-		<text>いいえ、あなたは嘘をついています。</text>
+		<text>いや、嘘だ。</text>
 		<event>
-			<text>「うーん、これをする時間がない」警備員のチームがあなたの船に乗り込むためのクランズマンの動き。</text>
+			<text>"うう、こんなことをしている時間はないんだ"クランズマンが警備隊に船に乗り込むよう命じる。</text>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="SALT_QUEST_2_STUPID" />
 			</choice>
 		</event>
 	</choice>
 </event>
 <event name="SALT_QUEST_2_STUPID">
-	<text>何人かのクランマンがあなたの船の周りを掘り、疑わしいものを探します。彼らがそうするので、あなたは神経質に待ちます。</text>
+	<text>何人かのクランズマンがあなたの船の周囲を調べ、不審な点がないか探している。あなたは彼らがそうするのを緊張して待つ。</text>
 	<choice hidden="true">
-		<text>彼らが検査を終えるのを待ちます。</text>
+		<text>検査が終わるのを待つ。</text>
 		<event>
-			<text>幸いなことに、クランズマンはあなたの軍用品にはほとんど関心がありませんが、施設内に許可がないという事実をまだ補償していない検査に合格したとしても。クランズマンは、あなたの悪意に気づかずに取引を切り、25スクラップの割引された「一時的な」メンバーシップを提供します。</text>
+			<text>幸いなことに、クランメンはあなたの軍用品にはほとんど興味を示さなかったが、検査をパスしたとしても、あなたが施設内の許可証を持っていないという事実を補うことはできない。クランズマンたちは、中に入ってからのあなたの悪意には気づかず、25スクラップの割引「臨時」会員権を提供し、あなたに取引を持ちかけた。</text>
 			<choice>
-				<text>メンバーシップを購入します。</text>
+				<text>会員権を購入する。</text>
 				<event>
-					<text>これは公式でもギルドプロトコルにも従わず、すべてのスクラップがここでこれらのスラッグに送られるというのは良い感じです。それでも、この時点から先に、または少なくともソルトマンを解散するまで、手間のかからないエントリーが可能になります。</text>
+					<text>これはギルドの正式な手順でもなんでもない。少なくとも "ソルトマン "を持ち出すまでは。</text>
 					<item_modify>
 						<item type="scrap" min="-25" max="-25" />
 					</item_modify>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="SALT_QUEST_2_SUCCESS" />
 					</choice>
 				</event>
@@ -2812,7 +2812,7 @@
 			<choice>
 				<text>拒否する。</text>
 				<event>
-					<text>あなたはお金を払う気がありません、それはあなたの旅がここで終わることを意味します。</text>
+					<text>お金を払う気がないのだから、旅はここで終わりということだ。</text>
 				</event>
 			</choice>
 		</event>
@@ -2821,32 +2821,32 @@
 
 <ship name="SHIP_CLAN_CRUISER" auto_blueprint="MU_CLAN_CRUISER">
 	<destroyed>
-		<text>クランズマン巡洋艦を取り出しましたが、祝う時間はほとんどありません。別の巡洋艦が近くに飛び込み、次に別の巡洋艦、さらに別の巡洋艦、そしてさらに大きなクランズマンの艦隊が彼らの後ろに飛び込みます！これらの船をすべて取り出す方法はありません...</text>
+		<text>クランズマン巡洋艦を倒したが、喜ぶ暇はない。近くにもう1隻の巡洋艦が飛び込んできて、さらにもう1隻、さらにその後ろにさらに大きなクランズマン艦隊が続く！これらの艦船をすべて倒すのは無理だ......。</text>
 		<choice hidden="true">
-			<text>ああ少年...</text>
+			<text>やれやれ...。</text>
 			<event load="SYLVAN_DOES_AN_EX_MACHINA" />
 		</choice>
 	</destroyed>
 	<deadCrew>
-		<text>クランズマン巡洋艦を取り出しましたが、祝う時間はほとんどありません。別の巡洋艦が近くに飛び込み、次に別の巡洋艦、さらに別の巡洋艦、そしてさらに大きなクランズマンの艦隊が彼らの後ろに飛び込みます！これらの船をすべて取り出す方法はありません...</text>
+		<text>クランズマン巡洋艦を倒したが、喜ぶ暇はない。近くにもう1隻の巡洋艦が飛び込んできて、さらにもう1隻、さらにその後ろにさらに大きなクランズマン艦隊が続く！これらの艦船をすべて倒すのは無理だ......。</text>
 		<choice hidden="true">
-			<text>ああ少年...</text>
+			<text>やれやれ...。</text>
 			<event load="SYLVAN_DOES_AN_EX_MACHINA" />
 		</choice>
 	</deadCrew>
 </ship>
 <ship name="SHIP_CLAN_CRUISER_CHAOS" auto_blueprint="MU_CLAN_CRUISER">
 	<destroyed>
-		<text>クランズマン巡洋艦を取り出しましたが、祝う時間はほとんどありません。別の巡洋艦が近くに飛び込み、次に別の巡洋艦、さらに別の巡洋艦、そしてさらに大きなクランズマンの艦隊が彼らの後ろに飛び込みます！これらの船をすべて取り出す方法はありません...</text>
+		<text>クランズマン巡洋艦を倒したが、喜ぶ暇はない。近くにもう1隻の巡洋艦が飛び込んできて、さらにもう1隻、さらにその後ろにさらに大きなクランズマン艦隊が続く！これらの艦船をすべて倒すのは無理だ......。</text>
 		<choice hidden="true">
-			<text>ああ少年...</text>
+			<text>やれやれ...。</text>
 			<event load="GNOME_DOES_AN_EX_MACHINA" />
 		</choice>
 	</destroyed>
 	<deadCrew>
-		<text>クランズマン巡洋艦を取り出しましたが、祝う時間はほとんどありません。別の巡洋艦が近くに飛び込み、次に別の巡洋艦、さらに別の巡洋艦、そしてさらに大きなクランズマンの艦隊が彼らの後ろに飛び込みます！これらの船をすべて取り出す方法はありません...</text>
+		<text>クランズマン巡洋艦を倒したが、喜ぶ暇はない。近くにもう1隻の巡洋艦が飛び込んできて、さらにもう1隻、さらにその後ろにさらに大きなクランズマン艦隊が続く！これらの艦船をすべて倒すのは無理だ......。</text>
 		<choice hidden="true">
-			<text>ああ少年...</text>
+			<text>やれやれ...。</text>
 			<event load="GNOME_DOES_AN_EX_MACHINA" />
 		</choice>
 	</deadCrew>
@@ -2858,44 +2858,44 @@
 	</loadEventList>
 </event>
 <event name="SALT_QUEST_2_SUCCESS_NORMAL">
-	<text>あなたはついに「エキゾチックなクリーチャーの封じ込め」とラベル付けされた刑務所ホールドに向かいました。途中でカップルの警備員を撃ち、そのうちの1つからキーカードを拾います。ソルトマンのセルのロックを解除するために使用します。「私は暗闇の中でショットを撮って、あなたがギルドと一緒ではないと言うつもりです。あなたの胸全体に緑が染み込んだことは、それが他の誰かのものであるように見えることを考えると。」彼は巨大な手を突き出します。「名前はオビンですが、ほとんどは私を「ソルトマン」と呼んでいるだけです。できる限り眺めてください。私はあなたが頻繁に見る光景ではありません。」</text>
+	<text>あなたはついに "Exotic Creature Containment "と書かれた牢屋にたどり着いた。途中で数人の看守を撃ち、そのうちの1人からキーカードを受け取り、それを使って塩男の独房の鍵を開けると、そこにはあなたを待っていたかのように壁にもたれかかった巨大な灰色のクリーチャーがいた。"その胸の緑色の滲み出たものは、他の誰かのもののように思える。"彼は巨大な手を突き出した。彼は巨大な手を突き出した。名前はオビンだが、たいていの人は "ソルトマン "と呼んでいる。今のうちに見ておけ、滅多にお目にかかれない光景だ"</text>
 	<choice hidden="true">
-		<text>あなたは正しいでしょう、シルバンはあなたを見つけるために私たちを送りました。</text>
+		<text>そうだろう、シルヴァンが君を見つけるために私たちを送ったんだ。</text>
 		<event>
-			<text>「私はあなたの言うことを正しく聞きましたか？シルバンのようにシルバンですか？旅行中の商人ですか？それはそれですか？」ソルトマンは興奮と予約の両方の空気を持っているようです。</text>
+			<text>"私は......私はあなたのことを正しく聞いていましたか？シルヴァンって、"THE シルヴァン "のこと？旅商人の？その人？"塩男は、興奮と遠慮の両方の空気を抱いているようだ。</text>
 			<choice hidden="true">
-				<text>ええ、それ。見知らぬ人をよく言う大きな不気味な船で。</text>
+				<text>そう、あれだ。大きな不気味な船で、よく "見知らぬ人 "って言うんだ。</text>
 				<event>
-					<text>「私の最愛の人はここにいますか？天国、私はそのような再会の準備がほとんどできていません...私-待って、まあ彼はどこにいますか？」</text>
+					<text>「愛しい人がここに？なんてことだ、こんな再会ができるなんて...。待って、彼はどこにいるの？"</text>
 					<choice hidden="true">
-						<text>ああ...まあ、彼は実際にはここにいません。</text>
+						<text>ああ...彼は実際にはここにいないんだ。</text>
 						<event>
-							<text>「もちろん違います。つまり、数字です。何年もの間、友達などと並んで戦い、トカゲの群れの中に隠れて銀河を見ているのですか？あなたが自分の種の残りを見つけるための探求に着手したいと思うまで、すべては順調です. 、そして突然別れの時が来ました. あの小さなスライムボールはあまりにも臆病で、ホーボーを殺すために武器を売っている彼の快適な小さな生活を後にすることはできません。 "</text>
+							<text>「もちろん、そんなことはない。つまり、数字だ。トカゲの群れの中に隠れ、銀河系を眺めながら、仲間や友人と肩を並べて戦った数年間が何だったのか？君が他の種族を探す旅に出ようとするまでは順調だったが、突然別れる時が来たんだ。あいつは臆病者だから、浮浪者を殺すために武器を売るような安楽な生活を捨てられないんだ。</text>
 							<choice hidden="true">
-								<text>落ち着け、まずお前をここから出さなければならない。</text>
+								<text>落ち着いて、まずあなたをここから出さないと。</text>
 								<event>
-									<text>「そうですよね。いいですね。たまたま私の乗組員に会ったのですか？ 臆病な元彼が私を見つけるのに苦労したことを考えると、彼は私がここにいることを知っていたとは思えないので、どこかから私の座標を入手したに違いありません.あなたは実際に彼の乗組員に会ったことをオービンに知らせます。 「よかった。少なくとも私は彼らが私を置き去りにしないことを期待できます。よし、すぐにここから出ましょう。あなたは非常にうまく道を踏み外しましたが、ギルドも私たちをワルツから出してくれるとは思えません。」</text>
+									<text>「そうだね。そうですか。私のクルーに会ったことはある？私の臆病な元彼が私を探すのを面倒くさがったことを考えると、彼は私がここにいることを知っていたとは思えない。あなたはオビンに、実際に彼のクルーに会ったことを告げる。「素晴らしい。少なくとも、私を置き去りにすることはないだろう。よし、早くここから出よう。君はうまく侵入したようだが、ギルドがこのまま出て行かせるとは思えない」。</text>
 									<choice hidden="true" blue="false" req="LIST_CHECK_ANY_CREW" lvl="1">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event>
-											<text>Obyn は施設の廊下を通ってあなたを追跡し、そこからあなたの船が保持されている格納庫に戻ります。急いで中に入って巨大な施設から離陸し、市場に戻ります。クランズマンの巡洋艦がどこからともなく飛び込んできたとき、あなたは実際に戦うことなくここから抜け出すことができると考え始めます! 「ああ、あなたは小さな糞糞です！ ギルドから盗んだだけでは、1 つの ssspot で終わるだけです！ 浅い墓です！」</text>
+											<text>オビンはあなたについて施設の廊下を通り、あなたの船が保管されている格納庫に戻る。あなたは急いで中に入り、巨大な施設から飛び立ち、市場へと戻る。戦わずにここから脱出できるかもしれないと思い始めたとき、どこからともなくクランズマン巡洋艦が飛び込んできた！「ああ、ここにいたのか！ギルドから盗みを働くと、一つの場所で終わるだけだ！浅い墓穴だ！"</text>
 											<triggeredEvent event="TEMP_OBYN_JUMP" jumps="1" />
-											<crewMember amount="1" class="unique_obyn_temp">反対</crewMember>
+											<crewMember amount="1" class="unique_obyn_temp">オビーン</crewMember>
 											<ship load="SHIP_CLAN_CRUISER" hostile="true" />
 											<choice hidden="true">
-												<text>継続する...</text>
+												<text>次へ...</text>
 												<event load="COMBAT_CHECK" />
 											</choice>
 										</event>
 									</choice>
 									<choice hidden="true" blue="false" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event>
-											<text>Obyn は施設の廊下を通ってあなたを追跡し、そこからあなたの船が保持されている格納庫に戻ります。急いで中に入って巨大な施設から離陸し、市場に戻ります。クランズマンの巡洋艦がどこからともなく飛び込んできたとき、あなたは実際に戦うことなくここから抜け出すことができると考え始めます! 「ああ、あなたは小さな糞糞です！ ギルドから盗んだだけでは、1 つの ssspot で終わるだけです！ 浅い墓です！」</text>
-											<crewMember amount="1" class="unique_obyn">反対</crewMember>
+											<text>オビンはあなたについて施設の廊下を通り、あなたの船が保管されている格納庫に戻る。あなたは急いで中に入り、巨大な施設から飛び立ち、市場へと戻る。戦わずにここから脱出できるかもしれないと思い始めたとき、どこからともなくクランズマン巡洋艦が飛び込んできた！「ああ、ここにいたのか！ギルドから盗みを働くと、一つの場所で終わるだけだ！浅い墓穴だ！"</text>
+											<crewMember amount="1" class="unique_obyn">オビーン</crewMember>
 											<ship load="SHIP_CLAN_CRUISER" hostile="true" />
 											<choice hidden="true">
-												<text>継続する...</text>
+												<text>次へ...</text>
 												<event load="COMBAT_CHECK" />
 											</choice>
 										</event>
@@ -2918,37 +2918,37 @@
 	<transformRace class="unique_obyn_temp">unique_obyn</transformRace>
 </event>
 <event name="SALT_QUEST_2_SUCCESS_CHAOS">
-	<text>あなたはついに「エキゾチックなクリーチャーの封じ込め」とラベル付けされた刑務所ホールドに向かいました。途中でカップルの警備員を撃ち、そのうちの1つからキーカードを拾います。ソルトマンのセルのロックを解除するために使用します。「私は暗闇の中でショットを撮って、あなたがギルドと一緒ではないと言うつもりです。あなたの胸全体に緑が染み込んだことは、それが他の誰かのものであるように見えることを考えると。」彼は巨大な手を突き出します。「名前はオビンですが、ほとんどは私を「ソルトマン」と呼んでいるだけです。できる限り眺めてください。私はあなたが頻繁に見る光景ではありません。」</text>
+	<text>あなたはついに "Exotic Creature Containment "と書かれた牢屋にたどり着いた。途中で数人の看守を撃ち、そのうちの1人からキーカードを受け取り、それを使って塩男の独房の鍵を開けると、そこにはあなたを待っていたかのように壁にもたれかかった巨大な灰色のクリーチャーがいた。"その胸の緑色の滲み出たものは、他の誰かのもののように思える。"彼は巨大な手を突き出した。彼は巨大な手を突き出した。名前はオビンだが、たいていの人は "ソルトマン "と呼んでいる。今のうちに見ておけ、滅多にお目にかかれない光景だ"</text>
 	<choice hidden="true">
-		<text>あなたは正しいと思います。このノームがギルドで働いていない限り。</text>
+		<text>その通りだと思う。このノームがギルドで働いていない限りはね。</text>
 		<event>
-			<text>「あの…なに？ノームって何？『ノーム』って一体何なの？」</text>
+			<text>"何？ノームって？"ノーム "って一体何？</text>
 			<choice hidden="true">
-				<text>彼にノームを見せてください。</text>
+				<text>彼にノームを見せる。</text>
 				<event>
-					<text>オビンは、彼の前でノームを振ってみようとすると混乱しているように見えます。「私は...何ですか？あなたは何も持っていません。あなたは何を知っていますか、私は十分に気にしません。私はそれがとりとめのことに対処する価値がないときを知るのに十分な狂人と仕事をしました。それからGnomeに神に感謝します。あなたは私の乗組員に会ったことがありましたか？」あなたは実際にあなたが彼の乗組員に会ったことをオビンに知らせます。「素晴らしい。少なくとも私は私を置き去りにしないように頼りにすることができます。さて、ここから出てすぐに出ましょう。</text>
+					<text>オビンは、あなたがノームを目の前に振りかざそうとすると、ただ困惑した表情を浮かべる。"私は...何？あなたは何も持っていない。あのね、十分気にしてないよ。狂人と一緒に働いてきたんだ。ノームに言われて来たなら 神に感謝だ私の乗組員には会ったかね？あなたはオビンに、実際に彼のクルーに会ったことを告げる。「素晴らしい。少なくとも、私を置き去りにすることはないだろう。よし、早くここから出よう。君はうまく侵入したようだが、ギルドが僕らを外に連れ出してくれるとは思えない。"</text>
 					<playSound>gm_gnobyn</playSound>
 					<choice hidden="true" blue="false" req="LIST_CHECK_ANY_CREW" lvl="1">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
-							<text>Obyn は施設の廊下を通ってあなたを追跡し、そこからあなたの船が保持されている格納庫に戻ります。急いで中に入って巨大な施設から離陸し、市場に戻ります。クランズマンの巡洋艦がどこからともなく飛び込んできたとき、あなたは実際に戦うことなくここから抜け出すことができると考え始めます! 「ああ、あなたは小さな糞糞です！ ギルドから盗んだだけでは、1 つの ssspot で終わるだけです！ 浅い墓です！」</text>
+							<text>オビンはあなたについて施設の廊下を通り、あなたの船が保管されている格納庫に戻る。あなたは急いで中に入り、巨大な施設から飛び立ち、市場へと戻る。戦わずにここから脱出できるかもしれないと思い始めたとき、どこからともなくクランズマン巡洋艦が飛び込んできた！「ああ、ここにいたのか！ギルドから盗みを働くと、一つの場所で終わるだけだ！浅い墓穴だ！"</text>
 							<triggeredEvent event="TEMP_OBYN_JUMP" jumps="1" />
-							<crewMember amount="1" class="unique_obyn_temp">反対</crewMember>
+							<crewMember amount="1" class="unique_obyn_temp">オビーン</crewMember>
 							<ship load="SHIP_CLAN_CRUISER_CHAOS" hostile="true" />
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="COMBAT_CHECK" />
 							</choice>
 						</event>
 					</choice>
 					<choice hidden="true" blue="false" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
-							<text>Obyn は施設の廊下を通ってあなたを追跡し、そこからあなたの船が保持されている格納庫に戻ります。急いで中に入って巨大な施設から離陸し、市場に戻ります。クランズマンの巡洋艦がどこからともなく飛び込んできたとき、あなたは実際に戦うことなくここから抜け出すことができると考え始めます! 「ああ、あなたは小さな糞糞です！ ギルドから盗んだだけでは、1 つの ssspot で終わるだけです！ 浅い墓です！」</text>
-							<crewMember amount="1" class="unique_obyn">反対</crewMember>
+							<text>オビンはあなたについて施設の廊下を通り、あなたの船が保管されている格納庫に戻る。あなたは急いで中に入り、巨大な施設から飛び立ち、市場へと戻る。戦わずにここから脱出できるかもしれないと思い始めたとき、どこからともなくクランズマン巡洋艦が飛び込んできた！「ああ、ここにいたのか！ギルドから盗みを働くと、一つの場所で終わるだけだ！浅い墓穴だ！"</text>
+							<crewMember amount="1" class="unique_obyn">オビーン</crewMember>
 							<ship load="SHIP_CLAN_CRUISER_CHAOS" hostile="true" />
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="COMBAT_CHECK" />
 							</choice>
 						</event>
@@ -2960,37 +2960,51 @@
 </event>
 
 <event name="SYLVAN_DOES_AN_EX_MACHINA">
-	<text>より多くの船が近づくにつれて、大規模な解剖センターの影の下で、これが終わりであることが明らかになります。「EHG Hasssは、私たちのSSSectorであなたが十分に混乱しているのに十分でした！あなたは、Thessse Nebulasに対するKleptocracyのコントロールのsssanctityまたはその中のResssourcesを利用する権利を考慮していません！</text>
+	<text>巨大な解剖センターの影に隠れて、さらに多くの船が近づいてくる。「EHGは、我々のセクトクターに干渉するお前たちにうんざりしている！あなた方レネゲイドは、クレプトクラシーが星雲を支配する神聖さも、星雲内の資源を開発する我々の権利も、まったく考慮していない！"ソルトマンを降伏させるか全滅させるかだ！"</text>
 	<variable name="ach_boss_clancruiser" op="set" val="1" />
 	<clearTriggeredEvent name="TEMP_OBYN_JUMP" />
 	<choice hidden="true" req="pilot" blue="false" max_group="0">
-		<text>いいえ、あなたを台無しにします！私はあなたのばかげたアクセントを聞くのにうんざりしています!</text>
+		<text>いや、ふざけるな！もうお前らの訛りは聞き飽きた！</text>
 		<event>
-			<text>「oi！mate、あなたは失礼である必要はありません！とにかく選択しました、あなたはあなたの選択をしました。彼の盾の外でエンジンをエンジンし、彼を近くの船にスパイラルにし、燃えるような破壊のボールで下の市場に衝突させました！空からシルバンの船が降り、その後ソルトマン自身の巡洋艦が続き、艦隊に発砲します。クランマンは散らばっています。シルバンには特に...武装した船があることは知っていましたが、彼が艦隊全体を怖がらせるほど強いとは思いませんでした。明らかに、彼のギルドからの離脱はかなりの印象を残しました。</text>
+			<text>「失礼なことを言うんじゃないよ！とにかく、君は選んだんだ。その結末に耐える時だ...」
+
+クランズマンが言い終わる暇もなく、レーザーの一斉射撃がシールドを破壊し、エンジンを破壊した！空からシルヴァンの船が降ってきて、塩男の巡洋艦が続き、船団に砲撃を浴びせる。
+
+"Crap crap crap it'sssss HIM！逃げろ！"クランズメンは散り散りになる。シルヴァンが特に武装した船を持っていることは知っていたが、まさか全艦隊を追い払うほど強いとは思わなかっただろう。彼がギルドを去ったことが 印象に残ってるんだろう</text>
 			<choice hidden="true" req="OBYN_GUILD" blue="false" lvl="1">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>あなたはシルバンを見て、あなたの前に塩の巡洋艦が着地します。「手遅れではないことを願っています。SSSStranger！」シルバンは神経質に笑い、それからオビンに直面しますが、彼が話す前に彼は断ち切られます。「ええ、私はそれを夢見ていないだろう。それは長い間だった。どうやって人生？」</text>
+					<text>あなたはシルヴァンとソルトクルーザーが目の前に着陸するのを見る。"手遅れでなければいいのですが......見知らぬ人！" シルヴァンは緊張した面持ちで笑い、オビンに向き合った。シルヴァンは緊張した面持ちで笑い、オビンに向き合ったが、話す前に遮られた。
+
+"もし私を「よそ者」と呼ぶ勇気があるなら、頭蓋骨をかち割ってやる。"
+
+"へっへっへ、そんなこと夢にも思わないよ、オビーン。久しぶりだな。調子はどうだい？</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
-							<text>「ああ、このスカムが寄生したセクターをさまよい、彼らがそれを楽しむために人々を切断する研究室に捕らわれているだけです。」「6.年。そして、あなたは私に「人生はどうですか？！」と尋ねます。「彼らはそれを剥製と呼んでいると思う。私はいつもそれが不満を抱いていると感じた...」「私は去るためにssssorry obynです。私はsssoの後、あなたが困っているかもしれないと聞いたとき、私はあなたを再びssseeeすることに耐えることができるとは思いませんでしたが、私は来ました。co病者の多く、sssoは私のinsssteadのsssent thessseの友人たちです。」</text>
+							<text>「このクズがはびこるセクターを放浪し、面白半分に人を切り刻む研究所に監禁されていたんだ。」
+オビンは立ち止まる。「6年だ。そしてあなたは私に "人生はどうですか？"と尋ねる！"
+
+シルヴァンは緊張して笑う。"彼らはそれを剥製と呼ぶと思う。私はいつもそれを不愉快に思っていた..."
+シルヴァンは立ち止まる。"オビーン、ごめんなさい。長い時間を経て、また君に会うのは耐えられないと思ったんだが、君が困っているかもしれないと聞いて、来たんだ。でも...私はまだ臆病者だったので、代わりに私の友人たちを送りました。"</text>
 							<choice hidden="true">
-								<text>聞き続ける。</text>
+								<text>聴き続けてください。</text>
 								<event>
-									<text>オビンはため息をつきます。「あなたに怒っているのは難しい。しかし、あなたはやることがたくさんある。しかし、最終的にはあなたは来た。そしてそれは何かの価値があると思う。私たちは後で話すことができる。「hug抱きを求める2人は、シルバンが体から十分な距離を離れて、彼の肉がオビンの塩辛い外観から歌わないようにしています。これは非常に皮肉な関係であることに気付きます。</text>
+									<text>オビンはため息をつく。「怒るのは難しいよ。でも、あなたには埋め合わせがたくさんある。でも結局、あなたは来てくれた。それだけで価値があると思う。残りは後で話し合おう。さぁ、こっちへおいで」
+
+2人は抱き合おうと身を乗り出したが、シルヴァンはオビーンの塩辛い外見に自分の肉が焼かれないよう、2人の体から十分な距離を保った。これはとても皮肉な関係だと気づく。</text>
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event load="SYLVAN_SALT_REWARD_OBYN" />
 									</choice>
 								</event>
 							</choice>
 							<choice hidden="true">
-								<text>みんな見て、これは甘くてすべてですが、後で使用するために個人的なものを保存していただけますか？</text>
+								<text>なあ、いい話だけど、個人的なことは後にしてくれないか？</text>
 								<event>
-									<text>二人は一瞬あなたを睨みつけますが、シルバンは笑います。 「ああ、そうそう、私はまたその瞬間を失った。あなたは私の最も誠実な感謝を持っています。あなたの努力に対して報酬を与えなかったら、私はどんな男になるでしょうか!」</text>
+									<text>二人は一瞬あなたを睨んだが、シルヴァンが苦笑した。「ああ、そうだ、また調子に乗ってしまった。君には心から感謝している！君の努力に報いなければ、私はどんな人間なんだ！"</text>
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event load="SYLVAN_SALT_REWARD_OBYN" />
 									</choice>
 								</event>
@@ -3000,80 +3014,82 @@
 				</event>
 			</choice>
 			<choice hidden="true" req="OBYN_GUILD" blue="false" lvl="0" max_lvl="0">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="SYLVAN_SALT_REWARD_NOCREW" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="unique_obyn_temp" blue="false" max_group="1">
-		<text>ソルトマンをあきらめます。</text>
+		<text>塩男はあきらめろ。</text>
 		<event>
-			<text>ソルトマンはショックであなたに向き直りますが、あなたにはほとんど選択肢がありません。艦隊全体を引き受けることはできません！あなたは彼を前進させ、そこで氏族のチームが彼を迎えに行きます。「Wissse Choice Ssson。明日はSsseeに住んでいるように見えます。</text>
+			<text>塩男はショックを受けてこちらを振り向いたが、あなたには選択の余地はない。全艦隊を相手にすることはできない！あなたは塩男を前に押し出す。「ウィッセ・チョイス・ソン。お前は明日まで生きられそうだ。だが我々の頼みを聞いてくれ 二度と戻ってくるな"</text>
 			<removeCrew class="unique_obyn_temp">
 				<clone>false</clone>
-				<text>あなたは文字通り数分前にソルトマンを手に入れました、そしてあなたはすでに彼をあきらめました。良い調子。</text>
+				<text>数分前にソルトマンを手に入れたばかりなのに、もう見切りをつけたのか。よくやった。</text>
 			</removeCrew>
 		</event>
 	</choice>
 	<choice hidden="true" req="unique_obyn" blue="false" max_group="1">
-		<text>ソルトマンをあきらめます。</text>
+		<text>塩男はあきらめろ。</text>
 		<event>
-			<text>ソルトマンはショックであなたに向き直りますが、あなたにはほとんど選択肢がありません。艦隊全体を引き受けることはできません！あなたは彼を前進させ、そこで氏族のチームが彼を迎えに行きます。「Wissse Choice Ssson。明日はSsseeに住んでいるように見えます。</text>
+			<text>塩男はショックを受けてこちらを振り向いたが、あなたには選択の余地はない。全艦隊を相手にすることはできない！あなたは塩男を前に押し出す。「ウィッセ・チョイス・ソン。お前は明日まで生きられそうだ。だが我々の頼みを聞いてくれ 二度と戻ってくるな"</text>
 			<removeCrew class="unique_obyn">
 				<clone>false</clone>
-				<text>あなたは文字通り数分前にソルトマンを手に入れました、そしてあなたはすでに彼をあきらめました。良い調子。</text>
+				<text>数分前にソルトマンを手に入れたばかりなのに、もう見切りをつけたのか。よくやった。</text>
 			</removeCrew>
 		</event>
 	</choice>
 </event>
 <event name="GNOME_DOES_AN_EX_MACHINA">
-	<text>より多くの船が近づくにつれて、大規模な解剖センターの影の下で、これが終わりであることが明らかになります。「EHG Hasssは、私たちのSSSectorであなたが十分に混乱しているのに十分でした！あなたは、Thessse Nebulasに対するKleptocracyのコントロールのsssanctityまたはその中のResssourcesを利用する権利を考慮していません！</text>
+	<text>巨大な解剖センターの影に隠れて、さらに多くの船が近づいてくる。「EHGは、我々のセクトクターに干渉するお前たちにうんざりしている！あなた方レネゲイドは、クレプトクラシーが星雲を支配する神聖さも、星雲内の資源を開発する我々の権利も、まったく考慮していない！"ソルトマンを降伏させるか全滅させるかだ！"</text>
 	<variable name="ach_boss_clancruiser" op="set" val="1" />
 	<clearTriggeredEvent name="TEMP_OBYN_JUMP" />
 	<choice hidden="true" req="pilot" blue="false" max_group="0">
-		<text>いいえ、あなたを台無しにします！私はあなたのばかげたアクセントを聞くのにうんざりしています!</text>
+		<text>いや、ふざけるな！もうお前らの訛りは聞き飽きた！</text>
 		<event>
-			<text>「oi！mate、あなたは失礼である必要はありません！とにかく選択しました、あなたは選択をしました。それ自体では、緑の血を流す金属の小さな折り目にくしゃくしゃになります。金属の浮かぶ塊は存在しなくなり、あなたはノームをちらっと見ます。恐ろしく、他の船は尾を向けてすぐに飛び降ります。</text>
+			<text>「失礼なことを言うんじゃないよ！とにかく、君は選んだんだ。その結末に耐える時だ...」
+
+クランズマンが最後まで言い終わらないうちに、突然彼の船はそれ自体で崩壊し、緑色の血をにじませながら金属の小さなひだの中に崩れ落ちた。浮遊していた金属の塊がちらつき、あなたはノームを見渡した。ノームは興奮したように体をくねらせ、荒い息をしているように見えた。怖くなった他の船は尾を引き、すぐに飛び退いた。</text>
 			<playSound>gm_evillaugh</playSound>
 			<choice hidden="true" req="OBYN_GUILD" blue="false" lvl="1">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="CHAOS_SALT_REWARD_OBYN" />
 			</choice>
 			<choice hidden="true" req="OBYN_GUILD" blue="false" lvl="0" max_lvl="0">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="CHAOS_SALT_REWARD_NOCREW" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="unique_obyn_temp" blue="false" max_group="1">
-		<text>ソルトマンをあきらめます。</text>
+		<text>塩男はあきらめろ。</text>
 		<event>
-			<text>ソルトマンはショックであなたに向き直りますが、あなたにはほとんど選択肢がありません。艦隊全体を引き受けることはできません！あなたは彼を前進させ、そこで氏族のチームが彼を迎えに行きます。「Wissse Choice Ssson。明日はSsseeに住んでいるように見えます。</text>
+			<text>塩男はショックを受けてこちらを振り向いたが、あなたには選択の余地はない。全艦隊を相手にすることはできない！あなたは塩男を前に押し出す。「ウィッセ・チョイス・ソン。お前は明日まで生きられそうだ。だが我々の頼みを聞いてくれ 二度と戻ってくるな"</text>
 			<removeCrew class="unique_obyn_temp">
 				<clone>false</clone>
-				<text>あなたは文字通り数分前にソルトマンを手に入れました、そしてあなたはすでに彼をあきらめました。良い調子。</text>
+				<text>数分前にソルトマンを手に入れたばかりなのに、もう見切りをつけたのか。よくやった。</text>
 			</removeCrew>
 		</event>
 	</choice>
 	<choice hidden="true" req="unique_obyn" blue="false" max_group="1">
-		<text>ソルトマンをあきらめます。</text>
+		<text>塩男はあきらめろ。</text>
 		<event>
-			<text>ソルトマンはショックであなたに向き直りますが、あなたにはほとんど選択肢がありません。艦隊全体を引き受けることはできません！あなたは彼を前進させ、そこで氏族のチームが彼を迎えに行きます。「Wissse Choice Ssson。明日はSsseeに住んでいるように見えます。</text>
+			<text>塩男はショックを受けてこちらを振り向いたが、あなたには選択の余地はない。全艦隊を相手にすることはできない！あなたは塩男を前に押し出す。「ウィッセ・チョイス・ソン。お前は明日まで生きられそうだ。だが我々の頼みを聞いてくれ 二度と戻ってくるな"</text>
 			<removeCrew class="unique_obyn">
 				<clone>false</clone>
-				<text>あなたは文字通り数分前にソルトマンを手に入れました、そしてあなたはすでに彼をあきらめました。良い調子。</text>
+				<text>数分前にソルトマンを手に入れたばかりなのに、もう見切りをつけたのか。よくやった。</text>
 			</removeCrew>
 		</event>
 	</choice>
 </event>
 <event name="SYLVAN_SALT_REWARD_NOCREW">
-	<text>シルバンとソルト クルーザーが目の前に着陸するのを見ます。シルバンは当然のことながら、現時点では黙っていますが、オービンの元乗組員の助けを借りて、大量のスクラップを運びます.彼らは、オービンの船の設計図もあなたに転送し、連邦がそれらを使用する可能性があると考えています。 Sylvan が Obyn を失ったことに取り乱していることはわかりますが、もう手遅れです。 「ススストレンジャー、私はまだヒスの古い銃を手元に持っています。私は...私はそれをもう持ち歩くことができないと思います.Sssso、おそらくあなたがそれを取るのが最善です.私はこれについてあなたを責めません.だけど……まぁ。友達を救えないのに、私のような船を持っているなんて、うーん。</text>
+	<text>あなたはシルヴァンとソルトクルーザーが目の前に着陸するのを見る。シルヴァンは当然のことながら今は沈黙を守っているが、オビーンの元クルーたちの助けを借りて、スクラップの入った大きな木箱を運んできた。彼らはオビーンの船の設計図もあなたに渡した。連邦が何か使うかもしれないと考えたからだ。シルヴァンがオビンを失って取り乱しているのがわかるが、もう遅い。"よそ者よ、私はまだ彼の古い銃を持っている。I...もう手元に置いておけないんだ。だから、君が持っていた方がいい。でも...まあいいや。友だちも救えないのに、俺みたいな友情があってもしょうがないだろ？フン。</text>
 	<unlockCustomShip silent="false">PLAYER_SHIP_SALT</unlockCustomShip>
 	<autoReward level="HIGH">scrap_only</autoReward>
 	<weapon name="SALT_LAUNCHER" />
 </event>
 <event name="CHAOS_SALT_REWARD_NOCREW">
-	<text>残念ながら、オービンは戦いを生き延びることができませんでした。ノームが実際にあなたの肝臓を食べてしまうのではないかと恐れて、あなたは肝臓を振り返りますが、どこにも見つからないようです.なくしてしまったのではないかと心配し、しばらく辺りを見回しますが、探していたものをゆっくりと忘れ始めます。最終的にあなたは立ち止まり、自分が何をしているのかわからないことに気づきます。なぜ自分がここにいるのかわからなくなったあなたは、橋に戻って出発の準備をします。</text>
+	<text>残念ながら、オビンは戦いに生き残ることはできなかった。ノームに肝臓を食べられてしまうかもしれない恐怖に怯えながら、あなたは肝臓を探したが、どこにも見当たらない。失くしてしまったのではないかと心配になり、しばらく辺りを見回してみたが、何を探していたのか徐々に忘れていく。やがてあなたは立ち止まり、自分が何をしているのかまったくわからないことに気づく。なぜ自分がここにいるのかわからなくなり、橋に戻り、出発の準備をする。</text>
 	<variable name="chaos_mode" op="set" val="0" />
 	<removeCrew class="gnome">
 		<clone>false</clone>
@@ -3081,28 +3097,30 @@
 	</removeCrew>
 </event>
 <event name="SYLVAN_SALT_REWARD_OBYN">
-	<text>シルバンは、オビンと彼の乗組員の助けを借りて、大きなスクラップの木枠を引き継いでいます。Obynは、彼の船舶の青写真もあなたに輸送し、連邦が彼らに何らかの用途があるかもしれないと考えています。シルバンは船に戻りますが、オビンは彼の顔に優柔不断の表情で3隻の船の間に立っています。シルバンは彼を見になりますが、オビンは彼の首を振ってください。「商人であり、私は賞金稼ぎです。この気候では、彼らは同じことだと思いますが、どこかに違いがあります。そこにいる人々、私はそれを確信しています。私は自分の植民地から逃げた日をまだ覚えています...まあ、私は見続けなければなりません。私はただあきらめることはできません。」</text>
+	<text>シルヴァンはオビンとクルーの助けを借りて、スクラップの入った大きな木箱を運ぶ。オビンは、連邦が使うかもしれないと、自分の船の設計図もあなたに渡す。シルヴァンは自分の船に戻るが、オビンは優柔不断な表情で3隻の船の間に立っている。シルヴァンは彼を見ようと振り向くが、オビンは首を横に振る。
+
+ 「一緒に行けないよ、旧友。俺たちはただ......どうなったか知ってるだろ。許すことはできても、忘れることはできない。お前は商人、俺は賞金稼ぎだ。このご時世、同じようなものだと思うが、どこか違う。それに、私はまだ探求を諦めていない。私の仲間はもっといるはずだ。コロニーから逃げ出した日のことを今でも覚えている。あきらめるわけにはいかないんだ」。</text>
 	<unlockCustomShip silent="false">PLAYER_SHIP_SALT</unlockCustomShip>
 	<autoReward level="HIGH">scrap_only</autoReward>
 	<choice hidden="true" req="unique_obyn_temp" blue="false" max_group="0">
-		<text>私たちと一緒に来て、ヒーローになってから、クエストを続けてください。</text>
+		<text>私たちと一緒に来て、ヒーローになり、その後も探求を続けることができる。</text>
 		<event>
-			<text>「連邦の英雄？どうやって私を味方につけたらいいのかわからない……賞金稼ぎをやってみたけど、明らかにうまくいかなかったし、商人の生活は私には向いていない。シルバン、また会おうね。あなたはペッパー。」オービンは先ほど話したロックマンに向き直ります。 「私はあなたに私の船を任せています。それを大事にしてください。」オービンはあなたの方を向いています。 「さあ、行きましょうか? 地平線に冒険が見えます! 途中で手がかりが見つかるかもしれません. 行くには希望を持ち続けるしかありません.」そう言ってシルバンに敬礼し、二人は去っていく。</text>
+			<text>「連邦の英雄？私を虜にする方法を知っているわね...賞金稼ぎをやってみたが、明らかにうまくいかなかったし、商人の生活は俺には向いてない。きっとまた会えるよ、シルヴァン。君はどうだい、ペッパー"オビンは先ほど話したロックマンに向き直る。「私の船を任せる。大事にしてくれ。オビンはあなたに向き直る。「さあ、行こうか。地平線上に冒険が見える！もしかしたら途中で手がかりが見つかるかもしれない。希望を持って行くしかない。"そう言ってシルヴァンに敬礼し、2人は出発する。</text>
 			<transformRace class="unique_obyn_temp">unique_obyn</transformRace>
 			<variable name="ach_crew_obyn" op="set" val="1" />
 		</event>
 	</choice>
 	<choice hidden="true" req="unique_obyn" blue="false" max_group="0">
-		<text>私たちと一緒に来て、ヒーローになってから、クエストを続けてください。</text>
+		<text>私たちと一緒に来て、ヒーローになり、その後も探求を続けることができる。</text>
 		<event>
-			<text>「連邦の英雄？どうやって私を味方につけたらいいのかわからない……賞金稼ぎをやってみたけど、明らかにうまくいかなかったし、商人の生活は私には向いていない。シルバン、また会おうね。あなたはペッパー。」オービンは先ほど話したロックマンに向き直ります。 「私はあなたに私の船を任せています。それを大事にしてください。」オービンはあなたの方を向いています。 「さあ、行きましょうか? 地平線に冒険が見えます! 途中で手がかりが見つかるかもしれません. 行くには希望を持ち続けるしかありません.」そう言ってシルバンに敬礼し、二人は去っていく。</text>
+			<text>「連邦の英雄？私を虜にする方法を知っているわね...賞金稼ぎをやってみたが、明らかにうまくいかなかったし、商人の生活は俺には向いてない。きっとまた会えるよ、シルヴァン。君はどうだい、ペッパー"オビンは先ほど話したロックマンに向き直る。「私の船を任せる。大事にしてくれ。オビンはあなたに向き直る。「さあ、行こうか。地平線上に冒険が見える！もしかしたら途中で手がかりが見つかるかもしれない。希望を持って行くしかない。"そう言ってシルヴァンに敬礼し、2人は出発する。</text>
 			<variable name="ach_crew_obyn" op="set" val="1" />
 		</event>
 	</choice>
 	<choice hidden="true" req="unique_obyn_temp" blue="false" max_group="1">
-		<text>古い乗組員と一緒に行き、彼の探求を続けるように彼を誘惑してください。</text>
+		<text>昔の仲間と一緒に行って、探求を続けるよう誘うのだ。</text>
 		<event>
-			<text>「はい、無駄にしている時間はないと思います。さようなら、シルバン。私たちは再び再会することを確信しています。そして、レネゲード、あなたに関しては、あなたには私の感謝があります。そして、私は感謝がこれらの中で受け入れられた通貨にすぎないことを知っているので部品、この武器もあなたを満足させるかもしれません. 次回まで。それで、彼はシルバンに敬礼し、2人は船で飛び去ります.</text>
+			<text>"そうだな、無駄にしている時間はないだろう。さようなら、シルヴァン。また必ず再会しよう。そして、レネゲイドよ。感謝するよこの辺りでは感謝は通貨としてしか通用しないが......この武器で君も満足するだろう。次の機会まで"そう言ってシルヴァンに敬礼し、2人は船で飛び立った。</text>
 			<weapon name="SALT_LAUNCHER" />
 			<removeCrew class="unique_obyn_temp">
 				<clone>false</clone>
@@ -3111,9 +3129,9 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="unique_obyn" blue="false" max_group="1">
-		<text>古い乗組員と一緒に行き、彼の探求を続けるように彼を誘惑してください。</text>
+		<text>昔の仲間と一緒に行って、探求を続けるよう誘うのだ。</text>
 		<event>
-			<text>「はい、無駄にしている時間はないと思います。さようなら、シルバン。私たちは再び再会することを確信しています。そして、レネゲード、あなたに関しては、あなたには私の感謝があります。そして、私は感謝がこれらの中で受け入れられた通貨にすぎないことを知っているので部品、この武器もあなたを満足させるかもしれません. 次回まで。それで、彼はシルバンに敬礼し、2人は船で飛び去ります.</text>
+			<text>"そうだな、無駄にしている時間はないだろう。さようなら、シルヴァン。また必ず再会しよう。そして、レネゲイドよ。感謝するよこの辺りでは感謝は通貨としてしか通用しないが......この武器で君も満足するだろう。次の機会まで"そう言ってシルヴァンに敬礼し、2人は船で飛び立った。</text>
 			<weapon name="SALT_LAUNCHER" />
 			<removeCrew class="unique_obyn">
 				<clone>false</clone>
@@ -3123,12 +3141,12 @@
 	</choice>
 </event>
 <event name="CHAOS_SALT_REWARD_OBYN">
-	<text>オービンは今起こったことにショックを受けて見守っています。一度だけ、彼はついに下を向き、ノームの存在に気づいたようです。 「何年にもわたって銀河を探索し、私のようなものをもっと探してきましたが、私はたくさんの奇妙なものを見てきました.しかし、一度もこのようなものを見たことはありません.あなたは何ですか?神?このノームは神ですか?」オビンは足をわずかに揺らしながら、よろめく。</text>
+	<text>オビンは今起こったことにショックを受けている。この時ばかりは、ようやく下を向き、ノームの存在に気づいたようだ。「長年、銀河系を探検し、同族を探してきた中で、多くの奇妙なものを見てきた。だが、こんなものを見たのは初めてだ。あなたたちは何？神か？このノームは神か？"オビンは足元が少しふらつく。</text>
 	<autoReward level="HIGH">scrap_only</autoReward>
 	<choice hidden="true" req="unique_obyn_temp" blue="false" max_group="0">
-		<text>私も何が起こっているのかわかりませんが、ノームはあなたに私たちと一緒に来てほしいと言っています。</text>
+		<text>私も何が起こっているのかわからないけど、ノームが一緒に来てほしいと言ってるんだ。</text>
 		<event>
-			<text>「ノームが私に来ることを望んでいるなら、私は来ると思います。神様、私たち全員を助けてください。私はもう私の船を必要としないので、あなたはそれを手に入れることができます. "</text>
+			<text>"ノーム "が私に来いと言うのなら、私も行くだろう。神のご加護を。私の船はもう必要ないから、君にあげるよ。そうすればノームも喜ぶかもしれない。</text>
 			<playSound>gnome_keepliver</playSound>
 			<unlockCustomShip silent="false">PLAYER_SHIP_SALT</unlockCustomShip>
 			<transformRace class="unique_obyn_temp">unique_obyn</transformRace>
@@ -3136,9 +3154,9 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="unique_obyn" blue="false" max_group="0">
-		<text>私も何が起こっているのかわかりませんが、ノームはあなたに私たちと一緒に来てほしいと言っています。</text>
+		<text>私も何が起こっているのかわからないけど、ノームが一緒に来てほしいと言ってるんだ。</text>
 		<event>
-			<text>「ノームが私に来ることを望んでいるなら、私は来ると思います。神様、私たち全員を助けてください。私はもう私の船を必要としないので、あなたはそれを手に入れることができます. "</text>
+			<text>"ノーム "が私に来いと言うのなら、私も行くだろう。神のご加護を。私の船はもう必要ないから、君にあげるよ。そうすればノームも喜ぶかもしれない。</text>
 			<playSound>gnome_keepliver</playSound>
 			<unlockCustomShip silent="false">PLAYER_SHIP_SALT</unlockCustomShip>
 			<variable name="ach_crew_obyn" op="set" val="1" />

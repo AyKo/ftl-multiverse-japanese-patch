@@ -5,11 +5,11 @@
 <event name="FINISH_BEACON_SLUG">
 	<text id="finish_beacon" />
 	<choice hidden="true">
-		<text>探検。</text>
+		<text>探検する</text>
 		<event load="EXIT_FILLER_LIST" />
 	</choice>
 	<choice hidden="true">
-		<text>船に乗って何かする。</text>
+		<text>船内で何かをする。</text>
 		<event load="STORAGE_CHECK" />
 	</choice>
 	<choice hidden="true">
@@ -32,10 +32,10 @@
 </eventList>
 
 <event name="ENCOUNTER_SLUG_CLEARING" unique="true">
-	<text>スラッグがオープンスペースに長期間さらされたままになることはめったにありません-ここの船は失われたり、通過したりする可能性がありますが、どちらの方法でも彼は攻撃に移動します！</text>
+	<text>スラッグがオープンスペースに長時間露出し続けることはまれで、ここにいる船は迷っているのかもしれないし、ただ通過しているだけなのかもしれないが、いずれにせよ彼は攻撃に移る！</text>
 	<ship load="SHIP_SLUG_FIGHT" hostile="true" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
@@ -44,35 +44,35 @@
 	<text load="TEXT_SLUG_PIRATE_CLEARING" />
 	<ship load="SHIP_PIRATE_ALL" hostile="true" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <textList name="TEXT_SLUG_PIRATE_CLEARING">
-	<text>近くに海賊船があるようです。警戒してください。スラッグの領土で狩りをしようとする人は誰でも手ごわいまたは非常に愚かであり、宇宙ではどちらも危険な場合があります。</text>
-	<text>「スラッグの星雲をこっそり通り抜けようとする愚かな人は誰でもオープンスペースに固執することを私たちは知っていました。あなたの商品を譲り渡してください。私たちはあなたを生きさせます。」応答の代わりに送信をカットします。</text>
-	<text>このセクターに存在する星雲から少し休む前に、海賊船があなたの後ろに現れて発砲します。</text>
+	<text>近くに海賊船があるようだ。油断は禁物だ。スラッグの縄張りで狩りをしようとする者は手強いか、よっぽどのバカかのどちらかであり、宇宙ではどちらも危険だ。</text>
+	<text>「スラッグ星雲を抜けようとする愚か者は、オープンスペースにこだわるだろうと思っていた。物資を差し出せば、生かしてやろう"あなたは返事の代わりに通信を切った。</text>
+	<text>このセクターに常に存在する星雲から一息つく間もなく、背後から海賊船が現れ、発砲してきた。</text>
 </textList>
 
 <event name="ENCOUNTER_SLUG_REBEL_CLEARING">
 	<text load="TEXT_SLUG_REBEL_CLEARING" />
 	<ship load="SHIP_REBEL_FIGHT" hostile="true" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <textList name="TEXT_SLUG_REBEL_CLEARING">
-	<text>ビーコンに到着すると、敵の船がすぐにスキャナーに登録します。反乱軍がスラッグの領土に到達範囲を拡大するのを見ることは期待していませんでした。武器を充電してください！</text>
-	<text>空のスペースに飛び込んで、センサーが瞬きするのを見て安心します。ただし、アプローチベクトルに反乱軍の船をすぐに登録するのを見ることはできません。</text>
-	<text>あなたは近くの船からメッセージを受け取ります。「私たちの知性は正しかったように見えます！ナメクジで雲を忍び込んでいます...誰も反乱から隠れることはできません！」</text>
+	<text>ビーコンに到着すると、すぐに敵艦がスキャナーに登録された。まさか反乱軍がスラッグ領域に手を伸ばしてくるとは思わなかっただろう。武器をチャージしろ！</text>
+	<text>何もない空間に飛び込み、センサーが点滅して生き返るのを見て安堵する。しかし、センサーがすぐに反乱軍の艦船を接近ベクトルに登録したのを見たときは、あまりうれしくはなかった！</text>
+	<text>近くの船からメッセージを受け取る。「どうやら我々の情報は正しかったようだ！スラッグスと共に雲を抜け...誰も反乱軍から隠れることはできない！"</text>
 </textList>
 
 <event name="ENCOUNTER_SLUG_MANTIS_CLEARING" unique="true">
-	<text>あなたは、入ってくるカマキリ船からのcommのおしゃべりを傍受します。「見てください。この船は、スクイーズのものが所有していないように見えます。カットしてもそれほど悪い匂いがしないかもしれません。」彼らはあなたの立場に移動します。</text>
+	<text>マンティス艦からの通信を傍受。「見ろ。この船はふにゃふにゃしたやつらの所有物じゃないみたいだ。多分、切り裂いてもそんなに臭わないだろう。"彼らはあなたの位置に近づいてくる。</text>
 	<ship load="SHIP_MANTIS_FIGHT" hostile="true" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event> 
@@ -85,17 +85,17 @@
 
 <event name="DISTRESS_REFUGEE_SLUG_MV" unique="true">
 	<distressBeacon />
-	<text>あなたは宇宙を漂流している難民船に遭遇しました。反乱軍の前進から逃げ出し、燃料を使い果たしたように見えます。その遭難ビーコンはアクティブですが、誰かが搭乗しているかどうかはわかりません。</text>
+	<text>宇宙空間を漂う難民船に遭遇した。反乱軍の進撃から逃れ、燃料が尽きたようだ。救難ビーコンは作動しているが、誰か乗っているかはわからない。</text>
 	<choice>
-		<text>彼らに連絡する。</text>
+		<text>万歳。</text>
 		<event load="REFUGEE_HAIL_LIST_SLUG_MV" />
 	</choice>
 	<choice>
-		<text>難民を無視します。</text>
+		<text>難民を無視する。</text>
 		<event>
-			<text>あなたは難民を警戒していますが、船で何かをするのは安全だと考えています。</text>
+			<text>難民を警戒しているようだが、船で何かするのは安全だと考えているのだろう。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -108,45 +108,45 @@
 <eventList name="REFUGEE_HAIL_LIST_SLUG_MV">
 	<event load="REFUGEE_TRADER" />
 	<event>
-		<text>あなたが難民船を呼ぶと、スラッグ船がシステムに飛び込みます...それはスポーツのために難民船を捜していました、そして今彼らは代わりにあなたを見つけました！</text>
+		<text>難民船を呼び止めると、スラッグ船が星系に飛び込んできた......スポーツのために難民船を追っていたのだが、代わりにあなたを見つけてしまったのだ！</text>
 		<ship load="SHIP_SLUG_REFUGEE" hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 </eventList>
 
 <event name="DISTRESS_SLUG_MANTIS_MV" unique="true">
-	<text>苦痛の呼びかけは、マンティスの襲撃者によってオープンスペースに巻き込まれたナメクジ船から発せられているようです。彼らは緊急頻度であなたに連絡してください：「喜んで、あなたがssssave ssssをsssaveするならば、私たちが持っているすべてをあなたに与えます！」</text>
+	<text>遭難信号は、オープンスペースでマンティスのレイダーに捕まったスラッグ船から発信されているようだ。緊急周波数で連絡してくる："助けてくれたら、全財産を差し上げます！"</text>
 	<choice hidden="true">
-		<text>マンティスの船を攻撃します。</text>
+		<text>マンティス船を攻撃する。</text>
 		<event>
-			<text>あなたはマンティスの船にロックして戦闘をします。</text>
+			<text>マンティス艦をロックし、交戦する。</text>
 			<ship load="SHIP_SLUG_DISTRESS_MANTIS" hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>スラッグの船を攻撃します。</text>
+		<text>スラッグ船を攻撃する。</text>
 		<event>
-			<text>あなたはマンティスが始めたことを終えるために動きます。</text>
+			<text>あなたはマンティスが始めたことを終わらせるために動く。</text>
 			<ship load="SHIP_SLUG_DISTRESS_MANTIS_SLUG" hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>銀河系のすべての種の中で、これら2つは互いに値します。ジャンプドライブの電源を入れます。</text>
+		<text>銀河系のあらゆる種族の中で、この2つは互いにふさわしい。ジャンプドライブのパワーを上げる。</text>
 		<event>
-			<text>連合の存在でさえ、マンティスがナメクジに対する気性を失うことを妨げることはできないようです。彼らは本当にそれを求めていたに違いありません。</text>
+			<text>連合の存在でさえ、マンティスがスラッグに対してキレるのを防ぐことはできないようだ。彼らは本当にそれを求めていたに違いない。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -158,11 +158,11 @@
 </event>
 <eventList name="SLUG_DISTRESS_MANTIS_SURRENDER">
 	<event>
-		<text>彼らがはるかに多くのダメージに耐えることができるようには見えません。数発のショットの後、彼らの船はバラバラになり、あなたは残骸を略奪するために移動します。</text>
+		<text>これ以上のダメージには耐えられそうにない。数発の銃撃の後、彼らの船はバラバラになり、あなたは残骸を略奪するために移動する。</text>
 		<autoReward level="RANDOM">standard</autoReward>
 	</event>
 	<event>	
-		<text>ナメクジのキャプテンはあなたを歓迎します：「ミスステーク！ssssimpleの間違い。もちろん私たちはあなたに支払うことができます！ssseee？拡張はすでに輸送されています。」あなたは彼らが彼らの人生で去ることを許します。</text>
+		<text>スラッグ隊長があなたを呼ぶ："ミス・ステイク！簡単な間違いだ。もちろん、金は払う！何だと？オーグメントはすでに輸送されました。"あなたは彼らが命からがら去るのを許す。</text>
 		<autoReward level="LOW">augment</autoReward>
 	</event>
 </eventList>
@@ -193,105 +193,105 @@
 </eventList>
 
 <event name="NEBULA_SLUG_HIGH_PRICE" unique="true">   
-	<text>ナメクジ駅が星雲の奥深くに隠れています。それは日陰ですが、あなたは明らかなトリックを見ません。彼らはあなたを呼び起こし、あなたに「アウトセンスに顕著なプレスセスを提供します！」</text>
+	<text>スラッグ・ステーションが星雲の奥深くに隠れている。怪しげだが、明らかなトリックは見当たらない。彼らはあなたを呼び寄せ、"破格の値段で燃料を提供する！"と言ってきた。</text>
 	<ship load="SHIP_SLUG_STATION" hostile="false" />
 	<environment type="nebula" />
 	<choice>
-		<text>彼らの燃料を購入します。</text>
+		<text>燃料を購入する。</text>
 		<event>
-			<text>あなたがスクラップを渡すとき、あなたが彼のばかげた詐欺に落ちるとき、スラッグは彼の笑いを抑えるために最善を尽くします。ちなみに、あなたは本当にばかげています。</text>
+			<text>あなたがスクラップを渡すと、スラッグは笑いをこらえるのに精一杯だった。ところで、君は本当に頭が悪い。</text>
 			<item_modify>
 				<item type="fuel" min="1" max="1" />
 				<item type="scrap" min="-100" max="-100" />
 			</item_modify>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="SCAM_UNLOCK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>低価格を交渉します。</text>
+		<text>値下げ交渉をする。</text>
 		<event>
-			<text>「いいね…sssssso貪欲な…」</text>
+			<text>"いいよ...すっごく欲張りで..."</text>
 			<choice>
-				<text>新しい価格で燃料を購入します。</text>
+				<text>新価格で燃料を購入する。</text>
 				<event>
-					<text>あなたがスクラップを渡すとき、あなたが彼のばかげた詐欺に落ちるとき、スラッグは彼の笑いを抑えるために最善を尽くします。ちなみに、あなたは本当にばかげています。</text>
+					<text>あなたがスクラップを渡すと、スラッグは笑いをこらえるのに精一杯だった。ところで、君は本当に頭が悪い。</text>
 					<item_modify>
 						<item type="fuel" min="1" max="1" />
 						<item type="scrap" min="-99" max="-99" />
 					</item_modify>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="SCAM_UNLOCK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>さらに低価格で交渉します。</text>
+				<text>さらに値下げ交渉をする。</text>
 				<event>
-					<text>「うーん、あなたは本当にここで私の比喩的な足をいじっています。」</text>
+					<text>"うっ、君は本当に僕の足を喩えてるんだね"</text>
 					<choice>
-						<text>彼らの燃料を購入します。</text>
+						<text>燃料を購入する。</text>
 						<event>
-							<text>あなたがスクラップを渡すとき、あなたが彼のばかげた詐欺に落ちるとき、スラッグは彼の笑いを抑えるために最善を尽くします。ちなみに、あなたは本当にばかげています。</text>
+							<text>あなたがスクラップを渡すと、スラッグは笑いをこらえるのに精一杯だった。ところで、君は本当に頭が悪い。</text>
 							<item_modify>
 								<item type="fuel" min="1" max="1" />
 								<item type="scrap" min="-98" max="-98" />
 							</item_modify>
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="SCAM_UNLOCK" />
 							</choice>
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>さらに交渉します。</text>
+						<text>さらに交渉する。</text>
 						<event>
-							<text>「キャプテン、あなたは私のsssssideの本当の痛みです。」</text>
+							<text>"君は本当に私の頭痛の種だよ、キャプテン"</text>
 							<choice>
-								<text>彼らの燃料を購入します。</text>
+								<text>燃料を購入する。</text>
 								<event>
-									<text>あなたがスクラップを渡すとき、あなたが彼のばかげた詐欺に落ちるとき、スラッグは彼の笑いを抑えるために最善を尽くします。ちなみに、あなたは本当にばかげています。</text>
+									<text>あなたがスクラップを渡すと、スラッグは笑いをこらえるのに精一杯だった。ところで、君は本当に頭が悪い。</text>
 									<item_modify>
 										<item type="fuel" min="1" max="1" />
 										<item type="scrap" min="-97" max="-97" />
 									</item_modify>
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event load="SCAM_UNLOCK" />
 									</choice>
 								</event>
 							</choice>
 							<choice>
-								<text>さらに交渉します。</text>
+								<text>さらに交渉する。</text>
 								<event>
-									<text>Issss thisss sssome sssick joke？私はハグを終えました。これが私の最後のオファーです！」</text>
+									<text>これって何かの冗談？交渉は終わりだ。これが最終オファーだ！"</text>
 									<choice>
-										<text>彼らの燃料を購入します。</text>
+										<text>燃料を購入する。</text>
 										<event>
-											<text>あなたがスクラップを渡すとき、あなたが彼のばかげた詐欺に落ちるとき、スラッグは彼の笑いを抑えるために最善を尽くします。ちなみに、あなたは本当にばかげています。</text>
+											<text>あなたがスクラップを渡すと、スラッグは笑いをこらえるのに精一杯だった。ところで、君は本当に頭が悪い。</text>
 											<item_modify>
 												<item type="fuel" min="1" max="1" />
 												<item type="scrap" min="-96" max="-96" />
 											</item_modify>
 											<choice hidden="true">
-												<text>継続する...</text>
+												<text>次へ...</text>
 												<event load="SCAM_UNLOCK" />
 											</choice>
 										</event>
 									</choice>
 									<choice>
-										<text>さらに交渉します。</text>
+										<text>さらに交渉する。</text>
 										<event load="SLUG_HIGH_PRICE_LASTTIME" />
 									</choice>
 									<choice hidden="true">
-										<text>結構です。</text>
+										<text>結構だ。</text>
 										<event>
-											<text>スラッグは二度とあなたに連絡しません。</text>
+											<text>スラッグは二度と連絡してこない。</text>
 											<choice>
-												<text>船に乗って何かする。</text>
+												<text>船内で何かをする。</text>
 												<event load="STORAGE_CHECK" />
 											</choice>
 											<choice>
@@ -303,11 +303,11 @@
 								</event>
 							</choice>
 							<choice hidden="true">
-								<text>結構です。</text>
+								<text>結構だ。</text>
 								<event>
-									<text>スラッグは二度とあなたに連絡しません。</text>
+									<text>スラッグは二度と連絡してこない。</text>
 									<choice>
-										<text>船に乗って何かする。</text>
+										<text>船内で何かをする。</text>
 										<event load="STORAGE_CHECK" />
 									</choice>
 									<choice>
@@ -319,11 +319,11 @@
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>結構です。</text>
+						<text>結構だ。</text>
 						<event>
-							<text>スラッグは二度とあなたに連絡しません。</text>
+							<text>スラッグは二度と連絡してこない。</text>
 							<choice>
-								<text>船に乗って何かする。</text>
+								<text>船内で何かをする。</text>
 								<event load="STORAGE_CHECK" />
 							</choice>
 							<choice>
@@ -335,11 +335,11 @@
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>結構です。</text>
+				<text>結構だ。</text>
 				<event>
-					<text>スラッグは二度とあなたに連絡しません。</text>
+					<text>スラッグは二度と連絡してこない。</text>
 					<choice>
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice>
@@ -351,11 +351,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>結構です。</text>
+		<text>結構だ。</text>
 		<event>
-			<text>スラッグは二度とあなたに連絡しません。</text>
+			<text>スラッグは二度と連絡してこない。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -367,17 +367,17 @@
 </event>
 <eventList name="SLUG_HIGH_PRICE_LASTTIME">
 	<event>
-		<text>スラッグは、もう一度交渉して彼らを侮辱し、発砲することに激怒しています！</text>
+		<text>スラッグたちは、あなたが別の機会に交渉することで自分たちを侮辱したことに激怒し、発砲する！</text>
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 	<event>
-		<text>「うーん...私はできません...しかし、私はムススト...貿易の魅力！機会！」</text>
+		<text>"うっ...できない...でも...どうしても...トレードの魅力に負けてしまう！チャンスだ！"</text>
 		<choice>
-			<text>彼らの燃料を購入します。</text>
+			<text>燃料を購入する。</text>
 			<event>
 				<item_modify>
 					<item type="fuel" min="1" max="1" />
@@ -386,17 +386,17 @@
 			</event>
 		</choice>
 		<choice>
-			<text>さらに交渉します。</text>
+			<text>さらに交渉する。</text>
 			<event>
-				<text>"いいえ。"</text>
+				<text>"ノー"</text>
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>結構です。</text>
+			<text>結構だ。</text>
 			<event>
-				<text>「私はあなたがとても嫌いです。」スラッグは二度とあなたに連絡しません。</text>
+				<text>"お前のことが大嫌いだ"スラッグは二度と連絡してこない。</text>
 				<choice>
-					<text>船に乗って何かする。</text>
+					<text>船内で何かをする。</text>
 					<event load="STORAGE_CHECK" />
 				</choice>
 				<choice>
@@ -412,35 +412,35 @@
 </event>
 
 <event name="NEBULA_SLUG_BIOLAB" unique="true">   
-	<text>近くには手付かずのスラッグサイエンスステーションがあります。外側に目に見える損傷はありませんが、ステーションからの活動はないようです。</text>
+	<text>近くには手つかずのスラッグ科学ステーションがある。外観に損傷は見られないが、ステーションからの活動はないようだ。</text>
 	<ship load="SHIP_SLUG_STATION" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
-		<text>ステーションにドッキングします。</text>
+		<text>駅にドック。</text>
 		<event load="NEBULA_SLUG_BIOLAB_INVESTIGATE" />
 	</choice>
 	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
-		<text>それ以上の情報なしに自分で乗り込むのはひどい考えです。</text>
+		<text>詳しい情報もなく、独断で乗り込むのはとんでもないことだ。</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true" req="sensors" lvl="2" max_lvl="2">
-		<text>（Upg Sensors）ステーションをスキャンします。</text>
+		<text>(センサー）駅をスキャンする。</text>
 		<event load="NEBULA_SLUG_BIOLAB_SCANS" />
 	</choice>
 	<choice hidden="true" req="sensors" lvl="3">
-		<text>（高度なセンサー）ステーションをスキャンします。</text>
+		<text>(アドバンスセンサー) ステーションをスキャンする。</text>
 		<event load="NEBULA_SLUG_BIOLAB_SCANS_GOOD" />
 	</choice>
 	<choice hidden="true" req="DRONE_CONTROL_BOARDING">
-		<text>（搭乗ドローン）ドローンをステーションに送ります。</text>
+		<text>(搭乗ドローン）ドローンをステーションに送る。</text>
 		<event load="NEBULA_SLUG_BIOLAB_SCANS_BOARD" />
 	</choice>
 	<choice hidden="true">
-		<text>ステーションを避けてください。</text>
+		<text>駅を避ける。</text>
 		<event>
-			<text>星雲の奥にある不思議なスラッグ達テーション？非常にありそうな罠。あなたはステーションを避けます。</text>
+			<text>星雲の奥深くに謎のスラッグ・ステーション？罠の可能性が高い。あなたはそのステーションを避ける。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -452,91 +452,91 @@
 </event>
 <eventList name="NEBULA_SLUG_BIOLAB_INVESTIGATE">
 	<event>
-		<text>ステーション構内は恐ろしい光景です。周りにはスラッグの死体があり、その皮膚はゴーストのような白です。闘争や戦いの兆候は見られません...</text>
+		<text>駅構内はぞっとするような光景だった。周りはスラッグの死体だらけで、彼らの肌は幽霊のように白い。争った形跡はない。</text>
 		<choice hidden="true">
-			<text>見続ける。</text>
+			<text>探し続けろ。</text>
 			<event>
-				<text>ラボを探索すると、壊れた試験管がいくつか見つかります。スラッグはある種の生物兵器を作り出していたようですが、それは逃げ出し、すべての科学者を殺しました！</text>
+				<text>研究室を探索していると、壊れた試験管をいくつか見つける。スラッグがある種の生物兵器を作っていたようだが、それが逃げ出して科学者たちを皆殺しにしたようだ！</text>
 				<choice hidden="true">
-					<text>引き返す。</text>
+					<text>ヘッドバックだ。</text>
 					<event load="NEBULA_SLUG_BIOLAB_INVESTIGATE_LEAVE" />
 				</choice>
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>あなたはこれが好きではありません。引き返す。</text>
+			<text>あなたはこれが好きではない。下がれ。</text>
 			<event />
 		</choice>
 	</event>
 	<event>
-		<text>ステーション構内は見た目が良くありません。スラッグの科学者たちは、生命のない地面に横たわっていました。研究室を探索すると、クローゼットの1つからノック音が聞こえます。</text>
+		<text>ステーションの中は美しくない。スラッグの科学者たちは地面に横たわり、生気を失っている。あなたは研究室を探検し、クローゼットのひとつからコツコツと音がするのに気づく。</text>
 		<choice hidden="true">
-			<text>クローゼットを開けます。</text>
+			<text>クローゼットを開ける。</text>
 			<event load="NEBULA_SLUG_BIOLAB_INVESTIGATE_CLOSET" />
 		</choice>
 		<choice hidden="true">
-			<text>クローゼットを無視して去ります。</text>
+			<text>クローゼットは無視して立ち去る。</text>
 			<event />
 		</choice>
 	</event>
 	<event>
-		<text>驚いたことに、ステーションのクルーはまだ生きていて、あなたが彼らに乗り込むことに満足していません！戦いの準備をしなさい。</text>
+		<text>驚いたことに、ステーションのクルーはまだ生きており、あなたが乗り込んできたことを快く思っていない！戦いに備えよ。</text>
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 </eventList>
 <eventList name="NEBULA_SLUG_BIOLAB_INVESTIGATE_LEAVE">
 	<event>
-		<text>船に戻ると、クルーの1人が息を切らし始め、地面に倒れ、痛みで震えます。体が他の人に広がる直前に、クルーに体をベントするように命令します。</text>
+		<text>船に戻ると、クルーの一人が息を切らし始め、痛みで痙攣しながら地面に倒れこんだ。あなたは乗組員たちに、他の乗組員たちに影響が及ぶ前に、その死体をすぐに排出するよう命じる。</text>
 		<removeCrew>
 			<clone>false</clone>
-			<text>遺伝子操作されたウイルスがクローンに広がることができるかどうかはわかりませんが、リスクを冒す価値はありません。クローンベイからクルーのデータを削除します。</text>
+			<text>人工ウイルスがクローンに広がるかどうかはわからないが、危険を冒す価値はない。クローンベイからクルーのデータを削除する。</text>
 		</removeCrew>
 	</event>
 	<event />
 </eventList>
 <eventList name="NEBULA_SLUG_BIOLAB_INVESTIGATE_CLOSET">
 	<event>
-		<text>クローゼットの中には、まだ生きているスラッグの科学者の1人がいます。彼らは、ステーションがバイオエンジニアリングウイルスを開発している最中だったと説明していますが、事故によりクルーは感染し、すぐに死亡しました。すべてのホストが死んでいるので、ウイルスがまだ存在している可能性は低いですが、スラッグはあなたが去ることを勧めています。あなたが去る前にあなたは彼らの技術をつかみます。</text>
+		<text>クローゼットの中に、まだ生きているスラッグの科学者がいた。彼らは、ステーションはバイオ・ウイルスを開発している最中だったが、事故が原因でクルーが感染し、すぐに死んでしまったと説明する。ホストが全員死んだので、ウイルスがまだ残っているとは思えないが、スラッグは立ち去るよう忠告してくる。あなたは去る前に彼らの技術を手に入れる。</text>
 		<crewMember amount="1" class="slug" />
 		<augment name="COMBAT_OXYGEN_UNSTABLE" />
 	</event>
 	<event>
-		<text>クローゼットを開けるとスラッグが落ちます。彼らは恐怖で悲鳴を上げ、皮膚が青ざめ、収縮するにつれて震えながら地面に倒れます。何が起こったのかわかりませんが、不思議な病気が広がる前に去ります。</text>
+		<text>クローゼットを開けるとスラッグが落ちてくる。スラッグは恐怖の叫び声を上げ、皮膚が蒼白になり萎んで痙攣しながら地面に倒れこむ。一体何が起こったのかわからないが、謎の病気が蔓延する前にその場を立ち去る。</text>
 	</event>
 </eventList>
 <event name="NEBULA_SLUG_BIOLAB_SCANS">
-	<text>あなたのスキャンは、ステーションの周りに散らばっている死んだスラッグの科学者のかなり不快なシーンを示しています。死因は不明ですが、搭乗するのは安全ではないと思います。代わりに、ステーションの船体をスクラップします。</text>
+	<text>スキャンしてみると、スラッグの科学者たちの死体がステーションに散乱している。死因は不明だが、乗り込むのは危険だと判断。代わりに、ステーションの外壁をスクラップする。</text>
 	<autoReward level="MED">standard</autoReward>
 </event>
 <event name="NEBULA_SLUG_BIOLAB_SCANS_GOOD">
-	<text>あなたのスキャンは、ステーションの周りに散らばっている死んだスラッグの科学者のかなり不快なシーンを示しています。スキャンにより、原因をウイルスとして特定できます。これは、ラボの一部のチューブとも一致します。すべてのホストが数日間死んでいるため、ウイルスはもはや感染性ではないようです。あなたは彼らの技術のいくつかに乗り込み、つかみます。</text>
+	<text>スキャンの結果、スラッグの科学者たちの死体がステーションに散乱している。スキャンの結果、原因はウィルスであることが判明した。ホストが全員死んで数日経つため、ウイルスはもはや感染しないようだ。搭乗し、彼らの技術を奪う。</text>
 	<augment name="COMBAT_OXYGEN_UNSTABLE" />
 	<autoReward level="LOW">standard</autoReward>
 </event>
 <event name="NEBULA_SLUG_BIOLAB_SCANS_BOARD">
-	<text>内蔵カメラを通して、ステーションで何かがひどく間違っていたことは明らかです。スラッグの科学者全員が亡くなり、彼らの死体が地面に散らばっています。ドローンに興味深い技術の1つと燃料を手に入れ、船に戻ったらすぐに消毒します。</text>
+	<text>内蔵カメラを通して、ステーションで何かがひどく間違っていたことは明らかだ。スラッグの科学者たちは全員死亡し、死体が地面に散乱している。あなたはドローンに興味深い技術の一部と燃料をつかませ、船に戻ったらすぐに消毒させる。</text>
 	<augment name="COMBAT_OXYGEN_UNSTABLE" />
 	<autoReward level="LOW">fuel_only</autoReward>
 </event>
 
 <event name="NEBULA_SLUG_MYSTERIOUS_TECH" unique="true">   
-	<text>あなたはこの星雲の奥深くに隠れているヘクタールの船に歓迎されています。 「こんにちはキャプテン、それは1つの素晴らしいベッセルです。しかし、私たちはあなたがあなたのssshipをさらに良くすることを保証するsssome技術を持っています！」</text>
+	<text>この星雲の奥深くに隠れているヘクター船に呼び出された。"こんにちは、艦長、素晴らしい船ですね。しかし、我々はあなたの船をより良くすることを保証するいくつかの技術を持っています。"</text>
 	<ship load="SHIP_HEKTAR_GENERIC" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>15スクラップで彼らの技術を購入します。</text>
+		<text>彼らの技術を15スクラップで購入する。</text>
 		<event load="NEBULA_SLUG_MYSTERIOUS_TECH_PURCHASE" />
 	</choice>
 	<choice hidden="true">
-		<text>結構です。</text>
+		<text>結構だ。</text>
 		<event>
-			<text>スラッグは通信を切断し、星雲の奥深くまでスリンクします。</text>
+			<text>スラッグは通信を切り、星雲の奥深くへとそそくさと去っていく。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -548,14 +548,14 @@
 </event>
 <eventList name="NEBULA_SLUG_MYSTERIOUS_TECH_PURCHASE">
 	<event>
-		<text>「お楽しみください！そして、払い戻しはありません！」船に奇妙な赤いボタンを取り付けた後のスラッグ達ビーム。</text>
+		<text>「お楽しみに！返金はしないぞ！"スラッグはあなたの船に奇妙な赤いボタンを取り付けた後、ビームを放つ。</text>
 		<augment name="COMBAT_PANIC_BUTTON" />
 		<item_modify>
 			<item type="scrap" min="-15" max="-15" />
 		</item_modify>
 	</event>
 	<event>
-		<text>あなたはスラッグ達にお金を払ったが、彼らが実際にあなたのリアクターをトリックなしでアップグレードしたのを見つけたときあなたは驚いた！</text>
+		<text>スラッグに金を払ったにもかかわらず、彼らが何の策略もなしに原子炉をアップグレードしているのを見て驚く！</text>
 		<upgrade amount="1" system="reactor" />
 		<item_modify>
 			<item type="scrap" min="-15" max="-15" />
@@ -564,18 +564,18 @@
 </eventList>
 
 <event name="NEBULA_SLUG_CREW_UPGRADE" unique="true">   
-	<text>あなたはスラッグサイエンスステーションに歓迎されています。 「両方のusssにとって、なんて素晴らしい日だ。私たちは、私たちが試してみたいと思う新しい技術を持っている。あなたは、船のお尻のようなお尻のように見える。同意すれば、私たちは両方ともthisssの恩恵を受けるだろう。」</text>
+	<text>あなたはスラッグの科学ステーションに迎えられる。"お互いにとって素晴らしい日だ。"我々は試したい新技術がある" "そして君は最高の船だもし同意してくれるなら、我々二人ともこの船から恩恵を受けるだろう。"</text>
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>彼らの提案を聞いてください。</text>
+		<text>彼らの提案に耳を傾けてほしい。</text>
 		<event>
-			<text>「私たちはマインドコントロール技術で興味深いブレークスルーを達成しました。パーソンの記憶や専門知識を変える方法を見つけたかもしれないと信じています。今のところ、経験の浅い人間、エンギ、ロック、またはゾルタンを探しています。の上。"</text>
+			<text>「我々はマインド・コントロール技術で興味深いブレークスルーを遂げ、ある人物の記憶や専門知識を変える方法を発見した。今のところ、未経験の人間、エンジ、ロック、ゾルタンを探している。"</text>
 			<choice hidden="true" req="human" blue="false">
-				<text>あなたの人間をボランティアしてください。</text>
+				<text>ボランティア・ユア・ヒューマン</text>
 				<event>
-					<text>「よかった...今、有料で、私たちはあなたの人間の専門知識をあなたが選んだものに変えることができるでしょう！」</text>
+					<text>"よろしい......今なら、手数料を払えば、あなたの人間の専門知識をあなたの好きなものに変えることができる！"</text>
 					<choice>
-						<text>人間をエンジニアに変えてもらいます。</text>
+						<text>ヒューマンをエンジニアに変更してもらう。</text>
 						<event>
 							<text id="slug_crew_upgrade" />
 							<item_modify>
@@ -585,7 +585,7 @@
 						</event>
 					</choice>
 					<choice>
-						<text>あなたの人間を兵士に変えてもらいます。</text>
+						<text>ヒューマンをソルジャーに変えてもらう。</text>
 						<event>
 							<text id="slug_crew_upgrade" />
 							<item_modify>
@@ -595,7 +595,7 @@
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>あなたは料金について何も言わなかった！</text>
+						<text>料金については何も言っていない！</text>
 						<event>
 							<text id="slug_crew_no" />
 						</event>
@@ -603,11 +603,11 @@
 				</event>
 			</choice>
 			<choice hidden="true" req="engi" blue="false">
-				<text>あなたのエンギをボランティアしてください。</text>
+				<text>ボランティア活動</text>
 				<event>
-					<text>「よかった...今、有料で、あなたのエンギの専門知識をあなたが選んだものに変えることができるでしょう！」</text>
+					<text>"よろしい......今なら、手数料を払えば、あなたのエンジの専門知識をお好きなものに変えることができる！"</text>
 					<choice>
-						<text>あなたのエンギを分離主義者に変えてもらいなさい。</text>
+						<text>エンギを分離主義者に変更させる。</text>
 						<event>
 							<text id="slug_crew_upgrade" />
 							<item_modify>
@@ -617,7 +617,7 @@
 						</event>
 					</choice>
 					<choice>
-						<text>エンギをエンギDefenderに変更してもらいます。</text>
+						<text>エンギをエンギ・ディフェンダーに変更してもらう。</text>
 						<event>
 							<text id="slug_crew_upgrade" />
 							<item_modify>
@@ -627,7 +627,7 @@
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>あなたは料金について何も言わなかった！</text>
+						<text>料金については何も言っていない！</text>
 						<event>
 							<text id="slug_crew_no" />
 						</event>
@@ -635,11 +635,11 @@
 				</event>
 			</choice>
 			<choice hidden="true" req="rock" blue="false">
-				<text>あなたのロックマンを志願してください。</text>
+				<text>ロックマンに志願せよ</text>
 				<event>
-					<text>「よかった...今、有料で、あなたのロックの専門知識をあなたが選んだものに変えることができるでしょう！」</text>
+					<text>"よろしい......今なら、料金をお支払いいただければ、ロックの専門性をお好きなものに変更いたします！"</text>
 					<choice>
-						<text>ロックマンをアウトキャストに変更してもらいます。</text>
+						<text>ロックマンをアウトキャストに変更させる。</text>
 						<event>
 							<text id="slug_crew_upgrade" />
 							<item_modify>
@@ -649,7 +649,7 @@
 						</event>
 					</choice>
 					<choice>
-						<text>ロックマンをコマンドーに変更してもらいます。</text>
+						<text>ロックマンをコマンドーに変えてもらう。</text>
 						<event>
 							<text id="slug_crew_upgrade" />
 							<item_modify>
@@ -659,7 +659,7 @@
 						</event>
 					</choice>
 					<choice>
-						<text>ロックマンをクルセイダーに変えてもらいましょう。</text>
+						<text>ロックマンをクルセイダーに変えてもらう。</text>
 						<event>
 							<text id="slug_crew_upgrade" />
 							<item_modify>
@@ -669,7 +669,7 @@
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>あなたは料金について何も言わなかった！</text>
+						<text>料金については何も言っていない！</text>
 						<event>
 							<text id="slug_crew_no" />
 						</event>
@@ -677,11 +677,11 @@
 				</event>
 			</choice>
 			<choice hidden="true" req="zoltan" blue="false">
-				<text>あなたのゾルタンを志願してください。</text>
+				<text>ゾルタンを志願する</text>
 				<event>
-					<text>「よかった...今、有料で、私たちはあなたのゾルタンの専門知識をあなたが選んだものに変えることができるでしょう！」</text>
+					<text>"よろしい......今なら、手数料を払えば、ゾルタンの専門知識をお好きなものに変えることができる！"</text>
 					<choice>
-						<text>ゾルタンをダスクブリンガー信奉者に変更してもらいます。</text>
+						<text>ゾルタンをダスクブリンガーの信奉者に変更させる。</text>
 						<event>
 							<text id="slug_crew_upgrade" />
 							<item_modify>
@@ -691,7 +691,7 @@
 						</event>
 					</choice>
 					<choice>
-						<text>ゾルタンを僧侶に変えてもらいます。</text>
+						<text>ゾルタンをモンクに変更させる。</text>
 						<event>
 							<text id="slug_crew_upgrade" />
 							<item_modify>
@@ -701,7 +701,7 @@
 						</event>
 					</choice>
 					<choice>
-						<text>ゾルタンをピースキーパーに変えてもらいましょう。</text>
+						<text>ゾルタンをピース・キーパーに変更させる。</text>
 						<event>
 							<text id="slug_crew_upgrade" />
 							<item_modify>
@@ -711,7 +711,7 @@
 						</event>
 					</choice>
 					<choice>
-						<text>あなたのゾルタンを夕暮れのmar教者に変更してください。</text>
+						<text>ゾルタンをダスクブリンガー殉教者に変更させる。</text>
 						<event>
 							<text id="slug_crew_upgrade" />
 							<item_modify>
@@ -721,7 +721,7 @@
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>あなたは料金について何も言わなかった！</text>
+						<text>料金については何も言っていない！</text>
 						<event>
 							<text id="slug_crew_no" />
 						</event>
@@ -729,19 +729,19 @@
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>リスクが高すぎるようです。</text>
+				<text>リスクが高すぎるようだ。</text>
 				<event>
-					<text>「まあ、RissskがSSSSSCINTIFICの進歩に必要なSSSTEPを発行するとは思わないなら、あなたは明らかにこのとにかくこれをテスストする人々ではありません。」</text>
+					<text>"もしあなたが、リスクは科学の進歩に必要なステップだと思わないのなら、あなた方はこのことを研究する人たちではない"。</text>
 				</event>
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>実験することに興味はありません。</text>
+		<text>私たちは実験されることに興味はない。</text>
 		<event>
-			<text>「非常にシンプルな心を持ったフェデックス、決して新しいアイデアを受け入れることはありません...」</text>
+			<text>"単純思考で、新しいアイデアを受け入れることがない..."</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -763,67 +763,67 @@
 </eventList>
 
 <event name="NEBULA_SLUG_CASINO" unique="true">
-	<text>ここの星雲の奥深くは、おそらくあなたがこれまでに見たと思っていた最後のものです...</text>
+	<text>この星雲の奥深くに、おそらくあなたが最後に見ることになるであろうものがある...。</text>
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>忙しいカジノです！船は行き来します。ほとんどがスラッグですが、他の種類の船もあります。</text>
+			<text>にぎやかなカジノだ！ほとんどの船がスラッグだが、他の種類の船もある。</text>
 			<choice hidden="true">
-				<text>立ち寄ってチェックしてください。</text>
+				<text>ぜひお立ち寄りください。</text>
 				<event>
-					<text>内部にはいくつかの異なるゲームがありますが、ほとんどの場合、他のプレーヤーが必要です。残念ながら、それらのプレーヤーはたまたまスラッグであり、チャンスがあるとは思えません。スクラップと出力の供給を受け入れるように構成されたいくつかの奇妙なスロットマシンに気づきました...</text>
+					<text>中には何種類かのゲームがあるが、ほとんどが他のプレーヤーを必要とする。残念なことに、そのプレイヤーはたまたまスラッグであり、自分に勝ち目があるとは思えない。スクラップや消耗品を受け入れるように設定された、いくつかの奇妙なスロットマシンに気づく。</text>
 					<choice>
-						<text>燃料を賭けてください。</text>
+						<text>燃料に賭ける。</text>
 						<event>
-							<text>スクラップをスロットマシンに入力します...</text>
+							<text>スクラップをスロットマシンに投入する。</text>
 							<item_modify>
 								<item type="scrap" min="-24" max="-24" />
 							</item_modify>
 							<choice hidden="true">
-								<text>レバーを引いて結果を待ちます。</text>
+								<text>レバーを引いて結果を待つ。</text>
 								<event load="SLUG_CASINO_FUEL" />
 							</choice>
 						</event>
 					</choice>
 					<choice>
-						<text>いくつかのミサイルを賭けます。</text>
+						<text>ミサイルのためにギャンブルをする。</text>
 						<event>
-							<text>スクラップをスロットマシンに入力します...</text>
+							<text>スクラップをスロットマシンに投入する。</text>
 							<item_modify>
 								<item type="scrap" min="-30" max="-30" />
 							</item_modify>
 							<choice hidden="true">
-								<text>レバーを引いて結果を待ちます。</text>
+								<text>レバーを引いて結果を待つ。</text>
 								<event load="SLUG_CASINO_MISSILES" />
 							</choice>
 						</event>
 					</choice>
 					<choice>
-						<text>いくつかのドローンパーツを賭けます。</text>
+						<text>ドローンパートのギャンブル。</text>
 						<event>
-							<text>スクラップをスロットマシンに入力します...</text>
+							<text>スクラップをスロットマシンに投入する。</text>
 							<item_modify>
 								<item type="scrap" min="-40" max="-40" />
 							</item_modify>
 							<choice hidden="true">
-								<text>レバーを引いて結果を待ちます。</text>
+								<text>レバーを引いて結果を待つ。</text>
 								<event load="SLUG_CASINO_DRONES" />
 							</choice>
 						</event>
 					</choice>
 					<choice>
-						<text>気にしないで、去りましょう。</text>
+						<text>もういい、帰ろう。</text>
 						<event />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>カジノを無視します。</text>
+				<text>カジノは無視だ。</text>
 				<event>
-					<text>スラッグが運営するカジノは信頼できません。とにかく、とにかくギャンブルをする時間はありません。</text>
+					<text>スラッグが経営するカジノは信用できない。いずれにせよ、ギャンブルをしている暇はない。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -837,7 +837,7 @@
 </event>
 <eventList name="SLUG_CASINO_FUEL">
 	<event>
-		<text>マシンが明るい金色に点滅し、いくつかの燃料キャニスターが飛び出すので、それはあなたの幸運な日でなければなりません。</text>
+		<text>マシンが金色に光り、燃料キャニスターがいくつも飛び出すのだ。</text>
 		<item_modify>
 			<item type="fuel" min="8" max="8" />
 		</item_modify>
@@ -848,7 +848,7 @@
 </eventList>
 <eventList name="SLUG_CASINO_MISSILES">
 	<event>
-		<text>マシンが明るい金色に点滅し、いくつかのミサイルが飛び出すので、それはあなたの幸運な日でなければなりません。それらを落とさないように注意してください...</text>
+		<text>マシンが金色に光り、ミサイルが何発も飛び出す。落とさないように気をつけよう...。</text>
 		<item_modify>
 			<item type="missiles" min="5" max="5" />
 		</item_modify>
@@ -859,7 +859,7 @@
 </eventList>
 <eventList name="SLUG_CASINO_DRONES">
 	<event>
-		<text>マシンが明るい金色に点滅し、いくつかのドローンパーツが飛び出すので、それはあなたの幸運な日でなければなりません。</text>
+		<text>マシンが金色に点滅し、ドローンパーツが何個か飛び出してくるのだから。</text>
 		<item_modify>
 			<item type="drones" min="5" max="5" />
 		</item_modify>
@@ -869,79 +869,79 @@
 	<event load="SLUG_CASINO_FAIL" />
 </eventList>
 <event name="SLUG_CASINO_FAIL">
-	<text>がっかりして、あなたはカジノを出ます。しかし、あなたが去るとき、あなたは何人かの訪問者が主張しているのを耳にします。物事は熱くなっているように聞こえますが、何のためにあるのかわかりません。</text>
+	<text>がっかりしてカジノを出る。しかし、カジノを出るとき、何人かの客が口論しているのを耳にした。何やらヒートアップしているようだが、何のために口論しているのかわからない。</text>
 	<choice hidden="true">
-		<text>何が起こっているかを見るために戻ってきてください。</text>
+		<text>何が起きているのか、また見に来てください。</text>
 		<event>
-			<text>内部の状況はあなたが思っていたよりずっと悪いです。誰かがマシンが装備されていることを知ったようです、そして今顧客は彼らのお金を払い戻すことを望んでいます...しかしカジノのスタッフは戦いなしで彼らのお金を明け渡すつもりはありません。</text>
+			<text>内部の状況は想像以上に悪い。マシンが不正に操作されていることを誰かが発見したようで、客は金の払い戻しを求めている......しかし、カジノのスタッフは戦わずして金を明け渡すつもりはないようだ。</text>
 			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
-				<text>顧客を支援します。</text>
+				<text>顧客を支援する。</text>
 				<event load="SLUG_CASINO_CUSTOMER" />
 			</choice>
 			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
-				<text>スタッフを助けます。</text>
+				<text>スタッフを助ける。</text>
 				<event load="SLUG_CASINO_STAFF" />
 			</choice>
 			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
-				<text>あなたは一人で誰かを助けるつもりはありません。</text>
+				<text>自分一人では誰も助けられない。</text>
 				<event load="OPTION_INVALID" />
 			</choice>
 			<choice hidden="true" req="LIST_CREW_ZOLTAN">
-				<text>（ゾルタンクルー）平和的な解決策に到達するように彼らを説得します。</text>
+				<text>(ゾルタン・クルー）平和的解決に至るよう説得する。</text>
 				<event>
-					<text>あなたのゾルタンは平和的解決と平和主義の必要性について2つのグループに講義します...しかしそれが成し遂げるのは群衆全体を眠らせることだけです。あなたは状況を利用して、カジノの周りにあるいくつかの物資を回収し、船に戻ります。</text>
+					<text>あなたのゾルタンは2つのグループに平和的解決と平和主義の必要性について説教をする...しかし、その成果は観衆全員を眠らせることだけだった。あなたはこの状況を利用し、カジノの周りに転がっている物資を回収して船に戻る。</text>
 					<autoReward level="MED">stuff</autoReward>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>参加する前に去ります。</text>
+				<text>巻き込まれる前に立ち去れ。</text>
 				<event />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>急いで。</text>
+		<text>急ぎなさい。</text>
 		<event />
 	</choice>
 </event>
 <eventList name="SLUG_CASINO_CUSTOMER">
 	<event>
-		<text>訓練を受けた軍のクルーの助けを借りて、カジノのスタッフを追い越します。しかし、それらを統合するものがなければ、クライアントは完全な混乱に陥ります。みんなが戦っている間、あなたは急いでいくつかの物資を廃棄し、船に戻ります。</text>
+		<text>訓練された軍人の助けを借りて、あなたはカジノのスタッフを追い抜く。しかし、彼らを団結させるものは何もなく、客たちは完全な混乱に陥る。皆が戦っている間に、あなたは急いで物資をかき集め、船に戻る。</text>
 		<autoReward level="HIGH">scrap_only</autoReward>
 	</event>
 	<event>
-		<text>カジノのスタッフは予想以上に訓練されていたようです。彼らは顧客の群衆を押し戻し、あなたはそれ以上関与せずに船に戻ることが最善であると判断します。</text>
+		<text>カジノのスタッフは予想以上に訓練されていたようだ。これ以上関わらない方がいいと判断し、船に戻る。</text>
 	</event>
 </eventList>
 <eventList name="SLUG_CASINO_STAFF">
 	<event>
-		<text>あなたの援助がうまくいくようです。あなたの訓練された軍のクルーの助けを借りて、あなたは顧客を怖がらせます。カジノはあなたに感謝し、あなたに払い戻しを提供します。</text>
+		<text>あなたの援助が功を奏したようだ。訓練された軍人の助けを借りて、あなたは客を追い払った。カジノはあなたに感謝し、払い戻しを申し出る。</text>
 		<item_modify>
 			<item type="scrap" min="50" max="50" />
 		</item_modify>
 	</event>
 	<event>
-		<text>あなたのクルーは怒っている顧客の大群に匹敵しないようです、それであなたは追跡しているカジノスタッフの1人と一緒に船に急いで戻ります。彼らは所有者であるように見えます、そして彼らのビジネスが地面に燃やされようとしているので、彼らはあなたの船に場所を持っていることに感謝するでしょう。</text>
-		<crewMember amount="1" class="slug">slotz</crewMember>
+		<text>怒り狂った客の大群に乗組員たちは太刀打ちできないようだ。そこであなたは、カジノのスタッフのひとりを追って船へと急いだ。どうやら彼らはオーナーらしく、今にも放火されそうな彼らのビジネスが、あなたの船に乗っていることに感謝しているようだ。</text>
+		<crewMember amount="1" class="slug">スロッツ</crewMember>
 	</event>
 	<event>
-		<text>あなたのクルーは怒っている顧客の大群に匹敵しないようです。特に興奮したロックマンはスロットマシン全体を手に取り、それをあなたのクルーの1人の頭にぶつけて、衝撃で即座に殺します。それ以上の損失を被りたくないので、あなたは船に急いで戻ります。</text>
+		<text>怒れる客の大群に、あなたのクルーは太刀打ちできないようだ。特に激昂したロックマンがスロットマシンを丸ごと拾い上げ、クルーの頭上に叩きつけ、その衝撃で即死させた。これ以上損失を出したくないあなたは、急いで船に戻った。</text>
 		<removeCrew>
 			<clone>true</clone>
-			<text>幸いなことに、クローンベイはあなたのクルーを復活させることができますが、彼らはこれからカジノやギャンブルを常に恐れるでしょう。</text>
+			<text>幸いにもクローン・ベイがクルーを復活させてくれるが、彼らは今後カジノやギャンブルを恐れるようになるだろう。</text>
 		</removeCrew>
 	</event>
 </eventList>
 
 <event name="NEBULA_SLUG_ILLEGAL_CLONES" unique="true">
-	<text>近くのスラッグ研究所はクローン技術の研究を行っているようです。彼らはあなたを歓迎し、「ユニークなオファー」を提供します。</text>
+	<text>近くのスラッグ研究所がクローン技術の研究をしているようだ。彼らは「ユニークなオファー」を持ちかけてくる。</text>
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>興味を示す。</text>
+		<text>関心を示す。</text>
 		<event>
-			<text>「ご存知のように、Sshort-Sssighted Federation Hasssは、SSSSTILL Living Organissssssssssのクローニングを禁止することを決定しました。幸運にもUSSSSの場合、これは連邦の領土ではなく、SSSSMALL料金のために、クルーの1つを複製することをいとわないでしょう。SSSAMEの記憶やssskillssはオリジナルをsssshareしません。」</text>
+			<text>"ご存知のように、短絡的な連邦はまだ生きている組織のクローンを禁止することを決定した。幸運なことに、ここは連邦の領土ではない。わずかな費用で、あなたのクルーを複製することができます。ただし、クローンはオリジナルと同じ記憶やスキルを共有することはできません。</text>
 			<choice req="LIST_CREW_HUMAN" blue="false" hidden="true">
-				<text>人間の乗組員をクローンします。 [-25スクラップ]</text>
+				<text>人間のクルーのクローンを作れ[-25スクラップ]</text>
 				<event>
 					<text id="slughome_crew_clone" />
 					<crewMember amount="1" class="human" />
@@ -951,7 +951,7 @@
 				</event>
 			</choice>
 			<choice req="LIST_CREW_ENGI" blue="false" hidden="true">
-				<text>エンギクルーのクローンを作成します。 [-35スクラップ]</text>
+				<text>エンジクルーのクローン[-35スクラップ]</text>
 				<event>
 					<text id="slughome_crew_clone" />
 					<crewMember amount="1" class="engi" />
@@ -961,7 +961,7 @@
 				</event>
 			</choice>
 			<choice req="LIST_CREW_ZOLTAN" blue="false" hidden="true">
-				<text>ゾルタンのクルーのクローンを作成します。 [-35スクラップ]</text>
+				<text>ゾルタンのクルーをクローンする。[-35スクラップ]</text>
 				<event>
 					<text id="slughome_crew_clone" />
 					<crewMember amount="1" class="zoltan" />
@@ -971,7 +971,7 @@
 				</event>
 			</choice>
 			<choice req="LIST_CREW_ORCHID" blue="false" hidden="true">
-				<text>オーキドゥクルーのクローンを作成します。 [-35スクラップ]</text>
+				<text>オーキッドのクルーをクローンする[-35スクラップ]</text>
 				<event>
 					<text id="slughome_crew_clone" />
 					<crewMember amount="1" class="orchid" />
@@ -981,7 +981,7 @@
 				</event>
 			</choice>
 			<choice req="LIST_CREW_MANTIS" blue="false" hidden="true">
-				<text>マンティスのクルーのクローンを作成します。 [-40スクラップ]</text>
+				<text>マンティスのクルーをクローンする。[-40スクラップ]</text>
 				<event>
 					<text id="slughome_crew_clone" />
 					<crewMember amount="1" class="mantis" />
@@ -991,7 +991,7 @@
 				</event>
 			</choice>
 			<choice req="LIST_CREW_ROCK" blue="false" hidden="true">
-				<text>ロッククルーのクローンを作成します。 [-40スクラップ]</text>
+				<text>ロッククルーのクローン[-40スクラップ]</text>
 				<event>
 					<text id="slughome_crew_clone" />
 					<crewMember amount="1" class="rock" />
@@ -1001,7 +1001,7 @@
 				</event>
 			</choice>
 			<choice req="LIST_CREW_CRYSTAL" blue="false" hidden="true">
-				<text>クリスタルクルーのクローンを作成します。 [-45スクラップ]</text>
+				<text>クリスタルのクルーをクローンする。[-45スクラップ]</text>
 				<event>
 					<text id="slughome_crew_clone" />
 					<crewMember amount="1" class="crystal" />
@@ -1011,7 +1011,7 @@
 				</event>
 			</choice>
 			<choice req="LIST_CREW_SLUG" blue="false" hidden="true">
-				<text>スラッグクルーのクローンを作成します。 [-30スクラップ]</text>
+				<text>スラッグクルーのクローン[-30スクラップ]</text>
 				<event>
 					<text id="slughome_crew_clone" />
 					<crewMember amount="1" class="slug" />
@@ -1021,7 +1021,7 @@
 				</event>
 			</choice>
 			<choice req="LIST_CREW_SHELL" blue="false" hidden="true">
-				<text>シェルクルーのクローンを作成します。 [-35スクラップ]</text>
+				<text>シェルクルーのクローン[-35スクラップ]</text>
 				<event>
 					<text id="slughome_crew_clone" />
 					<crewMember amount="1" class="shell" />
@@ -1031,7 +1031,7 @@
 				</event>
 			</choice>
 			<choice req="LIST_CREW_PHANTOM" blue="false" hidden="true">
-				<text>ファントムクルーのクローンを作成します。 [-20スクラップ]</text>
+				<text>ファントムクルーのクローン[-20スクラップ]</text>
 				<event>
 					<text id="slughome_crew_clone" />
 					<crewMember amount="1" class="phantom" />
@@ -1041,7 +1041,7 @@
 				</event>
 			</choice>
 			<choice req="LIST_CREW_GOUL" blue="false" hidden="true">
-				<text>ゴゥルのクルーのクローンを作成します。 [-20スクラップ]</text>
+				<text>グールクルーのクローン[-20スクラップ]</text>
 				<event>
 					<text id="slughome_crew_clone" />
 					<crewMember amount="1" class="phantom_goul" />
@@ -1051,7 +1051,7 @@
 				</event>
 			</choice>
 			<choice req="LIST_CREW_MARE" blue="false" hidden="true">
-				<text>マーレのクルーのクローンを作成します。 [-20スクラップ]</text>
+				<text>マーレクルーのクローン[-20スクラップ]</text>
 				<event>
 					<text id="slughome_crew_clone" />
 					<crewMember amount="1" class="phantom_mare" />
@@ -1061,7 +1061,7 @@
 				</event>
 			</choice>
 			<choice req="LIST_CREW_WRAITH" blue="false" hidden="true">
-				<text>レイスのクルーのクローンを作成します。 [-20スクラップ]</text>
+				<text>レイスのクルーをクローンする。[-20スクラップ]</text>
 				<event>
 					<text id="slughome_crew_clone" />
 					<crewMember amount="1" class="phantom_wraith" />
@@ -1071,7 +1071,7 @@
 				</event>
 			</choice>
 			<choice req="LIST_CREW_LANIUS" blue="false" hidden="true">
-				<text>ラニウスのクルーのクローンを作成します。 [-40スクラップ]</text>
+				<text>ラニウスのクルーのクローン[-40スクラップ]</text>
 				<event>
 					<text id="slughome_crew_clone" />
 					<crewMember amount="1" class="lanius" />
@@ -1081,7 +1081,7 @@
 				</event>
 			</choice>
 			<choice req="LIST_CREW_SPIDER" blue="false" hidden="true">
-				<text>スパイダークルーのクローンを作成します。 [-20スクラップ]</text>
+				<text>クモのクローンを作れ[-20スクラップ]</text>
 				<event>
 					<text id="slughome_crew_clone" />
 					<crewMember amount="1" class="spider" />
@@ -1091,9 +1091,9 @@
 				</event>
 			</choice>
 			<choice req="LIST_CREW_ANCIENT" blue="false" hidden="true">
-				<text>オベリスクのクルーのクローンを作成します。 [-60スクラップ]</text>
+				<text>オベリスクのクルーをクローンする。[-60スクラップ]</text>
 				<event>
-					<text>「なんて奇妙な生き物だ。まあ、クローンが作れるのなら、私は質問をしません。」スラッグは船に姿を消す前にクローンを降ろします。</text>
+					<text>「なんとも奇妙な生き物だ。まあ、クローンが作れるなら、文句は言わん」。スラッグたちはクローンを落とし、自分たちの船に戻っていった。</text>
 					<crewMember amount="1" class="obelisk" />
 					<item_modify>
 						<item type="scrap" min="-60" max="-60" />
@@ -1101,17 +1101,17 @@
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>連盟の法律に違反することはありません。</text>
+				<text>我々は連邦の法律を破るつもりはない。</text>
 				<event />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>却下。</text>
+		<text>衰退。</text>
 		<event>
-			<text>あなたはスラッグに彼らとのコミュニケーションを説明してやめる機会を与えません。</text>
+			<text>スラッグに説明する機会を与えず、彼らとの連絡を絶つ。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1123,23 +1123,23 @@
 </event>
 
 <event name="NEBULA_STORM_SLUG_POWER" unique="true">
-	<text>ここのスラッグは何かユニークなことを成し遂げたようです。ここの発電所は、ここのイオンストームから電荷を収穫することによって発電しているように見えます！</text>
+	<text>スラッグたちはユニークなことを成し遂げたようだ。ここにある発電所は、イオン嵐の電荷を利用して発電しているようだ！</text>
 	<environment type="storm" />
 	<choice hidden="true">
-		<text>それらを攻撃します！</text>
+		<text>彼らを攻撃する！</text>
 		<event>
-			<text>何らかの理由で、あなたはスラッグを攻撃することにしました。施設は武装していないが、彼らの船の1つがあなたに会い、彼らを守るために立ち上がる。</text>
+			<text>何らかの理由で、あなたはスラッグを攻撃することに決めた。施設は非武装だが、彼らの船の1隻が立ち上がり、あなたたちを迎え撃つ。</text>
 			<ship load="SHIP_SLUG_POWERPLANT" hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>あなたのリアクターでいくつかの仕事をするために彼らに支払います。</text>
+		<text>彼らにお金を払って原子炉の修理をしてもらう。</text>
 		<event>
-			<text>Slugsは過去に多くのリアクターで作業を行ってきましたが、電力に関する専門知識（スクラップのかなりの部分は言うまでもありません）を使用して、Slugsはリアクターで作業を開始します。</text>
+			<text>スラッグは過去に多くの原子炉を修理しており、彼らのパワーに関する専門知識（もちろん、彼らに与えられたスクラップは素晴らしいものだ）をもって、スラッグはあなたの原子炉の修理に取り掛かる。</text>
 			<upgrade amount="1" system="reactor" />
 			<item_modify>
 				<item type="scrap" min="-20" max="-20" />
@@ -1147,11 +1147,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>植物を無視します。</text>
+		<text>植物を無視する。</text>
 		<event>
-			<text>あなたは発電所を通り過ぎて移動することにしました。</text>
+			<text>あなたは発電所を通り過ぎることにした。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1173,25 +1173,25 @@
 </eventList>
 
 <event name="NEBULA_SLUG_DRUGS" unique="true">
-	<text>近くの真っ白なスラッグ船があなたを歓迎します。 「こんにちは、thissssビーコンへようこそ。飲み物を飲みに来てくれませんか？usssがvisssitorsssを歓迎するのは習慣です。」</text>
+	<text>近くにいた無垢のスラッグ船が声をかけてきた。「こんにちは、このビーコンへようこそ。一杯飲みに来ませんか？来訪者を歓迎するのは我々の礼儀だ。"</text>
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>これらのスラッグは十分に信頼できるようです。</text>
+		<text>このスラッグは十分に信頼できそうだ。</text>
 		<event>
-			<text>スラッグは船上であなたを歓迎し、あなたに彼らの船のツアーを提供します。それは実際にはかなりいいです、そしてあなたは違法な禁制品も見ません。彼らはあなたにいくつかの外来フルーツからのジュースのグラスを提供し、あなたの新しい友情のために乾杯し、そしてあなたの船に戻ります。</text>
+			<text>スラッグたちはあなたを歓迎し、船内を案内してくれる。スラッグたちはあなたを歓迎し、船内を案内してくれる。スラッグたちはエイリアンの果物のジュースを勧めてくれ、新しい友情のために乾杯し、自分の船に戻る。</text>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="NEBULA_SLUG_DRUGS_LEAVE" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>お断りします。</text>
+		<text>丁重にお断りする。</text>
 		<event>
-			<text>あなたはスラッグ達の申し出を断ります。彼らは彼らが理解していると言い、善意からあなたにいくらかの燃料を与えることさえします。</text>
+			<text>スラッグスの申し出を断る。彼らは理解すると言い、善意から燃料をくれる。</text>
 			<autoReward level="LOW">fuel_only</autoReward>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1203,128 +1203,128 @@
 </event>
 <eventList name="NEBULA_SLUG_DRUGS_LEAVE">
 	<event>
-		<text>あなたが船に戻るとき、スラッグはあなたの信頼のおかげであなたにいくらかの燃料を与えます。</text>
+		<text>自分の船に戻ると、スラッグたちは自分たちを信頼してくれたお礼に燃料をくれる。</text>
 		<autoReward level="HIGH">fuel_only</autoReward>
 	</event>
 	<event>
-		<text>船に着くと、頭がとても軽く感じていることに気づきます。あなたはつまずき、ほとんど転倒します。鳴り響くサイレンがあなたの船を爆破し、あなたは橋に駆け寄ります。巨大な威嚇するようなロック船が攻撃のために移動しています！あなたがロックマンから船を守るように命令するとき、あなたのクルーはあなたを奇妙に見ますが、彼らは主張しません。</text>
+		<text>船に着くと、頭がとても軽くなっているのに気づく。転びそうになりながらよろめく。サイレンが船内に鳴り響き、あなたはブリッジに駆け寄った。巨大で威嚇的なロック船が攻撃に向かっている！ロックマンから船を守るよう命令するあなたを、クルーたちは不思議そうな顔で見ているが、反論はない。</text>
 		<ship load="SHIP_ROCK_DRUGS" hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK_FAIL" />
 		</choice>
 	</event>
 	<event>
-		<text>船に着くと、頭がとても軽く感じていることに気づきます。あなたはつまずき、ほとんど転倒します。鳴り響くサイレンがあなたの船を爆破し、あなたは橋に駆け寄ります。巨大な威嚇するようなロック船が攻撃のために移動しています！あなたがロックマンから船を守るように命令するとき、あなたのクルーはあなたを奇妙に見ますが、彼らは主張しません。</text>
+		<text>船に着くと、頭がとても軽くなっているのに気づく。転びそうになりながらよろめく。サイレンが船内に鳴り響き、あなたはブリッジに駆け寄った。巨大で威嚇的なロック船が攻撃に向かっている！ロックマンから船を守るよう命令するあなたを、クルーたちは不思議そうな顔で見ているが、反論はない。</text>
 		<ship load="SHIP_ROCK_DRUGS" hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK_FAIL" />
 		</choice>
 	</event>
 </eventList>
 <event name="ROCK_DRUGS_WIN">
-	<text>あなたの混乱した昏迷はすり減り、あなたは突然、あなたが戦っていた船がロックピケットではないことに気づきました。代わりに、星雲に流れ込んで死んでいたのは、単にいくつかの小惑星でした。幸いなことに、あなたが彼らに与えたダメージは、収穫可能な燃料をいくらかさらしました。</text>
+	<text>混乱していたのも束の間、あなたは突然、戦っていた船がロック・ピケではないことに気づく。その代わりに、星雲に漂流して死んでいった小惑星がいくつかあるだけだった。幸運なことに、あなたが与えたダメージによって、収穫可能な燃料がいくつか露出した。</text>
 	<autoReward level="HIGH">fuel_only</autoReward>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="NEBULA_SLUG_DRUGS_WIN" />
 	</choice>
 </event>
 <eventList name="NEBULA_SLUG_DRUGS_WIN">
 	<event>
-		<text>スラッグは笑い出し、いくつかの大きな岩に対してあなたの狂った逃避行を陽気に見つけます。あなたはあなたに薬を飲ませた裏切り者の野郎を無視して先に進みます。</text>
+		<text>スラッグたちは笑い声を上げ、大きな岩を相手にしたあなたの気違いじみた逃避行を面白がっている。薬漬けにした裏切り者どもを無視し、先に進む。</text>
 	</event>
 	<event>
-		<text>あなたはスラッグ船でおしゃべりを取り戻します。 「待って、がらくた。幻覚剤のメロンがあったのか？」彼らはあなたを歓迎し、彼らの過ちを大いに謝罪します。 「私は本当に非常に申し訳ありません...これはおそらく、私たちが一生懸命に稼いだトラストを元に戻します。あなたがussssを許すために私たちはどのようなムッシュをしますか？」</text>
+		<text>スラッグ船に戻ると、おしゃべりが聞こえてくる。「待てよ。あれは幻覚メロンだったのか？"彼らはあなたに向かって、自分たちのミスを大いに詫びた。"本当に申し訳ない......これではせっかく手に入れたトラスも台無しだ。どうすれば許していただけるでしょうか？"</text>
 		<choice hidden="true">
-			<text>あなたは私たちの船に乗ることによってあなたの借金を処理することができます。</text>
+			<text>私たちの船で奉仕することで、借金を返済することができる。</text>
 			<event>
-				<text>「ほんと？あなたは私にあなたの船に乗って働かせてくれるだろうか？私はいつも銀河をssse星雲の外で見たいと思っていた...」</text>
+				<text>「本当に？あなたの船で働かせてくれるの？星雲の外の銀河系をずっと見てみたかったんだ..."</text>
 				<crewMember amount="1" class="slug" />
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>小惑星によって引き起こされた損傷を修復します。</text>
+			<text>小惑星によって引き起こされた損傷を修復する。</text>
 			<event>
-				<text>「はい、できます！」スラッグはダメージを修正するために働き始めます。</text>
+				<text>"はい、できます！"スラッグたちは傷の手当てに取りかかる。</text>
 				<damage amount="-20" />
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>スクラップを使うことができます。</text>
+			<text>スクラップが必要だ。</text>
 			<event>
-				<text>「はい、できます！」スラッグはあなたに彼らの貯蔵からいくらかのスクラップを与えます。</text>
+				<text>"はい、できます！"スラッグが倉庫からスクラップをくれる。</text>
 				<autoReward level="MED">scrap_only</autoReward>
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>あなたは道に迷う可能性があります。</text>
+			<text>道に迷うこともある。</text>
 			<event>
-				<text>スラッグは目に見えて傷ついていますが、それ以上は何も言いません。</text>
+				<text>スラッグは目に見えて傷ついたが、それ以上何も言わない。</text>
 			</event>
 		</choice>
 	</event>
 	<event>
-		<text>ナメクジの船でおしゃべりをします。「待って、がらくた。thossseは幻覚のメロンでしたか？」彼らはあなたを歓迎し、彼らの間違いについて大いに謝罪します。「私は本当に非常にsssorryです...これはおそらく私たちが稼ぐために一生懸命働いたトラスを元に戻すでしょう。私たちはあなたがUSSSを許すために何をしているのですか？」</text>
+		<text>スラッグ船に戻ると、おしゃべりが聞こえてくる。「待てよ。あれは幻覚メロンだったのか？"彼らはあなたに向かって、自分たちのミスを大いに詫びた。"本当に申し訳ありません......これでは、せっかく苦労して手に入れたトラスも台無しです。どうすれば許していただけるでしょうか？"</text>
 		<choice hidden="true">
-			<text>あなたは私たちの船に乗ることによってあなたの借金を処理することができます。</text>
+			<text>私たちの船で奉仕することで、借金を返済することができる。</text>
 			<event>
-				<text>「ほんと？あなたは私にあなたの船に乗って働かせてくれるだろうか？私はいつも銀河をssse星雲の外で見たいと思っていた...」</text>
+				<text>「本当に？あなたの船で働かせてくれるの？星雲の外の銀河系をずっと見てみたかったんだ..."</text>
 				<crewMember amount="1" class="slug_saboteur" />
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>小惑星によって引き起こされた損傷を修復します。</text>
+			<text>小惑星によって引き起こされた損傷を修復する。</text>
 			<event>
-				<text>「はい、できます！」スラッグはダメージを修正するために働き始めます。</text>
+				<text>"はい、できます！"スラッグたちは傷の手当てに取りかかる。</text>
 				<damage amount="-20" />
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>スクラップを使うことができます。</text>
+			<text>スクラップが必要だ。</text>
 			<event>
-				<text>「はい、できます！」スラッグはあなたに彼らの貯蔵からいくらかのスクラップを与えます。</text>
+				<text>"はい、できます！"スラッグが倉庫からスクラップをくれる。</text>
 				<autoReward level="MED">scrap_only</autoReward>
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>あなたは道に迷う可能性があります。</text>
+			<text>道に迷うこともある。</text>
 			<event>
-				<text>スラッグは目に見えて傷ついていますが、それ以上は何も言いません。</text>
+				<text>スラッグは目に見えて傷ついたが、それ以上何も言わない。</text>
 			</event>
 		</choice>
 	</event>
 </eventList>
 
 <event name="NEBULA_SLUG_JAILER" unique="true">
-	<text>スラッグの刑務官が星雲の中を駆け巡り、逃亡者を探しています。彼らがあなたに気づいたようには見えません。</text>
+	<text>スラッグ看守が星雲の中をうろつき、捕獲すべき逃亡者を探している。彼らはあなたに気づいていないようだ。</text>
 	<ship load="SHIP_SLUG_JAILER" hostile="false" /> 
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>看守を攻撃します。</text>
+		<text>看守を襲う。</text>
 		<event>
-			<text>あなたは武器の電源を入れ、スラッグの船と交戦します。</text>
+			<text>武器をパワーアップし、スラッグ船と交戦する。</text>
 			<ship hostile="true" /> 
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="FIREARMS_AND_TELEPORT">
-		<text>（武器庫+テレポーター）刑務官を襲撃します。</text>
+		<text>(武器庫＋テレポーター）看守に嵐を起こせ。</text>
 		<event>
-			<text>あなたのクルーは、歯に武装して、ジェイラーに乗り込み、すぐにそれを配置しているスラッグのクルーを降ろします。刑務官が囚人に変わったので、あなたはあなたがすぐにあなたを殺すとは思わない、閉じ込められたすべての人を解放します。</text>
+			<text>完全武装したクルーがジェイラーに乗り込み、素早くスラッグのクルーたちを倒す。看守を囚人に変え、すぐに殺されそうにない監禁されている全員を解放する。</text>
 			<crewMember amount="1" class="LIST_CREW_FEDERATION" />
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>看守を無視します。</text>
+		<text>看守を無視する。</text>
 		<event>
-			<text>あなたは今日脱獄する気分ではありません。あなたは看守から距離を置きます。</text>
+			<text>あなたは今日、脱獄を行う気分ではない。あなたは看守と距離を置く。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1335,91 +1335,91 @@
 	</choice>
 </event>
 <event name="SURRENDER_SLUG_JAILER"> 
-	<text>「あなたの武器はかなり充実していると思います。しかし、あなたはクルーが少し少ないように見えます。おそらく、私たちの囚人の1人をあなたに提供することができますか？」</text>
+	<text>"武器はかなり...充実しているようだな。だが、クルーが少ないようだ。我々のプリッソンナーを 1人提供できないか？"</text>
 	<environment type="nebula" />
 	<choice>
-		<text>囚人を受け入れます。</text>
+		<text>囚人を受け入れる。</text>
 		<event>
 			<crewMember amount="1" />
 			<ship hostile="false" /> 
 		</event>
 	</choice>
 	<choice>
-		<text>拒否し、戦い続けます。</text>
+		<text>拒否し、戦い続ける。</text>
 		<event />
 	</choice>
 </event>
 <event name="SLUG_JAILER_DESTROY">
-	<text>看守は破壊されました。過剰なスクラップが残っている間、囚人が生き残った可能性は非常に低いです。</text>
+	<text>看守は破壊された。スクラップは大量に残っているが、囚人が生き残った可能性は低い。</text>
 	<autoReward level="MED">standard</autoReward>
 </event>
 <event name="SLUG_JAILER_KILL">
-	<text>看守のクルーは空になりました。あなたは船の外観をスクラップします。</text>
+	<text>看守船の乗組員は空っぽになった。あなたは船の外装をスクラップにした。</text>
 	<autoReward level="MED">standard</autoReward>
 	<choice hidden="true">
-		<text>囚人を確認してください。</text>
+		<text>囚人を調べろ。</text>
 		<event load="SLUG_JAILER_KILL_SLAVES" />
 	</choice>
 </event>
 <eventList name="SLUG_JAILER_KILL_SLAVES">
 	<event>
-		<text>囚人たちは戦いを生き延びなかったようです。去る以外にあなたがすることは何も残っていません。</text>
+		<text>囚人たちは戦いに生き残れなかったようだ。君たちに残された道は、ここを去ることだけだ</text>
 	</event>
 	<event>
-		<text>戦闘中にほとんどの囚人が死亡または重傷を負ったようです。一人の生存者が彼の独房からつまずき、助けを借りてあなたの船に乗って働くのに十分健康です。</text>
+		<text>ほとんどの囚人は戦いの最中に死んだか、数カ所負傷したようだ。ただ一人、独房からよろよろと出てきた生存者がいた。</text>
 		<crewMember amount="1" class="human" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event />
 		</choice>
 		<choice hidden="true" req="clonebay" lvl="2">
-			<text>（Upg. Clone Bay）囚人の何人かを救おうとします。</text>
+			<text>(クローン・ベイ上) 囚人の何人かを救おうとする。</text>
 			<event>
-				<text>あなたは何とか負傷した囚人の何人かからDNAサンプルを入手し、それらをクローンベイに入れました。彼らを復活させた後、彼らはあなたに感謝し、彼らが彼らと忍び寄ることができたわずかなものであなたに支払います。</text>
+				<text>負傷した囚人たちからDNAサンプルを採取し、クローン・ベイに入れる。蘇生後、彼らはあなたに感謝し、こっそり持ってきたわずかな金をあなたに支払う。</text>
 				<autoReward level="LOW">scrap_only</autoReward>
 			</event>
 		</choice>
 	</event>
 	<event>
-		<text>囚人の多くは生き残ったようです。あなたはそれらすべてを解放しますが、あなたはおそらくそれらのうちの1人をあなたのクルーに加わるように説得することができます。</text>
+		<text>囚人の多くは生き残っているようだ。全員を解放するが、そのうちの1人を仲間に加えるよう説得できるだろう。</text>
 		<choice>
-			<text>人間を募集します。</text>
+			<text>人間を雇う。</text>
 			<event>
 				<crewMember amount="1" class="human" />
 			</event>
 		</choice>
 		<choice>
-			<text>エンギを募集します。</text>
+			<text>エンジニアを募集</text>
 			<event>
 				<crewMember amount="1" class="engi" />
 			</event>
 		</choice>
 		<choice>
-			<text>ゾルタンを募集します。</text>
+			<text>ゾルタンを採用する。</text>
 			<event>
 				<crewMember amount="1" class="zoltan" />
 			</event>
 		</choice>
 		<choice>
-			<text>これ以上のクルーは必要ありません。</text>
+			<text>もうクルーは必要ない。</text>
 			<event />
 		</choice>
 	</event>
 </eventList>
 
 <event name="NEBULA_REFUGEE_SLUG_MV"> 
-	<text>センサーが星系を漂う難民船を検知しました。反乱軍の進攻を逃れた船と思われます。あなたにはまだ気づいていないようです。あるいは気づかれないようにしているのかもしれません。</text>
+	<text>センサーが星系を漂う難民船を感知した 間違いなく反乱軍の進撃から 逃げてきた船だあなたを感知していないようです あるいは気づかれないようにしているか</text>
 	<environment type="nebula" />
 	<choice>
-		<text>彼らに連絡する。</text>
+		<text>万歳。</text>
 		<event load="REFUGEE_HAIL_LIST_SLUG_MV" />
 	</choice>
 	<choice>
-		<text>難民を無視します。</text>
+		<text>難民を無視する。</text>
 		<event>
-			<text>あなたは難民を警戒していますが、船で何かをするのは安全だと考えています。</text>
+			<text>難民を警戒しているようだが、船で何かするのは安全だと考えているのだろう。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1432,44 +1432,44 @@
 
 <event name="NEBULA_SLUG_DRINK_MV" unique="true">
 	<environment type="nebula" />
-	<text>スラッグの船長があなたの船に乗って、ぬるぬるしたもののフラスコを提示するように呼びかけます。 「さて、最も優雅な船長、あなたは私たちの同盟への飲み物に参加してください！」</text>
+	<text>スラッグの船長が声をかけてきて、あなたの船に招き入れ、何かぬるぬるしたものの入ったフラスコを差し出す。"さあ、ありがたいことに船長、あなたも一緒に我々の同盟に乾杯しましょう！"</text>
 	<ship load="SHIP_SLUG_GENERIC" hostile="false" />
 	<choice hidden="true">
-		<text>飲む。</text>
+		<text>飲むんだ。</text>
 		<event load="SLUG_DRINK_DRINK_MV" />
 	</choice>
 	<choice hidden="true">
 		<text>拒否する。</text>
 		<event>
-			<text>スラッグはあなたの拒絶に対して攻撃を装いますが、あなたは彼があなたの注意を尊重していると感じます。しかし、これは彼が彼の船に戻って発砲することを妨げるものではありません。</text>
+			<text>スラッグはあなたの拒否に怒ったふりをしたが、あなたは彼があなたの警戒心を尊重していることを感じた。しかし、彼が自分の船に戻り、発砲するのを妨げることはできない。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_ROCK">
-		<text>（ロッククルー）ロックマンにキャプテンを装わせます。</text>
+		<text>(ロッククルー）ロックマンにキャプテンのポーズを取らせる。</text>
 		<event load="SLUG_DRINK_ROCK_MV" />
 	</choice>
 	<choice hidden="true" req="LIST_CREW_SHELL">
-		<text>（シェルクルー）シェルをキャプテンにポーズさせます。</text>
+		<text>(シェルクルー）シェルにキャプテンのポーズを取らせる。</text>
 		<event load="SLUG_DRINK_SHELL" />
 	</choice>
 	<choice hidden="true" req="LIST_CREW_GHOST">
-		<text>（ゴーストクルー）ゴーストをキャプテンにポーズさせます。</text>
+		<text>(ゴーストクルー）ゴーストにキャプテンのポーズを取ってもらう。</text>
 		<event load="SLUG_DRINK_GHOST" />
 	</choice>
 </event>
 <eventList name="SLUG_DRINK_DRINK_MV">
 	<event>
-		<text>あなたは用心深い一口を取ります。ファウルですが、永続的なダメージはありません。千対一のチャンスですが、このスラッグは実際には信頼できるようです。彼はあなたの船の一部を修理し、あなたに彼の製品を売ることを申し出ることによってあなたの新しく見つけた信頼をさりげなく祝います。</text>
+		<text>慎重に一口飲む。不味いが、持続的なダメージはない。確率は1000分の1だが、このスラッグは実際に信頼できそうだ。彼はあなたの船の一部を修理し、商品を売ると言って、あなたの新たな信頼をさりげなく祝った。</text>
 		<damage amount="-10" />
 		<store>STORE_SLUG</store>
 	</event>
 	<event>
-		<text>あなたは一口飲み、貨物倉にいる残りのクルーと一緒に目を覚まします...これは以前よりも著しく少ないスクラップを含んでいます。</text>
+		<text>一口飲むと、他のクルーと一緒に貨物倉で目を覚ます...以前より明らかにスクラップが減っている。</text>
 		<item_modify steal="true">
 			<item type="scrap" min="-35" max="-25" />
 		</item_modify>
@@ -1477,70 +1477,72 @@
 </eventList>
 <eventList name="SLUG_DRINK_ROCK_MV">
 	<event>
-		<text>飲み物に悪意のあるものがあったとしても、それがロック消化器系に影響を与えるとは思えません。スラッグは、船の一部を修理し、彼の製品を販売することを申し出て、あなたの新たな信頼をさりげなく祝います。</text>
+		<text>たとえ飲み物に悪意があったとしても、それがロックの消化器官に影響を与えるとは思えない。スラッグはあなたの船の一部を修理し、商品を売ると言って、あなたの新しい信頼をさりげなく祝った。</text>
 		<damage amount="-10" />
 		<store>STORE_SLUG</store>
 	</event>
 	<event>
-		<text>クルーは、少し眠気を感じたときにフラスコに含まれている重い麻酔薬を特定できます（ロック消化システムは非常に堅牢です）。彼の策略が発見され、スラッグはすぐに彼の船に戻り、発砲します。</text>
+		<text>乗組員は、わずかに眠気を感じたときに、フラスコに入っていた重い麻酔薬を見分けることができる（ロックの消化システムは非常に頑丈だ）。策略を見破られたスラッグは、すぐに自分の船に戻り、発砲する。</text>
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 </eventList> 
 <eventList name="SLUG_DRINK_SHELL">
 	<event>
-		<text>貝殻は安全で毒素の周りに鳴ることが知られているので、飲み物からの有毒物質がそれらに影響を与えることを疑います。彼らは一見問題はないように一見、船体を修理して彼の商品を開けることで祝福します。彼は、貝殻とスラッグの間の脆弱な関係を修復することに対して本当にオープンであるのか、それとも他の選択肢がないので彼が単にフェントしているのかと思います。とにかく、すべてがうまくいき、あなたは彼らが提供しなければならないものをチェックします。</text>
+		<text>貝は毒物には強いので、飲み物の毒が貝に影響することはないだろう。貝とスラッグのもろい関係を修復することに本当に前向きなのか、それとも他に選択肢がないからフェイントをかけただけなのか。ともあれ、すべてがうまくいき、あなたは彼らが何を提供してくれるのかチェックする。</text>
 		<damage amount="-10" />
 		<store>STORE_SLUG</store>
 	</event>
 	<event>
-		<text>あなたの殻は飲み物の味を取り、すぐにスラッグの顔にそれを吐き出します。「sssslimyの腐ったボール...私はあなたの死体をclanssmにsssellする - 」あなたは、飲み物に対するシェルの反応が必要であり、それが彼らに悪く味わったからといっているだけでなく、対処するために1人の詐欺師のスラッグが必要であることを願っていますが、あなたはまだ悪い犯罪者でいっぱいの敵対的な船に対処する必要があります。</text>
+		<text>あなたのシェルは飲み物を味見し...すぐにスラッグの顔に吐き戻そうとする。"細っこい腐った玉め...お前の死骸を一族に売ってやる...」
+
+貝は彼らの脅しの続きを聞く気はないようで、彼らを黙らせるためにブラスターで発砲した。シェルのドリンクに対する反応が必要なもので、彼らにとって不味いからということでなければいいのだが...。詐欺師のスラッグが1匹減ったとはいえ、同じように悪質な犯罪者だらけの敵対的な船がやってくることには対処しなければならない。</text>
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 </eventList> 
 <eventList name="SLUG_DRINK_GHOST">
 	<event>
-		<text>あなたのゴーストは、ほとんどがガスでできているので、毒の影響を受けないだけでなく、文字通り飲むことができません。スラッグは混乱していますが、不便さを理解しているようです。正直な意図で、彼はあなたの船体を修理し、取引を申し出ます。</text>
+		<text>ゴーストはほとんど気体でできているため、毒に耐性がないだけでなく、文字通り飲むことができない。スラッグは困惑しているが、不便さを理解しているようだ。スラッグは正直な気持ちであなたの船体を修理し、交換を申し出た。</text>
 		<damage amount="-10" />
 		<store>STORE_SLUG</store>
 	</event>
 	<event>
-		<text>あなたのゴーストが乗船するとすぐに、スラッグキャプテンは呪いをかけます。 「あなたは飲むことさえできないクルーを送ることによって私を侮辱しますか？私はとにかくあなたを裏切るつもりでしたが、これは失礼です！」</text>
+		<text>ゴーストが乗船するやいなや、スラッグの船長は罵声を浴びせる。「酒も飲めない乗組員を送り込んで、俺を侮辱するのか？どうせ裏切るつもりだったんだろうが、これは失礼極まりない！"</text>
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 </eventList> 
 
 <event name="NEBULA_SLUG_CHOOSE_DEATH_MV" unique="true">
-	<text>あなたはすぐにステーションを守っている危険そうな船に歓迎されます。 「今日は寛大だと感じています。自分の死を選択できるようにします。シールド、酸素、武器のどれが一番好きですか？」</text>
+	<text>すぐに、ステーションを警備している危険そうな船から声がかかる。「今日は寛大な気分だ。自分で死を選べるようにしてあげよう。シールド、酸素、武器、どれが一番好きだ？</text>
 	<environment type="nebula" />
 	<choice req="shields" lvl="2" blue="false" max_group="0">
-		<text>シールド。</text>
+		<text>シールズ</text>
 		<event>
-			<text>「それではとても良いです！」シールドパワーが突然低下し、充電されます。</text>
+			<text>"よろしい！"シールドパワーが突然低下し、突撃してくる。</text>
 			<ship load="SHIP_SLUG_STATUS_SHIELDS" hostile="true" />
 			<status type="divide" target="player" system="shields" amount="2" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 			<choice hidden="true" req="ANTI_VIRUS">
-				<text>（アンチウイルス）シールドを復元します。</text>
+				<text>(アンチウィルス）シールドを回復してください。</text>
 				<event>
-					<text>シールドシステムがフルパワーに復元されます。</text>
+					<text>シールドシステムはフルパワーに回復している。</text>
 					<status type="clear" target="player" system="shields" amount="100" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
@@ -1548,26 +1550,26 @@
 		</event>
 	</choice>
 	<choice req="shields" lvl="0" max_lvl="1" blue="false" hidden="true" max_group="0">
-		<text>シールド。</text>
+		<text>シールズ</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice req="weapons" lvl="2" blue="false" max_group="1">
-		<text>兵器。</text>
+		<text>武器だ。</text>
 		<event>
-			<text>「あなたの死の受け入れはアルモストに立派です...アルモスト。」兵器システムはハッキングモジュールを登録します。彼らが攻撃する前にあなたはほとんど応答する時間がありません。</text>
+			<text>"死を受け入れることは、とても立派なことだ...感謝する武器システムにハッキング・モジュールが登録された。攻撃される前に対応する時間はほとんどない。</text>
 			<ship load="SHIP_SLUG_STATUS_WEAPONS" hostile="true" />
 			<status type="divide" target="player" system="weapons" amount="2" />
 			<choice>
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 			<choice req="ANTI_VIRUS">
-				<text>（アンチウイルス）武器を復元します。</text>
+				<text>(アンチウイルス）武器を復元します。</text>
 				<event>
-					<text>武器システムがフルパワーに戻ります。</text>
+					<text>武器システムはフルパワーに回復している。</text>
 					<status type="clear" target="player" system="weapons" amount="100" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
@@ -1575,26 +1577,26 @@
 		</event>
 	</choice>
 	<choice req="weapons" lvl="0" max_lvl="1" blue="false" hidden="true" max_group="1">
-		<text>兵器。</text>
+		<text>武器だ。</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice blue="false" req="oxygen" lvl="1" max_group="2">
-		<text>空気。</text>
+		<text>酸素。</text>
 		<event>
-			<text>「窒息を選択する存在？私が判断するのは誰か...」あなたの生命維持は妨害され、彼らは攻撃に移ります。</text>
+			<text>"自殺を選ぶような存在か？誰が判断するものか..."生命維持装置が妨害され、彼らは攻撃に移る。</text>
 			<ship load="SHIP_SLUG_STATUS_OXYGEN" hostile="true" />
 			<status type="divide" target="player" system="oxygen" amount="2" />
 			<choice>
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 			<choice req="ANTI_VIRUS">
-				<text>（アンチウイルス）酸素を回復します。</text>
+				<text>(アンチウイルス）酸素を復元します。</text>
 				<event>
-					<text>酸素システムがフルパワーに戻ります。</text>
+					<text>酸素システムはフルパワーに回復する。</text>
 					<status type="clear" target="player" system="oxygen" amount="100" />
 					<choice>
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
@@ -1602,26 +1604,26 @@
 		</event>
 	</choice>
 	<choice req="oxygen" lvl="0" max_lvl="0" blue="false" hidden="true" max_group="2">
-		<text>空気。</text>
+		<text>酸素。</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true" req="pilot" blue="false" max_group="3">
-		<text>35スクラップを提供して、あなたを放っておいてください。</text>
+		<text>35のスクラップを提供し、あなたを一人にしてもらう。</text>
 		<event>
-			<text>「私は本当に寛大さを感じています...」彼らはスクラップを取り去ります。</text>
+			<text>"私は本当に寛大な気持ちです..."彼らはスクラップを受け取り、去っていく。</text>
 			<item_modify>
 				<item type="scrap" min="-35" max="-35" />
 			</item_modify>
 		</event>
 	</choice>
 	<choice hidden="true" req="hacking" max_group="4"> 
-		<text>（ハッキング）ハッキングの試行に対抗します。</text>
+		<text>(ハッキング）ハッキングの試みに対抗する。</text>
 		<event>
-			<text>「沈黙はあなたを保護しません。私は自分で選択をします...待ってください。なぜこれが機能しないのですか？」あなたはトランスミッションをカットし、攻撃するために移動します。</text>
+			<text>「沈黙はあなたを守らない。自分で選択する...待ってくれ。なぜ効かないんだ？"通信を切り、攻撃に移る。</text>
 			<ship load="SHIP_SLUG_STATUS_HACKING" hostile="true" />
 			<status type="limit" target="player" system="hacking" amount="0" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
@@ -1629,14 +1631,14 @@
 </event>
 			
 <event name="NEBULA_SLUG_HULLFIX_MV" unique="true">
-	<text>あなたは小さなスラッグ修理ステーションを見つけるために到着します。 「旅行者の皆さん、お世話になりますか？そのダメージの一部を簡単に修正することができます。」</text>
+	<text>小さなスラッグの修理ステーションを見つける。「こんにちは、旅人さん！修理はいかがですか？簡単に修理できるぞ。"</text>
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>結構です。</text>
+		<text>結構だ。</text>
 		<event>
-			<text>「残念です！最近のTrussstは珍しい商品です。」あなたはジャンプする準備をします。</text>
+			<text>「残念だ！トラスストなんて、今どき珍しいよ"あなたはジャンプの準備をする。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1646,87 +1648,87 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>もちろん。</text>
+		<text>もちろんだ。</text>
 		<event load="NEBULA_SLUG_HULLFIX_MV_RESULT1" />
 	</choice>
 	<choice hidden="true">
-		<text>彼らが支払いを希望するかどうか尋ねてください。</text>
+		<text>支払いを希望するかどうかを尋ねる。</text>
 		<event load="NEBULA_SLUG_HULLFIX_MV_REQUEST" />
 	</choice>
 </event>
 <eventList name="NEBULA_SLUG_HULLFIX_MV_RESULT1">
 	<event>
-		<text>自動気象観測所に引き上げると、しばらくすると船体の10個の損傷が修復されます。あなたは感謝を捧げ始めますが、ステーションから離れることができないことに気づきます。</text>
+		<text>あなたは自動ステーションに停車し、しばらくすると船体損傷10箇所を修理してくれた。あなたはお礼を言おうとしたが、ステーションから切り離すことができないことに気づいた。</text>
 		<damage amount="-10" />
 		<choice>
-			<text>説明を要求する。</text>
+			<text>説明を求める。</text>
 			<event load="NEBULA_SLUG_HULLFIX_MV_RESULT2" />
 		</choice>
 	</event>
 	<event>
-		<text>あなたは迅速なターンアラウンドを期待してステーションとドッキングしますが、自動機は彼らの甘い時間を費やします。プロセスが最終的に終了すると、修復された損傷は1つだけです。</text>
+		<text>迅速な処理を期待してステーションとドッキングするも、自動機械は時間がかかる。ようやく作業が終わると、修理されたのは1つの損傷だけだった。</text>
 		<modifyPursuit amount="1" />
 		<damage amount="-1" />
 		<choice>
-			<text>説明を要求する。</text>
+			<text>説明を求める。</text>
 			<event load="NEBULA_SLUG_HULLFIX_MV_RESULT2" />
 		</choice>
 	</event>
 	<event>
-		<text>あなたがステーションとドッキングするとき、あなたの測定値は大騒ぎになります。 EMP爆発が船全体に響き渡り、エンジンが停止します。船が姿を現し、静かに移動して攻撃するので、あなたは座っているアヒルです！</text>
+		<text>ステーションとドッキングすると、測定値がおかしくなる。EMPの爆発が船全体に響き渡り、エンジンが停止する。船は姿を現し、静かに攻撃を仕掛けてくる！</text>
 		<ship load="SHIP_SLUG_STATUS_ENGINES" hostile="true" />
 		<status type="limit" target="player" system="engines" amount="1" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 </eventList>
 <eventList name="NEBULA_SLUG_HULLFIX_MV_RESULT2">
 	<event>
-		<text>「あなたが私たちのサービスを楽しんでくれてうれしいです。おそらく、いくらかの燃料が適切な補償になるでしょうか？」</text>
+		<text>「私たちのサービスを楽しんでいただけてうれしいです。おそらく、いくらかの燃料が適切な報酬となるだろう？"</text>
 		<choice hidden="true">
-			<text>彼らが要求する15の燃料を彼らに与えなさい。</text>
+			<text>彼らが要求する15の燃料を与える。</text>
 			<event>
-				<text>あなたは燃料を移し、彼らはあなたの船を解放します。 「友達に私たちのことを教えてください！」彼らのポータブルステーションは雲の中に滑り込みます。</text>
+				<text>燃料を移すと、彼らはあなたの船を解放する。"私たちのことをお友達に教えてあげて！"彼らのポータブル・ステーションが雲の中に滑り込む。</text>
 				<item_modify>
 					<item type="fuel" min="-15" max="-15" />
 				</item_modify>
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>それはばかげています！</text>
+			<text>そんなバカな！</text>
 			<event>
-				<text>「それを聞いてすみません。」彼はボタンを押すと爆発が船を揺さぶる。彼らは「修理」中に爆弾を仕掛けたに違いありません！戦いの準備を！</text>
+				<text>"それは残念だ"彼がボタンを押すと、爆発が船を揺らした。修理』中に爆弾を仕掛けたに違いない！戦いに備えろ</text>
 				<ship load="SHIP_SLUG_FIGHT" hostile="true" />
 				<damage amount="4" />
 				<damage amount="1" system="random" />
 				<choice hidden="true">
-					<text>継続する...</text>
+					<text>次へ...</text>
 					<event load="COMBAT_CHECK" />
 				</choice>
 			</event>
 		</choice>
 	</event>
 	<event>
-		<text>「私たちはあなたが私たちのサービスを楽しんでくれてうれしいです。今すぐ支払いをします。あなたの協力を確実にするために、私たちはあなたの兵器システムにリミッターをインストールする自由を取りました。」</text>
+		<text>"私たちのサービスを楽しんでいただけてうれしいです。ではお支払いを。あなたの協力を確実にするため......勝手にあなたの武器システムにリミッターを取り付けました。"</text>
 		<choice hidden="true">
-			<text>彼らが要求する50のスクラップを彼らに与えなさい。</text>
+			<text>彼らが要求する50枚のスクラップを与える。</text>
 			<event>
-				<text>あなたはスクラップを転送し、彼らはあなたの船を解放します。 「友達に私たちのことを教えてください！」彼らのポータブルステーションは雲の中に滑り込みます。</text>
+				<text>スクラップを送ると、彼らはあなたの船を解放する。"私たちのことをお友達に教えてあげて！"彼らのポータブル・ステーションが雲の中に滑り込む。</text>
 				<item_modify>
 					<item type="scrap" min="-50" max="-50" />
 				</item_modify>
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>ここから出ましょう！</text>
+			<text>ここから出よう！</text>
 			<event>
-				<text>スラスターをアクティブにして、ステーションから離れるように強制します。船はすぐに移動して交戦します。ここから早く出る必要があります。武器を完全に機能させる時間はないかもしれません！</text>
+				<text>スラスターを作動させ、ステーションから離れる。すぐさま船が接近してくる。武器を完全に作動させる時間がないかもしれない！</text>
 				<ship load="SHIP_SLUG_STATUS_WEAPONS" hostile="true" />
 				<status type="divide" target="player" system="weapons" amount="2" />
 				<choice hidden="true">
-					<text>継続する...</text>
+					<text>次へ...</text>
 					<event load="COMBAT_CHECK" />
 				</choice>
 			</event>
@@ -1735,11 +1737,11 @@
 </eventList>
 <eventList name="NEBULA_SLUG_HULLFIX_MV_REQUEST">
 	<event>
-		<text>「ああ。仲間のビジネスマン。40SSSCRAPの10ダメージを修正することを申し出ます。」</text>
+		<text>「ああ。商売仲間だ。10ダメージの修理を40sscrapで提供します。"</text>
 		<choice hidden="true">
-			<text>承認。</text>
+			<text>受け入れる。</text>
 			<event>
-				<text>あなたはトランザクションを実行し、彼らのマシンが船体にパッチを当てるのを注意深く観察します。ただし、すべてが正常に見えます。それらが完了すると、ジャンプする準備が整います。</text>
+				<text>あなたは取引を行い、彼らの機械が船体にパッチを当てるのを注意深く見守る。しかし、すべて順調のようだ。完了したら、あなたはジャンプの準備をする。</text>
 				<damage amount="-10" />				
 				<item_modify>
 					<item type="scrap" min="-40" max="-40" />
@@ -1747,11 +1749,11 @@
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>却下。</text>
+			<text>衰退。</text>
 			<event>
-				<text>「ひどい。さようなら、旅行者。」彼らのモバイルステーションは雲の中に滑り込みます。</text>
+				<text>「残念だ。さらば、旅人よ」。彼らの移動ステーションは雲の中に滑り込む。</text>
 				<choice>
-					<text>船に乗って何かする。</text>
+					<text>船内で何かをする。</text>
 					<event load="STORAGE_CHECK" />
 				</choice>
 				<choice>
@@ -1762,10 +1764,10 @@
 		</choice>
 	</event>
 	<event>
-		<text>トランスミッションがカットされる直前に、「彼らはそれに落ちていません。ジャストはクルーを殺し、私たちはストリップすることができます...」と聞こえます。あなたは戦いなしでここから出てこないようです。</text>
+		<text>通信が切れる直前、あなたはこう聞いた。乗組員を殺せば、俺たちは......」。どうやら、戦わずにここから出ることはできないようだ。</text>
 		<ship load="SHIP_SLUG_FIGHT" hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
@@ -1773,17 +1775,17 @@
 
 <event name="NEBULA_ROCK_SLUG_ARGUMENT_MV" unique="true">
 	<environment type="nebula" />
-	<text>近くで最大出力で走っている複数の船を検出しましたが、この厚い星雲からは何も見えません。</text>
+	<text>近くで複数の船が最大出力で走っているのが見えるが、この厚い星雲を通しては何も見えない。</text>
 	<choice>
-		<text>接近する。</text>
+		<text>もっと近づく。</text>
 		<event load="ROCK_SLUG_ARGUMENT_MV" /> 
 	</choice>
 	<choice>
-		<text>それらを無視します。</text>
+		<text>無視するんだ。</text>
 		<event>
-			<text>万が一に備えて、船から距離を置いてください。</text>
+			<text>念のため、船から離れる。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1807,26 +1809,26 @@
 </eventList>
 
 <event name="NEBULA_SLUG_IMPORTANT_PRISONER" unique="true">
-	<text>SlugEliteは小さなSlugJailerを保護しているようです。理由は定かではありませんが、確かに重要なものをそこに保管する必要がありますか？</text>
+	<text>スラッグ・エリートが小さなスラッグ監獄を守っているようだ。なぜかはわからないが、何か重要なものが入っているに違いない。</text>
 	<ship load="SHIP_SLUG_PRISONER_ELITE" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>エリートを攻撃して、刑務所に到着します。</text>
+		<text>エリートを攻撃して看守のところへ。</text>
 		<event>
-			<text>はるかに強力なエリートがあなたと戦うために動く間、刑務官の船は跳ね返ります。</text>
+			<text>牢番船は後ずさりしながら、はるかに強いエリートがあなたと戦おうと動き出す。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>2隻の船を無視します。</text>
+		<text>2隻の船は無視してください。</text>
 		<event>
-			<text>スラッグが星雲に消えてからそれほど長くはありません。</text>
+			<text>スラッグが星雲の中に消えてからそれほど時間は経っていない。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1838,26 +1840,26 @@
 </event>
 
 <event name="NEBULA_SLUG_GRAVE" unique="true">
-	<text>いくつかの陰鬱なスラッグ船が不毛の惑星から出発しています。それは特に住みやすいようには見えませんが、コンピューターは惑星が以前のスラッグ王とスラッグ王室の他のメンバーの埋葬場所として使用されていることを知らせます。</text>
+	<text>不毛の惑星から数隻の地味なスラッグ船が出発する。特に人が住めそうな惑星には見えないが、コンピューターによると、この惑星は先代のスラッグ王やスラッグ王家の他のメンバーの埋葬地として使われているという。</text>
 	<img back="BACK_EVENT_LIGHTNEBULA" planet="PLANET_UNPOPULATED_TERRA" />
 	<status type="limit" target="player" system="sensors" amount="1" />
 	<choice hidden="true">
-		<text>墓を奪おうとします。</text>
+		<text>墓を強奪しようとする。</text>
 		<event>
-			<text>墓地に近づくと、エリートスラッグの船が惑星を守るために移動します！</text>
+			<text>墓場に近づくと、エリート・スラッグ船が惑星を守るために移動してくる！</text>
 			<ship load="SHIP_SLUG_GRAVE_ELITE" hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>墓を無視します。</text>
+		<text>墓は無視しろ。</text>
 		<event>
-			<text>スラッグ母星系で元スラッグの王族の墓を奪おうとすると、自殺する必要があります。</text>
+			<text>スラッグの故郷にある元スラッグ王族の墓を襲うなんて自殺行為だ。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1868,33 +1870,33 @@
 	</choice>
 </event>
 <event name="SLUG_GRAVE_WIN">
-	<text>墓地にはさまざまな墓が点在していますが、特に3つが目立ちます。</text>
+	<text>墓地にはさまざまな墓が点在しているが、特に3つの墓が目を引く。</text>
 	<choice hidden="true">
-		<text>「Arsagh」とマークされた墓を襲撃します。</text>
+		<text>アルサグ」と書かれた墓を襲撃せよ。</text>
 		<event>
-			<text>アルサーの墓には、純金で作られた彼の偉大さの詳細な彫刻が含まれています。それはとても明るいので、それを見るとほとんど盲目になります。</text>
+			<text>アルサーグの墓には、純金で作られた彼の偉大さを示す詳細な彫刻がある。見ていると失明しそうになるほど明るい。</text>
 			<choice hidden="true">
-				<text>バストは墓を開きます。</text>
+				<text>墓をぶち破れ。</text>
 				<event load="SLUG_GRAVE_RAID" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>「Terlack」とマークされた墓を襲撃します。</text>
+		<text>Terlack」と書かれた墓を襲撃せよ。</text>
 		<event>
-			<text>Terlackには、彼の縮図の数千の段落にまたがって刻まれた、長く深い人生の物語があるようです。幸いなことに、あなたはそれを読まない言い訳があります。</text>
+			<text>テルラックのエピトームには、数千段落に及ぶ長く深い人生の物語が刻まれているようだ。幸い、あなたにはそれを読まない口実がある。</text>
 			<choice hidden="true">
-				<text>バストは墓を開きます。</text>
+				<text>墓をぶち破れ。</text>
 				<event load="SLUG_GRAVE_RAID" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>「Orsek」とマークされた墓を襲撃します。</text>
+		<text>オルセック」と書かれた墓を襲撃せよ。</text>
 		<event>
-			<text>オルセックの墓には装飾がほとんどなく、その縮図は「彼は生きたまま死んだ」という一文であるため、オルセックは非常に興味深い人生を送っていなかったに違いありません。</text>
+			<text>彼の墓にはほとんど装飾がなく、墓碑銘も『彼は生きたように死んだ』という一文だけだからだ。</text>
 			<choice hidden="true">
-				<text>バストは墓を開きます。</text>
+				<text>墓をぶち破れ。</text>
 				<event load="SLUG_GRAVE_RAID" />
 			</choice>
 		</event>
@@ -1902,61 +1904,61 @@
 </event>
 <eventList name="SLUG_GRAVE_RAID">
 	<event>
-		<text>墓の中には機能的な武器があります！かなり奇妙ですが、それは王の人生の重要な部分だったに違いないと思います。</text>
+		<text>墓の中で、あなたは機能的な武器を見つけた！かなり奇妙だが、王の人生にとって重要なものだったのだろう。</text>
 		<weapon name="RANDOM" />
 	</event>
 	<event>
-		<text>奇妙なことに、墓には数千の燃料電池が含まれています。あなたは明らかにそれらすべてをあなたと一緒に持って行くことができないので、あなたはあなたが運ぶことができる限り多くをつかんでそれらを船に戻すことができます。</text>
+		<text>不思議なことに、その墓には数千個の燃料電池がある。全部は持っていけないから、持てるだけ持って船に戻る。</text>
 		<autoReward level="HIGH">fuel_only</autoReward>
 	</event>
 	<event>
-		<text>墓にはセクターのマッピングが含まれているようです！明らかに理由を説明できる人は誰もいませんが、それは「精神を導く」などと関係があるのではないかと思われます。</text>
+		<text>その墓には、その区域のマッピングがあるようだ！もちろん、その理由を説明できる人は誰もいないが、あなたはそれが『霊を導くこと』などに関係しているのではないかと疑っている。</text>
 		<reveal_map />
 	</event>
 	<event>
-		<text>薄くて飢えたスラッグが墓から這い出て行くと、あなたはショックでジャンプします。 「あなたは私をssssavedしました！」これは古代の王の死体が生き返ったと思われるかもしれませんが、スラッグは閉じ込められた仲間の墓侵入者であることがわかりました！そこに立ち往生してからほぼ1週間後にようやく無料になり、彼らはあなたの船のポジションを喜んで受け入れます。</text>
+		<text>やせ細り、飢えたスラッグが墓から這い出てきたのだ。"あなたは私を救ってくれた！"古代王の死体が生き返ったのかと思いきや、スラッグは閉じ込められてしまった墓荒らしの仲間だった！1週間ほど閉じ込められていたが、ようやく解放され、あなたの船に喜んで乗り込んできた。</text>
 		<crewMember amount="1" class="slug" />
 	</event>
 </eventList>
 
 <event name="NEBULA_SLUG_MINDSLAVES" unique="true">
-	<text>Cealaformerステーションは、あなたに連絡しようとはしていませんが、近くの惑星を周回しています。漠然とした雲がビーコンを満たし始めましたが、センサーを完全に改ざんするには不十分です。</text>
+	<text>セアラフォーマー・ステーションが近くの惑星を周回している。星雲がビーコンを埋め始めているが、センサーを完全に妨害するほどではない。</text>
 	<img back="BACK_EVENT_LIGHTNEBULA" planet="PLANET_POPULATED" />
 	<status type="limit" target="player" system="sensors" amount="1" />
 	<ship load="SHIP_SLUG_MINDLSAVES" hostile="false" />
 	<choice hidden="true">	
-		<text>惑星に着陸し、彼らが市場を持っているかどうかを確認してください。</text>
+		<text>その惑星に着陸して、市場があるかどうかを確認する。</text>
 		<event>
-			<text>近くのコロニーの1つの表面は非常に奇妙な光景です。住民は、さまざまな人種で、無知な人形のように整然と並んで歩き回っています。まるで彼らが制御されているようです...おそらくあなたが宇宙から見たcealaformerによって？</text>
+			<text>近隣のコロニーの地表はとても奇妙な光景だ。さまざまな種族の住民たちが、整然と列をなし、まるで心ない操り人形のように動き回っている。まるで操られているかのようだ...おそらく、宇宙から見たセアラフォーマーに？</text>
 			<choice hidden="true">	
-				<text>それらを解放し、ステーションを破壊してください！</text>
+				<text>彼らを解放し、ステーションを破壊する！</text>
 				<event>
-					<text>これらの人々は救助される必要があります！エンジンを始動し、CealaformingStationを作動させます。</text>
+					<text>この人たちを救助する必要がある！あなたはエンジンをパワーアップし、セアラフォーミング・ステーションと交戦する。</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="0" max_lvl="0">	
-				<text>ここから出る必要があります！</text>
+				<text>ここから出る必要がある！</text>
 				<event>
-					<text>スラッグがあなたに他のトリックを引っ張ろうとする前に、あなたはすぐにステーションから離れます.</text>
+					<text>スラッグが何か仕掛けてくる前に、素早くステーションから離れる。</text>
 				</event>
 			</choice>
 			<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="1">	
-				<text>ここから出る必要があります！</text>
+				<text>ここから出る必要がある！</text>
 				<event load="SLUG_MINDSLAVES_ESCAPE" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>惑星を無視します。</text>
+		<text>地球を無視する。</text>
 		<event>
-			<text>あなたは惑星に着陸しないことに決めました。スラッグが何らかの形で関与している場合、それは良いことではありません。</text>
+			<text>あなたはその惑星に着陸しないと決めた。スラッグが何らかの形で関与しているとしたら、それは良いことではない。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1968,11 +1970,11 @@
 </event>
 <eventList name="SLUG_MINDSLAVES_WIN">
 	<event>
-		<text>コロニーの市民は、スラッグから何ヶ月も操作されたように見えた後、恐怖を感じています。特に怖い民間人の1人があなたのクルーに加わることを申し出て、彼らがセクターから脱出できるようにします。</text>
+		<text>コロニーの市民は、スラッグに何ヶ月も操られていたようで、怯えている。特に怯えた市民が、このセクターから脱出するためにあなたのクルーに加わりたいと申し出てきた。</text>
 		<crewMember amount="1" />
 	</event>
 	<event>
-		<text>植民地の市民は何が起こったのか理解していないようです。あなたが状況を説明するとき、彼らはあなたに感謝し、取引を申し出ます。</text>
+		<text>コロニーの市民は何が起こったのか理解していないようだ。あなたが状況を説明すると、彼らはあなたに感謝し、交換を申し出る。</text>
 		<store>STORE_SLUG</store>
 	</event>
 </eventList>
@@ -1980,42 +1982,42 @@
 	<event />
 	<event />
 	<event>
-		<text>あなたが引き離すと、あなたのクルーの一人がおかしな行動を取り始めます、そしてあなたがスラッグに気づかれなかったことが突然明らかになります！彼らが夢中になるまで、あなたは長くはありません。</text>
+		<text>引き離すと、クルーの一人がおかしな行動を取り始め、あなたがスラッグたちに気づかれていないことは突然明らかになった！スラッグが発狂するまで、そう長くはない。</text>
 		<choice hidden="true">
-			<text>私たちにできることは何もありません、戦う準備をしてください！</text>
+			<text>我々にできることは何もない！</text>
 			<event>
-				<text>あなたのクルーの口はけいれんし始め、彼らは猛烈な動物のように攻撃します！</text>
+				<text>クルーは口を尖らせ、猛獣のように襲いかかる！</text>
 				<crewMember amount="-1" class="traitor" />
 			</event>
 		</choice>
 		<choice req="mind" hidden="true">
-			<text>（マインドコントロール）効果を逆にします。</text>
+			<text>(マインド・コントロール）効果を逆転させる。</text>
 			<event>
-				<text>幸いなことに、システムはクルーを通常の状態に戻すことができ、すぐに脱出できます。</text>
+				<text>幸運なことに、システムはクルーを正常に戻すことができ、あなたはすぐに脱出することができた。</text>
 			</event>
 		</choice>
 		<choice req="hacking" hidden="true">
-			<text>（ハッキング）効果を逆転させます。</text>
+			<text>(ハッキング）効果を逆転させる。</text>
 			<event>
-				<text>幸いなことに、システムはクルーを通常の状態に戻すことができ、すぐに脱出できます。</text>
+				<text>幸運なことに、システムはクルーを正常に戻すことができ、あなたはすぐに脱出することができた。</text>
 			</event>
 		</choice>
 		<choice req="LIST_CREW_SLUG" hidden="true">
-			<text>(Slug Crew) Slug にテレパシーで話しかけてもらいます。</text>
+			<text>(スラッグ・クルー）スラッグにテレパシーで話しかけさせる。</text>
 			<event>
-				<text>幸いなことに、あなたのスラッグはあなたのクルーが十分長く正気を保つのを助けることができます、そしてあなたはすぐに逃げます。</text>
+				<text>幸運なことに、スラッグが乗組員の正気を保つのに十分な時間を割いてくれ、すぐに脱出することができた。</text>
 			</event>
 		</choice>
 		<choice req="BLUELIST_CREW_SNAIL" hidden="true">
-			<text>(テレパシー シェル) シェルにテレパシーで話しかけさせます。</text>
+			<text>(テレパシー・シェル）あなたのシェルにテレパシーで話しかけさせる。</text>
 			<event>
-				<text>幸いなことに、あなたのシェルは乗組員が十分に長く正気を保つのを助けることができ、あなたはすぐに逃げることができます.</text>
+				<text>幸運なことに、あなたのシェルはクルーが正気を保つのに十分な時間を稼ぐことができ、あなたはすぐに脱出することができた。</text>
 			</event>
 		</choice>
 		<choice req="engines" lvl="4" hidden="true">
-			<text>（Upg. エンジン）できるだけ早くステーションの範囲から脱出します。</text>
+			<text>(アップグ・エンジン) できるだけ早くステーションの範囲から脱出すること。</text>
 			<event>
-				<text>あなたはすぐにステーションから離れて操縦し、あなたのクルーは通常に戻ります。</text>
+				<text>あなたはすぐにステーションから離れ、クルーは通常の状態に戻る。</text>
 			</event>
 		</choice>
 	</event>
@@ -2029,23 +2031,23 @@
 
 <event name="NEBULA_SLUG_DISTRESS_TRICK" unique="true">
 	<distressBeacon />
-	<text>あなたは遭難信号を放送しているスラッグ船を見つけて彼らに連絡します。 「ああ、そうだね。酸素発生装置に問題がある。おそらくあなたのクルーが修理を手伝ってくれるだろうか？」</text>
+	<text>遭難信号を発信しているスラッグ船を見つけ、連絡を取る。「酸素発生装置に問題がある。君のクルーなら修理を手伝えるだろう？"</text>
 	<ship load="SHIP_SLUG_GENERIC" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
-		<text>何人かのクルーを助けに送ってください。</text>
+		<text>クルーを何人か派遣してくれ。</text>
 		<event load="SLUG_DISTRESS_TRICK_LIST" />
 	</choice>
 	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
-		<text>あなたを助ける乗組員はいません。</text>
+		<text>あなたには助けるクルーがいない。</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true">
-		<text>それらを無視します。</text>
+		<text>無視するんだ。</text>
 		<event>
-			<text>あなたはスラッグを信頼するよりもよく知っています。あなたはコミュニケーションを断ち切り、ジャンプする準備をします。</text>
+			<text>スラッグを信用しないほうがいい。通信を切り、ジャンプの準備をする。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -2055,79 +2057,79 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_MANTIS">
-		<text>（マンティスクルー）マンティスに修理を監督してもらってください。</text>
+		<text>(マンティス・クルー）マンティスに修理を監督させる。</text>
 		<event>
-			<text>搭乗すると、O2システムに問題がないことが明らかになります。これをほぼ期待して、あなたのマンティスは冷静に罠に反応します。いくつかのスラッグが船の壁を越えて広がると、残りは降伏します。</text>
+			<text>乗船後、彼らのO2システムには何の問題もないことが明らかになる。ほぼ予想通り、マンティスは冷静に罠に対応する。スラッグの数匹が船の壁に散らばると、残りは降伏する。</text>
 			<autoReward level="HIGH">scrap_only</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true" req="DRONE_CONTROL_REPAIR_CREW">
-		<text>(ドローンの修理) 彼らの問題を解決するためにドローンを送ってください。</text>
+		<text>(修理ドローン）相手の問題を解決するためにドローンを送る。</text>
 		<event>
-			<text>ドローンは状況を簡単に処理します。すぐに、必要な修理を行うことができ、船倉に余分なスクラップを持って出発します。</text>
+			<text>あなたのドローンは簡単に状況を処理する。あっという間に必要な修理が完了し、あなたは余分なスクラップを抱えて出発する。</text>
 			<autoReward level="HIGH">scrap_only</autoReward>
 		</event>
 	</choice>
 </event>
 <eventList name="SLUG_DISTRESS_TRICK_LIST">
 	<event>
-		<text>あなたが彼らの船に乗るとすぐに彼らの敵意が明らかになります。数が多いにもかかわらず、クルーはスラッグトラップから抜け出し、エアロックに反撃することができます。あなたは敵の船から引き離しますが、いくつかのスラッグが乗船する前ではありません。</text>
+		<text>彼らの船に乗り込むや否や、敵対的な意図が明らかになる。多勢に無勢にもかかわらず、クルーはスラッグの罠から抜け出し、エアロックまで反撃することができた。敵艦から離れるが、数匹のスラッグが船内に侵入。</text>
 		<ship hostile="true" />
 		<boarders min="1" max="3" class="slug" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 	<event>
-		<text>あなたが彼らの船に乗るとすぐに彼らの敵意が明らかになります。エアロックに戻る途中で、クルーの1人が狙いを定めたスラッグブラスターショットで連れ出されます。</text>
+		<text>彼らの船に乗り込むや否や、敵対的な意図が明らかになる。エアロックに戻る途中、クルーの一人が狙い澄ましたスラッグ・ブラスターの一撃で倒れる。</text>
 		<ship hostile="true" />
 		<removeCrew>
 			<clone>true</clone>
-			<text>幸いなことに、あなたのクルーはすぐにクローンベイによって復活しました。</text>
+			<text>幸運なことに、あなたのクルーはクローンベイによってすぐに蘇生した。</text>
 		</removeCrew>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 	<event>
-		<text>あなたは慎重に彼らの船に乗り込み、すぐに機能不全の生命維持装置の古い空気の匂いを嗅ぎます。すぐに問題を解決し、余分なスクラップを保留にして再び出発することができます。</text>
+		<text>慎重に彼らの船に乗り込むと、すぐに生命維持装置の故障による悪臭がした。すぐに問題を解決し、船倉に余分なスクラップを積んで再び出発する。</text>
 		<autoReward level="HIGH">scrap_only</autoReward>
 	</event>
 </eventList>
 
 <event name="NEBULA_SLUG_DISTRESS_ROCK" unique="true">
 	<distressBeacon />
-	<text>障害のあるロック貨物船に乗り込んでいる途中でスラッグ船を見つけるために到着します。</text>
+	<text>到着すると、スラッグ艦が航行不能になったロック貨物船に乗り込んでいる最中だった。</text>
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>スラッグ船と交戦します。</text>
+		<text>スラッグ船と交戦。</text>
 		<event load="SLUG_DISTRESS_ROCK_FIGHT_MV" />
 	</choice>
 	<choice>
-		<text>それらを無視します。</text>
+		<text>無視するんだ。</text>
 		<event load="SLUG_DISTRESS_ROCK_AVOID_MV" />
 	</choice>
 </event>
 <eventList name="SLUG_DISTRESS_ROCK_FIGHT_MV">
 	<event>
-		<text>あなたは武器とスラッグをすぐに元に戻します。あなたが貨物船に戻ったとき、ロックマンはすでに彼らの最悪のダメージを修復し、別の言葉なしで飛び去っています。</text>
+		<text>武器をチャージすると、スラッグはすぐに後退する。あなたが貨物船に戻ると、ロックマンはすでに最悪のダメージを修復し、それ以上何も言わずに飛び去っていた。</text>
 	</event>
 	<event>
-		<text>あなたは武器をチャージし、スラッグはあなたのチャージを満たすためにコースを素早く変更します。</text>
+		<text>あなたが武器をチャージすると、スラッグは素早く進路を変えてあなたのチャージに対応する。</text>
 		<ship load="SHIP_SLUG_DISTRESS_ROCK" hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 </eventList>
 <eventList name="SLUG_DISTRESS_ROCK_AVOID_MV">
 	<event>
-		<text>あなたは自分の領土でスラッグを挑発することを望んでいません。あなたはそれらを放っておいてください。</text>
+		<text>自分のテリトリーでスラッグを刺激する気はないだろう。スラッグを放っておくのだ。</text>
 		<choice>
-			<text>船に乗って何かする。</text>
+			<text>船内で何かをする。</text>
 			<event load="STORAGE_CHECK" />
 		</choice>
 		<choice>
@@ -2136,9 +2138,9 @@
 		</choice>
 	</event>
 	<event>
-		<text>あなたは自分の領土でスラッグを挑発することを望んでいません。あなたはそれらを放っておいてください。</text>
+		<text>自分のテリトリーでスラッグを刺激する気はないだろう。彼らを放っておくのだ。</text>
 		<choice>
-			<text>船に乗って何かする。</text>
+			<text>船内で何かをする。</text>
 			<event load="STORAGE_CHECK" />
 		</choice>
 		<choice>
@@ -2147,132 +2149,132 @@
 		</choice>
 	</event>
 	<event>
-		<text>スラッグが船に乗り込んだ後、ロック船が生き返り、他の船を壊滅させるのを見て驚いています。彼らはあなたにメッセージを送ります、「哀れです。あなたは臆病者かスラッグの味方です。どちらにしても、あなたは生きるに値しません。」</text>
+		<text>スラッグが船に乗り込んだ後、ロック号が息を吹き返し、もう一方の船を壊滅させるのを見て驚く。哀れだ。お前は臆病者かスラッグの味方だ。いずれにせよ、お前は生きるに値しない」。</text>
 		<ship load="SHIP_ROCK_FIGHT" hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 </eventList>
 <eventList name="SLUG_DISTRESS_ROCK_RESULT_MV">
 	<event>
-		<text>戦闘中にロック船が去ったようです。あなたは彼らがあなたの援助に対してもっと恩知らずだったかもしれないと疑っています。</text>
+		<text>どうやらロック号はあなたたちの戦闘中に去っていったようだ。あなた方の援助に対して、彼らがこれほど恩知らずだったとは思えない。</text>
 	</event>
 	<event>
-		<text>戦いの後、ロック船があなたを歓迎します。彼らの船長は単に「ありがとう」と言います。そして飛び去ります。ロックマンの評判を考えると、それは彼らにとってかなりありがたいことです。</text>
+		<text>戦いの後、ロック船があなたに声をかけてきた。船長は「ありがとう」と言って飛び去った。ロックマンの評判を考えれば、かなり親切なことだ。</text>
 	</event>
 	<event>	
-		<text>ロック船は放棄されてから長い年月が経っていたようです。あなたはそれからあなたができることを取り除きます。</text>
+		<text>ロック号はとうの昔に放棄されたようだ。できる限りのものを剥ぎ取るんだ。</text>
 		<autoReward level="MED">standard</autoReward>
 	</event>
 </eventList>
 
 <event name="NEBULA_DISTRESS_SLUG_QUESTION" unique="true">
 	<distressBeacon />
-	<text>救難信号の信号の近くに到着します。</text>
+	<text>救難信号の近くに到着。</text>
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="SLUG_DISTRESS_QUESTION_LIST" />
 	</choice>
 </event>
 <eventList name="SLUG_DISTRESS_QUESTION_LIST">
 	<event>
-		<text>星雲に隠された惑星の5つの月の1つまで、救難信号を追跡するのは困難です。</text>
+		<text>あなたは、星雲に隠された惑星の5つの月のうちの1つまで、難航しながら遭難信号を追跡する。</text>
 		<choice hidden="true">
-			<text>調査。</text>
+			<text>調査する。</text>
 			<event>
-				<text>近くに漂うと、月の表面に停泊しているスラッグに接触します。 「この簡単な質問に答えていただければ、私はあなたのクルーに加わります。ここの軌道にはいくつの衛星がありますか？」</text>
+				<text>月面に取り残されたスラッグから連絡が入る。"簡単な質問に答えてくれるなら、私はあなたのクルーに加わろう。この軌道上に月はいくつある？</text>
 				<choice hidden="true">
-					<text>五。</text>
+					<text>5人だ。</text>
 					<event load="SLUG_DISTRESS_QUESTION_TRUE" />
 				</choice>
 				<choice hidden="true">
-					<text>六。</text>
+					<text>6人だ。</text>
 					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
 				</choice>
 				<choice hidden="true">
-					<text>セブン。</text>
+					<text>7人だ。</text>
 					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
 				</choice>
 				<choice hidden="true">
-					<text>十一。</text>
+					<text>イレブンだ。</text>
 					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
 				</choice>
 			</event>
 		</choice>
 	</event>
 	<event>
-		<text>星雲に隠された惑星の6つの衛星の1つまで、救難信号を追跡するのは困難です。</text>
+		<text>あなたは、星雲に隠された惑星の6つの月のうちの1つまで、遭難信号を難なく追跡する。</text>
 		<choice hidden="true">
-			<text>調査。</text>
+			<text>調査する。</text>
 			<event>
-				<text>近くに漂うと、月の表面に停泊しているスラッグに接触します。 「この簡単な質問に答えていただければ、私はあなたのクルーに加わります。ここの軌道にはいくつの衛星がありますか？」</text>
+				<text>月面に取り残されたスラッグから連絡が入る。"簡単な質問に答えてくれるなら、私はあなたのクルーに加わろう。この軌道上に月はいくつある？</text>
 				<choice hidden="true">
-					<text>五。</text>
+					<text>5人だ。</text>
 					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
 				</choice>
 				<choice hidden="true">
-					<text>六。</text>
+					<text>6人だ。</text>
 					<event load="SLUG_DISTRESS_QUESTION_TRUE" />
 				</choice>
 				<choice hidden="true">
-					<text>セブン。</text>
+					<text>7人だ。</text>
 					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
 				</choice>
 				<choice hidden="true">
-					<text>十一。</text>
+					<text>イレブンだ。</text>
 					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
 				</choice>
 			</event>
 		</choice>
 	</event>
 	<event>
-		<text>星雲に隠された惑星の7つの衛星の1つまで、救難信号を追跡するのは困難です。</text>
+		<text>星雲に隠された惑星の7つの月の1つまで、遭難信号を難なく追跡する。</text>
 		<choice hidden="true">
-			<text>調査。</text>
+			<text>調査する。</text>
 			<event>
-				<text>近くに漂うと、月の表面に停泊しているスラッグに接触します。 「この簡単な質問に答えていただければ、私はあなたのクルーに加わります。ここの軌道にはいくつの衛星がありますか？」</text>
+				<text>月面に取り残されたスラッグから連絡が入る。"簡単な質問に答えてくれるなら、私はあなたのクルーに加わろう。この軌道上に月はいくつある？</text>
 				<choice hidden="true">
-					<text>五。</text>
+					<text>5人だ。</text>
 					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
 				</choice>
 				<choice hidden="true">
-					<text>六。</text>
+					<text>6人だ。</text>
 					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
 				</choice>
 				<choice hidden="true">
-					<text>セブン。</text>
+					<text>7人だ。</text>
 					<event load="SLUG_DISTRESS_QUESTION_TRUE" />
 				</choice>
 				<choice hidden="true">
-					<text>十一。</text>
+					<text>イレブンだ。</text>
 					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
 				</choice>
 			</event>
 		</choice>
 	</event>
 	<event>
-		<text>星雲に隠された惑星の11の衛星の1つまで、救難信号を追跡するのは困難です。</text>
+		<text>あなたは、星雲に隠された惑星の11の衛星のうちの1つまで、遭難信号を難なく追跡する。</text>
 		<choice hidden="true">
-			<text>調査。</text>
+			<text>調査する。</text>
 			<event>
-				<text>近くに漂うと、月の表面に停泊しているスラッグに接触します。 「この簡単な質問に答えていただければ、私はあなたのクルーに加わります。ここの軌道にはいくつの衛星がありますか？」</text>
+				<text>月面に取り残されたスラッグから連絡が入る。"簡単な質問に答えてくれるなら、私はあなたのクルーに加わろう。この軌道上に月はいくつある？</text>
 				<choice hidden="true">
-					<text>五。</text>
+					<text>5人だ。</text>
 					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
 				</choice>
 				<choice hidden="true">
-					<text>六。</text>
+					<text>6人だ。</text>
 					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
 				</choice>
 				<choice hidden="true">
-					<text>セブン。</text>
+					<text>7人だ。</text>
 					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
 				</choice>
 				<choice hidden="true">
-					<text>十一。</text>
+					<text>イレブンだ。</text>
 					<event load="SLUG_DISTRESS_QUESTION_TRUE" />
 				</choice>
 			</event>
@@ -2280,7 +2282,7 @@
 	</event>
 </eventList>
 <event name="SLUG_DISTRESS_QUESTION_FALSE">
-	<text>「それは...間違っています。」さらに、私はあなたの鋭敏さの欠如を利用して、あなたの船に乗り込み、あなたのものを盗みました！</text>
+	<text>"それは...正しくない"さらに、私はあなたの鋭敏さの欠如を利用して、あなたの船にビームを照射し、あなたのものを盗みました！</text>
 	<item_modify steal="true">
 		<item type="scrap" min="-35" max="-35" />
 		<item type="fuel" min="-4" max="-2" />
@@ -2288,7 +2290,7 @@
 	</item_modify>
 </event>
 <event name="SLUG_DISTRESS_QUESTION_TRUE">   
-	<text>「それは...正しいです。あなたは私を驚かせます。連盟、そうですか？はい...私たちはパートナーになることができます。」スラッグビームが乗ってあなたのクルーに加わります！</text>
+	<text>「その通りだ。驚いたよ。連邦ですか？そうだ...パートナーになろう。"スラッグがビームを放ち、クルーに加わる！</text>
 	<crewMember amount="1" class="slug" />  
 </event>
 
@@ -2299,26 +2301,26 @@
 </eventList>
 
 <event name="NEBULA_SLUG_ROCK_SALTY" unique="true">   
-	<text>近くの星雲は、あらゆる種類のスラッグ船の残骸で汚染されています。残骸の中心には、恐ろしい戦いだったに違いないものの唯一の生存者である、単一のエリートロック船があります。</text>
+	<text>近くの星雲はあらゆる種類のスラッグ船の残骸で汚染されている。残骸の中央には、凄惨な戦いの生き残りであろうエリート・ロック船が1隻。</text>
 	<ship load="SHIP_ROCK_ELITE_FIGHT" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>ロックマンに連絡します。</text>
+		<text>ロックマン万歳。</text>
 		<event>
-			<text>ロックマンは、彼らがスラッグ拡張戦争から彼らの倒れた兄弟を復讐するために来たと説明します。彼らはしばらくの間この星雲でスラッグを狩っていましたが、1隻の船がこれまでのところ彼らの捕獲を回避することができました。彼らはあなたがスラッグを追跡できるかもしれないことを望んでいます。あなたが成功した場合、あなたを待っている報酬があります。</text>
+			<text>ロックマンは、スラッグ拡大戦争で倒れた兄弟の仇を討つために来たと説明する。彼らは以前からこの星雲でスラッグを狩っているが、今のところ1隻が捕獲を逃れている。彼らはあなたがスラッグを追跡してくれることを期待している。成功すれば、報酬が待っている。</text>
 			<choice hidden="true">
-				<text>スラッグを追い詰めることに同意します。</text>
+				<text>スラッグを追い詰めることに同意する。</text>
 				<event>
-					<text>5年以上前に発生し、スラッグとロックマンの間の停戦で解決されたスラッグ拡張戦争にもかかわらず、それがあなたがそれからいくらかのスクラップを手に入れることを意味するならば、あなたはロックマンの汚い仕事を喜んでします。</text>
+					<text>スラッグ拡張戦争は5年以上前に起こり、スラッグとロックマンの休戦協定で解決したにもかかわらず、君はスクラップを得るためならロックマンの汚れ仕事も厭わない。</text>
 					<quest event="NEBULA_SLUG_ROCK_SALTY_HUNT" />
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>私たちは傭兵ではありません。</text>
+				<text>我々は傭兵ではない。</text>
 				<event>
-					<text>ロックマンは通信を気にかけたりカットしたりしていないようです。</text>
+					<text>ロックマンは気にしていないようで、通信を切った。</text>
 					<choice>
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice>
@@ -2330,22 +2332,22 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>船と戦ってください。</text>
+		<text>船と戦え。</text>
 		<event>
-			<text>何らかの理由で、あなたはロックエリートと絡むことにしました。あなたはポジションと戦うために急いでいます。</text>
+			<text>なぜかあなたはロックエリートに絡むことにした。急いで戦闘態勢に入る。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>ここから地獄を取り除く必要があります。</text>
+		<text>早くここから出よう。</text>
 		<event>
-			<text>ロックエリートとの絡みはあなたができる最悪のことです。あなたは船を放っておく。</text>
+			<text>ロックエリートに絡むのは最悪の行為だ。船は放っておけ。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -2358,28 +2360,28 @@
 <event name="NEBULA_SLUG_ROCK_SALTY_HUNT">
 	<beaconType id="map_icon_quest" global="true">
 		<color r="69" g="168" b="235" a="1" />
-		<unvisitedTooltip>ロッククルセーダーは、ここでナメクジの容器を追求するように頼みました。</unvisitedTooltip>
+		<unvisitedTooltip>ロック・クルセイダーがスラッグの船を追跡するようあなたに依頼してきた。</unvisitedTooltip>
 	</beaconType>   
-	<text>問題のスラッグの船が星雲に飛び込んでいるのを見つけます。彼らがあなたに気づいたかどうかはわかりません。</text>
+	<text>あなたは、問題のスラッグ船が星雲の中にそそくさと去っていくのを見つけた。彼らがあなたに気づいたかどうかはわからない。</text>
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>それらに従う。</text>
+		<text>彼らに従え。</text>
 		<event>
-			<text>スラッグは必死にあなたを揺さぶろうとしますが、あなたは容赦しません。ついに、彼らはあきらめてあなたを歓迎します。 「これらの不潔なロックスはあなたを送りました、そうではありませんでした！喜ばしい、私たちはあなたに支払います。ジャストは私たちを生きさせます。」</text>
+			<text>スラッグたちは必死にあなたを揺さぶろうとするが、あなたは譲らない。ついにスラッグたちはあきらめ、万歳をする。「あの薄汚い岩がお前を差し向けたんだな！頼む、金は払う。生かしてくれ。</text>
 			<ship load="SHIP_SLUG_ROCK_HUNT" hostile="false" />
 			<choice hidden="true">
-				<text>彼らの嘆願と攻撃を無視してください。</text>
+				<text>彼らの嘆願を無視して攻撃する。</text>
 				<event>
-					<text>あなたはスラッグを戦いなしで手放すことはありません。</text>
+					<text>スラッグを戦わずして行かせるつもりはないだろう。</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice>
-				<text>彼らの給料を受け入れる。</text>
+				<text>給料を受け取れ。</text>
 				<event>
 					<item_modify>
 						<item type="scrap" min="15" max="35" />
@@ -2389,11 +2391,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>これを忘れて、去りましょう。</text>
+		<text>もういい、帰ろう。</text>
 		<event>
-			<text>あなたは報酬への興味を失い、スラッグを追いかけないことにしました。</text>
+			<text>あなたは報酬に興味を失い、スラッグを追いかけないことにした。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -2404,27 +2406,27 @@
 	</choice>
 </event>
 <event name="NEBULA_SLUG_ROCK_SALTY_HUNT_WIN">   
-	<text>ロック船が星雲の隠れ場所から出てきたら、彼らに連絡する前にジャンプします。 「素晴らしい仕事です。あなたはロックカインドを誇りに思っています。約束通り、支払いは順調です。」</text>
+	<text>ロック船が星雲の隠れ家から出てきたとき、あなたはジャンプした。「よくやった。君はロック族の誇りだ。約束通り、支払いは順当だ。"</text>
 	<autoReward level="MED">standard</autoReward>
 	<weapon name="RANDOM" />
 </event>
 
 <event name="NEBULA_QUEST_SLUG_PIRATE_TRAP" unique="true">
-	<text>通信範囲内にある2隻のスラッグ船の姿に到着します。彼らはあなたに会いません。</text>
+	<text>通信圏内に2隻のスラッグ船が見える。彼らはあなたを見ていない。</text>
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>彼らの通信周波数をタップします。</text>
+		<text>相手の通信周波数をタップする。</text>
 		<event>
-			<text>あなたは彼らの会話を聞き、彼らがその地域で悪名高い、そしておそらく裕福な海賊船を襲撃することを計画していることを知ります。ペアが飛び降り、ターゲット座標を書き留めます。</text>
+			<text>あなたは彼らの会話を耳にし、彼らがこの地域で悪名高く、裕福そうな海賊船を襲撃する計画を立てていることを知った。二人は飛び降り、あなたは彼らの目標座標をメモする。</text>
 			<quest event="NEBULA_QUEST_SLUG_PIRATE_TRAP2" />
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>それらを無視します。</text>
+		<text>無視するんだ。</text>
 		<event>
-			<text>あなたはスラッグ達がビジネスを成し遂げることができるものには何の興味もありません。先に進む時間です。</text>
+			<text>スラッグがビジネスにできるようなものには一切興味がないのだろう。そろそろ潮時だ。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -2437,32 +2439,32 @@
 <event name="NEBULA_QUEST_SLUG_PIRATE_TRAP2">
 	<beaconType id="map_icon_quest" global="true">
 		<color r="69" g="168" b="235" a="1" />
-		<unvisitedTooltip>スラッグ船のペアが標的にしたと思われる裕福な海賊の場所。</unvisitedTooltip>
+		<unvisitedTooltip>スラッグ船2隻に狙われた大富豪と思われる海賊の居場所。</unvisitedTooltip>
 	</beaconType> 
 	<environment type="nebula" />
-	<text>あなたは2隻のスラッグ船に追いつき、彼らはすでに襲撃を実行しています！ 1つは海賊との緊密な戦闘であり、もう1つは海賊が保護していた小さなスペースキャッシュに向かっているようです。</text>
+	<text>スラッグの2隻に追いつくと、すでに襲撃を開始していた！1隻は海賊と接近戦をしており、もう1隻は海賊が守っていた小さなスペース・キャッシュに向かっているようだ。</text>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>突然最初の船が炎上し、残りのスラッグから緊急の呼びかけが届きました。 「貴重品を回収している間、海賊のベッセルの気を散らすことをお勧めします。五十五分。」</text>
+			<text>突然、最初の船が炎上し、残ったスラッグスから緊急の連絡が入った。「貴重品を回収する間、海賊船の気をそらしてほしい。50対50で分ける"</text>
 			<choice hidden="true">
 				<text>海賊と交戦する。</text>
 				<event>
-					<text>ここで稼ぐべきお金があります。スラッグはそれを知っています。あなたは海賊をオンにして、彼がキャッシュに到達する直前に傍受します！</text>
+					<text>ここには金がある。スラッグスはそれを知っている。海賊がキャッシュに辿り着く寸前で妨害する！</text>
 					<ship load="SHIP_QUEST_SLUG_PIRATE_TRAP1" hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>キャッシュに向かいます。</text>
+				<text>キャッシュに向かう。</text>
 				<event>
-					<text>彼はあなたがキャッシュのために作っているのを見ると、スラッグの船長は「愚かな異星人、利益の目がない。あなたに幸運を祈ります」と呼びかけます。彼らは飛び降り、あなたを海賊とつま先からつま先まで残します！</text>
+					<text>スラッグ船長は、あなたがキャッシュに向かうのを見ると、こう叫んだ：「愚かなエイリアンだ。幸運を祈る。彼らは飛び降り、あなたは海賊と一対一になる！</text>
 					<ship load="SHIP_QUEST_SLUG_PIRATE_TRAP2" hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
@@ -2494,60 +2496,60 @@
 	<ship load="SHIP_SLUG_FIGHT" hostile="true" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <textList name="NEBULA_SLUG_FIGHT">
-	<text>あなたのセンサーはスラッグのテレパシー能力に匹敵しません-あなたが見たこともない船が船尾から発砲します！</text>
-	<text>ここで遭遇するスラッグの船は明らかに大きなスコアを出し、その新しい兵器をテストしようとしています。彼らは攻撃するために間違った船を選びました。</text>
-	<text>スラッグの客船は「お願いします、あなたのふさわしい異星人の殿下、私たちは武装しておらず、アシラムを探しています。」あなたは慎重に近づき、武器はすぐに船体から飛び出します！</text>
-	<text>スラッグの船が近づいていますが、あなたが連邦であるのを見ると、彼はスニークアタックをよく考えて、持っているものすべてを発射します。</text>
-	<text>直接攻撃はスラッグには好まれませんが、このビーコンで見られる3つのうち、1つはあなたの位置を動かすための真鍮を持っています！</text>
+	<text>あなたのセンサーはスラッグのテレパシー能力にはかなわない！</text>
+	<text>ここで遭遇したスラッグ船は、明らかに大きな戦果をあげ、新しい武装を試そうとしている。攻撃する船を間違えたな。</text>
+	<text>スラッグ客船から入電："どうか、立派な異星人の殿下、我々は非武装で亡命を求めています"慎重に近づくと、すぐに船体から武器が飛び出す！</text>
+	<text>スラッグ艦が近づいてくるが、あなたたちが連邦軍だとわかると、奇襲を思いとどまり、全弾を発射する。</text>
+	<text>スラッグは直接攻撃を好まないが、このビーコンにいる3匹のうち、1匹はあなたの陣地に進撃してくるブラスを持っている！</text>
 </textList>
 <event name="NEBULA_ENCOUNTER_SLUG_STORM" unique="true">
 	<text load="STORM_SLUG_FIGHT" />
 	<ship load="SHIP_SLUG_FIGHT" hostile="true" />
 	<environment type="storm" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <textList name="STORM_SLUG_FIGHT">
-	<text>ここでのイオンストームは、コアシステムを非アクティブ化する恐れがあります。事実は、宇宙のハゲタカのように旋回する、ほとんど影響を受けていないスラッグ船にとってさらに悪化しました。</text>
-	<text>イオンストームに入ると視界に降りてくるスラッグの船は、あなたの苦痛を感じたに違いありません-防御行動！</text>
-	<text>あなたはイオン嵐の真っ只中に到着します。スラッグは一般的にこれらの嵐を避けますが、待ち伏せで待っているものを見つけます。戦いの準備を！</text>
-	<text>イオンストームの真っ只中に、スラッグの船がすぐ近くにあり、すべての呼びかけを拒否していることに気づきます。あなたは慎重にさらに雲の中に滑り込もうとしますが、彼らは突然攻撃に変わります！</text>	
+	<text>イオンの嵐はコアシステムを停止させる恐れがある。</text>
+	<text>イオン・ストームに入って視界に入ってきたスラッグ船は、あなたの遭難を察知したに違いない！</text>
+	<text>あなたはイオン嵐の真っ只中に到着した。通常、スラッグはこの嵐を避けるが、あなたは待ち伏せしているスラッグを発見した。戦いに備えよ！</text>
+	<text>あなたはイオン嵐の中で身動きがとれなくなっていることに気づいた。あなたは慎重に雲の中に入ろうとするが、彼らは突然攻撃を仕掛けてきた！</text>	
 </textList>
 
 <event name="NEBULA_SLUG_MANTIS" unique="true">
-	<text>ここのマンティスの攻撃船は、彼らの家の芝生でスラッグを狩っていたようです-最も強力なマンティスのクルーにとっては珍しい名誉のテストです。武器を上げろ！</text>
+	<text>このマンティスの攻撃船はスラッグを狩りに来たようだ - 最強のマンティス乗組員にとっては名誉のテストだ。武器を構える！</text>
 	<ship load="SHIP_MANTIS_FIGHT" hostile="true" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 
 <event name="NEBULA_SLUG_PIRATE" unique="true">
-	<text>ここでスラッグマークのない船が立ち往生しているのを見つけて驚いたので、助けを求めて移動します。船体に海賊の記章が見えると、すぐに再考します。</text>
+	<text>スラッグのマークがない船がこんなところで立ち往生していることに驚き、助けに入る。船体の海賊記章を見て、すぐに考え直す。</text>
 	<ship load="SHIP_PIRATE_ALL" hostile="false" />
 	<environment type="nebula" />
 	<choice>
-		<text>攻撃！</text>
+		<text>攻撃だ！</text>
 		<event>
-			<text>あなたは戦闘の準備をします。</text>
+			<text>戦闘に備えるのだ。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>あなたの距離を保ち、彼らがまだあなたに会っていないことを願っています。</text>
+		<text>距離を取り、まだ見られていないことを祈る。</text>
 		<event />
 	</choice>
 </event>
@@ -2560,30 +2562,30 @@
 </event>
 
 <event name="NEBULA_SLUG_INFECTOR">
-	<text>乗組員から叫び声が聞こえて走りに来ます。ナメクジは、そのうちの1つに長い針を注入し、すぐに梁を吹き飛ばしました。彼らはあなたを歓迎し、あなたの乗組員に致命的な化学物質を注入したと主張し、あなたが解毒剤の代金を支払わない限り、あなたの乗組員は死にます。</text>
+	<text>クルーから叫び声が聞こえ、走ってくる。スラッグがクルーの一人に長い針を注射し、すぐにビームを放った。彼らは、あなたのクルーに致命的な化学薬品を注射したと言い、解毒剤の代金を支払わない限り、あなたのクルーは死ぬと言う。</text>
 	<triggeredEvent name="TIMER_SLUG_INFECTOR_POISON" event="SLUG_INFECTOR_DEATH" jumps="1">
 		<triggeredEventBox load="DEFAULT_JUMPS">
 			<warning flash="false" />
-			<tooltip>あなたの乗組員は毒されました。あなたがそれらを硬化させずに飛び去ると、彼らは死ぬでしょう。</tooltip>
+			<tooltip>クルーが毒におかされている。治療せずに飛び去ると死んでしまう。</tooltip>
 		</triggeredEventBox>
 	</triggeredEvent>
 	<ship load="SHIP_SLUG_INFECTOR" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>私たちはあなたのいまいましい解毒剤にお金を払っていません！私たちはあなたからそれを取ります！</text>
+		<text>解毒剤の代金は払わない！お前から奪ってやる</text>
 		<event>
-			<text>あなたは急いで武器を手に入れ、スラッグから解毒剤を取り戻します。</text>
+			<text>あなたは急いで武器を整備し、スラッグから解毒剤を奪い返す。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>身代金を支払う。</text>
+		<text>身代金を払え。</text>
 		<event>
-			<text>ナメクジはくすくす笑い、解毒剤を送ります。あなたはそれをあなたの乗組員に与える以外に多くの選択肢を持っていません。幸いなことに、彼らはその後気分が良くなっているようです。ナメクジは飛び降ります。</text>
+			<text>スラッグは笑いながら解毒剤を渡す。それをクルーに渡す以外に選択肢はない。幸いなことに、彼らはその後気分が良くなったようだ。スラッグは飛び去る。</text>
 			<clearTriggeredEvent name="TIMER_SLUG_INFECTOR_POISON" />
 			<item_modify>
 				<item type="scrap" min="-25" max="-25" />
@@ -2591,19 +2593,19 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="medbay" lvl="2">
-		<text>（Upg. Medbay）クルーを治します。</text>
+		<text>(メドベイ上) クルーに治療を。</text>
 		<event>
-			<text>幸いなことに、あなたはあなたのクルーを治療することができます。スラッグはイライラしますが、レバレッジがなくなったため、無力になり、スクラップを支払って安心して手放すことができます。</text>
+			<text>幸運なことに、あなたはクルーを治療することができた。スラッグたちは苛立ったが、何の影響力もない今、どうすることもできず、平和的に逃がしてやるよう、君にスクラップを支払った。</text>
 			<clearTriggeredEvent name="TIMER_SLUG_INFECTOR_POISON" />
 			<autoReward level="MED">scrap_only</autoReward>
 		</event>
 	</choice>
 </event>
 <event name="SLUG_INFECTOR_DEATH">
-	<text>あなたのクルーは、空気を求めてあえぎながら、痛みに屈します。解毒剤がなければ、彼らが死ぬのを見る以外にあなたにできることは何もありません。</text>
+	<text>乗員たちは痛みで仰け反り、息も絶え絶えだ。解毒剤がなければ、彼らが死ぬのを見るしかない。</text>
 	<removeCrew>
 		<clone>false</clone>
-		<text>スラッグが使用したものは何でも、次の人生であなたのクルーに引き継がれるようです。クローンベイからエントリを削除する以外に選択肢はありません。</text>
+		<text>スラッグが使ったものはすべて、来世のあなたのクルーに引き継がれるようだ。クローンベイから彼らのエントリーを削除するしかない。</text>
 	</removeCrew>
 </event>
 
@@ -2622,33 +2624,33 @@
 	</loadEventList>
 </event>
 <event name="NEBULA_SLUG_DOORS">
-	<text>銀河系には、壁に背を向けたスラッグよりも悪質な獣がほとんどいません。火器で武装した堕落した船は、リモートハッキングツールを使用してドアシステムを無効にしようとします-彼らはあなたを焼き尽くします！</text>
+	<text>壁に背を向けたスラッグほど凶悪な獣は銀河にはいない。火器で武装したたどたどしい船は、遠隔ハッキングツールを使ってドアシステムを無効にしようとする！</text>
 	<ship load="SHIP_SLUG_STATUS_DOORS" hostile="true" />
 	<environment type="nebula" />
 	<status type="limit" target="player" system="doors" amount="0" />
 	<choice>
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 	<choice hidden="true" req="hacking">
-		<text>（ハッキング）リモートハッキングに対抗します。</text>
+		<text>(ハッキング）リモートハッキングに対抗する。</text>
 		<event>
-			<text>あなたのハッキングシステムは自動的にデジタル攻撃に対抗し、あなたは船と戦うために移動します。</text>
+			<text>ハッキングシステムが自動的にデジタル攻撃に対抗し、あなたは船と戦うために移動する。</text>
 			<status type="limit" target="player" system="hacking" amount="0" />
 			<status type="clear" target="player" system="doors" amount="100" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="ANTI_VIRUS">
-		<text>（アンチウイルス）リモートハッキングに対抗します。</text>
+		<text>(アンチウイルス）リモートハッキングに対抗する。</text>
 		<event>
-			<text>アンチウイルスモジュールは自動的にデジタル攻撃に対抗し、船と戦うために移動します。</text>
+			<text>あなたのアンチウィルス・モジュールは自動的にデジタル攻撃に対抗し、あなたは船と戦うために移動する。</text>
 			<status type="clear" target="player" system="doors" amount="100" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
@@ -2661,105 +2663,105 @@
 	</loadEventList>
 </event>
 <event name="NEBULA_SLUG_OXYGEN">
-	<text>ここでのスラッグは、あなたが決して見たことがないことを望んでいた戦術を使用しています。彼らは、リモートハッキング衛星を使用して酸素生成システムを妨害し、次に火器を充電します-あなたは窒息するでしょう！</text>
+	<text>遠隔ハッキング衛星を使って酸素生産システムを妨害し、火炎放射器をチャージするのだ！</text>
 	<status type="limit" target="player" system="oxygen" amount="0" />
 	<ship load="SHIP_SLUG_STATUS_OXYGEN_FIRE" hostile="true" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 	<choice hidden="true" req="oxygen" lvl="2">
-		<text>（upg。ocygen）システムに余分な電力を絞るようにしてください。</text>
+		<text>(アップグ・オキシジェン）システムに余分なパワーを搾り取ろうとする。</text>
 		<event>
-			<text>ありがたいことに、改善されたサブシステムは、ライフサポートをほとんど機能させないようにするのに十分なハッキングに対抗することができます。それは少なくともあなたを生き続けるはずです...</text>
+			<text>ありがたいことに、改良されたサブシステムが彼らのハッキングに対抗し、生命維持装置をかろうじて機能させることができた。これで少なくとも生きていられるだろう...。</text>
 			<status type="divide" target="player" system="oxygen" amount="2" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="hacking">
-		<text>（ハッキング）リモートハッキングに対抗します。</text>
+		<text>(ハッキング）リモートハッキングに対抗する。</text>
 		<event>
-			<text>あなたのハッキングシステムは自動的にデジタル攻撃に対抗し、あなたは船と戦うために移動します。</text>
+			<text>ハッキングシステムが自動的にデジタル攻撃に対抗し、あなたは船と戦うために移動する。</text>
 			<status type="limit" target="player" system="hacking" amount="0" />
 			<status type="clear" target="player" system="oxygen" amount="100" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="ANTI_VIRUS">
-		<text>（アンチウイルス）リモートハッキングに対抗します。</text>
+		<text>(アンチウイルス）リモートハッキングに対抗する。</text>
 		<event>
-			<text>アンチウイルスモジュールは自動的にデジタル攻撃に対抗し、船と戦うために移動します。</text>
+			<text>あなたのアンチウィルス・モジュールは自動的にデジタル攻撃に対抗し、あなたは船と戦うために移動する。</text>
 			<status type="clear" target="player" system="oxygen" amount="100" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 </event>
 <event name="NEBULA_SLUG_MEDBAY" unique="true"> 
-	<text>スラッグ船があなたに電話をかけます:「あなたの医療ユニットから放射能が放射されているのを検出しました。調べてみてはいかがでしょうか?」彼がサインオフすると、システムが停止し、乗組員が近くのステーションからテレポートします。彼らはエンジニアのようには見えません。</text>
+	<text>スラッグ船から呼び出しがあった："そちらの医療ユニットから心配な放射線が検出されたので、見ていただけませんか？"彼がサインをすると、システムがシャットダウンされ、彼らのクルーが近くのステーションからテレポートしてきた。エンジニアには見えない。</text>
 	<ship load="SHIP_SLUG_STATUS_MEDBAY" hostile="true" />
 	<boarders min="2" max="2" class="slug" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>医療システムが停止します。船を守る準備をします。</text>
+			<text>医療システムが停止する。あなたは船を守る準備をする。</text>
 			<status type="limit" target="player" system="medbay" amount="0" />
 			<status type="limit" target="player" system="clonebay" amount="0" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="medbay" lvl="2">
-		<text>(Upg. Medbay) システムに余分な電力を絞り込んでみてください。</text>
+		<text>(Upg.メドベイ）システムに余分なパワーを搾り取ろうとする。</text>
 		<event>
-			<text>差し迫った戦いを恐れて、あなたは必死にメドベイを再び機能させようとします.ライトが再び点滅し、侵入者に向き直ります。</text>
+			<text>迫り来る戦闘を恐れて、あなたは必死で医療室を再稼働させようとした。明かりが点滅し、あなたは侵入者に向き直った。</text>
 			<status type="divide" target="player" system="medbay" amount="2" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="clonebay" lvl="2">
-		<text>(Upg. Clone Bay) システムに余分な電力を絞り込んでみてください。</text>
+		<text>(アップグ・クローンベイ）システムに余分なパワーを搾り取ろうとする。</text>
 		<event>
-			<text>差し迫った戦いを恐れて、あなたは必死にクローンベイを再び機能させようとします.ライトが再び点滅し、侵入者に向き直ります。</text>
+			<text>迫りくる戦闘を恐れ、あなたは必死にクローン・ベイを再び動かそうとする。ライトが点滅し、あなたは侵入者に向き直った。</text>
 			<status type="divide" target="player" system="clonebay" amount="2" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="hacking">
-		<text>（ハッキング）リモートハッキングに対抗します。</text>
+		<text>(ハッキング）リモートハッキングに対抗する。</text>
 		<event>
-			<text>あなたは彼らのリモートハッキング衛星のダメージを元に戻すことができますが、それはあなたのハッキングシステムが持っているすべてのものを奪っています。昔ながらの方法で敵を倒す時が来ました。</text>
+			<text>遠隔ハッキング衛星のダメージを元に戻すことはできるが、ハッキングシステムのすべてを奪われている。昔ながらの方法で敵を倒す時だ。</text>
 			<status type="limit" target="player" system="hacking" amount="0" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="ANTI_VIRUS">
-		<text>（アンチウイルス）リモートハッキングに対抗します。</text>
+		<text>(アンチウイルス）リモートハッキングに対抗する。</text>
 		<event>
-			<text>アンチウイルスモジュールは自動的にデジタル攻撃に対抗し、船と戦うために移動します。</text>
+			<text>あなたのアンチウィルス・モジュールは自動的にデジタル攻撃に対抗し、あなたは船と戦うために移動する。</text>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
@@ -2775,22 +2777,22 @@
 </eventList>
 
 <event name="NEBULA_ENCOUNTER_SLUG_HACKER" unique="true">
-	<text>スラッグハッカーは、スラッグの領土でさえ、驚くほどまれです。それにもかかわらず、あなたはこのビーコンで遭遇したという不幸を経験したようです。</text>
+	<text>スラッグ・ハッカーは、スラッグのテリトリーでも驚くほど珍しい。にもかかわらず、あなたはこのビーコンで不運にも遭遇してしまったようだ。</text>
 	<ship load="SHIP_HACKER" hostile="true" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 
 
 <event name="NEBULA_ENCOUNTER_SLUG_ELITE" unique="true">
-	<text>スラッグの手に負えない性質にもかかわらず、彼らは彼らの帝国と王室に敬虔な誇りを持っています。ここのスラッグエリートは、彼らの領土へのあなたの侵入を侮辱として受け止めているようで、あなたをそこから追い出すことにしました。</text>
+	<text>スラッグ族の手に負えない性質にもかかわらず、彼らは自分たちの帝国と王家に対する敬虔なプライドを持っている。ここのスラッグ・エリートは、君たちが自分たちの領土に侵入したことを侮辱と受け止め、君たちを領土から追い出すことにしたようだ。</text>
 	<ship load="SHIP_SLUG_ELITE_FIGHT" hostile="true" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
@@ -2798,23 +2800,23 @@
 <event name="NEBULA_DISTRESS_SLOCKNOG_START" unique="true">
 	<distressBeacon />
 	<preventQuest />
-    <text>ここの救難信号は、星雲のクリアリングを通して放送しているように見えます。それに続いて、あなたは深淵を漂う不正な惑星に出くわします。スキャンは、何かが表面に衝突したことを示しています。</text>
+    <text>救難信号は星雲の隙間から発信されているようだ。それをたどっていくと、深淵を漂うローグ・プラネットに出くわす。スキャンによると、何かが地表に墜落したようだ。</text>
     <img back="BACK_EVENT_LIGHTNEBULA" planet="PLANET_WATER" />
     <status type="loss" target="player" system="sensors" amount="1" />
     <choice req="loc_found_slocknog" lvl="0" hidden="true" max_group="0" blue="false">
-        <text>調査。</text>
+        <text>調査する。</text>
         <event load="DISTRESS_SLOCKNOG_INVESTIGATE" />
     </choice>
     <choice req="loc_found_slocknog" lvl="1" hidden="true" max_group="0" blue="false">
-        <text>調査。</text>
+        <text>調査する。</text>
         <event load="DISTRESS_SLOCKNOG_INVESTIGATE_BORING" />
     </choice> 
     <choice req="pilot" lvl="1" hidden="true" max_group="1" blue="false">
-        <text>難破船は無視してください。</text>
+        <text>難破船を無視する。</text>
         <event>
-            <text>あなたはスラッグ達ペースの潜在的な罠に陥るよりもよく知っています。</text>
+            <text>スラッグ・スペースで罠にはまるよりはマシだろう。</text>
             <choice hidden="true">
-                <text>船に乗って何かする。</text>
+                <text>船内で何かをする。</text>
                 <event load="STORAGE_CHECK" />
             </choice>
             <choice hidden="true">
@@ -2826,49 +2828,49 @@
 </event>
 <event name="DISTRESS_SLOCKNOG_INVESTIGATE" unique="true">
 	<variable name="loc_found_slocknog" op="set" val="1" />
-	<text>あなたは惑星の近くで操縦します。ほぼ完全に真っ暗ですが、大型のエリートスラッグ巡洋艦から1つの光が放射されています！明るい黄色のスラッグが内側から這い出てくるとすぐに、武器が引き出されます。</text>
+	<text>パイロットは惑星に近づく。あたりはほとんど真っ暗だが、スラッグの大型エリート巡洋艦からひとつの光が放たれている！あなたが近づくと同時に、中から武器を構えた真っ黄色のスラッグが這い出てきた。</text>
 	<choice>
-		<text>スラッグと話してください。</text>
+		<text>スラッグと話す。</text>
 		<event>
-			<text>「ああ、この間ずっと、賢明なssspecies。私はSlocknog、放浪の英雄の探求の冒険です。私はsssso sssoのためにここに停泊してきました...私は私のsssshipの助けが必要です、そして私のクルー全員が死んでいます。あなたはssssoの親切なお尻で、jussstに少しのssscrapを貸してくれますか？」</text>
+			<text>"ああ、今さらながら、知覚のある種族だ。私はスロックノッグ、冒険を求めてさまよう英雄だ。長い間ここに置き去りにされている。船を助けてほしいんだ。乗組員はみんな死んでしまった。ほんの少しでいい、親切なバカどもを貸してくれないか？"</text>
 			<choice>
-				<text>彼が求める「少しのスクラップ」を彼に渡してください。</text>
+				<text>彼が要求する "ちょっとしたスクラップ "を与える。</text>
 				<event>
-					<text>それはあなたが望んでいたよりもはるかに多いです、しかしあなたは彼に彼が要求する量を贈ります。 「ああ、あなたは本当に予想外の祝福です。私はこの帝国を長く運営してきました。これらの星雲の外にいる他の人たちの優しさをほとんど忘れてしまいました...」</text>
+					<text>希望していた金額よりかなり多いが、彼の要求額を贈る。「ああ、君は本当に思いがけない幸せ者だ。私は長い間この帝国を切り盛りしてきたので、星雲の外にいる他の人たちがしばしば持っている優しさを忘れかけていた......"</text>
 					<item_modify>
 						<item type="scrap" min="-50" max="-50" />
 					</item_modify>
 					<choice hidden="true">
-						<text>待って、あなたはこの帝国を実行していると言いましたか？</text>
+						<text>待って、あなたはこの帝国を運営していると言った？</text>
 						<event load="SLOCKNOG_REVEAL" />
 					</choice>
 				</event>
 			</choice>
 			<choice>
-				<text>それはあまりにも多く、彼に半分を与えます。</text>
+				<text>それは多すぎる。</text>
 				<event>
-					<text>「これはそれほど多くはありませんが、何もないよりはましだと思います。」</text>
+					<text>"これだけでは少ないが、ないよりはましだ"</text>
 					<item_modify>
 						<item type="scrap" min="-25" max="-25" />
 					</item_modify>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
-							<text>"I need not thisss weapon any longer, it will sssservice you inssstead. Asss thankss, for your mossst generous offer."</text>
+							<text>「この武器はもはや必要ない。感謝します、あなたの寛大な申し出に」。</text>
 							<weapon name="RANDOM" />
 						</event>
 					</choice>
 				</event>
 			</choice>
 			<choice req="DRONE_CONTROL_REPAIR_ALL">
-				<text>（ドローンの修理）ドローンといくつかのドローン部品を使用して、船を完全に修理します。</text>
+				<text>(修理ドローン）ドローンといくつかのドローン部品を使い、彼の船を完全に修理する。</text>
 				<event>
-					<text>「ああ、あなたは本当に予想外の祝福です。私はこの帝国を長く運営しているので、これらの星雲の外にいる他の人の優しさをほとんど忘れてしまいました...」</text>
+					<text>「あなたは本当に思いがけない人だ。私は長い間この帝国を運営してきたので、この星雲の外にいる他の人たちがしばしば持っている優しさを忘れかけていました..."</text>
 					<item_modify>
 						<item type="drones" min="-3" max="-3" />
 					</item_modify>
 					<choice hidden="true">
-						<text>待って、あなたはこの帝国を実行していると言いましたか？</text>
+						<text>待って、あなたはこの帝国を運営していると言った？</text>
 						<event load="SLOCKNOG_REVEAL" />
 					</choice>
 				</event>
@@ -2876,29 +2878,29 @@
 			<choice>
 				<text>拒否する。</text>
 				<event>
-					<text>「あなたは最も不変で、時間の浪費です。私がこの岩からあなたを追い払うための武器を持っていたら、私はあなたが去るまであなたを睨みつける唯一の選択肢です。」</text>
+					<text>"あなたは最も無慈悲で、時間の浪費の塊だ。あなたをこの岩から追い払う武器があれば、そうしたいところだが、残念なことに、私の唯一の選択肢は、あなたが立ち去るまであなたを睨みつけることだ"</text>
 				</event>
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>彼を爆破し、彼の船をスクラップします。</text>
+		<text>彼を爆破し、彼の船をスクラップにする。</text>
 		<event>
-			<text>チャンスを逃して、あなたはすぐに最初にスラッグを撃ち、彼を血の煙る水たまりに変えて、にじみ出ます。あなたは船を着陸させ、彼の巡洋艦を解体します。</text>
+			<text>チャンスを逃すまいと、まずスラグを撃ち、血と滲みの煙のような水たまりにしてしまう。あなたは船を着陸させ、彼のクルーザーを解体する。</text>
 			<autoReward level="MED">standard</autoReward>
 		</event>
 	</choice>
 </event>
 <event name="SLOCKNOG_REVEAL">
-	<text>「ああ、ええ、イェス。私はさまようヒーローの部分について嘘をついた、私は実際にはsssssir ssslocknog dssilliです。私はそのバススタードの夜がだまされて王冠を和らげるまで、私を亡くしたので、私はthisssssの場所の王です！」</text>
+	<text>"ああ、そうだね。放浪の英雄というのは嘘で、本当はスロックノッグ・ディシリ卿なんだ。ナイツの野郎に騙されて王位を奪われ、追放されるまでは、俺はここの王だったんだ！"</text>
 	<choice hidden="true">
-		<text>夜？のように、海賊船長？</text>
+		<text>ナイツ？海賊の船長？</text>
 		<event>
-			<text>「はい、あのナイツは、彼自身も「悪役」を宣言していました。4 年ごとに、ススラッグは王冠盗難フェスを開催します。そこでは、泥棒が王冠を盗んで次の王になることを競い合います。それは時を重んじる非暴力の伝統です少なくともナイツが来て部下を殺し、王冠を彼に譲るよう強要されるまでは！」</text>
+			<text>そう、自他ともに認める "ワル "のナイツだ。4年に一度、スラッグ族は王冠窃盗祭を開催する。これは由緒ある非暴力の伝統であり、少なくともナイツがやってきて私の部下を殺し、王冠を彼に譲るよう強要されるまではそうだった。</text>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>「そのsssscumlordがだまされて、私からすべてを奪うまで、私はKINGでした！しかし、これで、このsssスクラップで、私のssshipを修正し、私の王位を取り戻すことができます！キャプテンに感謝します。これが王座星雲への座標です。」</text>
+					<text>「あのクズ野郎に騙されてすべてを奪われるまで、俺は王だったんだ！だが、このスクラップで船を修復し、王座を取り戻すことができる！ありがとう船長。これを増強してくれ。もし自分の目でこの光景を見たいなら、ここに王立星雲への座標がある。"</text>
 					<augment name="RANDOM" />
 					<variable name="coords_nights" op="set" val="1" />
 				</event>
@@ -2907,40 +2909,40 @@
 	</choice>
 </event>
 <event name="DISTRESS_SLOCKNOG_INVESTIGATE_BORING">
-	<text>既視感の奇妙な感覚を感じて、あなたは惑星の近くで操縦します。残念ながら、スラッグトランスポートの瓦礫以外は何も残っていません。あなたは文句を言っていませんが、船に戻すための単なるスクラップです。</text>
+	<text>奇妙な既視感を感じながら、パイロットは惑星に近づく。残念なことに、スラッグ輸送船の残骸しか残っていない。船に持ち帰るには単なるスクラップだが、不満はない。</text>
 	<autoReward level="MED">standard</autoReward>
 </event>
 
 
 <event name="NEBULA_SLUG_UNLOCK" unique="true">
 <preventQuest />
-	<text>SlugClairvoyantがこのシステムを防御しているようです。連邦船としてあなたを見つけて、彼らは攻撃します！</text>
+	<text>スラッグ千里眼がこの星系を防衛しているようだ。あなたを連邦の船として発見し、攻撃してきた！</text>
 	<ship load="SHIP_SLUG_UNLOCK_1" hostile="true" />
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <event name="SURRENDER_SLUG_UNLOCK">
-	<text>「Pleasssse、pleasssse！あなたはussssssssを持っています！usssssを行かせてください、そして私たちはそれをあなたの価値があるようにすることができます！</text>
+	<text>「お願い、お願い！あなたは私たちを困らせた！俺たちを解放してくれ！お前たちはスルッグスの尻ぬぐいを知っているかもしれないが、俺たちが再び壁に背を向けたとき、俺たちは約束も守れるんだ！"</text>
 	<choice hidden="true">
-		<text>それらを生きさせてください。</text>
+		<text>彼らを生かそう。</text>
 		<event>
-			<text>「私たちが提供できるのは、issssthissssプロトタイプ修正Bio-beamだけです。彼らはusssssがthissssをあきらめることに満足しません...」</text>
+			<text>"我々が提供できるのは、この試作改造バイオビームだけだ。彼らはこれを手放すことを喜ばないだろう..."</text>
 			<ship hostile="false" />
 			<surrender />
 			<choice>
-				<text>プロトタイプの武器を受け入れます。</text>
+				<text>試作兵器を受け入れる。</text>
 				<event>
-					<text>スラッグ達によって与えられた武器は、標準的なアンチバイオビームのある種のプロトタイプの変形であるように見えます。魅力的で、他にいくつのバリアントがあるのだろうかと思われるかもしれません。</text>
+					<text>スラッグスから渡された武器は、標準的な対バイオビームのプロトタイプのようだ。魅力的で、他にどれだけのバリエーションがあるのだろうと思わせる。</text>
 					<weapon name="LOOT_SLUG_1" />
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>千里眼として、あなたは確かにあなたがこの銃を誰に持ってきたのか知っています。</text>
+				<text>透視能力者として、あなたはこの銃を誰のために持ってきたか知っているはずだ。</text>
 				<event>
-					<text>「ああ、あなたはあまりにも好奇心が強いです。私たちはthissssのために殺されるでしょう！Thisss武器isssはSssslugwarsshipsの私たちの最高の新しいラインにインストールされます。AsssCoalitionは成長します。 Rockmenまたはマンティスssの洞窟が最初の場合。」もう少し質問した後、スラッグ達はしぶしぶ建設プラットフォームの座標を渡します。</text>
+					<text>「好奇心旺盛すぎる。このために殺されるんだぞ！この兵器は、我々の最新鋭のスラッグ戦艦に搭載される予定だ。連合が大きくなれば、ロックマンやマンティスが攻めてきたときに備えて、スラッグ艦隊を準備しておいても損はない」。もう少し質問した後、スラッグはしぶしぶ建設プラットフォームの座標を渡した。</text>
 					<quest event="SLUG_UNLOCK_2_MV" />
 				</event>
 			</choice>
@@ -2954,33 +2956,33 @@
 <event name="SLUG_UNLOCK_2_MV">
 	<beaconType id="map_icon_quest" global="true">
 		<color r="69" g="168" b="235" a="1" />
-		<unvisitedTooltip>秘密のナメクジ建設プラットフォームの場所。</unvisitedTooltip>
+		<unvisitedTooltip>スラッグの秘密基地の場所。</unvisitedTooltip>
 	</beaconType>
-	<text>Clairvoyantから与えられた座標に到着すると、武装したエリートスラッグ達テーションで保護された巨大なスラッグ建設ヤードに危険なほど近づきます。幸いなことに、あなたは発見される前にすぐに星雲に滑り込みます。少なくとも、これが正しい場所であると確信できます。</text>
+	<text>透視能力者から与えられた座標に到着したあなたは、武装したエリート・スラッグ・ステーションに守られた巨大なスラッグの建設ヤードに危険なほど近づいていた。幸運なことに、あなたは発見される前に素早く星雲の中に逃げ込んだ。少なくとも、ここが正しい場所であることは確かだ。</text>
 	<environment type="nebula" />
 	<ship load="SHIP_SLUG_UNLOCK_2" hostile="false" />
 	<choice hidden="true">
-		<text>ステーションを出てください。</text>
+		<text>駅を出る。</text>
 		<event>
-			<text>フレークアウトするためだけにここまで来たら、あなたは気が滅入るでしょう。あなたは武器を上げてステーションを攻撃します。</text>
+			<text>ただ逃げ出すためにここまで来たのなら、あなたは呪われているようなものだ。武器を構え、ステーションを攻撃する。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>去るのは賢明な考えのようです。</text>
+		<text>去るのは賢明な考えだと思う。</text>
 		<event />
 	</choice>
 </event>
 <event name="SLUG_UNLOCK_3_MV">
-	<text>ステーションは敗北しました。背景には、装備が不十分な小さな防衛チームが出てきたが、彼らがあなたの船を見ると止まると、大きなサイレンが鳴り響きます。スラッグ達は防衛のためにほぼ完全にそのステーションに依存していたようです。</text>
+	<text>ステーションは敗北した。背後ではけたたましいサイレンが鳴り響き、装備の不十分な小さな防衛隊が出てくるが、あなたの船を見て止まる。スラッグは防衛のほとんどをこのステーションに頼っていたようだ。</text>
 	<choice hidden="true">
-		<text>彼らがあなたに賛辞を与えることを要求しなさい。</text>
+		<text>朝貢を要求する。</text>
 		<event>
-			<text>この時点でスラッグを降伏させるのにそれほど時間はかかりません。建設作業員全員を一掃することを恐れて、彼らは以前のものと同様のプロトタイプの武器、いくつかのスクラップ、そしてスラッグ巡洋艦の1つに設計図を提供します！</text>
+			<text>この時点でスラッグを降伏させるには、それほど時間はかからない。だから、あなたが建設クルー全員を消し去ることを恐れ、彼らは先ほどのものと似たような試作兵器とスクラップ、そしてスラッグ巡洋艦の設計図を提供する！</text>
 			<unlockCustomShip silent="false">PLAYER_SHIP_SLUG</unlockCustomShip>
 			<weapon name="LOOT_SLUG_1" />
 			<autoReward level="HIGH">standard</autoReward>
@@ -2990,26 +2992,26 @@
 
 <event name="NEBULA_SLUG_PLEASURE_1" unique="true">
 	<preventQuest />
-	<text>このビーコンの星雲は部分的にクリアされ、巨大なスラッグのプレジャーボートが現れました！これらの船は、...楽しい経験をしたいと思っているスラッグでいっぱいです。その大きさにもかかわらず、船はまったく武器を持っていないようです。</text>
+	<text>このビーコンの星雲が部分的に晴れ、巨大なスラッグの遊覧船が姿を現した！この船は、スラッグたちが......楽しい経験をするために、たくさん乗っている。その大きさにもかかわらず、船には武器がないようだ。</text>
 	<img back="BACK_EVENT_LIGHTNEBULA" planet="PLANET_PLEASURE" />
 	<status type="divide" target="player" system="sensors" amount="2" />
 	<choice hidden="true">
-		<text>十分に簡単なはずです、荷船を襲撃します。</text>
+		<text>はしけを襲撃するのは簡単だ。</text>
 		<event>
-			<text>あなたが攻撃するために移動すると、荷船を護衛する小さな船が防御するために移動します。巨大な荷船の後ろからそれらを逃したに違いありませんが、戦いは今や避けられません。</text>
+			<text>あなたが攻撃に移ると、はしけを護衛していた小型船が防御に移る。艀の巨大さに隠れて見逃してしまったのだろうが、戦闘は避けられない。</text>
 			<ship load="SHIP_PLEASURE_ESCORT" hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>荷船を無視します。</text>
+		<text>はしけは無視しろ。</text>
 		<event>
-			<text>船はナメクジの民間人で満たされており、攻撃するインセンティブはほとんどありません。</text>
+			<text>船はスラッグの民間人でいっぱいで、攻撃する動機はほとんどない。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -3021,40 +3023,40 @@
 </event>
 <event name="SLUG_PLEASURE_1_WIN">
 	<noQuestText />
-	<text>スキャンによると、エンジンはすでに充電されており、逃げようとしているため、バージはこのビーコンに長く留まることはありません。それが逃げる前に、ここでそれと戦う時間はありません。</text>
+	<text>スキャンによると、エンジンはすでに充電中で、逃げようとしている。逃げる前にここで戦う時間はない。</text>
 	<choice hidden="true">
-		<text>私たちにできることは他にありません。ジャンプさせてください。</text>
+		<text>他にできることはない。ジャンプさせるんだ。</text>
 		<event>
 			<noQuestText />
-			<text>ここでは戦えないかもしれませんが、このセクターまたは次のセクターで再び遭遇する運があります。</text>
+			<text>ここでは戦えないかもしれないが、もしかしたらこのセクターや次のセクターで再び遭遇する幸運があるかもしれない。</text>
 			<quest event="SLUG_PLEASURE_2_NOQUEST" />
 		</event>
 	</choice>
 	<choice hidden="true" req="sensors" lvl="3">
-		<text>（高度なセンサー）ジャンプシグネチャを追跡します。</text>
+		<text>(アドバンスセンサー) ジャンプのシグネチャーを追跡する。</text>
 		<event>
-			<text>ここでは戦うことができないかもしれませんが、船のジャンプサインをロックすることはできます。これで簡単にフォローできるようになります。</text>
+			<text>ここでは戦えないかもしれないが、船のジャンプサインをロックすることはできる。これで簡単に後を追うことができるだろう。</text>
 			<quest event="SLUG_PLEASURE_2" />
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_SLUG">
-		<text>（スラッグクルー）ジャンプの署名を追跡します。</text>
+		<text>(スラッグクルー）彼らのジャンプシグネチャーを追跡する。</text>
 		<event>
-			<text>ここでは戦えないかもしれませんが、スラッグは船のジャンプサインをロックすることができます。これで簡単にフォローできるようになります。</text>
+			<text>ここでは戦えないかもしれないが、君のスラッグは船のジャンプサインをロックできる。これで簡単に追跡できるだろう。</text>
 			<quest event="SLUG_PLEASURE_2" />
 		</event>
 	</choice>
 	<choice hidden="true" req="BLUELIST_CREW_SNAIL">
-		<text>(テレパシー シェル) ジャンプのサインを追跡します。</text>
+		<text>(テレパシー・シェル）相手のジャンプのサインを追跡する。</text>
 		<event>
-			<text>ここで戦うことはできないかもしれませんが、シェルは船のジャンプ サインをロックすることができます。これで安心してフォローできます。</text>
+			<text>ここでは戦えないかもしれないが、君のシェルは船のジャンプサインをロックできる。これで簡単に後を追うことができるだろう。</text>
 			<quest event="SLUG_PLEASURE_2" />
 		</event>
 	</choice>
 	<choice hidden="true" req="ADV_SCANNERS">
-		<text>（長距離スキャナー）ジャンプシグネチャを追跡します。</text>
+		<text>(ロングレンジスキャナー）ジャンプのサインを追跡する。</text>
 		<event>
-			<text>ここでは戦うことができないかもしれませんが、船のジャンプサインをロックすることはできます。これで簡単にフォローできるようになります。</text>
+			<text>ここでは戦えないかもしれないが、船のジャンプサインをロックすることはできる。これで簡単に後を追うことができるだろう。</text>
 			<quest event="SLUG_PLEASURE_2" />
 		</event>
 	</choice>
@@ -3064,42 +3066,42 @@
 	<beaconType id="map_icon_none" global="false"> 
 		<color r="255" g="255" b="255" a="0" />
 	</beaconType>
-	<text>それはあなたの幸運な日であるに違いありません、あなたは再びプレジャーボートに出くわしたようです！</text>
+	<text>どうやら、またしてもプレジャーバージに出くわしたようだ！</text>
 	<img back="BACK_EVENT_LIGHTNEBULA" planet="NONE" />
 	<status type="divide" target="player" system="sensors" amount="2" />
 	<ship load="SHIP_PLEASURE_BARGE" hostile="false" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="SLUG_PLEASURE_2" />
 	</choice>
 </event>
 <event name="SLUG_PLEASURE_2">
 	<beaconType id="map_icon_quest" global="true">
 		<color r="69" g="168" b="235" a="1" />
-		<unvisitedTooltip>喜びバージの場所と推定されています。</unvisitedTooltip>
+		<unvisitedTooltip>プレジャーバージがあったと推定される場所。</unvisitedTooltip>
 	</beaconType>
 	<preventQuest />
-	<text>今回は再び荷船を追跡しました、そしてそれは護衛を持っていません。テレポーターシステムを除いて、完全に保護されていません。</text>
+	<text>今回、あなたは再びバージ船を追跡した。テレポーターシステムを除けば、完全に無防備だ。</text>
 	<img back="BACK_EVENT_LIGHTNEBULA" planet="NONE" />
 	<status type="divide" target="player" system="sensors" amount="2" />
 	<ship load="SHIP_PLEASURE_BARGE" hostile="false" />
 	<choice hidden="true">
-		<text>攻撃して、それらを終わらせてください！</text>
+		<text>攻撃して、仕留める！</text>
 		<event>
-			<text>あなたは荷船に近づき、それを完全に終わらせる準備をします。</text>
+			<text>艀に近づき、きっぱりと仕留める準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>あなたは十分にやりました。放っておけ。</text>
+		<text>もう十分だ。放っておきなさい。</text>
 		<event>
-			<text>あなたはすでに船内のナメクジを不必要に怖がらせていますが、攻撃を続ける理由はありません。</text>
+			<text>スラッグを無駄に怖がらせてしまったのだから、攻撃を続ける理由はない。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -3112,24 +3114,24 @@
 
 <ship name="SHIP_PLEASURE_BARGE" auto_blueprint="MU_PLEASURE_BARGE">
 	<escape min="6" max="7" timer="80">
-		<text>荷船への攻撃を続けると、船からいくつかのライフポッドが分配されていることに気づきます！民間人が逃げようとしているようです。その間、プレジャーバージはエンジンの充電を開始します。</text>
+		<text>船への攻撃を続けていると、船から数個の救命ポッドが飛び出しているのに気づく！どうやら民間人が脱出しようとしているようだ。一方、プレジャーバージはエンジンの充電を始める。</text>
 		<choice hidden="true">
-			<text>発射し続けてください！</text>
+			<text>撃ち続けろ！</text>
 			<event />
 		</choice>
 		<choice hidden="true">
-			<text>攻撃をやめ、ポッドのいくつかを拾います。</text>
+			<text>攻撃を中止し、ポッドをいくつか拾う。</text>
 			<event>
-				<text>あなたは荷船を放棄し、ライフポッドのいくつかをすくい上げます。あなたはあなたの発見でもう一度運が良かったようです...このポッドにはスラッグサボターが含まれています！</text>
+				<text>君ははしけを放棄し、ライフポッドのいくつかをすくい上げた。このポッドにはスラッグ・サボタージュが入っている！</text>
 				<ship hostile="false" />
 				<choice hidden="true">
-					<text>彼らは私たちのなすがままです。彼らに船に乗るように強制します。</text>
+					<text>彼らは我々のなすがままだ。強制的に船で奉仕させる。</text>
 					<event>
 						<crewMember amount="1" class="slug_saboteur" />
 					</event>
 				</choice>
 				<choice hidden="true">
-					<text>彼らに彼らの人生の見返りに彼らが持っているすべてを明け渡すように強制しなさい。</text>
+					<text>彼らの命と引き換えに、持っているものすべてを放棄させる。</text>
 					<event>
 						<autoReward level="HIGH">augment</autoReward>
 					</event>
@@ -3138,37 +3140,37 @@
 		</choice>
 	</escape>
 	<surrender min="1" max="2">
-		<text>あなたは喜びのバージの船長からあられを受け取ります。「Playssse、ssssssssssssssssipには多くの罪のない人々がいます。私はあなたにすべてを与えます、JussstはUSSを殺さない！」</text>
+		<text>あなたはプレジャーバージの船長から呼び出しを受けた。「この船には罪のない人々が大勢乗っている。何でもやるから、俺たちを殺さないでくれ！"</text>
 		<choice>
-			<text>彼らの降伏に同意します。</text>
+			<text>彼らの降伏に同意する。</text>
 			<event>
-				<text>「オーケー、オーケー！私は今からssssuppliesssをビームします。」</text>
+				<text>「わかりました！今、物資を転送します」。</text>
 				<ship hostile="false" />
 				<autoReward level="HIGH">standard</autoReward>
 				<variable name="ach_boss_pleasurebarge" op="set" val="1" />
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>あなたの申し出は私たちに興味がありません。これはあなたができる最善のことですか？</text>
+			<text>あなたの申し出には興味がない。これで精一杯ですか？</text>
 			<event>
-				<text>「わかりました！私はあなたにすべてを与えると言いました！私はあなたのsssshipに仕えます、これはどのように聞こえますか？」</text>
+				<text>"わかりました！すべてを捧げると言いました！あなたの船で奉仕します。どうですか？</text>
 				<choice>
-					<text>彼の新しい降伏に同意します。</text>
+					<text>彼の新しい降伏に同意する。</text>
 					<event>
-						<text>スラッグはテレポートし、あなたの間で働くことには消極的ですが、それがあなたの怒りから民間人を救う唯一の方法であることに気づきます。</text>
+						<text>スラッグはテレポートし、君たちの中で働くことを嫌がるが、君たちの怒りから市民を救うにはそれしかないと悟る。</text>
 						<ship hostile="false" />
 						<crewMember amount="1" pilot="2" class="slug_saboteur" />
 						<variable name="ach_boss_pleasurebarge" op="set" val="1" />
 					</event>
 				</choice>
 				<choice hidden="true">
-					<text>あなたはもっと大きく、もっと壮大に考えなければなりません！何が危機に瀕しているのか考えてください。</text>
+					<text>もっと大きく、壮大に考えなければならない！何が危機に瀕しているのかを考えるんだ。</text>
 					<event>
-						<text>「いいよ！sssship全体を取りなさい！私は気にしない。Jussstはussssをすべて行かせた。」</text>
+						<text>「船ごと持っていけ！構わん。みんなを解放してくれ"</text>
 						<choice hidden="true">
-							<text>今ではそれは私たちが断ることができない申し出です。</text>
+							<text>これは断れないオファーだ。</text>
 							<event>
-								<text>残りの民間人は、快楽はしけから一掃します。内部を破壊し、可能な限り回収します。この船を無駄にするのはもったいない。船のFTLドライブを再プログラムして、船を最寄りの連邦基地に戻します。そこで船はスキャンされ、将来の多元宇宙旅行者のために再構築されます.</text>
+								<text>残りの民間人はプレジャーバージから撤収する。あなたは内部を荒らし、できる限り多くのものを救い出す。この船を無駄にするのはもったいない。あなたは船のFTLドライブを再プログラムし、最も近い連邦の基地に船を戻し、そこでスキャンし、将来の多元宇宙旅行者のために再建する。</text>
 								<ship hostile="false" />
 								<drone name="BUTLER_DEFENSE" />
 								<autoReward level="HIGH">stuff</autoReward>
@@ -3177,7 +3179,7 @@
 							</event>
 						</choice>
 						<choice hidden="true">
-							<text>私たちはあなたの降伏を受け入れません。</text>
+							<text>降伏は認めない。</text>
 							<event />
 						</choice>
 					</event>
@@ -3186,25 +3188,25 @@
 		</choice>
 	</surrender>
 	<destroyed>
-		<text>プレジャーバージが爆発し、破片や数十人の民間スラッグの死体が散乱します。あなたは破片を回収しますが、そのかなりの部分があります。</text>
+		<text>プレジャーバージは爆発し、破片と数十人の民間人スラッグの死体を撒き散らす。その破片を引き揚げるが、かなりの量がある。</text>
 		<autoReward level="HIGH">scrap_only</autoReward>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event>
-				<text>飛び立つと、爆発を生き延びた1つの脱出ポッドを見つけます。中には、荷船に乗って働くことを余儀なくされた奴隷がいます。今では無料で、彼らはあなたのクルーに加わります。</text>
+				<text>飛び立つと、爆発を免れた1つの救命ポッドを見つける。中には、はしけ船で強制労働させられていた奴隷が入っていた。今、彼らは自由となり、あなたのクルーに加わる。</text>
 				<crewMember amount="1" />
 				<variable name="ach_boss_pleasurebarge" op="set" val="1" />
 			</event>
 		</choice>
 	</destroyed>
 	<deadCrew>
-		<text>あなたはそのクルーの荷船を完全に空にしました。できることを救い出すために移動すると、奇妙なドローンの設計図とたくさんのリソースにも出くわします。</text>
+		<text>あなたは船から乗組員を完全に消し去った。できる限りのものを回収しようと動き回ると、奇妙なドローンの設計図とたくさんの資源に出くわす。</text>
 		<autoReward level="HIGH">stuff</autoReward>
 		<drone name="BUTLER_DEFENSE" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event>
-				<text>船は不気味に静かです。あなたはクルーを片付けるのに熟練した仕事をしました、そしてそれを無駄にするのは残念です。船のFTLドライブを再プログラムして、船を最寄りの連邦基地に戻します。そこでスキャンされ、将来のマルチバース旅行者のために再構築されます。</text>
+				<text>船は不気味なほど静かだ。君はクルーを一掃するのに十分な仕事をした。それを無駄にするのはもったいない。あなたは船のFTLドライブを再プログラムし、船を最も近い連邦の基地に戻し、そこでスキャンし、将来の多元宇宙旅行者のために再建する。</text>
 				<variable name="ach_boss_pleasurebarge" op="set" val="1" />
 				<unlockCustomShip silent="false">PLAYER_SHIP_PLEASURE</unlockCustomShip>
 			</event>

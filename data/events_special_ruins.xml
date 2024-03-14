@@ -13,139 +13,139 @@
 </eventList>
 
 <textList name="TEXT_RUINS">
-	<text planet="PLANET_MOONS">あなたの前には、月の表面に巨大なモノリス構造があります。外観は完全に黒で、あちこちに薄暗いライトがいくつかあります。多分それは価値のあるものを持っていますか？</text>
-	<text planet="PLANET_LAVA">真ん中で真っ直ぐに割れた半立方体の船が、近くの溶岩惑星に墜落しました。条件は危険ですが、残っている価値のあるものがあるかもしれません。</text>
-	<text>あなたが今まで見たものとは違って、あなたが横たわる前に廃墟。完全に黒くて立方体で、いくつかの巨大な軍艦の骨格がこのビーコンに残っています。多分あなたはここで何かを回収することができますか？</text>
-	<text>巨大な立方体の巨大構造があなたの航跡にあり、短いが解読できないメッセージを送信します。確かに、これがまだメッセージを送信するのに十分な力を持っているなら、多分それは取る価値がある何かを持っていますか？</text>
-	<text>あなたは、巡洋艦や連邦最大の艦隊よりも大きい、ひどく損傷し、残酷に引き裂かれたメガクラスの空母の余波を目撃しているようです。さらに奇妙なことに、難破船は完全に黒くて立方体です。多分それは救う価値のある何かを含んでいますか？</text>
-	<text>スキャンによると技術的には似ているが、確かに反乱軍の設計ではない、いくつかの奇妙に見える自動船の残骸が、巨大な立方体の巡洋艦の残骸の周りに散らばっています。たぶん、船にはもっと多くの技術がありますか？</text>
-	<text>古くて外部からの船の残骸は、小さくて薄く分散した小惑星のフィールドによって破壊されています。小惑星は明らかにいくらかの損害を引き起こしましたが、嵐はほとんど通り過ぎており、ずっと長く問題になることはありません。多分何か価値のあるものが残されていますか？</text>
+	<text planet="PLANET_MOONS">あなたの目の前には、月の表面に巨大なモノリス構造物が横たわっている。外観は黒一色で、あちこちに薄暗い明かりが灯っている。何か価値があるものなのだろうか？</text>
+	<text planet="PLANET_LAVA">真ん中で真っ二つに割れた半立方体の船が、近くの溶岩惑星に不時着した。危険な状況だが、何か価値のあるものが残っているかもしれない。</text>
+	<text>目の前には、見たこともないような廃墟が広がっている。真っ黒で立方体の、巨大な軍艦の骸骨がこのビーコンに残っている。ここで何かサルベージできるかもしれない。</text>
+	<text>巨大な立方体のメガストラクチャーが横たわり、解読不能な短いメッセージを発信している。メッセージを送るだけのパワーがまだあるのなら、何か盗む価値のあるものを持っているのかもしれない。</text>
+	<text>あなたは、あなたの巡洋艦や連邦最大の艦隊の船よりも大きい、ひどく損傷し、無残に引き裂かれたメガ級空母艦の残骸を目撃しているようだ。さらに奇妙なことに、残骸は真っ黒で立方体だ。サルベージに値する何かがあるのだろうか？</text>
+	<text>奇妙な形をしたオートシップの残骸が、巨大な立方体の巡洋艦の周りに散らばっている。もしかしたら、この船にはもっと技術があるのかもしれない。</text>
+	<text>年代物の外国船の残骸が、小さく薄く分散した小惑星帯に襲われている。小惑星がいくらかの損害を与えたのは明らかだが、嵐はほとんど通り過ぎてしまった。何か価値のあるものが残されているのだろうか？</text>
 </textList>
 
 <event name="RUINS_TRANSLATE">
 	<text load="TEXT_RUINS_TRANSLATE" />
 	<achievement silent="false">ACH_OBEL_RUINS</achievement>
 	<choice hidden="true" req="SEC SECTOR_VAGABOND_UNIQUE" lvl="1" max_group="0" blue="false">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="RUINS_SALVAGE_GHOSTWASTE_LIST" />
 	</choice>
 	<choice hidden="true" req="SEC SECRET_AUGMENTED" lvl="1" max_group="0" blue="false">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="RUINS_SALVAGE_AUGMENTED" />
 	</choice>
 	<choice hidden="true" req="pilot" lvl="1" max_group="0" blue="false">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="RUINS_SALVAGE_LIST" />
 	</choice>
 </event>
 <textList name="TEXT_RUINS_TRANSLATE">
-	<text>「ネブラスは私たちの次の目標です。物資は薄いですが、ファントムは雲の中には言いようのない宝物を蓄えているという物語があります。彼らは人口の大きさで強力で、非常に誇りに思う人々です。私たちの武器に屈する。私を聞いてください、王朝は私たちと同じほど容赦ないものではありませんでした。私たちの種類の平和の時代は終わりました。</text>
-	<text>「私たちは彼らがどこから来たのかわかりません。女王Yは私たちは神であると言っていました。私たちは現実の巨匠だと言っています。しかし、彼らは彼らがトンネルを通して向こうから来ると主張します。不明な言葉]。エンジニアはそのような場所について言及しませんでした。彼らはそのような奇妙な言葉を話します。神の夢？生きた宇宙？私は彼らに大きな脅威を見ますが、王室は私たちを傷つけないと言います。 、平和の見返りに郊外の贈り物。私はこれで良いことを予見していませんが、それは私の決断ではありません。」</text>
-	<text>「先日、メタロイドの1つに遭遇しました。壊れた方言で、弾薬を惜しまないかと尋ねられました。クルーに対して武装するために、私は思いましたか？漂流しました。私は時々それらの起源に疑問を投げかけます。私はそれらを研究し、何がそれらを動かしているのかを調べますが、それらが滑り落ちる前にそれを捕らえるのに十分に近づくことはできません。それは腹立たしいです。私はそのような失敗を知りませんでした。」</text>
-	<text>「私が王室の任命で与えられたアテンダントであるクリスタルラインは、彼の世界での人生の奇妙な物語を教えてくれます。なんてシンプルな生き物です。なぜ王室はこれらの人間の存在に耐えるために私たちに苦労しますか？死ぬ。私たちはそうしません。連邦でさえも彼らのような方法で苦労しません。おそらく彼らはspareしまなかったことを喜んでいますか？ファントムはそのような運を知りませんでした。私は彼をすぐに処分することを望みます。次回はあまり話せません。」</text>
-	<text>「私は9か月間、この船に乗ってLのために船を務めました。それは耐え難いです。連邦のスラム街での生活は、これよりも厳しいものでした。！ロイヤルズは私たちも[Word nowning]であることを忘れていました。私はこれを支持しません。明日、私は大使を転覆させます。私はこの場所を去ります！連邦は上昇します、それは繁栄します！</text>
-	<text>「彼らは戦争が順調に進んでいると言います。私はそれほど確信していません。噂、王室による虐殺プロットの噂が非常に懸念されています。彼らは頻繁に連邦について話します。次のターゲット。はい、それは敵になります。しかし...敵は私たちです。もし彼らが私たち自身と本当に並行しているなら、私たちは平等な報復を期待してはいけませんか？私は最悪のことを恐れています。」</text>
-	<text>「先日、奇妙な話を聞いた。彼らは、クリスタルの皇帝イカシンがY女王と確執したと言っている。ストレンジャーはまだ宮殿を去った。生きている。前代未聞の…死すべき者はロイヤルズに挑戦して生きたことがない。 ！私たちは何に向かっているのでしょうか？嫌悪感を抱く存在に唾を吐かれるように、尊厳を失ったのでしょうか？怒りのあまり、最後の僕を虐殺しました。これは小さなデモンストレーションですが、ふさわしいデモンストレーションです。」</text>
-	<text>「王朝との戦争は間違いでした。私たちが失うことを恐れているわけではありません。いや、それだけです...彼らは非常に多くです。 、しかし、それはいつですか？私たちは時間を使い果たしています。王室は嘘をつき続けます、彼らは戦争が壮観に進んでいると言います。しかし、もし私たちがささいな争いで気を散らし続けるなら、すぐに彼らの口調でさえも変わるかもしれません。利回り。私はそれを聞いたとき、私はそれを信じませんでした。しかし、今ではそれが真実ではないためにはあまりにも多くの証拠があります。」</text>
-	<text>「先日探検中に、驚くべきシステムに出くわしました。奇妙な生き物が住む美しい世界。陸地がほとんどなく、海はここまで伸びていて、まるで[未知の言葉]のすべてを飲み込むことができるように感じます。ここの原始種は気にしないでください。彼らは素晴らしい娯楽を提供するかもしれません。私はここにリゾートを建てようと思います。ロイヤルズは常に彼らの余暇を過ごすための新しい方法を探しています。」</text>
-	<text>「モノリスはよく見えます。それは素晴らしい芸術作品であり、内部を考えると[言葉は不明]です！その周りに住むことができるシステムはほとんどありませんが、そういうものは、いつの日か彼らが鑑賞できる生命を生むのではないかと思います。モノリスの美しさ。戦争が南下した場合、私たちの痕跡が他に残らなければ、少なくともモノリスは私たちの完璧さの永遠の恵みとして誇りを持って立つでしょう！」</text>
+	<text>「星雲が次の目標だ。物資は乏しいが、雲の中にはファントムが言いようのない財宝を蓄えているという話がある。彼らは強大で、人口も多く、誇り高い民族だ。だが、誇り高き者であっても、我らの武器に屈することはない。聞いてくれ、王朝はわれわれほど容赦のない相手に出会ったことはないだろう。我々の種族間の平和な日々は終わった。戦争がそれを求めるのだ」。</text>
+	<text>"どこから来たのかわからない。Y女王は私たちに、私たちは神だと言った。私たちは現実の支配者だと。しかし、新参者たちは...トンネルを抜けて向こうから来たと言う。彼らはそれを[不明な単語]と呼んでいる。エンジニアたちはそのような場所について言及していない。彼らは奇妙な言葉を口にする。神々の夢？生きている宇宙？私は彼らに大きな脅威を感じるが、王族は彼らは我々を傷つけないと言う。ある種の協定、平和の見返りに郊外を贈る。しかし、それは私が決めることではない。"</text>
+	<text>「先日、メタロイドに遭遇した。そのメタロイドは方言で "弾薬をくれないか "と言ってきたんだ。私のクルーに対抗するためか？いや、彼はただそれを喉に流し込んで、不明瞭な感謝の言葉を述べ、どこかへ去っていった。私は時々、彼らの出自を疑ってしまう。私は彼らを研究し、何が彼らを動かしているのかを確かめたいのだが、彼らが逃げ去る前に捕獲できるほど近づくことはできない。腹立たしい。こんな失敗を私は知らない」。</text>
+	<text>「王室から任命された従者であるクリスタリンは、彼の世界での生活について不思議な話をしてくれる。なんと単純な生き物だろう。王族はなぜ、このような死すべき存在と一緒に耐えるよう、私たちを苦しめるのでしょうか？彼らは生まれ、老い、死ぬ。我々はそうではない。コモンウェルス（連邦）でさえ、彼らのように苦労はしない。おそらく、彼らは助かったことを喜んでいるのだろう。ファントムたちはそんな幸運は知らない。私はすぐに彼を処分したい。おそらく、次は口数の少ない召使いをお与えくださるでしょう"</text>
+	<text>「L大使のためにこの船に乗り込んで9カ月。英連邦のスラム街での生活は、苦しかったが、これよりは快適だった。私はまるで...クリスタルのように扱われている！人間だ！王族たちは、私たちもまた[不明な単語]であることを忘れている。こんなことには耐えられない。明日、私は大使を打倒する。私はここを去る！連邦は立ち上がり、繁栄する！そう確信している！"</text>
+	<text>「戦争はうまくいっていると言われている。私はそうは思いません。王族による大量殺戮計画の噂がある。彼らは戦争の歯車である連邦のことをよく口にする。彼らが次の標的になるのではないかと心配している。そうだ。しかし...敵は我々だ。もし彼らが本当に我々と平行線なら、同等の報復を期待すべきではないだろうか？私は最悪の事態を恐れている"</text>
+	<text>「先日、奇妙な話を聞いた。水晶の皇帝、イカティンはY王妃と確執があったらしい。生きて。前代未聞です......王家に挑んで生き残った人間はいません我々はどうなってしまうのだろう？反吐が出るような存在に唾を吐かれることを許すなんて、私たちは尊厳を失ったのだろうか？憤怒のあまり、私は最後の使用人を虐殺した。ささやかなデモンストレーションだが、それにふさわしいものだ。"</text>
+	<text>「王朝との戦争は間違いだった。負けることを恐れているわけではない。ただ...ただ...彼らは非常に数が多い。我々はこの事実を知っていたが、その深刻さは知らなかった。勝利は確実だが いつになる？我々には時間がない。王家は嘘をつき続け、戦争は見事に進んでいると言っている。だが、些細な口論で気を紛らわせ続ければ、やがて彼らの口調さえ変わるかもしれない。死神は決して屈しないという。私はそれを聞いたとき、信じられなかった。しかし、今となっては、それが真実でないにしては証拠が多すぎる」。</text>
+	<text>"先日、探検中に驚くべきシステムに出くわした。奇妙な生物が住む美しい世界だ。陸地はほとんどなく、海は[不明な単語]すべてを飲み込んでしまいそうなほど広がっている。ここの原始的な種族は私たちを悩ませることはないだろう。素晴らしいエンターテインメントを提供してくれるかもしれない。私はここにリゾートを建設しようと思う。王族はいつも新しい余暇の過ごし方を探しているのだから」。</text>
+	<text>「モノリスはよく見える。モノリスは素晴らしい芸術作品であり、その中にいると思うと[不明な単語]が浮かんでくる！周囲に居住可能な星系はほとんどないが、そのような星系でも、モノリスの美しさを鑑賞できる生命が誕生する日が来るのだろうか。戦争が南下し、私たちの痕跡がなくなっても、少なくともモノリスは、私たちの完全性を示す永遠の恩寵として、誇りをもって立っていることだろう</text>
 </textList>
 <event name="RUINS_TRANSLATE_FULL">
 	<text load="TEXT_RUINS_TRANSLATE_FULL" />
 	<achievement silent="false">ACH_OBEL_RUINS</achievement>
 	<choice hidden="true" req="SEC SECTOR_VAGABOND_UNIQUE" lvl="1" max_group="0" blue="false">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="RUINS_SALVAGE_GHOSTWASTE_LIST" />
 	</choice>
 	<choice hidden="true" req="SEC SECRET_AUGMENTED" lvl="1" max_group="0" blue="false">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="RUINS_SALVAGE_AUGMENTED" />
 	</choice>
 	<choice hidden="true" req="pilot" lvl="1" max_group="0" blue="false">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="RUINS_SALVAGE_LIST" />
 	</choice>
 </event>
 <textList name="TEXT_RUINS_TRANSLATE_FULL">
-	<text>「ネブラスは私たちの次の目標です。物資は薄いですが、ファントムは雲の中には言いようのない宝物を蓄えているという物語があります。彼らは人口の大きさで強力で、非常に誇りに思う人々です。私たちの武器に屈する。私を聞いてください、王朝は私たちと同じほど容赦ないものではありませんでした。私たちの種類の平和の時代は終わりました。</text>
-	<text>「彼らがどこから来たのかはわかりません。Y女王は私たちが神であると言いました。私たちは現実の達人でした。それでも、新参者は...彼らはトンネルを通って向こうから来たと主張しています。彼らはそれをネクサスと呼んでいます。 。エンジニアはそのような場所について言及しませんでした。彼らはそのような奇妙な言葉を話します。神々の夢？生きている宇宙？私は彼らに大きな脅威を見ますが、ロイヤルズは彼らが私たちを傷つけることはないと言います。ある種の協定、贈り物平和の見返りに郊外の人々。私はこれで良いことを予見していませんが、それは私の決断ではありません。」</text>
-	<text>「先日、メタロイドの1つに遭遇しました。壊れた方言で、弾薬を惜しまないかと尋ねられました。クルーに対して武装するために、私は思いましたか？漂流しました。私は時々それらの起源に疑問を投げかけます。私はそれらを研究し、何がそれらを動かしているのかを調べますが、それらが滑り落ちる前にそれを捕らえるのに十分に近づくことはできません。それは腹立たしいです。私はそのような失敗を知りませんでした。」</text>
-	<text>「私が王室の任命で与えられたアテンダントであるクリスタルラインは、彼の世界での人生の奇妙な物語を教えてくれます。なんてシンプルな生き物です。なぜ王室はこれらの人間の存在に耐えるために私たちに苦労しますか？死ぬ。私たちはそうしません。連邦でさえも彼らのような方法で苦労しません。おそらく彼らはspareしまなかったことを喜んでいますか？ファントムはそのような運を知りませんでした。私は彼をすぐに処分することを望みます。次回はあまり話せません。」</text>
-	<text>「私は9か月間、この船に乗ってLのために船を務めました。それは耐え難いです。連邦のスラム街での生活は、これよりも厳しいものでした。！ロイヤルズは私たちもオベリスクであることを忘れていました。私はこれを支持しません。明日、私は大使を転覆させます。私はこの場所を去ります！連邦が上昇します、それは繁栄します！</text>
-	<text>「彼らは戦争が順調に進んでいると言います。私はそれほど確信していません。噂、王室による虐殺プロットの噂が非常に懸念されています。彼らは頻繁に連邦について話します。次のターゲット。はい、それは敵になります。しかし...敵は私たちです。もし彼らが私たち自身と本当に並行しているなら、私たちは平等な報復を期待してはいけませんか？私は最悪のことを恐れています。」</text>
-	<text>「先日、奇妙な話を聞いた。彼らは、クリスタルの皇帝イカシンがY女王と確執したと言っている。ストレンジャーはまだ宮殿を去った。生きている。前代未聞の…死すべき者はロイヤルズに挑戦して生きたことがない。 ！私たちは何に向かっているのでしょうか？嫌悪感を抱く存在に唾を吐かれるように、尊厳を失ったのでしょうか？怒りのあまり、最後の僕を虐殺しました。これは小さなデモンストレーションですが、ふさわしいデモンストレーションです。」</text>
-	<text>「王朝との戦争は間違いでした。私たちが失うことを恐れているわけではありません。いや、それだけです...彼らは非常に多くです。 、しかし、それはいつですか？私たちは時間を使い果たしています。王室は嘘をつき続けます、彼らは戦争が壮観に進んでいると言います。しかし、もし私たちがささいな争いで気を散らし続けるなら、すぐに彼らの口調でさえも変わるかもしれません。利回り。私はそれを聞いたとき、私はそれを信じませんでした。しかし、今ではそれが真実ではないためにはあまりにも多くの証拠があります。」</text>
-	<text>「先日探検していると、驚くべきシステムに出くわしました。奇妙な生き物が生息する美しい世界。陸地がほとんどなく、海はここまで伸びていて、まるでLiythkykYuk全体を飲み込むことができるように感じます。ここの原始種は気になりません。私たち。彼らは素晴らしい娯楽を提供するかもしれません。私はここにリゾートを建てようと思います。ロイヤルズは常に彼らの余暇を過ごすための新しい方法を探しています。」</text>
-	<text>「モノリスはよく見えます。それは素晴らしい芸術作品であり、内部がカルチーテに座っていると考えるのは、その周りに居住可能なシステムはほとんどありませんが、それはいつかモノリスの美しさを評価することができる人生を生むのではないかと思います。戦争が南に行くなら、私たちの他の痕跡が残されていない場合、少なくともモノリスは私たちの完璧さの永遠の恵みとして誇りに思っているでしょう！」</text>
+	<text>「星雲が次の目標だ。物資は乏しいが、雲の中にはファントムが言いようのない財宝を蓄えているという話がある。彼らは強大で、人口も多く、誇り高い民族だ。だが、誇り高き者であっても、我らの武器に屈することはない。聞いてくれ、王朝はわれわれほど容赦のない相手に出会ったことはないだろう。我々の種族間の平和な日々は終わった。戦争がそれを求めるのだ」。</text>
+	<text>"どこから来たのかわからない。Y女王は私たちに、私たちは神だと言った。私たちは現実の支配者だと。しかし、新参者たちは...トンネルを通って向こうから来たと言う。彼らはそれをネクサスと呼んでいる。エンジニアはそんな場所について言及しなかった。彼らは奇妙な言葉を話す神々の夢？生きている宇宙？私は彼らの中に大きな脅威を感じるが、王族は我々を傷つけることはないと言う。ある種の協定、平和の見返りに郊外を贈るというのだ。しかし、それは私が決めることではない。"</text>
+	<text>「先日、メタロイドに遭遇した。そのメタロイドは方言で "弾薬をくれないか "と言ってきたんだ。私のクルーに対抗するためか？いや、彼はただそれを喉に流し込んで、不明瞭な感謝の言葉を述べ、どこかへ去っていった。私は時々、彼らの出自を疑ってしまう。私は彼らを研究し、何が彼らを動かしているのかを確かめたいのだが、彼らが逃げ去る前に捕獲できるほど近づくことはできない。腹立たしい。こんな失敗を私は知らない」。</text>
+	<text>「王室から任命された従者であるクリスタリンは、彼の世界での生活について不思議な話をしてくれる。なんと単純な生き物だろう。王族はなぜ、このような死すべき存在と一緒に耐えるよう、私たちを苦しめるのでしょうか？彼らは生まれ、老い、死ぬ。我々はそうではない。コモンウェルス（連邦）でさえ、彼らのように苦労はしない。おそらく、彼らは助かったことを喜んでいるのだろう。ファントムたちはそんな幸運は知らない。私はすぐに彼を処分したい。おそらく、次は口数の少ない召使いをお与えくださるでしょう"</text>
+	<text>「L大使のためにこの船に乗り込んで9カ月。英連邦のスラム街での生活は、苦しかったが、これよりは快適だった。私はまるで...クリスタルのように扱われている！人間だ！王族は、私たちもオベリスクであることを忘れている。こんなことには耐えられない。明日、大使を打倒する。私はここを去る！連邦は立ち上がり、繁栄する！そう確信している！"</text>
+	<text>「戦争はうまくいっていると言われている。私はそうは思いません。王族による大量殺戮計画の噂がある。彼らは戦争の歯車である連邦のことをよく口にする。彼らが次の標的になるのではないかと心配している。そうだ。しかし...敵は我々だ。もし彼らが本当に我々と平行線なら、同等の報復を期待すべきではないだろうか？私は最悪の事態を恐れている"</text>
+	<text>「先日、奇妙な話を聞いた。水晶の皇帝、イカティンはY王妃と確執があったらしい。生きて。前代未聞です......王家に挑んで生き残った人間はいません我々はどうなってしまうのだろう？反吐が出るような存在に唾を吐かれることを許すなんて、私たちは尊厳を失ったのだろうか？憤怒のあまり、私は最後の使用人を虐殺した。ささやかなデモンストレーションだが、それにふさわしいものだ。"</text>
+	<text>「王朝との戦争は間違いだった。負けることを恐れているわけではない。ただ...ただ...彼らは非常に数が多い。我々はこの事実を知っていたが、その深刻さは知らなかった。勝利は確実だが いつになる？我々には時間がない。王家は嘘をつき続け、戦争は見事に進んでいると言っている。だが、些細な口論で気を紛らわせ続ければ、やがて彼らの口調さえ変わるかもしれない。死神は決して屈しないという。私はそれを聞いたとき、信じられなかった。しかし、今となっては、それが真実でないにしては証拠が多すぎる」。</text>
+	<text>"先日、探検中に驚くべきシステムに出くわした。奇妙な生物が住む美しい世界だ。陸地はほとんどなく、海は遠くまで広がっていて、リトッキック・ユクをすべて飲み込んでしまいそうだ。ここの原始的な種族は私たちを悩ませることはないだろう。素晴らしいエンターテイメントを提供してくれるかもしれない。私はここにリゾートを建設しようと思う。王族はいつも新しい余暇の過ごし方を探しているのだから"</text>
+	<text>「モノリスはよく見える。素晴らしい芸術品だ。その中にカーシテが住んでいると思うと！周辺に居住可能な星系は少ないが、モノリスの美しさを理解できる生命が誕生する日が来るかもしれない。戦争が南下し、私たちの痕跡がなくなっても、少なくともモノリスは、私たちの完全性を示す永遠の恩寵として、誇りをもって立ち続けるだろう</text>
 </textList>
 
 <event name="RUINS_SALVAGE">
-	<text>船が邪魔にならないので、遺跡を自由に調べることができます。</text>
+	<text>船が邪魔にならなくなったので、あなたは自由に遺跡を調べることができる。</text>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="RUINS_SALVAGE_LIST" />
 	</choice>
 	<choice hidden="true" req="unique_anointed" blue="true">
-		<text>（聖皇后）廃墟の言葉を翻訳してください。</text>
+		<text>(Anointed)遺跡に書かれている言葉を訳してください。</text>
 		<event>
-			<text>「最善を尽くします。先祖の言葉はさびていることを念頭に置いていますが、要点は正しくなっています。立ち止まってください。」</text>
+			<text>「ベストを尽くします。先祖の言葉は頭の中で錆びついているが、要点はつかんでいる。下がれ。</text>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="RUINS_TRANSLATE" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="UPG_AETHER_TRANSLATOR" blue="true">
-		<text>（ルーン翻訳者）廃墟の言葉を翻訳してください。</text>
+		<text>(ルーン文字翻訳機）遺跡に書かれている文字を翻訳してください。</text>
 		<event>
-			<text>あなたの翻訳者は、巨大な遺跡の壁を横切って走り書きされた長いルーン文字を解読するために最善を尽くします。幸いなことに、出力は読みやすくなっていますが、その正確さは確かではありません。</text>
+			<text>あなたの翻訳機は、巨大な遺跡の壁に走り書きされた長いルーン文字を解読しようと最善を尽くしている。幸いなことに、出力は判読可能だが、その正確さについては確かなことは言えない。</text>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="RUINS_TRANSLATE" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_ANCIENT" blue="true">
-		<text>（オベリスククルー）廃墟の言葉を翻訳してください。</text>
+		<text>(オベリスク・クルー）遺跡に書かれている言葉を訳してください。</text>
 		<event load="RUINS_TRANSLATE_FULL" />
 	</choice>
 	<choice hidden="true" req="LIST_CREW_COGNITIVE_ALL" blue="true">
-		<text>（コグニティブクルー）廃墟の言葉を翻訳してください。</text>
+		<text>(コグニティブ・クルー）遺跡に書かれている言葉を訳してください。</text>
 		<event load="RUINS_TRANSLATE_FULL" />
 	</choice>
 </event>
 
 <eventList name="RUINS_SALVAGE_LIST">
 	<event>
-		<text>残念ながら、遺跡には刺激的なものは何も含まれていません。すべての技術が解体されたので、取り残されたリソースを利用することに満足します。</text>
+		<text>残念なことに、この遺跡にはエキサイティングなものは何もない。どんな技術も解体されているので、残された資源を取ることで満足する。</text>
 		<autoReward level="HIGH">stuff</autoReward>
 	</event>
 	<event>
-		<text>廃墟には残された武器箱が1つしかありませんが、残念なことに、ここに隠していた海賊が所有していたようです。それは古代の技術ではないかもしれませんが、それでも無料の武器です。</text>
+		<text>遺跡には武器の木箱が1つだけ残されているが、がっかりしたことに、それは海賊が隠すためにここに隠したもののようだ。古代の技術ではないかもしれないが、それでもタダの武器だ。</text>
 		<weapon name="RANDOM" />
 	</event>
 	<event>
-		<text>武器やドローンは見つかりませんが、ある容量では最新のエンジンシステムに似た損傷した燃焼エンジンがそこにあります。あなたはそれを部品のために剥ぎ取り、残っているものであなたのものをアップグレードすることを意図しています。</text>
+		<text>武器やドローンは見つからなかったが、その中に現代のエンジンシステムに似た損傷した燃焼エンジンを見つけた。あなたはそれを取り除いて部品を取り、残った部品で自分のをアップグレードするつもりだ。</text>
 		<upgrade amount="1" system="engines" />
 	</event>
 	<event>
-		<text>悲しいかな、廃墟は軍用兵器を生み出しません。しかし、あなたは信じられないほど高度なジェネレーターを発見します。これらのパーツを使用すると、自分で改善できるかもしれません。</text>
+		<text>残念なことに、この遺跡からは軍事兵器は発見できなかった。しかし、信じられないほど高度な発電機を発見した。この部品があれば、自分のものを改良できるかもしれない！</text>
 		<upgrade amount="1" system="reactor" />
 	</event>
 	<event>
-		<text>廃墟を救い出すと、奇妙な三角形のドローンが見つかります。いじくり回すと、少しの間機能するようになります。いくつかのスキャンを実行し、船に戻すための回路図を作成します。</text>
+		<text>廃墟をサルベージしていると、奇妙な三角形のドローンを見つける。少しいじってみると、少しの間なら動くようになった。スキャンして回路図を作成し、船に持ち帰る。</text>
 		<drone name="MENDER" />
 	</event>
 	<event>
-		<text>廃墟を探索していると、ドローンのライトから薄暗い輝きを認識する前に、ドローンを彫像と間違えそうになります。 2つのリングを備えた円筒形の設計で、ドローンはそれを管理するためのシステムとインターフェースするように設計されているように見えます。いくつかのスキャンを使用して回路図を作成し、船に戻します。</text>
+		<text>遺跡を探索中、あなたはドローンを彫像と見間違えそうになった。2つのリングがついた円筒形のデザインで、ドローンを管理するシステムとのインターフェイスとして設計されているようだ。スキャンしたデータをもとに回路図を作成し、船に持ち帰る。</text>
 		<drone name="DIRECTOR" />
 	</event>
 	<event>
-		<text>建造物の中に武器庫があることに驚いていますが、残念ながら、内部の武器のほとんどは完全に機能していません。しかし、あなたは船に持ち帰るある種のレーザーを見つけます。</text>
+		<text>その建造物の中に武器庫があることに驚くが、残念ながら中にある武器のほとんどはまったく機能しない。しかし、レーザーのようなものを見つけ、船に持ち帰る。</text>
 		<weapon name="ANCIENT_LASER" />
 	</event>
 	<event>
-		<text>現代のものと同様であるが非常に古い爆弾発射装置は、構造の中央の部屋に置かれています。あなたはそれを船に戻します。</text>
+		<text>構造物の中央の部屋には、現代のものと似ているが非常に古い、まだ機能するボム・ランチャーが横たわっている。それを船に持ち帰る。</text>
 		<weapon name="ANCIENT_BOMB" />
 	</event>
 </eventList>
@@ -153,10 +153,10 @@
 
 <ship name="SHIP_RUINS_REBEL_AUTO" auto_blueprint="LIST_SHIPS_AUTO_LARGE">
 	<destroyed>
-		<text>オートシップは敗北しました。あなたは彼らの船をスクラップします。</text>
+		<text>オートシップは敗北した。彼らの船をスクラップにしろ</text>
 		<autoReward level="MED">standard</autoReward>
 		<choice hidden="true">
-			<text>廃墟を救い出してください。</text>
+			<text>廃墟を救い出す。</text>
 			<event load="RUINS_SALVAGE" />
 		</choice>
 	</destroyed>
@@ -165,43 +165,43 @@
 	<preventQuest />
 	<beaconType id="map_icon_ruins" global="true" req="JUDGE_BOON_AETHER">
 		<color r="36" g="255" b="0" a="1.0" />
-		<unvisitedTooltip>これは廃墟の場所です。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<unvisitedTooltip>ここは廃墟の場所だ。</unvisitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 	</beaconType>
 	<text load="TEXT_RUINS" />
 	<customFleet right="false" firing="false" autoDarkening="true">CUSTOM_FLEET_ANCIENT_WRECKAGE</customFleet>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>自動化された船が残骸をスキャンしています。最初に船の世話をしなければ、構造が保持しているものにアクセスする方法はありません。</text>
+			<text>自動化された船が残骸をスキャンしている。まず船を始末しなければ、この構造物にアクセスすることはできない。</text>
 			<ship load="SHIP_RUINS_REBEL_AUTO" hostile="false" />
 			<choice hidden="true">
-				<text>攻撃！</text>
+				<text>攻撃だ！</text>
 				<event>
-					<text>これらの廃墟にあるものは何でも、あなたはそれらを必要とします。あなたは他の船を攻撃します！</text>
+					<text>この廃墟に何があろうと、君には必要なものだ。もう1隻の船を攻撃しろ！</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" req="LIST_CREW_ENGINEER">
-				<text>（エンジニアクルー）オートをシャットダウンします。</text>
+				<text>(エンジニアクルー)オートを停止しろ。</text>
 				<event>
-					<text>あなたのエンジニアは自動車をシャットダウンするのに苦労します、しかし彼らはなんとかその主要な指示をビーコンから逃げることに変えて、あなたを廃墟と一緒に残します。</text>
+					<text>あなたのエンジニアはオートを停止させようと奮闘したが、ビーコンから逃げるように指示を変更することに成功した。</text>
 					<choice hidden="true">
-						<text>廃墟を救い出してください。</text>
+						<text>廃墟を救い出す。</text>
 						<event load="RUINS_SALVAGE" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>廃墟は無視してください。</text>
+				<text>廃墟は無視する。</text>
 				<event>
-					<text>廃墟が提供しなければならないものは何でも努力する価値はありません。</text>
+					<text>廃墟が何を提供しようとも、努力する価値はない。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -217,18 +217,18 @@
 
 <ship name="SHIP_RUINS_GHOST" auto_blueprint="LIST_SHIPS_DYNASTY_FIGHT">
 	<destroyed>
-		<text>ゴーストは倒されました。あなたは彼らの船をスクラップします。</text>
+		<text>ゴーストは倒された。あなたは彼らの船をスクラップにした。</text>
 		<autoReward level="LOW">standard</autoReward>
 		<choice hidden="true">
-			<text>廃墟を救い出してください。</text>
+			<text>廃墟を救い出す。</text>
 			<event load="RUINS_SALVAGE" />
 		</choice>
 	</destroyed>
 	<deadCrew>
-		<text>ゴーストは倒されました。あなたは彼らの船をスクラップします。</text>
+		<text>ゴーストは倒された。あなたは彼らの船をスクラップにした。</text>
 		<autoReward level="LOW">standard</autoReward>
 		<choice hidden="true">
-			<text>廃墟を救い出してください。</text>
+			<text>廃墟を救い出す。</text>
 			<event load="RUINS_SALVAGE" />
 		</choice>
 	</deadCrew>
@@ -237,33 +237,33 @@
 	<preventQuest />
 	<beaconType id="map_icon_ruins" global="true" req="JUDGE_BOON_AETHER">
 		<color r="36" g="255" b="0" a="1.0" />
-		<unvisitedTooltip>これは廃墟の場所です。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<unvisitedTooltip>ここは廃墟の場所だ。</unvisitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 	</beaconType>
 	<text load="TEXT_RUINS" />
 	<customFleet right="false" firing="false" autoDarkening="true">CUSTOM_FLEET_ANCIENT_WRECKAGE</customFleet>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>王朝の船が残骸をスキャンしているようです。なぜ彼らがそれについてそれほど興味を持っているのかはわかりませんが、中にあるものが必要な場合は、最初にそれらを取り出す必要があります。</text>
+			<text>ダイナスティの船が残骸をスキャンしているようだ。なぜ彼らがそこまで興味を示すのかわからないが、中身が何であれ欲しいのであれば、まず彼らを倒さなければならない。</text>
 			<ship load="SHIP_RUINS_GHOST" hostile="false" />
 			<choice hidden="true">
-				<text>攻撃！</text>
+				<text>攻撃だ！</text>
 				<event>
-					<text>これらの廃墟にあるものは何でも、あなたはそれらを必要とします。あなたは他の船を攻撃します！</text>
+					<text>この廃墟に何があろうと、君には必要なものだ。もう1隻の船を攻撃しろ！</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>廃墟は無視してください。</text>
+				<text>廃墟は無視する。</text>
 				<event>
-					<text>廃墟が提供しなければならないものは何でも努力する価値はありません。</text>
+					<text>廃墟が何を提供しようとも、努力する価値はない。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -279,18 +279,18 @@
 
 <ship name="SHIP_RUINS_CRYSTAL" auto_blueprint="LIST_SHIPS_CRYSTAL_FIGHT">
 	<destroyed>
-		<text>クリスタルは打ち負かされました。あなたは彼らの船をスクラップします。</text>
+		<text>クリスタルは倒された。あなたは彼らの船をスクラップにした。</text>
 		<autoReward level="LOW">standard</autoReward>
 		<choice hidden="true">
-			<text>廃墟を救い出してください。</text>
+			<text>廃墟を救い出す。</text>
 			<event load="RUINS_SALVAGE" />
 		</choice>
 	</destroyed>
 	<deadCrew>
-		<text>クリスタルは打ち負かされました。あなたは彼らの船をスクラップします。</text>
+		<text>クリスタルは倒された。あなたは彼らの船をスクラップにした。</text>
 		<autoReward level="LOW">standard</autoReward>
 		<choice hidden="true">
-			<text>廃墟を救い出してください。</text>
+			<text>廃墟を救い出す。</text>
 			<event load="RUINS_SALVAGE" />
 		</choice>
 	</deadCrew>
@@ -299,33 +299,33 @@
 	<preventQuest />
 	<beaconType id="map_icon_ruins" global="true" req="JUDGE_BOON_AETHER">
 		<color r="36" g="255" b="0" a="1.0" />
-		<unvisitedTooltip>これは廃墟の場所です。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<unvisitedTooltip>ここは廃墟の場所だ。</unvisitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 	</beaconType>
 	<text load="TEXT_RUINS" />
 	<customFleet right="false" firing="false" autoDarkening="true">CUSTOM_FLEET_ANCIENT_WRECKAGE</customFleet>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>クリスタル船は、古代の残骸の遺跡をふるいにかけています。結晶の領土の性質を知っていると、彼らがあなたに戦いなしであなたをより近くにさせることはおそらくありません！</text>
+			<text>クリスタルの船がエンシェントの残骸を漁っている。クリスタルの縄張り意識を知っているだけに、戦わずして近づくことはできないだろう！</text>
 			<ship load="SHIP_RUINS_CRYSTAL" hostile="false" />
 			<choice hidden="true">
-				<text>攻撃！</text>
+				<text>攻撃だ！</text>
 				<event>
-					<text>これらの廃墟にあるものは何でも、あなたはそれらを必要とします。あなたは他の船を攻撃します！</text>
+					<text>この廃墟に何があろうと、君には必要なものだ。もう1隻の船を攻撃しろ！</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>廃墟は無視してください。</text>
+				<text>廃墟は無視する。</text>
 				<event>
-					<text>廃墟が提供しなければならないものは何でも努力する価値はありません。</text>
+					<text>廃墟が何を提供しようとも、努力する価値はない。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -341,18 +341,18 @@
 
 <ship name="SHIP_RUINS_CLANSMAN" auto_blueprint="LIST_SHIPS_CLAN_FIGHT">
 	<destroyed>
-		<text>クランズマンは敗北しました。あなたは彼らの船をスクラップします。</text>
+		<text>クランズメンは敗北した。彼らの船をスクラップにしろ</text>
 		<autoReward level="LOW">standard</autoReward>
 		<choice hidden="true">
-			<text>廃墟を救い出してください。</text>
+			<text>廃墟を救い出す。</text>
 			<event load="RUINS_SALVAGE" />
 		</choice>
 	</destroyed>
 	<deadCrew>
-		<text>クランズマンは敗北しました。あなたは彼らの船をスクラップします。</text>
+		<text>クランズメンは敗北した。彼らの船をスクラップにしろ</text>
 		<autoReward level="LOW">standard</autoReward>
 		<choice hidden="true">
-			<text>廃墟を救い出してください。</text>
+			<text>廃墟を救い出す。</text>
 			<event load="RUINS_SALVAGE" />
 		</choice>
 	</deadCrew>
@@ -365,33 +365,33 @@
 	<preventQuest />
 	<beaconType id="map_icon_ruins" global="true" req="JUDGE_BOON_AETHER">
 		<color r="36" g="255" b="0" a="1.0" />
-		<unvisitedTooltip>これは廃墟の場所です。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<unvisitedTooltip>ここは廃墟の場所だ。</unvisitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 	</beaconType>
 	<text load="TEXT_RUINS" />
 	<customFleet right="false" firing="false" autoDarkening="true">CUSTOM_FLEET_ANCIENT_WRECKAGE</customFleet>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>クランズマンの船はすでに遺跡を発見しているようで、おそらくエキゾチックハンターギルドにトロフィーを取り戻すことを望んでいます。自分のトロフィーが必要な場合は、クランズマンと自分で戦う必要があります。</text>
+			<text>おそらくエキゾチック・ハンター・ギルドにトロフィーを持ち帰るためだろう。自分のトロフィーが欲しいなら、自分でクランズマンと戦うしかない！</text>
 			<ship load="SHIP_RUINS_CLANSMAN" hostile="false" />
 			<choice hidden="true">
-				<text>攻撃！</text>
+				<text>攻撃だ！</text>
 				<event>
-					<text>これらの廃墟にあるものは何でも、あなたはそれらを必要とします。あなたは他の船を攻撃します！</text>
+					<text>この廃墟に何があろうと、君には必要なものだ。もう1隻の船を攻撃しろ！</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>廃墟は無視してください。</text>
+				<text>廃墟は無視する。</text>
 				<event>
-					<text>廃墟が提供しなければならないものは何でも努力する価値はありません。</text>
+					<text>廃墟が何を提供しようとも、努力する価値はない。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -409,37 +409,37 @@
 	<preventQuest />
 	<beaconType id="map_icon_ruins" global="true" req="JUDGE_BOON_AETHER">
 		<color r="36" g="255" b="0" a="1.0" />
-		<unvisitedTooltip>これは廃墟の場所です。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<unvisitedTooltip>ここは廃墟の場所だ。</unvisitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 	</beaconType>
-	<text>船の前には巨大な立方体の巡洋艦があり、その外壁は小さな緑色のライトで覆われています。船は完全に動いていませんが、ライトからの薄暗い輝きは、まだ何らかの形の力が乗っているに違いないことを示唆しています。</text>
+	<text>あなたの船の前には巨大な立方体の巡洋艦があり、その外壁は小さな緑色のライトで覆われている。船はまったく動かないが、ライトの薄明かりは、まだ何らかの電力があることを示唆している。</text>
 	<customFleet right="false" firing="false" autoDarkening="true">CUSTOM_FLEET_ANCIENT_WRECKAGE</customFleet>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>船に何か価値のあるものが含まれている可能性は非常に高いですが、それを保証することはできません。チームを乗せたいですか？</text>
+			<text>価値のあるものが船に入っている可能性は高いが、保証はできない。チームを乗船させますか？</text>
 			<choice hidden="true">
-				<text>船に乗る。</text>
+				<text>乗船。</text>
 				<event>
-					<text>あなたのクルーは船の内部に酸素がないことを発見し、スキャンは船に生命維持装置が設置されていないことを示しています。どのように進めますか？</text>
+					<text>船内は酸素がなく、生命維持装置も取り付けられていない。どうすればいい？</text>
 					<choice hidden="true" req="BLUELIST_CREW_NO2">
-						<text>（嫌気性のクルー））嫌気性のクルー）を送ります。</text>
+						<text>(嫌気性クルー）嫌気性クルーを送り込む。</text>
 						<event load="RUINS_TRAP_CONTINUE" />
 					</choice>
 					<choice hidden="true" req="O2_MASKS">
-						<text>（緊急呼吸器）呼吸器を使用してください。</text>
+						<text>(緊急用呼吸器）呼吸器を使用する。</text>
 						<event load="RUINS_TRAP_CONTINUE" />
 					</choice>
 					<choice hidden="true" req="LIST_CREW_ORCHID">
-						<text>（オーキドゥクルー）破損は検出されませんでした。オーキドゥは酸素を供給できるはずです。</text>
+						<text>(オーキッドは酸素を供給できるはずです。</text>
 						<event load="RUINS_TRAP_CONTINUE" />
 					</choice>
 					<choice hidden="true">
-						<text>先に進むことは何もありません。</text>
+						<text>私たちが進めることは何もない。</text>
 						<event>
-							<text>残念ながら、巡洋艦から離れるしかありません。</text>
+							<text>残念だが、クルーザーから離れるしかない。</text>
 							<choice hidden="true">
-								<text>船に乗って何かする。</text>
+								<text>船内で何かをする。</text>
 								<event load="STORAGE_CHECK" />
 							</choice>
 							<choice hidden="true">
@@ -451,11 +451,11 @@
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>廃墟は無視してください。</text>
+				<text>廃墟は無視する。</text>
 				<event>
-					<text>廃墟が提供しなければならないものは何でも努力する価値はありません。</text>
+					<text>廃墟が何を提供しようとも、努力する価値はない。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -468,51 +468,51 @@
 	</choice>
 </event>
 <event name="RUINS_TRAP_CONTINUE">
-	<text>あなたが中に入るとすぐに、クルーはあなたが認識できないさまざまなアーティファクトで飾られた大きな前室にいることに気づき、圧力センサーのように見えるものの上に休みます。あなたはおそらくそれらの1つをつかむことができますが、どちらかといえば何が起こるかわかりません。</text>
+	<text>中に入ってすぐ、クルーは大きな控えの間にいることに気づく。そこには見覚えのないさまざまな工芸品が飾られ、圧力センサーらしきものの上に置かれている。圧力センサーのようなものの上に置かれている。おそらくそのうちのひとつをつかむことはできるだろうが、何が起こるかわからない。</text>
 	<choice hidden="true">
-		<text>ここに武器があります、それをつかんでください！</text>
+		<text>ここに武器がある！</text>
 		<event>
-			<text>あなたは武器をつかみ、それを台座から持ち上げるとすぐに船の中で警報が鳴ります。原子の形をしたドローンが壁から出てきて、武器が準備されてクルーに向かって発射されます！</text>
+			<text>武器を手に取り、台座から持ち上げるとすぐに船内に警報が鳴り響く。原子型のドローンが壁から出てきて、武器を構え、クルーに向かって発砲する！</text>
 			<weapon name="ANCIENT_BEAM" />
 			<choice hidden="true">
-				<text>急いで船に戻ってください！</text>
+				<text>急いで船に戻るんだ！</text>
 				<event>
-					<text>あなたのクルーは、ドローンに追われて船に戻ります。エアロックをすばやく密閉しようとしますが、残念ながらドローンがエアロックを搭載します。船を守る準備をしなさい！</text>
+					<text>クルーはドローンに追われながら船に逃げ帰る。あなたは素早くエアロックを封鎖しようとするが、不運にもドローンは船に乗り込んでしまった。船を守る準備をしてください！</text>
 					<boarders min="1" max="1" class="atom" />
 				</event>
 			</choice>
 			<choice hidden="true" req="teleporter">
-				<text>（Teleporter）それらをテレポートして戻します！</text>
+				<text>(テレポーター）彼らをテレポートで戻す！</text>
 				<event>
-					<text>幸いなことに、乗組員全員を時間内にテレポートすることができます。あなたが引き離すと、ドローンは船に置き去りにされます。</text>
+					<text>幸い、あなたは時間内に乗組員全員をテレポートで戻すことができた。ドローンは船に取り残された。</text>
 				</event>
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>ここにドローンがあります、それをつかんでください！</text>
+		<text>ここにドローンがある！</text>
 		<event>
-			<text>ドローンをつかみ、台座から持ち上げるとすぐに、船内でアラームが鳴ります。原子の形をしたドローンが壁から出てきて、武器が準備され、乗組員に向けて発砲します!</text>
+			<text>ドローンを手に取り、台座から持ち上げたとたん、船内に警報が鳴り響く。原子型のドローンが壁から出てきて、武器を構え、クルーに向かって発砲する！</text>
 			<drone name="ANCIENT_COMBAT_LASER" />
 			<choice hidden="true">
-				<text>急いで船に戻ってください！</text>
+				<text>急いで船に戻るんだ！</text>
 				<event>
-					<text>あなたのクルーは、ドローンに追われて船に戻ります。エアロックをすばやく密閉しようとしますが、残念ながらドローンがエアロックを搭載します。船を守る準備をしなさい！</text>
+					<text>クルーはドローンに追われながら船に逃げ帰る。あなたは素早くエアロックを封鎖しようとするが、不運にもドローンは船に乗り込んでしまった。船を守る準備をしてください！</text>
 					<boarders min="1" max="1" class="atom" />
 				</event>
 			</choice>
 			<choice hidden="true" req="teleporter">
-				<text>（Teleporter）それらをテレポートして戻します！</text>
+				<text>(テレポーター）彼らをテレポートで戻す！</text>
 				<event>
-					<text>幸いなことに、乗組員全員を時間内にテレポートすることができます。あなたが引き離すと、ドローンは船に置き去りにされます。</text>
+					<text>幸い、あなたは時間内に乗組員全員をテレポートで戻すことができた。ドローンは船に取り残された。</text>
 				</event>
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>危険すぎるので、船に引き戻してください。</text>
+		<text>リスクが高すぎる。</text>
 		<event>
-			<text>あなたは本当に価値のある何かを望んでいましたが、そのリスクは任務には大きすぎます。</text>
+			<text>あなたは本当に価値のあるものを期待していたが、ミッションに対してリスクが大きすぎる。</text>
 		</event>
 	</choice>
 </event>
@@ -522,30 +522,30 @@
 	<preventQuest />
 	<beaconType id="map_icon_ruins" global="true" req="JUDGE_BOON_AETHER">
 		<color r="36" g="255" b="0" a="1.0" />
-		<unvisitedTooltip>これは廃墟の場所です。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<unvisitedTooltip>ここは廃墟の場所だ。</unvisitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 	</beaconType>
-	<text>巨大な立方体の構造、おそらくステーションは、近くの星の引力に捕らえられ、ゆっくりと近づいています。ステーションの必然的な破壊は避けられませんが、乗っているものは何でも回収するのに十分な時間があるかもしれません。</text>
+	<text>巨大な立方体の構造物（おそらくステーション）が、近くの恒星の引力に巻き込まれ、ゆっくりと近づいてきている。ステーションが破壊されるのは避けられないが、乗っているかもしれないものを救い出すには十分な時間があるかもしれない。</text>
 	<customFleet right="false" firing="false" autoDarkening="true">CUSTOM_FLEET_ANCIENT_WRECKAGE</customFleet>
 	<environment type="sun" />
 	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
-		<text>近づいてください。</text>
+		<text>もっと近づいて。</text>
 		<event>
-			<text>あなたが近づくにつれて、環境は危険すぎて、打撃を受けずにこれをやり遂げることができないことが明らかになります。適切な防御がない限り、太陽フレアに耐える必要があります。</text>
+			<text>近づくにつれ、打撃を受けずにこれをやり遂げるには、環境があまりにも危険であることが明らかになってくる。適切な防御策がない限り、太陽フレアの1つや2つは我慢しなければならないだろう。</text>
 			<choice hidden="true">
-				<text>続けて、私たちはヒットすることができます。</text>
+				<text>続けて、我々は打撃を受けることができる。</text>
 				<event load="RUINS_STAR_PROCEED" />
 			</choice>
 			<choice hidden="true" req="shields" lvl="6">
-				<text>（Adv. Shields）私たちの盾は私たちを保護します。</text>
+				<text>(盾は）私たちの盾は私たちを守ってくれる。</text>
 				<event load="RUINS_STAR_PROCEED_SHIELDS" />
 			</choice>
 			<choice hidden="true">
-				<text>リスクが高すぎます。</text>
+				<text>リスクが高すぎる。</text>
 				<event>
-					<text>廃墟が提供しなければならないものは何でも努力する価値はありません。</text>
+					<text>廃墟が何を提供しようとも、努力する価値はない。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -557,11 +557,11 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
-		<text>「警告: 危険な状態が検出されました。それ以上の準備をせずに調査することはお勧めできません。」</text>
+		<text>"警告：危険な状況が検出されました。さらなる準備なしに調査することはお勧めできません。</text>
 		<event>
-			<text>廃墟が提供しなければならないものは何でも努力する価値はありません。</text>
+			<text>廃墟が何を提供しようとも、努力する価値はない。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -572,42 +572,42 @@
 	</choice>
 </event>
 <event name="RUINS_STAR_PROCEED">
-	<text>太陽フレアが船を揺さぶり、火事を起こします。それでも、前方に押してステーションにドッキングします。タイマーが刻々と過ぎて、あなたのクルーは内部を探索します。彼らはある種のクルードローンのように見えるものを見つけましたが、インフェルノが部屋を消費しました！</text>
+	<text>太陽フレアが船を揺らし、火災が発生した。それでも前進を続け、ステーションとドッキングする。タイマーが刻々と迫る中、クルーが内部を探索する。クルー用ドローンのようなものを見つけるが、インフェルノが部屋を焼き尽くした！</text>
 	<damage amount="2" effect="fire" />
 	<choice hidden="true">
-		<text>ドローンをつかんで出て行け！</text>
+		<text>ドローンをつかんで脱出する！</text>
 		<event>
-			<text>あなたのクルーはドローンをつかんで引き戻しますが、それは予想よりもはるかに重いです。一緒に働いて、彼らはなんとかそれを火から引きずり出しました、しかし別の太陽フレアが通り過ぎて、再び船体を揺り動かしました。ほとんどのクルーは船に戻りますが、そのうちの1人がトリップして、ドローンを落とします。スキャンは、星が再び燃え上がっていることを示しています、そしてあなたはそれらのうちの1つを救う時間しかありません！</text>
+			<text>クルーがドローンをつかんで引き戻すが、予想以上に重い。しかし、ドローンは予想以上に重く、クルーは協力してドローンを火の海から引きずり出すことに成功する。ほとんどのクルーは船に戻ったが、1人がつまずき、ドローンを落としてしまった。スキャンによると、星は再び燃え上がっており、あなたには1人を救う時間しかない！</text>
 			<damage amount="1" effect="fire" system="random" />
 			<choice hidden="true">
-				<text>ドローンを救え！</text>
+				<text>ドローンを救え</text>
 				<event>
-					<text>あなたはクルーを死に追いやり、ドローンを持って船に戻ります。フレアが当たる前になんとか引き離すことができますが、難破船はそれを完全に爆発させ、半分に引き裂かれます！</text>
+					<text>クルーを見殺しにし、ドローンを奪って船に戻る。フレアが直撃する前に何とか引き離すことに成功したが、難破船はフレアをフルに受け、真っ二つに引き裂かれた！</text>
 					<drone name="DIRECTOR" />
 					<removeCrew>
 						<clone>true</clone>
-						<text>幸いなことに、クローンベイはあなたのクルーを復活させます。あなたは彼らが状況に怒っていると言うことができますが、彼らはすぐにそれを乗り越えるでしょう。</text>
+						<text>幸運なことに、クローンベイがクルーを復活させてくれた。彼らがこの状況に怒っているのはわかるが、すぐに立ち直るだろう。</text>
 					</removeCrew>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>あなたのクルーを救え！</text>
+				<text>クルーを救え！</text>
 				<event>
-					<text>あなたはドローンを離れ、クルーを船に引き戻し、フレアが当たる前に引き離します。残骸はそれを完全に爆発させ、半分に引き裂かれ、間違いなくそれでドローンを破壊します。</text>
+					<text>あなたはドローンから離れ、クルーを船に引きずり戻し、フレアが直撃する前に引き離す。沈没船はフレアを受けて真っ二つになり、間違いなくドローンも一緒に破壊される。</text>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>両方を救出しますが、さらにダメージを与えるリスクがあります。</text>
+				<text>両方救うが、ダメージが増えるリスクもある。</text>
 				<event>
-					<text>別の太陽フレアの力を利用して、船を近づけます。幸いなことに、あなたはまだあなたのクルーとドローンの両方を救い、飛び去ることができます。</text>
+					<text>あなたは船を引き寄せ、別の太陽フレアの力を受けた。幸運にも、クルーもドローンも無事で、飛び立つことができた。</text>
 					<drone name="DIRECTOR" />
 					<damage amount="2" effect="fire" system="random" />
 				</event>
 			</choice>
 			<choice hidden="true" req="teleporter" lvl="2">
-				<text>（Upg. Teleporter）両方をすばやく救出します。</text>
+				<text>(アップグ・テレポーター) 両方を素早くセーブする。</text>
 				<event>
-					<text>テレポーターのおかげで、別の太陽フレアが発生する前に、クルーとドローンの両方をビームアップすることができます。</text>
+					<text>テレポーターのおかげで、また太陽フレアが来る前にクルーとドローンを転送することができる。</text>
 					<drone name="DIRECTOR" />
 				</event>
 			</choice>
@@ -615,42 +615,42 @@
 	</choice>
 </event>
 <event name="RUINS_STAR_PROCEED_SHIELDS">
-	<text>太陽フレアが船を揺さぶり、火事を起こします。それでも、前方に押してステーションにドッキングします。タイマーが刻々と過ぎて、あなたのクルーは内部を探索します。彼らはある種のクルードローンのように見えるものを見つけましたが、インフェルノが部屋を消費しました！</text>
+	<text>太陽フレアが船を揺らし、火災が発生した。それでも前進を続け、ステーションとドッキングする。タイマーが刻々と迫る中、クルーが内部を探索する。クルー用ドローンのようなものを見つけるが、インフェルノが部屋を焼き尽くした！</text>
 	<damage amount="0" effect="fire" />
 	<choice hidden="true">
-		<text>ドローンをつかんで出て行け！</text>
+		<text>ドローンをつかんで脱出する！</text>
 		<event>
-			<text>あなたのクルーはドローンをつかんで引き戻しますが、それは予想よりもはるかに重いです。一緒に働いて、彼らはなんとかそれを火から引きずり出しました、しかし別の太陽フレアが通り過ぎて、再び船体を揺り動かしました。ほとんどのクルーは船に戻りますが、そのうちの1人がトリップして、ドローンを落とします。スキャンは、星が再び燃え上がっていることを示しています、そしてあなたはダメージを受けることなくそれらの1つを救う時間しかありません！</text>
+			<text>クルーがドローンをつかんで引き戻すが、予想以上に重い。しかし、ドローンは予想以上に重く、クルーは協力してドローンを火の海から引きずり出すことに成功する。ほとんどのクルーは船に戻ったが、1人がつまずき、ドローンを落としてしまった。スキャンによると、星は再び燃え上がっており、あなたにはダメージを受けずに1人を救う時間しかない！</text>
 			<damage amount="0" effect="fire" system="random" />
 			<choice hidden="true">
-				<text>ドローンを救え！</text>
+				<text>ドローンを救え</text>
 				<event>
-					<text>あなたはクルーを死に追いやり、ドローンを持って船に戻ります。フレアが当たる前になんとか引き離すことができますが、難破船はそれを完全に爆発させ、半分に引き裂かれます！</text>
+					<text>クルーを見殺しにし、ドローンを奪って船に戻る。フレアが直撃する前に何とか引き離すことに成功したが、難破船はフレアをフルに受け、真っ二つに引き裂かれた！</text>
 					<drone name="DIRECTOR" />
 					<removeCrew>
 						<clone>true</clone>
-						<text>幸いなことに、クローンベイはあなたのクルーを復活させます。あなたは彼らが状況に怒っていると言うことができますが、彼らはすぐにそれを乗り越えるでしょう。</text>
+						<text>幸運なことに、クローンベイがクルーを復活させてくれた。彼らがこの状況に怒っているのはわかるが、すぐに立ち直るだろう。</text>
 					</removeCrew>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>あなたのクルーを救え！</text>
+				<text>クルーを救え！</text>
 				<event>
-					<text>あなたはドローンを離れ、クルーを船に引き戻し、フレアが当たる前に引き離します。残骸はそれを完全に爆発させ、半分に引き裂かれ、間違いなくそれでドローンを破壊します。</text>
+					<text>あなたはドローンから離れ、クルーを船に引きずり戻し、フレアが直撃する前に引き離す。沈没船はフレアを受けて真っ二つになり、間違いなくドローンも一緒に破壊される。</text>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>両方を救出しますが、さらにダメージを与えるリスクがあります。</text>
+				<text>両方救うが、ダメージが増えるリスクもある。</text>
 				<event>
-					<text>別の太陽フレアの力を利用して、船を近づけます。幸いなことに、あなたはまだあなたのクルーとドローンの両方を救い、飛び去ることができます。</text>
+					<text>あなたは船を引き寄せ、別の太陽フレアの力を受けた。幸運にも、クルーもドローンも無事で、飛び立つことができた。</text>
 					<drone name="DIRECTOR" />
 					<damage amount="2" effect="fire" system="random" />
 				</event>
 			</choice>
 			<choice hidden="true" req="teleporter" lvl="2">
-				<text>（Upg. Teleporter）両方をすばやく救出します。</text>
+				<text>(アップグ・テレポーター) 両方を素早くセーブする。</text>
 				<event>
-					<text>テレポーターのおかげで、別の太陽フレアが発生する前に、クルーとドローンの両方をビームアップすることができます。</text>
+					<text>テレポーターのおかげで、また太陽フレアが来る前にクルーとドローンを転送することができる。</text>
 					<drone name="DIRECTOR" />
 				</event>
 			</choice>
@@ -711,18 +711,18 @@
 
 <ship name="SHIP_RUINS_DYNASTY_ELITE" auto_blueprint="LIST_SHIPS_DYNASTY_ELITE_FIGHT">
 	<destroyed>
-		<text>ゴーストは倒されました。あなたは彼らの船をスクラップします。</text>
+		<text>ゴーストは倒された。あなたは彼らの船をスクラップにした。</text>
 		<autoReward level="LOW">standard</autoReward>
 		<choice hidden="true">
-			<text>廃墟を救い出してください。</text>
+			<text>廃墟を救い出す。</text>
 			<event load="RUINS_SALVAGE_GHOSTWASTE" />
 		</choice>
 	</destroyed>
 	<deadCrew>
-		<text>ゴーストは倒されました。あなたは彼らの船をスクラップします。</text>
+		<text>ゴーストは倒された。あなたは彼らの船をスクラップにした。</text>
 		<autoReward level="MED">standard</autoReward>
 		<choice hidden="true">
-			<text>廃墟を救い出してください。</text>
+			<text>廃墟を救い出す。</text>
 			<event load="RUINS_SALVAGE_GHOSTWASTE" />
 		</choice>
 	</deadCrew>
@@ -731,33 +731,33 @@
 	<preventQuest />
 	<beaconType id="map_icon_ruins" global="true" req="JUDGE_BOON_AETHER">
 		<color r="36" g="255" b="0" a="1.0" />
-		<unvisitedTooltip>これは廃墟の場所です。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<unvisitedTooltip>ここは廃墟の場所だ。</unvisitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 	</beaconType>
 	<text load="TEXT_RUINS" />
 	<customFleet right="false" firing="false" autoDarkening="true">CUSTOM_FLEET_ANCIENT_WRECKAGE</customFleet>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>王朝の船が残骸をスキャンしているようです。なぜ彼らがそれについてそれほど興味を持っているのかはわかりませんが、中にあるものが必要な場合は、最初にそれらを取り出す必要があります。</text>
+			<text>ダイナスティの船が残骸をスキャンしているようだ。なぜ彼らがそこまで興味を示すのかわからないが、中身が何であれ欲しいのであれば、まず彼らを倒さなければならない。</text>
 			<ship load="SHIP_RUINS_DYNASTY_ELITE" hostile="false" />
 			<choice hidden="true">
-				<text>攻撃！</text>
+				<text>攻撃だ！</text>
 				<event>
-					<text>これらの廃墟にあるものは何でも、あなたはそれらを必要とします。あなたは他の船を攻撃します！</text>
+					<text>この廃墟に何があろうと、君には必要なものだ。もう1隻の船を攻撃しろ！</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>廃墟は無視してください。</text>
+				<text>廃墟は無視する。</text>
 				<event>
-					<text>廃墟が提供しなければならないものは何でも努力する価値はありません。</text>
+					<text>廃墟が何を提供しようとも、努力する価値はない。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -772,18 +772,18 @@
 
 <ship name="SHIP_RUINS_VAGABOND_GHOSTWASTE" auto_blueprint="LIST_SHIPS_GHOST_ELITE">
 	<destroyed>
-		<text>ゴーストは倒されました。あなたは彼らの船をスクラップします。</text>
+		<text>ゴーストは倒された。あなたは彼らの船をスクラップにした。</text>
 		<autoReward level="LOW">stuff</autoReward>
 		<choice hidden="true">
-			<text>廃墟を救い出してください。</text>
+			<text>廃墟を救い出す。</text>
 			<event load="RUINS_SALVAGE_GHOSTWASTE" />
 		</choice>
 	</destroyed>
 	<deadCrew>
-		<text>ゴーストは倒されました。あなたは彼らの船をスクラップします。</text>
+		<text>ゴーストは倒された。あなたは彼らの船をスクラップにした。</text>
 		<autoReward level="MED">stuff</autoReward>
 		<choice hidden="true">
-			<text>廃墟を救い出してください。</text>
+			<text>廃墟を救い出す。</text>
 			<event load="RUINS_SALVAGE_GHOSTWASTE" />
 		</choice>
 	</deadCrew>
@@ -792,33 +792,33 @@
 	<preventQuest />
 	<beaconType id="map_icon_ruins" global="true" req="JUDGE_BOON_AETHER">
 		<color r="36" g="255" b="0" a="1.0" />
-		<unvisitedTooltip>これは廃墟の場所です。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<unvisitedTooltip>ここは廃墟の場所だ。</unvisitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 	</beaconType>
 	<text load="TEXT_RUINS" />
 	<customFleet right="false" firing="false" autoDarkening="true">CUSTOM_FLEET_ANCIENT_WRECKAGE</customFleet>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>Vagabondの船はすでに遺跡を発見しているようで、おそらく彼らが略奪するために略奪として使用できるものを何でも持って行くことを望んでいるようです。彼らが何を求めているのかを確保するためにショットが必要な場合は、自分で幽霊と戦わなければなりません！</text>
+			<text>バガボンド船はすでに遺跡を発見しているようで、おそらく浮遊するために略奪できるものは何でも奪おうとしているのだろう。もし、彼らの狙ったものを確保したければ、自分でゴーストと戦わなければならない！</text>
 			<ship load="SHIP_RUINS_VAGABOND_GHOSTWASTE" hostile="false" />
 			<choice hidden="true">
-				<text>攻撃！</text>
+				<text>攻撃だ！</text>
 				<event>
-					<text>これらの廃墟にあるものは何でも、あなたはそれらを必要とします。あなたは他の船を攻撃します！</text>
+					<text>この廃墟に何があろうと、君には必要なものだ。もう1隻の船を攻撃しろ！</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>廃墟は無視してください。</text>
+				<text>廃墟は無視する。</text>
 				<event>
-					<text>廃墟が提供しなければならないものは何でも努力する価値はありません。</text>
+					<text>廃墟が何を提供しようとも、努力する価値はない。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -832,68 +832,68 @@
 </event>
 
 <event name="RUINS_SALVAGE_GHOSTWASTE">
-	<text>船が邪魔にならないので、遺跡を自由に調べることができます。</text>
+	<text>船が邪魔にならなくなったので、あなたは自由に遺跡を調べることができる。</text>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="RUINS_SALVAGE_GHOSTWASTE_LIST" />
 	</choice>
 	<choice hidden="true" req="unique_anointed">
-		<text>（聖皇后）廃墟の言葉を翻訳してみてください。</text>
+		<text>(Anointed)遺跡に書かれた言葉を翻訳してみよう。</text>
 		<event>
-			<text>「最善を尽くします。先祖の言葉はさびていることを念頭に置いていますが、要点は正しくなっています。立ち止まってください。」</text>
+			<text>「ベストを尽くします。先祖の言葉は頭の中で錆びついているが、要点はつかんでいる。下がれ。</text>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="RUINS_TRANSLATE" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="UPG_AETHER_TRANSLATOR">
-		<text>（ルーン翻訳者）廃墟の言葉を翻訳してください。</text>
+		<text>(ルーン文字翻訳機）遺跡に書かれている文字を翻訳してください。</text>
 		<event>
-			<text>あなたの翻訳者は、巨大な遺跡の壁を横切って走り書きされた長いルーン文字を解読するために最善を尽くします。幸いなことに、出力は読みやすくなっていますが、その正確さは確かではありません。</text>
+			<text>あなたの翻訳機は、巨大な遺跡の壁に走り書きされた長いルーン文字を解読しようと最善を尽くしている。幸いなことに、出力は判読可能だが、その正確さについては確かなことは言えない。</text>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="RUINS_TRANSLATE" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_ANCIENT">
-		<text>（オベリスククルー）廃墟の言葉を翻訳してください。</text>
+		<text>(オベリスク・クルー）遺跡に書かれている言葉を訳してください。</text>
 		<event load="RUINS_TRANSLATE_FULL" />
 	</choice>
 	<choice hidden="true" req="LIST_CREW_COGNITIVE_ALL">
-		<text>（コグニティブクルー）廃墟の言葉を翻訳してください。</text>
+		<text>(コグニティブ・クルー）遺跡に書かれている言葉を訳してください。</text>
 		<event load="RUINS_TRANSLATE_FULL" />
 	</choice>
 </event>
 
 <eventList name="RUINS_SALVAGE_GHOSTWASTE_LIST">
 	<event>
-		<text>残念ながら、遺跡には刺激的なものは何も含まれていません。すべての技術が解体されたので、取り残されたリソースを利用することに満足します。</text>
+		<text>残念なことに、この遺跡にはエキサイティングなものは何もない。どんな技術も解体されているので、残された資源を取ることで満足する。</text>
 		<autoReward level="HIGH">stuff</autoReward>
 	</event>
 	<event>
-		<text>廃墟には残された武器箱が1つしかありませんが、残念なことに、ここに隠していた海賊が所有していたようです。それは古代の技術ではないかもしれませんが、それでも無料の武器です。</text>
+		<text>遺跡には武器の木箱が1つだけ残されているが、がっかりしたことに、それは海賊が隠すためにここに隠したもののようだ。古代の技術ではないかもしれないが、それでもタダの武器だ。</text>
 		<weapon name="RANDOM" />
 	</event>
 	<event>
-		<text>武器やドローンは見つかりませんが、ある容量では最新のエンジンシステムに似た損傷した燃焼エンジンがそこにあります。あなたはそれを部品のために剥ぎ取り、残っているものであなたのものをアップグレードすることを意図しています。</text>
+		<text>武器やドローンは見つからなかったが、その中に現代のエンジンシステムに似た損傷した燃焼エンジンを見つけた。あなたはそれを取り除いて部品を取り、残った部品で自分のをアップグレードするつもりだ。</text>
 		<upgrade amount="1" system="engines" />
 	</event>
 	<event>
-		<text>悲しいかな、廃墟は軍用兵器を生み出しません。しかし、あなたは信じられないほど高度なジェネレーターを発見します。これらのパーツを使用すると、自分で改善できるかもしれません。</text>
+		<text>残念なことに、この遺跡からは軍事兵器は発見できなかった。しかし、信じられないほど高度な発電機を発見した。この部品があれば、自分のものを改良できるかもしれない！</text>
 		<upgrade amount="1" system="reactor" />
 	</event>
 	<event>
-		<text>あなたは廃墟をこじ開けて、古代の戦争からずっと戻ってきたと主張する古代のファントムアルファを見つけるだけです。何世紀にもわたって廃墟に閉じ込められてきた彼らは、精神的に少し疑わしいですが、あなたのために働くことを熱望しています。</text>
+		<text>遺跡をこじ開けると、古代の戦争からやってきたという古代のファントム・アルファがいた。何世紀も廃墟に閉じ込められていた彼らは、精神的に少し問題を抱えているが、あなたのために働きたいという気持ちは人一倍強い。</text>
 		<crewMember amount="1" class="phantom_alpha" />
 	</event>
 	<event>
-		<text>現代のものと同様であるが非常に古い爆弾発射装置は、構造の中央の部屋に置かれています。あなたはそれを船に戻します。</text>
+		<text>構造物の中央の部屋には、現代のものと似ているが非常に古い、まだ機能するボム・ランチャーが横たわっている。それを船に持ち帰る。</text>
 		<weapon name="ANCIENT_BOMB" />
 	</event>
 	<event>
-		<text>巨大な武器庫の中の構造物の壁に武器が取り付けられているように見えます。テクノロジーはあなたが認識しているものを超えていますが、後で調査するためにそれを搭載します。</text>
+		<text>広大な武器庫の中の建造物の壁に、武器のようなものが取り付けられている。そのテクノロジーはあなたが認識できる範囲を超えているが、後で調査するために船内に持ち込む。</text>
 		<weapon name="ANCIENT_HAVOC" />
 	</event>
 </eventList>
@@ -904,32 +904,32 @@
 	<deadCrew load="DEFEAT_RUINS_AUGMENTED" />
 </ship>
 <event name="DEFEAT_RUINS_AUGMENTED">
-	<text>ラニウスは敗北しました。あなたは彼らの船をスクラップします。</text>
+	<text>ラニウスは敗北した。あなたは彼らの船をスクラップにした。</text>
 	<autoReward level="HIGH">standard</autoReward>
 	<choice hidden="true">
-		<text>廃墟を救い出してください。</text>
+		<text>廃墟を救い出す。</text>
 		<event load="RUINS_SALVAGE_AUGMENTED" />
 	</choice>
 	<choice hidden="true" req="unique_anointed">
-		<text>油そそがれたものは、おそらく遺跡のマーキングを翻訳するのに役立つかもしれませんが、彼女は今それほど喜んでいるようには見えません。あなたが推測しなければならなかったなら、おそらく彼女の人々の殺人に関係しているでしょう。</text>
+		<text>"油注がれた者 "なら遺跡の印を翻訳する手助けができるだろうが、今はあまり喜んでいないようだ。推測するに、おそらく同胞が殺されたことに関係しているのだろう。</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true" req="UPG_AETHER_TRANSLATOR">
-		<text>（ルーン翻訳者）廃墟の言葉を翻訳してください。</text>
+		<text>(ルーン文字翻訳機）遺跡に書かれている文字を翻訳してください。</text>
 		<event>
-			<text>あなたの翻訳者は、巨大な遺跡の壁を横切って走り書きされた長いルーン文字を解読するために最善を尽くします。幸いなことに、出力は読みやすくなっていますが、その正確さは確かではありません。</text>
+			<text>あなたの翻訳機は、巨大な遺跡の壁に走り書きされた長いルーン文字を解読しようと最善を尽くしている。幸いなことに、出力は判読可能だが、その正確さについては確かなことは言えない。</text>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="RUINS_TRANSLATE" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_ANCIENT">
-		<text>（オベリスククルー）廃墟の言葉を翻訳してください。</text>
+		<text>(オベリスク・クルー）遺跡に書かれている言葉を訳してください。</text>
 		<event load="RUINS_TRANSLATE_FULL" />
 	</choice>
 	<choice hidden="true" req="LIST_CREW_COGNITIVE_ALL">
-		<text>（コグニティブクルー）廃墟の言葉を翻訳してください。</text>
+		<text>(コグニティブ・クルー）遺跡に書かれている言葉を訳してください。</text>
 		<event load="RUINS_TRANSLATE_FULL" />
 	</choice>
 </event>
@@ -939,32 +939,32 @@
 	<beaconType id="map_icon_ruins" global="false">
 		<color r="0" g="205" b="5" a="1.0" />
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
-		<unvisitedTooltip>このビーコンには古代遺跡が含まれています。</unvisitedTooltip>
+		<unvisitedTooltip>このビーコンには古代の遺跡がある。</unvisitedTooltip>
 	</beaconType>
 	<text load="TEXT_RUINS" />
 	<customFleet right="false" firing="false" autoDarkening="true">CUSTOM_FLEET_ANCIENT_WRECKAGE</customFleet>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>オーグメンティド船が廃墟の一部を溶かしている。あなたは彼らがあなたに自分自身を救うことをとても親切にさせてくれるとは思わないので、あなたがやりたいのならあなたはそれのために彼らと戦わなければならないでしょう！</text>
+			<text>オーグメントの船が遺跡の一部を溶かしている。彼らが好意的にサルベージをさせてくれるとは思えない！</text>
 			<ship load="SHIP_RUINS_AUGMENTED" hostile="false" />
 			<choice hidden="true">
-				<text>攻撃！</text>
+				<text>攻撃だ！</text>
 				<event>
-					<text>これらの廃墟にあるものは何でも、あなたはそれらを必要とします。あなたは他の船を攻撃します！</text>
+					<text>この廃墟に何があろうと、君には必要なものだ。もう1隻の船を攻撃しろ！</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>廃墟は無視してください。</text>
+				<text>廃墟は無視する。</text>
 				<event>
-					<text>廃墟が提供しなければならないものは何でも努力する価値はありません。</text>
+					<text>廃墟が何を提供しようとも、努力する価値はない。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -981,32 +981,32 @@
 	<beaconType id="map_icon_ruins" global="true">
 		<color r="0" g="205" b="5" a="1.0" />
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
-		<unvisitedTooltip>このビーコンには古代遺跡が含まれています。</unvisitedTooltip>
+		<unvisitedTooltip>このビーコンには古代の遺跡がある。</unvisitedTooltip>
 	</beaconType>
 	<text load="TEXT_RUINS" />
 	<customFleet right="false" firing="false" autoDarkening="true">CUSTOM_FLEET_ANCIENT_WRECKAGE</customFleet>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>オーグメンティド船が廃墟の一部を溶かしている。あなたは彼らがあなたに自分自身を救うことをとても親切にさせてくれるとは思わないので、あなたがやりたいのならあなたはそれのために彼らと戦わなければならないでしょう！</text>
+			<text>オーグメントの船が遺跡の一部を溶かしている。彼らが好意的にサルベージをさせてくれるとは思えない！</text>
 			<ship load="SHIP_RUINS_AUGMENTED" hostile="false" />
 			<choice hidden="true">
-				<text>攻撃！</text>
+				<text>攻撃だ！</text>
 				<event>
-					<text>これらの廃墟にあるものは何でも、あなたはそれらを必要とします。あなたは他の船を攻撃します！</text>
+					<text>この廃墟に何があろうと、君には必要なものだ。もう1隻の船を攻撃しろ！</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>廃墟は無視してください。</text>
+				<text>廃墟は無視する。</text>
 				<event>
-					<text>廃墟が提供しなければならないものは何でも努力する価値はありません。</text>
+					<text>廃墟が何を提供しようとも、努力する価値はない。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -1020,61 +1020,61 @@
 </event>
 <eventList name="RUINS_SALVAGE_AUGMENTED">
 	<event>
-		<text>廃墟を救い出すと、奇妙な三角形のドローンが見つかります。いじくり回すと、少しの間機能するようになります。いくつかのスキャンを実行し、船に戻すための回路図を作成します。</text>
+		<text>廃墟をサルベージしていると、奇妙な三角形のドローンを見つける。少しいじってみると、少しの間なら動くようになった。スキャンして回路図を作成し、船に持ち帰る。</text>
 		<drone name="MENDER" />
 		<choice hidden="true" req="loc_augmented_ruins" lvl="0" max_lvl="2" max_group="0" blue="false">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="RUINS_SALVAGE_STANDARD" />
 		</choice>
 		<choice hidden="true" req="loc_augmented_ruins" lvl="2" max_group="0" blue="false">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="RUINS_SALVAGE_AUGMENTED_UNLOCK" />
 		</choice>
 	</event>
 	<event>
-		<text>廃墟を探索していると、ドローンのライトから薄暗い輝きを認識する前に、ドローンを彫像と間違えそうになります。 2つのリングを備えた円筒形の設計で、ドローンはそれを管理するためのシステムとインターフェースするように設計されているように見えます。いくつかのスキャンを使用して回路図を作成し、船に戻します。</text>
+		<text>遺跡を探索中、あなたはドローンを彫像と見間違えそうになった。2つのリングがついた円筒形のデザインで、ドローンを管理するシステムとのインターフェイスとして設計されているようだ。スキャンしたデータをもとに回路図を作成し、船に持ち帰る。</text>
 		<drone name="DIRECTOR" />
 		<choice hidden="true" req="loc_augmented_ruins" lvl="0" max_lvl="2" max_group="0" blue="false">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="RUINS_SALVAGE_STANDARD" />
 		</choice>
 		<choice hidden="true" req="loc_augmented_ruins" lvl="2" max_group="0" blue="false">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="RUINS_SALVAGE_AUGMENTED_UNLOCK" />
 		</choice>
 	</event>
 	<event>
-		<text>建造物の中に武器庫があることに驚いていますが、残念ながら、内部の武器のほとんどは完全に機能していません。しかし、あなたは船に持ち帰るある種のレーザーを見つけます。</text>
+		<text>その建造物の中に武器庫があることに驚くが、残念ながら中にある武器のほとんどはまったく機能しない。しかし、レーザーのようなものを見つけ、船に持ち帰る。</text>
 		<weapon name="ANCIENT_LASER" />
 		<choice hidden="true" req="loc_augmented_ruins" lvl="0" max_lvl="2" max_group="0" blue="false">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="RUINS_SALVAGE_STANDARD" />
 		</choice>
 		<choice hidden="true" req="loc_augmented_ruins" lvl="2" max_group="0" blue="false">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="RUINS_SALVAGE_AUGMENTED_UNLOCK" />
 		</choice>
 	</event>
 	<event>
-		<text>現代のものと同様であるが非常に古い爆弾発射装置は、構造の中央の部屋に置かれています。あなたはそれを船に戻します。</text>
+		<text>構造物の中央の部屋には、現代のものと似ているが非常に古い、まだ機能するボム・ランチャーが横たわっている。それを船に持ち帰る。</text>
 		<weapon name="ANCIENT_BOMB" />
 		<choice hidden="true" req="loc_augmented_ruins" lvl="0" max_lvl="2" max_group="0" blue="false">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="RUINS_SALVAGE_STANDARD" />
 		</choice>
 		<choice hidden="true" req="loc_augmented_ruins" lvl="2" max_group="0" blue="false">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="RUINS_SALVAGE_AUGMENTED_UNLOCK" />
 		</choice>
 	</event>
 </eventList>
 <event name="RUINS_SALVAGE_STANDARD">
-	<text>あなたは廃墟から少し余分に救い出し、続けます。</text>
+	<text>廃墟から少し余分なものを救い出し、先へ進む。</text>
 	<autoReward level="LOW">standard</autoReward>
 	<variable name="loc_augmented_ruins" op="add" val="1" />
 </event>
 <event name="RUINS_SALVAGE_AUGMENTED_UNLOCK">
-	<text>このセクターのすべての遺跡を回収したようです！この最後のものも、遠くに拡張された巡洋艦の大規模な難破船に気づくので、かなり発見されたに違いありません。船上では、船の青写真さえあります！</text>
+	<text>このセクターの廃墟はすべて引き揚げたようだな！遠くにオーグメント巡洋艦の残骸が見える。船内には船の設計図まであった！</text>
 	<autoReward level="HIGH">standard</autoReward>
 	<unlockCustomShip silent="false">PLAYER_SHIP_AUGMENTED</unlockCustomShip>
 </event>

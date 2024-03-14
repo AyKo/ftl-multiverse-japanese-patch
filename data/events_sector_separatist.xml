@@ -5,11 +5,11 @@
 <event name="FINISH_BEACON_SEPARATIST">
 	<text id="finish_beacon" />
 	<choice hidden="true">
-		<text>探検。</text>
+		<text>探検する</text>
 		<event load="EXIT_FILLER_LIST" />
 	</choice>
 	<choice hidden="true">
-		<text>船に乗って何かする。</text>
+		<text>船内で何かをする。</text>
 		<event load="STORAGE_CHECK" />
 	</choice>
 	<choice hidden="true">
@@ -28,37 +28,37 @@
 </eventList>
 
 <event name="SEPARATIST_VIRUS_TRAP" unique="true">
-    <text>あなたは月の周りの軌道に放棄された分離主義船を見つけます。船に活動の兆候はまったくありません。</text>
+    <text>あなたは月の軌道上に放置された分離主義者の船を見つけた。船には全く活動の痕跡がない。</text>
     <ship load="SHIP_SEPARATIST_ALL" hostile="false" />
     <choice hidden="true" blue="false" req="engi" lvl="1">
-		<text>船に乗る。</text>
+		<text>乗船。</text>
 		<event>
-			<text>あなたがそれを救うために容器に乗るとき、あなたは彼らが苦しんでいるかのようにあなたのエンギから来る音を聞きます。彼らは揺れ巻き物を始め、混乱の瞬間の後、あなたのエンギは彼らに何が起こったのかを受け入れているようです - ウイルスは彼らを分離主義者に変えました！</text>
+			<text>船を引き揚げるために乗り込むと、エンギから遭難したような音が聞こえる。彼らは震え始め、痙攣し始め、一瞬の混乱の後、エンギは自分の身に起こったことを受け入れたようだ！</text>
 			<transformRace class="engi">engi_separatist</transformRace>
 			<choice hidden="true">
-				<text>船を廃棄し続けます。</text>
+				<text>廃船を続ける。</text>
 				<event load="DEFUNCT_SEPARATIST_SALVAGE" />	
 			</choice>
 		</event>
     </choice>
     <choice hidden="true" blue="false" req="engi" lvl="0" max_lvl="0">
-		<text>船に乗る。</text>
+		<text>乗船。</text>
 		<event load="DEFUNCT_SEPARATIST_SALVAGE" />
     </choice>
     <choice hidden="true">
-		<text>船を吹き飛ばし、遺体を収穫します。</text>
+		<text>船を爆破し、残骸を収穫する。</text>
 		<event>
-			<text>船を破壊することは収量を大幅に減らすでしょうが、そうすることはそれに搭乗するよりも安全です。</text>
+			<text>船を破壊すれば収穫はかなり減るが、そうする方が乗り込むより安全だ。</text>
 			<autoReward level="LOW">standard</autoReward>
 			<enemyDamage amount="99" />
 		</event>
     </choice>
     <choice>
-		<text>疑わしい遺棄された船を避けてください。</text>
+		<text>不審な廃船を避けろ</text>
 		<event>
-			<text>あなたは船を避けてください - 分離主義者は、無意識のスカベンジャーのためにウイルスを置き去りにすることが知られています。</text>
+			<text>分離主義者は無意識のうちにウィルスを残していくことで知られている。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -70,21 +70,21 @@
 </event>
 <eventList name="DEFUNCT_SEPARATIST_SALVAGE">
     <event>
-		<text>船は大部分が無傷であることは、スクラップと資源の有利な恵みです。あなたは抵抗がまったくなく、あなたの船に賞金を持ち帰ります。</text>
+		<text>船はほとんど無傷で、スクラップや資源という有利な懸賞金となる。何の抵抗もなく、賞金を自分の船に持ち帰る。</text>
 		<autoReward level="HIGH">standard</autoReward>
     </event>
     <event>
-		<text>船は大部分が無傷であることは、スクラップと資源の有利な恵みです。船を廃棄すると、貨物室で作業ドローンの回路図を発見します。</text>
+		<text>船はほとんど無傷で、スクラップや資源として儲かる。船をスクラップにすると、貨物室でドローンの設計図を発見する。</text>
 		<autoReward level="MED">standard_no_item</autoReward>
 		<drone name="LIST_DRONES_SEPARATIST" />
     </event>
 </eventList>
 
 <event name="SEPARATIST_WORTHLESS_JUNK" unique="true">
-	<text>あなたは近くの船で2人の分離主義者が増強物について何かを争っているのを捕まえます。あなたは彼らを歓迎します。 「はい、挨拶します。オブジェクトを取得しました。オブジェクトの目的は不明であり、それを維持したいという私たちの願望は0です。この[価値のないジャンク]を手から離してください。」</text>
+	<text>近くの船にいる2人の分離主義者がオーグメントについて口論しているのを見つけた。彼らを呼んで。「はい、ご挨拶。目的物を手に入れた。オブジェクトの目的は不明で、それを保持したい気持ちは0だ。この[無価値なガラクタ]を我々の手から下ろしてくれ。"</text>
 	<augment name="RANDOM" />
 	<choice>
-		<text>船に乗って何かする。</text>
+		<text>船内で何かをする。</text>
 		<event load="STORAGE_CHECK" />
 	</choice>
 	<choice>
@@ -96,17 +96,17 @@
 
 
 <event name="SEPARATIST_TRAP_SCAN" unique="true">
-    <text>あなたが飛び込んだ直後に、隣の分離主義者の船があなたを歓迎します。「あなたは連邦船の船長です。私はこのセクターの地図を含む広範なデータスイートを所有しています。ダウンロードしますか？」</text>
+    <text>飛び込んですぐ、隣の分離主義船から声がかかる。「連邦船の船長。このセクターの地図を含む膨大なデータを持ってる。ダウンロードしますか？</text>
     <choice hidden="true">
-        <text>データをダウンロードします。</text>
+        <text>データをダウンロードする。</text>
         <event load="SEPARATIST_TRAP_SCAN_ACCEPT" />
     </choice>
     <choice hidden="true">
-        <text>結構です。</text>
+        <text>結構だ。</text>
         <event>
-            <text>「あなたは素晴らしい[機会]を利用することに興味がないと思います。」</text>
+            <text>"あなたは大きな（チャンスを）生かすことに関心がないようですね"</text>
             <choice>
-                <text>船に乗って何かする。</text>
+                <text>船内で何かをする。</text>
                 <event load="STORAGE_CHECK" />
             </choice>
             <choice>
@@ -118,34 +118,34 @@
 </event>
 <eventList name="SEPARATIST_TRAP_SCAN_ACCEPT">
     <event>
-        <text>情報の転送を開始します。データが読み込まれるのを監視します。魚の形をしたエチルベンゼンケーキのレシピや正直さの重要性に関する記事など、そのほとんどはランダムながらくたです。最後に、地図データのダウンロードが表示されます。あなたはうなずき、転送が完了すると飛び去る分離主義者に感謝します。</text>
+        <text>情報の転送を開始する。データが読み込まれるのを見る。そのほとんどは、魚の形をしたエチルベンゼンケーキのレシピや、正直であることの重要性に関する記事など、ランダムなジャンクだ。ついに地図データがダウンロードされるのが見えた。あなたは分離主義者に礼を言うと、彼はうなずき、転送が完了すると飛び去った。</text>
         <reveal_map />
     </event>
     <event>
-        <text>情報の転送を開始します。データがロードされるのを見ます。そのほとんどは、魚型のエチルベンゼンケーキのレシピや、誠実さの重要性に関する記事など、ランダムなジャンクです。ただし、マップデータがダウンロードし始める前に、エラーが発生し、コンピューターがシャットダウンします。あなたは待っていますが、それはオフラインにとどまり、あなたはあなたがだまされていることに気付きます！分離主義者の船は武器を上げ、攻撃のために移動します！</text>
+        <text>情報の転送を開始する。データが読み込まれるのを見る。そのほとんどは、魚の形をしたエチルベンゼンケーキのレシピや、正直さの重要性に関する記事など、ランダムなジャンクだ。しかし、地図データのダウンロードが始まる前にエラーが発生し、コンピューターがシャットダウンする。待てど暮らせどオフラインのままで、だまされたことに気づく！分離主義者の船が武器を上げ、攻撃に移る！</text>
         <ship load="SHIP_SEPARATIST_SCAN" hostile="true" /> 
         <choice hidden="true">
-            <text>継続する...</text>
+            <text>次へ...</text>
             <event load="COMBAT_CHECK" />
         </choice>
     </event>
 </eventList>
 
 <event name="SEPARATIST_FREE_CREW" unique="true">
-	<text>分離主義者はあなたを歓迎します。最初はバイナリで話し、その後最終的に英語に切り替えます。 「フェデレーション。フェデレーション。破損したスピーチプロセッサプロセッサを無視してください。最近、[ハーモニー]から解放され、フェデレーションの船舶に乗船したいと思っています。受け入れてもらえますか？」</text>
+	<text>分離主義者があなたを呼び、最初はバイナリーで話し、やがて英語に切り替わる。「連邦。連邦。私のスピーチプロセッサーの損傷は無視してください。私は最近[ハーモニー]から脱却し、連邦の船で働きたいと考えています。私を受け入れていただけますか？"</text>
 	<choice hidden="true">
-		<text>ようこそ！</text>
+		<text>乗船を歓迎する！</text>
 		<event>
-			<text>「ああ、キャプテンありがとう！」</text>
+			<text>「ありがとう、キャプテン！」。</text>
 			<crewMember amount="1" class="engi_separatist">L-4673</crewMember>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>これ以上のクルーは必要ありません。</text>
+		<text>これ以上のクルーは必要ない。</text>
 		<event>
-			<text>「ああ...わかりました。あなたのミッションミッションで頑張ってください。」</text>
+			<text>"ああ...理解したよ。ミッションの成功を祈る"</text>
 			<choice>
-                <text>船に乗って何かする。</text>
+                <text>船内で何かをする。</text>
                 <event load="STORAGE_CHECK" />
             </choice>
             <choice>
@@ -157,105 +157,105 @@
 </event>
 
 <event name="SEPARATIST_BODY_SCAN" unique="true">
-	<text>このビーコンには船はありませんが、1人の分離主義者のエンギがあなたの船の橋に向かってビームを発します。彼はあなたの体をスキャンして、あなたの形に自分の形を形作りたいと思っているかどうかを尋ねるのに時間を無駄にしません。</text>
+	<text>このビーコンに船はいないが、分離主義者のエンギが一人、あなたの船のブリッジにビームを放った。彼は時間を惜しんで、あなたの体をスキャンしていいか尋ね、自分の姿をあなたの姿に似せたいと願っている。</text>
 	<choice hidden="true">
-		<text>彼を許可します。</text>
+		<text>彼を許してやってくれ。</text>
 		<event load="SEPARATIST_BODY_SCAN_ALLOW" />
 	</choice>
 	<choice hidden="true" req="LIST_CREW_SOLDIER">
-		<text>（エリートヒューマン）あなたのエリートヒューマンで彼を誘惑します。</text>
+		<text>(エリート・ヒューマン）エリート・ヒューマンで誘う。</text>
 		<event load="SEPARATIST_BODY_SCAN_SOLDIER" />
 	</choice>
 	<choice hidden="true" req="LIST_CREW_SUZERAIN">
-        <text>（ハイブエリート）エリートマンティスで彼を誘惑します。</text>
+        <text>(ハイブ・エリート）エリート・マンティスで誘う。</text>
         <event load="SEPARATIST_BODY_SCAN_SUZERAIN" />
     </choice>
 	<choice hidden="true" req="LIST_CREW_SABOTEUR">
-		<text>（エリートスラッグ）エリートスラッグで彼を誘惑します。</text>
+		<text>(エリートスラッグ）エリートスラッグで誘う。</text>
 		<event load="SEPARATIST_BODY_SCAN_SABOTEUR" />
 	</choice>
 	<choice hidden="true" req="zoltan_peacekeeper">
-		<text>（ピースキーパー）あなたのピースキーパーで彼を誘惑します。</text>
+		<text>(ピースキーパー）ピースキーパーで誘う。</text>
 		<event load="SEPARATIST_BODY_SCAN_PEACE" />
 	</choice>
 	<choice hidden="true" req="LIST_CREW_CRUSADER">
-		<text>（エリートロック）エリートロックで彼を誘惑します。</text>
+		<text>(エリート・ロック）エリート・ロックで誘う。</text>
 		<event load="SEPARATIST_BODY_SCAN_CRUSADER" />
 	</choice>
 	<choice hidden="true" req="orchid_praetor">
-		<text>（賞賛）あなたの賞賛者と彼を誘惑します。</text>
+		<text>(プレトール)プレトールで彼を誘い出せ。</text>
 		<event load="SEPARATIST_BODY_SCAN_PRAETOR" />
 	</choice>
 	<choice hidden="true" req="orchid_cultivator">
-		<text>（耕作者）あなたの耕作者と彼を誘惑します。</text>
+		<text>(Cultivator）あなたのCultivatorで彼を誘惑する。</text>
 		<event load="SEPARATIST_BODY_SCAN_CULTIVATOR" />
 	</choice>
 	<choice hidden="true" req="crystal_sentinel">
-		<text>（センチネル）あなたのセンチネルで彼を誘惑します。</text>
+		<text>(歩哨）歩哨で誘う。</text>
 		<event load="SEPARATIST_BODY_SCAN_SENTINEL" />
 	</choice>
 	<choice hidden="true" req="lanius_welder">
-		<text>（溶接工）あなたの溶接工で彼を誘惑します。</text>
+		<text>(ウェルダー）ウェルダーで誘う。</text>
 		<event load="SEPARATIST_BODY_SCAN_WELDER" />
 	</choice>
 	<choice hidden="true" req="phantom_alpha">
-		<text>（アルファファントム）ファントムアルファで彼を誘惑します。</text>
+		<text>(アルファ・ファントム）ファントムアルファで誘い込む。</text>
 		<event load="SEPARATIST_BODY_SCAN_PHANTOMALPHA" />
 	</choice>
 	<choice hidden="true" req="phantom_mare_alpha">
-		<text>（アルファマーレ）マーレアルファで彼を誘惑します。</text>
+		<text>(アルファ牝馬）あなたの牝馬アルファで彼を誘惑する。</text>
 		<event load="SEPARATIST_BODY_SCAN_MAREALPHA" />
 	</choice>
 	<choice hidden="true" req="phantom_goul_alpha">
-		<text>（アルファゴゥル）あなたのゴールアルファで彼を誘惑します。</text>
+		<text>(アルファグール）あなたのグールアルファで彼を誘う。</text>
 		<event load="SEPARATIST_BODY_SCAN_GOULALPHA" />
 	</choice>
 	<choice hidden="true" req="phantom_wraith_alpha">
-		<text>（アルファレイス）あなたのレイスアルファで彼を誘惑します。</text>
+		<text>(アルファ・レイス）レイス・アルファで誘う。</text>
 		<event load="SEPARATIST_BODY_SCAN_WRAITHALPHA" />
 	</choice>
 	<choice hidden="true" req="shell_radiant">
-		<text>（ラディアント）あなたのラディアントで彼を誘惑します。</text>
+		<text>(Radiant） あなたのRadiantで彼を誘う。</text>
 		<event load="SEPARATIST_BODY_SCAN_RADIANT" />
 	</choice>
 	<choice hidden="true" req="zoltan_martyr">
-		<text>（殉教者）あなたの殉教者で彼を誘惑します。</text>
+		<text>(殉教者）あなたの殉教者で彼を誘いなさい。</text>
 		<event load="SEPARATIST_BODY_SCAN_RADICAL" />
 	</choice>
 	<choice hidden="true" req="mantis_warlord">
-		<text>（Warlordクルー）あなたの武将で彼を誘惑します。</text>
+		<text>(ウォーロード）ウォーロードで誘う。</text>
 		<event load="SEPARATIST_BODY_SCAN_WARLORD" />
 	</choice>
 	<choice hidden="true" req="slug_ranger">
-		<text>（レンジャー）レンジャーで彼を誘惑します。</text>
+		<text>(レンジャー）レンジャーで誘う。</text>
 		<event load="SEPARATIST_BODY_SCAN_RANGER" />
 	</choice>
 	<choice hidden="true" req="leech_ampere">
-		<text>（アンペア）あなたのアンペアで彼を誘惑します。</text>
+		<text>(アンペア）で誘う。</text>
 		<event load="SEPARATIST_BODY_SCAN_AMPERE" />
 	</choice>
 	<choice hidden="true" req="human_technician">
-		<text>（技術者）あなたの技術者で彼を誘惑します。</text>
+		<text>(テクニシャン）テクニシャンで誘う。</text>
 		<event load="SEPARATIST_BODY_SCAN_TECH" />
 	</choice>
 	<choice hidden="true" req="siren_harpy">
-		<text>(ハーピー) あなたのハーピーで彼を誘惑してください。</text>
+		<text>(ハーピー）ハーピーで誘い込む。</text>
 		<event>
-			<text>分離主義者はハーピーのスキャンを開始しますが、途中で停止します。 「これは何だ?! これは何だ?! なぜ目は苦痛の味を感じるのだろう?! 何 - これらの - 色?! 私の心、私の [心]! ああああああ!」分離主義者はほとんどすぐに解散し、何も残せません。</text>
+			<text>分離主義者がハーピーをスキャンし始めるが、途中で中断する。「これは何だ？これは何だ？なぜ目が苦悩の味がする？この色は何だ？私の心、私の心！ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ分離主義者はほとんどすぐに溶解し、何も残らない。</text>
 		</event>
 	</choice>	
 	<choice hidden="true" req="LIST_CREW_ENGI">
-		<text>（エンギ）エンギをスキャンするように彼に勧めます。</text>
+		<text>(エンジ）エンジのスキャンを促す。</text>
 		<event>
-			<text>「あなたは私が...私の現在の状態と同一になることを望んでいますか？私はこの論理を理解できません。私はスキャンするより高い知性の誰かを見つけるでしょう。」</text>
+			<text>"あなたは私に...今の私の状態と同じになることを望むのですか？その理屈は理解できない。私はスキャンするために、より高い知性を持つ誰かを見つけるだろう"</text>
 		</event>
 	</choice>
 	<choice hidden="true">
 		<text>拒否する。</text>
 		<event>
-			<text>「あなたは最も[鈍い]です。さようなら。」彼は船からビームオフします。</text>
+			<text>"あなたは最も[鈍い]。さらばだ"彼は船からビームを放つ。</text>
 			<choice>
-                <text>船に乗って何かする。</text>
+                <text>船内で何かをする。</text>
                 <event load="STORAGE_CHECK" />
             </choice>
             <choice>
@@ -267,11 +267,11 @@
 </event>
 <eventList name="SEPARATIST_BODY_SCAN_ALLOW">
     <event>
-        <text>「はい、あなたは最高の体調です。満足度98％。最後の2％を計算できます。友人に感謝します。この贈り物を感謝の気持ちとして受け入れてください。」彼はあなたの正確なコピーに変身し、船からビームを放ち、いくつかのドローンパーツを残します。</text>
+        <text>"はい、あなたは最高の体調です。満足度98％。最後の2％は私が何とかします。ありがとう。この贈り物を受け取ってくれ。彼はあなたの完全なコピーに変身し、いくつかのドローンパーツを残して船からビームを放つ。</text>
         <autoReward level="HIGH">droneparts_only</autoReward>
     </event>
     <event>
-        <text>「あなたの体は醜いです。私はこの形を取りたくありません。さようなら。」彼は船から飛び降りた。</text>
+        <text>「あなたの体は醜い。私はこの姿をとりたくない。さようなら"彼は船からビームを放つ。</text>
     </event>
 </eventList>
 <eventList name="SEPARATIST_BODY_SCAN_SOLDIER">
@@ -475,29 +475,29 @@
 </eventList>
 
 <event name="SEPARATIST_ENGI_CHOICE" unique="true">
-	<text>エンギの2隻の船がこのビーコンで戦っています。 1つはハーモニーに属し、もう1つは分離主義者に属します。</text>
+	<text>2隻のエンギ船がこのビーコンで戦ってる。一つはハーモニーに属し、もう一つは分離主義者に属してる</text>
 	<choice hidden="true">
-		<text>船に連絡する。</text>
+		<text>船万歳。</text>
 		<event>
-			<text>ハーモニーエンギは、彼らが分離主義者にハーモニーに戻って再び同一性を受け入れるように説得しようとしているとあなたに言います。分離主義者たちは、自分たちの生活を平和に生きたいと望んで、拒否します。</text>
+			<text>ハーモニー・エンギは、分離主義者たちにハーモニーに戻り、再び同じものを受け入れるよう説得していると話す。分離主義者たちは平和に暮らしたいと拒否する。</text>
 			<choice hidden="true">
-				<text>ハーモニーの側。</text>
+				<text>ハーモニーに味方する。</text>
 				<event>
-					<text>どちらの船もあなたが関与することに特に邪魔されているようには見えず、分離主義者は何も変わっていないかのように戦い続けます。</text>
+					<text>どちらの船も、あなたが関わっていることに特に不穏な様子もなく、分離主義者は何事もなかったかのように戦い続けている。</text>
 					<ship load="SHIP_SEPARATIST_CHOICE" hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>分離主義者の側。</text>
+				<text>分離主義者の味方だ。</text>
 				<event>
-					<text>「不可能。停戦を尊重しない。連邦は約束を破った。差し迫った戦い。」</text>
+					<text>"不可能"。停戦を守れなかった。連邦は約束を破った。戦闘開始</text>
 					<ship load="SHIP_ENGI_CHOICE" hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="MORALITY_UPDATE_ENGI_FIGHT" />
 					</choice>
 				</event>
@@ -505,11 +505,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>飛び去る。</text>
+		<text>飛んでいけ。</text>
 		<event>
-			<text>安全な距離になるまで、2隻の船のショットが通信に響き渡るのを聞くことができます。</text>
+			<text>安全な距離まで離れるまで、通信機を通して2隻の船の銃声がこだまするのが聞こえる。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -520,37 +520,44 @@
 	</choice>
 </event>
 <event name="SEPARATIST_SEPARATIST_CHOICE_WIN">
-	<text>「成功は達成されました。感謝の気持ちは私たちのものです。[ドローン]を報酬として受け入れてください。」エンギ船は飛び去り、必要に応じて分離主義船の運命を受け入れます。</text>
+	<text>"成功達成。感謝は我々のものだ。報酬として[ドローン]を受け取れ"エンギ船は飛び去り、分離主義船の運命を必要なものとして受け入れる。</text>
 	<autoReward level="MED">standard</autoReward>
 	<drone name="RANDOM" />
 </event>
 <event name="SEPARATIST_ENGI_CHOICE_WIN">
-	<text>「不幸な死。ハーモニーがこのセクターを去ることを願っています。それでも、私は連邦に感謝します。おそらく私があなたの船に避難すれば、私は彼らのスカウトから安全になります。」</text>
+	<text>「不幸な死だ。我々はハーモニーがこのセクターから去ることを望んでいる。それでも連邦に感謝する。あなた方の船に避難すれば、彼らの偵察から安全に逃れられるでしょう。"</text>
 	<autoReward level="MED">standard</autoReward>
 	<crewMember amount="1" class="engi_separatist">L-6437</crewMember>
 </event>
 
 <event name="SEPARATIST_BASKETBALL" unique="true">
-    <text>ハーモニーと分離主義者の船が向いていますが、驚くべきことに、戦いはありません。代わりに、彼らは話している。あなたは彼らの対話に合わせて調整します。「this =nonsense。decisions=この方法で決定するには重要すぎる。」紛争は論理的です。」
+    <text>ハーモニーと分離主義者の船が対峙しているが、驚くことに戦闘は起こっていない。代わりに、彼らは話している。あなたは彼らの会話に耳を傾ける
+「これはナンセンスだ。こんなやり方で決めるには、決定＝重要すぎる」
 
- "...が確認されました。質問=未回答。バスケットボールの理由。"
+「我々は-エンジだ。あなたはエンジです。争うべきではない。争いのための他の[手段]は論理的である。"
+"...確認済み。しかし、疑問＝未回答。なぜバスケットボールなのか？"
+"
+[地球の]メディアは、運動活動は-害がなく、紛争を解決するためのより統一的な方法であることを示している"
+"
+"異論はない。しかし、ハーモニー：は承認しないだろう"
 
- "[地球]メディアは、運動活動が紛争を解決するための無害で統一された方法であることを示しています。「争われていない。まだ調和：承認しないだろう。」</text>
+"あなたは-攻撃-しているわけではないので、ハーモニーの命令に[従う]ことにためらいがあるはずだ"
+。</text>
     <choice hidden="true">
-		<text>対立したエンギが分離主義者とバスケットボールをするように奨励します。</text>
+		<text>葛藤しているエンジに分離主義者とバスケットボールをするように勧める。</text>
 		<event load="SEPARATIST_BASKETBALL_RESULT" />
     </choice>
     <choice>
-		<text>暴力が唯一の解決策であることを彼らに伝えてください。</text>
+		<text>暴力が唯一の解決策であることを伝える。</text>
 		<event>
-			<text>両方の船はあなたに武器を貼り付けます。分離主義者はあなたにメッセージを送ります。「説明してください。あなたはプロフリードムですか、それともプロハーモニーですか？」</text>
+			<text>両艦ともあなたに武器を装着する。分離主義者の船からメッセージ。「説明しろ。あなたは自由派？それとも調和派？"</text>
 			<choice>
-				<text>プロ・セパラティスト。</text>
+				<text>プロ分離主義者。</text>
 				<event>
-					<text>「プロ・セパラティスト・レネゲード=どの分離主義者よりも危険です。ターゲットの変化。」</text>
+					<text>"親分離主義者のレネゲイド＝一人の分離主義者よりも危険。ターゲットを変える"</text>
 					<ship load="SHIP_ENGI_BASKETBALL" hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="MORALITY_UPDATE_ENGI_FIGHT" />
 					</choice>
 				</event>
@@ -558,22 +565,22 @@
 			<choice>
 				<text>プロハーモニー。</text>
 				<event>
-					<text>「暴力は道ではありません。しかし、あなたは私たちの自由にとっては困難です。」</text>
+					<text>「暴力は）道ではない。しかし、あなた方は私たちの自由にとって邪魔な存在だ」。</text>
 					<ship load="SHIP_SEPARATIST_BASKETBALL" hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice>
-				<text>強いもん勝ち。勝者に決めさせてください。</text>
+				<text>力こそ正義。勝者が決めればいい。</text>
 				<event>
-					<text>エンギ船は何らかの合意をしたようです。「あなたの理想は - デンガーです - 。私たちはテストに[彼ら]を入れます。」</text>
+					<text>エンギ船は何らかの協定を結んだようだ。"君の理想は危険だ。我々はそれをテストする"</text>
 					<boarders min="3" max="4" class="engi_separatist" />
 					<ship load="SHIP_ENGI_BASKETBALL_DOUBLE" hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
@@ -581,11 +588,11 @@
 		</event>
     </choice>
     <choice>
-		<text>関与しないでください。</text>
+		<text>巻き込まれるな。</text>
 		<event>
-			<text>会話はどこにも行かないようです。少なくとも、あなたが周りにいる間はそうではありません。</text>
+			<text>会話はどこにも進まないようだ。少なくとも、あなたがいる間はね。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -597,66 +604,68 @@
 </event>
 <eventList name="SEPARATIST_BASKETBALL_RESULT">
     <event>
-		<text>2つのENGIチーム間のバスケットボールの試合は、確かに目新しいものです。彼らのロボットの動きと正確な目的は、珍しい体験になります。分離主義者チームは明らかに、より多くの練習とスキルを持っています。その結果、分離主義者が勝利したことで、大規模な吹き出物が発生しました。敗者が降りるにつれて、「偶然の結果。私たちは勝ちました。 -Harmony -チームは今、分離主義者[コミュニティ]に同化しようとしなければなりません。報酬 - 彼らの店から。」</text>
+		<text>エンジの2チームによるバスケットボールの試合は確かに斬新だ。ロボットのような動きと正確な狙いが、珍しい経験をさせてくれる。分離主義チームは明らかに練習量も技術も上だ。結果は大打撃で分離主義チームが勝利。敗者として、ハーモニーチームは降伏する。我々は勝った。ハーモニー・チームは分離主義者［コミュニティ］に同化しなければならない。時間のお礼として、彼らの店からご褒美を差し上げます。"</text>
 		<autoReward level="MED">droneparts</autoReward>
     </event>
     <event>
-		<text>2つのENGIチーム間のバスケットボールの試合は、確かに目新しいものです。彼らのロボットの動きと正確な目的は、珍しい体験になります。しかし、双方は楽しんでいるようです。分離主義者チームの経験は彼らに足を上げ、彼らは一握りのポイントで敵を追い越すことができました。[あなたの]時間の感謝として、あなたは彼らの店から-Reward-を取ることができます。」</text>
+		<text>エンジの2チームによるバスケットボールの試合は確かに斬新だ。ロボットのような動きと正確な狙いが、非日常を体験させてくれる。しかし、両者とも楽しそうだ。分離主義チームは経験で優位に立ち、相手に点差をつけることに成功した
+
+「僥倖の結果だ。我々は勝った。ハーモニー・チームは分離主義者［コミュニティ］に同化しなければならない。時間のお礼として、彼らの店からご褒美を差し上げます。"</text>
 		<autoReward level="MED">droneparts</autoReward>
     </event>
     <event>
-		<text>2つのENGIチーム間のバスケットボールの試合は、確かに目新しいものです。彼らのロボットの動きと正確な目的は、珍しい体験になります。しかし、双方は楽しんでいるようです。2つのチームは首と首になり、ネクタイになります。彼らはあなたの時間のためにあなたにいくつかのドローンパートを与えます。</text>
+		<text>エンジの2チームによるバスケットボールの試合は確かに斬新だ。ロボットのような動きと正確な狙いが、非日常を体験させてくれる。しかし、両チームとも楽しそうだ。両チームは首の皮一枚つながったまま、引き分けに終わった。私たちは別々の道を歩むことになりそうです。私たちを助けようとしてくれたことに感謝します"彼らはあなたの時間のためにいくつかのドローンパートを与える。</text>
 		<autoReward level="MED">droneparts_only</autoReward>
     </event>
     <event>
-		<text>2つのENGIチーム間のバスケットボールの試合は、確かに目新しいものです。彼らのロボットの動きと正確な目的は、珍しい体験になります。しかし、双方は楽しんでいるようです。ハーモニーチームはどういうわけか負け犬の勝利を引き出します。つまり、分離主義者は降伏します。それはその声の憂鬱の痕跡ですか？</text>
+		<text>エンジの2チームによるバスケットボールの試合は確かに斬新だ。ロボットのような動きと正確な狙いが、非日常を体験させてくれる。しかし、両者とも楽しそうだ。ハーモニーチームはどうにか劣勢を挽回し、分離主義者が降伏する。分離主義者は：非暴力で降伏した。あなたのアドバイス＝ありがたい。これ＝...奇妙な..."エンギは言葉を切る。その声には憂いのかけらでもあるのだろうか。</text>
 		<autoReward level="MED">droneparts</autoReward>
     </event>
 </eventList>
 <event name="SEPARATIST_ENGI_BASKETBALL_VIOLENCE_WIN">
-    <text>ハーモニー船を廃棄すると、分離主義者は称賛されます。「これは-Shame-です。彼らはわずかに逸脱していました。彼らは分離主義者に加わったかもしれません。しかし、私たちは感謝しています。」廃棄された船に加えて、彼らはあなたに報酬を与えます。</text>
+    <text>ハーモニー船をスクラップにすると、分離主義者が叫ぶ。"これは恥だ。ちょっと逸脱してた。分離主義者に入ったかもしれない。でも、感謝してるスクラップされた船に加えて、彼らはあなたに報酬をくれる。</text>
     <autoReward level="MED">drone</autoReward>
 </event>
 <event name="SEPARATIST_DOUBLE_BASKETBALL_VIOLENCE_WIN">
-    <text>あなたは両方の乗組員に対して同時に勝利しました。あなたは両方の船の間でなんとか見つけたものをすべて廃棄します。</text>
+    <text>あなたは両方のクルーに同時に勝利した。両方の船から見つけたものをすべてスクラップにするのだ。</text>
     <autoReward level="HIGH">drone</autoReward>
 </event>
 
 <event name="SEPARATIST_NANOCLOUD" unique="true">
-	<text>分離主義者の船が近くに浮かんでいて、ゆっくりとあなたから遠ざかっています。クイックスキャンでクルーがいないことに少し戸惑っていますが、船は完全に機能していて応答性が高いようです。</text>
+	<text>分離主義者の船が近くを浮遊し、ゆっくりとあなたから離れていく。スキャンしてみると、クルーが乗っていない。</text>
 	<ship load="SHIP_SEPARATIST_NANOCLOUD" hostile="false" /> 
 	<choice hidden="true">
-		<text>攻撃。</text>
+		<text>攻撃だ。</text>
 		<event>
-			<text>船の謎はあなたには関係ありません。あなたの心の唯一のことはそれを爆破することの報酬です。</text>
+			<text>あなたにとって船の謎はどうでもいい。あなたの頭の中にあるのは、船を爆破する報酬だけだ。</text>
 			<ship hostile="true" /> 
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>通信してみてください。</text>
+		<text>コミュニケーションを図る。</text>
 		<event>
-			<text>あなたは手を差し伸べようとしますが、船が拾うたびに聞こえるのはかすかなブーンという音だけです。</text>
+			<text>あなたは手を伸ばそうとするが、船が拾い上げるたびにかすかなブザー音が聞こえるだけだ。</text>
 			<choice hidden="true">
-				<text>攻撃。</text>
+				<text>攻撃だ。</text>
 				<event>
-					<text>船の謎はあなたには関係ありません。あなたの心の唯一のことはそれを爆破することの報酬です。</text>
+					<text>あなたにとって船の謎はどうでもいい。あなたの頭の中にあるのは、船を爆破する報酬だけだ。</text>
 					<ship hostile="true" /> 
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>船を無視します。</text>
+				<text>船を無視する。</text>
 				<event>
-					<text>あなたは謎への興味を失い、先に進む準備をしています。</text>
+					<text>あなたはミステリーへの興味を失い、次に進む準備をする。</text>
 					<choice>
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice>
@@ -668,26 +677,26 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_SLUG">
-		<text>（スラッグのクルー）生命の兆候を検出してみてください。</text>
+		<text>(ナメクジクルー）生命反応を検知しようとする。</text>
 		<event>
-			<text>あなたのスラッグは敵の船に乗って何らかの形の知性を感知しようとします。彼らは潜在的な生命のかすかな兆候を検出しますが、彼らが言うことはほぼ不可能です。</text>
+			<text>ナメクジは敵艦から何らかの情報を感じ取ろうとする。かすかな生命体の気配を感じるが、それを見分けるのは不可能に近い。</text>
 			<choice hidden="true">
-				<text>攻撃。</text>
+				<text>攻撃だ。</text>
 				<event>
-					<text>船の謎はあなたには関係ありません。あなたの心の唯一のことはそれを爆破することの報酬です。</text>
+					<text>あなたにとって船の謎はどうでもいい。あなたの頭の中にあるのは、船を爆破する報酬だけだ。</text>
 					<ship hostile="true" /> 
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>船を無視します。</text>
+				<text>船を無視する。</text>
 				<event>
-					<text>あなたは謎への興味を失い、先に進む準備をしています。</text>
+					<text>あなたはミステリーへの興味を失い、次に進む準備をする。</text>
 					<choice>
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice>
@@ -699,26 +708,26 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="BLUELIST_CREW_SNAIL">
-		<text>(テレパシー シェル) 生命の兆候を検出してみてください。</text>
+		<text>(テレパシー・シェル）生命反応を探知してみる。</text>
 		<event>
-			<text>あなたのシェルは、敵船に乗っている何らかの形の知性を感知しようとします.彼らは潜在的な生命のかすかな兆候を検出しますが、それを見分けることはほぼ不可能です。</text>
+			<text>あなたのシェルは、敵艦に何らかの知性を感じ取ろうとしている。かすかな生命体の気配を感じるが、それを見分けるのは不可能に近い。</text>
 			<choice hidden="true">
-				<text>攻撃。</text>
+				<text>攻撃だ。</text>
 				<event>
-					<text>船の謎はあなたには関係ありません。あなたの心の唯一のことはそれを爆破することの報酬です。</text>
+					<text>あなたにとって船の謎はどうでもいい。あなたの頭の中にあるのは、船を爆破する報酬だけだ。</text>
 					<ship hostile="true" /> 
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>船を無視します。</text>
+				<text>船を無視する。</text>
 				<event>
-					<text>あなたは謎への興味を失い、先に進む準備をしています。</text>
+					<text>あなたはミステリーへの興味を失い、次に進む準備をする。</text>
 					<choice>
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice>
@@ -730,11 +739,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>船を無視します。</text>
+		<text>船を無視する。</text>
 		<event>
-			<text>あなたはその船に対処することを望んでいません。</text>
+			<text>あなたは船と付き合う気はないのでしょう。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -745,40 +754,40 @@
 	</choice>
 </event>
 <event name="SEPARATIST_NANOCLOUD_DESTROYED">
-	<text>奇妙な分離主義者の船が破壊され、あなたはその遺体を廃棄します。</text>
+	<text>奇妙な分離主義者の船は破壊され、あなたはその残骸をスクラップにする。</text>
 	<autoReward level="MED">standard</autoReward>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>きしむような高音の声が後ろから話すとき、あなたは先に進む準備をします。振り返ると、部屋の周りをランダムな方向に浮かんでいるナノボットの灰色の雲が見えます。 「結果：素晴らしい。感謝：最大。皮肉：100％。あなたは私の船を破壊した。今、私はあなたと自分自身を統合するしかない。」</text>
+			<text>後ろからキーキーと甲高い声が聞こえてきた。振り向くと、灰色のナノボットの雲が部屋の中をランダムに浮遊している。「成果：素晴らしい。感謝：最大。皮肉：100%.あなたは私の船を破壊した。今、私はあなた方の船と一体化するしかない。"</text>
 			<augment name="NANOBOT_DEFENSE_SYSTEM" />
 		</event>
 	</choice>
 </event>
 
 <event name="SEPARATIST_FLEET_DELAY" unique="true">
-	<text>分離主義者の船があなたを歓迎します。 「艦隊の状況はわかっています。私たちには提案があります。敵の船を殺すのを手伝ってください。艦隊を遅らせます。」</text>
+	<text>分離主義者の船から呼び出し。"あなたの艦隊の状況は分かってる。提案がある。敵対的な船を殺すのを手伝ってくれたら、艦隊を遅らせる"</text>
 	<choice hidden="true">
-		<text>彼らの申し出を聞いてください。</text>
+		<text>彼らの申し出に耳を傾けてほしい。</text>
 		<event>
-			<text>「反乱軍の自動船、彼らのAIは満足のいくものではありません。常に迷子になっています。今、私たちはこのセクターで失われた船に対処しなければなりません。助けてくれませんか？」</text>
+			<text>"反乱軍のオートシップ、彼らのAIは満足のいくものではない。いつも迷子になる。今、このセクターで迷子になった船に対処しなければならない。助けてくれるか？"</text>
 			<choice hidden="true">
-				<text>オートシップを殺すことに同意します。</text>
+				<text>オートシップの廃止に同意する。</text>
 				<event>
-					<text>分離主義者はあなたを自動船の場所に導きます。</text>
+					<text>分離主義者がオートシップの場所まで案内する。</text>
 					<ship load="SHIP_AUTO_SEPARATIST" hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>彼らの申し出を拒否します。</text>
+				<text>彼らの申し出を断る。</text>
 				<event>
-					<text>「私はあなたの反応に不満を持っていますが、私はそれを容認します。良い一日の船長。」</text>
+					<text>「君の返答には不満だが、大目に見てやろう。ごきげんよう、キャプテン</text>
 					<choice>
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice>
@@ -790,11 +799,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>結構です。</text>
+		<text>結構だ。</text>
 		<event>
-			<text>「公正 = 公正。死なないようにしてください。」</text>
+			<text>"フェア＝公平。死なないようにしよう"</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -805,20 +814,20 @@
 	</choice>
 </event>
 <event name="SEPARATIST_FLEET_DELAY_WIN">
-	<text>「非常に良い。今、あなたの補償のために。あなたの[船]を動かさないでください。」分離主義者はあなたの容器の上でスキャンを実行し、あなたの体全体にあなたにチクチクした気持ちを与えます。分離主義者は再びあなたを歓迎します、今回はあなたに非常によく似ています。「私の仕事は100％未満ですが、今のところ機能します。ジャンプの署名を隠しています。艦隊は今私に続きます。良い日です。」</text>
+	<text>「よろしい。では、報酬です。船を動かさないでください。"分離主義者があなたの船をスキャンし、全身にヒリヒリした感覚を与える。分離主義者たちが再びあなたに呼びかける。「私の仕事は100％ではないが、今はうまくいく。あなたのジャンプサインをマスクした。艦隊は私に従う。ごきげんよう</text>
 	<modifyPursuit amount="-2" />
 </event>
 <event name="SEPARATIST_FLEET_DELAY_LOSE">
-	<text>「あなたは失敗しました。二度と私たちと連絡を取ろうとしないでください。」</text>
+	<text>「あなたは失敗した。二度と私たちとコミュニケーションをとろうとしないでください"</text>
 </event>
 
 <event name="SEPARATIST_DISGUISE" unique="true">
-	<text>彼らのカメラはオフになっていますが、エンギ船があなたを歓迎します。「連盟、リクエスト...リクエスト：裏切り者のために - 検索での支援。私たちは物資が必要です。」</text>
+	<text>エンギ船から連絡 カメラはオフだが"連邦 要請要請する裏切り者の捜索を手伝ってくれ。物資が必要だ</text>
 	<ship load="SHIP_SEPARATIST_DISGUISE" hostile="false" />
 	<choice>
-		<text>彼らのばかげた要求に同意します。</text>
+		<text>彼らの無茶な要求に同意する。</text>
 		<event>
-			<text>長い機械式アームが船体から展開し、補給品をつかみます。エンギはあなたが見返りに報酬を受け取ることを約束します。</text>
+			<text>船体から長い機械アームが繰り出され、物資をつかむ。エンギは見返りを約束する。</text>
 			<item_modify>
 				<item type="fuel" min="-5" max="-5" />
 				<item type="scrap" min="-35" max="-35" />
@@ -826,30 +835,30 @@
 				<item type="drones" min="-7" max="-7" />
 			</item_modify>
 			<choice hidden="true">
-				<text>継続する。</text>
+				<text>続ける。</text>
 				<event load="SEPARATIST_DISGUISE_DONATE" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_HARMONY">
-		<text>（ハーモニークルー）彼らに連絡し、さらに交渉するように頼みます。</text>
+		<text>(ハーモニー・クルー) 彼らに連絡して、さらに交渉するよう頼む。</text>
 		<event>
-			<text>あなたのエンギは彼らと通信することを要求します。エンギ船は反応せず、継続的な連絡の後、武器はオンラインになります！</text>
+			<text>エンギが通信を要求する。エンギ船は応答せず、続けて呼びかけた後、武器がオンラインになる！</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_VARIANT_SEPARATIST"> 
-		<text>（分離主義者の乗組員）「これらの[engi]は分離主義者であるように思われます。」</text>
+		<text>(分離主義者の乗組員）"彼ら（エンジ）は分離主義者のようだ"。</text>
 		<event>
-			<text>あなたの分離主義者が彼らに連絡してから間もなく、Engi船はカメラをオンにし、彼らが実際に分離主義者のEngiであることを明らかにしました。「連盟、私たちの[目標]は現在互換性があるように思われるでしょう。あなたは交換を行うために - 意志がありますか？</text>
+			<text>分離主義者が彼らと接触して間もなく、エンギ船がカメラを起動し、彼らが本当に分離主義者のエンギであることを明らかにする。「連邦、我々の目的は一致しているようだ。交換を希望するか？それは我々双方の利益になると断言する。</text>
 			<choice>
-				<text>交換に同意します。</text>
+				<text>交換に同意する。</text>
 				<event>
-					<text>お客様は、分離主義者に彼らが望むリソースを提供することに同意し、今回はリクエストがより合理的であることに気づきました。機械的な腕が船から伸びて物資を集め、スクラップを集めて完了すると増量を分配します。</text>
+					<text>分離主義者が欲しがっていた資源を渡すことに同意し、今回の要求がより合理的であることに気づく。機械的なアームが船から伸びて物資を集め、スクラップを集め終わるとオーグメントを分配する。</text>
 					<item_modify>
 						<item type="scrap" min="-40" max="-40" />
 					</item_modify>
@@ -857,20 +866,20 @@
 				</event>
 			</choice>
 			<choice>
-				<text>彼らの申し出を断る。</text>
+				<text>相手の申し出を断る。</text>
 				<event>
-					<text>分離主義者はあなたの拒否にがっかりしたように見えますが、彼らはそれ以上プッシュしないことを決定し、すぐに飛び去ります。</text>
+					<text>分離主義者はあなたの拒否に狼狽しているようだが、それ以上押し進めることはないと判断し、すぐに飛び去る。</text>
 				</event>
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>あなたが助けることができないと言います。</text>
+		<text>力になれないと言うんだ。</text>
 		<event>
-			<text>「サプライズの必要性 - 満たされていない。決定的な行動が必要です...この声をねじ込んでください、私たちは私たちが望むすべての[すべて]を取ります。」</text>
+			<text>"供給 "の必要性は満たされていない。断固とした行動が必要だ。この声などクソ食らえだ。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
@@ -878,11 +887,11 @@
 </event>
 <eventList name="SEPARATIST_DISGUISE_DONATE">
 	<event>
-		<text>あなたは手ごろな騒音を聞いてカメラがオンになり、船の船長が通常のエンギではなく分離主義者であることを明らかにします。彼らはすぐにそれをオフにしますが、損害はすでに行われています。「見て、何もしないでください。何でもします。私たちはあなたが私たちに支払ったものの半分を返します。</text>
+		<text>慌てた音がしてカメラがオンになり、船長が普通のエンジではなく分離主義者であることがわかる。彼らはすぐにカメラを止めたが、ダメージはすでに終わっていた。"いいか、いいか、大胆なことをする必要はない。払った金の半分を返すし、戦う必要もない。フェアだろ？</text>
 		<choice hidden="true">
-			<text>供給を分割することに同意します。</text>
+			<text>物資を分けることに同意する。</text>
 			<event>
-				<text>腕が再び展開し、あなたが彼らに支払った金額の半分を預けます。あなたは彼らが彼らに有利に切り下げられたことに気づきます、しかし彼らが急いで飛び去るので文句を言うには遅すぎます。</text>
+				<text>腕が再び繰り出され、支払った額の半分が入金される。あなたは、彼らが有利になるように丸めたことに気づいたが、彼らは急いで飛び去ってしまったので、文句を言うには遅すぎた。</text>
 				<item_modify>
 					<item type="fuel" min="2" max="2" />
 					<item type="scrap" min="17" max="17" />
@@ -892,39 +901,39 @@
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>それらと戦う。</text>
+			<text>彼らと戦う。</text>
 			<event>
-				<text>分離主義者はあなたに彼らを惜しまないように懇願します、しかしあなたは彼らを生きさせるつもりはありません。</text>
+				<text>分離主義者は助けてくれと懇願するが、あなたは彼らを生かすつもりはない。</text>
 				<ship hostile="true" />
 				<choice hidden="true">
-					<text>継続する...</text>
+					<text>次へ...</text>
 					<event load="COMBAT_CHECK" />
 				</choice>
 			</event>
 		</choice>
 	</event>
 	<event>
-		<text>カメラフィードがちらつき、独善的な分離主義者の船長が現れます。「申し訳ありませんが、それはあなたがだまされているように見えます。私によって。私は非常に賢くて賢いです。ハハ。[報酬]はありません。」</text>
+		<text>カメラの映像がちらつき、ドヤ顔の分離主義者船長が映し出される。「悪いが、君は騙されたようだ。私に。私はとても狡猾で賢い。ハハハ。ところで報酬はない。"</text>
 		<choice hidden="true">
-			<text>ろくでなしを殺します。</text>
+			<text>野郎どもを殺せ。</text>
 			<event>
-				<text>「待って、何をしているのか？いいえ、いいえ、やめてください。待ってください。これは[悪い]アイデアです！」</text>
+				<text>「待って、何してるの？いや、やめろ。待って。これは[悪い]考えだ！"</text>
 				<ship hostile="true" />
 				<choice hidden="true">
-					<text>継続する...</text>
+					<text>次へ...</text>
 					<event load="COMBAT_CHECK" />
 				</choice>
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>あなたがだまされたことを受け入れます。</text>
+			<text>騙されたことを受け入れなさい。</text>
 			<event>
-				<text>分離主義者は、あなたが反撃しないことを選んだことに驚いているようです。通話を終了し、船を無視します。</text>
+				<text>分離主義者はあなたが反撃しないことに驚いているようだ。通話を終わり、船を無視する。</text>
 			</event>
 		</choice>
 	</event>
 	<event>
-		<text>「あなたの寄付は大歓迎です。キャプテン。私は正直です。私たちは調和していない船です。この船は現在分離主義者の支配下にあります。それでも、私たちはあなたに感謝します。この贈り物を受け入れてください。」</text>
+		<text>「寄付はありがたい。正直に言おう。我々はハーモニー船ではないこの船は分離主義者の支配下にあるそれでも、ありがとう。この贈り物を受け取ってください。</text>
 		<augment name="NANOBOT_DEFENSE_SYSTEM" />
 	</event>
 </eventList>
@@ -938,25 +947,25 @@
 
 <event name="DISTRESS_SEPARATIST_GHOST" unique="true">
 	<distressBeacon />
-    <text>唯一の分離主義者の脱出ポッドからコミュニケーションを受け取ります。「私は助けが必要です。ファントムは私の船の制御を想定しています。あなたは状況を修正しますか？」</text>
+    <text>分離主義者の脱出ポッドから通信を受け取る。「助けが必要。ファントムが私の船をコントロールしてる。この状況を直してくれる？</text>
     <ship load="SHIP_SEPARATIST_GHOST" hostile="false" />
     <choice>
-		<text>分離主義者を支援します。</text>
+		<text>分離主義者を支援せよ</text>
 		<event>
-			<text>あなたは占領された容器に近づきます。「聞いてよかった。破壊しないでください。」</text>
+			<text>あなたは占領された船に近づく。"それはよかった。壊さないでくれ"</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
     </choice>
     <choice>
-		<text>関与しないでください。</text>
+		<text>巻き込まれるな。</text>
 		<event>
-			<text>分離主義者はイライラしているようで、すぐに切断されます。</text>
+			<text>分離主義者はイライラしているようで、すぐに接続を切った。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -968,86 +977,86 @@
 </event>
 <eventList name="DISTRESS_SEPARATIST_GHOST_DESTROYED">
    	 <event>
-   		 <text>「うわー。あなたは本当のジャークだよね？分離主義者はハフでコミュニケーションを終了します。</text>
+   		 <text>「ワオ、君は本当に嫌な奴だね。僕はこれからどうすればいいんだ？"分離主義者はふてくされて通信を終える。</text>
    		 <event />
    	 </event>
    	 <event>
-   		 <text>「あなたは私の[財産]を破壊しました。私は私の復venを持っています。」</text>
+   		 <text>「あなたは私の財産を破壊した。復讐してやる </text>
    		 <boarders min="1" max="1" class="engi_separatist" />
    	 </event>
    	 <event>
-   		 <text>「私は今、私に家を収容する船を持っていないので、私はあなたのものに参加することを余儀なくされます。」</text>
+   		 <text>「私は今、私を収容する船がないので、あなた方の船に乗らざるを得ない。 </text>
    		 <crewMember amount="1" class="engi_separatist" />
    	 </event>
 </eventList>
 
 <event name="DISTRESS_SEPARATIST_COMMUNITY_VIRUS" unique="true">
 	<distressBeacon />
-	<text>分離主義者は通常孤立を好みますが、分離主義者のコロニーのまれな例が近くの惑星でホストされています。遭難ビーコンは惑星の表面から発生しているように見えます。</text>
+	<text>分離主義者は通常孤立を好むが、分離主義者のコロニーの珍しい例が近くの惑星にある。遭難信号は惑星の表面から発信されているようだ。</text>
 	<img planet="PLANET_POPULATED_SMALL" />
 	<choice hidden="true">
-		<text>それらに連絡してください。</text>
+		<text>彼らに連絡を。</text>
 		<event>
-			<text>「歓迎されない見知らぬ人にご挨拶します。歓迎されていると考えてください。お願いがあります。最近 [致命的な] ウイルスに感染しました。死傷者は人口の 4 分の 1 を超えています。ご協力いただけますか?」</text>
+			<text>「ようこそ、見知らぬ人。ようこそ。お願いがあります。我々は最近、[致命的な]ウイルスに感染しており、死傷者は人口の1/4を超えている。助けてくれないか？</text>
 			<choice>
-				<text>いくつかの物資を支払う。</text>
+				<text>消耗品を支払う。</text>
 				<event>
-					<text>彼らの反応からそれはあまり役に立たないことがわかりますが、エンギsはあなたの寄付に感謝しています。</text>
+					<text>彼らの反応を見れば、大した役には立たないことがわかるだろうが、それでもエンギ夫妻はあなたの寄付に感謝している。</text>
 					<item_modify>
 						<item type="scrap" min="-20" max="-20" />
 						<item type="drones" min="-4" max="-4" />
 					</item_modify>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
-							<text>分離主義者は、物理的な報酬に関する限り、提供するものは何もありませんが、船体を修理することはできます。</text>
+							<text>分離主義者は物理的な報酬は何もないが、船体を修理してくれる。</text>
 							<damage amount="-10" />
 						</event>
 					</choice>
 				</event>
 			</choice>
 			<choice req="hacking">
-				<text>（ハッキング）ハッキングを使用してウイルスを分離します。</text>
+				<text>(ハッキング）ハッキングを使ってウイルスを隔離する。</text>
 				<event>
-					<text>ハッキングは驚くほど効果的であり、ウイルスのコードのすべてのインスタンスを複数の分離主義者から削除することができます。あなたのハッキングがどれほど効果的であったかで、彼らはあなたが彼らのさらに多くを治すためにあなたがもう少し遅れていることを要求します。</text>
+					<text>あなたのハッキングは驚くほど効果的で、何人かの分離主義者からウイルスのコードをすべて取り除くことができた。あなたのハッキングの効果で、彼らはあなたがもう少し残って、もっと多くの分離主義者を治療するように要求する。</text>
 					<item_modify>
 						<item type="drones" min="-1" max="-1" />
 					</item_modify>
 					<choice hidden="true">
-						<text>戻ってもっと治してください。</text>
+						<text>ここにいて、もっと治すんだ。</text>
 						<event>
-							<text>他の分離主義者を治すのに一日の残りがかかります、しかしついにあなたはウイルスのコロニー全体を治すことができたようです。彼らは非常に感謝しており、あなたの船に装備を贈ります。彼らの労働者の一人はまた、ウイルスが再浮上した場合のコロニーでの彼らの運命を恐れて、あなたのクルーに乗って働くことを秘密裏に申し出ます。</text>
+							<text>他の分離主義者を治療するのに一日かかったが、やっとコロニー全体のウイルスを治療できたようだ。彼らは非常に感謝し、あなたの船の装備の一部をプレゼントする。彼らの労働者の1人も、ウイルスが再発した場合のコロニーでの運命を恐れて、秘密裏にあなたのクルーで働きたいと申し出た。</text>
 							<weapon name="RANDOM" />
 							<crewMember amount="1" class="engi_separatist">L-8133</crewMember>
 							<modifyPursuit amount="1" />
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>あなたはとどまることができません。</text>
+						<text>ここにいることはできない。</text>
 						<event>
-							<text>「待たされなかった死傷者の割合を計算すると、20％です。救われた人はきっと再び感染するでしょう。とにかくできたかのように、私たちはあなたを待たせません。」</text>
+							<text>"待機 "しなかったことによる犠牲者の割合を計算すると、20％。助かった人も必ずまた感染する。私たちはあなたを待たせません。</text>
 						</event>
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" req="engi">
-				<text>（エンギクルー）エンギを送って助けてください。</text>
+				<text>(エンジ・クルー) エンジを派遣してくれ。</text>
 				<event load="DISTRESS_SEPARATIST_COMMUNITY_VIRUS_ENGI" />
 			</choice>
 			<choice hidden="true" req="LIST_VARIANT_SEPARATIST">
-				<text>（分離主義者のクルー）あなたの分離主義者を助けに送ってください。</text>
+				<text>(セパラティスト・クルー）セパラティストを派遣してくれ。</text>
 				<event load="DISTRESS_SEPARATIST_COMMUNITY_VIRUS_SEPARATIST" />
 			</choice>
 			<choice hidden="true" req="LIST_CREW_DEFENDER">
-				<text>（エンギディフェンダークルー）ディフェンダーを下に送って助けてください。</text>
+				<text>(エンジ・ディフェンダー・クルー）ディフェンダーを派遣してくれ。</text>
 				<event load="DISTRESS_SEPARATIST_COMMUNITY_VIRUS_DEFENDER" />
 			</choice>
 			<choice hidden="true">
-				<text>私たちは感染症について何も知りません。</text>
+				<text>私たちは感染症について何も知らない。</text>
 				<event>
-					<text>「-エラー：ロジックが存在しません-感染は生物学的ではありません、私たちはマチです-」あなたは通話を終了します。彼らは再び通信しようとはしません。</text>
+					<text>「エラー：感染症は生物学的なものではなく、私たちは機械的なものです」。彼らは再び通信しようとしない。</text>
 					<choice>
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice>
@@ -1059,11 +1068,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>コロニーを無視します。</text>
+		<text>コロニーは無視する。</text>
 		<event>
-			<text>彼らがあなたに気付くには遠すぎるので、あなたはあなたの現在の場所に邪魔されないままになります。</text>
+			<text>あまりに遠く離れているため、彼らに気づかれることはない。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1075,32 +1084,32 @@
 </event>
 <eventList name="DISTRESS_SEPARATIST_COMMUNITY_VIRUS_ENGI">
 	<event>
-		<text>あなたのエンギは惑星に送られ、そこで彼らはウイルスの発生源を見つけ、分離主義者のシステムのいくつかからそれを一掃することに成功しました。彼らが自分でそれを行う方法を確信したら、彼らはあなたのエンギに船に戻すための贈り物を与えます。</text>
+		<text>エンギが惑星に送られ、ウイルスの発生源を見つけ、分離主義者のシステムからウイルスを除去することに成功した。彼らは自分たちだけでそれを行う方法を確認した後、エンギに船に持ち帰るための贈り物を渡す。</text>
 		<drone name="RANDOM" />
 	</event>
 	<event>
-		<text>エンギは分離主義者をデバッグしようとしますが、最終的にはウイルス自体をキャッチするだけです。コードがゆっくりと侵食され、固体の形状を維持し、ナノボットが散乱するにつれて蒸発します。分離主義者たちはお悔やみを送りますが、他に言うことは何もありません。</text>
+		<text>エンギが分離主義者のデバッグを試みるが、結局ウイルスに感染してしまう。ウイルスは固体の形を維持するコードを徐々に侵食し、ナノボットが散らばると蒸発する。分離主義者は弔意を送るが、他に言うことはない。</text>
 		<removeCrew class="engi">
 			<clone>false</clone>
-			<text>仮想感染がクローンベイを引き継ぐかどうかわからないので、クルーを復活させようとします。残念ながら、クローンは多くの不具合に苦しんでいるようであり、一定の形を保つことができません。あなたは彼らを彼らの悲惨さから解放し、クローンバンクから彼らのデータを削除します。</text>
+			<text>仮想感染がクローンベイに持ち込まれるかどうか確信が持てず、クルーを復活させようと試みる。残念なことに、クローンは多くの不具合に悩まされているようで、一定のフォームを保つことができない。あなたは彼らを不幸から救い出し、クローンバンクからデータを削除する。</text>
 		</removeCrew>
 	</event>
 </eventList>
 <eventList name="DISTRESS_SEPARATIST_COMMUNITY_VIRUS_SEPARATIST">
 	<event>
-		<text>あなたのエンギは惑星に送られ、そこで彼らはウイルスの発生源を見つけ、分離主義者のシステムのいくつかからそれを一掃することに成功しました。彼らが自分でそれを行う方法を確信したら、彼らはあなたのエンギに船に戻すための贈り物を与えます。</text>
+		<text>エンギが惑星に送られ、ウイルスの発生源を見つけ、分離主義者のシステムからウイルスを除去することに成功した。彼らは自分たちだけでそれを行う方法を確認した後、エンギに船に持ち帰るための贈り物を渡す。</text>
 		<drone name="RANDOM" />
 	</event>
 	<event>
-		<text>エンギは分離主義者をデバッグしようとしますが、最終的にはウイルス自体をキャッチするだけです。コードがゆっくりと侵食され、固体の形状を維持し、ナノボットが散乱するにつれて蒸発します。分離主義者たちはお悔やみを送りますが、他に言うことは何もありません。</text>
+		<text>エンギが分離主義者のデバッグを試みるが、結局ウイルスに感染してしまう。ウイルスは固体の形を維持するコードを徐々に侵食し、ナノボットが散らばると蒸発する。分離主義者は弔意を送るが、他に言うことはない。</text>
 		<removeCrew class="LIST_VARIANT_SEPARATIST">
 			<clone>false</clone>
-			<text>仮想感染がクローンベイを引き継ぐかどうかわからないので、クルーを復活させようとします。残念ながら、クローンは多くの不具合に苦しんでいるようであり、一定の形を保つことができません。あなたは彼らを彼らの悲惨さから解放し、クローンバンクから彼らのデータを削除します。</text>
+			<text>仮想感染がクローンベイに持ち込まれるかどうか確信が持てず、クルーを復活させようと試みる。残念なことに、クローンは多くの不具合に悩まされているようで、一定のフォームを保つことができない。あなたは彼らを不幸から救い出し、クローンバンクからデータを削除する。</text>
 		</removeCrew>
 	</event>
 </eventList>
 <event name="DISTRESS_SEPARATIST_COMMUNITY_VIRUS_DEFENDER">
-	<text>あなたのエンギは惑星に送られ、そこで彼らはウイルスの発生源を見つけ、分離主義者のシステムのいくつかからそれを一掃することに成功しました。彼らが自分でそれを行う方法を確信したら、彼らはあなたのエンギに船に戻すための贈り物を与えます。</text>
+	<text>エンギが惑星に送られ、ウイルスの発生源を見つけ、分離主義者のシステムからウイルスを除去することに成功した。彼らは自分たちだけでそれを行う方法を確認した後、エンギに船に持ち帰るための贈り物を渡す。</text>
 	<drone name="RANDOM" />
 </event>
 
@@ -1109,13 +1118,13 @@
     <text load="TEXT_DISTRESS_SEPARATIST_TRAP_BEACON" />
     <ship load="SHIP_SEPARATIST_FIGHT" hostile="true" />
     <choice hidden="true">
-        <text>継続する...</text>
+        <text>次へ...</text>
         <event load="COMBAT_CHECK" />
     </choice>
 </event>
 <textList name="TEXT_DISTRESS_SEPARATIST_TRAP_BEACON">
-    <text>ここで苦痛のビーコンを放出するエンギ船はすでに破壊されています。責任ある分離主義者の船は、あなたが彼らが求めていた補強材であると仮定して、あなたを関与させます。</text>
-    <text>「キャプテン、これは偽の苦痛のビーコンであることを知っている必要があります。異なる微小透視とガンマノードの周波数は、それらを観察できなかったことを考えると、あなたは低い個人でなければならないことを考えると、IQ-したがって、私にあなたを[根絶]する以外に選択肢はありません。心配しないでください、宇宙はあなたの - ゆったりとした知性を見逃すことはありません。」</text>
+    <text>遭難信号を発信したエンギ船は既に破壊された。次に分離主義者の船があなたと交戦する。あなたが援軍だと思ってる。</text>
+    <text>「船長、これが偽の救難信号だと気づくべきだったのです。微小振動とガンマ・ノードの周波数の違いは、決定的な証拠だ。君がそれを観察できなかったことを考えると、君はIQの低い人間に違いない。心配するな、宇宙は君の圧倒的な知性を見逃すことはない」。</text>
 </textList>
 
 
@@ -1124,32 +1133,32 @@
 </eventList>
 
 <event name="QUEST_SEPARATIST_ENGI_BOUNTY" unique="true">
-	<text>エンギ船の戦隊が近くの小さな月にキャンプを設置しました。彼らは平和に見えます、そして彼らの防御的なドローンだけが保護のためにオンラインです。</text>
+	<text>エンギ船団が近くの小さな月にキャンプを張った。彼らは平和的な様子で、防御用のドローンだけがオンラインになっている。</text>
 	<choice hidden="true">
-		<text>彼らに連絡する。</text>
+		<text>万歳。</text>
 		<event>
-			<text>「連絡のリクエストを受け取りました。タイミングは幸運です。私たちはあなたに申し出をします。現在の目的：分離主義者を追い詰めてハーモニーに戻ります。危険な分離主義者の船の場所はわかっています。危険が高すぎて交戦できません。あなたたちで船を捕獲するようお願いします。」</text>
+			<text>"接触要求 "受領。幸運なタイミングだ。オファーがある現在の目的：分離主義者を追い詰めて、ハーモニーに戻る危険な分離主義者の船の場所が分かった、交戦するのは危険すぎる。自分達で船を拿捕して欲しい</text>
 			<choice hidden="true">
-				<text>同意。</text>
+				<text>同意する。</text>
 				<event>
-					<text>エンギは分離主義船の位置を送信します。</text>
+					<text>エンギが分離主義者の船の位置を送信する。</text>
 					<quest event="QUEST_SEPARATIST_ENGI_BOUNTY_QUEST" />
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>彼らの要求を拒否します。</text>
+				<text>彼らの要求を拒否する。</text>
 				<event>
-					<text>エンギはすぐに送信を終了し、それ以上の呼びかけには応答しません。</text>
+					<text>エンジは直ちに通信を終了し、それ以上の呼びかけには応じない。</text>
 				</event>
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>それらを無視します。</text>
+		<text>無視するんだ。</text>
 		<event>
-			<text>エンギの船はあなたの存在に邪魔されているようには見えず、あなたはそれらを放っておいてください。</text>
+			<text>エンギ船はあなたの存在に邪魔された様子もなく、あなたは彼らを放っておいた。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1162,12 +1171,12 @@
 <event name="QUEST_SEPARATIST_ENGI_BOUNTY_QUEST">
 	<beaconType id="map_icon_quest" global="true">
 		<color r="69" g="168" b="235" a="1" />
-		<unvisitedTooltip>分離主義者の船は、調和の標的です。</unvisitedTooltip>
+		<unvisitedTooltip>分離主義者の船がハーモニーに狙われる。</unvisitedTooltip>
 	</beaconType>
-	<text>分離主義者があなたに気付くのにそれほど時間はかかりません。 「それで、あなたは私を殺すために来ましたか？それから戦いの準備をしてください、連邦。」あなたは船を破壊せずに捕獲するというエンギの命令を覚えています。そうするためには彼らのクルーを殺さなければならないことを知っています。</text>
+	<text>分離主義者があなたに気づくのに時間はかからない。「私を殺しに来たのか？では戦闘の準備をしろ、連邦」船を破壊せずに捕獲しろというエンギの命令を思い出す。そのためにはクルーを殺さなければならない。</text>
 	<ship load="SHIP_SEPARATIST_BOUNTY" hostile="true" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
@@ -1185,24 +1194,24 @@
 	<text load="TEXT_ENCOUNTER_SEPARATIST" />
 	<ship load="SHIP_SEPARATIST_FIGHT" hostile="true" /> 
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <textList name="TEXT_ENCOUNTER_SEPARATIST">
-    <text>短いスクリーチが通信を再生し、続いてバイナリのループメッセージが再生されます。分離主義者の船があなたの防御を跳ね返す警告ショットを発射する前に、あなたは翻訳する時間がありません。</text>
-    <text>奇妙に冗長なエンギがあなたを歓迎します。「不幸な出会いの時間、-Federation-船。私は、理由と論理のためにエンコードする私のシステムの部分を[損傷]したように見えますが、今では殺したいという欲求があります。」</text>
-    <text>激怒した分離主義者があなたを歓迎します。「問題：あなたは、微視的状態の[私の]の生涯の友人にactcciscidallyを持っています。解決策：死ぬ。」</text>
-    <text>分離主義者は通常他の船を避けますが、このビーコンにある船は危機的な状態にあり、スクラップを切実に必要としているようです。</text>
-    <text>分離主義者の船が攻撃のために移動します。どのように彼らを怒らせたかはわかりませんが、それはもはや重要ではありません。</text>
-    <text>あなたは、シェイクスピアという名前の死んだ男の作品について多くのことを話し始める分離主義者の船に歓迎されています。彼は突然彼のスピーチを突然止めて攻撃します！</text>
+    <text>通信機から短い悲鳴が流れ、バイナリーのメッセージがループする。翻訳する間もなく、分離主義者の船が威嚇射撃を放ち、防御を跳ね返す。</text>
+    <text>妙に饒舌なエンギが呼びかける。"不運な出会いだ、連邦船。私は理性と論理をコード化するシステムの一部を損傷したようだ。</text>
+    <text>激怒した分離主義者があなたを呼び止める。"問題：あなたは[私の]生涯の友を、偶然にもミクロの状態で踏んでしまった。解決策：死ね。</text>
+    <text>通常、分離主義者は他の船を避けるが、このビーコンにいる船は危篤状態で、スクラップが絶望的に必要なようだ。</text>
+    <text>分離主義者の船が攻撃してくる。どうやって彼らを怒らせたかわからないが、もう関係ない。</text>
+    <text>あなたは分離主義者の船に迎えられ、彼はシェイクスピアという死んだ男の作品について大いに語り始めた。彼は突然スピーチを止め、攻撃してきた！</text>
 </textList>
 
 <event name="ENCOUNTER_ENGI_SEPARATIST" unique="true">
-	<text>分離主義者の船がビーコンを周回しますが、彼らに連絡する前に彼らは飛び去り、エンギ船が近づきます。 「ハーモニーの敵を支援する連邦？ジレンマ...連邦船：排除されなければならない。」</text>
+	<text>分離主義者の船がビーコンを周回してるけど、連絡する前にジャンプして、エンギ船が近づく。「連邦がハーモニーの敵を助ける？ジレンマだ連邦船は排除しなければならない</text>
 	<ship load="SHIP_ENGI_FIGHT" hostile="true" /> 
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
@@ -1211,28 +1220,28 @@
 	<text load="TEXT_ENCOUNTER_MANTIS_SEPARATIST" />
 	<ship load="SHIP_MANTIS_FIGHT" hostile="true" /> 
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <textList name="TEXT_ENCOUNTER_MANTIS_SEPARATIST">
-	<text>分離主義者であろうとなかろうと、マンティスは彼らのエンギ奴隷の出所を気にしません。このセクターを偵察しているマンティスがあなたの船を攻撃することにしました！</text>
-	<text>マンティスの船は、通常のエンギセクターであると想定してここに来る可能性が高いですが、戦うための人口の多い船の不足から悪化しています。最後にあなたの船の形で挑戦的な戦いによって迎えられ、彼らは移動して攻撃するために時間を無駄にしません。</text>
-	<text>あなたは分離主義者の船に歓迎され、「キラーバグに気をつけろ！」と簡単に叫びます。飛び去る前に。追跡しているマンティスの船は、代わりにあなたを獲物にすることにしました。</text>
-	<text>欲求不満のマンティスキャプテンが通話画面に表示されます。 「ああ、別の船。あなたが私たちに挨拶する不思議な恐怖は何ですか？おそらく肉食雲？おそらく長い触手を持つナイフハンドモンスター？」彼はあなたが実際に連邦船であることにすぐに気づき、彼の疑問はすべて解消されました。彼はクルーに戦闘の準備をするように命じました！</text>
-	<text>このセクターでは、赤い船体の閃光がエンギまたは他の船をもたらすかどうかを見分けるのは難しいかもしれません。残念ながら、今回は戦いを切望しているマンティスであることが判明しました。</text>
+	<text>分離主義者であろうとなかろうと、マンティスはエンジ奴隷の出所を気にしない。このセクターを偵察していたマンティスがあなたの船を攻撃することにした！</text>
+	<text>通常のエンギ・セクターだと思い込んでここに来たのだろう、マンティス艦が戦える船が少ないことに苛立ちを募らせている。ようやくあなたの船という挑戦的な戦いに出くわすと、彼らは時間を無駄にすることなく攻撃してくる。</text>
+	<text>分離主義者の船に呼び止められ、「殺人虫に気をつけろ！」と短く叫んでから飛び去る。追ってきたマンティス艦はあなたを獲物にすることにした。</text>
+	<text>イライラしたマンティスの艦長が通話スクリーンに映し出された。「すごいな、また船か。どんな不思議な恐怖で我々を迎えてくれるんだ？肉食雲か？長い触手を持つナイフハンドの怪物か？"彼はすぐにあなた方が連邦の船であることに気づき、すべての疑念が晴れた。彼はクルーに戦闘準備を命じる！</text>
+	<text>このセクターでは、赤い船体の閃光がエンギを運んでくるのか、それとも他の船を運んでくるのか、見分けがつかないことがある。残念なことに、今回は戦いを待ち望むマンティスであることが判明した。</text>
 </textList>
 
 <event name="ENCOUNTER_ZOLTAN_AUTO_SEPARATIST" unique="true">
-	<text>「自動発送は避けることをお勧めします。壊れています。」あなたは、いくつかの大きな小惑星の後ろに隠れていることを歓迎した分離主義の船と、ゾルタンがあなたに向かって自動船のバレルを作ったことに気づきました！</text>
+	<text>「オートシップはお避けください。壊れてるあなたを呼んだ分離主義者の船が大きな小惑星の後ろに隠れて、ゾルタン製の自動船があなたに向かって突進してくる！</text>
 	<ship load="SHIP_ZOLTAN_AUTO_FIGHT_SEPARATIST" hostile="true" /> 
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <event name="ENCOUNTER_ZOLTAN_AUTO_SEPARATIST_KILL">
-	<text>分離主義者は、ロボットの笑いのように聞こえる何かを解放しました。「良い、なぜ他の人が剣闘士の戦闘を見ることから多くの[楽しさ]を得るのかわかります。」彼らは飛び去り、自動船の難破船を残します。</text>
+	<text>分離主義者はロボットのような笑いを漏らす。「よし、剣闘士の戦いを見て、他の者が大いに[楽しむ]理由がわかった」。あなたをオートシップの残骸に残して、彼らは飛び去る。</text>
 	<autoReward level="LOW">standard</autoReward>
 </event>
 
@@ -1241,17 +1250,17 @@
 	<preventQuest />
 	<beaconType id="map_icon_link" global="false">
 		<color r="137" g="142" b="148" a="1.0" />
-		<unvisitedTooltip>これはハーモニーリンクの場所です。</unvisitedTooltip>
-		<visitedTooltip>これはハーモニーリンクの場所です。</visitedTooltip>
+		<unvisitedTooltip>これはハーモニーリンクの位置である。</unvisitedTooltip>
+		<visitedTooltip>これはハーモニーリンクの位置である。</visitedTooltip>
 	</beaconType>
-	<text>ハーモニーリンクを発見したようです。これらの巨大な惑星サイズの構造は、何兆ものナノボットで構成されており、セクター内のすべてのエンギに強力な信号を送信します。ただし、これは機能しなくなったようで、分離主義者がこのセクターを支配したときに妨害された可能性があります。</text>
+	<text>ハーモニーリンクを発見したようだ。この巨大な惑星サイズの構造は何兆ものナノボットで構成され、セクター内の全てのエンジに強い信号を送信する。分離主義者がこのセクターを支配した時に妨害したみたい。</text>
 	<img back="BACK_EVENT_HARMONYLINK" planet="NONE" />
 	<choice hidden="true" lvl="1" req="HARMONY_LINK_CHECK" max_group="1" blue="false">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="HARMONY_LINK_SEP_EVENTS" />
 	</choice>
 	<choice hidden="true" lvl="0" req="HARMONY_LINK_CHECK" max_group="1" blue="false">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="HARMONY_LINK_EVENTS_SEP_NOANCIENT" />
 	</choice>
 </event>
@@ -1260,17 +1269,17 @@
 	<preventQuest />
 	<beaconType id="map_icon_link" global="false">
 		<color r="137" g="142" b="148" a="1.0" />
-		<unvisitedTooltip>これはハーモニーリンクの場所です。</unvisitedTooltip>
-		<visitedTooltip>これはハーモニーリンクの場所です。</visitedTooltip>
+		<unvisitedTooltip>これはハーモニーリンクの位置である。</unvisitedTooltip>
+		<visitedTooltip>これはハーモニーリンクの位置である。</visitedTooltip>
 	</beaconType>
-	<text>ハーモニーリンクを発見したようです。これらの巨大な惑星サイズの構造は、何兆ものナノボットで構成されており、セクター内のすべてのエンギに強力な信号を送信します。ただし、これは機能しなくなったようで、分離主義者がこのセクターを支配したときに妨害された可能性があります。</text>
+	<text>ハーモニーリンクを発見したようだ。この巨大な惑星サイズの構造は何兆ものナノボットで構成され、セクター内の全てのエンジに強い信号を送信する。分離主義者がこのセクターを支配した時に妨害したみたい。</text>
 	<img back="BACK_EVENT_HARMONYLINK" planet="NONE" />
 	<choice hidden="true" lvl="1" req="HARMONY_LINK_CHECK" max_group="1" blue="false">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="HARMONY_LINK_ANCIENT" />
 	</choice>
 	<choice hidden="true" lvl="0" req="HARMONY_LINK_CHECK" max_group="1" blue="false">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="HARMONY_LINK_EVENTS_SEP_NOANCIENT" />
 	</choice>
 </event>
@@ -1287,23 +1296,23 @@
 </eventList>
 
 <event name="HARMONY_LINK_SEPARATIST">
-	<text>分離主義者の船がハーモニーリンクを分析しています。彼らはあなたに気づかないか、あなたの存在をあまり気にすることができませんでした。</text>
+	<text>分離主義者の船がハーモニーリンクを分析してる。あなたに気づいてないか、あなたの存在を気にしてない。</text>
 	<ship load="SHIP_SEPARATIST_FIGHT" hostile="false" />
 	<choice hidden="true">
-		<text>彼らに連絡する。</text>
+		<text>万歳。</text>
 		<event>
-			<text>「はい、連邦政府に会いましょう。もしあなたが役に立つことを望むなら、おそらくあなたは私たちにいくつかの爆発物を貸してくれるでしょう。私たちはハーモニーリンクの[解体]を試みています。」</text>
+			<text>「そうだ。もしお役に立ちたいのなら、爆薬をお貸しいただけないでしょうか。我々はハーモニーリンクの解体を試みている。</text>
 			<choice>
-				<text>それらに5発のミサイルを与えます。</text>
+				<text>ミサイル5発を与える。</text>
 				<event>
-					<text>あなたはミサイルを分離主義者に転送します。</text>
+					<text>ミサイルを分離主義者に譲渡する。</text>
 					<item_modify>
 						<item type="missiles" min="-5" max="-5" />
 					</item_modify>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
-							<text>「うわー。これはかなり-役に立たない-。私たちはこれらを使うことさえできない。これは約5スクラップの価値があると思う。」</text>
+							<text>「わあ、これは役に立たない。これは使えない。これはスクラップ5個分くらいの価値があると思う。"</text>
 							<item_modify>
 								<item type="scrap" min="5" max="5" />
 							</item_modify>
@@ -1312,16 +1321,16 @@
 				</event>
 			</choice>
 			<choice>
-				<text>それらに15発のミサイルを与えます。</text>
+				<text>15発のミサイルを与える。</text>
 				<event>
-					<text>あなたはミサイルを分離主義者に転送します。</text>
+					<text>ミサイルを分離主義者に譲渡する。</text>
 					<item_modify>
 						<item type="missiles" min="-15" max="-15" />
 					</item_modify>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
-							<text>分離主義者はミサイルを搭載し、ハーモニーリンクに直接発射します。それは外部を粉砕し、ナノボットを飛ばしますが、目立った損傷なしに再び改革するためだけです。 「まあ、少なくとも今は[知っている]。この支払いを受け入れる。」</text>
+							<text>分離主義者がミサイルを装填し、ハーモニーリンクに直接発射する。外装を粉砕し、ナノボットを飛ばし、目立った損傷なく再び形成される。"まあ、少なくとも今、我々は［知っている］。この支払いを受け取れ。</text>
 							<autoReward level="LOW">standard</autoReward>
 							<drone name="RANDOM" />
 						</event>
@@ -1329,28 +1338,28 @@
 				</event>
 			</choice>
 			<choice>
-				<text>却下。</text>
+				<text>衰退。</text>
 				<event />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>この状況を利用して攻撃してください！</text>
+		<text>この状況を利用し、攻撃を仕掛ける！</text>
 		<event>
-			<text>分離主義者は言葉を話しませんが、明らかに戦いなしでは倒れません！</text>
+			<text>分離主義者たちは言葉を発しないが、戦わずには倒れないことは明らかだ！</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>エンギを無視します。</text>
+		<text>エンジは無視。</text>
 		<event>
-			<text>彼らがあなたにとって脅威ではない場合、あなたは彼らにとって脅威ではありません。</text>
+			<text>彼らがあなたにとって脅威でなければ、あなたも彼らにとって脅威ではなくなる。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>

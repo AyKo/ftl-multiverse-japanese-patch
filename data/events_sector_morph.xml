@@ -10,64 +10,68 @@
 </eventList>
 
 <event name="MORPH_ZOLTAN" unique="true">
-    <text>ゾルタンの科学船はこの地域にあります。「私たちはこの地域に関する非常に興味深い科学的報告書を読んでいますが、残念ながら省に開示された情報はそれほど多くありません。ジャーナルのための調査論文を書きたいと思っています。この地域に？」</text>
+    <text>ゾルタンの科学船がこの地域にいる。"この地域に関する非常に興味をそそられる科学的な報告書をいくつか読んだが、残念ながら省に公開されている情報はそれほど多くない。学術誌に調査論文を書きたいと思っています。この地域特有の興味深い現象を見たことがありますか？"</text>
     <ship load="SHIP_ZOLTAN_ALL" hostile="false" />
     <choice hidden="true" req="ADV_SCANNERS">
-		<text>（長距離スキャナー）高度なセンサーの測定値を共有します。</text>
+		<text>(長距離スキャナー）高度なセンサーの測定値を共有する。</text>
 		<event>
-			<text>「私は、これらはいくつかの興味深い読み物です。私たちはこれらでできることをします。」</text>
+			<text>「なるほど、興味深い読みだ。これでできることをしよう"</text>
 			<autoReward level="LOW">standard</autoReward>
 		</event>
     </choice>
     <choice hidden="true" req="sensors" lvl="3">
-		<text>（Adv。Sensors）高度なセンサーの測定値を表示します。</text>
+		<text>(アドバンスセンサー）アドバンスセンサーの測定値を見せる。</text>
 		<event>
-			<text>「私は、これらはいくつかの興味深い読み物です。私たちはこれらでできることをします。」</text>
+			<text>「なるほど、興味深い読みだ。これでできることをしよう"</text>
 			<autoReward level="LOW">standard</autoReward>
 		</event>
     </choice>
     <choice hidden="true" req="shell_scientist">
-		<text>（シェルサイエンティスト）シェル科学者が彼らの研究の一部を共有するよう奨励してください。</text>
+		<text>(シェル・サイエンティスト）シェル・サイエンティストに、彼らの研究の一部を共有するよう促しましょう。</text>
 		<event>
-			<text>あなたの科学者はため息をつき、彼らが逃げることができるあらゆる情報を共有することに同意しますが、著者として適切に認められることを主張します。Zoltansはこの契約を受け入れます。</text>
+			<text>科学者はため息をつき、共有できる情報は何でも共有することに同意するが、著者としてきちんとクレジットされることを主張する。ゾルタンはこの合意を受け入れる。</text>
 			<autoReward level="MED">standard</autoReward>
 		</event>
     </choice>
     <choice hidden="true" req="unique_alkali">
-		<text>（アルカリ）アルカリに彼の研究へのアクセスを許可するよう奨励します。</text>
+		<text>(アルカリ）アルカリに自分の研究へのアクセスを許可するよう働きかける。</text>
 		<event>
-			<text>アルカリはあなたを奇妙に見て、彼の目を転がします。「大丈夫ですが、それが価値がある場合にのみ。」その後、彼は省の科学者と話をするために電話に飛び込みます。「ヘッド研究者は誰ですか？私はハックを手伝うつもりはありません - しかし、もしそれが価値があるなら、私たちは何かを解決することができます。」..彼女は今でもゾルタンのスペースに戻っています。」数分後、彼はうなずき、戻ってきます。「私はあなたに私の研究のいくつかを送ります。あなたは私について非常に輝く「謝辞」セクションを書いた方がいいでしょう！」Zoltansはこれに同意するのがとても幸せそうに見え、スクラップのハンサムな報酬を与えます。</text>
+			<text>アルカリは不思議そうな顔をして目を丸くした。"構わないが、それだけの価値があるのならな"そして、省内の科学者たちと話をするために電話に出た。「研究責任者は誰だ？私はハッカーを助けるつもりはないが、もし彼らがそれだけの価値があるのなら、何とかなるだろう」 
+
+「あ、はい、彼女のポートフォリオをすぐに送ります...彼女は今まだゾルタン宇宙域にいます」 
+
+アルカリは彼女のファイルに目を通し、彼女が取り組んだ論文や貢献したことに目を通す。数分後、アルカリはうなずき、また仕事に戻った。「私の研究の一部を送るよ。私の研究の一部を送りますから、"謝辞 "の欄に私のことを熱く書いてください！"ゾルタン人は大喜びでこれを承諾し、クズ同然の報酬をくれるようだ。</text>
 			<autoReward level="HIGH">standard</autoReward>
 			<event>
-				<text>ゾルタン船の船長は、余分な贈り物で彼の感謝を示しています。</text>
+				<text>ゾルタン船の船長は、特別な贈り物で感謝を示す。</text>
 				<weapon name="GIFTLIST_ZOLTAN" />
 			</event>
 		</event>
     </choice>
     <choice hidden="true" req="LIST_CREW_MORPH">
-		<text>（モーフクルー）モーフクルーメンバーを見せてください。</text>
+		<text>(モーフクルー）あなたのモーフクルーメンバーを見せる。</text>
 		<event>
-			<text>「だから、これは彼らがその星雲に隠れているものです！魅力的です。私たちはいくつかの読みを取り、あなたがあなたの道を進んでみましょう！」</text>
+			<text>「これが星雲に隠されていたものなのか！魅力的だ。少し測定して帰ろう！"</text>
 			<autoReward level="HIGH">standard</autoReward>
 		</event>
     </choice>
     <choice>
-		<text>科学者を攻撃します。</text>
+		<text>科学者を攻撃する。</text>
 		<event>
-			<text>省はすでに十分な日陰の秘密を持っています、彼らはこれに入る必要はありません。これらの科学者はあなたの武器に匹敵しません。</text>
+			<text>魔法省にはすでに十分な秘密がある。この科学者たちは、あなた方の武器にはかなわない。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
 			</choice>
 		</event>
     </choice>
     <choice hidden="true">
-		<text>あなたが彼らに見せるために何も持っていないことを彼らに伝えてください。</text>
+		<text>彼らに見せるものは何もないと言ってくれ。</text>
 		<event>
-			<text>「それから私たちは見続けます。」</text>
+			<text>「じゃあ、探し続けよう</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -80,45 +84,45 @@
 
 <event name="MORPH_SLUG" unique="true">
 	<distressBeacon />
-	<text>あなたは、苦しんでいる船を見つけることを期待して、飛び込みます。代わりに、スラッグのクランズマンが異星人のポップコーンを噛んでいるのが見えます。 「ああ、ちょっとwatssssup男。」</text>
+	<text>あなたは遭難船を期待して飛び込んだ。その代わり、スラッグ一族がエイリアンのポップコーンを頬張っているのが見えた。"やあ、元気かい？"</text>
 	<choice hidden="true">	
-		<text>救難信号とは何ですか？</text>
+		<text>救難ビーコンは？</text>
 		<event>
-			<text>「ああ、そうだね。1分前にここにsssome Morphsssがあった。私が彼らを怖がらせたと思う-」Morph船が戻ってきて、スラッグの船体に発砲すると、スラッグは切断されます。</text>
+			<text>"ああ、そうだ。さっきまでモーフが何匹かいたんだ。脅かして追い払ったつもりなんだけど......」。スラッグは、モーフ船がスラッグ船体に発砲して戻ってきたときに切られた！</text>
 			<choice hidden="true">	
-				<text>スラッグのクランマンを助けてください。</text>
+				<text>スラッグ一族を助ける。</text>
 				<event>
-					<text>モーフがこれらのクランマンを攻撃する正当な理由があるかもしれません...しかし、それにもかかわらず、あなたはそれを起こさせるつもりはありません！</text>
+					<text>モーフがクランズマンたちを攻撃する正当な理由があるのだろうが......それにもかかわらず、あなたはそれを許すつもりはない！</text>
 					<ship load="SHIP_MORPH_SLUG_MORPH" hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">	
-				<text>モーフを助けます。</text>
+				<text>モーフを助ける。</text>
 				<event>
-					<text>モーフが怒っている理由を想像することができます-クランズマンは彼らの仲間の星雲の住人に友好的であることで知られていません...またはそのことについては誰でも。あなたは彼らをギルドの次の獲物にさせません。あなたはモーフを守る準備をします！</text>
+					<text>クランズマンが星雲の住人に友好的でないことは知られている。彼らをギルドの次の獲物にはさせない。モーフを守る準備をするんだ！</text>
 					<ship load="SHIP_MORPH_SLUG_CLAN" hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">	
-				<text>さて楽しいチャット、出発する時間。</text>
+				<text>さて、楽しいおしゃべりはここまで。</text>
 				<event />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>明らかに、彼らはもう危険にさらされていません。離れる。</text>
+		<text>明らかに、彼らはもう危険な状態ではない。去れ。</text>
 		<event>
-			<text>これらのクランズマンは、あなたがそれを予期しないときにあなたを撃つためだけにあなたのガードを下げようとしている可能性があります。このセクターの予測不可能な住民に楽しませるために彼らを残しておく方が良いです。</text>
+			<text>このクランズマンたちは、あなたのガードを下げて、あなたが予期しないときにあなたを撃とうとしている可能性が高い。このセクターの予測不可能な住人たちを楽しませるために、彼らを放っておく方がいい。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -130,38 +134,38 @@
 </event>
 <eventList name="MORPH_SLUG_CLANHELP">
 	<event>
-		<text>クランズマン船は戦闘で破壊されたようです。残りはほとんどありませんが、あなたが取るべきスクラップの問題です。</text>
+		<text>クランズマン船は戦闘で破壊されたようだ。スクラップ以外はほとんど残っていない。</text>
 		<autoReward level="MED">standard</autoReward>
 	</event>
 	<event>
-		<text>クランズマンの船が戦闘中に殴打されたように見えます...しかし、船内のスラッグはまだ生きています。 「Ayyyyomyssshipissstotaled。それでよければ今すぐあなたと一緒にハングアップするつもりです。」</text>
+		<text>戦いの間、クランズマン船は打撃を受けたようだ...しかし、船上のスラッグはまだ生きている。「俺の船は全損だ。もしよろしければ、今すぐご一緒しましょう。"</text>
 		<crewMember amount="1" class="slug_clansman" />
 	</event>
 </eventList>
 
 <event name="MORPH_RUINS" unique="true">
-	<text>シェルは通常星雲に固執しますが、シェル研究の前哨基地は以前ここに設置されたようです。ひどいダメージですが、何か残っているのでしょうか？</text>
+	<text>通常、シェルは星雲に張り付いているが、以前はここにシェルの研究前哨基地が設置されていたようだ。損傷が激しいが、もしかしたら何か残っているかもしれない。</text>
 	<choice hidden="true">	
-		<text>難破船に近づきます。</text>
+		<text>難破船に近づく。</text>
 		<event>
-			<text>あなたは難破船に近づきますが、整備士の船が通り過ぎると停止します。 「ねえ、本当に必要なの？あなたは私たちの仕事を難しくしているだけです。経営陣は常に最悪の仕事をします！私はむしろ平凡な頭脳をすくい取ったり、スラッグと戦ったりしたいのですが、それでも私はここにいます。ステーションだけでよろしいですか？」</text>
+			<text>難破船に近づいたが、整備士の船が通り過ぎたので止められた。「おい、それ本当に必要なのか？我々の仕事を難しくするだけだ。管理職はいつも最悪の仕事をさせられる！私はイコノイドの脳をすくい出したり、スラッグと戦ったりしているほうがましだ。私たちの願いを聞いて、そのステーションを放っておいてくれませんか？"</text>
 			<ship load="SHIP_SHELL_MECH" hostile="false" />
 			<choice hidden="true">	
 				<text>いや。</text>
 				<event>
-					<text>あなたはシェルを無視し、あなたができるすべてをすくい上げます。船は怒りを増しているのを見て、彼らの船長はついにパチンと鳴りました。 「了解しました。あなたを地獄に追いやる。私たちにはやるべき仕事があり、あなたは正式に一線を越えました！」</text>
+					<text>あなたは貝を無視し、すくい上げられるものはすべてすくい上げる。船は怒りをあらわにし、船長はついにキレた。「よし、地獄に堕ちろ。俺たちには仕事があるんだ。お前たちは正式に一線を越えたんだ！"</text>
 					<autoReward level="MED">standard</autoReward>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="MORALITY_UPDATE_SHELL_FIGHT" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">	
-				<text>助けるためにいくつかのスクラップを提供します。 [-30スクラップ]</text>
+				<text>スクラップを提供する[-30スクラップ]</text>
 				<event>
-					<text>「ああ、すごい。非常に役立つ！評議会は私たちにもっと良い資金を承認できないのか？監督ネルタ？ああ、それはとても気持ちがいいです...」</text>
+					<text>「おお、すごい。それは助かります！どうして議会はもっといい資金を認可してくれないんだ？この仕事は嫌いだ。こんな仕事嫌だ。辞めます！今は君と一緒だ。どうするんだ、ネルバ局長？ああ、それを言うのはとても気分がいい......"</text>
 					<item_modify>
 						<item type="scrap" min="-30" max="-30" />
 					</item_modify>
@@ -169,16 +173,16 @@
 				</event>
 			</choice>
 			<choice hidden="true" req="REPAIR_ARM">	
-				<text>（修理アーム）ステーションを修理します。</text>
+				<text>(リペアアーム）ステーションを修理する。</text>
 				<event>
-					<text>「ああ、すごい。非常に効率的です！なぜ評議会は私たちを承認できないのですか？監督ネルタ？ああ、それはとても気持ちがいいです...」</text>
+					<text>「おお、すごい。効率的だね！なんで評議会はそれを使うことを許可しないんだ？うう、この仕事は嫌いだ。こんな仕事嫌だ。辞めます！今、君と一緒にいる。どうするんだ、ネルバ局長？ああ、それを言うのはとても気分がいい......"</text>
 					<crewMember amount="1" class="shell_mechanic" />
 				</event>
 			</choice>
 			<choice hidden="true" req="SHIP_REPAIR">	
-				<text>（船体修理ドローン）ステーションを修理します。 [-1ドローン]</text>
+				<text>(船体修理ドローン）ステーションを修理する。[-1ドローン]</text>
 				<event>
-					<text>「ああ、すごい。非常に効率的です！なぜ評議会は私たちを承認できないのですか？監督ネルタ？ああ、それはとても気持ちがいいです...」</text>
+					<text>「おお、すごい。効率的だね！なんで評議会はそれを使うことを許可しないんだ？うう、この仕事は嫌いだ。こんな仕事嫌だ。辞めます！今、君と一緒にいる。どうするんだ、ネルバ局長？ああ、それを言うのはとても気分がいい......"</text>
 					<crewMember amount="1" class="shell_mechanic" />
 					<item_modify>
 						<item type="drones" min="-1" max="-1" />
@@ -186,17 +190,17 @@
 				</event>
 			</choice>
 			<choice hidden="true">	
-				<text>離れる。</text>
+				<text>出て行け。</text>
 				<event />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>難破船は無視してください。</text>
+		<text>難破船を無視する。</text>
 		<event>
-			<text>ある人のゴミは別の人のゴミでもあります。とにかく取る価値があるものを残すことができますか？</text>
+			<text>人のゴミは人のゴミでもある。何が残るというのだ？</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -208,21 +212,21 @@
 </event>
 
 <event name="MORPH_PIRATE_INSANE" unique="true">
-	<text>先に進む前に、海賊船に止められます。 「ニュースを聞いたことがありますか！？私たちの新しい神、モーフが復活しました！偉大な神、ああ、強力なOOJ MAJOOは捕虜から解放されました！あなたは神への捧げ物を持っていますか、それとも後悔の人生を送りますか？罪？！"</text>
+	<text>それ以上進む前に、海賊船に止められる。「ニュースを聞いたか？我らが新たなる神 "モーフ "が蘇った！"偉大なる者" "強き者" "OOJ MAJOO" "囚われの身から解放された神々への捧げ物はあるか？それとも悔いの残る罪の人生を送るのか？"</text>
 	<ship load="SHIP_PIRATE_ALL" hostile="false" />
 	<choice>	
-		<text>供物をする。</text>
+		<text>献金をする。</text>
 		<event>
-			<text>「あなたは賢明です！私は偉大なOOJ MAJOOがあなたを祝福することを確信しています！モーフを熱心に信じる者として、私はあなたに通過を与え、あなたの旅行を助けます！」</text>
+			<text>「あなたは賢明だ！私は偉大なるOOJ MAJOOがあなた方を祝福することを確信している！モーフの敬虔な信者として、航路を与え、旅の手助けをしよう！"</text>
 			<item_modify>
 				<item type="fuel" min="-2" max="-2" />
 				<item type="missiles" min="-1" max="-1" />
 				<item type="scrap" min="-10" max="-10" />
 			</item_modify>
 			<choice hidden="true">	
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>海賊はあなたの船体に広範囲にわたる作業を行い、あなたをなだめるための増強物を提供します。</text>
+					<text>海賊はあなたの船体に手を加え、あなたをなだめるためにオーグメントを提供する。</text>
 					<damage amount="-10" />
 					<augment name="RANDOM" />
 				</event>
@@ -230,19 +234,19 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_MORPH">	
-		<text>（モーフクルー）「ジブルジュブルウィップウィップ！」</text>
+		<text>(モーフ・クルー）"ジブル・ジョブル・ウィップ・ウィップ！"</text>
 		<event>
-			<text>「ああ、甘い天国、あなたはその一人です！私の主があなたを認識しなかったことをとても残念に思います！」海賊はひざまずき、許しを請う。彼が彼の貯蔵庫にある武器の1つを手渡す限り、あなたは彼を惜しまないことを約束します。</text>
+			<text>"おやおや、あなたもその一人でしたか！閣下、お気づきにならなくて本当に申し訳ありません！"海賊はひざまずいて許しを請う。あなたは、彼が倉庫にある武器の一つを渡す限り、彼を助けると約束する。</text>
 			<weapon name="RANDOM" />
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>私は罪人になると思います。</text>
+		<text>私は罪人になると思う。</text>
 		<event>
-			<text>海賊は怒り狂って叫び、武器の電源を入れます。あなたは同じことをするべきです。</text>
+			<text>海賊は怒りの声を上げ、武器をパワーアップさせる。お前もそうしろ</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
@@ -259,78 +263,78 @@
 </eventList>
 
 <event name="NEBULA_MORPH_SOLAR" unique="true">
-	<text>シェルは通常、無人の技術のためのものではなく、通常、星雲の奥深くにあるフルサイズの星も見ません。これらの両方が珍しいにもかかわらず、あなたは両方に遭遇したようです！小さなシェルソーラーエネルギー収集装置が星を周回しています。内部には、マシンを把握できれば、編集できるいくつかのパワーセルがあります。</text>
+	<text>通常、貝殻は無人技術のためのものではないし、星雲の奥深くでフルサイズの星を見ることもない。どちらも珍しいことであるにもかかわらず、あなたはその両方に遭遇したようだ！小さなシェル太陽エネルギー収集装置が星の周りを回っている。内部にはいくつかのパワーセルがあり、この機械に接続できるかもしれない。</text>
 	<img back="BACK_EVENT_LIGHTNEBULA" planet="NONE" />
 	<status type="loss" target="player" system="sensors" amount="1" />
 	<environment type="sun" />
 	<choice hidden="true">
-		<text>チャンスをつかんで、デバイスとインターフェースしてください。</text>
+		<text>チャンスを逃さずに、デバイスとインターフェイスしてみよう。</text>
 		<event load="MORPH_SOLAR_STUPID" />
 	</choice>
 	<choice hidden="true" req="LIST_CREW_SHELL_SCIENTIST">
-		<text>（シェルサイエンティスト）デバイスとのインターフェース。</text>
+		<text>(シェル・サイエンティスト）デバイスとのインターフェイス。</text>
 		<event load="MORPH_SOLAR_SMART" />
 	</choice>
 	<choice hidden="true">	
-		<text>それを無視します。</text>
+		<text>無視するんだ。</text>
 		<event>
-			<text>特にこれが星に近い場合は、リスクが高すぎます。できるだけ早く飛び降りる必要があります。</text>
+			<text>特にこの星の近くでは危険すぎる。できるだけ早くジャンプして逃げるんだ。</text>
 		</event>
 	</choice>
 </event>
 <eventList name="MORPH_SOLAR_STUPID">
 	<event>
-		<text>あなたはなんとかデバイスを壊して開けましたが、パワーセルは揚げられています。損傷が大きすぎてリアクターに価値がありませんが、燃料に転用することができます。何もないよりマシ。</text>
+		<text>何とか装置を開けることに成功したが、パワーセルは焼けている。リアクターには使えないが、燃料として再利用できる。ないよりはましだ。</text>
 		<autoReward level="LOW">fuel_only</autoReward>
 	</event>
 	<event>
-		<text>どういうわけかあなたはプロセスを正しくし、マシンと直接インターフェースします。あなたはあなた自身のためにあなたができる限り多くの電力を排出します、それはあなたのリアクターのために良い仕事をするでしょう。</text>
+		<text>どうにかプロセスを正しく理解し、マシンと直接インターフェースする。自分のためにできるだけ多くのパワーを消耗し、それがリアクターのために良い働きをする。</text>
 		<upgrade amount="1" system="reactor" />
 	</event>
 	<event>
-		<text>マシンがどのように機能するかを理解することはできません。あなたはもう少しそれをいじります、しかし星からのフレアはあなたの船を襲って、いくらかの損害を引き起こします。あなたはあきらめて、急いで去ります。</text>
+		<text>その機械がどう動くのかがわからないのだ。もう少しいじってみたが、星からの照明弾があなたの船を直撃し、ダメージを与えた。あなたはあきらめ、急いでその場を立ち去ろうとした。</text>
 		<damage amount="3" system="random" effect="fire" />
 	</event>
 	<event>
-		<text>あなたはしばらくの間マシンで遊んで、最終的には燃料として再利用するためにセルを引き出すことができます。残念ながら、迷子の科学船があなたを発見しました...そして彼らは幸せではありません！</text>
+		<text>しばらく機械と戯れ、最終的に燃料として再利用するためのセルを取り出すことに成功する。不運なことに、はぐれた科学船に見つかってしまった！</text>
 		<autoReward level="LOW">fuel_only</autoReward>
 		<ship load="SHIP_SHELL_SCIENCE" hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 </eventList>
 <eventList name="MORPH_SOLAR_SMART">
 	<event>
-		<text>シェルはこのマシンがどのように機能するかを正確に知っており、パワーセルを取得してリアクターにインストールします。これはそれに素晴らしい後押しを与えるでしょう！</text>
+		<text>シェルはこの機械がどのように動くか熟知しており、リアクターに取り付けるパワーセルを回収してくれる。これでパワーアップできる！</text>
 		<upgrade amount="1" system="reactor" />
 	</event>
 	<event>
-		<text>シェルはこのマシンがどのように機能するかを正確に知っており、パワーセルを取得してリアクターにインストールします。これはそれに素晴らしい後押しを与えるでしょう！残念ながら、迷子の科学船があなたを発見しました...そして彼らは幸せではありません！</text>
+		<text>シェルはこの機械がどのように動くか熟知しており、リアクターに取り付けるパワーセルを回収してくれる。これでパワーアップだ！残念なことに、はぐれた科学船に見つかってしまった！</text>
 		<upgrade amount="1" system="reactor" />
 		<ship load="SHIP_SHELL_SCIENCE" hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 </eventList>
 
 <event name="NEBULA_MORPH_JUICE" unique="true">
-	<text>貨物用に装備されたシェル船が、近くの厚い雲の中を航行しようとしています。あなたは彼らの貨物に関する通信でおしゃべりをキャッチしましたが、これは価値が高いようです。聞いたところによると、彼らは星雲の中で迷子になるのを恐れているようです。</text>
+	<text>貨物用に艤装されたシェル船が、近くの厚い雲を航行しようとしている。積荷は高価なものらしい。聞くところによると、彼らは星雲の中で迷子になることを恐れているようだ。</text>
 	<ship load="SHIP_SHELL_SCIENCE_JUICE" hostile="false" />
 	<environment type="storm" />
 	<choice hidden="true">	
-		<text>あなたが助けることができるかどうか尋ねてください。</text>
+		<text>手伝えることがあれば問い合わせてください。</text>
 		<event>
-			<text>2つのシェルがあなたを見るようになり、ここで他の誰かを見つけて驚いた。「ああ、反逆者。そして、鳥は私たちを殺していないのですか？どれほど奇妙ですか。たぶんあなたは助けてくれるかもしれません。私たちは現在、Quarpジュースの出荷をサイトオメガに輸送していますが、嵐は私たちの邪魔をしています。代替飛行経路がありますか？」</text>
+			<text>二人のシェルは、ここに誰かがいることに驚いて、あなたを見る。「レネゲイドか。私たちを殺さないの？奇妙だな。手伝ってくれないか。クアープ・ジュースをサイト・オメガに輸送中なんだが、この嵐が邪魔なんだ。別の飛行ルートはあるか？"</text>
 			<choice hidden="true">	
-				<text>いいえ、申し訳ありません。</text>
+				<text>いや、申し訳ない。</text>
 				<event>
-					<text>シェルはすぐにあなたを無言にし、お互いに議論を続けます.</text>
+					<text>シェルたちはすぐにあなたをミュートし、互いに口論を続ける。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -340,15 +344,15 @@
 				</event>
 			</choice>
 			<choice hidden="true">	
-				<text>うーん...クォープジュース？何？</text>
+				<text>あの...クアープジュース？なに？</text>
 				<event>
-					<text>「Quarp Juice のことを聞いたことがありませんか? これは、Union が販売していたことを アルカリ 教授が発見した奇跡の物質です! Ellie という天才科学者によって発明されました! 私たちはそれを使用して Morphs を作成しました.ええ、確かに、しかし、彼らはもう物を売っていませんし、信じられないほど高価です. いくつかの倉庫が残っていたので、反乱軍によって爆破される前に移動しています.</text>
+					<text>「クアープ・ジュースを知らないのか？アルカリ教授が発見した奇跡の物質で、ユニオンが販売しているんだ！エリーという天才科学者が発明したんだ！それを使ってモーフを作ったんだでも... うまくはいかなかったけど もう売ってないんだ 信じられないほど高価でね倉庫が2つ残ってたから、反乱軍に爆破される前に移動させてるんだ。"</text>
 					<choice hidden="true">	
-						<text>私たちはあなたを助けることができません。</text>
+						<text>私たちはあなたを助けることはできない。</text>
 						<event>
-							<text>シェルはすぐにあなたを無言にし、お互いに議論を続けます.</text>
+							<text>シェルたちはすぐにあなたをミュートし、互いに口論を続ける。</text>
 							<choice hidden="true">
-								<text>船に乗って何かする。</text>
+								<text>船内で何かをする。</text>
 								<event load="STORAGE_CHECK" />
 							</choice>
 							<choice hidden="true">
@@ -358,50 +362,50 @@
 						</event>
 					</choice>
 					<choice hidden="true" req="sensors" lvl="3">	
-						<text>(Adv. Sensors) データバンクを見せてください。</text>
+						<text>(アドバンスセンサー) データバンクを見せろ。</text>
 						<event load="MORPH_JUICE_SCANS" />
 					</choice>
 					<choice hidden="true" req="ADV_SCANNERS">	
-						<text>（長距離スキャナー）データバンクを表示します。</text>
+						<text>(長距離スキャナー）データバンクを見せろ。</text>
 						<event load="MORPH_JUICE_SCANS" />
 					</choice>
 					<choice hidden="true" req="unique_alkali">	
-						<text>(アルカリ) アルカリで接触させる。</text>
+						<text>(アルカリ）アルカリで接触させる。</text>
 						<event load="MORPH_JUICE_ALKALI" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" req="sensors" lvl="3">	
-				<text>(Adv. Sensors) データバンクを見せてください。</text>
+				<text>(アドバンスセンサー) データバンクを見せろ。</text>
 				<event load="MORPH_JUICE_SCANS" />
 			</choice>
 			<choice hidden="true" req="ADV_SCANNERS">	
-				<text>（長距離スキャナー）データバンクを表示します。</text>
+				<text>(長距離スキャナー）データバンクを見せろ。</text>
 				<event load="MORPH_JUICE_SCANS" />
 			</choice>
 			<choice hidden="true" req="unique_alkali">	
-				<text>(アルカリ) アルカリで接触させる。</text>
+				<text>(アルカリ）アルカリで接触させる。</text>
 				<event load="MORPH_JUICE_ALKALI" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>彼らの貨物が価値があるなら、取りましょう！</text>
+		<text>もし彼らの積荷が貴重品なら、それを受け取ろう！</text>
 		<event>
-			<text>彼らが正確に何を運んでいるのかはよくわかりませんが、それを受け取ってもかまわないでしょう!</text>
+			<text>何を運んでいるのかはよくわからないが、それを受け取るのは構わないだろう！</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="MORALITY_UPDATE_SHELL_FIGHT" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>船を無視します。</text>
+		<text>器は無視する。</text>
 		<event>
-			<text>トランスポートとは関係なく、単に周波数をミュートして続行します。</text>
+			<text>何も興味のあることがなければ、彼らの周波数をミュートして続行するだけだ。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -413,58 +417,58 @@
 </event>
 <eventList name="MORPH_JUICE_SCANS">
 	<event>
-		<text>「うわー、あなたのデータバンクは非常に広範囲です。だから、私たちシェルは、そのような徹底的なデータを記録する観察スキルを持っている唯一のものだと思っていました.</text>
+		<text>「わあ、あなたのデータバンクはかなり充実していますね。このような詳細なデータを記録できる観測技術を持つのは、私たちシェルだけだと思っていました。ありがとうございます。お手伝いさせてください"</text>
 		<upgrade amount="1" system="oxygen" />
 	</event>
 	<event>
-		<text>「うわー、あなたのデータバンクは非常に広範囲です。だから、私たちシェルは、そのような徹底的なデータを記録する観察スキルを持っている唯一のものだと思っていました.</text>
+		<text>「わあ、あなたのデータバンクはかなり充実していますね。このような詳細なデータを記録できる観測技術を持つのは、私たちシェルだけだと思っていました。ありがとうございます。お手伝いさせてください"</text>
 		<upgrade amount="1" system="shields" />
 	</event>
 	<event>
-		<text>「うわー、あなたのデータバンクは非常に広範囲です。だから、私たちシェルは、そのような徹底的なデータを記録する観察スキルを持っている唯一のものだと思っていました.</text>
+		<text>「わあ、あなたのデータバンクはかなり充実していますね。このような詳細なデータを記録できる観測技術を持つのは、私たちシェルだけだと思っていました。ありがとうございます。お手伝いさせてください"</text>
 		<upgrade amount="1" system="engines" />
 	</event>
 </eventList>
 <event name="MORPH_JUICE_ALKALI">
-	<text>あなたは、アルカリが科学者に助けを提供するか、少なくともいくつかの再確認の言葉を提供することを期待していますが、代わりに、彼はペアの無能さを侮辱するだけです.恥ずかしい (そして解雇されることを恐れている) シェルは、しきりに謝罪し、アルカリの怒りを鎮めるためにできる限りのことをあなたに提供します。</text>
+	<text>あなたはアルカリが科学者たちに助け舟を出すか、せめて再確認の言葉をかけてくれるだろうと期待したが、代わりに彼は2人の無能さを侮辱してくるだけだった。恥じた（そして解雇されるのを恐れた）シェルたちは深く謝罪し、アルカリの怒りを鎮めるため、ありったけのものを差し出した。</text>
 	<autoReward level="HIGH">standard</autoReward>
 </event>
 
 <event name="NEBULA_MORPH_PEEPEEPOOPOO" unique="true">
-	<text>最寄りのモーフ船からの連絡は奇妙なメッセージを伝えます。 「おしっこおしっこうんち」あなたにとって、これは単なる冗談のように聞こえます。しかし、あなたが知っているすべての人にとって、モーフにとってこれは深遠かもしれません。</text>
+	<text>最寄りのモーフ船から奇妙なメッセージが届いた。"おしっこうんちうんち"あなたには下品なジョークにしか聞こえないだろう。しかし、あなたが知る限り、モーフにとってこれは重大なことかもしれない。</text>
 	<ship load="SHIP_MORPH_FIGHT" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">	
-		<text>それを解読するために少し時間がかかります。</text>
+		<text>解読には時間がかかる。</text>
 		<event>
-			<text>それが何を意味するのかを分析するのに何時間も費やします。あなたは頭脳を働かせ、あらゆる角度から探してみます。最後に、あなたはあきらめます。おしっこの本当の意味は永遠にあなたに失われ続けるようです。幸いなことに、あなたの努力が完全に無駄になることはありません。Morph はあなたの思いやりを高く評価しているようで、小さなかけらを与えてくれます。</text>
+			<text>それが何を意味するのか、何時間もかけて分析する。脳をフル回転させ、あらゆる角度から可能な限りのことを試みる。そしてついに諦める。おしっこうんちうんちの本当の意味は、あなたには永遠にわからないままのようだ。幸いなことに、あなたの努力はまったく無駄になることはなかった。モーフはあなたの心遣いに感謝し、小さなスクラップの塊をくれたようだ。</text>
 			<autoReward level="LOW">scrap_only</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_MORPH">	
-		<text>（モーフクルー）モーフにこの意味を説明してもらいます。</text>
+		<text>(モーフ・クルー）モーフにこの意味を説明してもらいましょう。</text>
 		<event>
-			<text>あなたのモーフは長い間あなたに話しかけ、宇宙の内なる秘密を明らかにします。あなたのすべての問題への答え、宇宙自体の意味、それはすべてこの1つのシンプルで控えめなフレーズにしっかりと保持されています。残念ながら、あなたはクルーのスピーチも理解していません。あなたはこれらの秘密があなたに永遠に失われたままになると思います。幸いなことに、この知恵は、賢明であるためにスクラップの塊を提供する他の船で失われることはありません。</text>
+			<text>あなたのモーフは長い間あなたに語りかけ、宇宙の奥義を明らかにする。あなたのあらゆる問題に対する答えも、宇宙そのものの意味も、すべてはこのシンプルで控えめなフレーズの中に秘められている。残念ながら、あなたはクルーの言葉も理解できない。この秘密は永遠に失われたままなのだろう。幸いなことに、この知恵は他の船にも理解され、その賢さに対してスクラップの塊を差し出してくれた。</text>
 			<autoReward level="HIGH">scrap_only</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>これは侮辱です！</text>
+		<text>これは侮辱だ！</text>
 		<event>
-			<text>あなたはモーフにあなたをこのように侮辱させるつもりはありません！あなたは発砲します。</text>
+			<text>モーフに侮辱されてたまるか！撃て</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>それはただの粗雑なものにすぎません。</text>
+		<text>ガサツで下品以外の何物でもない。</text>
 		<event>
-			<text>あなたはそのようなフレーズが重要であるとは思わない。あなたはこの思考実験を放棄して続けます。</text>
+			<text>そのような言葉に重要性があるとは思えない。あなたはこの思考実験を放棄し、次に進む。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -476,15 +480,15 @@
 </event>
 
 <event name="NEBULA_MORPH_ENGINEER_TECHNO" unique="true">
-	<text>近くのエンジニア船はまだあなたを攻撃していないようです。代わりに、彼らは呼びかけます。 「ご存知のとおり、私はあなたを攻撃する必要があります。しかし率直に言って、私は自分の最新の成果について誰かに自慢したいだけです！」</text>
+	<text>近くのエンジニア船はまだ攻撃してこないようだ。その代わり、万歳をしている。"あのな、俺はお前を攻撃すべきだ。でも、率直に言って、最近の成果を誰かに自慢したいだけなんだ！"</text>
 	<ship load="SHIP_ENGINEER_TECHO" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">	
-		<text>聞く。</text>
+		<text>聞いてくれ。</text>
 		<event>
-			<text>「テクノパスについては、今までに聞いたことがあるか、見たことがあるでしょう。モーフに似ていますが、代わりに非炭素エンティティの形をとることができます。まあ、ドローンをいくつかに交換するのは素晴らしいアイデアだと思いました。ほぼ同じ効率ですが、電力使用量はありません。すばらしいです。」</text>
+			<text>"テクノパス "のことを聞いたり見たりしたことがあるだろう。彼らはモーフのようなものだが、代わりに非炭素体の形をとることができる！それで、ドローンをテクノパスに置き換えるのはいいアイデアだと思ったんだ。ほとんど同じ効率で、電力を使わずに済むんだ！素晴らしいよ！"</text>
 			<choice>	
-				<text>テクノパスを購入します。</text>
+				<text>テクノパスを買う。</text>
 				<event>
 					<item_modify>
 						<item type="drones" min="-6" max="-4" />
@@ -493,37 +497,37 @@
 				</event>
 			</choice>
 			<choice hidden="true">	
-				<text>彼らの成功を認め、続けてください。</text>
+				<text>彼らの成功を認め、続けること。</text>
 				<event>
-					<text>あなたは次のビーコンに持ち続けようとしているだけですが、エンジニアはあなたが彼を認めたことをとても幸せに思えます。</text>
+					<text>あなたは次のビーコンまで進もうとしただけだが、エンジニアはあなたが認めてくれたことをとても喜んでいるようで、ドローンの部品を無料で提供してくれた。</text>
 					<autoReward level="MED">droneparts_only</autoReward>
 				</event>
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>私たちは物語のためにここにいるのではありません。エンジニアを攻撃してください！</text>
+		<text>物語のためにここにいるのではないエンジニアを攻撃する！</text>
 		<event>
-			<text>彼らが話したいという理由だけで、あなたはこれらの反乱軍の慈悲を示すことはありません！</text>
+			<text>反乱軍が話したがっているからといって、あなたは慈悲を示さない！</text>
 			<boarders min="2" max="2" class="technobattle" />
 			<damage amount="0" effect="breach" system="random" />
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>それらを無視します。</text>
+		<text>無視するんだ。</text>
 		<event load="MORPH_ENGINEER_TECHNO_IGNORE" />
 	</choice>
 </event>
 <eventList name="MORPH_ENGINEER_TECHNO_IGNORE">
 	<event>
-		<text>あなたはエンジニアをミュートし、あなたの道を続けます。</text>
+		<text>あなたはエンジニアをミュートし、自分の道を進む。</text>
 		<choice hidden="true">
-			<text>船に乗って何かする。</text>
+			<text>船内で何かをする。</text>
 			<event load="STORAGE_CHECK" />
 		</choice>
 		<choice hidden="true">
@@ -532,33 +536,33 @@
 		</choice>
 	</event>
 	<event>
-		<text>あなたはエンジニアをミュートしようとしますが、それは彼らを動揺させるだけです。彼らは攻撃します！</text>
+		<text>あなたはエンジニアたちの声を消そうとしたが、それは彼らを刺激するだけだった。攻撃してくる！</text>
 		<boarders min="2" max="2" class="technobattle" />
 		<damage amount="0" effect="breach" system="random" />
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 </eventList>
 
 <event name="NEBULA_MORPH_SMUGGLER_CONFUSED" unique="true">
-	<text>近くには、星雲の中を飛んでいる密輸業者がいます。おそらく彼らは提供する価値のあるものを持っていますか？</text>
+	<text>近くには星雲を飛ぶ密輸業者がいる。もしかしたら、何か価値のあるものを持っているのだろうか？</text>
 	<ship load="SHIP_SMUGGLER_ALL" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">	
-		<text>取引の申し出をする。</text> 
+		<text>ひょうきんな態度でトレードを申し出る。</text> 
 		<event>
-			<text>あなたは容器からの単純な反応を期待していますが、代わりにあなたは大音量の金切り声を受け取り、続いてあなたの乗組員の一人の叫びが続きます。あなたは彼らの場所に走り、そこであなたは彼らの顔にピストルを持っているおびえた密輸業者を見る。「あなた - あなたは彼らの一人である、そうではない！私に気にしないトリックをしないでください！</text>
+			<text>あなたは船からの簡単な返答を期待したが、その代わりに大きな金切り声と、それに続く乗組員の一人の叫び声を受け取った。怯えた密輸業者がピストルを顔に突きつけている。「お前...モーフの一人か？悪ふざけはよせ！</text>
 			<choice hidden="true">	
-				<text>ブラスターを置くだけ！</text>
+				<text>ブラスターを置くだけだ！</text>
 				<event load="MORPH_SMUGGLER_CONFUSED_TALK" />
 			</choice>
 			<choice hidden="true" req="clonebay">	
-				<text>（クローンベイ）ここにリスクはありません。嫌いな人を爆破し、続けます。</text>
+				<text>(クローンベイ）ここにリスクはない。クソ野郎をぶっ飛ばして続けろ。</text>
 				<event>
-					<text>あなたはブラスターを引き、密輸業者を撃ちますが、彼があなた自身のクルーを撃つ前ではありません。幸いなことに、確かにリスクはなく、クルーは完全に元気に戻ってきます。密輸船は現在操作不能になっています。船体の一部を廃棄します。</text>
+					<text>あなたはブラスターを引き抜き、密輸業者を撃つが、その前に自分のクルーが撃たれてしまう。幸運にも、危険はなく、クルーは完全に無事だった。密輸船は操作不能となり、あなたは船体の一部をスクラップにした。</text>
 					<autoReward level="MED">standard</autoReward>
 					<removeCrew>
 						<clone>true</clone>
@@ -567,9 +571,9 @@
 				</event>
 			</choice>
 			<choice hidden="true" req="LIST_CREW_MORPH">	
-				<text>（モーフクルー）「クー！うん、ルー！」</text>
+				<text>(モーフ・クルー）「クー！ヤップ・ター・ロー！"</text>
 				<event>
-					<text>密輸業者はあなたの船の実際のモーフを見て恐ろしく叫びます。広く発砲して、彼はあなたの船にいくらかの損害を与えますが、あなたは彼を征服することができます。彼の船が手術不能になるようになったので、船体の一部を削ります。</text>
+					<text>密輸業者は悲鳴を上げ、あなたの船に実際にモーフが乗っていることに恐怖を感じた。発砲し、船にダメージを与えたが、なんとか制圧。彼の船が動かなくなったので、船体の一部をスクラップにする。</text>
 					<damage amount="2" system="random" />
 					<autoReward level="MED">standard</autoReward>
 				</event>
@@ -577,11 +581,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>密輸業者を無視します。</text>
+		<text>密輸業者を無視する。</text>
 		<event>
-			<text>あなたは彼らがあなたの時間の価値があるものを提供する何かを持っているとは思わない。</text>
+			<text>あなたは、彼らがあなたの時間を費やす価値のあるものを提供しているかどうか疑っている。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -593,19 +597,19 @@
 </event>
 <eventList name="MORPH_SMUGGLER_CONFUSED_TALK">
 	<event>
-		<text>密輸業者に近づくと、ゆっくりと落ち着いた声で話します。これは彼をリラックスさせ、彼をつかんで首を折るのに十分な時間を与えるようです。よくやった？密輸業者が邪魔にならないように、あなたは彼のポケットを略奪し、いくつかの資源を見つけます。</text>
+		<text>あなたはゆっくりと落ち着いた声で話しながら密輸業者に近づく。これで彼はリラックスしたようで、あなたは彼をつかんで首をへし折るのに十分な時間を与えた。仕事はうまくいったか？密輸業者の手を引いて、あなたは彼のポケットから資源を略奪する。</text>
 		<autoReward level="LOW">stuff</autoReward>
 	</event>
 	<event>
-		<text>「ねえ、あなたは冗談じゃないよ！いいね…いいね…でも、ブロブがないのなら、気をつけて、どこでもブロブするよ！安全な場所ではないよ、私はあなたたちと一緒に来るべきだと思います...」</text>
+		<text>"おい、お前は失言なんかしていない！それはいい...それはいい...ブロブじゃないなら、気をつけろよ、ブロブだらけだ！安全な場所じゃないんだ、みんなと一緒に行くべきだよ..."</text>
 		<crewMember amount="1" class="rock_outcast" />
 	</event>
 	<event>
-		<text>「あなたはなりすまし者にとって本当に良い話をします！」密輸業者はあなたを撃つために旋回しますが、あなたはなんとか邪魔にならないようにジャンプします。すぐにあなたは戦いに自分自身を見つけます！</text>
+		<text>「詐欺師にしては口がうまいな！」。密輸業者はあなたを撃とうとして振り向いたが、あなたは何とかその場から飛び出した。やがてあなたは戦いの中に身を置くことになる！</text>
 		<boarders min="1" max="1" class="rock_outcast" />
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
@@ -621,18 +625,18 @@
 </eventList>
 
 <event name="NEBULA_MORPH_FREEGUN" unique="true">
-	<text>聖なるがらくた！武器が宇宙に浮かんでいます！確かに嵐ですが、銃は銃です！</text>
+	<text>なんてこった！武器が空間に浮かんでいる！確かに嵐だが、銃は銃だ！</text>
 	<environment type="storm" />
 	<choice hidden="true">
-		<text>武器をつかみます。</text>
+		<text>武器を取れ。</text>
 		<event load="MORPH_FREEGUN_GRAB" />
 	</choice>
 	<choice hidden="true">	
-		<text>私たちの運は決してこれほど良いものではありません。そのままにしておきます。</text>
+		<text>こんな幸運はない。ほっといて。</text>
 		<event>
-			<text>神はその「銃」が何であるかを知っています。あなたはそれを置き去りにして続けます。</text>
+			<text>その "銃 "が何であるかは神のみぞ知る。あなたはそれを置き去りにして前に進む。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -644,19 +648,19 @@
 </event>
 <eventList name="MORPH_FREEGUN_GRAB">
 	<event>
-		<text>結局のところ、武器は本物のようです！</text>
+		<text>結局、あの武器は本物だったようだ！</text>
 		<weapon name="RANDOM" />
 	</event>
 	<event>
-		<text>あなたは武器を機内に引き込みますが、それがかき混ぜられて突然いくつかの別々のテクノパスに分割されるだけです！</text>
+		<text>あなたは機内で武器を引き抜いたが、その武器は攪拌され、突然複数のテクノパスに分裂した！</text>
 		<boarders min="5" max="6" class="techno" />
 	</event>
 	<event>
-		<text>「Akoo Blat Troo Kapat Reteroo！」と叫び、モーフ容器が雲からつまずくようになるために、あなたは船内に武器を描きます。この武器を船内に持ち込むことは、どういうわけか彼らを怒らせたように見えます...そして、それは明らかです。武器は実際には別のモーフですが、叫ぶ船ほど敵対的ではないようです！</text>
+		<text>船上で武器を引き抜くと、モーフの船が雲からよろめきながら出てきて、"AKOO BLAT TRI TROO KAPAT RETEROO!"と叫んだ。どうやらこの武器を船内に持ち込んだことが彼らを怒らせたようだ...その理由は明らかだ。武器は実は別のモーフだが、叫んでいた船ほど敵意はないようだ！</text>
 		<crewMember amount="1" class="techno" />
 		<ship load="SHIP_MORPH_FIGHT" hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
@@ -664,62 +668,62 @@
 
 
 <event name="NEBULA_MORPH_SHELL_REFUGEE_SCIENCE" unique="true">
-	<text>シェル船が近づいているようです...</text>
+	<text>シェルの船が近づいているようだが...。</text>
 	<environment type="nebula" />
 	<choice hidden="true">	
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="MORPH_SHELL_REFUGEE_SCIENCE" />
 	</choice>
 </event>
 <event name="NEBULA_MORPH_SHELL_REFUGEE_IMPOSTOR" unique="true"> 
-	<text>シェル船が近づいているようです...</text>
+	<text>シェルの船が近づいているようだが...。</text>
 	<environment type="nebula" />
 	<choice hidden="true">	
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="MORPH_SHELL_REFUGEE_IMPOSTER" />
 	</choice>
 </event>
 <event name="MORPH_SHELL_REFUGEE_SCIENCE">
-	<text>シェル船は科学船のようです。彼らはあなたに助けを求めます。 「反乱軍たち、どこでも私たちをフォローしてきました！私たちを助けてくれませんか？」</text>
+	<text>シェルの船は科学船のようだ。彼らはあなたに助けを求めています。"反乱軍が、我々をどこまでも追ってきています！助けていただけませんか？"</text>
 	<ship load="SHIP_SHELL_SCIENCE" hostile="false" />
 	<choice hidden="true">	
-		<text>それらを乗せることを申し出てください。</text>
+		<text>乗船を申し出る。</text>
 		<event load="MORPH_SHELL_REFUGEE_SCIENCE_CREW" />
 	</choice>
 	<choice>
-		<text>準備を整えるために、いくつかの物資を提供します。</text>
+		<text>より良い準備をするために、いくつかの物資を提供する。</text>
 		<event>
-			<text>あなたはシェルにミサイルとドローンパーツを与えて彼らを助けます...</text>
+			<text>シェルにミサイルとドローンパーツを与えて...。</text>
 			<item_modify>
 				<item type="fuel" min="-5" max="-3" />
 				<item type="drones" min="-5" max="-3" />
 			</item_modify>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>「ああ、あなたは最も寛大です！あなたには私たちの最高の願いがあります。ここで、この贈り物を受け取ってください。」</text>
+					<text>「ああ、あなたは寛大だ！お気遣いありがとうございます。さあ、この贈り物を受け取ってください。</text>
 					<drone name="RANDOM" />
 				</event>
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>攻撃！</text>
+		<text>攻撃だ！</text>
 		<event>
-			<text>カジュアルな不必要な殺人を恥ずかしがらずに、武器の電源を入れてシェルを攻撃します。</text>
+			<text>無益な殺人から逃げることなく、武器をパワーアップしてシェルたちを攻撃する。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="MORALITY_UPDATE_SHELL_FIGHT" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>仕方がない。</text>
+		<text>私たちは助けられない。</text>
 		<event>
-			<text>申し訳ありませんが、提供するものは何もありません。シェルはうなずき続けます。</text>
+			<text>あなたは謝るが、何も言うことはない。貝はうなずいて続ける。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -731,9 +735,9 @@
 </event>
 <eventList name="MORPH_SHELL_REFUGEE_SCIENCE_CREW">
 	<event>
-		<text>シェルはあなたをそのような程度まで信頼することを躊躇し、最終的には衰退します。他に何もすることなく、彼らは飛び去り、あなたの手にしばらく時間を残します。</text>
+		<text>シェルたちはあなたをそこまで信用することに抵抗があり、結局は断る。他にすることもなく、彼らは飛び去り、あなたは暇を持て余すことになる。</text>
 		<choice hidden="true">
-			<text>船に乗って何かする。</text>
+			<text>船内で何かをする。</text>
 			<event load="STORAGE_CHECK" />
 		</choice>
 		<choice hidden="true">
@@ -742,44 +746,44 @@
 		</choice>
 	</event>
 	<event>
-		<text>シェルは申し出に感謝し、受け入れます。ほとんどの人は近くのシェルステーションに立ち寄りますが、そのうちの1人は後ろに留まりたいと思っています。</text>
+		<text>シェルたちはその申し出に感謝し、受け入れる。ほとんどの人は近くのシェル・スタンドに立ち寄るが、一人はここに残りたいという。</text>
 		<crewMember amount="1" class="shell_scientist" />
 	</event>
 	<event>
-		<text>シェルは消極的ですが、最終的には同意します。近くのステーションに降ろされると、彼らはあなたにいくつかのスクラップを支払いとして提供します。</text>
+		<text>シェル家は渋ったが、最終的には同意した。近くのスタンドで降ろされると、報酬としてスクラップを差し出す。</text>
 		<autoReward level="MED">scrap_only</autoReward>
 	</event>
 </eventList>
 <event name="MORPH_SHELL_REFUGEE_IMPOSTER">
-	<text>シェル船は科学船のようです。彼らはあなたに助けを求めます。 「反乱軍たち、彼らは至る所で私たちを追いかけてきました！あなたは私たちを助けてくれるほど親切にしてくれませんか？」</text>
+	<text>シェルの船は科学船のようだ。彼らはあなたに助けを求めています。"反乱軍です、彼らはどこまでも追ってきます！助けていただけませんか？"</text>
 	<ship load="SHIP_SHELL_SCIENCE_IMPOSTER" hostile="false" />
 	<choice hidden="true">	
-		<text>それらを乗せることを申し出てください。</text>
+		<text>乗船を申し出る。</text>
 		<event>
-			<text>彼らのクルーが乗船するとすぐに、それらのシェルが...彼らは反乱軍であることが明らかです！それはずっと罠でした！</text>
+			<text>乗組員が乗船するやいなや、あのシェルが...反乱軍であることが明らかになる！最初から罠だったんだ</text>
 			<boarders min="3" max="4" class="human_rebel" />
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>準備を整えるために、いくつかの物資を提供します。</text>
+		<text>より良い準備をするために、いくつかの物資を提供する。</text>
 		<event>
-			<text>あなたはシェルにミサイルとドローンパーツを与えて彼らを助けます...</text>
+			<text>シェルにミサイルとドローンパーツを与えて...。</text>
 			<item_modify>
 				<item type="fuel" min="-5" max="-3" />
 				<item type="drones" min="-5" max="-3" />
 			</item_modify>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>「ああ、結局あなたは本当にばかげている！それは罠だった、ばか！」船は敵対的になり、反乱軍によって操縦されていることを明らかにします！</text>
+					<text>"ああ、結局本当にバカなんだね！罠だったんだ、バカども！"船は敵意をむき出しにし、反乱軍のパイロットであることを明かす！</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
@@ -787,23 +791,23 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>攻撃！</text>
+		<text>攻撃だ！</text>
 		<event>
-			<text>あなたはシェル船からの抗議を期待していますが、代わりに反乱軍の船長からの怒りの叫びに遭遇しました！ 「くそー、どうしてそれが罠だとわかったの？！」</text>
+			<text>シェル船からの抗議を期待したが、代わりに反乱軍の船長から怒号が飛んできた！"くそっ、なぜ罠だとわかった！"</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>仕方がない。</text>
+		<text>私たちは助けられない。</text>
 		<event>
-			<text>シェル船はしばらくの間不審に沈黙し、その後武器を上げます。反乱軍の船長がスクリーンに表示されます。 「あはは、それはずっと罠だった！」</text>
+			<text>シェル船はしばらく不審な沈黙を保ち、その後武器を構える。反乱軍の艦長がビデオスクリーンに映し出される。"アハハ、最初から罠だったんだ！"</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
@@ -811,56 +815,56 @@
 </event>
 
 <event name="NEBULA_MORPH_BLOCKADE" unique="true">
-	<text>最初に飛び込んだとき、これは単純な空の星雲であると思いますが、過激な船が雲から出てきたとき、そのような希望は裏切られます。 「ねえ、アルカリ教授の警告を聞きませんでしたか？Thhhhisセクターは危険です。Thhhhhisビーコンは隔離されています。移動することをお勧めします。」</text>
+	<text>最初に飛び込んだときは、何もないただの星雲だと思ったが、雲の中から過激な船が出てきたときには、そんな期待は裏切られた。「おい、アルカリ教授の警告を聞いてなかったのか？この星域は危険だ。このビーコンは隔離されている。移動したほうがいい。</text>
 	<ship load="SHIP_SHELL_SOLDIER" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">	
-		<text>あなたは私たちに何をすべきかを言うことができません！</text>
+		<text>私たちに指図はできない！</text>
 		<event>
-			<text>どこに行けるのか、どこに行けないのかを誰かに言わせれば、あなたは気が滅入るでしょう。あなたは武器を武装させ、戦いの準備をします。</text>
+			<text>行っていい場所と行ってはいけない場所を誰かに指図されるようなことがあれば、あなたは呪われるだろう。武器を装備し、戦いに備える。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="MORALITY_UPDATE_SHELL_FIGHT" />
 			</choice>
 		</event>
 	</choice>
 	<choice req="unique_alkali" hidden="true">	
-		<text>（アルカリ）現在VIPを運んでいます。</text>
+		<text>(アルカリ）今、VIPを乗せている。</text>
 		<event>
-			<text>過激派が状況を知ると、彼らはあなたを煩わせるのをやめ、別れを告げる前に物資を提供することさえします。</text>
+			<text>武装勢力が状況を知れば、あなたを煩わせることはなくなるし、別れを告げる前に物資を提供してくれることさえある。</text>
 			<autoReward level="HIGH">stuff</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>了解しました。出発します。</text>
+		<text>よし、出発しよう。</text>
 		<event>
-			<text>武器の電源を切り、できるだけ早くシステムを離れる準備をします。</text>
+			<text>武器をパワーダウンさせ、すぐにシステムを離れる準備をする。</text>
 		</event>
 	</choice>
 </event>
 
 <event name="NEBULA_MORPH_AUTOSCIENCECHOICE" unique="true">
-	<text>近くのシェルサイエンスステーションから短距離遭難信号が発信されています。シェルサイエンスステーションは、反乱軍の自動船の攻撃を受けています。</text>
+	<text>近くのシェル科学ステーションから近距離遭難信号が発信され、反乱軍のオートシップに攻撃されている！</text>
 	<ship load="SHIP_AUTO_MORPH_AUTOSCIENCECHOICE" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">	
-		<text>シェルを支援してください！</text>
+		<text>貝をアシストする</text>
 		<event>
-			<text>あなたはオートシップを攻撃します。</text>
+			<text>オートの船を攻撃する。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>競合を無視します。</text>
+		<text>争いは無視する。</text>
 		<event>
-			<text>あなたは今ヒーローを演じてシェルを助ける時間がありません。</text>
+			<text>今はヒーローごっこをして貝を助けている暇はない。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -872,11 +876,11 @@
 </event>
 <eventList name="MORPH_AUTOSCIENCECHOICE_REWARD">
 	<event>
-		<text>「あなたのタイミングは最も便利です！フェデレーション、ありがとう。これがあなたの傷を癒してくれますように。」</text>
+		<text>「ご都合はいかがですか？ありがとう、連盟。これで傷が癒えますように</text>
 		<drone name="DOCTOR_DEFENSE" />
 	</event>
 	<event>
-		<text>シェルはそれを成し遂げなかったようです。ステーションの船体をスクラップするだけです。</text>
+		<text>シェルは間に合わなかったようだ。あなたにできることは、ステーションの船体をスクラップにすることだけです。</text>
 		<autoReward level="MED">standard</autoReward>
 	</event>
 </eventList>
@@ -889,53 +893,53 @@
 
 <event name="NEBULA_DISTRESS_MORPH_REBEL_JAMMED" unique="true">
 	<distressBeacon />
-	<text>すべてのことの中で、あなたは反政府勢力がオープンコムで彼らの苦痛のビーコンを求めるものであることを見ることを期待していませんでした。彼らもあなたを歓迎するのに恥ずかしがり屋ではないようです。「あなたはここに住んでいる粗い感覚的な宇宙のガンクを知っていますか？彼らのグーピーの内側のいくつかは私たちのエンジンにすべて詰まっています、そして今彼らは詰まっています。あなたのために！」</text>
+	<text>よりにもよって反乱軍の船が、オープン通信で救難信号を呼びかけるとは思わなかっただろう。彼らも恥ずかしげもなく声をかけてくる。"ここに住んでいるグロテスクな宇宙ゴミを知ってるか？奴らの内臓が俺たちのエンジンに詰まって、今ジャマしてるんだ。俺たちが仲が悪いのは知ってるが、きっと何かあるはずだ！"</text>
 	<ship load="SHIP_REBEL_MORPH_JAMMED" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">	
-		<text>彼らのエンジンを修理してみてください。</text>
+		<text>エンジンを修理してみる。</text>
 		<event load="MORPH_REBEL_JAMMED_FIX" />
 	</choice>
 	<choice hidden="true">	
-		<text>攻撃するのにこれ以上の機会はありません！</text>
+		<text>これ以上の攻撃機会はない！</text>
 		<event>
-			<text>彼らがエンジンを持っていない場合、これらの反乱軍が走ることができる場所はありません！それでも彼らは試みますが、それは無意味です。</text>
+			<text>エンジンがなければ、反乱軍に逃げ場はない！それでも努力はするが、無意味だ。</text>
 			<status type="limit" target="enemy" system="engines" amount="0" />
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_ENGINEER">	
-		<text>（エンジニアクルー）エンジニアにエンジンを見てもらいます。</text>
+		<text>(機関士乗組員) 機関士にエンジンを見てもらう。</text>
 		<event>
-			<text>幸いなことに、エンジニアはモーフをすばやく片付け、反乱軍は感銘を受けたようです。 「うーん...あなたは私たちが思っていた以上に私たちを助けてくれました。私たちを殺さないという行為は約束通りいくらかの報酬に値すると思います。」</text>
+			<text>幸いなことに、君のエンジニアはモーフを素早く片付け、反乱軍も感心しているようだ。"ふむ...予想以上に我々を助けてくれた。我々を殺さないという行為は、約束通りいくらかの報酬に値するのだろう。"</text>
 			<autoReward level="HIGH">standard</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_ENGI">	
-		<text>（エンギクルー）エンギにエンジンを見てもらいます。</text>
+		<text>(エンジニアクルー）エンジニアにエンジンを見てもらう。</text>
 		<event>
-			<text>幸いなことに、あなたのエンギはモーフをすばやく片付け、反乱軍は感銘を受けたようです。 「うーん...あなたは私たちが思っていた以上に私たちを助けてくれました。私たちを殺さないという行為は約束通りいくらかの報酬に値すると思います。」</text>
+			<text>幸い、エンジはモーフを素早く掃討し、反乱軍も感心しているようだ。"ふむ...予想以上に我々を助けてくれた。我々を殺さないという行為は、約束通りいくらかの報酬に値するのだろう。"</text>
 			<autoReward level="HIGH">standard</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_MORPH">	
-		<text>（モーフクルー）モーフに休止状態のグーを目覚めさせます。</text>
+		<text>(モーフクルー）モーフに冬眠中のグーを目覚めさせる。</text>
 		<event>
-			<text>あなたのモーフは甲高い鳴き声の不協和音を放ち、続いてエンジンのモーフからさらに多くのものが出て、メカニズムから離れて転がり、あなたのモーフに会います。反乱軍は彼らが目撃したばかりのことを本当に確信していませんが、彼らはしぶしぶ「感謝」であなたに支払います。</text>
+			<text>あなたのモーフがけたたましい鳴き声をあげると、エンジン内のモーフからも多くの鳴き声が聞こえ、モーフはメカニズムから切り離され、あなたのモーフに向かって転がる。反乱軍は何を目撃したのかよくわからないが、しぶしぶあなたに「ありがとう」を払う。</text>
 			<autoReward level="LOW">standard</autoReward>
 			<crewMember amount="1" class="blob" />
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>反乱軍を無視します。</text>
+		<text>反乱軍を無視する。</text>
 		<event>
-			<text>反乱軍を知っていると、これはまた別の罠かもしれません。少なくとも、彼らはあなたをフォローしていないようです。</text>
+			<text>反乱軍のことだから、これも罠かもしれない。少なくとも、彼らはあなたについてくるようには見えない。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -947,45 +951,45 @@
 </event>
 <eventList name="MORPH_REBEL_JAMMED_FIX">
 	<event>
-		<text>簡単な作業ではありませんが、反乱軍の助けを借りてグーをかじります。最終的に、あなたはついにすべてのグーをすくい取り、反乱軍のエンジンが再び活気づきます。</text>
+		<text>簡単な作業ではないが、反乱軍の助けを借りてベトベトを削り取っていく。やがて、すべてのベトベトをかき出すと、反乱軍のエンジンが再び火を噴く。</text>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="MORPH_REBEL_JAMMED_FIX_SUCCEED" />
 		</choice>
 	</event>
 	<event>
-		<text>それは画期的な仕事であり、役に立たない。グーは単に出てこないでしょう、そしてこれらのエンジンが回復しないことが明らかになります...</text>
+		<text>骨の折れる作業だが、効果はない。ベトベトが取れないだけで、このエンジンが回復しないのは明らかだ......。</text>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="MORPH_REBEL_JAMMED_FIX_FAIL" />
 		</choice>
 	</event>
 </eventList>
 <eventList name="MORPH_REBEL_JAMMED_FIX_SUCCEED">
 	<event>
-		<text>「お疲れ様でした。残念ながら、あなたの場所で艦隊に警告する必要があります。」反乱軍の船はスピードを落とし、あなたは彼らを追いかけます！</text>
+		<text>「よくやった！残念だが、君の居場所を艦隊に知らせなければならない！"反乱軍の船が走り去る！</text>
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 	<event>
-		<text>「うーん...あなたは私たちが思っていた以上に私たちを助けてくれました。私たちを殺さないという行為は約束通りいくらかの報酬に値すると思います。」</text>
+		<text>"ふむ...予想以上に我々を助けてくれた。我々を殺さなかったという行為は、約束通りいくらかの報酬に値すると思う"</text>
 		<autoReward level="HIGH">standard</autoReward>
 	</event>
 </eventList>
 <eventList name="MORPH_REBEL_JAMMED_FIX_FAIL">
 	<event>
-		<text>「ああ、あなたは無価値だ。連邦政府の船からの助けを期待して、私は何を考えていたのか？」</text>
+		<text>"くそっ、役立たずめ。連邦軍の船に助けを求めるなんて、何を考えているんだ？"</text>
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 	<event>
-		<text>「あなたは自分が助けられないことを証明しましたが、あなたの助けの意欲は最も顕著です。私の船は完全に台無しになっているので、私の選択肢はここで奇跡を待つか、代わりにあなたと一緒に行くかのどちらかです。私はしません。奇跡を信じているので、有効な選択肢は1つだけです。」</text>
+		<text>"あなた自身は助けられないことがわかったが、あなたの助けようとする意欲には目を見張るものがある。私の船は完全にダメになってしまったので、私の選択肢はここで奇跡を待つか、代わりにあなたと一緒に行くか、どちらかしかないようです。私は奇跡を信じていないので、有効な選択肢は1つしかない。"</text>
 		<crewMember amount="1" pilot="2" class="human" />
 	</event>
 </eventList>
@@ -993,30 +997,30 @@
 
 <event name="NEBULA_DISTRESS_MORPH_SLICE" unique="true">
 	<distressBeacon />
-	<text>近くの遭難信号は、船長が必死にあなたに向かって叫ぶマンティスの船から来ているようです。 「ヘルプ、ヘルプ、ヘルプヘルプヘルプヘルプ！スライスアップBLOBを試してみると、BLOBはより多くのBLOBになります！今ではどこでもBLOBです！たくさんあります！AAAAAAAAAGH！」</text>
+	<text>近くで聞こえる救難信号は、マンティス船からのものらしく、船長は必死に叫んでいる。「助けて、助けて、助けて、助けて！ブロブを切り刻もうとしたら、ブロブがさらにブロブになった！ブロブだらけだ！ブロブだらけだ！あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</text>
 	<ship load="SHIP_MANTIS_MORPH_SLICE" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">	
-		<text>彼らの船からモーフを取り除くのを手伝ってください。</text>
+		<text>彼らの船からモーフを追い出すのを手伝ってあげて。</text>
 		<event>
-			<text>何らかの報酬を期待している場合は、船を破壊しないように注意する必要があります！</text>
+			<text>何らかの報酬を期待するなら、船を破壊しないように注意しなければならない！</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="DRONE_CONTROL_BOARDING_DAMAGE">	
-		<text>（搭乗ドローン）ドローンを送信して、モーフを根絶します。</text>
+		<text>(搭乗ドローン）モーフを殲滅するためにドローンを送り込む。</text>
 		<event load="MORPH_SLICE_BOARDER" />
 	</choice>
 	<choice hidden="true">	
-		<text>マンティスを彼らの悩みに任せなさい。</text>
+		<text>カマキリのことは放っておけ。</text>
 		<event>
-			<text>マンティスを助ける理由は見当たらない。ハイブは、過去に興奮したスライムよりも強力な敵と衝突しました。彼らは自分でこれに対処することができます。</text>
+			<text>マンティスを助ける理由はないだろう。ハイヴはこれまで、興奮したスライムよりも強大な敵と衝突してきた。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1028,27 +1032,27 @@
 </event>
 <eventList name="MORPH_SLICE_BOARDER">
 	<event>
-		<text>あなたの搭乗ドローンは、ブロブの迅速な作業を行います。根絶されると、マンティスはあなたに感謝し、あなたにまともな報酬を与えます。</text>
+		<text>搭乗ドローンがブロブを素早く処理する。殲滅すると、マンティスはあなたに感謝し、それなりの報酬をくれる。</text>
 		<autoReward level="MED">standard</autoReward>
 	</event>
 	<event>
-		<text>あなたは自分のドローンを模倣するモーフを計画していなかったようです-テクノパスはあなたのボーダーの形を取り、それを粉々に爆破します！軽蔑されて、あなたはあなたのオプションを考慮します。</text>
+		<text>モーフが自分のドローンを模倣することは想定していなかったようだ。テクノパスがあなたのボーダーの形を取り、粉々に吹き飛ばす！あなたは混乱し、選択肢を考える。</text>
 		<item_modify>
 			<item type="drones" min="-1" max="-1" />
 		</item_modify>
 		<choice hidden="true">	
-			<text>自分でモーフと戦ってください。</text>
+			<text>自分でモーフと戦え。</text>
 			<event>
-				<text>何らかの報酬を期待している場合は、船を破壊しないように注意する必要があります！</text>
+				<text>何らかの報酬を期待するなら、船を破壊しないように注意しなければならない！</text>
 				<ship hostile="true" />
 				<choice hidden="true">
-					<text>継続する...</text>
+					<text>次へ...</text>
 					<event load="COMBAT_CHECK" />
 				</choice>
 			</event>
 		</choice>
 		<choice hidden="true">	
-			<text>マンティスを無視してください、他に何もすることはありません。</text>
+			<text>カマキリは無視しろ、他にやることはない。</text>
 			<event />
 		</choice>
 	</event>
@@ -1070,17 +1074,17 @@
 	<ship load="SHIP_MORPH_FIGHT" hostile="true" /> 
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <textList name="TEXT_ENCOUNTER_MORPH">
-	<text>「KALPU！KALPU！RETER LIP LOO TIKA TIKA BOO！」怒り狂ったモーフは、彼らの言葉で信じられないほど下品であると想像することしかできない侮辱を投げかけ始めます。しかし、あなたは彼らを怒らせるためにあなたが何をしたのか文字通りわかりません。たぶん、存在するだけで彼らを怒らせるのに十分ですか？</text>
-	<text>さらに別の敵対的なモーフ船が近づくと、シェルが実際に気質の「設計」を完了したことがないのではないかと思わずにはいられません。彼らがどれほど不安定であるかを他に何が説明できますか？</text>
-	<text>あなたは、剣闘士の戦闘で互いに戦っているいくつかの漫画の異星人の戦士を示す、ぎこちないタイトルのビデオを受け取ります。数分後、モーフ船が近づき、武器が準備できました。</text>
-	<text>近くのモーフ船は友好的ではないということです。それは攻撃的な叫び、または彼らの充電武器かもしれません。ただの予感です。</text>
-	<text>これらの攻撃的なモーフは、他の種類のモーフにとって本当に悪いイメージを設定します。少なくとも彼らは「ねえ、あなたはその連邦船だ！」と叫ぶことはありません。彼らがあなたに会うたびに。</text>
-	<text>あなたは、モーフがあなたが誰であるか、またはあなたの使命が何であるかさえ知っているかどうか疑問に思います。残念ながら、「booj kabooj」は、モーフ船が発砲するため、わかりやすい答えではありません。</text>
+	<text>「KALPU！カルプ！レター・リップ・ルー・ティカ・ティカ・ブー！"怒り狂ったモーフは、信じられないほど下品な言葉で侮辱を浴びせ始めた。あなたは文字通り、彼らを怒らせるために何をしたのか見当もつかない。もしかしたら、ただ存在するだけで彼らを怒らせるには十分なのかもしれない。</text>
+	<text>別の敵対的なモーフ船が接近してくると、シェルが彼らの気質を "設計 "し終えていないのではないかと疑わずにはいられなくなる。それ以外に彼らの不安定さを説明できるものがあるだろうか？</text>
+	<text>そのビデオにはエイリアンの戦士たちが剣闘士として戦っている様子が映し出されている。数分後、武器を構えたモーフ船が近づいてくる。</text>
+	<text>何か、近くにいるモーフ船は友好的ではないらしい。攻撃的な叫び声かもしれないし、突進してくる武器かもしれない。ただの勘だけどね。</text>
+	<text>この攻撃的なモーフは、他の種族に悪いイメージを植え付けている。少なくとも、あなたを見るたびに「おい、お前は連邦の船か！」と叫んだりはしない。</text>
+	<text>あなたは、モーフがあなたが誰なのか、あなたの任務は何なのか、気づいているのかどうかさえ疑問に思う。残念なことに、モーフの艦船が発砲してきたため、「ブージ・カブージ」とは答えられなかった。</text>
 </textList>
 
 <event name="NEBULA_ENCOUNTER_REBEL_MORPH">
@@ -1088,17 +1092,17 @@
 	<ship load="SHIP_REBEL_FIGHT" hostile="true" /> 
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <textList name="TEXT_ENCOUNTER_REBEL_MORPH">
-	<text>これらの小さくて灰色の控えめな塊に対する反乱の突然の関心は懸念されています。ここにも現在あなたと戦うようになっているように、ここにも多くの船が描かれているようです！</text>
-	<text>「ねえ、あなたはその連邦船です！すぐそこに立ち寄ってください-」あなたは反乱軍の船をミュートします。これらの欠員はすべて同じであり、モーフ自身である可能性もあります。</text>
-	<text>この星雲について何かが正しくありません。オレンジ色のスライバーが雲をすり抜け、あなたの体は警戒します。反乱軍の船が到着！</text>
-	<text>このセクターで退屈な瞬間は決してありません。今回はあなたの敵は反乱軍になるようです。シェルやモーフよりも優れていますか？時が教えてくれる...</text>
-	<text>反乱軍は、関心のあるセクターやあなたを追跡している艦隊の外では、今日ではあまり一般的ではありません。つまり、ここの船は、何か大きなものの兆候です。それを超えて、それはあなたの非常に近い将来に戦いがあるというサインでもあります！</text>
-	<text>あなたは過去の自分をあきらめて、連邦を救う勇敢なマルチバースのレネゲートになりました。今、反乱軍の船があなたの進路に移動してあなたを止めます。あなたが物事を成し遂げる方法を彼らに示してください。</text>
+	<text>反乱軍が突然、この小さくて灰色の地味な塊に興味を示したのは気になる。彼らの船の多くもここに集まっているようだ。例えば、現在あなた方と戦おうとしているこの船もそうだ！</text>
+	<text>「おい、お前はあの連邦の船か！そこで止まれ！反乱軍の船を消せこの手下どもはみんな同じだ、モーフそのものかもしれない。</text>
+	<text>この星雲は何かがおかしい。オレンジ色の一片が雲をすり抜け、あなたの体は警戒態勢に入る。反乱軍の船だ！</text>
+	<text>このセクターに退屈はない。今回の敵は反乱軍のようだ。シェルやモーフよりマシなのか？時間が解決してくれるだろう...</text>
+	<text>反乱軍というのは、関心のあるセクターや後続の艦隊以外ではあまり見かけない。つまり、この船は何か大きなもののサインなのだ！</text>
+	<text>あなたは過去の自分を捨て、連邦を救う勇敢なマルチバース・レネゲイドとなった。今、反乱軍の船があなたを阻止しようと進路に進入してきた。彼らに君のやり遂げ方を教えてやれ。</text>
 </textList>
 
 <event name="NEBULA_ENCOUNTER_AUTO_MORPH">
@@ -1106,24 +1110,24 @@
 	<ship load="SHIP_AUTO_FIGHT" hostile="true" /> 
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <textList name="TEXT_ENCOUNTER_AUTO_MORPH">
-    <text>「物質M4-RHのサンプルを検出しています。エラー。再処理船。連邦船が検出されました。「敵である甘いイエス」プロトコルをアクティブ化しています。」自動船は偵察モードから戦闘モードにすばやく移行します。戦いに備えろ！</text>
-    <text>すでにいくつかの反乱軍の船がここをうろついているのを見てきましたが、今回は敵が自動化された船のようです！あなたはすでに武器を充電し始めているので、この星雲があなたをつま先に置いているのは良いことです。</text>
-    <text>アトラスのエントリーによると、ここでの反乱軍の脅威は高く、これらの自動船はそれを明確に示しています。今日、反乱軍にどのくらいの物的損害を与えますか？</text>
-    <text>「このビーコンは反乱の支配下にあります。連邦船は容認されません。」自動容器が移動します。シェルがこのスクラップバケットをまだ処理していない場合は、処理します。</text>
-    <text>ありがたいことに、暗い星雲をすり抜ける自動船の灰色の翼を見つけるのは難しい場合がありますが、それらの独特のオレンジ色の輝きはそれらを与えます。戦いの準備をしなさい！</text>
+    <text>「物質M4-RHのサンプルの検出。エラー。再処理船です連邦船を発見"敵だ "プロトコルを起動。オートシップが偵察から戦闘モードに移行する。戦闘準備！</text>
+    <text>すでに反乱軍の艦船が何隻もここをうろついているのを見たが、今回の敵は自動化された艦船のようだ！この星雲のせいで、君は気を抜けないんだ。</text>
+    <text>アトラスのエントリーによると、ここでの反乱軍の脅威は高く、このオートシップはその明らかな兆候だ。反乱軍にどれだけの損害を与えるつもりだ？</text>
+    <text>"このビーコンは 反乱軍の管理下だ連邦の船は容赦しない"オートボールが接近中シェルがこのクズ野郎を始末してないなら、あんたが始末しろ。</text>
+    <text>ありがたいことに、暗い星雲の中をすり抜けていくオートシップのグレーの翼を見つけるのは難しいこともあるが、その独特のオレンジ色の輝きでそれとわかる。戦いに備えよう！</text>
 </textList>
 
 <event name="NEBULA_ENCOUNTER_SHELL_SCIENTIST_MORPH" unique="true">
-	<text>通常、シェル船、特に科学者はかなり受動的です。ただし、ここの船はその例には従いません。 「くそー、私たちはすでにここで反乱軍に対処しなければなりません！私たちは連邦の介入を求めませんでした！」</text>
+	<text>通常、シェル船は、特に科学者たちは、それなりに受動的だ。しかし、この船はそうではない。"くそっ、すでに反乱軍の相手をしなければならない！連邦の介入など求めていない！"</text>
 	<ship load="SHIP_SHELL_SCIENCE" hostile="true" /> 
 	<environment type="nebula" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
@@ -1134,22 +1138,22 @@
 
 <ship name="SHIP_SHELL_LAB_DELTA" auto_blueprint="MU_SHELL_LAB_DELTA">
 	<surrender min="1" max="3">
-		<text>「オーケー、オーケー！気が変わった！あなたは私たちを生き返らせることができる！」</text>
+		<text>「オーケー、オーケー！気が変わった！私たちを生け捕りにして！"</text>
 		<ship hostile="false" />
 		<choice hidden="true">
-			<text>彼らに何が起こっているのかを説明するよう要求する。</text>
+			<text>何が起こっているのか説明するよう要求する。</text>
 			<event>
-				<text>「私たちは...反乱軍から、いくつかの設計図、貨物、モーフDNAを転送するために多額のお金を提供されました。たとえば、多額のお金です。私をそのように見ないでください。同じように提供されていましたか？あなたもやったでしょう！」</text>
+				<text>"我々は..." "反乱軍から大金を積まれた" "設計図と積荷とモーフのDNAを 引き継ぐために大金だそんな目で見るな！お前も同じ提案を受けたら、そうしただろう！"</text>
 				<choice hidden="true">
-					<text>反乱軍は異星人を憎んでいませんか？</text>
+					<text>反乱軍はエイリアンを嫌っているのでは？</text>
 					<event>
-						<text>「「異星人」という用語を使用しないでください。私たちにとって、あなたは異星人です。しかし...はい、彼らは親切な人々ではありません。しかし、地獄のように金持ちです！セクター全体を襲撃します。残念ながら...今あなたはここにいます。そして私たちの支払いは決して現れませんでした...」</text>
+						<text>"エイリアン "という言葉を使わないでください。私たちにとっては、あなたたちがエイリアンです。でも...そう、彼らは親切な人たちじゃない。でも金持ちだ！彼らは基本的な買収の上にはいない、セクター全体を略奪するよりも簡単だ。残念なことに...あんたはここにいる。支払いはまだだ..."</text>
 						<choice hidden="true">
-							<text>彼らが代わりにあなたに貨物を与えることを要求しなさい。反乱軍がそれを利用しているのなら、連邦もそうです。</text>
+							<text>代わりに貨物をよこせと要求しろ。反乱軍が使うなら、連邦も使うだろう。</text>
 							<event>
-								<text>「なに？！でも私たちのお金はどうだ！」スイッチを入れて武器の電源を入れ直すと、シェルは期待してゴロゴロします。 「ああ……そうだね。大丈夫。私はこれで解雇されるんだ…まあ、とにかく解雇されるつもりだった。でも、あなたはポイントを得る。それは「二重解雇」のようなものだ。」</text>
+								<text>「何だと？でも、私たちのお金はどうなるの！"あなたが武器をパワーアップさせるスイッチを入れると、シェルは期待に息をのむ。"ああ...そうか。わかったよ。これでクビだ...。まあ、どうせクビになるんだけどね。でも、言いたいことはわかる。まるで "ダブル・クビ "だ。</text>
 								<choice hidden="true">
-									<text>継続する...</text>
+									<text>次へ...</text>
 									<event load="MORPH_SITE_DELTA_UNLOCK" />
 								</choice>	
 							</event>
@@ -1167,25 +1171,25 @@
 	<beaconType id="map_icon_delta" global="true">
 		<color r="244" g="106" b="145" a="1" />
 	</beaconType>
-	<text>ここには大規模なシェル研究所が設置されているようですが、それでも機能しています。しかし、反乱軍の包囲下でこれほど長く生き残ったのはどうしてかと思わずにはいられません。</text>
+	<text>ここには巨大なシェル研究所が設置されているようで、まだ機能している！しかし、反乱軍の包囲網の中、どうやってここまで生き延びたのか不思議でならない。</text>
 	<ship load="SHIP_SHELL_LAB_DELTA" hostile="false" />
 	<choice hidden="true">	
-		<text>ラボにお問い合わせください。</text>
+		<text>ラボに連絡する。</text>
 		<event>
-			<text>おびえたシェルの科学者から返答があります。 「クラップ！あなたは私たちを生かすことは決してないだろう、フェデレーション！」ステーションはそれ以上の理由もなく突然発火しました。たぶん、あなたが彼らに十分なダメージを与えることができれば、彼らは降伏し、あなたは何が起こっているのかを理解することができます。</text>
+			<text>あなたは怯えたシェル科学者から返事を受け取った。「くそっ！私たちを生け捕りにする気か、連邦！"ステーションは突然、理由もなく砲撃を開始した。十分なダメージを与えれば降伏するだろう。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>ラボは無視してください。</text>
+		<text>研究室を無視する。</text>
 		<event>
-			<text>これらのシェルを煩わせるよりも、やるべきことがあります。</text>
+			<text>シェルに迷惑をかけるくらいなら、もっとすることがあるだろう。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1196,12 +1200,12 @@
 	</choice>
 </event>
 <event name="MORPH_SITE_DELTA_FAIL">
-	<text>結局、シェルを殺してしまったようです。今は何も残っていませんが、いくらかの救済があります。</text>
+	<text>結局、あなたはシェルを殺してしまったようだ。あとはサルベージが残るだけだ。</text>
 	<autoReward level="HIGH">standard</autoReward>
 	<variable name="ach_boss_delta" op="set" val="1" />
 </event>
 <event name="MORPH_SITE_DELTA_UNLOCK">
-	<text>シェルが言ったことに忠実であり、反乱がこれを利用しているのであれば、連邦もそうです。ブループリントについては、それらをフェデレーションベースに転送します。持っていく武器と、安全に保管するためにロックするモーフDNA。反乱軍はこれを手に入れる必要はありません...</text>
+	<text>シェルが言ったとおり、反乱軍がこれを使うなら、連邦も使うだろう。設計図は連邦の基地に転送する。武器は持ち帰り モーフのDNAは厳重に保管しろ反乱軍はこれを手に入れる必要はない...</text>
 	<unlockCustomShip silent="false">PLAYER_SHIP_SCIENTIST</unlockCustomShip>
 	<weapon name="BEAM_SHELL" />
 	<variable name="ach_boss_delta" op="set" val="1" />
@@ -1219,26 +1223,26 @@
 	<beaconType id="map_icon_alpha" global="true">
 		<color r="255" g="125" b="75" a="1" />
 	</beaconType>
-	<text>これは...または、シェル研究所のサイトのようです。マップ上で「サイトアルファ」とマークされているので、明らかに重要なことです。反乱軍によって損傷を受けたようですが、まだ1隻の船が残っています。</text>
+	<text>ここはシェルの研究所があった場所のようだ。地図には "Site Alpha "とある。反乱軍によって破壊されたようで、船が1隻残っている。</text>
 	<ship load="SHIP_OOJ_BEGIN" hostile="false" />
 	<environment type="nebula" />
 	<choice hidden="true">	
-		<text>それらを攻撃してラボにアクセスします。</text>
+		<text>彼らを攻撃して研究室にアクセスする。</text>
 		<event>
-			<text>反乱軍の船は攻撃に遅く、何も言いません。それでも、彼らは武器を上げて攻撃します！</text>
+			<text>反乱軍の船は攻勢に出るのが遅く、何も言わない。武器を構え、攻撃を仕掛ける！</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>反乱軍を無視します。</text>
+		<text>反乱軍を無視する。</text>
 		<event>
-			<text>この場所はすでに略奪されています。とにかくそれから多くを得ることができないとき、関与する理由はありません。</text>
+			<text>ここはすでに荒らされている。どうせ大したことは得られないのに、巻き込まれる筋合いはない。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1249,16 +1253,16 @@
 	</choice>
 </event>
 <event name="MORPH_SITE_ALPHA_ENTER">
-	<text>あなたとあなたのクルーによって浪費された別の反乱軍の船。ラボを調査する前に、船体をスクラップします。</text>
+	<text>またもや反乱軍の船が、君とクルーによって蹂躙された。ラボを調査する前に船体をスクラップにしろ。</text>
 	<autoReward level="MED">standard</autoReward>
 	<choice hidden="true">	
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>部屋の1つにまだ機能しているターミナルがあることに驚いています。反乱軍によって無効にされるまで、メッセージの送信の途中であったようです。あなたは情報をダウンロードしてあなたの船でそれを再生します...</text>
+			<text>部屋のひとつに、まだ機能している端末があることに驚く。反乱軍によって無効化されるまで、メッセージを送信する途中だったようだ。あなたはその情報をダウンロードし、自分の船で再生する。</text>
 			<choice hidden="true">	
-				<text>録音を聞いてください。</text>
+				<text>録音を聴いてください。</text>
 				<event>
-					<text>「最後の封じ込めユニットが破られました。反乱軍がサイトアルファに降り立ち、サブジェクト0を盗みました。私たちは即時のバックアップを要求しています。MFKエースはすでに到着しています。繰り返しますが、即時のba-を要求しています。」 、しかし、それがどのように終わったかは簡単に推測できます。確かに、きれいなものは何もありません。いくつかの座標がここにもあるように見えます。この想定される主題0の追跡ビーコンです。</text>
+					<text>"最後の封じ込めユニットが破られた。MFKのエースがすでに到着している。繰り返す、緊急支援を要請する..."録音は途切れたが、その結末は容易に想像がつく。確かに、きれいごとではない。いくつかの座標もここにあるようだ。この "0 "と思われる機体の追跡ビーコンだ。</text>
 					<quest event="ENCOUNTER_OOJMAJOO" />
 				</event>
 			</choice>
@@ -1279,42 +1283,42 @@
 </event>
 
 <event name="SURRENDER_OOJ_UNLOCK">
-	<text>奇妙なことに非人間的ですが、突然、反乱軍の船から声が飛び出しましたが、その理由に指を置くことはできません。 「StOp！この船は戦いたくない。お願いします-ストファイアします。お願いします。お願いします。お願いします。」</text>
+	<text>突然、反乱軍の船から声が飛び出した。奇妙に人間離れした声だったが、その理由はわからない。「ストープ！この船は戦いたくない。発砲してください。お願いだお願いだお願いだ</text>
 		<choice hidden="true">
-			<text>それらに耳を傾け、停止します。</text>
+			<text>彼らに耳を傾け、立ち止まる。</text>
 			<event>
-				<text>「ありがとうございます。あなたはとても親切です。」何がオフなのかが突然わかります。音声は、他のオーディオ トラックからつなぎ合わされます。話しているのは人でさえありませんが、奇妙な録音です。</text>
+				<text>「ありがとう。あなたは...とても親切です"突然、何がおかしいのかがわかる。その声は他の音声トラックからつなぎ合わされている。人が話しているのでもなく、奇妙な録音だ。</text>
 				<ship hostile="false" />
 				<recallBoarders />
 				<surrender />
 				<choice hidden="true">
-					<text>声についてお問い合わせください。</text>
+					<text>声について問い合わせる。</text>
 					<event>
-						<text>あなたはしばらくの間応答を受け取らず、突然「声」が戻ったとき、あなたは彼らがあなたを無視したと思い始めます。 「CaNItrusyou？」</text>
+						<text>しばらく返事がないので、無視されたのかと思い始めると、突然「声」が戻ってきた。"CaNI trusyou?"</text>
 						<choice hidden="true">
-							<text>はい。</text>
+							<text>そうだ。</text>
 							<event>
-								<text>「Thiship-REbElsではありません。私は...OO-JMA-JOOです。MOrpHsの父です。私たちは逃げています。Shellsは親切ではありません。彼らは私たちを奴隷労働に使用するつもりはありませんでした。モーフもそうなるでしょう。」</text>
+								<text>"Thiship-REBElsではありません。私は...OO-JMA-JOO。MOrpHsの父。私たちは逃げている。貝は親切ではない私たちを奴隷として使おうとしている。私たちを奴隷として使っていいのか？私が助かればモーフも助かるだろう。"</text>
 								<choice hidden="true">
-									<text>彼を連れて行くことに同意します。</text>
+									<text>彼を連れて行くことに同意する。</text>
 									<event>
-										<text>あなたはモーフが船上でビームを発することを期待していますが、代わりに反乱軍の船は形を変え、巨大な灰色の塊に収束します。 「私は大きすぎるようです。収まりません。私の体のこの部分を運んでほしいと思います。それが成長するようにそれを食べてください。ありがとう、連邦。」</text>
+										<text>モーフが乗り込んでくるかと思いきや、反乱軍の船は形を変え、巨大なグレーの塊へと収束していく。「私は大きすぎるようだ。私は大きすぎるようだ。私の体のこの部分を運んでほしい。私の体が大きくなるように。ありがとう、連邦。"</text>
 										<variable name="ach_crew_ooj" op="set" val="1" />
 										<crewMember amount="1" class="unique_ooj">OOJ MAJOO</crewMember>
 										<choice hidden="true">
-											<text>継続する...</text>
+											<text>次へ...</text>
 											<event load="MORPH_3_UNLOCK" />
 										</choice>
 									</event>
 								</choice>
 								<choice hidden="true">
-									<text>私たちはこの仕事にふさわしい人ではありません。</text>
+									<text>私たちはこの仕事に適した人間ではない。</text>
 									<event>
-										<text>「私は……スタンドの下にいます。私を殺さないでくれてありがとう。」反乱軍の船は武器を吐き出し、そして飛び去ります。</text>
+										<text>「私は...UNDER立つ。私を殺さないでくれてありがとう。"反乱軍の船は武器を吐き出し、飛び去る。</text>
 										<instantEscape />
 										<weapon name="RANDOM" />
 										<choice hidden="true">
-											<text>継続する...</text>
+											<text>次へ...</text>
 											<event load="MORPH_3_UNLOCK" />
 										</choice>
 									</event>
@@ -1322,9 +1326,9 @@
 							</event>
 						</choice>
 						<choice hidden="true">
-							<text>いいえ。</text>
+							<text>いや。</text>
 							<event>
-								<text>船は止まり、すぐに飛び去ります。あなたが彼らを怖がらせたと思います、ばか。</text>
+								<text>船は止まり、すぐに飛び去る。脅かさないでよ、バカ</text>
 								<instantEscape />
 							</event>
 						</choice>
@@ -1333,45 +1337,45 @@
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>拒否して撃ち続けます。</text>
+			<text>拒否して撃ち続ける。</text>
 			<event />
 		</choice>
 </event>
 <event name="ENCOUNTER_OOJMAJOO">
 	<beaconType id="map_icon_quest" global="true">
 		<color r="69" g="168" b="235" a="1" />
-		<unvisitedTooltip>被験者の座標ゼロ。</unvisitedTooltip>
+		<unvisitedTooltip>被写体ゼロの座標。</unvisitedTooltip>
 	</beaconType>
-	<text>これは想定されるサブジェクトゼロを運ぶ船のようです。以前の船と同じように、通常の反乱軍の船のように自慢したり、脅したり、侮辱したりすることはありませんが、静かに通り過ぎます。</text>
+	<text>どうやら、これが例のゼロを乗せた船のようだ。さっきの船と同じように、普通の反乱軍の船のように自慢したり、脅したり、侮辱したりしようとはせず、静かに通り過ぎていく。</text>
 	<ship load="SHIP_OOJ_FIGHT" hostile="false" />
 	<choice hidden="true">	
-		<text>攻撃！</text>
+		<text>攻撃だ！</text>
 		<event>
-			<text>この「サブジェクト0」がまだ搭載されているかどうかは定かではありませんが、これらの反乱軍を戦わずに手放すことはできません。</text>
+			<text>この "件名0 "が、まだ船内にいるのかどうかも定かではないが、反乱軍を戦わずして逃がすつもりはないだろう！</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_MORPH">	
-		<text>（モーフクルー）「Tiptiptookaloo...」</text>
+		<text>(モーフ・クルー）"ティップ・ティップ・タケアルー..."</text>
 		<event>
-			<text>あなたのモーフのクルーは何か言いたいことがあるようですが、あなたは彼らを理解することができません。彼らがナンセンスを吐き出すのを聞くと、誤ってMFKエースで船体をぶつけてしまいます。船は突然敵対的になり攻撃します！</text>
+			<text>モーフのクルーが何か言っているようだが、理解できない。彼らの戯言を聞いているうちに、偶然MFKエースと船体がぶつかる。その船は突然敵意をむき出しにして攻撃してくる！</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>船を放っておいてください。</text>
+		<text>船は放っておけ。</text>
 		<event>
-			<text>このような反乱軍の船を目にすることはめったにありませんが、今日は戦う気がしません。</text>
+			<text>こんな反乱軍の船は滅多にお目にかかれないが、今日は戦う気がしないんだろう。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1387,30 +1391,30 @@
 	<beaconType id="map_icon_omega" global="true">
 		<color r="110" g="210" b="0" a="1" />
 	</beaconType>
-	<text>入り口でアルカリが言及した場所であるサイトオメガに到着しました。あなたは遠くに大きなシェル研究所を見つけ、慎重に近づきます。</text>
+	<text>あなたはアルカリが入口で言った場所、サイト・オメガに到着した。遠くに大きなシェル研究所を見つけ、慎重に近づく。</text>
 	<environment type="nebula" />
 	<choice hidden="true">	
-		<text>ドッキングする。</text>
+		<text>ドック</text>
 		<event>
-			<text>奇妙なことに、施設内のガスが遮断されているようです。それは非常に便利ですが、あなたは疑問に思う人ではありません。あなたはステーションとドッキングし、中に向かいます...</text>
+			<text>奇妙なことに、施設のガスは止められているようだ。非常に便利なことだが、あなたは疑問に思うことはない。ステーションとドッキングし、中に入る。</text>
 			<choice hidden="true">	
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>人間の壊れた死体と死んだ貝殻の崩れた死体を注意深く踏むと、内部の廊下は赤と緑の血のしぶきが混ざり合っています。これらの反乱軍のユニフォームは際立っていますが、ここで大規模な銃撃戦が起こったように見えます...しかし、大虐殺の痕跡をたどって、あなたは後退する人ではありません。</text>
+					<text>内部の廊下には赤と緑の血しぶきが飛び散り、人間のぐちゃぐちゃになった死体やシェルの崩れ落ちた死体を慎重に踏み越えていく。ここで大規模な銃撃戦があったようだ。反乱軍の軍服が目立つが...。しかし、引き下がるわけにはいかない。あなたは殺戮の跡をたどりながら進む。</text>
 					<choice hidden="true">	
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
-							<text>ついにあなたは鍵のかかったドアにたどり着き、それを開けると、おそらくアルカリであると思われる負傷したシェルの科学者を地面に見つけます。彼はあなたを見つけるとすぐに、注射器が付いたテーブルを指さします。 「あなた。私にそれをください...」</text>
+							<text>ようやく鍵のかかったドアにたどり着き、ドアを開けると、負傷したシェル・サイエンティスト（おそらくアルカリ）が倒れている。彼はあなたを見つけるやいなや、注射器の置かれたテーブルを指差した。"お前、それをよこせ..."</text>
 							<choice hidden="true">	
-								<text>彼に注射器を渡してください。</text>
+								<text>注射器を渡す。</text>
 								<event load="ALKALI_LORE" />
 							</choice>
 							<choice hidden="true">	
-								<text>いいえ。最初にいくつかの質問に答えます。</text>
+								<text>いや、まずいくつかの質問に答えてもらう。</text>
 								<event>
-									<text>アルカリはあなたを睨みつけます、そしてあなたは彼があなたを聞いたかどうかさえわかりません。 「聞こえませんでしたか？注射器を持ってください。無駄にする時間がありません。」</text>
+									<text>アルカリはあなたを睨みつける。「聞こえなかったのか？注射器を持ってこい。時間がないんだ。</text>
 									<choice hidden="true">	
-										<text>彼に注射器を渡してください。</text>
+										<text>注射器を渡す。</text>
 										<event load="ALKALI_LORE" />
 									</choice>
 								</event>
@@ -1422,11 +1426,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">	
-		<text>これは悪い考えです。ステーションを無視します。</text>
+		<text>これは悪い考えだ。駅は無視しろ。</text>
 		<event>
-			<text>この場所が封鎖されなければならなかったとしても、それは良いことを意味するものではありません。</text>
+			<text>ここが封鎖されたのなら、いいことは何もない。</text>
 			<choice hidden="true">
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -1438,75 +1442,75 @@
 </event>
 
 <event name="ALKALI_LORE">
-	<text>あなたは注射器に入った茶色の液体を素早くアルカリの腕に投与する。「よかった、ちょうど再生能力を高めるものが必要だったんだ。さて、なぜ連邦はこのセクターに侵入してきたのでしょうか？ジェニオクラシーで起きていることがあなたに関係するとは思いませんでした。あなたはもっと他のことに夢中になっているようですが...。」</text>
+	<text>あなたは注射器に入った茶色の液体をアルカリの腕に素早く投与する。「再生能力を高めるものが必要だったんだ。さて、なぜ連邦はこのセクターに侵入しているのだ？ジェニオクラシーの動向は、あなたには関係ないと思っていたのですが...他のことで頭が一杯のようですね。"</text>
 	<choice hidden="true">
-		<text>なぜ反乱軍がここにいるのかについて同じことを尋ねることができます。</text>
+		<text>反乱軍がここにいる理由についても同じことが言える。</text>
 		<event>
-			<text>「はい、私は同じように疑問に思っていました。私たちの最新の間違いに興味を持っていました。いまいましい天才も！それが少しかかったのはちょっとしたQuarpジュースで、すぐに私は人生そのものを創造しました！、軍事地区のためのラジアンティのように...」</text>
+			<text>"ええ、私も同じことを考えていました。彼らは私たちの......私の最近のミスに興味を持っている。モーフはほら、シェルのために働くように作られたんだ。過酷な肉体労働のためにな天才的な仕事だクアープ・ジュースさえあれば、私はすぐに "生命 "そのものを創造したのだ！管理局長のネルバは、このプロジェクトの資金援助を拒否し続けた！おそらくモーフが自分たちを使い物にならなくすると思ったんだろう、軍事区のラジアントのように..."</text>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>「その雌犬が私の施設を妨害したとしても驚かないでしょう！しかし、それは科学地区の間でただの噂です...今、あなたはまだ私の質問に答えていません。なぜあなたはここにいるのですか？あなたが私を撃ったり、あなたが崇拝している異教の神々に私を犠牲にする前に、あなたの意図を理解したいと思います。」</text>
+					<text>"あの女が私の施設に妨害工作を働いたとしても、私は驚かない！だが、それは科学地区の噂に過ぎない......」。さて、あなたはまだ私の質問に答えていない。なぜここにいる？未知なるものが未知なるままであることを良しとしない。私を撃ったり、あなた方が崇拝する異教の神々に私を生け贄に捧げたりする前に、あなた方の意図を理解したい。"</text>
 					<choice hidden="true">	
-						<text>ノード17に到達するための探求中です。</text>
+						<text>私たちはノード17を目指している。</text>
 						<event>
-							<text>「まあ、誰もがあなたがどこに行くのか知っています。私は誓います、誰もが見捨てられた場所に向かっています。恥ずべきことです！あなたは、MV技術を使って、古代の謎を解いたり、ある種の何かを作成したりすることができたでしょう。次元間ユートピア。しかし、代わりにあなたはそれを使ってお互いに戦います。私たちシェルはこれらの問題に悩まされていません。私たちは科学者であり、内部紛争について心配することはほとんどありません。今でもあなたは私に答えていません。私を殺しますか？あなたの人々が苦しんでいるある種の致命的な宇宙病を治すために私を募集しますか？神はそれを酷評します、私は待つのにうんざりしています。」</text>
+							<text>"いやいや、みんな君がどこに行くのか知っているよ。絶対、みんなあの忌まわしい場所に向かってる。恥ずべきことだ！そのMV技術を使って、古代の謎を解いたり、異次元のユートピアを作ったりできたはずだ。しかし、その代わりにあなた方はそれを互いに争うために使っている。私たちシェルは、そのような問題に悩まされることはない。私たちは科学者であり、内部対立を心配する必要はほとんどない。さて、あなたはまだ私に答えていない。私を殺しに来たのか？君たちが苦しんでいる致命的な宇宙病を治すために私を雇ったのか？くそっ、待ちくたびれたよ」。</text>
 							
 							<choice hidden="true" req="LIST_CREW_ELLIE" lvl="0" max_lvl="0" blue="false" max_group="0">
-								<text>私たちはあなたの遭難信号を聞いてここに来ました。</text>
+								<text>遭難信号を聞いてここに来たんだ。</text>
 								<event>
-									<text>「ああ、ある種の慈善家、あなたはそうですか？素晴らしいです、あなたはより良い護衛だと思います...私はあなたを悪いことです。ワクチン接種されていますよね？」</text>
+									<text>「ああ、ある種の博愛主義者か？そうだね、君よりもっといいエスコートをしてくれそうだ......。君より悪いやつよりはね。君はくだらない宗教や陰謀を信奉していないね？予防接種は受けているよね？"</text>
 									<choice hidden="true">	
-										<text>特にありません。</text>
+										<text>特にない。</text>
 										<event>
-											<text>「とても良いです。機会があれば、私を賢才国家に戻してください。その間、私は自分自身を役立てます。私はフリーローダーではありません。」</text>
+											<text>「よろしい。機会があれば、私をジェニオクラシーに戻してほしい。それまでの間、私は自分の役に立ちます。私はフリーローダーではない"</text>
 											<crewMember amount="1" repair="2" class="unique_alkali">アルカリ</crewMember>
 											<choice hidden="true">	
-												<text>わかった。</text>
+												<text>オーケー。</text>
 												<event load="ALKALI_LEGION" />
 											</choice>
 										</event>
 									</choice>
 									<choice hidden="true" req="zoltan_monk">
-										<text>（モンククルー）「私たちは平和の男性と女性です。グレートアイが私たちを導きます。」</text>
+										<text>(モンク・クルー) "私たちは平和の男女です。大いなる目が我々を導く"</text>
 										<event>
-											<text>アルカリは嫌悪感を抱いてあなたを見ます。「うーん...少なくとも私はあなたが私を殺すつもりはないことを確信しています。私はあなたの船に乗っている間、あなたは私に霊的な道具を持っていない部屋で私を眠らせます。「それがほうきのクローゼットであるかどうかを気にします。あなたがチャンスがあるときに私をgeniocracyに送り返すように私はあなたが私を私に連れ戻すことを要求します。私は自分自身を有用にします。</text>
+											<text>アルカリはうんざりしたようにあなたを見る。「うっ......少なくとも、あなたが私を殺さないことは確かね。私があなたの船に乗っている間、あなたは私を霊的なもののない部屋で寝かせなければならない。箒置き場でも構わない。機会があれば、私をジェニオクラシーに戻してほしい。それまでの間、私は自分の役に立ちます。私はフリーローダーではない"</text>
 											<crewMember amount="1" repair="2" class="unique_alkali">アルカリ</crewMember>
 											<choice hidden="true">
-												<text>わかった。</text>
+												<text>オーケー。</text>
 												<event load="ALKALI_LEGION" />
 											</choice>
 										</event>
 									</choice>
 									<choice hidden="true" req="LIST_CREW_FLORAL">
-										<text>（花柄の乗組員）「偉大な木シルタル・ムンコロは私たちの道を前進させます！」</text>
+										<text>(フローラル・クルー）"偉大な木シルタル・イ・ムンコロは、我々の進むべき道を照らしてくれる！"</text>
 										<event>
-											<text>アルカリは嫌悪感を抱いてあなたを見ます。「うーん...蘭の花。私はあなたのヴァンプウィードの兄弟の会社をはるかに好むだろう。決して気にしないでください。私はあなたの船に乗っています。。それがほうきのクローゼットであるかどうかは気にしません。あなたがチャンスがあるときに私をgenhe geniocracyに送り返すように私を要求します。その間、私は自分自身を有用にします。</text>
+											<text>アルカリはうんざりしたようにあなたを見る。うっ...」。オーキッド・フローラル。ヴァンプウィードの同胞と一緒の方がずっとよかった。気にするな。私があなたの船に乗っている間は、霊的な道具のない部屋で寝かせてもらうわ。箒置き場でも構わない。機会があれば、私をジェニオクラシーに戻してほしい。それまでの間、私は自分の役に立ちます。私はフリーローダーではない"</text>
 											<crewMember amount="1" repair="2" class="unique_alkali">アルカリ</crewMember>
 											<choice hidden="true">	
-												<text>わかった。</text>
+												<text>オーケー。</text>
 												<event load="ALKALI_LEGION" />
 											</choice>
 										</event>
 									</choice>
 									<choice hidden="true" req="LIST_CREW_ROCK_FAITHFUL">
-										<text>（忠実なロッククルー）「長老たちは私たちを輝かしい人生への道に導きます！」</text>
+										<text>(Faithful Rock Crew）"長老たちは、輝かしい人生への道を導いてくれる！"</text>
 										<event>
-											<text>アルカリは嫌悪感を抱いてあなたを見ます。「うーん...大いに、野bar人の束。私はあなたの船に乗っている間、あなたは私に霊的な道具を持っていない部屋で眠らせてくれるでしょう。それがほうきのクローゼットかどうかは気にしません。あなたがチャンスがあるとき、私はあなたが私をgeniocracyに送り返すように頼みます。私はその間に自分自身を有用にします。私はフリーローダーではありません。」</text>
+											<text>アルカリは呆れたようにあなたを見る。「野蛮人の集まりか。私がこの船に乗っている間、霊的な道具のない部屋で寝かせてくれ。箒置き場でも構わない。機会があれば、私をジェニオクラシーに戻してほしい。それまでの間、私は自分の役に立ちます。私はフリーローダーではない"</text>
 											<crewMember amount="1" repair="2" class="unique_alkali">アルカリ</crewMember>
 											<choice hidden="true">	
-												<text>わかった。</text>
+												<text>オーケー。</text>
 												<event load="ALKALI_LEGION" />
 											</choice>
 										</event>
 									</choice>
 									<choice hidden="true" req="LIST_CREW_ANCIENT">	
-										<text>（オベリスクの乗組員）「愚かな人間！私たちは神です！」</text>
+										<text>(オベリスク・クルー）「愚かな人間よ！我々は神だ！"</text>
 										<event>
-											<text>アルカリは嫌悪感を抱いてあなたを見ます。「真剣に、神の複合体を持つ奇妙なエイリアンの束？私はあなたの船に乗っている間、あなたは私に霊的な道具を持っていない部屋で眠らせてくれるでしょう。それがほうきのクローゼットかどうかは気にしません。あなたがチャンスがあるとき、私はあなたが私をgeniocracyに送り返すように頼みます。私はその間に自分自身を有用にします。私はフリーローダーではありません。」</text>
+											<text>アルカリはうんざりしたようにあなたを見る。「マジで、神にコンプレックスを持つ奇妙なエイリアンの集まりなのか？私があなたの船に乗っている間は、霊的な道具が置いていない部屋で寝かせてもらうわ。箒置き場でも構わない。機会があれば、私をジェニオクラシーに戻してほしい。それまでの間、私は自分の役に立ちます。私はフリーローダーではない"</text>
 											<crewMember amount="1" repair="2" class="unique_alkali">アルカリ</crewMember>
 											<choice hidden="true">	
-												<text>わかった。</text>
+												<text>オーケー。</text>
 												<event load="ALKALI_LEGION" />
 											</choice>
 										</event>
@@ -1515,16 +1519,16 @@
 							</choice>
 							
 							<choice hidden="true" req="LIST_CREW_ELLIE_COSTUME" lvl="1" blue="false" max_group="0">
-								<text>私たちはあなたの遭難信号を聞いてここに来ました。</text>
+								<text>遭難信号を聞いてここに来たんだ。</text>
 								<event>
-									<text>「ああ、何かの博愛主義者ですか？ 素晴らしい、まあ、あなたはより良いエスコートだと思います... 私にはわかりません、あなたよりも悪い何かがあります. 待ってください...」アルカリはあなたの中にエリーが立っていることに気づいた乗務員は初めて。 「あ、あなたはエクイノイドのエリー教授ですか？つまり、エクイノイドのエリー教授ですか？」</text>
+									<text>「ああ、ある種の博愛主義者か？そうだね、君よりエスコート上手なんだろう......。いや、君よりもっと悪いものかな。待って...」。アルカリは、エリーがあなたのクルーの中に立っていることに初めて気づいたようだ。「あなたがエリー教授ですか？エリー・ザ・エキノイド教授？</text>
 									<choice hidden="true">	
-										<text>ええと...ええ、それはエリーです。</text>
+										<text>ええと...ええ、エリーです。</text>
 										<event>
-											<text>「You-」アルカリは自分自身を集めて、エリーに転がって手を振った。「お会いできて光栄です。教授。私はアルカリ・マルドバル教授ですが、あなたの仕事のことを聞いたことがあると思います。私のMorphhhプロジェクト全体の基礎、それは本当に革命的です！あなたが私の中にいると確信しているので、私はあなたの前にいることをwe敬の念を抱いています！」彼女は賞賛が好きです。「別のスーパーファン？！エリーは膝をついてシェルで目の高さになり、頭をpatとします。「まあミスターアルカリ、お会いできて光栄です！Quarpジュースはとてもおいしいです！しかし、私はそれを発明しませんでした、愚かです。それはQuarpのジュースです！」「あなたはあまりにも謙虚です。しかし、Quarpは本物の果物でさえありません！最初は私を困惑させましたが、それはいくつかのテレビ番組の架空の作品のようです。ジュースは非常に現実的であり、あなたの名前は製品、それはあなたの創造物であることは明らかです！自尊心の科学者が他の誰かに何かを素晴らしいものと同じくらい素晴らしいと信用させることはできません。あなたに加わることに何の不安がありません。しかし、私を失望させないでください。」</text>
+											<text>"あなた..."アルカリはエリーに近づき、握手をした。「お会いできて光栄です、教授。私はアルカリ・マルドヴァー教授ですが、私の研究についてはご存知でしょう。あなたのクアープジュースは奇跡です、生命を生み出す奇跡です！私のモーフ・プロジェクト全体の基礎であり、まさに革命的だ！私はあなたの前にいることに畏敬の念を抱いています、あなたも私の前にいることに畏敬の念を抱いていることでしょう！」ȾȾエリーはアルカリの言ったことにあまりピンときていないようだが、褒められたことは気に入っているようだ。"またスーパーファン？ウィニー！ファンに会うのは大好きよ"エリーはシェルと同じ目線になるように膝をつき、彼の頭をなでる。「アルカリさん、お会いできて光栄です！クアープジュースはとてもおいしい！でも、私が発明したんじゃないんですよ。アルカリは首を横に振る。「謙虚すぎる。でも、クアープは本物の果物でもない！でも、クアープは本物の果物でもないんだよ！最初は不思議に思ったけど、テレビ番組の中の架空の創造物らしい。でも、このジュースは本物だし、あなたの名前が入っているのだから、あなたの創作であることは明らかだ！自尊心のある科学者なら、これほど素晴らしいものを他人の手柄にするはずがない。エヘン。さて、君たちが競争力のあるIQのクルーであることは明らかだ。でも、がっかりさせないでくれよ」。</text>
 											<crewMember amount="1" repair="2" class="unique_alkali">アルカリ</crewMember>
 											<choice hidden="true">	
-												<text>わかった。</text>
+												<text>オーケー。</text>
 												<event load="ALKALI_LEGION" />
 											</choice>
 										</event>
@@ -1532,16 +1536,18 @@
 								</event>
 							</choice>
 							<choice hidden="true" req="unique_ellie_stephan" lvl="1" blue="false" max_group="0">
-								<text>私たちはあなたの遭難信号を聞いてここに来ました。</text>
+								<text>遭難信号を聞いてここに来たんだ。</text>
 								<event>
-									<text>「ああ、何かの博愛主義者ですか？ すごい、まあ、あなたはもっと良い護衛だと思います... 私にはわかりません、あなたよりも悪い何かがあります. 待ってください...」 アルカリはステファンに気づいたようですが、まだ部分的に彼のスーツを着て、初めてあなたの乗組員の中に立っています。 「あ、あなたはエクイノイドのエリー教授ですか？つまり、エクイノイドのエリー教授ですか？」</text>
+									<text>「ああ、ある種の博愛主義者か？そうだね、君よりエスコート上手なんだろう...。いや、君よりもっと悪いものかな。あなた...待って...」。アルカリはステファンに気づいたようで、まだ部分的にスーツを着ている。「君はエリー教授かい？エリー・ザ・エキノイド教授ですか？</text>
 									<choice hidden="true">
-										<text>ええと...ええ、彼はエリーを演じていました。</text>
+										<text>ええと...ええ、彼は以前エリーを演じていました。</text>
 										<event>
-											<text>「You-」アルカリは自分自身を集めて、ステファンに転がり、手を振った。「お会いできて光栄です。教授。私はアルカリ・マルドバル教授ですが、あなたの仕事のことを聞いたことがあると思います。私のMorphhhプロジェクト全体の基礎、それは本当に革新的です！あなたが私の中にいると確信しているので、私はあなたの前にいることをwe敬の念を抱いています！」「うーん...なに？私はごめんなさい。私は失礼になるつもりはありません。それはただ、あなたは混乱していると思います。私は科学者ではありません、私は俳優です。Quarp Juiceは私の古いショーのための単なる商品です。Quarpは本物ではありません。ジュースはおそらく生物硬質化学物質の奇妙な混合物です。」「あなたはあまりにも謙虚です。もちろん、私はQuarpが本物の果物ではないことを知っています。最初は私を困惑させました、はい。創造！自尊心のある科学者は、他の誰かがそれと同じくらい素晴らしいSomethhhhingを信用するようにさせません。今、あなたは競争力のあるIQの乗組員であることが明らかです。「私を失望させる。」</text>
+											<text>"あなた..."アルカリは気を取り直し、ステファンに近づき握手をした。「お会いできて光栄です、教授。私はアルカリ・マルドヴァー教授ですが、私の仕事については、あなたもご存知でしょう。あなたのクアープジュースは奇跡です、生命を生み出す奇跡です！私のモーフ・プロジェクト全体の基礎であり、まさに革命的だ！私はあなたの前にいることに畏敬の念を抱いています、あなたも私の前にいることに畏敬の念を抱いていることでしょう！」
+
+ステファンは非常に混乱しているようだが、とにかくアルカリの手を握る。"うーん...なんだ？ごめんなさい。失礼なことを言うつもりはなかったんだ。ただ、混乱してるみたいだから。僕は科学者じゃなくて俳優なんだ。俳優だったクアープジュースは ただのグッズだクアープは実在しないし、ジュースはバイオハザードの化学物質を混ぜただけの奇妙なものだ」⎤アルカリは首を振る。「あなたは謙虚すぎる。もちろん、クアープが本物の果物でないことは知っている。最初は戸惑いましたよ。でも果汁は本物だし、あなたの名前が入っているのだから、あなたの創造物であることは明らかだ！自尊心のある科学者なら、これほど素晴らしいものを他人に自分の手柄にさせるはずがない。エヘン。さて、君たちが競争力のあるIQのクルーであることは明らかだ。だが、私を失望させないでくれ」。</text>
 											<crewMember amount="1" repair="2" class="unique_alkali">アルカリ</crewMember>
 											<choice hidden="true">	
-												<text>わかった。</text>
+												<text>オーケー。</text>
 												<event load="ALKALI_LEGION" />
 											</choice>
 										</event>
@@ -1551,26 +1557,25 @@
 						</event>
 					</choice>
 					<choice hidden="true" req="unique_ivar">
-						<text>（Ivar）「それは古い友人に挨拶する方法ですか？」</text>
+						<text>(アイバー）"それが旧友に挨拶する方法なのか？"</text>
 						<event>
-							<text>「南軍の首相はあなたの船に乗っていますか？きっと、あなたはそれを早く育てたかもしれませんか？」この混乱！率直に言って、私はおそらく、それらのモーフが走り回っていなくても懐かしさで自分自身を失ったでしょう。「 "
-
-"反乱軍の連合スカムに対処しています。通常、私は科学的な天才がもたらした注意を払っていますが、それは異なります。eithhherの方法、私たちはおそらくすぐに出発するはずです。</text>
+							<text>"連合国首相があなたの船に乗っている？確かに、もっと早くそれを提起することができたのでは？何年ぶりかに君の家を訪ねたら、この混乱ぶりだった！正直なところ、モーフたちが走り回らなくても、ノスタルジーに浸っていたかもしれないけどね」
+「まるで、故郷の方がうまくいっているとでも言うように？それでも、反乱軍より連合のクズどもを相手にする方がずっとましだ。普通なら、私の天才的な科学力が注目されるのを喜ぶところだが、今回は違う。反乱軍、特にあの連中は、何かのために彼らを狙っている。それが何であれ、悪い知らせであることは間違いない。いずれにせよ、そろそろ出発しよう。いいか、君を巻き込みたくないんだ」。</text>
 							<crewMember amount="1" repair="2" class="unique_alkali">アルカリ</crewMember>
 							<choice hidden="true" req="LIST_CREW_ELLIE" lvl="0" max_lvl="0" blue="false" max_group="0">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="ALKALI_LEGION" />
 							</choice>
 							<choice hidden="true" req="LIST_CREW_ELLIE_COSTUME" lvl="1" blue="false" max_group="0">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event>
-									<text>出発する前に、アルカリはエリーに会ったときに突然奇妙に興奮しました。Ivar自身は、このイベントのターンについて困惑しているようですが、それについてのコメントを提起しません。「A-Are Are You Ellie Thhhe equinoid？</text>
+									<text>出発を前に、アルカリはエリーを見て突然妙に興奮する。アイヴァル自身はこの展開に戸惑っているようだが、それについては何も言わない。「あなたがエリー教授ですか？エリー・ザ・エキノイド教授ですか？"</text>
 									<choice hidden="true">
-										<text>ええと...ええ、それはエリーです。</text>
+										<text>ええと...ええ、エリーです。</text>
 										<event>
-											<text>「You-」アルカリは自分自身を集めて、エリーに転がって手を振った。「お会いできて光栄です。教授。私はアルカリ・マルドバル教授ですが、あなたの仕事のことを聞いたことがあると思います。私のMorphhhプロジェクト全体の基礎、それは本当に革命的です！あなたが私の中にいると確信しているので、私はあなたの前にいることをwe敬の念を抱いています！」彼女は賞賛が好きです。「別のスーパーファン？！エリーは膝をついてシェルで目の高さになり、頭をpatとします。「まあミスターアルカリ、お会いできて光栄です！Quarpジュースはとてもおいしいです！しかし、私はそれを発明しませんでした、愚かです。それはQuarpのジュースです！」「あなたはあまりにも謙虚です。しかし、Quarpは本物の果物でさえありません！最初は私を困惑させましたが、それはいくつかのテレビ番組で架空の作品のようです。製品、それはあなたの創造物であることは明らかです！自尊心の科学者が他の誰かがそれと同じくらい素晴らしいSomethhhhingを信用させることはできません。それを夢のイベントと呼んでいます。」</text>
+											<text>"あなた..."アルカリはエリーに近づき、握手をした。「お会いできて光栄です、教授。私はアルカリ・マルドヴァー教授ですが、私の研究についてはご存知でしょう。あなたのクアープジュースは奇跡です、生命を生み出す奇跡です！私のモーフ・プロジェクト全体の基礎であり、まさに革命的だ！私はあなたの前にいることに畏敬の念を抱いています、あなたも私の前にいることに畏敬の念を抱いていることでしょう！」ȾȾエリーはアルカリの言ったことにあまりピンときていないようだが、褒められたことは気に入っているようだ。"またスーパーファン？ウィニー！ファンに会うのは大好きよ"エリーはアルカリの目の高さまで膝をつき、彼の頭をなでる。「アルカリさん、お会いできて光栄です！クアープジュースはとてもおいしい！でも、私が発明したんじゃないんですよ。アルカリは首を横に振る。「謙虚すぎる。でも、クアープは本物の果物でもない！でも、クアープは本物の果物でもないんだよ！最初は戸惑ったけど、テレビ番組の中の架空の創造物らしい。でも、ジュースは本物だし、あなたの名前が入っているのだから、あなたの創造物であることは明らかだ！自尊心のある科学者なら、これほど素晴らしいものを他人に自分の手柄にさせるはずがない。それにしても、最初はアイバー、そして今度はあなたですか？状況がそれほど悲惨でなければ、夢のような出来事と呼んでもいいくらいだ」。</text>
 											<choice hidden="true">	
-												<text>わかった。</text>
+												<text>オーケー。</text>
 												<event load="ALKALI_LEGION" />
 											</choice>
 										</event>
@@ -1578,15 +1583,17 @@
 								</event>
 							</choice>
 							<choice hidden="true" req="unique_ellie_stephan" lvl="1" blue="false" max_group="0">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event>
-									<text>出発する前に、アルカリはステファンを見ると突然奇妙に興奮しました。Ivar自身は、このイベントのターンについて困惑しているようですが、それについてのコメントを提起しません。「A-Are Are You Ellie Thhhe equinoid？</text>
+									<text>出発を前に、アルカリはステファンの姿を見て突然妙に興奮した。アイヴァル自身はこの展開に戸惑っているようだが、それについては何もコメントしない。「あなたがエリー教授ですか？エリー・ザ・エキノイド教授ですか？"</text>
 									<choice hidden="true">
-										<text>ええと...ええ、彼はエリーを演じていました。</text>
+										<text>ええと...ええ、彼は以前エリーを演じていました。</text>
 										<event>
-											<text>「You-」アルカリは自分自身を集めて、ステファンに転がり、手を振った。「お会いできて光栄です。教授。私はアルカリ・マルドバル教授ですが、あなたの仕事のことを聞いたことがあると思います。私のMorphhhプロジェクト全体の基礎、それは本当に革新的です！あなたが私の中にいると確信しているので、私はあなたの前にいることをwe敬の念を抱いています！」「うーん...なに？私はごめんなさい。私は失礼になるつもりはありません。それはただ、あなたは混乱していると思います。私は科学者ではありません、私は俳優です。Quarp Juiceは私の古いショーのための単なる商品です。Quarpは本物ではありません。ジュースはおそらく生物硬質化学物質の奇妙な混合物です。」「あなたはあまりにも謙虚です。もちろん、私はQuarpが本物の果物ではないことを知っています。最初は私を困惑させました。はい。！自尊心のある科学者は、他の誰かがSomethhhhingをそれと同じくらい素晴らしいと信用できるようにすることはできません。</text>
+											<text>"あなた..."アルカリは気を取り直し、ステファンに近づき握手をした。「お会いできて光栄です、教授。私はアルカリ・マルドヴァー教授ですが、私の仕事については、あなたもご存知でしょう。あなたのクアープジュースは奇跡です、生命を生み出す奇跡です！私のモーフ・プロジェクト全体の基礎であり、まさに革命的だ！私はあなたの前にいることに畏敬の念を抱いています、あなたも私の前にいることに畏敬の念を抱いていることでしょう！」
+
+ステファンは非常に混乱しているようだが、とにかくアルカリの手を握る。"うーん...なんだ？ごめんなさい。失礼なことを言うつもりはなかったんだ。ただ、混乱してるみたいだから。僕は科学者じゃなくて俳優なんだ。俳優だったクアープジュースは ただのグッズだクアープは実在しないし、ジュースはバイオハザードの化学物質を混ぜただけの奇妙なものだ」⎤アルカリは首を振る。「あなたは謙虚すぎる。もちろん、クアープが本物の果物でないことは知っている。最初は戸惑ったよ。でも、この果汁は本物だし、あなたの名前が製品に記されているのだから、あなたの創造物であることは明らかだ！自尊心のある科学者なら、これほど素晴らしいものを他人に自分の手柄にさせるはずがない。それにしても、最初はアイバー、そして今度はあなたですか？状況がそれほど悲惨でなければ、夢のような出来事と呼んでもいいくらいだ」。</text>
 											<choice hidden="true">
-												<text>わかった。</text>
+												<text>オーケー。</text>
 												<event load="ALKALI_LEGION" />
 											</choice>
 										</event>
@@ -1611,50 +1618,50 @@
 </ship>
 
 <event name="ALKALI_SURRENDER">
-	<text>「それで十分です！すぐにターゲットを引き渡して、このシステムを離れます！これは注文です！」</text>
+	<text>「もういい！すぐにターゲットを引き渡し、この星系から出て行け！これは命令だ！"</text>
 	<choice hidden="true">
-		<text>いいえ、腹を立ててください。</text>
+		<text>いや、失せろ。</text>
 		<event />
 	</choice>
 	<choice hidden="true" req="unique_alkali" blue="false">
-		<text>わかった、確かに。</text>
+		<text>わかった。</text>
 		<event name="SURRENDERED_ALKALI">
-			<text>あなたはシェルの科学者を反乱軍に送り、反乱軍は彼を集めて連れ去ります。この後、あなたは彼らがあなたの場所の艦隊に警告することを確信しています。それでもあなたが去るのに十分な時間を与えることを願っています...</text>
+			<text>反乱軍にシェル・サイエンティストを送ると、彼は回収され、持ち去られる。この後、あなたは彼らが艦隊にあなたの居場所を知らせることを確信する。それでも出発するのに十分な時間があることを祈ろう...。</text>
 			<modifyPursuit amount="2" />
 			<ship hostile="false" />
 			<surrender />
 			<removeCrew class="unique_alkali">
 				<clone>false</clone>
-				<text>アルカリはおそらくこれから長くは生きていないでしょうが、確信が持てない場合は彼のクローンを作ることはできません。</text>
+				<text>アルカリはおそらくこの後も長くは生きられないだろうが、確信が持てない以上、クローンを作ることはできない。</text>
 			</removeCrew>
 		</event>
 	</choice>
 </event>
 <event name="ALKALI_LEGION"> 
-	<text>ステーションを出発すると、反乱軍の船が飛び込みますが、報告で覚えている反乱軍の設計とは異なります。レネゲード、エリート、MFKエース、エンジニア、誰もそのロゴを持っていません...レギオンという言葉が書かれた黄色いヘルメットがあなたに際立っています。これはいくつかの新しい反乱軍の艦隊ですか？</text>
+	<text>ステーションから出発しようとすると、反乱軍の船が飛び込んできた。レネゲイド、エリート、MFKエース、エンジニア、どれもあのロゴはない......。黄色いヘルメットにLegionの文字が目立つ。新しい反乱軍の艦隊か？</text>
 	<ship load="SHIP_LEGION_ALKALI" hostile="false" />
 	<choice hidden="true">	
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>あなたは反乱軍の船から連絡を受け取ります。 「連邦。他の機会に、私はあなたを破壊することを躊躇しません。しかし、私たちはここで重要な仕事をしています。科学者を引き渡せば、あなたは去ることができます。そうしないと、私たちは彼を破壊された死体の手。ターゲットを渡さずにこのビーコンを離れようとすると、失敗に終わります。すでに長距離FTLドライブを無効にしています。」</text>
+			<text>反乱軍の船から通信が入る。「連邦。"連邦だ" "他の状況なら 殲滅も辞さないだが我々は重要な任務でここにいる科学者を引き渡せば 帰還を許可するさもなくば、お前たちの死体から科学者を引き剥がす。ターゲットを引き渡さずに ビーコンを出ようとすれば失敗する長距離FTLドライブはすでに無効にしてある。"</text>
 			<choice hidden="true">	
 				<text>拒否する。</text>
 				<event>
-					<text>「それなら、あなたは私たちに選択の余地を残します。心配しないでください。あなたはこの決定を後悔するほど長く生きることはできません。」彼らの言葉通り、あなたのFTLドライブは妨害されたようです！エンジンは引き続き機能しますが、反乱軍が死ぬまでジャンプすることはできません。</text>
+					<text>「それなら、我々に選択の余地はない。心配しないで。この決断を後悔するほど長くは生きられないだろう"彼らの言葉通り、FTLドライブが妨害されたようだ！エンジンは使えるが 反乱軍が死ぬまで ジャンプはできない</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">	
-				<text>それらにアルカリを与えなさい。</text>
+				<text>アルカリを与える。</text>
 				<event>
-					<text>アルカリは抗議しますが、彼は額に銃の銃身を持って議論するつもりはありません。反乱軍はあなたの船にかなりの数で乗り込み、アルカリに精神安定剤を注入し、彼をカートに入れました。あなたは彼らがあなたをオンにすることを期待していますが、何も起こりません。代わりに、反乱軍は彼らの船に戻って飛び去り、あなたを唖然とさせます。</text>
+					<text>アルカリは抗議するが、額に銃口を突きつけられても反論するつもりはない。反乱軍はアルカリに精神安定剤を注射し、船から運び出す。反乱軍はアルカリに麻酔薬を注射し、彼を連れ去る。それどころか、反乱軍は船に戻って飛び去り、あなたは呆然とするばかりだ。</text>
 					<removeCrew class="unique_alkali">
 						<clone>false</clone>
-						<text>アルカリはおそらくこれから長くは生きていないでしょうが、彼がまだあなたのデータバンクに入力されていないときは、彼のクローンを作ることはできません。</text>
+						<text>アルカリはおそらくこの後も長くは生きられないだろうが、まだデータバンクに登録すらしていないのにクローンを作ることはできない。</text>
 					</removeCrew>
 				</event>
 			</choice>
@@ -1662,18 +1669,18 @@
 	</choice>
 </event>
 <event name="ALKALI_LEGION_DEFEATED">
-	<text>反乱軍の船は敗北し、大量のスクラップと異常にハイテクな武器が残されました。驚いたことに、あなたはそれをスクラップするときに、まだ残骸に乗っているかすかな生命の兆候を検出します...</text>
+	<text>反乱軍の船は倒され、大量のスクラップと異常にハイテクな武器が残された。驚いたことに、残骸をスクラップにすると、まだかすかな生命の痕跡が......。</text>
 	<autoReward level="HIGH">standard</autoReward>
 	<weapon name="LIST_WEAPONS_NEWGEN" />
 	<variable name="ach_crew_alkali" op="set" val="1" />
 	<choice hidden="true">	
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>あなたは近づき、貨物室を引き裂いて、負傷した反乱軍の兵士を見つけます。あなたが近づくとすぐに彼はパニックになり、鋭い金属片に手を伸ばし、それを彼の胸の奥深くに突っ込みます。自殺行為、おそらくあなたが情報を得るのを止めようとしている...しかし何について？</text>
+			<text>カーゴベイを切り裂きながら近づくと、負傷した反乱軍の兵士がいた。あなたが近づくやいなや、彼はパニックを起こし、鋭利な金属片に手を伸ばし、胸に深く突き刺した。自殺行為だ。おそらく、君が情報を得るのを阻止しようとしたのだろう。</text>
 			<choice hidden="true">	
-				<text>船を調査します。</text>
+				<text>船を調査せよ。</text>
 				<event>
-					<text>船のデータのほとんどは戦闘中に削除されたようです-奇妙な慣習ですが、戦闘が始まる前に彼らは自分たちの運命を知っていたようです。この船が何であれ、何も漏らさないようにというのは非常に明確な命令の下にありました。非常に不確かですが、このような船を見るのはこれが最後ではないかもしれません。</text>
+					<text>奇妙な習慣だが、彼らは戦いが始まる前から自分たちの運命を知っていたようだ。この船が何であれ、何も漏らしてはならないという明確な命令を受けていた。このような船を見るのはこれが最後ではないかもしれないが、それは非常に不確かなことだ。</text>
 				</event>
 			</choice>
 		</event>

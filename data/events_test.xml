@@ -1,37 +1,37 @@
 <FTL>
 <event name="TEST_HYPERSPACE_QUEST">
-	<text>これはあなたにクエストか私が知らない何かを与えます。</text>
+	<text>これはクエストか何かを与えてくれる。</text>
 	<quest event="HIDDEN_FEDERATION_BASE_LIST" />
 </event>
 
 
 <event name="TEST_HAZARDS">
-	<text>ええと...太陽。</text>
+	<text>太陽だ。</text>
 	<environment type="sun" />
 	<choice>
-		<text>まだ終わってない</text>
+		<text>まだ終わっていない</text>
 		<event>
-			<text>ああ神ああフリックパルサー</text>
+			<text>オー・ゴッド、オー・フリック・パルサー</text>
 			<environment type="pulsar" />
 			<choice>
-				<text>それがすべてではありません</text>
+				<text>それだけではない。</text>
 				<event>
-					<text>ああ神ああフリック小惑星</text>
+					<text>ああ、神様、クソ小惑星</text>
 					<environment type="asteroid" />
 					<choice>
-						<text>まだ終わってない</text>
+						<text>まだ終わっていない</text>
 						<event>
-							<text>Oh god oh frick ASB</text>
+							<text>ああ、神様......クソASB</text>
 							<environment type="PDS" target="player" />
 							<choice>
-								<text>それをねじ込み、さらに進みましょう</text>
+								<text>ふざけるな、もっと先へ行こう</text>
 								<event>
-									<text>ハレーイオンストーム</text>
+									<text>イオンストーム万歳</text>
 									<environment type="storm" />
 								</event>
 							</choice>
 							<choice>
-								<text>わかりました、それで十分です</text>
+								<text>もういい</text>
 								<event />
 							</choice>
 						</event>
@@ -43,39 +43,39 @@
 </event>
 
 <event name="TEST_BOARDERS">
-	<text>ボーダーをスポーンします</text>
+	<text>ボーダーを生む</text>
 	<choice>
-		<text>兵士</text>
+		<text>ソルジャー</text>
 		<event>
 			<boarders min="1" max="1" class="human_soldier" />
 		</event>
 	</choice>
 	<choice>
-		<text>MFK</text>
+		<text>エムエフケー</text>
 		<event>
 			<boarders min="1" max="1" class="human_mfk" />
 		</event>
 	</choice>
 	<choice>
-		<text>宗主</text>
+		<text>スゼライン</text>
 		<event>
 			<boarders min="1" max="1" class="mantis_suzerain" />
 		</event>
 	</choice>
 	<choice>
-		<text>司教</text>
+		<text>ビショップ</text>
 		<event>
 			<boarders min="1" max="1" class="mantis_bishop" />
 		</event>
 	</choice>
 	<choice>
-		<text>部隊</text>
+		<text>レンジャー</text>
 		<event>
 			<boarders min="1" max="1" class="slug_ranger" />
 		</event>
 	</choice>
 	<choice>
-		<text>騎士</text>
+		<text>ナイト</text>
 		<event>
 			<boarders min="1" max="1" class="slug_knight" />
 		</event>
@@ -87,7 +87,7 @@
 		</event>
 	</choice>
 	<choice>
-		<text>王立</text>
+		<text>ロイヤル</text>
 		<event>
 			<boarders min="1" max="1" class="obelisk_royal" />
 		</event>
@@ -99,35 +99,35 @@
 </event>
 
 <event name="TEST_HYPERSPACE_CARGO">
-	<text>このイベントは、イオンブラストmk1をチェックします。</text>
+	<text>このイベントはイオンブラストMK1をチェックする。</text>
 	<choice req="ION_1">
-		<text>その検出イオン1</text>
+		<text>検出イオン1</text>
 		<event>
-			<text>かっこいい。</text>
+			<text>オーケー、クールだ。</text>
 			<choice>
 				<text>イオンを取り除く</text>
 				<event>
-					<text>なくなった</text>
+					<text>もうない</text>
 					<remove name="ION_1" />
 				</event>
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>これは2番目のオプションです</text>
+		<text>これは第二の選択肢である。</text>
 		<event>
-			<text>ネイト。</text>
+			<text>ニート。</text>
 		</event>
 	</choice>
 </event>
 
 <event name="FREE_WIN">
-	<text>あなたが勝ちます！</text>
+	<text>君の勝ちだ！</text>
 	<win creditsText="credit_victory_cheat" text="Nice" creditsBackground="VICTORY_DEFAULT" />
 </event>
 
 <event name="TEST_DOUBLE_SPAWN_START">
-	<text>これは船です！</text>
+	<text>これは船だ！</text>
 	<ship load="TEST_DOUBLE_SPAWN_1" hostile="true" />
 </event>
 <ship name="TEST_DOUBLE_SPAWN_1" auto_blueprint="MU_REBEL_FIGHTER">
@@ -138,11 +138,11 @@
 	<loadEvent>TEST_DOUBLE_SPAWN_2</loadEvent>
 </event>
 <event name="TEST_DOUBLE_SPAWN_2">
-	<text>その死者</text>
+	<text>死んでいる</text>
 	<choice>
-		<text>Ok</text>
+		<text>オッケー</text>
 		<event>
-			<text>2隻目！</text>
+			<text>2隻目の船！</text>
 			<ship load="REBEL" hostile="true" />
 		</event>
 	</choice>
@@ -154,17 +154,17 @@
 </event>
 
 <event name="FLEET_SLOW">
-	<text>艦隊が遅くなった</text>
+	<text>船隊減速</text>
 	<modifyPursuit amount="-999" />
 </event>
 
 <event name="FLEET_FAST">
-	<text>フリートスピードアップ</text>
+	<text>フリートがスピードアップ</text>
 	<modifyPursuit amount="999" />
 </event>
 
 <event name="FORCE_HOSTILE">
-	<text>船は敵対的です</text>
+	<text>船は敵対的</text>
 	<ship hostile="true" />
 </event>
 
@@ -173,20 +173,20 @@
 </event>
 
 <event name="GIVE_CRIME">
-	<text>あなたは今+1の犯罪を持っています</text>
+	<text>あなたは今、+1の犯罪を犯している</text>
 	<variable name="rep_general" op="add" val="1" />
 </event>
 	
 <event name="PLACEHOLDER_OLD">
-	<text>これは決して見るべきではありません。</text>
+	<text>決して見てはいけない。</text>
 </event>
 
 <event name="EVENT_TEMPLATE">
-	<text>これをコピーして貼り付けることができます</text>
+	<text>これをコピー＆ペーストしてください。</text>
 	<choice>
-		<text>Ok</text>
+		<text>オッケー</text>
 		<event>
-			<text>文章</text>
+			<text>テキスト</text>
 		</event>
 	</choice>
 </event>

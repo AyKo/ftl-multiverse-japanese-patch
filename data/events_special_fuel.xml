@@ -1,21 +1,21 @@
 <FTL>
 <event name="NO_FUEL_FLEET">
-	<text>反乱軍の艦隊があなたに追いついた。あなたは彼らのより近い戦闘機の1つでかなりの燃料備蓄を検出し、攻撃するために移動します。多分あなたはまだこれをやってのけることができます。</text>
+	<text>反乱軍艦隊が追いついた。近づいてきた戦闘機の1機に燃料が大量にあることを察知し、攻撃に移る。まだやれるかもしれない。</text>
 	<ship load="SHIP_REBEL_FLEET_FUEL" hostile="true" />
 	<fleet>rebel</fleet>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 
 <event name="NO_FUEL_FLEET_DLC">
-	<text>あなたの計画が正確に何であるかを整理しようとしている間、あなたのパイロットは周囲の艦隊からの砲撃を巧みに回避します...多くの接近する戦闘機の1つが武器の射程に入り、スキャナーはそれが余剰燃料を持っていることを検出します。多分あなたはまだこれをやってのけることができます。</text>
+	<text>パイロットは周囲の艦隊からの砲撃を巧みに避けながら、自分のプランを整理している。接近してくる戦闘機の1機が射程圏内に入り、スキャナーで燃料が余っていることを検知する。まだやれるかもしれない。</text>
 	<ship load="SHIP_REBEL_FLEET_FUEL" hostile="true" />
 	<fleet>rebel</fleet>
 	<environment type="PDS" target="player" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
@@ -52,24 +52,24 @@
 	<text load="FUEL_FLEET_DELAY_LIST" />		
 	<modifyPursuit amount="-1" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="NO_FUEL" />
 	</choice>
 </event>
 <textList name="FUEL_FLEET_DELAY_LIST">
-	<text>目立たないようにしているので、反乱軍の艦隊があなたの船を追跡するのに苦労していることは確かです。</text>
-	<text>遭難ビーコンがアクティブ化されていないため、反乱軍の艦隊があなたを追跡するのに苦労していると確信しています。それはあなたに少しの時間を買うべきです。</text>
-	<text>長距離スキャナーは、反乱軍の艦隊が一時的にあなたの位置での前進を一時停止したことを示しています。遭難ビーコンを非アクティブのままにするというあなたの決定は先見の明がありました。</text>
-	<text>スキャナーは、反乱軍の艦隊が短期間その追跡をやめたことを示しています。</text>
-	<text>キャプテンとしてのあなたの直感は、反乱軍があなたの船を見つけるのに苦労しているとあなたに言っています。</text>
-	<text>救難信号や追跡するFTL署名がなければ、反乱軍があなたを見つけるのに苦労していることは間違いありません。より多くの燃料が見つかるまで、彼らの混乱が続くことを望むことができるだけです。</text>
-	<text>反乱軍の艦隊はあなたの船の署名を見つけることができないようです。あなただけが燃料を手に入れることができたとしても、あなたと彼らの間にある程度の距離を置くチャンスがあるかもしれません...</text>
+	<text>あなたは目立たないようにしているので、反乱軍の艦隊があなたの船を追跡するのに苦労しているのは確かだ。</text>
+	<text>救難ビーコンが作動していないので、反乱軍の艦隊が追跡するのは困難だと確信している。これで少しは時間が稼げるはずだ。</text>
+	<text>長距離スキャナーによると 反乱軍艦隊は一時的に 君の位置への進撃を停止したようだ救難信号の解除は賢明だった</text>
+	<text>スキャナーによると、反乱軍の艦隊はしばらく追跡を中止した。</text>
+	<text>艦長としてのあなたの直感が、反乱軍があなたの船を見つけるのに苦労していると告げている。</text>
+	<text>救難ビーコンもFTL信号もなく、反乱軍があなたを見つけるのに苦労しているのは確かだ。燃料が見つかるまで、彼らの混乱が続くことを祈るしかない。</text>
+	<text>反乱軍艦隊はあなたの船の位置を特定できないようです。燃料さえあれば、まだ彼らと距離を置くチャンスがあるかもしれない...</text>
 </textList>
 
 <event name="FUEL_NOTHING">
 	<text load="FUEL_NOTHING_LIST" />
 	<choice>
-		<text>船に乗って何かする。</text>
+		<text>船内で何かをする。</text>
 		<event load="STORAGE_CHECK" />
 	</choice>
 	<choice>
@@ -78,22 +78,22 @@
 	</choice>
 </event>
 <textList name="FUEL_NOTHING_LIST">
-	<text>スキャン範囲内に船はなく、ビーコンに到着する人もいません。</text>
-	<text>艦隊が確実に近づく間、あなたの待機は何ももたらさない...</text>
-	<text>貨物船が突然近くに到着します。彼らはとても近くにいるのでほとんど手を振ることができますが、あなたの連絡は無視され、船はすぐに飛び去ります。</text>
-	<text>小さな交通があなたの短い距離内を通過しますが、誰もあなたの連絡に反応しません。</text>
-	<text>歓呼の範囲内にある唯一の船は民間船のようです。ただし、信号を受信するとすぐに離れます。</text>
-	<text>あなたが待つ間、小さな小惑星の嵐があなたの盾と船体にそっと突き刺さります。</text>
-	<text>ビーコンをオンにすることは、検出のリスクに見合う価値があるかどうか疑問に思い始めます。艦隊はゆっくりと近づきます。</text>
-	<text>あなたは広大な空間を熟考しています。</text>
-	<text>空きスペースでの長時間の待機は、クルーの緊張を引き起こしています。まだ連絡がありません。</text>
-	<text>キャビンフィーバーがクルーに広がり始めます。</text>
-	<text>長距離スキャナーは小さな沈下を検出しますが、すべての接触を拒否します。</text>
+	<text>スキャン範囲に船はなく、誰もビーコンに到着しない。</text>
+	<text>艦隊が確実に近づいているのに...。</text>
+	<text>貨物船が突然、近くにやってきた。手を振ってもよさそうな距離だが、呼びかけは無視され、船はすぐに飛び去ってしまう。</text>
+	<text>小さな交通があなたのすぐ近くを通り過ぎるが、あなたの呼びかけには誰も反応しない。</text>
+	<text>呼びかけ範囲内にいる唯一の船は民間船のようだ。しかし、あなたの信号を受信すると、その船はすぐに去っていく。</text>
+	<text>待っていると、小さな小惑星の嵐がシールドと外壁をやさしく打ちつける。</text>
+	<text>発見される危険を冒してまでビーコンを点灯させる価値があるのかどうか、あなたは考え始める。艦隊がゆっくりと近づいてくる。</text>
+	<text>広大な宇宙に思いを馳せる。</text>
+	<text>何もない空間での長時間の待機は、クルーの間に緊張をもたらしている。まだ連絡はない。</text>
+	<text>乗組員の間にキャビンフィーバーが広がり始める。</text>
+	<text>長距離スキャナーは小さな集落を検知したが、彼らは一切の接触を拒否した。</text>
 </textList>
 
 
 <event name="NO_FUEL_REFUGEE_FRIENDLY_MV">
-	<text>反乱軍の前進を逃れた難民船がシステムに入ります。あなたが立ち往生しているのを見て驚いたようで、あなたがそれを連邦の宇宙に導くことを期待して、遠くからあなたを追いかけていたことを認めます。余裕のある燃料はあまりありませんが、あなたが連盟の一員であることを認識し、残りの燃料をあなたと分け合うことを提案します。</text>
+	<text>反乱軍の進撃から逃れた難民船が星系に入る。あなたが立ち往生しているのを見て驚いているようだが、連邦宇宙域まで案内してくれることを期待して、遠くからあなたを追っていたことを認める。燃料に余裕はないが、あなたが連邦の一員であることを認識し、残りの燃料を分けてくれると言ってきた。</text>
 	<autoReward level="MED">fuel_only</autoReward>
 </event>
 
@@ -101,34 +101,34 @@
 	<text load="FUEL_TRADER_TEXT_LIST" />
 	<ship load="SHIP_UNION_ALL" hostile="false" />
 	<choice>
-		<text>喜んで取引します。</text>
+		<text>喜んで交換する。</text>
 		<event load="FUEL_TRADER_HIGH_LIST_MV" />
 	</choice>
 	<choice>
-		<text>敬意を表して辞退します。</text>
+		<text>謹んでお断りする。</text>
 		<event load="FUEL_TRADER_PT2" />
 	</choice>
 </event>
 <textList name="FUEL_TRADER_TEXT_LIST">
-	<text>商船がこのセクターに飛び込み、あなたはすぐに彼らを呼んで助けを求めます。彼らは、「おそらく私たちは交換を行うことができるでしょう...」と答えます。</text>
-	<text>多くの船がこのセクターを通過します。あなたはそれぞれにあなたのメッセージを中継し、そして1人が最終的に応答します。 「私は今はあまり助けられませんが、おそらく私たちは取引することができます。」</text>
-	<text>近くの集落があなたの方向に小さな船を送ります。それは距離を保ち、あなたに呼びかけます。</text>
-	<text>商船の大きなキャラバンがあなたの位置の近くにジャンプします。機会を感じて、1隻の船が艦隊から離脱して交換を提供します。</text>
-	<text>改造されたYT-1300貨物船は、あなたのセクターの近くのエリアにジャンプします。あなたの腸は、これらの人々は密輸業者であるとあなたに言いますが、彼らは利他的であり、援助の申し出を提示しているようです。</text>
+	<text>商船がこのセクターに飛び込んできた。彼らは、"おそらく、我々は交換をうまくやることができる... "と答えた。</text>
+	<text>何隻もの船がセクターを通過する。それぞれにメッセージを伝えると、ようやく1隻から返事があった。"今はあまり力になれないが、もしかしたら交換できるかもしれない"</text>
+	<text>近くの集落が小さな船を送ってきた。その船は距離を保ちながら、あなたに声をかけてきた。ただ、無茶はしないでくれ。基地にはテレポーターがあるし、防衛のための部隊も準備できている」。</text>
+	<text>商船の大キャラバンがあなたの陣地近くまでジャンプしてきた。好機と思ったのか、1隻の船が船団から離れ、あなたに交換を申し込んできた。</text>
+	<text>改造されたYT-1300貨物船があなたのセクター付近にジャンプしてきた。直感的に密輸業者だとわかるが、彼らは利他的な気持ちを持っているようで、援助の申し出をしてきた。</text>
 </textList>
 	
 <event name="FUEL_EXPLORE_MV">
-	<text>燃料電池が不足しているため、船がジャンプすることはありませんが、インパルスエンジンを使用することはできます。近くのシステムを探索するのに少し時間を費やしますか？</text>
+	<text>燃料電池がないためジャンプはできないが、インパルス・エンジンを使うことはできる。近くの星系を探検してみるかい？</text>
 	<choice hidden="true">
-		<text>近くのエリアを探索してください。</text>
+		<text>近隣エリアを探索する</text>
 		<event load="FUEL_EXPLORE_MV_LIST" />  
 	</choice>
 	<choice>
-		<text>ビーコンの近くにとどまります。</text>
+		<text>ビーコンの近くにいろ。</text>
 		<event>
-			<text>あなたは何も危険にさらしたくありません。</text>
+			<text>あなたは何もリスクを冒したくない。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -140,22 +140,22 @@
 </event>
 <eventList name="FUEL_EXPLORE_MV_LIST">
 	<event>
-		<text>あなたはビーコンの近くの小さな小惑星フィールドを横切って起こります。</text>
+		<text>ビーコンの近くに小さな小惑星地帯がある。</text>
 		<choice hidden="true">
-			<text>小惑星フィールドに近づいてスキャンします。</text>
+			<text>小惑星フィールドに近づき、スキャンする。</text>
 			<event load="FILLER_EXPLORE_RESULTS" />
 		</choice>
 		<choice>
-			<text>リスクを回避します。</text>
+			<text>リスクを避ける。</text>
 			<event />
 		</choice>
 	</event>
 	<event>
-		<text>地元の旅行者のための小さな前哨基地がありますが、この地域ではFTLドライブを採用している船はほとんどないようです。彼らの燃料電池の在庫は少なく、価格も高いですが、物乞いは選択者にはなれません...</text>
+		<text>地元の旅行者のために小さな前哨基地を見つけたが、この辺りではFTLドライブを使う船はほとんどないようだ。燃料電池の在庫は少なく、値段も高い。</text>
 		<choice hidden="true">
-			<text>20スクラップを5燃料と交換します。</text>
+			<text>スクラップ20個と燃料5個を交換する。</text>
 			<event>
-				<text>あなたは喜んで取引をします。</text>
+				<text>あなたは喜んでトレードをする。</text>
 				<item_modify>
 					<item type="fuel" min="5" max="5" />
 					<item type="scrap" min="-20" max="-20" />
@@ -163,9 +163,9 @@
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>10個のスクラップを2個の燃料と交換します。</text>
+			<text>スクラップ10個と燃料2個を交換する。</text>
 			<event>
-				<text>この燃料は長くは続かないでしょうが、あなたは喜んで取引をします。</text>
+				<text>この燃料は長くはもたないだろうが、喜んで交換するのだ。</text>
 				<item_modify>
 					<item type="fuel" min="2" max="2" />
 					<item type="scrap" min="-10" max="-10" />
@@ -173,9 +173,9 @@
 			</event>
 		</choice>
 		<choice hidden="true">
-			<text>5つのスクラップを1つの燃料と交換します。</text>
+			<text>スクラップ5個と燃料1個を交換する。</text>
 			<event>
-				<text>この燃料は長持ちしませんが、少なくとも別のビーコンにジャンプすることができます。</text>
+				<text>この燃料は長くは持たないが、少なくとも別のビーコンにジャンプすることはできる。</text>
 				<item_modify>
 					<item type="fuel" min="1" max="1" />
 					<item type="scrap" min="-5" max="-5" />
@@ -183,92 +183,92 @@
 			</event>
 		</choice>
 		<choice>
-			<text>取引しないでください。</text>
+			<text>トレードはするな。</text>
 			<event />
 		</choice>
 	</event>
 	<event>
-		<text>呼びかけに反応する船はなく、興味のあるものは何も見つかりません。</text>
+		<text>どの船もあなたの呼びかけに応じず、あなたは興味のあるものを何も見つけられない。</text>
 	</event>
 	<event>
-		<text>あなたは小さな反乱軍の自動スカウトのスキャン範囲内をさまよいます！</text>
+		<text>小型の反乱軍自動偵察機のスキャン範囲内に迷い込んだ！</text>
 		<ship load="SHIP_AUTO_FUEL" hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 </eventList>
 	
 <event name="FUEL_APPROACH_MV">
-	<text>船が近づいています。彼らはあなたに「燃料が必要ですか？私たちは助けにドッキングする準備をします」と言ってあなたを歓迎します。</text>
+	<text>船が近づいてくる。燃料が必要ですか？ドッキングの準備をします"</text>
 	<choice hidden="true">
-		<text>彼らの申し出を丁寧に受け入れてください。</text>
+		<text>相手の申し出を快く受け入れる。</text>
 		<event load="FUEL_APPROACH_MV_ACCEPT_LIST" />
 	</choice>
 	<choice hidden="true">
-		<text>彼らに距離を保つように要求します。</text>
+		<text>距離を置くよう要請する。</text>
 		<event load="FUEL_APPROACH_MV_DECLINE_LIST" />
 	</choice>  
 	<choice hidden="true" req="sensors" lvl="3">
-		<text>（Adv。Sensors）応答する前に、センサーで詳細なスキャンを実行します。</text>
+		<text>(アドバンスセンサー) 応答する前に、センサーで詳細なスキャンを実行する。</text>
 		<event load="FUEL_APPROACH_MV_SCAN_LIST" />
 	</choice>    
 	<choice hidden="true" req="ADV_SCANNERS">
-		<text>（長距離スキャナー）応答する前に詳細スキャンを実行します。</text>
+		<text>(長距離スキャナー）応答する前に詳細スキャンを実行する。</text>
 		<event load="FUEL_APPROACH_MV_SCAN_LIST" />
 	</choice>    
 </event>
 <eventList name="FUEL_APPROACH_MV_ACCEPT_LIST">
 	<event>
-		<text>彼らはあなたの船に近づき、「再び燃料を使い果たしないようにしてください。これは危険な時期です。誰が現れたのか誰が知っているのか」と言って燃料を降ろします。</text>
+		<text>彼らはあなたの船に近づき、燃料を下ろして言った。今は危険な時代だ。誰が現れるかわからない。"</text>
 		<ship load="SHIP_UNION_ALL" hostile="false" />
 		<item_modify>
 			<item type="fuel" min="2" max="6" />
 		</item_modify>
 	</event>
 	<event>   
-		<text>彼らはあなたの船に近づき、ドッキングします。船上で彼らは申し出を提示します。</text>
+		<text>彼らはあなたの船に近づき、接岸する。船上で彼らはオファーを提示する。</text>
 		<ship load="SHIP_UNION_ALL" hostile="false" />
 		<choice>
-			<text>喜んで取引します。</text>
+			<text>喜んで交換する。</text>
 			<event load="FUEL_TRADER_HIGH_LIST_MV" />
 		</choice>
 		<choice>
-			<text>敬意を表して辞退します。</text>
+			<text>謹んでお断りする。</text>
 			<event load="FUEL_TRADER_PT2" />
 		</choice>
 	</event>
 	<event>
-		<text>彼らの船があなたの隣に引き上げられている間、彼らの船長は続けます、「はい、私たちは確かに助けます...あなたをその素敵な船から解放するのを手伝ってください！」センサーは、隠されたテレポーターがアクティブ化されたことを検出します。搭乗しました！</text>
+		<text>彼らの船があなたの船の隣に停泊すると、船長はこう続ける。その素敵な船からあなたを解放するのを手伝います！"センサーがテレポーターの起動を感知。乗り込まれた！</text>
 		<ship load="SHIP_PIRATE_FUEL" hostile="true" />
 		<boarders min="2" max="3" class="human" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 	<event>
-		<text>彼らが近づくと、あなたは彼らの武器がパワーアップしているのを検出します。彼らの意図は敵対的であるようです！</text>
+		<text>彼らが近づくと、武器のパワーアップを感知する。どうやら敵意があるようだ！</text>
 		<ship load="SHIP_PIRATE_FUEL" hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 </eventList>
 <eventList name="FUEL_APPROACH_MV_DECLINE_LIST">
 	<event>
-		<text>「私たちは害がないことを保証します。ほら、輸送機関に燃料を送ります。」小さな船は、彼らが言ったように、いくつかの燃料をドッキングしてオフロードします。彼らは「友よ、用心しなさい」と言って去ります。</text>
+		<text>「危害を加えるつもりはない。ほら、燃料を輸送船で送るから」。小さな船が停泊し、彼らの言うとおりに燃料を積み込む。用心しろよ、友よ」と言い残し、彼らは去っていった。</text>
 		<ship load="SHIP_UNION_ALL" hostile="false" />
 		<item_modify>
 			<item type="fuel" min="1" max="4" />
 		</item_modify>
 	</event>
 	<event>
-		<text>「最近、誰も誰も信用していません...」船は飛び去ります。</text>
+		<text>"最近は誰も誰も信用しない..."船は飛び去る。</text>
 		<choice>
-			<text>船に乗って何かする。</text>
+			<text>船内で何かをする。</text>
 			<event load="STORAGE_CHECK" />
 		</choice>
 		<choice>
@@ -277,38 +277,38 @@
 		</choice>
 	</event>
 	<event>
-		<text>彼らは、「距離を保っていますか？あなたが私たちを止めることができるかどうか見てみましょう！」と答えます。彼らは武器を動かし、前進します。</text>
+		<text>彼らはこう答える。私たちを止められるか試してみよう！"彼らは武器をパワーアップし、前進する。</text>
 		<ship load="SHIP_PIRATE_FUEL" hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 </eventList>
 <eventList name="FUEL_APPROACH_MV_SCAN_LIST">
 	<event>
-		<text>センサーは、彼らの船が軍用グレードの兵器、小さな武器さえも持っていないことを示しています。あなたは彼らがドッキングすることを許可し、彼らはあなたに「お互いの意図についてそれほどパラノイアである必要がなかった時を覚えています...安全を保ってください」と言ってあなたにいくらかの燃料を与えます。</text>
+		<text>センサーによると、彼らの船には軍用武器はなく、小火器もない。あなたは彼らのドッキングを許可し、彼らはあなたに燃料を渡した。ご安全に"</text>
 		<item_modify>
 			<item type="fuel" min="3" max="7" />
 		</item_modify>
 	</event>
 	<event>
-		<text>センサーは武装したクルーと、このサイズの航空機に合法であるよりもかなり多くの武器を拾っています。これは確かに罠です。</text>
+		<text>センサーが武装した乗組員と、この大きさの船としてはかなり多くの武器を検知している。これはきっと罠だ。</text>
 		<choice>
-			<text>武器の電源を入れ、戦いの準備をします。</text>
+			<text>武器をパワーアップし、戦いに備える。</text>
 			<event>
-				<text>あなたは海賊と戦う準備をします。</text>
+				<text>あなたは海賊との戦いに備える。</text>
 				<ship load="SHIP_PIRATE_FUEL" hostile="true" />
 				<choice hidden="true">
-					<text>継続する...</text>
+					<text>次へ...</text>
 					<event load="COMBAT_CHECK" />
 				</choice>
 			</event>
 		</choice>
 		<choice req="cloaking" hidden="true"> 
-			<text>（クローキング）ロックオンする前に、クロークしてスキャン範囲から外れます。</text>
+			<text>(遮蔽）遮蔽し、ロックオンされる前にスキャン範囲から離れる。</text>
 			<event>
-				<text>高度なクローキングシステムにより、射撃場から簡単に射程外に出ることができます。やがて船は飛び去ります。</text>
+				<text>あなたの高度な遮蔽システムは、彼らがまだ射程圏外にいたため、簡単に射程圏外に出ることができる。やがて船は飛び去る。</text>
 			</event>
 		</choice>
 	</event>		
@@ -316,10 +316,10 @@
 	
 
 <event name="FUEL_FREEMANTIS_CONFUSED">
-	<text>幸いなことに、フリーマンティスの船があなたに出くわし、すぐに連絡をします。 「ああ、連邦！あなたは苦しんでいるように見えます。資源が必要ですか？私たちはあなたにいくつかを売ります！順番に燃料と交換します。」</text>
+	<text>幸いなことに、フリーマンティスの船があなたに出くわしたようで、すぐさま声をかけてきた。「ああ、連邦！遭難したようだな。資源が必要なのか？資源を売ってやろう！燃料と交換しよう</text>
 	<ship load="SHIP_FREEMANTIS_GENERIC" hostile="false" />
 	<choice>
-		<text>ミサイルを購入します。</text>
+		<text>ミサイルを買え。</text>
 		<event>
 			<item_modify>
 				<item type="fuel" min="-5" max="-5" />
@@ -328,7 +328,7 @@
 		</event>
 	</choice>
 	<choice>
-		<text>いくつかのドローンパーツを購入します。</text>
+		<text>ドローンパーツを買う。</text>
 		<event>
 			<item_modify>
 				<item type="fuel" min="-5" max="-5" />
@@ -337,11 +337,11 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>しかし...私たちは燃料が必要です。</text>
+		<text>でも...燃料が必要なんだ。</text>
 		<event>
-			<text>「ああ？価格が高すぎる？はいはい、下げることができます！」</text>
+			<text>「値段は高いですか？はいはい、下げられますよ！"</text>
 			<choice>
-				<text>ミサイルを購入します。</text>
+				<text>ミサイルを買え。</text>
 				<event>
 					<item_modify>
 						<item type="fuel" min="-1" max="-1" />
@@ -350,7 +350,7 @@
 				</event>
 			</choice>
 			<choice>
-				<text>いくつかのドローンパーツを購入します。</text>
+				<text>ドローンパーツを買う。</text>
 				<event>
 					<item_modify>
 						<item type="fuel" min="-1" max="-1" />
@@ -359,11 +359,11 @@
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>燃料がありません！</text>
+				<text>燃料がないんだ！</text>
 				<event>
-					<text>「ああ、そうだね。それなら、少量のリソースを無料で提供するだろう！」</text>
+					<text>「ああ、そうだった。では、少量の資源を無償で提供しよう！"</text>
 					<choice>
-						<text>無料のミサイルを取ります。</text>
+						<text>無料のミサイルを使え。</text>
 						<event>
 							<item_modify>
 								<item type="missiles" min="3" max="3" />
@@ -371,7 +371,7 @@
 						</event>
 					</choice>
 					<choice>
-						<text>無料のドローンパーツを取ります。</text>
+						<text>無料のドローンパートを利用する。</text>
 						<event>
 							<item_modify>
 								<item type="drones" min="3" max="3" />
@@ -379,28 +379,28 @@
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>予備の燃料はありますか？</text>
+						<text>燃料に余裕はあるのか？</text>
 						<event>
-							<text>「え？いや、ここでは最後の燃料ジャンプを使う。資源が欲しくないという意味ではないのか？」</text>
+							<text>"いや、ここでジャンプする燃料は最後に使うんだ。資源はいらないってこと？"</text>
 							<choice>
-								<text>いいえ、いくつか取ります。</text>
+								<text>いや、少しもらおう。</text>
 								<event>
-									<text>"どうぞ！"フリーマンティスは物資を手渡します。</text>
+									<text>"どうぞ！"フリーマンティスが物資を手渡す。</text>
 									<item_modify>
 										<item type="drones" min="2" max="2" />
 										<item type="missiles" min="2" max="2" />
 									</item_modify>
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event>
-											<text>「ああ、そして燃料の友達を連れて行って！」</text>
+											<text>"ああ、燃料も持っていけよ！"</text>
 											<item_modify>
 												<item type="fuel" min="3" max="3" />
 											</item_modify>
 											<choice hidden="true">
-												<text>待ってください、でもあなたは燃料がなくなったとは言いませんでしたか？</text>
+												<text>待って、でも燃料切れって言ってなかった？</text>
 												<event>
-													<text>「え？どういう意味かわからない。とにかく、さようなら！」フリーマンティスは飛び去ります。</text>
+													<text>"え？とにかく、さようなら！"フリーマンティスは飛び去る。</text>
 													<instantEscape />
 												</event>
 											</choice>
@@ -409,9 +409,9 @@
 								</event>
 							</choice>
 							<choice hidden="true">
-								<text>結構です。</text>
+								<text>結構だ。</text>
 								<event>
-									<text>「え？わかりました！」フリーマンティスは飛び去り、あなたを大いに混乱させます。</text>
+									<text>"え？フリー・カマキリは飛び去り、あなたは大混乱。</text>
 									<instantEscape />
 								</event>
 							</choice>
@@ -457,24 +457,24 @@
 	<text load="FUEL_FLEET_DISTRESS_LIST" />		
 	<modifyPursuit amount="1" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="NO_FUEL" />
 	</choice>
 </event>
 <textList name="FUEL_FLEET_DISTRESS_LIST">
-	<text>目立たないようにしているので、反乱軍の艦隊があなたの船を追跡するのに苦労していることは確かです。</text>
-	<text>遭難ビーコンがアクティブ化されていないため、反乱軍の艦隊があなたを追跡するのに苦労していると確信しています。それはあなたに少しの時間を買うべきです。</text>
-	<text>長距離スキャナーは、反乱軍の艦隊が一時的にあなたの位置での前進を一時停止したことを示しています。遭難ビーコンを非アクティブのままにするというあなたの決定は先見の明がありました。</text>
-	<text>スキャナーは、反乱軍の艦隊が短期間その追跡をやめたことを示しています。</text>
-	<text>キャプテンとしてのあなたの直感は、反乱軍があなたの船を見つけるのに苦労しているとあなたに言っています。</text>
-	<text>救難信号や追跡するFTL署名がなければ、反乱軍があなたを見つけるのに苦労していることは間違いありません。より多くの燃料が見つかるまで、彼らの混乱が続くことを望むことができるだけです。</text>
-	<text>反乱軍の艦隊はあなたの船の署名を見つけることができないようです。あなただけが燃料を手に入れることができたとしても、あなたと反乱軍の間にある程度の距離を置くチャンスがあるかもしれません...</text>
+	<text>あなたは目立たないようにしているので、反乱軍の艦隊があなたの船を追跡するのに苦労しているのは確かだ。</text>
+	<text>救難ビーコンが作動していないので、反乱軍の艦隊が追跡するのは困難だと確信している。これで少しは時間が稼げるはずだ。</text>
+	<text>長距離スキャナーによると 反乱軍艦隊は一時的に 君の位置への進撃を停止したようだ救難信号の解除は賢明だった</text>
+	<text>スキャナーによると、反乱軍の艦隊はしばらく追跡を中止した。</text>
+	<text>艦長としてのあなたの直感が、反乱軍があなたの船を見つけるのに苦労していると告げている。</text>
+	<text>救難ビーコンもFTL信号もなく、反乱軍があなたを見つけるのに苦労しているのは確かだ。燃料が見つかるまで、彼らの混乱が続くことを祈るしかない。</text>
+	<text>反乱軍艦隊はあなたの船の位置を特定できないようです。燃料さえあれば、反乱軍と距離を置くチャンスはまだあるかもしれない...</text>
 </textList>
 
 <event name="FUEL_NOTHING_DISTRESS">
 	<text load="FUEL_NOTHING_DISTRESS_LIST" />
 	<choice>
-		<text>船に乗って何かする。</text>
+		<text>船内で何かをする。</text>
 		<event load="STORAGE_CHECK" />
 	</choice>
 	<choice>
@@ -483,30 +483,30 @@
 	</choice>
 </event>
 <textList name="FUEL_NOTHING_DISTRESS_LIST">
-	<text>あなたは、船の生命維持システムがFTL燃料電池に依存していないのは幸運だと考えています。</text>
-	<text>何も起こりません。あなたの電話は無応答になります。</text>
-	<text>遭難ビーコンのライトは、船の外で見える唯一の動きです。</text>
-	<text>セクターに飛び込む船はありません...</text>
-	<text>通過する数隻の船は遭難信号に気づかず、すべての連絡を無視しているようです。</text>
-	<text>いくつかの民間船がスキャン範囲内にありますが、どれもあなたの呼び出しに応答しません。</text>
-	<text>この地域を通過する船はありません。</text>
+	<text>この船の生命維持システムがFTL燃料電池に依存していないのは幸運なことだ。</text>
+	<text>何も起こらない。電話もつながらない。</text>
+	<text>救難信号の光だけが、船外で見える唯一の動きだ。</text>
+	<text>どの船もこのセクターに飛び込まない...。</text>
+	<text>何隻かの通りすがりの船は、あなたの救難信号に気づかないようで、すべての呼びかけを無視する。</text>
+	<text>数隻の民間船がスキャン範囲内にいるが、呼びかけに応じる船はない。</text>
+	<text>船は通らない。</text>
 </textList>
 
 	
 <event name="FUEL_SELLER_DISTRESS">
 	<ship load="SHIP_AUTO_FUEL_SELLER" hostile="false" />  
-	<text>小さな船が到着し、「この自動化された船は、金銭の交換が完了すると給油サービスを提供します。無料の燃料は緊急時にのみ利用できます。」</text>
+	<text>この自動化された船は、金銭の授受が完了すれば燃料補給サービスを提供します。燃料の無料提供は緊急時のみです。"</text>
 	<choice hidden="true">
-		<text>緊急時の燃料備蓄をお願いします。</text>
+		<text>非常用燃料の備蓄を要請する。</text>
 		<event>
-			<text>「この船は、あなたの1回限りの無料の緊急燃料手当が消費されたことを登録しました。」</text>
+			<text>"本船は、1回限りの無料非常用燃料が消費されたことを登録しました"</text>
 			<autoReward level="LOW">fuel_only</autoReward>
 		</event>
 	</choice>
 	<choice hidden="false">
-		<text>20スクラップで5燃料を購入します。</text>
+		<text>20スクラップで5燃料を購入。</text>
 		<event>
-			<text>「自動給油が完了しました。」</text>
+			<text>"自動給油完了"</text>
 			<item_modify>
 				<item type="fuel" min="5" max="5" />
 				<item type="scrap" min="-20" max="-20" />
@@ -514,9 +514,9 @@
 		</event>
 	</choice>
 	<choice hidden="false">
-		<text>8スクラップで2つの燃料を購入します。</text>
+		<text>8スクラップ分の燃料を2本購入。</text>
 		<event>
-			<text>「自動給油が完了しました。」</text>
+			<text>"自動給油完了"</text>
 			<item_modify>
 				<item type="fuel" min="2" max="2" />
 				<item type="scrap" min="-8" max="-8" />
@@ -524,12 +524,12 @@
 		</event>
 	</choice>
 	<choice>
-		<text>自動化された船を攻撃します。</text>
+		<text>自動化された船を攻撃する。</text>
 		<event>
-			<text>あなたはオートシップを攻撃する準備をします。</text>
+			<text>あなたは自動船を攻撃する準備をする。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
@@ -540,19 +540,19 @@
 	<text load="FUEL_TRADER_DISTRESS_MV_TEXT_LIST" />
 	<ship load="SHIP_UNION_ALL" hostile="false" />
 	<choice>
-		<text>喜んで取引します。</text>
+		<text>喜んで交換する。</text>
 		<event load="FUEL_TRADER_HIGH_LIST_MV" />
 	</choice>
 	<choice>
-		<text>敬意を表して辞退します。</text>
+		<text>謹んでお断りする。</text>
 		<event load="FUEL_TRADER_PT2_MV" />
 	</choice>
 </event>
 <textList name="FUEL_TRADER_DISTRESS_MV_TEXT_LIST">
-	<text>商船がこのセクターに飛び込み、明らかにあなたの船の遭難ビーコンに反応します。彼らはあなたが燃料の取引を提供していることを歓迎します。</text>
-	<text>船がビーコンに到着します。 「私たちはあなたの苦痛の合図に気づきました。あなたは燃料が不足していると思いますか？私たちは少し低いですが、おそらく私たちは取引をすることができます。」</text>
-	<text>ビーコンの近くを移動する船があなたの船に近づき、あなたを呼びます。 「燃料が足りない？これは私たち二人にとって良い機会です...取引に気をつけますか？」</text>
-	<text>傭兵船がビーコンに到着します。 「私たちはあなたに与えることができる少し余分な燃料を持っています...価格で。」</text>
+	<text>明らかにあなたの船の遭難信号に反応した商船がセクターに飛び込んできた。彼らは燃料との交換を持ちかけてくる。</text>
+	<text>船がビーコンに到着。「遭難信号に気づいた。燃料切れか？我々も少し不足しているが、おそらく交換は可能だろう"</text>
+	<text>ビーコン付近を航行中の船があなたの船に近づき、声をかけてくる。「燃料切れか？お互いにとっていい機会だ。交換しないか？"</text>
+	<text>傭船がビーコンに到着。"燃料が少し余っている...""代価を払おう"</text>
 </textList>
 <eventList name="FUEL_TRADER_HIGH_LIST_MV">
 	<event>
@@ -576,31 +576,31 @@
 </eventList>
 <eventList name="FUEL_TRADER_PT2_MV">   
 	<event>
-		<text>彼らはこう答えます：「あなたが困っているのを見て、この貿易は受け入れられますか？」</text>
+		<text>彼らはこう答える：「あなたが困っているのを見て、この取引は受け入れられるか？</text>
 		<choice>
-			<text>申し出を受け入れます。</text>
+			<text>オファーを受け入れる。</text>
 			<event load="FUEL_TRADER_LOW_LIST_MV" />
 		</choice>
 		<choice hidden="true">
-			<text>再び辞退します。</text>
+			<text>また辞退だ。</text>
 			<event load="FUEL_TRADER_PT3_MV" />
 		</choice>
 	</event>
 	<event>
-		<text>「私は慈善事業のためにこれをしているのではありません」と彼らの船長は言います。 「これは私が燃料を手放す唯一の他の方法です。」</text>
+		<text>「チャリティーのためじゃないんだ。「燃料を手放す唯一の方法なんだ。</text>
 		<choice>
-			<text>申し出を受け入れます。</text>
+			<text>オファーを受け入れる。</text>
 			<event load="FUEL_TRADER_HIGH_LIST_MV" />
 		</choice>
 		<choice>
-			<text>再び辞退します。</text>
+			<text>また辞退だ。</text>
 			<event>
-				<text>彼らの船長は水路から切り離され、一言も言わずに彼らの船はワープする準備をします。</text>
+				<text>船長はチャンネルを切り、何も言わずに船は飛び立つ準備をする。</text>
 			</event>
 		</choice>
 	</event>
 	<event>
-		<text>彼らが飛び立つ前に、彼らの船長は「申し訳ありませんが、他の方法で助けることはできません」と言います。</text>
+		<text>彼らが飛び去る前に、キャプテンが言った。</text>
 	</event>
 </eventList>
 <eventList name="FUEL_TRADER_LOW_LIST_MV">
@@ -625,30 +625,30 @@
 </eventList>
 <eventList name="FUEL_TRADER_PT3_MV">
 	<event>
-		<text>彼らはあなたを憐れみ、あなたに無料で燃料を提供します。</text>
+		<text>不憫に思った彼らは、無料で燃料を提供してくれる。</text>
 		<item_modify>
 			<item type="fuel" min="1" max="6" />
 		</item_modify>
 	</event>
 	<event>
-		<text>彼らは議論を終わらせ、飛び立つ準備をします。</text>
+		<text>彼らは話し合いを終え、飛び去る準備をする。</text>
 	</event>
 </eventList>
 
 <eventList name="NO_FUEL_REFUGEE">  
 	<event>
-		<text>反乱軍の前進を逃れた難民船が、あなたの遭難ビーコンを拾い上げてシステムに入ります。余裕のある燃料はあまりありませんが、あなたが連盟の一員であることを認識し、残りの燃料をあなたと分け合うことを提案します。</text>
+		<text>反乱軍の進撃から逃れた難民船が、あなたの救難信号をキャッチして星系に入った。燃料に余裕はないが、あなたが連邦の一員であることを認識し、残りの燃料を分けてくれると言ってきた。</text>
 		<autoReward level="LOW">fuel_only</autoReward>
 	</event>
 	<event load="NO_FUEL_REFUGEE_DAMAGED" />
 	<event load="NO_FUEL_REFUGEE_PIRATE" />
 </eventList>
 <event name="NO_FUEL_REFUGEE_DAMAGED">
-	<text>反乱軍の前進を逃れた難民船が、あなたの遭難ビーコンを拾い上げてシステムに入ります。予備の燃料はあまりありませんが、船体は損傷しているように見えます。スクラップが非常に必要であり、燃料を交換する用意があります。</text>
+	<text>反乱軍の進撃から逃れた難民船が、あなたの救難ビーコンを拾って星系に入った。燃料に余裕はないが、船体は損傷しているようだ。</text>
 	<choice>
-		<text>スクラップを燃料と交換します。</text>
+		<text>スクラップを燃料と交換する。</text>
 		<event>
-			<text>難民たちは部品に感謝し、切望されていた燃料を喜んで渡します。彼らはあなたがあなたの使命を果たしてくれることを望み、連盟への支持を宣言します。</text>
+			<text>避難民は部品に感謝し、必要な燃料を快く渡してくれた。彼らはあなたの任務の成功を祈り、連邦への支持を表明する。</text>
 			<item_modify>	
 				<item type="fuel" min="3" max="3" />
 				<item type="scrap" min="-10" max="-10" />
@@ -656,11 +656,11 @@
 		</event>
 	</choice>
 	<choice req="LIST_CREW_ENGI" hidden="true">
-		<text>（エンギクルー）より良い貿易を交渉します。</text>
+		<text>(エンジ・クルー）より良いトレードを交渉する。</text>
 		<event>
-			<text>エンギは、船体への広範囲にわたる損傷のスキャンを分析し、潜在的な修理費用を計算します。難民は不平を言って抗議しますが、結局、彼らは修理の必要性が彼らの燃料余剰よりも大きく、より良い貿易を提供することを認めます。</text>
+			<text>エンギが船体の損傷状況をスキャンし、修理費用を計算する。難民は不平と抗議を口にするが、最終的には燃料の余剰よりも修理の必要性の方が大きいと認め、より良い交換を申し出る。</text>
 			<choice>
-				<text>受け入れ。</text>
+				<text>受け入れてくれ。</text>
 				<event>
 					<item_modify>
 						<item type="fuel" min="6" max="6" />
@@ -669,31 +669,31 @@
 				</event>
 			</choice>
 			<choice>
-				<text>それを拒否します。</text>
+				<text>拒否する。</text>
 				<event />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>彼らの申し出を拒否します。</text>
+		<text>彼らの申し出を断る。</text>
 		<event load="NO_FUEL_REFUGEE_REFUSE" />
 	</choice>
 	<choice hidden="true">
-		<text>無力な難民は簡単な標的になります。それらを攻撃します。</text>
+		<text>無力な難民は格好の標的になる。彼らを攻撃せよ。</text>
 		<event>
-			<text>慌てて、あなたの武器がパワーアップすると、難民はすぐに降伏します。彼らは彼らの燃料と彼らが彼らの人生と引き換えに残した他のいくつかの物資を渡します。</text>
+			<text>パニックに陥った難民たちは、武器がパワーアップすると即座に降伏する。命と引き換えに、燃料とわずかな物資を渡す。</text>
 			<autoReward level="MED">fuel</autoReward>
 		</event>
 	</choice>
 </event>
 <eventList name="NO_FUEL_REFUGEE_REFUSE">
 	<event>
-		<text>難民船は通信を切断し、別の言葉なしでシステムからジャンプします。銀河系はあなたに冷たい肩を与えることに相当します。</text>
+		<text>難民船は通信を遮断し、それ以上何も言わずに星系からジャンプする。</text>
 	</event>
 	<event>
-		<text>難民はあなたの拒否に必死になります-どうやら、彼らの船体は最初に見られたよりもさらに損傷を受けています。ほとんど物乞い、彼らは以前よりも良い貿易を提供します。</text>
+		<text>どうやら彼らの船体は見た目以上に傷んでいるようだ。どうやら船体は見た目以上に損傷しているようだ。</text>
 		<choice>
-			<text>受け入れ。</text>
+			<text>受け入れてくれ。</text>
 			<event>
 				<item_modify>
 					<item type="fuel" min="6" max="6" />
@@ -702,66 +702,66 @@
 			</event>
 		</choice>
 		<choice>
-			<text>彼らの申し出を再び拒否します。</text>
+			<text>もう一度申し出を断る。</text>
 			<event>
-				<text>難民船は通信を切断し、別の言葉なしでシステムからジャンプします。銀河系はあなたに冷たい肩を与えることに相当します。</text>
+				<text>難民船は通信を遮断し、それ以上何も言わずに星系からジャンプする。</text>
 			</event>
 		</choice>
 	</event>
 </eventList>
 <event name="NO_FUEL_REFUGEE_PIRATE">
-	<text>反乱軍の前進を逃れた難民船が星系に入り、あなたの遭難ビーコンを拾いました。燃料はそれほど多くありませんが、武装が必要であり、喜んで交換します。</text>
+	<text>反乱軍の進撃から逃れた難民船が、あなたの救難ビーコンを拾って星系に入った。燃料に余裕はないが、武装を必要としており、交換を望んでいる。</text>
 	<choice>
-		<text>燃料用のミサイルをいくつか提供します。</text>
+		<text>燃料としてミサイルを提供する。</text>
 		<event load="NO_FUEL_REFUGEE_PIRATE_ACCEPT" />
 	</choice>
 	<choice hidden="true">
-		<text>彼らの申し出を拒否します。</text>
+		<text>彼らの申し出を断る。</text>
 		<event load="NO_FUEL_REFUGEE_PIRATE_REJECT" />
 	</choice>
 </event>
 <eventList name="NO_FUEL_REFUGEE_PIRATE_ACCEPT">
 	<event>
-		<text>難民船が交換を行い、あなたの使命がうまくいくことを願っています。</text>
+		<text>難民船は交換を行い、あなたの任務の成功を祈る。</text>
 		<item_modify>
 			<item type="fuel" min="5" max="7" />
 			<item type="missiles" min="-1" max="-1" />
 		</item_modify>
 	</event>
 	<event>
-		<text>物資を交換した後、船は突然パワーアップして攻撃します-それは海賊船です！</text>
+		<text>物資を交換した船が突然パワーアップして襲ってきた！</text>
 		<item_modify>
 			<item type="fuel" min="5" max="7" />
 			<item type="missiles" min="-1" max="-1" />
 		</item_modify>
 		<ship load="SHIP_PIRATE_FUEL" hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 </eventList>
 <eventList name="NO_FUEL_REFUGEE_PIRATE_REJECT">
 	<event>
-		<text>難民船は謝罪しますが、彼らは燃料を必要としています。彼らはあなたが元気になることを望み、そしてシステムから消えます。</text>
+		<text>難民船は謝罪するが、燃料が必要だという。彼らはあなたの無事を祈ると、星系から姿を消した。</text>
 	</event>
 	<event>
-		<text>それにもかかわらず、難民船はあなたの抵抗を感じて、少量の燃料で部品を分けます。反乱軍に追い抜かれる前に、できるだけ早くセクターを離れるように警告します。その後、ジャンプして未知の部分に消えます。</text>
+		<text>あなたが気乗りしないのを察知した難民船は、それでも少量の燃料を補給する。反乱軍に追いつかれる前に、できるだけ早くこのセクターを離れるよう警告すると、ジャンプして未知の場所へ消えていった。</text>
 		<autoReward level="LOW">fuel_only</autoReward>
 	</event>
 	<event>
-		<text>あなたの気が進まないことを弱点として、難民船は突然武器で剛毛になります-それは海賊船であり、それは簡単な獲物であると信じています！</text>
+		<text>海賊船だから、簡単な獲物を見つけたと思っているのだ！</text>
 		<ship load="SHIP_PIRATE_FUEL" hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 	<event>
-		<text>あなたの気が進まないことを弱点として、難民船は突然武器で剛毛になります-それは海賊船であり、それは簡単な獲物であると信じています！</text>
+		<text>海賊船だから、簡単な獲物を見つけたと思っているのだ！</text>
 		<ship load="SHIP_PIRATE_FUEL" hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
@@ -772,40 +772,40 @@
 	<text load="FUEL_ON_REBEL_ATTACK" />
 	<ship load="SHIP_REBEL_FUEL" hostile="true" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <textList name="FUEL_ON_REBEL_ATTACK">
-	<text>反乱軍の船があなたを歓迎します。「こんにちは市民。私たちはあなたの遭難信号に対応しており、支援することができます...ちょっと待て...お前がその船か！死ね！」</text>
-	<text>反乱軍の船が近くに飛び乗って、「この退屈なセクターを巡視するのを楽しみにしていませんでしたが、ここにいるのは、この地域で最も欲しかった船で、あなたを見つけるように頼んでいます。それは私の幸運な日だと思います！」彼らは武器の電源を入れます。</text>
-	<text>船が近くにジャンプしたばかりなので、遭難ビーコンが機能している必要があります。その上でスキャンを実行し、赤いアラートをアクティブにします。反乱軍の戦闘機です！</text>
-	<text>反乱軍の船が飛び込んで、「あなたがいつか滑ってしまうことはわかっていました。静かに降伏してください！」とあなたを呼びます。</text>
+	<text>こんにちは、市民。"救難信号を受け...ちょっと待て...お前がその船か！死ぬ準備をしろ！"</text>
+	<text>反乱軍の船が近くにジャンプしてきた。「この退屈なセクターをパトロールするのは楽しみじゃなかったんだが、ここにいたのか。この地域で最も指名手配されている船だ。俺に見つけろと言わんばかりだ。どうやら今日はついているようだ。彼らは武器をパワーアップする。</text>
+	<text>遭難信号が作動しているに違いない。スキャンを実行し、レッドアラートを作動させる。反乱軍の戦闘機だ！</text>
+	<text>反乱軍の船が飛び込んできて、こう呼びかける。静かに降伏しろ！"</text>
 </textList>
 	
 <event name="FUEL_ON_REBEL_WARNING">
-	<text>あなたの苦痛に対応する船が入ってきます。残念ながら、それは自動化された反乱軍の偵察者であることが判明しました。それはあなたの船をスキャンした後すぐに推力を逆転させます。</text>
+	<text>遭難信号に反応した船が近づいてくる。不運にも、それは自動化された反乱軍の偵察機であることが判明した。あなたの船をスキャンした後、すぐに推力を反転させる。</text>
 	<ship load="SHIP_AUTO_WARNING" hostile="true" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>	
 
 
 <event name="FUEL_OFF_ENGI_DUBIOUS_MV">
-	<text>宇宙を漂流すると、エンギ船が通過します。彼らのcomチャンネルを聞いていると、彼らは船の修理について話し合っているようです。</text>
+	<text>宇宙空間を漂っていると、エンギ船が通り過ぎる。彼らの通信チャンネルを聞いていると、船の修理について話し合っているようだ。</text>
 	<ship load="SHIP_FUEL_OFF_ENGI_DUBIOUS" hostile="false" />
 	<choice hidden="true">
-		<text>彼らに連絡する。</text>
+		<text>万歳。</text>
 		<event load="FUEL_OFF_ENGI_DUBIOUS_LIST_MV" />
 	</choice>
 	<choice hidden="true">
-		<text>それらを無視します。</text>
+		<text>無視するんだ。</text>
 		<event>
-			<text>彼らはあなたの船にまったく気づかないので明らかに忙しいです。</text>
+			<text>彼らは明らかに忙しそうだ。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -815,9 +815,9 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="DRONE_CONTROL_SHIPREPAIR">
-		<text>（船体修理ドローン）船体の修理を手伝うことを申し出ます。</text>
+		<text>(船体修理ドローン）船体修理の手伝いを申し出る。</text>
 		<event>
-			<text>彼らはあなたの助けの申し出を喜んで受け入れます。ドローンがその仕事をすると、彼らはあなたのトラブルのためにいくらかの燃料を移します。</text>
+			<text>彼らは喜んであなたの申し出を受け入れる。ドローンが仕事を終えると、彼らはあなたの労をねぎらって燃料を運んでくれる。</text>
 			<item_modify>
 				<item type="drones" min="-1" max="-1" />
 				<item type="fuel" min="4" max="6" />
@@ -827,22 +827,22 @@
 </event>
 <eventList name="FUEL_OFF_ENGI_DUBIOUS_LIST_MV">
 	<event>
-		<text>エンギはあなたの信号に反応します。 「ID：フェデレーション。I/ Oエラー：フェデレーション = [void]。」それ以上の呼びかけはすべて答えられません。</text>
+		<text>エンジはあなたの合図に反応する。「身元は？連盟。I/O エラー：フェデレーション = [void]"それ以上の呼びかけには応じない。</text>
 	</event>
 	<event>	
-		<text>エンギは応答しませんが、傍受するために移動します。あなたは船に乗っている異常な電磁信号を検出します-誰かがそれらを戦うように再プログラムしました！</text>
+		<text>エンジは反応せず、迎撃に移る。船内に異常な電磁シグナルを感知！</text>
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 	<event>
-		<text>Engi はあなたの合図に反応します。 「あなたのニーズ: 燃料。このユニットのニーズ: スクラップ。交換は有益です。交換は許可されますか?」</text>
+		<text>エンジはあなたの合図に反応する。"君の要求は燃料。こっちはスクラップ。交換は有益だ交換を許可するか？"</text>
 		<choice>
-			<text>取引をします。</text>
+			<text>トレードを行う。</text>
 			<event>	
-				<text>あなたは交換を行い、エンギは別の言葉なしで去ります。</text>
+				<text>交換を済ませると、エンジはそれ以上何も言わずに去っていく。</text>
 				<item_modify>
 					<item type="scrap" min="-20" max="-10" />
 					<item type="fuel" min="4" max="6" />
@@ -850,14 +850,14 @@
 			</event>
 		</choice>
 		<choice>
-			<text>却下。</text>
+			<text>衰退。</text>
 			<event>
-				<text>エンギはクールにコミュニケーションを切り、彼らの旅を続けます。</text>
+				<text>エンジは冷静に通信を切り、旅を続ける。</text>
 			</event>
 		</choice>
 	</event>
 	<event>
-		<text>あなたの必要性を発見すると、エンギは喜んで彼らの追加の燃料備蓄のいくつかを提供します。これらのロボットの生き物がどれほど利他的であるかは驚くべきことです。</text>
+		<text>あなたが必要としていることを知ると、エンジは喜んで余剰燃料の一部を提供する。ロボットという生き物の利他性には驚かされる。</text>
 		<item_modify>
 			<item type="fuel" min="2" max="6" />
 		</item_modify>
@@ -869,15 +869,15 @@
 	<text load="FUEL_ON_MANTIS_ATTACK" />
 	<ship load="SHIP_MANTIS_FUEL" hostile="true" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <textList name="FUEL_ON_MANTIS_ATTACK">
-	<text>マンティスの船はあなたを歓迎します、「貧しい愚か者が助けを必要としているように見えます。兄弟に来て、「助けて」しましょう！」彼らは攻撃に移動します。</text>
-	<text>やがて船が近くにジャンプし、間違いなくあなたのビーコンに反応します。しかし、船がマンティスの設計であることに気付くとすぐに、あなたが感じた安堵は消えます。戦いの準備をしなさい。</text>
-	<text>あなたはマンティスの船が近づいてくるのを見つけて彼らの通信チャネルに侵入し、「...最後の連邦船よりも多くの戦いを繰り広げたいと思っています。これまでのところ残念な日です」と聞きます。彼らは助けにここにいないようです。</text>
-	<text>マンティスの船が近くにジャンプします。センサーは武器のロックを検出し、戦いを回避するというすべての希望は消え去ります。</text>
+	<text>マンティス艦が「助けを求めている哀れな愚か者が見つかったようだ。兄弟たちよ、彼らを "助けよう"！」。彼らは攻撃に移る。</text>
+	<text>間もなく、あなたのビーコンに反応したのか、船が近くにジャンプしてきた。しかし、その船がマンティスのデザインであることがわかると同時に、安堵感は消え去った。戦いに備えろ</text>
+	<text>近づいてくるマンティス艦を感知し、彼らの通信チャンネルにハッキングすると、「...前回の連邦艦より善戦していることを願う。失望した一日だった"どうやら助けに来たわけではなさそうだ。</text>
+	<text>マンティス艦が近くにジャンプしてきた。センサーがウェポン・ロックを感知し、戦闘回避の望みが遠のく。</text>
 </textList>
 		
 
@@ -889,23 +889,23 @@
 </event>
 
 <event name="FUEL_OFF_ROCK_WRECK">
-	<text>救いか死かを待つ間、スターボードビューポートを通り過ぎて漂う破片の海に注意が向けられます。遠くの戦争で全焼したロックフリゲート艦の船尾が見えるまで、滑走する塊のサイズは大きくなります。</text>
+	<text>救われるのか、それとも死を待つのか......そんなとき、右舷ビューポートを漂う瓦礫の海に目を奪われる。滑空する塊は次第に大きくなり、遠くの戦争で抉り取られたロックフリゲートの船尾が見えてくる。</text>
 	<choice hidden="true">
-		<text>アウェイチームを送ります。</text>
+		<text>アウェイチームを派遣する。</text>
 		<event>
-			<text>おそらく、機内には実行可能な燃料が残っています。小さな離れたチームが船に乗り込みます。</text>
+			<text>おそらく船内には燃料が残っているはずだ。</text>
 			<choice hidden="true">
-				<text>報告する！</text>
+				<text>レポート</text>
 				<event load="FUEL_OFF_ROCK_WRECK_LIST" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>それを漂わせてください。</text>
+		<text>流されるままに。</text>
 		<event>
-			<text>ロックは、どんなに老朽化しているように見えても、持ち物を拾う異星人に親切に対応しません。また、ロックの領土でリスクを冒すこともありません。</text>
+			<text>ロックはエイリアンが自分たちの持ち物を漁るのを快く思わないし、たとえそれがどんなに老朽化していようと、ロックのテリトリーで危険を冒すことはない。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -915,33 +915,33 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="LIFE_SCANNER"> 
-		<text>（Life Scanner）追加のスキャンを実行します。</text>
+		<text>(ライフスキャナー）追加スキャンを実行する。</text>
 		<event>
-			<text>船は完全に生命がないようです。あなたのクルーは、簡単な検索の後にいくつかの使用可能な燃料電池を見つけることができます。</text>
+			<text>船は完全に生命を失っているようだ。クルーは短時間の捜索の後、使用可能な燃料電池を見つけることができた。</text>
 			<autoReward level="MED">fuel_only</autoReward>
 		</event>
 	</choice>
 </event>			
 <eventList name="FUEL_OFF_ROCK_WRECK_LIST">
 	<event>
-		<text>しばらくして、チームは弾薬とスクラップを隠して戻ってきましたが、機内の燃料はすべてなくなっていました。</text>
+		<text>しばらくして、チームは弾薬とスクラップを隠し持って戻ってきた。</text>
 		<autoReward level="MED">missiles</autoReward>
 	</event>
 	<event>
-		<text>クルーの1人は、メインコンピューターがこのセクションに収容されていて、まだ部分的に動作していると報告しています。彼らはローカルテレメトリと船の予備燃料の場所をダウンロードすることができます！マップが更新されました。</text>
+		<text>クルーの一人によると、メイン・コンピューターはこのセクションにあり、まだ部分的に作動可能だという。現地の遠隔測定と予備燃料の位置を ダウンロードできるそうです地図が更新されました</text>
 		<reveal_map />
 		<autoReward level="MED">fuel_only</autoReward>
 	</event>
 	<event>
-		<text>チームは予想よりも早く帰宅します。彼らがフリゲート艦に乗り込んでいたのと同じように、船の非常用燃料電池がたまたま通りかかったのです！</text>
+		<text>チームは予想よりも早く帰国した。彼らがフリゲート艦に入港しようとしたその時、船の非常用燃料電池が偶然通りかかったのだ！</text>
 		<autoReward level="MED">fuel_only</autoReward>
 	</event>
 	<event>
-		<text>アウェイチームが報告しますが、その後、悲鳴が聞こえ、通信が途絶えます！オンラインに戻ると、ロックマンの声が聞こえます。彼は、フリゲートのクルーからの唯一の生存者であり、完全に怒っています。彼はあなたがあなたのクルーの人生の見返りにスクラップの身代金を支払うことを要求します！</text>
+		<text>アウェーチームが報告するが、悲鳴が聞こえ、通信が切れた！オンラインに戻ると、ロックマンの声が聞こえる。彼はフリゲートの乗組員から一人生き残った男で、完全に狂っている。彼はクルーの命と引き換えに身代金を支払うよう要求してくる！</text>
 		<choice>
-			<text>支払い。</text>
+			<text>給料</text>
 			<event>
-				<text>彼の脆弱な状態にもかかわらず、ロックマンは彼の言葉に忠実であり、適切に感謝しているあなたのクルーを返します。悲しいことに、感謝の気持ちはFTLドライブに電力を供給しません。</text>  
+				<text>もろい状態にもかかわらず、ロックマンは約束に忠実で、あなたのクルーを返してくれた。残念なことに、感謝はFTLドライブの動力にはならない。</text>  
 				<item_modify>
 					<item type="scrap" min="-40" max="-25" />
 				</item_modify>
@@ -950,10 +950,10 @@
 		<choice>
 			<text>拒否する。</text>
 			<event>
-				<text>それは難しい呼びかけですが、それは連邦とすべての自由のためです。気が変わる前に出発します。</text>
+				<text>難しい決断だが、連盟とみんなの自由のためだ。気が変わる前に出発するのだ。</text>
 				<removeCrew>
 					<clone>false</clone>
-					<text>ジャンプの準備をする前に、クローンベイを確認しますが、活動の兆候はありません。</text>
+					<text>ジャンプの準備をする前にクローンベイをチェックするが、動きがある様子はない。</text>
 				</removeCrew>
 			</event>
 		</choice>
@@ -961,36 +961,36 @@
 </eventList>
 
 <event name="FUEL_OFF_ROCK_CURIOUS">
-	<text>好奇心旺盛なロック船があなたを詳しく見るためにやって来ます。彼らはすべての連絡を拒否します。</text>
+	<text>好奇心旺盛なロック船が、あなたをよく見ようと近づいてくる。彼らはすべての呼びかけを拒否する。</text>
 	<choice hidden="true">
-		<text>攻撃。</text>
+		<text>攻撃だ。</text>
 		<event>
-			<text>ロックの人々は彼らの寛大さで有名ではありません。それがあなたが必要とする燃料であるならば、それはあなたが取らなければならない燃料です！</text>
+			<text>ロックの人々の気前の良さは有名ではない。必要な燃料なら、取らなければならない！</text>
 			<ship load="SHIP_FUEL_OFF_ROCK_CURIOUS" hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>成り行きを見守る。</text>
+		<text>待っててください。</text>
 		<event load="FUEL_OFF_ROCK_CURIOUS_LIST" />	
 	</choice>
 </event>
 <eventList name="FUEL_OFF_ROCK_CURIOUS_LIST">
 	<event>
-		<text>ロックの船があなたを一周し、システムでスキャンを実行します。あなたは最悪の事態を恐れていますが、スキャンはあなたの燃料タンクで一時停止します。彼らは明らかに通信することを望んでいませんが、ライトを点滅させて飛び去る前に、燃料のキャッシュを転送します！</text>
+		<text>ロック号があなたの周囲を旋回し、システムをスキャンしている。あなたは最悪の事態を恐れたが、スキャンは燃料タンクで一時停止した。彼らは明らかに通信を望んでいないが、ライトを点滅させて飛び去る前に、燃料のキャッシュを転送してきた！</text>
 		<item_modify>
 			<item type="fuel" min="3" max="8" />
 		</item_modify>
 	</event>
 	<event>
-		<text>ロックの船があなたを一周し、システムでスキャンを実行します。彼らがあなたのエンジンを識別し、爆弾をその上にまっすぐにテレポートするとき、あなたの最悪の恐れが確認されます！戦闘準備完了！</text>
+		<text>ロック号があなたの船の周りを旋回し、システムをスキャンしている。彼らがエンジンを特定し、そこに爆弾をテレポートしたとき、あなたの最悪の恐怖は確認された！戦闘準備完了！</text>
 		<ship load="FUEL_OFF_ROCK_CURIOUS" hostile="true" />	
 		<status type="limit" target="player" system="engines" amount="1" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
@@ -998,55 +998,55 @@
 
 
 <event name="FUEL_SHELL_SCANS">
-	<text>シェル船が慎重に近づき、容器で基本的なスキャンを実行して、これがtrapではないことを確認します。彼らが満足したら、彼らはあなたを歓迎します。「立ち往生？紛失？私たちは喜んで助けられますが、銀河でのサービスは無料ではありません。私たちはあなたの乗組員にいくつかのスキャンを実行して、geniocracyに戻したいと思います。</text>
+	<text>シェル船が用心深く近づき、罠でないことを確かめるため、あなたの船を基本スキャンする。彼らが満足すると、あなたに呼びかける。「立ち往生か？道に迷ったのか？助けてくれるのは嬉しいが、この銀河では無料サービスはない。あなたのクルーをスキャンしてジェニオクラシーに持ち帰りたい。無害です 約束します</text>
 	<ship load="SHIP_SHELL_GENERIC" hostile="false" />
 	<choice hidden="true">
-		<text>スキャンに同意します。</text>
+		<text>スキャンに同意する。</text>
 		<event load="FUEL_OFF_SHELL_SCANS_QUEUE" />
 	</choice>
 	<choice hidden="true" req="LIST_CREW_SHELL">
-		<text>（シェルクルー）あなたのシェルは何かを説明したいと思っています。</text>
+		<text>(シェル・クルー）あなたのシェルが説明したいことがあるそうです。</text>
 		<event>
-			<text>あなたのシェルは、彼らの文化では、見知らぬ人をテストすることは完全に普通であり、一般的に拒否する侮辱と見なされていると説明しています。彼らは、テストも完全に無害であるべきだと確認しています。</text>
+			<text>あなたのシェルは、彼らの文化では見知らぬ人の検査を受けるのはまったく普通のことで、一般的に拒否するのは侮辱とみなされると説明する。彼らは検査もまったく無害であることを確認している。</text>
 			<choice hidden="true">
-				<text>スキャンに同意します。</text>
+				<text>スキャンに同意する。</text>
 				<event load="FUEL_OFF_SHELL_SCANS_QUEUE" />
 			</choice>
 			<choice hidden="true">
-				<text>まだ衰退。</text>
+				<text>まだ衰退している。</text>
 				<event load="FUEL_OFF_SHELL_SCANS_LEAVE" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>これは疑わしいようです、衰退します。</text>
+		<text>これは怪しい。</text>
 		<event load="FUEL_OFF_SHELL_SCANS_LEAVE" />
 	</choice>
 </event>
 <event name="FUEL_OFF_SHELL_SCANS_QUEUE">
-	<text>シェルはクルーを列に並べ、誇張された大きさのX線のように見えるものを通過させます。彼らの言葉通り、スキャンはほんの少しのうずきのように感じますが、長い時間がかかります。すぐにそれが完了するまでに数時間かかることが明らかになり、反乱軍の艦隊は絶えず近づいています。</text>
+	<text>シェルは乗組員を列に並ばせ、大げさなほど大きなX線検査に通す。その言葉どおり、スキャンはチクチクする程度だが、時間がかかる。やがて、検査が終わるまで数時間かかることが明らかになり、反乱軍の艦隊は絶えず近づいてくる。</text>
 	<choice hidden="true">
-		<text>待ってスキャンを終了してください。</text>
+		<text>スキャンが終わるのを待つだけだ。</text>
 		<event>
-			<text>あなたはせっかちに時計を見ていますが、最終的にスキャンは終了します。 「ご協力ありがとうございます。上司はとても喜んでいます。約束通り、燃料を補給してください。」</text>
+			<text>あなたは焦りながら時計を見ていたが、やがてスキャンは終了した。「ご協力ありがとうございました。上司も喜ぶだろう。約束通り、燃料です」。</text>
 			<autoReward level="HIGH">fuel_only</autoReward>
 			<modifyPursuit amount="1" />
 		</event>
 	</choice>
 	<choice hidden="true" req="mind">
-		<text>（マインドコントロール）「シェルを説得して」早く停止し、燃料を譲ります。</text>
+		<text>(マインド・コントロール）シェルに早く止まって燃料を渡すように『説得』する。</text>
 		<event>
-			<text>幸いなことに、シェルはスラッグのいとこのようにテレパシーではなく、システムはそれらに対して非常に効果的です。</text>
+			<text>幸いなことに、シェルはナメクジのようなテレパシー能力はない。</text>
 			<autoReward level="LOW">fuel_only</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>彼らがやめるように要求する。</text>
+		<text>止めるよう要求する。</text>
 		<event>
-			<text>「なに？今やめることはできません。データはせいぜい決定的ではなく、最悪の場合は完全に使用できません。これは私たちの取引に対する侮辱です！」憤慨し、シェルが攻撃！</text>
+			<text>「何だと？今やめるわけにはいかない。データはよくても決定的ではなく、最悪の場合、まったく使えない！これは取引に対する侮辱だ！"憤慨したシェルが攻撃を仕掛ける！</text>
 			<ship hostile="true" />	
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
@@ -1054,10 +1054,10 @@
 </event>
 <eventList name="FUEL_OFF_SHELL_SCANS_LEAVE">
 	<event>
-		<text>あなたは辞退しようとしますが、シェルはそれを持っていません。 「私たちはこの機会を逃すことはできません！」彼らはもう一度あなたを説得しようとしますが、あなたはそれを持っていません。喧嘩は避けられないようです！</text>
+		<text>あなたは断ろうとするが、シェルはそれを許さない。"このチャンスを逃すわけにはいかない！"もう一度説得を試みるが、そうはさせない。戦いは避けられないようだ！</text>
 		<ship hostile="true" />	
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
@@ -1066,18 +1066,18 @@
 
 
 <event name="FUEL_ON_SLUG_CHUCKLE">
-	<text>武装が不十分なスラッグ船が巡航し、支援を提供します。彼らの船長は、おそらく彼が請求している価格で、自分自身に笑っているようです。</text>
+	<text>武装の不十分なナメクジ船が通りかかり、援助を申し出てきた。彼らの船長は、おそらく彼が請求している料金を見て、ひとりほくそ笑んでいるようだ。</text>
 	<ship load="SHIP_SLUG_GENERIC" hostile="false" />
 	<choice hidden="true">
-		<text>5つの燃料に対して15のスクラップを支払います。</text>
+		<text>15スクラップを5燃料に交換する。</text>
 		<event load="FUEL_ON_SLUG_CHUCKLE_LIST" />
 	</choice>
 	<choice hidden="true">
-		<text>オファーを無視します。</text>
+		<text>申し出を無視する。</text>
 		<event>
-			<text>あなたが知らないことを知っているように見えるスラッグと取引するよりも、あなたはよく知っています.彼は別の笑い声で飛び降ります。</text>
+			<text>自分の知らないことを知っているようなナメクジとは取引しないほうがいい。彼はまた笑いながら飛び降りた。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1087,9 +1087,9 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_SLUG">
-		<text>（スラッグクルー）スラッグに購入してもらいます。</text>
+		<text>(スラッグ・クルー）スラッグに買い物をさせる。</text>
 		<event>
-			<text>彼があなたのクルーを見るとすぐに、スラッグは彼の絶え間ない笑い声を止めます。 2つのスラッグの間でテレパシー的にどのような精神的な戦いが起こっているのか疑問に思いますが、交換はスムーズに進んでいるように見えます。</text>
+			<text>あなたのクルーを見るやいなや、スラッグは絶え間ない笑いを止めた。2匹のナメクジはテレパシーでどのような心理戦を繰り広げているのだろうか。</text>
 			<item_modify>
 				<item type="scrap" min="-15" max="-15" />
 				<item type="fuel" min="5" max="5" />
@@ -1097,9 +1097,9 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="BLUELIST_CREW_SNAIL">
-		<text>(テレパシー シェル) シェルに購入してもらいます。</text>
+		<text>(テレパシー・シェル）シェルに買い物をさせる。</text>
 		<event>
-			<text>スラッグはしばらく笑い続けますが、何かがおかしいことに気付くとすぐに止まります。交換は順調に進んでいるように見えますが、2 つの種の間でテレパシーでどのような精神的な戦いが起こっているのか疑問に思います。</text>
+			<text>ナメクジは少しの間クスクスと笑い続けたが、何かがおかしいことに気づくとすぐに止めた。2つの種族の間にテレパシーでどんな精神的な戦いが起こっているのか気になるが、やりとりはスムーズに進んでいるように見える。</text>
 			<item_modify>
 				<item type="scrap" min="-15" max="-15" />
 				<item type="fuel" min="5" max="5" />
@@ -1109,15 +1109,15 @@
 </event>
 <eventList name="FUEL_ON_SLUG_CHUCKLE_LIST">
 	<event>
-		<text>あなたは彼が信頼できるとは思わないが、取引をするしかない。ただし、イベントなしで交換を完了します。</text>
+		<text>あなたは彼が信頼に足る人物かどうか疑っているが、取引に応じるしかない。しかし、あなたは何事もなく取引を完了した。</text>
 		<item_modify>
 			<item type="scrap" min="-15" max="-15" />
 			<item type="fuel" min="5" max="5" />
 		</item_modify>
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event>
-				<text>すべてが安全に見えますが、突然多くの物資が消えます！彼はどういうわけかあなたの貨物室に携帯用テレポーターを植えたに違いありません。あなたが反応する前に、彼の船はずっとなくなっています。</text>
+				<text>すべて安全そうに見えたが、突然多くの物資が消えた！彼はポータブル・テレポーターを貨物室に仕掛けたに違いない。あなたが反応する前に、彼の船はとっくに消えている。</text>
 				<item_modify steal="true">
 					<item type="scrap" min="-35" max="-20" />
 					<item type="missiles" min="-4" max="-2" />
@@ -1126,7 +1126,7 @@
 		</choice>
 	</event>
 	<event>
-		<text>あなたは彼が信頼できるとは思わないが、取引をするしかない。ただし、イベントなしで交換を完了します。</text>
+		<text>あなたは彼が信頼に足る人物かどうか疑っているが、取引に応じるしかない。しかし、あなたは何事もなく取引を完了した。</text>
 		<item_modify>
 			<item type="scrap" min="-15" max="-15" />
 			<item type="fuel" min="5" max="5" />
@@ -1135,12 +1135,12 @@
 </eventList>
 
 <event name="FUEL_ON_SLUG_OVERPRICED">
-	<text>モバイルスラッグ燃料デポがスキャン範囲に入ります。「私の貴族は公平ですが、私は一つのことを尋ねます - 交渉で私をs辱しないでください！」彼の価格表をチェックしてください。</text>
+	<text>移動式ナメクジ燃料貯蔵庫がスキャン範囲に入った。"私の値段は適正だが、一つだけ言っておく。" "交渉で私を侮辱するな！"あなたは彼の価格表をチェックする。</text>
 	<ship load="SHIP_SLUG_OVERPRICED" hostile="false" />
 	<choice hidden="false">
-		<text>50スクラップで5つの燃料を購入します。</text>
+		<text>50スクラップで5燃料を購入。</text>
 		<event>
-			<text>トレーダーはショックを受けているように見えます。あなたは、これが誰もが彼にこれらの価格を支払ったのはこれが初めてであるという感覚に驚かされます。</text>
+			<text>トレーダーはショックを受けているようだ。このような値段で取引されたのは初めてだと感じたのだろう。</text>
 			<item_modify>
 				<item type="scrap" min="-50" max="-50" />
 				<item type="fuel" min="5" max="5" />
@@ -1148,9 +1148,9 @@
 		</event>
 	</choice>
 	<choice hidden="false">
-		<text>95スクラップで10個の燃料を購入します。 （ベストディール！）</text>
+		<text>95スクラップで10燃料を購入。(ベスト・ディール！）。</text>
 		<event>
-			<text>トレーダーはショックを受けているように見えます。あなたは、これが誰もが彼にこれらの価格を支払ったのはこれが初めてであるという感覚に驚かされます。</text>
+			<text>トレーダーはショックを受けているようだ。このような値段で取引されたのは初めてだと感じたのだろう。</text>
 			<item_modify>
 				<item type="scrap" min="-95" max="-95" />
 				<item type="fuel" min="10" max="10" />
@@ -1158,22 +1158,22 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>交渉。</text>
+		<text>交渉する。</text>
 		<event>
-			<text>あなたはよりリーズナブルな価格を提示しましたが、スラッグは激怒しています!彼は攻撃に移動します ！</text>
+			<text>あなたはもっとリーズナブルな価格を提示したが、ナメクジは激怒！ナメクジは憤慨し、襲いかかろうとする！</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>あなたは興味がありません。</text>
+		<text>あなたは興味がない。</text>
 		<event>
-			<text>スラッグキャプテンはすべての通信を終了して飛び去り、あなたを再び一人にします。</text>
+			<text>ナメクジ隊長はすべての通信を打ち切り、飛び去り、再びあなた一人になる。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1186,34 +1186,34 @@
 
 
 <event name="FUEL_ON_DYNASTY">
-	<text>遠くから王朝の船に近づき、遭難信号に誘われます。彼らのラジオスタティックは、大まかに「悪魔の心臓はまだ鼓動している！聞こえますか！？」と解釈されます。</text>
+	<text>遠くからダイナスティの船が近づいてくる。彼らの無線は「悪魔の心臓はまだ鼓動している！聞こえますか？"</text>
 	<ship load="SHIP_DYNASTY_FIGHT" hostile="false" />
 	<choice hidden="true">
-		<text>はい。</text>
+		<text>そうだ。</text>
 		<event load="FUEL_ON_DYNASTY_LIE" />
 	</choice>
 	<choice hidden="true" req="LIST_CREW_GHOST">
-		<text>（ゴーストクルー）「はい」</text>
+		<text>(ゴーストクルー）"はい"</text>
 		<event>
-			<text>「よかった！それなら、旅行者の心に気をつけろ！出血するが、それでも鼓動する！」あなたはそれがすべてだと思いますが、ゴーストはあなたに燃料の箱を排出し、そして飛び降ります！</text>
+			<text>"よろしい！旅人よ、心臓に気をつけろ！血を流し、それでもなお鼓動する！"あなたはそれだけだと思ったが、ゴーストは燃料の入った木箱をあなたに向けて射出し、それから飛び降りた！</text>
 			<autoReward level="MED">fuel_only</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>いいえ。</text>
+		<text>いや。</text>
 		<event>
-			<text>「それなら彼はあなたを打ち倒すでしょう！最も注意深く見てください、彼らはどこにでもいる可能性があります！」</text>
+			<text>"その時、彼はあなたを打ちのめすだろう！注意深く見よ、奴らはどこにでもいるかもしれない！"</text>
 			<choice hidden="true">
-				<text>Ok...</text>
+				<text>よし...</text>
 				<event load="FUEL_ON_DYNASTY_NOTHING" />
 			</choice>
 			<choice hidden="true">
-				<text>これらのゴーストは非常識です。彼らが同じことをする前に彼らを攻撃してください！</text>
+				<text>このゴーストたちは正気ではない。彼らが同じことをする前に攻撃しろ</text>
 				<event>
-					<text>悪魔の心は、それが何を意味するにせよ、待つことができます！</text>
+					<text>悪魔の心は、それがどういう意味であれ、後回しでいい！</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
@@ -1223,29 +1223,29 @@
 </event>
 <eventList name="FUEL_ON_DYNASTY_NOTHING">
 	<event>
-		<text>「嘲笑しないでください！これは最も深刻です。私はあなたの目にそれを見る...ハーク、あなたはそのうちの1人に過ぎません、そうではありませんか？王朝の崩壊をもたらすために送られた連邦巡洋艦！」船は武器を装備しています。これはどれも意味がありませんが、あなたはそれと戦わなければなりません！</text>
+		<text>「嘲ってはいけない！これは最も深刻なことだ。あなたの目を見ればわかる。お前も奴らの仲間だろう？連邦の巡洋艦だ。王朝を滅亡させるために送り込まれた。船は武器を構える。意味不明だが、戦うしかない！</text>
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 	<event>
-		<text>「旅行者、心に気をつけろ！出血するが、それでも鼓動する！」あなたはそれがすべてだと思いますが、ゴーストはあなたに燃料の箱を排出し、そして飛び降ります！</text>
+		<text>「旅人よ、心臓に気をつけろ！血を流しても、まだ鼓動している！"それで終わりかと思いきや、ゴーストは燃料の入った木箱を射出し、飛び降りる！</text>
 		<autoReward level="MED">fuel_only</autoReward>
 	</event>
 </eventList>
 <eventList name="FUEL_ON_DYNASTY_LIE">
 	<event>
-		<text>「嘘、嘘！あなたは何も知らない！連邦はあなたを心から守った！悪魔の指はあなたをつかみ、あなたに慈悲を示さないだろう！これを好意と考えなさい！」ゴースト船は突然武器を装備して攻撃します！</text>
+		<text>「嘘だ、嘘だ！あなたは何も知らない！連盟はお前を心から守った！悪魔の指がお前を捕らえ、容赦はしない！これを好意と思え！"ゴースト艦が突然武器を構え、攻撃を仕掛ける！</text>
 		<ship hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 	<event>
-		<text>「よかった！それなら、旅行者の心に気をつけろ！出血するが、それでも鼓動する！」あなたはそれがすべてだと思いますが、ゴーストはあなたに燃料の箱を排出し、そして飛び降ります！</text>
+		<text>"よろしい！旅人よ、心臓に気をつけろ！血を流し、それでもなお鼓動する！"それで終わりかと思いきや、ゴーストは燃料の入った木箱を射出し、飛び降りる！</text>
 		<autoReward level="MED">fuel_only</autoReward>
 	</event>
 </eventList>

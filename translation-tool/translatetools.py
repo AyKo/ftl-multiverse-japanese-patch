@@ -36,6 +36,12 @@ special_char_transtable_decode = str.maketrans({
     "👆":"™",  # upgraded
 })
 
+def XmlTagDecode(text: str):
+    special = ["⏎", "⛽", "🛫", "🚀", "💰", "🔨", "🧑", "🔥", "💪", "🧊", "👆"]
+    for i, xmltag in enumerate(['newline', 'fuel', 'drones', 'missiles', 'scrap', 'repair', 'elite', 'fire', 'power', 'cooldown', 'upgraded']):
+        text = text.replace(f"<{xmltag}/>", special[i])
+    return text
+
 def ExtractText(multivers_file_path: str):
     """マルチバースのフォルダから翻訳すべき英文を抽出する
     
@@ -202,7 +208,7 @@ def Replace(translate_map: dict, input_dir: str, output_dir: str):
                     texttag.text = translate_map[text].translate(special_char_transtable_decode)
                     is_change = True
         if is_change:
-            tree.write(output_dir + "/data/" + os.path.basename(file), encoding='utf-8')
+            tree.write(output_dir + '/' + os.path.basename(file), encoding='utf-8')
             
 def UpdateMod(new_data_path: str, old_textFile_path: str, ja_mod_folder: str):
     """新しいバージョンのDataと、現バージョンまでのen\\tjaテキストファイルから新しいバージョンの日本語化MODを作る
@@ -226,10 +232,7 @@ def UpdateMod(new_data_path: str, old_textFile_path: str, ja_mod_folder: str):
         old_dict = MakeEnJaDict(old_textFile_path)
         old_dict.update(en_ja_dict)
         Replace(old_dict, new_data_path, ja_mod_folder)
-
-if __name__ == '__main__':
-    Replace(MakeEnJaDict('AllText(to5.4.4).txt'), 'Multiverse 5.4.4 - Data', r"C:\Users\hulan\OneDrive\デスクトップ\multiverese ja\Multiverse 5.4.4 - Japanese Patch")      
-            
+                
 def MakeSpreadSheet(wb_id: str, en_ja_dict: dict, multiverse_Data_path: str, credentials_filename_path = 'client_secret.json',authorized_user_filename_path = 'authorized_user.json'):
     """スプレッドシート作成
     
@@ -248,6 +251,10 @@ def MakeSpreadSheet(wb_id: str, en_ja_dict: dict, multiverse_Data_path: str, cre
     wb = gc.open_by_key(wb_id)
     requestlist = []
     titlelist = []
+    
+    import json
+    with open('human.json') as f:
+        human_data = json.load(f)
 
     # data ディレクトリのすべてのファイルを対象にして..
     text_list = set()
@@ -261,7 +268,7 @@ def MakeSpreadSheet(wb_id: str, en_ja_dict: dict, multiverse_Data_path: str, cre
             tree = ET.parse(file)
         except ET.ParseError as e:
             continue
-        datalist = [['タグ', '原文', '意訳', '機械翻訳']]
+        datalist = [['タグ', '原文', '意訳', 'DeepL']]
         root = tree.getroot()
         # タグを探して..
         for tag in tag_list:
@@ -278,8 +285,12 @@ def MakeSpreadSheet(wb_id: str, en_ja_dict: dict, multiverse_Data_path: str, cre
                 try:
                     ja = en_ja_dict[text]
                 except:
-                    ja = text
-                datalist.append([f'<{tag}>', text, '', ja])
+                    ja = ''
+                try:
+                    human_text = human_data['data'][0][text]
+                except:
+                    human_text = ''
+                datalist.append([f'<{tag}>', text, human_text, ja])
         data_length = len(datalist)
         if data_length > 1:
             title = os.path.basename(file)
@@ -422,3 +433,53 @@ def MakeSpreadSheet(wb_id: str, en_ja_dict: dict, multiverse_Data_path: str, cre
             }
         ])
     wb.batch_update({'requests': requestlist})
+    
+def ExtractFromSpreadsheet(wb_id: str, credentials_filename_path = 'client_secret.json',authorized_user_filename_path = 'authorized_user.json'):
+    import gspread
+    from time import sleep
+    
+    gc = gspread.oauth(credentials_filename = credentials_filename_path, authorized_user_filename = authorized_user_filename_path)
+
+    wb = gc.open_by_key(wb_id)
+
+    en_ja_dict = dict()
+    
+    for i in range(1, 83):
+        ws = wb.get_worksheet_by_id(i)
+        ws_list = ws.get_all_values()
+        del ws_list[0]
+        for data in ws_list:
+            if  len(data[2]) > 0:
+                en_ja_dict[data[1]] = data[2]
+            else:
+                en_ja_dict[data[1]] = data[3]
+        print(i)
+        sleep(1.5)
+    return en_ja_dict
+    
+        
+def ExtractHumanTranslation(wb_id: str, credentials_filename_path = 'client_secret.json',authorized_user_filename_path = 'authorized_user.json'):
+    import gspread
+    from time import sleep
+    
+    gc = gspread.oauth(credentials_filename = credentials_filename_path, authorized_user_filename = authorized_user_filename_path)
+
+    wb = gc.open_by_key(wb_id)
+
+    human_dict = dict()
+    for i in range(1, 83):
+        ws = wb.get_worksheet_by_id(i)
+        ws_list = ws.get_all_values()
+        del ws_list[0]
+        for data in ws_list:
+            if  data[2] == '':
+                continue
+            human_dict[data[1]] = data[2]
+        print(i)
+        sleep(1)
+    return human_dict
+        
+        
+if __name__ == '__main__':
+    en_ja_dict = ExtractFromSpreadsheet('enter Work Book id')
+    Replace(en_ja_dict, 'Multiverse 5.4.4 - Data', 'data')

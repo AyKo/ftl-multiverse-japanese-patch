@@ -3,18 +3,18 @@
 
 
 <event name="FEDERATION_BASE">
-	<text>この現実の連邦基地は、ユニバース0に戻ったものと同じくらい印象的です。下の都市の多くは避難しましたが、運営の中心である国会議事堂はまだ運営されています。旗艦がそれを破壊した場合、連邦は無力になり、この現実は失われます。</text>
+	<text>この現実にある連邦の基地は、宇宙0にあった基地と同じくらい印象的だ。フラッグシップがこれを破壊すれば、連邦は無力となり、この現実は失われる。</text>
 	<img back="BACK_EVENT_FEDBASE" planet="PLANET_INVISIBLE" />
 	<customFleet right="false" firing="false" autoDarkening="false">CUSTOM_FLEET_FED</customFleet>
 	<customFleet right="true" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>幸いなことに、あなたは旗艦の前にここに到着しました。残りの数少ない連邦支援船の1つが船体にパッチを当て、いくつかの補給品を提供します。</text>
+			<text>幸運にも、あなたは旗艦より先にここに到着していた。数少ない連邦の支援船が船体を修復し、物資を与えてくれる。</text>
 			<damage amount="-7" />
 			<autoReward level="LOW">stuff</autoReward>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice hidden="true">
@@ -31,7 +31,7 @@
 	<text load="TEXT_LIGHTSPEED" />
 	<img back="BACKGROUND_LIGHTSPEED" planet="PLANET_INVISIBLE" />
 	<choice>
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="ATLAS_MENU" />
 	</choice>
 </event>
@@ -43,29 +43,29 @@
 </event>
 
 <event name="LASTSTAND_WARP_REAL">
-	<text>名前：フェデレーションCapital
-Type：Friendly
-Unique：True
-DominantFaction：Federation
-Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で、この現実を救うために、連邦基地を破壊する前に反乱軍の旗艦を排除する必要があります。</text>
+	<text>名前連邦首都
+タイプ：友好的
+ユニーク：優勢な派閥：連邦 
+反乱軍の脅威レベル：極めて高い！
+連邦首都はあなたの最終目的地である。反乱軍に包囲されているこの現実を救うには、反乱軍の旗艦が連邦の基地を破壊する前に排除しなければならない。</text>
 	<choice blue="false" req="loc_laststand" lvl="1" max_group="0">
-		<text>超高速を終了します。</text>
+		<text>ハイパースピードで出る。</text>
 		<event load="TRUE_LAST_STAND_START_EMERGENCY" />
 	</choice>
 	<choice blue="false" req="challenge_level" lvl="3" max_group="0">
-		<text>超高速を終了します。</text>
+		<text>ハイパースピードで出る。</text>
 		<event load="TRUE_LAST_STAND_START_EXTREME" />
 	</choice>
 	<choice blue="false" req="pilot" lvl="1" max_group="0">
-		<text>超高速を終了します。</text>
+		<text>ハイパースピードで出る。</text>
 		<event load="TRUE_LAST_STAND_START" />
 	</choice>
 	<choice blue="false" req="COORDS_BOSS" max_group="1">
-		<text>ルートを変更します。</text>
+		<text>ルート変更。</text>
 		<event load="REROUTE_MENU_LASTSTAND" />
 	</choice>
 	<choice hidden="true" req="COORDS_BOSS_TOOLATE" max_group="1">
-		<text>他のセクターの時間はもうありません！</text>
+		<text>他のセクターに割く時間はもうない！</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 </event>
@@ -84,16 +84,16 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
 	<playSound>lightspeed</playSound>
 	<recallBoarders />
-	<text>ノード17からのあなたの即時の離脱は、連邦に災いをもたらしたようです。旗艦はすでに基地に到着しており、ここの連邦軍は圧倒されています。無駄にする時間はありません、あなたはすぐに基地に着く必要があります！</text>
+	<text>ノード17からの即席離脱が 連邦に災いをもたらしたようだフラッグシップはすでに基地に到着し、ここの連邦軍は圧倒されています。時間がない すぐに基地に向かえ</text>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
 			<goToFlagship atBase="true" allFleet="true" />
 		</event>
 	</choice>
 </event>
 <event name="TRUE_LAST_STAND_START_EXTREME">
-	<text>光速を抜けると、何かがおかしいことが明らかになります。エントランスビーコンがMFKエースの攻撃を受けているようです！</text>
+	<text>光速を抜けた瞬間、明らかに何かがおかしい。入口のビーコンがMFKエースの攻撃を受けているようなのだ！</text>
 	<changeBackground>BACK_EVENT_LASTSTAND</changeBackground>
 	<playSound>lightspeed</playSound>
 	<customFleet right="true" firing="false" autoDarkening="false">CUSTOM_FLEET_FED</customFleet>
@@ -101,57 +101,55 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 	<variable name="loc_protomv_drive_block" op="set" val="1" />
 	<ship load="SHIP_LAST_STAND_START_EXTREME" hostile="true" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <event name="LAST_STAND_START_EXTREME_FINISH">
-	<text>MFKエースが処理されており、続行する前に残骸を廃棄します。タリー提督自身を含む連邦艦隊の生存者に連絡します。</text>
+	<text>MFKエースは片付いた。タリー提督を含む連邦艦隊の生存者に連絡を取る。</text>
 	<autoReward level="HIGH">standard</autoReward>
 	<variable name="loc_protomv_drive_block" op="set" val="0" />
 	<choice hidden="true" req="loc_laststand" lvl="1" blue="false">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="TRUE_LAST_STAND_START_EMERGENCY" />
 	</choice>
 	<choice hidden="true" req="loc_laststand" lvl="0" max_lvl="0" blue="false">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="TRUE_LAST_STAND_START" />
 	</choice>
 </event>
 <event name="DETERGENT_WIN">
-	<text>あなたが去ることができる前に、あなたはタリーから別の連絡を受け取ります。 「待ってください-あなたが持っている洗剤ですか？ニュートンに感謝します、反乱軍の封鎖は私たちに不可欠な物資を使い果たしました、そして私たちはきれいにするための制服の余剰があります。それは多くはありませんが、これで私たちは軍隊を元に戻すことができるかもしれません！」</text>
+	<text>その場を立ち去ろうとする前に、またタリーからあられもない声がかかる。「待ってください。ああ、ありがとうニュートン。反乱軍の封鎖で必要な物資が枯渇し、ユニフォームのクリーニングが余っているんだ。大した量じゃないけど、これがあれば部隊の体型を戻せるかも！"</text>
 	<achievement>ACH_ACC_DETERGENT</achievement>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>洗剤モードが完了しました！
-洗剤モードを無事に完了したレネゲードおめでとうございます！それは確かに激動の旅でした、しかしあなたは勝ち誇って通り抜けました！あなたのおかげで、連盟はもう汚れた洗濯物を持っていないでしょう。</text>
+			<text>DETERGENT MODE COMPLETE！⎤レネゲード、DETERGENT MODE成功おめでとう！波乱万丈の旅であったことは確かだが、あなたは見事にやり遂げた！あなたのおかげで、連邦に汚れた洗濯物はもうない。</text>
 			<playSound>victory</playSound>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="LASTSTAND_EMPTY_BEACON" />
 			</choice>
 		</event>
 	</choice>
 </event>
 <event name="DETERGENT_WIN_TULLY">
-	<text>あなたが去る前に、タリーは別の主題を育てます。「待って - あなたが持っている洗剤ですか？ああ、ニュートンに感謝します、反乱軍の封鎖は私たちに必須の物資を排出しました、そして私たちは掃除するためのユニフォームの余剰を持っています。！」</text>
+	<text>その場を立ち去ろうとする前に、タリーは別の話題を持ち出す。「待ってください。ああ、ありがとうニュートン。反乱軍の封鎖で必要な物資が枯渇し、ユニフォームのクリーニングが余っているんだ。大した量じゃないけど、これがあれば軍隊の体型を戻せるかも！"</text>
 	<achievement>ACH_ACC_DETERGENT</achievement>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>洗剤モードが完了しました！
-洗剤モードを無事に完了したレネゲードおめでとうございます！それは確かに激動の旅でした、しかしあなたは勝ち誇って通り抜けました！あなたのおかげで、連盟はもう汚れた洗濯物を持っていないでしょう。</text>
+			<text>DETERGENT MODE COMPLETE！⎤レネゲード、DETERGENT MODE成功おめでとう！波乱万丈の旅であったことは確かだが、あなたは見事にやり遂げた！あなたのおかげで、連邦に汚れた洗濯物はもうない。</text>
 			<playSound>victory</playSound>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="LASTSTAND_EMPTY_BEACON" />
 			</choice>
 		</event>
 	</choice>
 </event>
 <event name="TRUE_LAST_STAND_START">
-	<text>ついに連邦首都のノード17に到着しました。マルチバース技術が発見された現実であるユニバース0で、この紛争の話を聞いたことがあるでしょう。今、あなたはそれに参加しようとしています。ここでのあなたの行動は、この現実を救うか、破滅させるでしょう。</text>
+	<text>あなたはついに連邦の首都、ノード17に到着した。マルチバース・テクニックが発見されたユニバース0での紛争の話を聞いたことがあるだろう。そして今、あなたはその一翼を担おうとしている。あなたの行動がこの現実を救うか、破滅させるか。</text>
 	<metaVariable name="juke_laststand" op="set" val="1" />
 	<metaVariable name="prof_finalsector" op="add" val="1" />
 	<variable name="loc_laststand" op="add" val="1" /> 
@@ -159,485 +157,485 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 	<changeBackground>BACK_EVENT_LASTSTAND</changeBackground>
 	<playSound>lightspeed</playSound>
 	<choice hidden="true" req="rep_comb_federation" lvl="-999" max_lvl="3" max_group="0" blue="false">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>IDをすばやくスキャンすると、問題なくビーコンを通過できます。</text>
+			<text>IDを素早くスキャンすれば、問題なくビーコンを通過できる。</text>
 			<choice hidden="true" max_group="1" req="SHIP_MULTIVERSE" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「それで、あなたは私が聞いたマルチバース船ですか？あなたは長い道のりを歩んできました、そして私はそれがすべて報われることを望むだけです。あなたは旗艦に対する連邦の最後の立場です。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。「君が噂のマルチバース船か。君は長い道のりを歩んできた それが報われることを願うばかりだフラッグシップに対抗する連邦の最後の砦だ。</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_FLAGSHIP" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「ああ、神よ、反乱軍は別の旗艦を送ったのですか？私たちは困惑しています...待ってください、あなたは反乱軍と一緒ではありません。ユニバース0は反乱軍の超兵器を送って超兵器を破壊しましたか？火をつけて」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。「やれやれ、反乱軍がまた旗艦を送ってきたのか。待ってくれ、君は反乱軍の仲間じゃない。ユニバース0が反乱軍の超兵器を破壊するために送り込んできたのか？"そろそろ火には火で対抗しないとな"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_PIRATE" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「……海賊？私たちが傭兵を雇ったことを知りませんでした…それが問題だというわけではありません。あなたは今ここにいて、おそらく私たちが得た最高のチャンスです。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。「海賊？傭兵を雇うとは知らなかった。問題ではないが、君は今ここにいて、おそらく我々が得た最高のチャンスだ。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_TUCO" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「それは...トゥコですか？あなたのどちらがトゥコを傭兵として雇ったのですか？まあ、私はあなたの...連邦への献身に感謝します。それが報われることを願っています。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。「あれは...トゥコか？トゥコを傭兵に雇ったのは どっちだ？君の連邦への献身には 感謝するそれが報われることを 期待しよう</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_GAMBLING" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「ギャンブル船。これらの船がどこから来ているのかはわかりませんが、あなたが旗艦を倒す鍵であるなら、私は文句を言うつもりはありません。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。"ギャンブル船だ。この船がどこから来たのか定かではないが、君がフラッグシップを倒す鍵なら文句を言うつもりはない。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_TUCO_GOLD" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「それはあなたが持っている非常に明るい船です。魅力的な物語がその背後にあると確信しています。これの終わりに私たち全員が死んでいないと仮定して、いつかそれを聞きたいです。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。「とても素晴らしい船ですね。魅力的な物語があるんだろうな。いつか聞いてみたいものだ。</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_PLEASURE" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「私の何年もの間、連邦の最後のチャンスである私たちの救いの恵みが...スラッグプレジャー巡洋艦に当たるとは思っていませんでした。あなたがそのことを操縦している様子を想像することはできません。少なくとも、あなたは旗艦と対峙するのに十分な戦闘準備を整えました。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官が映し出され、中央にはタリー提督がいる。"私の長年の経験では" "連邦の最後のチャンス 救いの手が" "スラッグ巡洋艦に 落ちているとは思いもしなかったあれをどう操縦するのか想像もつかない。少なくとも旗艦と対峙できる 戦闘準備は整ったようだな"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_GHOST" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「うわー、あなたの船はかなりの打撃を受けました。私がよく知らなかったら、私はあなたがすでに死んで現れたと思いました。それがあなたが待っている運命ではないことを望みましょう。」</text>
+					<text>中央にはタリー提督。「君の船はかなりの打撃を受けている。よく知らなければ、君はすでに死んでいると思っただろう。それが君の待つ運命でないことを祈ろう。</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_DYNASTY" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「王朝は連邦を避け、反乱軍との絶滅に向けて戦おうと決心したと思いました。プライムリーパーはついに彼の考えを変え、私たちに2度目のチャンスを与えましたか？まあ、私は感謝しています。私たちはできる限りの助けが必要です。旗艦に立ち向かおう。」</text>
+					<text>ビデオスクリーンには連邦とエンジの将校数名と中央のタリー提督が映し出される。"王朝 "は連邦を避け 反乱軍と絶滅戦をさせると 決めていたのでは？プライムリーパーはついに考えを改め、我々にセカンドチャンスを与えてくれたのか？ありがたいことだ。フラッグシップに対抗するためには、あらゆる協力が必要だ。</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_GHOSTHUNTER" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「それを説明することはできないようですが、あなたの船を目撃することで、私は旧地球を参照したいという衝動に駆られますが、それは時代遅れになるのではないかと心配しています。」</text>
+					<text>ビデオスクリーンには連邦とエンジの士官数名と中央のタリー提督が映し出される。"うまく説明できないが、君の船を目の当たりにすると、旧時代の地球を参照したくなる。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_AUGMENTED" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、連邦とエンギの将校数名と、中央のタリー提督が表示されます。見えます。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映る。ラニウスの船か？その塗装はどこから持ってきたのかわからんが、見た目通り殺傷力のある船であることを祈ろう。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_ANCIENT" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「あなたの船は、私が最初のマルチバースドライブで見たホログラムのように見えます。あなたが私たちの最後の防衛線であるため、あなたが可能な限り最高の技術を持ってきたことを意味することを願っています。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官が映し出され、中央にはタリー提督がいる。"君の船はマルチバースドライブのホログラムに似ている。最高の技術を持ってきたことを願うよ 君は我々の最後の防衛線だ"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_ENGI" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「エンギからより多くの援軍を受け取っているとは言われなかった。私たちの軍隊がほとんど枯渇しているので、私はうれしい。」</text>
+					<text>ビデオスクリーンに連邦とエンギの士官数名と中央のタリー提督が映る。「エンギからの増援を受けるとは聞いていなかった。我々の戦力はほぼ枯渇していたからだ。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_ZOLTAN" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>ビデオスクリーンには、連邦とエンギの将校数名と、中央にいるタリー提督が映っている。 「ゾルタンが現れるとは思いませんでした。彼らがたった一隻の船を持ってくることに専念していたことを知ってうれしいです。」</text>
+					<text>ビデオスクリーンに連邦とエンギの士官数名と中央のタリー提督が映し出される。「ゾルタンが現れるとは思わなかった。1隻の船で来るとはな。</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_ZOLTAN_OLD" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「神の名においてあなたは何ですか？私はこれまでゾルタンの船やあなたのような生き物を見たことがありません...しかし、あなたが実際に私たちを助けに来たのなら、あなたは省よりも良い同盟国のようです。」</text>
+					<text>ビデオスクリーンに連邦とエンジの将校数名と中央のタリー提督が映し出される。「一体何者だ？ゾルタン船もお前みたいな生物も見たことがない。だが、我々を助けに来たのなら、魔法省よりも良い同盟者だ。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_DUSKBRINGER" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「連邦がダスクブリンガーの技術にアクセスできることを知りませんでした。これについてどう考えるかはわかりませんが、もっと差し迫った問題があります。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映る。「連邦がダスクブリンガーの技術にアクセスできるとは知らなかった。どう考えたらいいのかわからないが、もっと緊急の問題がある。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_HIVE" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「ハイブからのサポート？これが期待されていたとは言えません。不満を言っているわけではありません。フラグシップに対抗するためにできる限りの支援が必要です。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。「ハイヴからの支援か？これは予想外だ。不満があるわけではない、フラッグシップに対抗するにはあらゆる支援が必要だ。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_GYGES" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「それはギュゲスですか？私は船が連邦-マンティス戦争で破壊されたと思いました...私はこのマルチバースのものに決して慣れることはありません。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。"あれはギジェスか？あの船は連邦とマンティスの戦争で破壊されたはずだが...。この多元宇宙には慣れないよ。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_FREEMANTIS" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「ああ、あなたの船がマンティスの起源であることに気づいていませんでした。彼らがどんな価値のある同盟国になるかは予測していませんでしたが、マンティスはとても優れた戦闘機であるため、それは理にかなっていると思います。」</text>
+					<text>中央にはタリー提督。「君の船がフリー・マンティスから来たとは知らなかった。彼らが貴重な同盟国になるとは予想外だったが、マンティスが優秀な戦闘機であることは理にかなっていると思う。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_ROCK" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「ロックエルダーズは私たちのために戦うために巡洋艦を送りましたか？彼らの理由は想像できませんが、私たちがこの戦いに勝ちたいのなら、あなたが私たちの最後のチャンスです。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。"ロックの長老たちは我々のために巡洋艦を送ったのか？彼らの理由は想像できないが、この戦いに勝ちたいのなら、君が最後のチャンスだ。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_OUTCAST" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「追放者は戦争に無関心だと思った。まあ、私は助けを断る者ではない。この旗艦を倒すために得ることができるすべての船が必要だ。」</text>
+					<text>中央のタリー提督のほか、連邦とエンジの将校数名がビデオスクリーンに映し出される。「アウトキャストは戦争に無関心だと思っていた。私は援助を断れない。この旗艦を倒すには、あらゆる船が必要だ。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_LOSTSUN" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「ロスト・サンが支援を提供するために努力したことに驚いています。おそらく私は彼らを同盟国として過小評価していました。あなたが到着したことをうれしく思います。私たちは最後の一歩を踏み出しました。私たちが得ることができるすべての助けが必要です。」</text>
+					<text>ビデオスクリーンに連邦とエンギの士官数名と中央のタリー提督が映し出される。"ロストサンズ "が援助に乗り出すとは驚きだ。同盟国として過小評価していたようだ。君たちが到着してくれて嬉しいよ、我々は最後の砦にいるんだ。</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_CULTIST" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「カルト？私は...確かに、私が見た中で最も奇妙なことではありません。あなたの巨大な船が旗艦の準備ができていることを期待しましょう、そうですか？」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。「カルト？...確かに、私が見た中で最も奇妙なものではありません。その巨大な船でフラッグシップを迎えられることを祈ろう。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_CRYSTAL" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「クリスタルラインの人々からの支援？私が期待した最後のことではありませんが、確かに最初のことでもありません。あなたのクリスタル技術が反乱軍の旗艦に対抗することを願っています。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。"結晶人 "からの援助か？期待していなかったが、初めてでもなかった。クリスタルの技術が反乱軍の旗艦に 立ち向かえることを祈ろう"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_SLUG" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「スラッグ？なぜスラッグでなければならなかったのか...あなたはここで報酬を探していると確信しています、そしておそらく後で取引を行うことができます。しかし、最初に、私たちは旗艦を取り除く必要があります。連邦はできますこの攻撃にこれ以上耐えられない。もしあなたがこのようにやって来たのなら、あなたはビジネスを意味していると確信している。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。「スラッグス？なぜスラッグスなんだ？報酬をもらいに来たのだろう。その後、取引できるかもしれない。だが、まずはフラッグシップを破壊する必要がある。連邦はこれ以上の攻撃には耐えられない。わざわざ来たのなら、本気だろう。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_LEECH" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「私は、アーゲン共和国が連邦を支援するために船を送るための資源を持っていることに気づいていませんでした。それでも、あなたがここにいてくれてうれしいです。かつての強力なリーチ軍の物語が真実であり、私たちがいることを願っています。地獄がそれを必要としているのは確かだからです。」</text>
+					<text>ビデオスクリーンには連邦とエンギの士官数名と中央のタリー提督が映し出される。「アージェン共和国に連邦を助ける船を送るだけの資源があるとは知らなかった。あなたが来てくれて嬉しい。かつての強大なリーチ軍の話が真実であり、我々が復活を遂げようとしていることを祈ろう。</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_COALITION" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。彼はあなたの船を見てショックで反動します。 「連立の船？これは冗談に違いない...連立からの支援を受けることができる唯一の理由は、反乱における私たちの相互の敵だろう。そうであれば、私たちは、ありそうもないことからでも、私たちが得ることができるすべての助けを使うことができる。同盟国。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。タリー提督はあなたの船を見てショックを受けている。「連合の船だと？連合から支援を受けるとしたら、反乱軍という共通の敵がいるとしか思えない。もしそうなら、見込みのない同盟国であっても、我々はあらゆる援助を受けることができる。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_ORCHID" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>Vidscreenには、いくつかの連邦とENGIの役員と、中央にタリー提督が登場します。「オーキッド、うーん？私はあなたの種類がこの戦いを支援するためにあなた自身にそれを取るとは思わなかった。私は援軍に感謝している。私たちは兵士や船で薄く走っており、すべてのオンスの助けは何百万人もの価値がある」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。"オーキッド "か。君達がこの戦闘を支援するとは思わなかった。増援には感謝している。兵士も船も手薄で、一片の助けにも数百万の価値がある。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_VAMPWEED" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「ヴァンプウィード？南軍からの支援を期待したとは言えない。連邦-マンティス戦争のドラマはすべて、ついに橋の下に水を張ったのだろうか？まあ、そうではないのではないかと思う...しかし、これについては後で話し合うことができる。殺害が必要な旗艦。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。"ヴァンプウィード"？連合国からの支援は期待していなかった。連邦・マンティス戦争でのドラマはすべて水の泡か？そうではないだろうが......このことは後で話そう。今は殺しが必要な旗艦がいるんだ。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_SHELL" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「シェル巡洋艦、ハァッ？あなたの種類はかなり控えめだったと聞きました...まあ、私はあなたの援助に感謝します。あなたの努力が無駄にならないことを望みましょう、そうですか？」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。「シェルクルーザーか。君の種族はどちらかというと引っ込み思案だと聞いていたが...まあ、君らの援助には感謝するよ。君の努力が無駄にならないことを祈ろう。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_LANIUS" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>Vidscreenには、いくつかの連邦とENGIの役員と、中央にタリー提督が登場します。彼はあなたの船の姿でショックで反動します。「ラニウス軍艦、どれほど面白い。ラニウスの忠誠心や動機を確信したことはありませんでしたが、あなたがここまで来たら、私たちの戦いを助けに来ることは間違いありません。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。タリー提督はあなたの船を見てショックを受けている。「ラニウスの戦艦か、興味深い。ラニウスの忠誠心や動機は定かではないが、ここまで来たのなら、我々の戦いを助けるために来たのは間違いない。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_UNION" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>Vidscreenには、いくつかの連邦とENGIの役員と、中央にタリー提督が登場します。「組合がまだ私たちの背中を持っていることを知っているのは良いことです。毎日、それはますます多くの組合主義者が反乱に向かっていると感じていますが、組合がまだ宇宙0で忠実な反逆者を生み出しているなら、私たちはただ希望を持っているかもしれません。あなたに、キャプテン。私を誇りに思ってください。」</text>
+					<text>ビデオスクリーンに連邦とエンジの将校数名と中央のタリー提督が映し出される。「連邦がまだ我々の背中を押してくれるのはありがたい。反乱軍に寝返る連邦信者が 増えているように感じるが 宇宙0でも忠実なレネゲイドを 生産しているのなら 希望が持てるだろう期待しているよ、キャプテン。誇りを持て</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_FEDERATION" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「よし、あなたは武装した連邦船を持ってきたようだ。船長、ラストスタンドへようこそ。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。「よく武装した連邦の船を連れてきたようだな。最後の砦へようこそ、艦長"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_STEALTH" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「ああ、ステルス艦です。あなたの船の詳細がはっきりとわからなかったのも不思議ではありません。いずれにせよ、あなたの船が旗艦を倒すのに十分な強さになることを願っています。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。「ああ、ステルス船か、どうりで君の船の詳細がはっきり読み取れなかったわけだ。だが、君の船がフラッグシップを倒すのに十分な強さを持っていることを祈ろう。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_REBEL" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。彼はあなたの船を見てショックで反動します。 「連邦を救う船が反乱軍の船になるとは、100万年も前から信じていませんでした。反乱を裏切る理由はあると思います。ぜひ聞いてみてください。しかし、もっと差し迫った問題があります。旗艦のように対処するために。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。タリー提督は貴艦の姿にショックを受けている。「連邦を救う船が反乱軍の船だとは百万年信じられなかった。君には反乱軍を裏切る理由があるのだろう。それを聞きたいところだが、我々には旗艦のような差し迫った問題がある。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_AUTO" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>ビデオスクリーンには、連邦とエンギの将校数名と、中央にいるタリー提督が映っている。彼はあなたの船に乗り込みながら一歩後退します。 「うーん…君が何者なのか、なぜ第0宇宙がレネゲードとして自動化された船を雇ったのかは分からないが、君が何であれ問題の解決策であるなら…私のゲストになってくれる？あなたを見守って…」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。タリー提督は一歩後ずさりしながらあなたの船を見る。「君が何者なのか、なぜユニバース0が自動化された船をレネゲイドとして雇ったのか知らないが、もし君が何者であれ、我々の問題を解決してくれるのなら...どうぞご自由に。だが目を離さないぞ..."</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_TECH" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>ビデオスクリーンには、連邦とエンギの将校数名と、中央にいるタリー提督が映っている。 「W.I. は連邦を支援するために船を派遣しましたか? 矛盾しているように思えますが、私ははるかに見知らぬレネゲードが以前にやってくるのを見てきました. 、 キャプテン。"</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。「W.I.が連邦を援助するために船を送ったのか？逆説的に思えるが、以前はもっと奇妙なレネゲイドが来ていた。助けてくれるなら 何でもやるフラッグシップ相手に 幸運を祈る</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_KESTREL" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「チョウゲンボウ？救助艦隊の外にいる人の多くは見ないでください。あなたの船は完全に一周したようです...私はそれが報われることを願っています。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。「ケストレル？サルベージ艦隊以外ではあまり見かけない。君の船は丸く収まったようだな...それが報われることを願うばかりだ。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_PROPHET" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「それはあなたがそこに持っている非常にカラフルな船です。僧侶は平和主義者です、そうですか？まあ、あなたがその旗艦に対処するための計画を持っていることを両方とも願っています。」</text>
+					<text>中央にはタリー提督。「なかなかカラフルな船だな。修道士は平和主義者だな？あの旗艦に対処する計画があることを祈ろう。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_SYLVAN" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「うーん、あなたは私がよく聞いたその商人です。シルバン、そうではありませんか？奇妙なことに、あなたはもう少し前にここに到着したことを誓います...私はこのマルチバースのものに頭を包むことは決してないかもしれません。ここにお越しいただきありがとうございます。その旗艦の準備ができていることを願っています。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。"ふむ、君が噂の商人か。シルヴァンだったな？少し前にここに来たはずだが...。この多元宇宙というものを、私は理解できないかもしれない。ともあれ、君が来てくれて嬉しいよ。フラッグシップへの備えが万全であることを祈るよ。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_MONK" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「僧侶？私は……私は無礼であるという意味ではありませんが、僧侶ではありません、あなたが知っている、通常は平和主義者ですか？私はあなたが例外だと思います。あなたが旗艦を扱っている限り、私はしませんあなたが誰であるか気にかけてください。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。"モンクス？I...失礼なことを言うようだが 僧侶は普通 平和主義者じゃないのか？じゃあ、あなたは例外なんでしょうね。旗艦を相手にしてくれるなら、誰だろうと構わない"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_SALT" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「誓う、毎日別の種族がマルチバースから飛び出してくる。今回は...ソルト？あなたについての伝説を1つか2つ聞いたと思う。あなたがあなたの遺産に忠実であり続けることを願っているよね？」</text>
+					<text>中央のタリー提督のほか、連邦とエンギの士官数名がビデオスクリーンに映し出される。"誓うよ、毎日、別の種族が多元宇宙から飛び出してくる。今回は...ソルト？伝説の一つや二つは聞いたことがある。伝説に忠実であることを祈るよ。</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_SPIDER" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「ああ！クモ？！私はクモが嫌いです！神はそれを酷評します、あなたの船を見るだけで私は震えます。」</text>
+					<text>ビデオスクリーンに連邦とエンジの将校数名と中央のタリー提督が映し出される。「クモ？クモは嫌いだ！畜生、お前の船を見るだけでゾクゾクする。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_ALPHA" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「そこにあるあなたの船は、私がずっと昔から知っていた船と非常によく似ています。関係なく、それははるか昔のことです。今、今に焦点を合わせましょう。時間がありません。思い出すために。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。"そちらの船は..." "私の知っている船に 酷似している" "ずっと、ずっと、ずっと昔の船だそんなことはどうでもいい。今は現在に集中しよう、回想している暇はない。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_TULLY" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。 「ここで自分の船を見て驚かれると思うかもしれませんが、これは実際に私がこれまでに会った7回目の繰り返しです。さあ、その旗艦を手に入れましょう。あなたは美しい野郎です。」</text>
+					<text>ビデオスクリーンには連邦とエンジの士官数名と中央のタリー提督が映し出される。"自分の船をここで見て驚くと思うだろうが、実はこれは私がこれまでに会った7番目のイテレーションなんだ。さあ、あの旗艦を捕まえてこい、この美しい野郎。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_LIMIT" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。彼はあなたの船を見るとすぐに電話を切りますが、すぐに再接続します。 「いいえ、あなたは真剣になれません。彼らは私たちを救うためにこの船を送りましたか？これは病気の愚かな冗談ですか？」タリーはため息をついた。 「残念ながら、あなたは連盟の最後の希望です。それをすべて捨てないようにしてください、いいですか？私たちは今あなたを頼りにしています。」</text>
+					<text>ビデオスクリーンには連邦とエンジの士官数名と中央のタリー提督が映し出される。あなたの船を見るや否や、すぐに電話を切りますが、ほどなく再接続します。「まさか。我々を救うためにこの船を寄越したのか？くだらない冗談か？"タリーはため息をつく。「残念だが、君は連邦の最後の希望なんだ。すべてを投げ出さないでくれ。みんな君に期待してるんだ。</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_PONY" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>スクリーンには、中央にタリー提督だけでなく、連邦とエンギの将校が何人か現れます。彼はあなたの船を見るとすぐに電話を切りますが、すぐに再接続します。 「馬？馬の友達！」タリーは一時停止し、姿勢を修正します。 「すみません。何が起こったのかわかりません。でも、その旗艦を倒したら、馬を撫でさせてください。」</text>
+					<text>ビデオスクリーンには連邦とエンジの士官数名と中央のタリー提督が映し出される。彼はあなたの船を見るや否や、すぐに電話を切ったが、ほどなく再接続した。「馬か？馬の友だ！"タリーは立ち止まり、姿勢を正す。「えー......申し訳ない。何がどうなったのかわからない。でも、あの旗艦を倒したら、馬を撫でさせてください。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" max_group="1" req="SHIP_SIREN" blue="false">
-				<text>フェデレーションコマンドに連絡してください。</text>
+				<text>連盟コマンドに連絡する。</text>
 				<event>
-					<text>ビデオスクリーンには、連邦とエンギの将校数名と、中央にいるタリー提督が映っている。 「あなたの船... 私はこれまでにそのような種類のものを見たことがありません.明らかに、多元宇宙には私がまだ見ていない多くの秘密が残っています.私の言っていることを理解し、あなたが友好的であるなら、お願いします.私たちは奇妙に聞こえるかもしれませんが、私たちは皆、あなたを頼りにしています。」</text>
+					<text>ビデオスクリーンに連邦とエンジの士官数名と中央のタリー提督が映し出される。"君の船は...あんな船は見たことがない。明らかに多元宇宙には まだ見ぬ秘密がある私の言っていることを理解し、友好的なら、お願いします。この戦いには 助けが必要だ奇妙に聞こえるかもしれないが、我々は皆、君を頼りにしているんだ。"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="LAST_STAND_START_2" />
 					</choice>
 				</event>
@@ -645,85 +643,85 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 		</event>
 	</choice>
 	<choice hidden="true" req="rep_comb_federation" lvl="4" max_lvl="999" max_group="0" blue="false">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>IDをスキャンしますが、何かが間違っているように見えます。近くの連邦船が近づき、彼らの武器がオンラインであることに気付きます。あなたは船から連絡を受け取ります。 「あなたはここの旅でかなりの逃亡をしてきました。私は、連盟が彼らの記録に非常に多くの悪いマークを持つ人を支えることができないのではないかと心配しています。あなたが許しでショットを望むなら、旗艦を排除することは良い場所です始める。"そのメモでは、彼らは通信を削減します。</text>
+			<text>IDをスキャンするが、何かおかしい。近くにいた連邦の船が近づき、彼らの武器がオンラインであることに気づく。船から呼びかけがある。"君はここに来るまでに随分と冒険をしたようだ。残念だが、連邦はこのような悪い経歴の持ち主をサポートできない。"許しを得たいのなら" "旗艦を抹殺するのが先決だ"そう言って、彼らは通信を切った。</text>
 		</event>
 	</choice>
 	<fleet>fed</fleet>
 </event>
 <event name="LAST_STAND_START_2">
-	<text>「おしゃべりする時間がもうないのではないかと思います。旗艦に立ち向かう前に必要なものはありますか？」タリーはあなたの命令を待って、待機中の支援船を注文します。</text>
+	<text>「残念だが、これ以上話す時間はない。旗艦と対峙する前に必要なものはあるか？"タリーは支援船を待機させ、あなたの命令を待つよう命じる。</text>
 	<choice hidden="true">
-		<text>修理をお願いします。</text>
+		<text>修理を依頼する。</text>
 		<event>
-			<text>タリーはあなたの船体を修理するために連邦支援船を派遣します。</text>
+			<text>タリーは船体修理のため、連邦の支援船を派遣する。</text>
 			<damage amount="-30" />
 			<choice hidden="true" blue="false" req="detergent_mode" lvl="0" max_lvl="0">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="LASTSTAND_EMPTY_BEACON" />
 			</choice>
 			<choice hidden="true" blue="false" req="detergent_mode" lvl="1">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="DETERGENT_WIN" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>燃料とセクターマップをお願いします。</text>
+		<text>燃料とセクターマップを要求する。</text>
 		<event>
-			<text>タリーは給油ドローンを派遣して燃料の備蓄を回復し、セクターの地図データを転送します。</text>
+			<text>タリーは燃料補給ドローンを派遣し、燃料を回復させ、セクターの地図データを転送する。</text>
 			<item_modify>
 				<item type="fuel" min="15" max="15" />
 			</item_modify>
 			<reveal_map />
 			<choice hidden="true" blue="false" req="detergent_mode" lvl="0" max_lvl="0">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="LASTSTAND_EMPTY_BEACON" />
 			</choice>
 			<choice hidden="true" blue="false" req="detergent_mode" lvl="1">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="DETERGENT_WIN" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>弾薬とドローンパーツをお願いします。</text>
+		<text>弾薬とドローンパーツを要請する。</text>
 		<event>
-			<text>タリーはあなたの予備を回復するために補給ドローンを派遣します。</text>
+			<text>タリーは補給ドローンを派遣し、備蓄を回復させる。</text>
 			<item_modify>
 				<item type="missiles" min="7" max="7" />
 				<item type="drones" min="7" max="7" />
 			</item_modify>
 			<choice hidden="true" blue="false" req="detergent_mode" lvl="0" max_lvl="0">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="LASTSTAND_EMPTY_BEACON" />
 			</choice>
 			<choice hidden="true" blue="false" req="detergent_mode" lvl="1">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="DETERGENT_WIN" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>追加のクルーをお願いします。</text>
+		<text>追加クルーを要請する。</text>
 		<event>
-			<text>タリーは訓練を受けた連邦兵士を派遣してあなたの船に仕えます。</text>
+			<text>タリーは訓練を受けた連邦軍兵士をあなたの船に派遣する。</text>
 			<crewMember amount="1" class="human_soldier" />
 			<choice hidden="true" blue="false" req="detergent_mode" lvl="0" max_lvl="0">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="LASTSTAND_EMPTY_BEACON" />
 			</choice>
 			<choice hidden="true" blue="false" req="detergent_mode" lvl="1">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="DETERGENT_WIN" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" max_group="1" req="SHIP_PROPHET">
-		<text>私たちはあなたの援助を必要としません。グレートアイが私たちを導きます。</text>
+		<text>あなたの助けは必要ない。グレート・アイが導いてくれる。</text>
 		<event>
-			<text>あなたは目への祈りをし、このセクターを旅する救いを願っています。目がとどまり、あなたはあなたの船がストックされて行く準備ができているのを見つけます。</text>
+			<text>あなたは "眼 "に祈りを捧げ、このセクターを安全に旅することを願った。すると、"眼 "はそれを守り、あなたは自分の船に燃料が積まれ、出発の準備が整っていることに気づく。</text>
 			<reveal_map />
 			<damage amount="-30" />
 			<item_modify>
@@ -733,43 +731,43 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 				<item type="drones" min="10" max="10" />
 			</item_modify>
 			<choice>
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="LASTSTAND_EMPTY_BEACON" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="TULLY_PRESENT">
-		<text>タリーにパッケージを見せてください。</text>
+		<text>タリーにパッケージを見せる。</text>
 		<event>
-			<text>タリーが箱に目を向けるとすぐに、彼は完全に姿勢を変えます。彼はあなたを連邦司令部の中に入れることを許可します。</text>
+			<text>タリーは箱を目にするや否や、姿勢を一変させる。彼は連邦の指令の中であなたを許可する。</text>
 			<remove name="TULLY_PRESENT" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="TULLY_CONTACT" />
 			</choice>
 		</event>
 	</choice>
 </event>
 <event name="TULLY_CONTACT">
-	<text>タリーはあなたと一緒に座って、あなたの前のテーブルに箱を置きます。 「このパッケージの中にあるものを知っていますか？」あなたは頭を振っています。 「まあ、私はあなたに言います。絶対に何もありません。」あなたの顔の混乱した外観は、タリーが笑います。 「私はこれらのパッケージをいくつかの重要な連邦職員に与えました。彼らは彼らが信頼できると思う人に与えられ、私に連れて行かれるべきです。それはあなたが本当にこの最終的な戦いに値するという兆候です。旗艦はそれ自体を破壊しません。」</text>
+	<text>タリーはあなたと一緒に座り、箱をテーブルの上に置く。"このパッケージの中身が何かわかる？"あなたは首を横に振る。「教えてあげよう。まったく何も」。あなたの困惑した表情に、タリーは苦笑する。「この小包は連邦の要人たちに渡した。信頼に足ると判断した者に渡し、私のところへ持ってくることになっている。君が本当にこの最後の戦いにふさわしいという証だ。そろそろ行こう、この旗艦は自壊しない。"</text>
 	<variable name="ach_crew_tully" op="set" val="1" />
 	<crewMember amount="1" class="unique_tully">タリー</crewMember>
 	<reveal_map />
 	<damage amount="-15" />
 	<autoReward level="MED">standard</autoReward>
 	<choice hidden="true" blue="false" req="detergent_mode" lvl="0" max_lvl="0">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="LASTSTAND_EMPTY_BEACON" />
 	</choice>
 	<choice hidden="true" blue="false" req="detergent_mode" lvl="1">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="DETERGENT_WIN_TULLY" />
 	</choice>
 </event>
 <event name="LASTSTAND_EMPTY_BEACON">
-	<text>準備が整ったので、船で何かをする時間があります。この分野では、これらの瞬間はほとんどないので、この機会に必要なことをすべて行い、クルーと話し、最後にミッションレポートを確認してください。</text>
+	<text>さて、準備が整ったところで、船内で何かをする時間がある。このセクターではこのような時間はほとんどないだろうから、この機会に必要なことをしたり、クルーと話したり、最後にもう一度任務報告書を見たりしてほしい！</text>
 	<choice>
-		<text>船に乗って何かする。</text>
+		<text>船内で何かをする。</text>
 		<event load="STORAGE_CHECK" />
 	</choice>
 	<choice hidden="true">
@@ -780,69 +778,69 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 
 	
 <event name="BOSS_AUTOMATED">
-	<text>この船にも高度なAIシステムが搭載されているようです。クルーが死んだので、それはコントロールを取りました！フラグシップでも酸素レベルが低下しているのを感じます...</text>
+	<text>この船には高度なAIシステムも搭載されているようだ。乗組員が死んだ今、AIが制御している！フラッグシップの酸素レベルが低下しているのを感じる。</text>
 	<status type="limit" target="enemy" system="oxygen" amount="0" />
 </event>
 
 <event name="BOSS_DESTROYED">
-	<text>その爆発はあなたの船を揺さぶり、あなたは安心して身震いします。できたね。連盟は救われる…。</text>
+	<text>その爆発があなたの船を揺らし、あなたは安堵に震える。君はやり遂げた。連邦は救われた。</text>
 	<choice>
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>遊んでくれてありがとう！これはまだベータ版であり、ゲームに満足のいく結論を出していないことを覚えておいてください。フォーラムにアクセスしてフィードバックを提供し、あなたがそれを打ち負かしたことを知らせてください。ありがとう！</text>
+			<text>プレイしてくれてありがとう！このゲームはまだベータ版で、満足のいく結末はまだ迎えていない。私たちのフォーラムにアクセスして、フィードバックをお寄せください。ありがとう！</text>
 		</event>
 	</choice>
 	<status type="clear" target="player" system="sensors" amount="100" />
 </event>
 
 <event name="BOSS_ESCAPED">
-	<text>あなたが最終的に優位に立つのと同じように、それはFTLジャンプをする方法を見つけます。あなたは暴行を続けなければなりません！</text>
+	<text>ようやく優位に立った矢先、FTLジャンプの方法を見つける。攻撃を続けなければならない！</text>
 	<autoReward level="HIGH">standard</autoReward>
 	<status type="clear" target="player" system="sensors" amount="100" />
 </event>
 
 <event name="BOSS_TEXT_1">
-	<text>これはそれです...反乱軍の旗艦。この怪物を破壊することができれば、連邦艦隊は生き残るチャンスがあります。後戻りはありません！</text>
+	<text>これだ...反乱軍の旗艦だこの怪物を破壊できれば 連合艦隊は生き残れる後戻りはできない</text>
 	<status type="clear" target="player" system="sensors" amount="100" />
 	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
 	<choice hidden="true" req="PEACE">
-		<text>もしかしたら、戦争なしで私たちの理想の融和ができるかもしれない。</text>
+		<text>もしかしたら、戦争なしに、私たちの理想の和解ができるかもしれない。</text>
 		<event>
-			<text>旗艦の司令官は瞬き、混乱した。「ははは、愚かで平和的な愛の僧kのように話されています！あなたはこの運動の重要性を知らないでしょう！連邦へのあなたの忠誠心は、あなたを反乱の重要性から盲目にします！あなたはいつ抑圧に立ち向かったことがありますか？」</text>
+			<text>旗艦の司令官は瞬きをし、混乱する。「平和を愛する愚かな僧侶のようだ！あなたはこの運動の重要性を知らない！連邦に忠誠を誓っているから、反乱の重要性がわからないのだ！圧政に立ち向かったことがあるのか？"</text>
 			<choice hidden="true" req="ach_boss_rockcruiser">
-				<text>ストーンウォールを倒すために、ロック母星系内の反乱を引き起こしました。</text>
+				<text>私たちはロック・ホームワールド内でストーンウォール打倒の反乱を鼓舞した。</text>
 				<event load="BOSS_NEGOTIATE_1" />
 			</choice>
 			<choice hidden="true" req="ach_boss_zone">
-				<text>私たちは省に逆らい、地球全体を彼らの抑圧から救いました。</text>
+				<text>私たちは魔法省に逆らい、彼らの圧政から惑星全体を救った。</text>
 				<event load="BOSS_NEGOTIATE_1" />
 			</choice>
 			<choice hidden="true" req="ach_boss_suzzycruiser">
-				<text>私たちはハイブに立ち向かい、彼らの私有孵化場を襲撃しました。</text>
+				<text>私たちはハイブと対決し、彼らの私設孵化場を襲撃した。</text>
 				<event load="BOSS_NEGOTIATE_1" />
 			</choice>
 			<choice hidden="true" req="ach_boss_leechdread">
-				<text>私たちはティルデオを倒し、アーゲン共和国に新しい時代をもたらしました。</text>
+				<text>我々はティルデオを打倒し、アージェン共和国に新時代をもたらした。</text>
 				<event load="BOSS_NEGOTIATE_1" />
 			</choice>
 			<choice hidden="true" req="loc_slugdemocracy">
-				<text>私たちは夜を捨て、収奪国家に民主主義に転向するよう説得しました。</text>
+				<text>我々はナイツを退位させ、クラプトクラシーに民主主義に転向するよう説得した。</text>
 				<event load="BOSS_NEGOTIATE_1" />
 			</choice>
 			<choice hidden="true" req="ach_boss_jack">
-				<text>連邦を組み立てようとするシンジケート攻撃を阻止することで、ダスクブリンガー運動の欠陥を明らかにしました。</text>
+				<text>連邦を陥れようとしたシンジケートの攻撃を阻止し、ダスクブリンガー運動の欠陥を暴いた。</text>
 				<event load="BOSS_NEGOTIATE_1" />
 			</choice>
 			<choice hidden="true" req="ach_crew_ivar">
-				<text>私たちは南軍の首相の命を救い、彼らの政府内で連合の共謀者を追放しました。</text>
+				<text>我々は南軍首相の命を救い、政府内の連合の陰謀家を追放した。</text>
 				<event load="BOSS_NEGOTIATE_1" />
 			</choice>
 			<choice hidden="true">
-				<text>ええと、まあ...ええと...</text>
+				<text>ええと、その...ええと...</text>
 				<event>
-					<text>司令官は嘲笑します。 「ああ、なんて哀れなことだ。私はこの会話にうんざりしている。この対立に対する平和的な解決策はないだろう。」彼は通信を切断し、旗艦はその武器を充電し続けます。</text>
+					<text>司令官は嘲笑する。「ああ、情けない。この会話にはうんざりだ。この対決に平和的解決はない。彼は通信を切り、フラッグシップは兵器のチャージを続ける。</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
@@ -850,32 +848,32 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 		</event>
 	</choice>
 	<choice hidden="true" req="unique_jerry">
-		<text>（ジェリー）旗艦に連絡してください。</text>
+		<text>(ジェリー）旗艦に連絡する。</text>
 		<event>
-			<text>旗艦はあなたに気付くのにそれほど時間はかかりません。それがあなたを標的にし始める前に、ジェリーは反乱軍の通信を利用し、彼らに一時停止するように要求し、ヴァンスとのラインに彼を置くように要求します。</text>
+			<text>旗艦があなたに気づくのに時間はかからない。ジェリーは反乱軍の通信を傍受し、一時停止を要求する。</text>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="FLAGSHIP_JERRY" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" blue="false" max_group="1" req="loc_jerrykill" lvl="0">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>旗艦はあなたに気付くのにそれほど時間がかかりません。それはその大砲とアプローチを強化します。</text>
+			<text>旗艦があなたに気づくのに時間はかからない。砲塔をパワーアップして接近してくる。</text>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" blue="false" max_group="1" req="loc_jerrykill" lvl="1">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>フラグシップに近づくと、艦長から呼びかけを受ける。「お前は...ジェローム・ウェントワースを殺害した怪物だ。この醜悪で反吐が出るほど下劣なクズめ。我々が悪党だと言いながら、全銀河で最も優しい精神を冷酷に殺したんだろう？ ヴァンスは君の任務がここで終わるよう 我々に直接命令した。だが正直なところ、その命令は必要ない。お前が死ぬのを見て楽しむつもりだ。銀河の残りの奴らと同じように」</text>
+			<text>旗艦に近づくと、艦長から呼びかけを受ける。「ジェローム・ウェントワースを殺した怪物め。この醜悪で反吐が出るような下劣なクズめ。我々が悪党だと言いながら、全銀河で最も親切な精神を冷酷に殺したのか？バンスは君の任務がここで 終わるのを見届けるよう命じたが 率直に言って？その命令は必要ない君が死ぬのを見て楽しむつもりだ、他の銀河系と同じようにね。"</text>
 			<environment type="PDS" target="player" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
@@ -883,62 +881,62 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 </event>
 
 <event name="FLAGSHIP_JERRY">
-	<text>鮮やかなオレンジ色の制服と、がっしりとした体格が、周囲の将校たちの色褪せた白さの中で際立っている。ヴァンスがどこにいるのかはわからないが、そんなことはもうどうでもいい。</text>
+	<text>彼の鮮やかなオレンジ色のユニフォームとどっしりとした筋肉質な姿は、周囲の警官たちの色あせた白の中で際立っている。バンスがどこにいるのかわからないが、そんなことはもはや問題ではない。</text>
 	<variable name="loc_vance_betrayal" op="set" val="1" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>ヴァンスは困惑した表情でじっと甥を見つめる。「ジェローム？ お前はこのクズどもに連れ去られ、私との単なる取引材料にされたのか？ 連邦はなんと哀れなのだろう。心配するな甥よ、私の最高の攻撃部隊を送り込んで君を救出する」 ジェリーは首を横に振る。「ち、違うのです。僕は人質ではありません。交渉に来ました」</text>
+			<text>バンスは困惑の表情を浮かべながら、スターである甥を見つめた。「ジェローム？君はこのクズどもに連れ去られ、私との単なる取引材料にされたのか？連邦はなんと哀れなことか。心配するな、甥よ、私の最高の攻撃部隊を送り込んで君を救い出す」。ジェリーは首を横に振る。「いいえ、違います。私は人質ではありません。交渉に来たんだ。</text>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>「交渉だと？ 意味不明なこと言うな。さっさと言え、連邦はお前の釈放にいくら要求しているんだ？」 ジェリーはまた首を横に振った。「僕は人質ではありません、おじさん。僕は自分の意志でこの人たちに加わりました。僕は...僕はこの戦争を終わらせたいんです。この戦争がいかに無意味なものか、分かりませんか？ 僕たちは何のためにこの終わりのない戦争を戦っているのですか？ いつ終わるのでしよう？ 永遠に？ 宇宙は無限に広がっているというのに、こんなことがどれだけ無意味なことか分かりますか！」</text>
+					<text>「バーゲン？意味がわからないよ。もう吐き出せ。FBIは君の釈放にいくら要求しているんだ？ジェリーはまた首を振る。「僕は人質のおじさんじゃない。僕は自分の意志でこの連中に加わったんだ。I...この戦争を終わらせたいんだ。この戦争がいかに無意味なものかわからないのか？この終わりのない戦争を何のために戦っているのか？いつ終わるんだ？永遠に？無限の宇宙があるのだから、これがいかに無意味なことかわかるはずだ！"</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
-							<text>ジェリーは続けようとするが、ヴァンスがそれを遮る。「お前は...保護領から去ったのか？ サイラ... サイラ...いやいや、そんなはずは...。私の甥っ子が？ 裏切り者だと？ 私の...甥っ子が？」 ヴァンスの目に涙が浮かぶが、すぐに拭き取り、スクリーンに背を向ける。「もう十分だ。これがお前の決断ならそうしろ。お前はレネゲードと同じように、短絡的な愚か者として死ぬのだ。さようなら、ジェローム」</text>
+							<text>ジェリーは続けようとしたが、ヴァンスがそれを遮った。"君は......保護領を離れたのか？それならサイラは...サイラ...違う。いや、そんなはずは...」。私の甥が？裏切り者？私の...甥が？"バンスの目に涙が浮かんだが、すぐに拭い、スクリーンに背を向けた。「もう十分だ。これが君の決断なら、そうすればいい。君はレネゲイドのように近視眼的な愚か者として死ぬだろう。さようなら、ジェローム"</text>
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event>
-									<text>ジェリーはあまりにもあっけなく打ち棄てられたことにショックを受け、膝から崩れ言葉を失う。「知ってさえいれば......」ジェリーは両手で頭を抱え、涙が水たまりを作っている。</text>
+									<text>ジェリーは膝から崩れ落ち、あまりにも簡単に裏切られたことにショックを受け、言葉を失った。「知るべきだった......」。ジェリーは嗚咽を詰まらせ、涙が地面に水たまりを作りながら頭を両手で抱えた。</text>
 									<removeCrew class="unique_jerry">
 										<clone>false</clone>
-										<text>ジェリーは隅で泣いている。フラッグシップが近づいてきて、武器がチャージされている。彼を慰めたいが、もう行かねばならない。</text>
+										<text>ジェリーは隅に座り、泣いている。フラッグシップが近づいてくる。彼を慰めたいが、行かなければならない。</text>
 									</removeCrew>
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event>
-											<text>突然、ジェリーは涙を拭きながら立ち上がる。「もう、やることは、一つしかない」 彼は巨大なガトリングガンを取り出した。どこから持ってきたのかわからないが、それを聞く余裕はない。</text>
+											<text>突然、ジェリーが涙を拭いながら立ち上がる。"さて、あとはひとつだけだ"彼は巨大なガトリングガンを取り出す。どこから持ってきたのかわからないが、それを疑っている暇はない。</text>
 											<crewMember amount="1" class="unique_jerry_gun">ジェリー</crewMember>
 											<choice hidden="true" blue="false" lvl="0" max_group="0" req="pony_tamed">
-												<text>継続する...</text>
+												<text>次へ...</text>
 												<event load="COMBAT_CHECK" />
 											</choice>
 											<choice hidden="true" blue="false" lvl="1" max_group="0" req="ponyc">
-												<text>継続する...</text>
+												<text>次へ...</text>
 												<event>
-													<text>フラグシップと向き合う前に、ジェリーはいったん部屋から出ます。</text>
+													<text>フラッグシップに進む前に、ジェリーが立ち止まり、部屋から出て行く。</text>
 													<removeCrew class="unique_jerry_gun">
 														<clone>false</clone>
-														<text>ジェリーがどこに行くのか分かりませんが、あなたは彼に着いていくことにします。</text>
+														<text>ジェリーがどこへ行こうとしているのか見当もつかないが、あなたは彼についていく。</text>
 													</removeCrew>
 													<choice hidden="true">
-														<text>継続する...</text>
+														<text>次へ...</text>
 														<event>
-															<text>ジェリーはイクイノイドが眠っている部屋に入ります...</text>
+															<text>ジェリーはエクイノイドが寝ている部屋に入る...。</text>
 															<removeCrew class="ponyc">
 																<clone>false</clone>
-																<text>あなたにはジェリーが何をしているのか分かりませんが、見守ることにしました。</text>
+																<text>あなたはジェリーが何をしているのかわからず、困惑して見ている。</text>
 															</removeCrew>
 															<choice hidden="true">
-																<text>継続する...</text>
+																<text>次へ...</text>
 																<event>
-																	<text>そして、ジェリーはポニーにまたがります。「よし。覚悟を決めた」</text>
+																	<text>そして、ジェリーはポニーに馬乗りになる！「よし。これで準備は整った"</text>
 																	<achievement>ACH_JERRY_STEED</achievement>
 																	<achievement>ACH_JERRY_CRYSTALSTEED</achievement>
 																	<crewMember amount="1" class="unique_jerry_pony_crystal">ジェリー</crewMember>
 																	<choice hidden="true">
-																		<text>継続する...</text>
+																		<text>次へ...</text>
 																		<event load="COMBAT_CHECK" />
 																	</choice>
 																</event>
@@ -948,29 +946,29 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 												</event>
 											</choice>
 											<choice hidden="true" blue="false" lvl="1" max_group="0" req="pony_tamed">
-												<text>継続する...</text>
+												<text>次へ...</text>
 												<event>
-													<text>フラグシップと向き合う前に、ジェリーはいったん部屋から出ます。</text>
+													<text>フラッグシップに進む前に、ジェリーが立ち止まり、部屋から出て行く。</text>
 													<removeCrew class="unique_jerry_gun">
 														<clone>false</clone>
-														<text>ジェリーがどこに行くのか分かりませんが、あなたは彼に着いていくことにします。</text>
+														<text>ジェリーがどこへ行こうとしているのか見当もつかないが、あなたは彼についていく。</text>
 													</removeCrew>
 													<choice hidden="true">
-														<text>継続する...</text>
+														<text>次へ...</text>
 														<event>
-															<text>ジェリーはイクイノイドが眠っている部屋に入ります...</text>
+															<text>ジェリーはエクイノイドが寝ている部屋に入る...。</text>
 															<removeCrew class="pony_tamed">
 																<clone>false</clone>
-																<text>あなたにはジェリーが何をしているのか分かりませんが、見守ることにしました。</text>
+																<text>あなたはジェリーが何をしているのかわからず、困惑して見ている。</text>
 															</removeCrew>
 															<choice hidden="true">
-																<text>継続する...</text>
+																<text>次へ...</text>
 																<event>
-																	<text>そして、ジェリーはポニーにまたがります。「よし。覚悟を決めた」</text>
+																	<text>そして、ジェリーはポニーに馬乗りになる！「よし。これで準備は整った"</text>
 																	<achievement>ACH_JERRY_STEED</achievement>
 																	<crewMember amount="1" class="unique_jerry_pony">ジェリー</crewMember>
 																	<choice hidden="true">
-																		<text>継続する...</text>
+																		<text>次へ...</text>
 																		<event load="COMBAT_CHECK" />
 																	</choice>
 																</event>
@@ -992,25 +990,25 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 </event>
 
 <event name="BOSS_TEXT_2">
-	<text>あなたは旗艦を追いかけ、それが前の戦いからひどく損傷していることを発見します。スキャンは、それがかなりの力をそのドローンに向け直したことを示しています。戦いの準備をしなさい。</text>
+	<text>フラッグシップを追い詰めると、前回の戦闘で大きなダメージを受けていることがわかる。スキャンによると、かなりのパワーをドローンに振り向けているようだ。戦いに備えよ。</text>
 	<status type="clear" target="player" system="sensors" amount="100" />
 	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
 	<choice hidden="true" req="loc_negotiation" lvl="0" blue="false" max_group="0">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>旗艦は弱体化するかもしれませんが、それでも手ごわいです。戦い続けてください！</text>
+			<text>フラッグシップは弱体化しているかもしれないが、まだ手ごわい。戦い続けろ</text>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" req="loc_negotiation" lvl="1" blue="false" max_group="0">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>突然、遠くの艦隊から小型の自動操縦船が離脱した。シャトルからの呼びかけを受ける。「こんにちは。これは反乱軍艦隊のヴァンス提督から送られた自動メッセージです -- 我々は、貴殿の過去の勝利と、貴殿が既に与えた旗艦への多大な損害を考慮した。それを考慮し、反乱軍はもはやこの現実に興味はない。降伏する」</text>
+			<text>突然、遠くの艦隊から小さな自動船が離脱した。シャトルからの呼びかけを受ける。"こんにちは。これは反乱軍艦隊のバンス提督から送られた自動メッセージだ。我々はあなた方の過去の勝利と、すでにフラッグシップに与えた多大な損害を考慮した。反乱軍はもはやこの現実に 関心はない降伏を申し出る</text>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
 					<item_modify>
 						<item type="scrap" min="2000" max="2000" />
@@ -1023,10 +1021,10 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 </event>
 
 <event name="BOSS_TEXT_3">
-	<text>あなたはそれが受けたダメージの量でどのように戦い続けることができるのかわからない。それは防御システムだけでなく...ある種の超兵器にも力を移しているように見えます。準備してください...これで終わりです！</text>
+	<text>これだけのダメージを受けながら、なぜ戦い続けることができるのか定かではない。防御システムだけでなく、ある種のスーパーウェポンにパワーを移したようだ。覚悟しろ...これだ</text>
 	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
 			<loadEventList seeded="false" first="true" generate="true" default="COMBAT_CHECK">
 				<event name="BOSS_TEXT_3_GNOME" req="chaos_mode" lvl="1" />
@@ -1043,89 +1041,89 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 	</loadEventList>
 </event>
 <event name="BOSS_TEXT_3_VANCE">
-	<text>3回目に旗艦に近づくと、ASBショットが船を通過し、旗艦とほぼ衝突します。遠くで、反乱軍はお互いの間で向きを変えました。ヴァンスの裏切りの言葉が伝わったように見え、それは彼らの力に分裂を引き起こした。この最後のストレッチ中に追加の火力支援を期待してください！</text>
+	<text>旗艦に3度目に接近したとき、ASBの砲撃が飛んできて旗艦に衝突しそうになる。遠くでは、反乱軍が互いに寝返っている。バンスの裏切りが伝わり、勢力に分裂が生じているようだ。このラストスパートで追加砲撃支援を期待する！</text>
 	<environment type="PDS" target="enemy" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 	
 <event name="BOSS_NEGOTIATE_1">
-	<text>「ああそうか。貴殿は野蛮な宇宙人の母星を侵略して、自分たちに反旗を翻すように説得することができるわけか。しかしそれは、我々の使命に比べれば、大したことではない！ 我々は銀河系に平和をもたらすことを目的としている。貴殿は平和について何も存じないようだ」</text>
+	<text>「野蛮なエイリアンの母星を侵略し、彼らに反旗を翻すよう説得する。私たちの運動の使命に比べれば、そんなことは何でもない！私たちは銀河系に平和をもたらそうとしている。あなたが平和を知らないとは思えない</text>
 	<choice hidden="true" req="ach_boss_mfkgunboat">
-		<text>私たちは、反乱軍による包囲から都市全体と記念碑を救いました。</text>
+		<text>私たちは反乱軍の包囲から街全体と記念館を救った。</text>
 		<event load="BOSS_NEGOTIATE_2" />
 	</choice>
 	<choice hidden="true" req="ach_boss_autodread">
-		<text>プライマル リーパーがあなたの攻撃の 1 つを撃退するのを助けることで、私たちはプライマル リーパーと同盟を結びました。</text>
+		<text>私たちはプライマルリーパーと同盟を結び、あなた方の襲撃を撃退する手助けをした。</text>
 		<event load="BOSS_NEGOTIATE_2" />
 	</choice>
 	<choice hidden="true" req="ach_boss_clancruiser">
-		<text>絶滅危惧種の最後の外来種をEHGから救いました。</text>
+		<text>我々はEHGから絶滅の危機に瀕した外来種の最後の1匹を救ったのだ。</text>
 		<event load="BOSS_NEGOTIATE_2" />
 	</choice>
 	<choice hidden="true" req="ach_boss_hacker">
-		<text>私たちは民間部門全体をハッカー一族から解放しました。</text>
+		<text>我々はハッカー一族から民間セクター全体を解放した。</text>
 		<event load="BOSS_NEGOTIATE_2" />
 	</choice>
 	<choice hidden="true" req="ach_crew_dianesh">
-		<text>私たちは、CrystallineEmpress自身が銀河の残りの部分に開かれていることを納得させることができました。</text>
+		<text>私たちは、クリスタルの女帝自身に、他の銀河系に門戸を開くよう説得することができた。</text>
 		<event load="BOSS_NEGOTIATE_2" />
 	</choice>
 	<choice hidden="true">
-		<text>反逆は平和ではありません！連邦は銀河に平和をもたらしているものです。</text>
+		<text>反乱軍は平和的ではない！連邦こそが銀河に平和をもたらしているのだ。</text>
 		<event>
-			<text>司令官は笑う。「ああ、なんと哀れな。平和をもたらすには、まず戦争が必要なのだ！ 反乱軍は各現実の危険な異種族を駆逐する。この会話には飽きた。この対決に平和的解決はないだろう」 彼は通信を切り、旗艦は兵器の充電を続ける」</text>
+			<text>指揮官は笑う。「ああ、なんと哀れな。平和をもたらすには、まず戦争が必要だ！反乱軍は各現実の危険な異星人を駆逐する。この会話にはうんざりだ。この対決に平和的解決はない」。彼は通信を切り、旗艦は兵器のチャージを続ける。</text>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 </event>
 <event name="BOSS_NEGOTIATE_2">
-	<text>「どのようにそれを達成したのだ？ 殺すことでか？ 予想通りだな。連邦も反乱軍も戦争となれば同じだ。が、連邦は弱い、しかし反乱軍が強く立ち上がるのだ！ 貴殿らはこの戦いをあまりにも長く先延ばしにしてきた。このような強力な船を相手にするのは、貴殿には無理だろう！」</text>
+	<text>「どうやってそれを達成したんだ？殺すことで？予想通りだ。連邦も反乱軍も 戦争に関しては同じだ だが連邦が弱ければ 反乱軍は強く立ち上がるあなたはこの戦いを遅らせすぎた。このような強力な船を相手にできるのか疑問だ！"</text>
 	<choice hidden="true" req="ach_boss_construction">
-		<text>反乱軍の拠点であなたの旗艦の1つを破壊しました。一度やったらまたやれる。</text>
+		<text>我々は反乱軍の本拠地でお前たちの旗艦を破壊した。一度やったことなら、もう一度できる。</text>
 		<event load="BOSS_NEGOTIATE_3" />
 	</choice>
 	<choice hidden="true" req="ach_boss_ghostflag">
-		<text>SpectralWastelandsの元の旗艦を破壊しました。一度やったらまたやれる。</text>
+		<text>我々はスペクトラル・ウェイストランドでオリジナルのフラッグシップを破壊した。一度やったことなら、もう一度できる。</text>
 		<event load="BOSS_NEGOTIATE_3" />
 	</choice>
 	<choice hidden="true" req="ach_boss_autodread">
-		<text>フラッグシップではありませんが、オート ドレッドノートを撃破しました。リベリオンが私たちに投げかけるものは何でも処理できます。</text>
+		<text>旗艦ではないが、オート・ドレッドノートを破壊した。反乱軍が何を投げかけてきても対処できる</text>
 		<event load="BOSS_NEGOTIATE_3" />
 	</choice>
 	<choice hidden="true" req="ach_boss_cura">
-		<text>フラッグシップではありませんが、高度な W.I. オートクルーザーのプロトタイプを破壊しました。リベリオンが私たちに投げかけるものは何でも処理できます。</text>
+		<text>フラッグシップではありませんが W. I. オートクルーザーの試作品を破壊しました反乱軍が何を投げかけてきても対処できる</text>
 		<event load="BOSS_NEGOTIATE_3" />
 	</choice>
 	<choice hidden="true" req="ach_boss_mfkgunboat">
-		<text>旗艦ではありませんが、MFK砲艦を破壊しました。私たちは、反乱が私たちに投げかけるものなら何でも扱うことができます。</text>
+		<text>旗艦ではないが、MFK砲艦を破壊した。反乱軍が何を投げかけてきても対処できる</text>
 		<event load="BOSS_NEGOTIATE_3" />
 	</choice>
 	<choice hidden="true" req="ach_boss_smugglergun">
-		<text>旗艦ではありませんが、盗まれた反乱軍の砲艦を破壊しました。私たちは、反乱が私たちに投げかけるものなら何でも扱うことができます。</text>
+		<text>旗艦ではないが、盗んだ反乱軍の砲艦を破壊した。反乱軍が何を仕掛けてきても大丈夫だ</text>
 		<event load="BOSS_NEGOTIATE_3" />
 	</choice>
 	<choice hidden="true">
-		<text>それは、まあ別の機会にでも。</text>
+		<text>それはいずれわかることだ。</text>
 		<event>
-			<text>指揮官は苦笑する。「そうか。この対立に平和的解決はない。彼は通信を切り、フラグシップは兵器のチャージを続ける」</text>
+			<text>司令官は苦笑する。「その通りだ。この対決に平和的な解決はない。彼は通信を切り、フラッグシップは兵器のチャージを続ける。</text>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 </event>
 <event name="BOSS_NEGOTIATE_3">
-	<text>「それで、あなたはそれの責任者ですか？しかし、その船はあなたが直面しようとしているものと比較して何もありませんでした！この戦いを逃れる。」</text>
+	<text>「では、あなたがその責任者ですか？大したものだが、あの船は君がこれから直面するものとは比べものにならない！我々の旗艦は、君のような小さな巡洋艦に対して、はるかに準備が整っていることがわかるだろう。遅れは十分だ、この戦いから逃れることはできない。"</text>
 	<variable name="loc_negotiation" op="set" val="1" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
@@ -1140,51 +1138,51 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 </eventList>
 
 <event name="NODE17_FREEMANTIS_GLORY" unique="true">
-    <text>無料のマンティスドロップシップがアプローチします。「フェデレーションの友人！パカタカラカ一族はあなたに会えてうれしいです！私たちはここで助けてくれました。ただ、私たちは家に帰って忙しいです...しかし、私たちはそこに栄光を持っていません！私たちの船は反乱ミサイルに多くの問題を抱えていますが...」</text>
+    <text>フリーマンティスのドロップシップが接近。「連邦の友よ！パカタカラカ一族、お目にかかれて光栄です！はるばる助けに来たんだ。しかし、我々は故郷で忙しく休んでいる...しかし、そこには栄光はない！我々は多くの反乱軍の頭蓋骨を集めたい！我々の船は、反乱軍のミサイルで多くの問題を抱えているが..."</text>
     <ship load="SHIP_FREEMANTIS_DROPSHIP" hostile="false" />
     <choice req="teleporter" lvl="1" max_group="0" blue="false" hidden="true">
-		<text>私たちは乗組員が不足しています、あなたは私たちに参加したいですか？</text>
+		<text>クルーが足りないんだが、一緒にやらないか？</text>
 		<event>
-			<text>「テレポーターがいますか？そうそう！連合の名誉のために！」</text>
+			<text>「テレポーターをお持ちですか？そうだ！連邦の名誉のために！"</text>
 			<crewMember amount="4" combat="2" class="mantis_free">パカタカラカ</crewMember>
 		</event>
     </choice>
 	<choice req="LOCKED_GLOBAL_TELEPORT" lvl="1" max_group="0" blue="false" hidden="true">
-		<text>私たちは乗組員が不足しています、あなたは私たちに参加したいですか？</text>
+		<text>クルーが足りないんだが、一緒にやらないか？</text>
 		<event>
-			<text>「テレポーターがいますか？そうそう！連合の名誉のために！」</text>
+			<text>「テレポーターをお持ちですか？そうだ！連邦の名誉のために！"</text>
 			<crewMember amount="4" combat="2" class="mantis_free">パカタカラカ</crewMember>
 		</event>
     </choice>
     <choice req="teleporter" lvl="0" max_group="0" blue="false" hidden="true">
-		<text>私たちは乗組員が不足しています、あなたは私たちに参加したいですか？</text>
+		<text>クルーが足りないんだが、一緒にやらないか？</text>
 		<event>
-			<text>「私たちがあなたの乗組員に加わっているなら、私たちはあなたの船に乗っていなければなりません...望まない！反乱軍を間近で殺したい！」</text>
+			<text>"乗組員の一員になるのなら、あなたの船に滞在しなければならない...望んでいない！反乱軍を間近で殺したい！"</text>
 			<choice req="BLUELIST_AETHER">
-				<text>（エーテルテクノロジー）高度なシールドテクノロジーを提供します。</text>
+				<text>(エーテル技術）高度なシールド技術を提供する。</text>
 				<event load="NODE17_MANTIS_AETHER" />
 			</choice>
 			<choice>
-				<text>エンジンを見てみましょう。</text>
+				<text>エンジンの点検を申し出る。</text>
 				<event load="NODE17_MANTIS_ENGINE" />
 			</choice>
 			<choice>
-				<text>フリーマンティスを攻撃します。</text>
+				<text>フリー・マンティスを攻撃せよ。</text>
 				<event>
-					<text>「レネゲードはスパーを望んでいますか？それから勝者に反乱軍を破壊させてください！」</text>
+					<text>"レネゲードがスパーリングをしたいって？それなら勝者に反乱軍を壊滅させてもらおう！"</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice>
-				<text>パカタカラカの幸運を祈ります。</text>
+				<text>パカタカラカの健闘を祈る。</text>
 				<event>
-					<text>「あなたもよく願っています！」</text>
+					<text>「あなたの健康を祈っています</text>
 					<choice>
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice>
@@ -1196,30 +1194,30 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 		</event>
     </choice>
     <choice req="BLUELIST_AETHER">
-		<text>（エーテルテクノロジー）高度なシールドテクノロジーを提供します。</text>
+		<text>(エーテル技術）高度なシールド技術を提供する。</text>
 		<event load="NODE17_MANTIS_AETHER" />
     </choice>
     <choice>
-		<text>エンジンを見てみましょう。</text>
+		<text>エンジンの点検を申し出る。</text>
 		<event load="NODE17_MANTIS_ENGINE" />
     </choice>
     <choice>
-		<text>フリーマンティスを攻撃します。</text>
+		<text>フリー・マンティスを攻撃せよ。</text>
 		<event>
-			<text>「レネゲードはスパーを望んでいますか？それから勝者に反乱軍を破壊させてください！」</text>
+			<text>"レネゲードがスパーリングをしたいって？それなら勝者に反乱軍を壊滅させてもらおう！"</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
     </choice>
     <choice>
-		<text>パカタカラカの幸運を祈ります。</text>
+		<text>パカタカラカの健闘を祈る。</text>
 		<event>
-			<text>「あなたもよく願っています！」</text>
+			<text>「あなたの健康を祈っています</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1230,16 +1228,16 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
     </choice>
 </event>
 <event name="NODE17_MANTIS_AETHER">
-    <text>エーテルテクノロジーを使用して、シールドをアップグレードします。彼らは戦いの開始時にいくつかのミサイルショットを追い払うことができるはずです。</text>
+    <text>エーテル技術を使ってシールドをアップグレードする。戦闘開始時に数発のミサイルを防ぐことができるはずだ。</text>
     <item_modify>
 		<item type="fuel" min="-4" max="-4" />
 		<item type="drones" min="-2" max="-2" />
 		<item type="scrap" min="-50" max="-50" />
     </item_modify>
     <choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>「レネゲードは印象的なことをしています！十分に感謝することはできません！」パカタカラカはあなたにスクラップと補完的な贈り物を浴びせます。</text>
+			<text>「レネゲードは素晴らしいことをやっている！感謝してもしきれない！"パカタカラカはあなたにスクラップと引き出物を贈る。</text>
 			<item_modify>
 				<item type="scrap" min="125" max="125" />
 			</item_modify>
@@ -1248,164 +1246,164 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
     </choice>
 </event>
 <event name="NODE17_MANTIS_ENGINE">
-    <text>彼らのエンジンはかなり初歩的ですが、あなたはそれらを嗅ぎタバコに持ち込むためのスクラップを持っています。これはおそらく彼らを少なくとも少し助けてくれるでしょう。</text>
+    <text>彼らのエンジンはかなり初歩的なものだが、君たちにはスクラップがある。これで少しは助けられるだろう。</text>
     <item_modify>
    	 	<item type="scrap" min="-50" max="-50" />
     </item_modify>
     <choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>「アドバイスを求めてRenegadeに感謝します！これからエンジンをアップグレードし続けます。」パカタカラカはあなたに補完的な贈り物を渡します。</text>
+			<text>「レネゲードのアドバイスに感謝！今後はエンジンをアップグレードしておく"パカタカラカがあなたにプレゼントを渡す。</text>
 			<weapon name="GIFTLIST_FREEMANTIS" />
 		</event>
     </choice>
 </event>
 
 <event name="NODE17_BLOCKADE" unique="true">
-	<text>近くの惑星では、連邦と反乱軍の侵略者の間の大規模な戦いが激しさを増しています。あなたはまだ大気圏を通り抜けようとしている連邦ドロップシップから連絡を受け取ります。</text>
+	<text>近くの惑星では、連邦軍と反乱軍の大規模な戦闘が繰り広げられている。あなたは、まだ大気圏を抜けようとしている連邦軍のドロップシップから呼び出しを受ける。</text>
 	
 	<img back="BACK_EVENT_CITYATTACK" planet="PLANET_INVISIBLE" />
 	<choice hidden="true">
-		<text>応答。</text>
+		<text>対応する。</text>
 		<event>
-			<text>「どうしてこんなに早くそこに降りたの？気にしないで、問題ではない。私たちは援軍をもたらすことになっていますが、私たちは反乱軍の封鎖を乗り越えることはできません。あなたはすでにそこにいるので、あなたはあなたがいると思いますか私たちの軍隊を助けることができますか？それは勝利と敗北の違いになる可能性があります。」</text>
+			<text>「どうやってそんなに早く降りたの？気にするな。援軍を連れてくるはずだったんだが、反乱軍の封鎖を突破できないんだ。君はもう下にいるんだから、うちの部隊を助けてくれないか？それが勝敗を分けるかもしれない"</text>
 			<choice hidden="true">
-				<text>連邦の兵士を探してください。</text>
+				<text>連邦の兵士を探せ。</text>
 				<event>
-					<text>あなたは連邦大隊を見つけます。彼らは形が悪く、街の中心部に追い詰められています。彼らの司令官、コンラッドという名前の若い男は、感謝してあなたを受け入れます。「反政府勢力が私たちを見つけるまで、私たちの部隊に地獄を雨が降るまではあまり時間がありません。私たちはできる限り準備する必要があります。</text>
+					<text>連邦の大隊を発見。彼らはひどい状態で、街の中心部に追い詰められている。彼らの司令官、コンラッドという名の青年は、ありがたくあなたを出迎えた。「反乱軍が我々を発見し、我が軍に地獄の雨を降らせるまであまり時間がない。できる限りの準備が必要だ。もし何かお手伝いいただけるのであれば、非常にありがたい。"</text>
 					<choice>
-						<text>それらにいくつかのスクラップを与えます。</text>
+						<text>彼らにスクラップを与える。</text>
 						<event>
-							<text>「パーフェクト、これは私たちを大いに助けてくれるでしょう。キャプテン、どうもありがとうございました。」</text>
+							<text>「完璧だ。本当にありがとう。</text>
 							<item_modify>
 								<item type="scrap" min="-40" max="-40" />
 							</item_modify>
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="NODE17_BLOCKADE_HELP" />
 							</choice>
 						</event>
 					</choice>
 					<choice>
-						<text>彼らに弾薬を与えなさい。</text>
+						<text>彼らに弾薬を与える。</text>
 						<event>
-							<text>「パーフェクト、これは私たちを大いに助けてくれるでしょう。キャプテン、どうもありがとうございました。」</text>
+							<text>「完璧だ。本当にありがとう。</text>
 							<item_modify>
 								<item type="missiles" min="-7" max="-7" />
 							</item_modify>
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="NODE17_BLOCKADE_HELP" />
 							</choice>
 						</event>
 					</choice>
 					<choice req="medbay" lvl="2">
-						<text>（Upg. Medbay）兵士に医療を提供します。</text>
+						<text>(アップグ.メドベイ) 兵士に治療を施す。</text>
 						<event>
-							<text>「パーフェクト、これは私たちを大いに助けてくれるでしょう。キャプテン、どうもありがとうございました。」</text>
+							<text>「完璧だ。本当にありがとう。</text>
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="NODE17_BLOCKADE_HELP" />
 							</choice>
 						</event>
 					</choice>
 					<choice req="NANO_MEDBAY">
-						<text>（Med-Bots）兵士に医師の診察を提供します。</text>
+						<text>(メドボット）兵士に医療処置を施す。</text>
 						<event>
-							<text>「パーフェクト、これは私たちを大いに助けてくれるでしょう。キャプテン、どうもありがとうございました。」</text>
+							<text>「完璧だ。本当にありがとう。</text>
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="NODE17_BLOCKADE_HELP" />
 							</choice>
 						</event>
 					</choice>
 					<choice req="DRONE_CONTROL_REPAIR_ALL">
-						<text>（ドローンの修理）ドローンを派遣して機器を修理します。</text>
+						<text>(修理ドローン）ドローンを派遣して機材を修理させる。</text>
 						<event>
-							<text>「パーフェクト、これは私たちを大いに助けてくれるでしょう。キャプテン、どうもありがとうございました。」</text>
+							<text>「完璧だ。本当にありがとう。</text>
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="NODE17_BLOCKADE_HELP" />
 							</choice>
 						</event>
 					</choice>
 					<choice req="DRONE_CONTROL_MEDICAL">
-						<text>（医療ドローン）負傷者を癒すためにドローンを派遣します。</text>
+						<text>(医療ドローン）負傷者を治療するためにドローンを派遣する。</text>
 						<event>
-							<text>「パーフェクト、これは私たちを大いに助けてくれるでしょう。キャプテン、どうもありがとうございました。」</text>
+							<text>「完璧だ。本当にありがとう。</text>
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="NODE17_BLOCKADE_HELP" />
 							</choice>
 						</event>
 					</choice>
 					<choice hidden="true">
-						<text>仕方がない。</text>
+						<text>私たちは助けられない。</text>
 						<event />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>仕方がない。</text>
+				<text>私たちは助けられない。</text>
 				<event />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>呼びかけを無視して去ります。</text>
+		<text>あられを無視して立ち去る。</text>
 		<event />
 	</choice>
 </event>
 <eventList name="NODE17_BLOCKADE_HELP">
 	<event>
-		<text>兵士たちが準備のために集まっている間、コンラッドはあなたを別の兵士と一緒に脇に置きます。 「私はここで完全に正直になります、この使命は運命づけられています。私はここで奉仕する義務があり、私の部下を捨てることはできません。しかし、この男は私の兄弟です。私は彼をここで私と一緒に死なせることはできません。彼はあなたの船に忠実に仕えるでしょう。」</text>
+		<text>兵士たちが準備のために集まっている間に、コンラッドが別の兵士と一緒にあなたを脇に引き寄せた。「正直に言うと、この任務は絶望的だ。私にはここで奉仕する義務があり、部下を見捨てることはできない。しかし、この男は私の兄弟だ。彼をここで死なせるわけにはいかない。彼はあなたの船で忠実に仕えます"</text>
 		<crewMember amount="1" class="human_soldier" />
 	</event>
 	<event>
-		<text>「これは使い物になりません。撃墜した反乱軍の船から落ちたのは船に搭載された武器ですが、ご覧のとおり、搭載する船がありません。お役に立てば幸いです。」</text>
+		<text>「これは使い道がない。我々が撃墜した反乱軍の船から落ちた船搭載武器だが、ご覧のとおり搭載する船はない。お役に立てれば幸いです"</text>
 		<weapon name="RANDOM" /> 
 	</event>
 	<event>
-		<text>「これが役立つかどうかはわかりませんが、連邦は私たちにセクターの地図を提供してくれました。あなたは私たちよりもそれをもっと利用していると確信しています。そうでない場合は、ここに私たちがいない拡張機能があります長く必要です。」</text>
+		<text>「役に立つかどうかはわからないが、連邦は我々にこのセクターの地図を提供してくれた。我々より使い道があるはずだ。万が一に備えて、これはもう必要ないオーグメントだ。"</text>
 		<reveal_map />
 		<augment name="RANDOM" />
 	</event>
 </eventList>
 
 <event name="NODE17_MILITIA" unique="true">
-	<text>「フェデレーションに奉仕することは名誉なことです！これが私たちの現実の最後の立場であり、あなたはきっと私たちを救うことができる最後の人です！あなたが必要とするものは何でも、私たちはあなたに与えます。」民兵は伝統的な組合員の忠誠心の展示で胸を叩きます。</text>
+	<text>「連邦に仕えることができて光栄だ！"これが我々の現実の 最後の抵抗だ" "君は我々を救える 最後の一人だ必要なものは何でも与えよう"民兵は連邦の伝統的な忠誠の表現で胸を叩く。</text>
 	<ship load="SHIP_MILITIA_FIGHT" hostile="false" />
 	<choice hidden="true">
-		<text>修理をお願いします。</text>
+		<text>修理を依頼する。</text>
 		<event>
-			<text>民兵船は、一度に船体を固定することができる修理者のチームを照らします。彼らは、戦いに戻るために飛び去る前に最後に敬礼します。</text>
+			<text>ミリシアの船から修理チームがビームを受け、船体の修理に取りかかる。彼らは戦いに戻るために飛び去る前に、最後にもう一度敬礼する。</text>
 			<damage amount="-10" />
 			<instantEscape />
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>武器をお願いします。</text>
+		<text>武器を要求する</text>
 		<event>
-			<text>民兵船は、使用していない貨物から武器を梁にします。彼らは、戦いに戻るために飛び去る前に最後に敬礼します。</text>
+			<text>ミリシア艦が貨物から使っていない武器をビームする。彼らは戦いに戻るために飛び去る前に、最後にもう一度敬礼する。</text>
 			<weapon name="RANDOM" />
 			<instantEscape />
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>より多くの乗組員をリクエストしてください。</text>
+		<text>クルーの増員を要請する。</text>
 		<event>
-			<text>民兵船は、乗組員の兵士の上に輝き、あなたを支援するために彼らの力ですべてをすることを誓います。残りの民兵は、戦いに戻るために飛び去る前に最後にもう一度敬礼します。</text>
+			<text>民兵船は乗組員の兵士にビームを浴びせ、あなたを助けるために全力を尽くすと誓う。残りの民兵は最後にもう一度敬礼し、戦いに戻るために飛び去る。</text>
 			<crewMember amount="1" class="LIST_CREW_MILITIA_ELITE_RANDOM_PLAYER" />
 			<instantEscape />
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>それらを攻撃します！</text>
+		<text>彼らを攻撃する！</text>
 		<event>
-			<text>あなたの突然の裏切りでのエイジャスト、民兵船はあなたとの戦いとして最高の戦いとして置かれます。</text>
+			<text>突然の裏切りに憤慨した民兵船は、できる限りの戦いを挑む。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
@@ -1413,35 +1411,35 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 </event>
 
 <event name="NODE17_CIVILIANS" unique="true">
-	<text>組合の民間船は、このセクターの常に存在する危険から逃れようとしています。「連盟が勝つかどうかにかかわらず、このいまいましい場所に安全は残っていません！私たちはここから出なければなりません...私たちはこの現実から逃げなければなりません！余裕はありますか？」</text>
+	<text>連邦の民間船が、このセクターに常に存在する危険から逃れようとしている。「連邦が勝とうが勝つまいが、この場所に安全は残されていない！ここから出なければ...くそっ、この現実から逃げなければ！頼む、燃料がほとんどないんだ。燃料に余裕はあるか？"</text>
 	<ship load="SHIP_UNION_ALL" hostile="false" />
 	<choice>
-		<text>彼らに燃料を与えなさい。</text>
+		<text>燃料を与える。</text>
 		<event>
-			<text>あなたはあなたの燃料を組合員に移します。</text>
+			<text>あなたは燃料をユニオニストに移す。</text>
 			<item_modify>
 				<item type="fuel" min="-5" max="-5" />
 			</item_modify>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>「ああ、キャプテンに感謝します。これが私たちが常に連邦をサポートしてきた理由です。すべてが無駄になるわけではないように、その旗艦をガラス張りしていることを確認してください。」民間人はあなたにいくつかのスクラップを与えます。</text>
+					<text>「ありがとうございます。だから連邦を支持してきたんだ。フラッグシップを無駄にしないよう ガラス張りにしてくれ"民間人がスクラップをくれる。</text>
 					<autoReward level="MED">scrap_only</autoReward>
 				</event>
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>この燃料はもう必要ありません。できるだけ多く与えてください。</text>
+		<text>この燃料はもう必要ない。できる限りたくさんあげよう。</text>
 		<event>
-			<text>あなたはあなたの燃料を組合員に移します。</text>
+			<text>あなたは燃料をユニオニストに移す。</text>
 			<item_modify>
 				<item type="fuel" min="-15" max="-15" />
 			</item_modify>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>「ああ、これは私たちが必要とすることができる以上のものです。私たちは確かにこのすべてで逃げることができるでしょう！これが私が常に連邦をサポートしていた理由です。すべてが無駄になるわけではありません。」民間人はとても感謝しており、彼らはあなたに軍用グレードの武器を与えているので、彼らはもはや彼らの船では必要ありません、そしていくつかのスクラップ。</text>
+					<text>"なんてこった...これだけあれば逃げ切れる。これだけあれば確実に脱出できる！だから連邦を支持してきたんだ。無駄にならないよう、フラッグシップをガラス張りにしておいてくれ」。民間人はとても感謝し、自分たちの船で不要になった軍用武器とスクラップをくれる。</text>
 					<autoReward level="HIGH">scrap_only</autoReward>
 					<weapon name="RANDOM" />
 				</event>
@@ -1449,11 +1447,11 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>それらを無視します。</text>
+		<text>無視するんだ。</text>
 		<event>
-			<text>残念ながら、その時点で燃料埋蔵量を手放す危険はありません。あなたは北軍の船に謝罪し、衰退します。</text>
+			<text>残念ながら、その時点で備蓄燃料を手放すリスクは冒せない。あなたはユニオン船に謝罪し、辞退する。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1474,39 +1472,39 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 </eventList>
 
 <event name="NODE17_DISGUISE" unique="true">
-	<text>近くの船がフェデレーションチャンネルで通話を放送しています。 「これは連邦艦隊のキャプテンボッグスです。ローカルシステム内の近くの船からのサポートを要請しています。」</text>
+	<text>近くにいた船が連邦のチャンネルで呼びかけを放送している。「連邦艦隊のボッグズ船長だ近くの船からの支援を要請する"</text>
 	<ship load="SHIP_REBEL_FEDERATION" hostile="false" />
 	<choice hidden="true">
-		<text>彼らは私たちが愚かだと思いますか？攻撃！</text>
+		<text>我々をバカにしているのか？攻撃だ！</text>
 		<event>
-			<text>船の船長が「クラップ、彼らは私たちの上にいます。武器を用意してください」と言っているのを見つけます。</text>
+			<text>船長が「くそっ、気づかれた。武器を準備しろ！"</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>彼らに物資を与えなさい。</text>
+		<text>物資を与える。</text>
 		<event>
-			<text>船はあなたが彼らを助けていることに驚いていますが、彼らは喜んで物資を受け入れます。</text>
+			<text>船はあなたが助けてくれることに驚いているが、喜んで物資を受け取る。</text>
 			<item_modify>
 				<item type="fuel" min="-3" max="-3" />
 				<item type="scrap" min="-20" max="-20" />
 			</item_modify>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="NODE17_DISGUISE_GIFT" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>それらを無視します。</text>
+		<text>無視するんだ。</text>
 		<event>
-			<text>あなたは見知らぬ船から飛び去り、彼らの呼びかけを黙らせます。</text>
+			<text>あなたは見知らぬ船から飛び立ち、彼らの呼びかけを消した。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1518,40 +1516,40 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 </event>
 <eventList name="NODE17_DISGUISE_GIFT">
 	<event>
-		<text>船のクルーはあなたに感謝します。 「船は少し疑わしいかもしれませんが、私たちのオリジナルは破壊されました。私たちはこれに乗ることを余儀なくされ、急いでその上に塗りました。ここで、これを感謝します。」</text>
+		<text>乗組員から感謝される。"ちょっと怪しい船かもしれませんが、私たちのオリジナルは破壊されました。仕方なくこの船に乗り込み、急いでペンキを塗ったんだ。お礼にこれをどうぞ"</text>
 		<autoReward level="MED">missiles_only</autoReward>
 		<weapon name="RANDOM" />
 	</event>
 	<event>
-		<text>「ハハハ！あなたは絶対的な馬鹿！あなたはバカ！あなたはニンポンポープを完成させます！あなたはぼんやりとしています！あなたはクルミの勇敢な無能な道化をしました！私はあなたがそれのために落ちたとは信じられません！今あなたは死ぬでしょう！」</text>
+		<text>「アハハハ！この馬鹿野郎！このマヌケ！この能無し！この間抜け！このクルミ脳無能の大馬鹿者！こんなのに騙されるなんて！今すぐ死ね！"</text>
 		<ship hostile="true" />	
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 </eventList>
 
 <event name="NODE17_DEPOT" unique="true">
-	<text>このビーコンには、輸送船が物資を配達するための場所である、その場しのぎの反乱軍のドロップポイントがあります。それは十分に武装したMFKガードによって保護されていますが、それを破壊することができれば、現在プラットフォームに保管されている物資はすべてあなたのものになります。</text>
+	<text>このビーコンにはその場しのぎの反乱軍の物資集積所があり、輸送船が物資を運ぶ場所となっている。武装したMFKの警備兵に守られているが、これを破壊できれば、現在プラットフォームに保管されている物資はすべてあなたのものになる。</text>
 	<ship load="SHIP_REBEL_BOSS_DEPOT_GUARD" hostile="false" />
 	<choice hidden="true">
-		<text>警備員を攻撃します。</text>
+		<text>ガードを攻撃する。</text>
 		<event>
-			<text>あなたは武器を上げて警備員を攻撃します。</text>
+			<text>あなたは武器を構え、警備員を攻撃する。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>ドロップポイントを無視します。</text>
+		<text>ドロップポイントは無視する。</text>
 		<event>
-			<text>プラットフォームを通過して、ミッションを続行します。</text>
+			<text>プラットフォームを通り過ぎて、任務を続行する。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1562,12 +1560,12 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 	</choice>
 </event>
 <event name="NODE17_DEPOT_WIN">
-	<text>あなたは警備員を倒しました。プラットフォームを調査する前に、残骸を廃棄します。</text>
+	<text>あなたは警備員を倒した。ホームを調査する前に残骸をスクラップする。</text>
 	<autoReward level="HIGH">standard</autoReward>
 	<choice hidden="true">
-		<text>ドロップポイントをRAIDします。</text>
+		<text>落下地点に突入する。</text>
 		<event>
-			<text>プラットフォームは完全に無人のようです。あなたはできるだけ多くの物資と軍用の武器を盗みます。</text>
+			<text>プラットフォームは完全に無人のようだ。あなたはできるだけ多くの物資と軍用武器を盗む。</text>
 			<weapon name="RANDOM" />
 			<autoReward level="HIGH">stuff</autoReward>
 		</event>
@@ -1575,21 +1573,21 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 </event>
 
 <event name="NODE17_EVACUATIONS" unique="true">
-    <text>このビーコンの連邦都市は避難を進めています。数隻の反乱軍の船が国境警備隊と小競り合いをしていますが、本当の脅威は遠く離れているがすぐに反乱軍の戦隊に接近しているところにあります。いくつかの大規模な連邦ヘビーキャリーシップが民間人を集めていますが、反乱軍が完全な攻撃を開始する前に彼らは間に合わないでしょう。</text>
+    <text>このビーコンにある連邦の都市では、避難が進められている。数隻の反乱軍が国境警備隊と小競り合いをしている。しかし、真の脅威は、遠距離にいながら急速に接近してくる反乱軍中隊にある。数隻の巨大な連邦重巡洋艦が民間人を集めているが、反乱軍の総攻撃開始までには間に合わないだろう。</text>
     
 	<img back="BACK_EVENT_EVACCITY" planet="PLANET_INVISIBLE" />
     <choice hidden="true">
-        <text>できるだけ多くの民間人を迎えに行き、彼らをキャリーシップに連れて行ってください。</text>
+        <text>できるだけ多くの民間人を拾い、キャリーシップに運ぶ。</text>
         <event>
-            <text>あなたは何とか数十人の民間人を救助することができます。カーゴベイは非常に窮屈ですが、それだけの価値はあります。民間人のほとんどは、キャリーシップの安全のためにあなたの保管場所から急いで出て行きます。ただし、1人は後ろに留まり、あなたの任務を支援することを申し出ます。</text>
+            <text>あなたは数十人の民間人を救出することに成功した。カーゴベイの中は非常に狭いが、それだけの価値はある。ほとんどの民間人は、あなたの倉庫から安全なキャリーシップへと急いだ。</text>
             <crewMember amount="1" class="human" />
             <choice hidden="true">
-                <text>継続する...</text>
+                <text>次へ...</text>
                 <event>
-                    <text>あなたが去るとき、あなたはエリート反乱軍の船があなたを追いかけているのに気づきます。戦いは避けられない。</text>
+                    <text>去り際に、反乱軍のエリート艦が尾行しているのに気づく。戦闘は避けられない。</text>
                     <ship load="SHIP_REBEL_ELITE_FIGHT" hostile="true" />
                     <choice hidden="true">
-                        <text>継続する...</text>
+                        <text>次へ...</text>
                         <event load="COMBAT_CHECK" />
                     </choice>
                 </event>
@@ -1597,11 +1595,11 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
         </event>
     </choice>
     <choice hidden="true">
-        <text>私たちはそれを危険にさらすことはできません。</text>
+        <text>危険は冒せない。</text>
         <event>
-            <text>あなたが最後の戦いに非常に近いときにそのような方法であなたの船を危険にさらすのは危険すぎます。あなたはほとんどの民間人がそれを生き生きとさせることができることを望みます。</text>
+            <text>最終決戦まであとわずかというときに、船をそんなふうに危険にさらすのは危険すぎる。ほとんどの民間人が生きて帰れることを祈るしかない。</text>
             <choice>
-                <text>船に乗って何かする。</text>
+                <text>船内で何かをする。</text>
                 <event load="STORAGE_CHECK" />
             </choice>
             <choice>
@@ -1613,43 +1611,43 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 </event>
 
 <event name="NODE17_EGGMAN" unique="true">
-    <text>反乱軍の艦隊が惑星の周りに集まり、その上にかなり人口の多い連邦の大都市が建設されました。艦隊のリーダーである、エンジニアの船に乗った、過度に丸みを帯びたほぼ卵形の男が、それに応じて集まった群衆に向かって叫んでいるようです。</text>
+    <text>反乱軍の艦隊が連邦の大都市がある惑星に集結した。艦隊のリーダーである、エンジニアの船に乗った丸々と太った、ほとんど卵型の男が、それに呼応して集まった群衆に向かって叫んでいるようだ。</text>
 	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
     <img planet="PLANET_MOONS" />
     <choice hidden="true">
-        <text>彼の暴言を聞いてください。</text>
+        <text>彼の暴言を聞いてくれ。</text>
         <event>
-            <text>エンジニアは話している間、必死にジェスチャーをします。 「-私は発表するようになりました：ヘッジ大佐は雌犬のお尻の馬鹿です。彼は私の妻と一緒に寝ました。そうです、彼-」マイクをいじくり回しているが、スピーチはすぐに再開されます。 、そして私は「それは嫌です！」と言いましただから私はあなた方全員に呼びかけています！ヘッジ、あなたは-」再び、マイクは瞬間的に切れます。 「それは、はるかに小さいことを除いて、この船のサイズです！そして、何を推測しますか？これが私のものです！」</text>
+            <text>エンジニアは必死に身振り手振りを交えながら話す。「お知らせがあります：ヘッジ大佐はクソバカだ。彼は私の妻と寝ました。そうです、彼は......」マイクに少しもたつきがあったが、スピーチはすぐに再開された。だから、みんなに呼びかけるんだ！ヘッジ、あなたは......」またしてもマイクが一瞬途切れる。「この船と同じ大きさだ！この船と同じ大きさだ。私のはこうだ！"</text>
             <choice hidden="true">
-                <text>継続する...</text>
+                <text>次へ...</text>
                 <event>
-                    <text>大規模なASBキャノンが近くの艦隊船の1つから広がっているので、群衆は叫びます。 「そうだね！彼は私の妻と一緒に寝ていたので、何を推測しますか...ええと...この惑星と一緒に寝てください！」巨大なASBキャノンが発砲しますが、ショットははるかに高く移動し、惑星を逃し、代わりに月を打つため、巨大な岩がガラスで作られているかのように粉砕されます。 「そうです、これはあなたが手に入れるものです、私のスーパーレーザーキャノン！お元気ですか、ヘッジ？私は月と一緒に寝ました、あなたは馬鹿です！あなたは私がこの街全体を待って破壊することに飽きる前に23分あります。あなたはそうします。すぐに自分自身を降伏してください。今も皆さんと一緒に寝る前に、私の視界から抜け出してください！」送信は終了します。</text>
+                    <text>近くの艦隊の一隻から巨大なASBキャノンが伸びると、群衆が悲鳴を上げる。「そうだ、ベイビー！あいつは俺の妻と寝たんだ、だから俺も......この惑星と......寝るんだ！"巨大なASBキャノンが発射されたが、砲弾はずっと上空を通過し、惑星を外れて代わりに月に命中。「そうだ、これが私のスーパー・レーザー・キャノンだ！どうだ、ヘッジ？月と一緒に寝たんだよ、バカ！俺が待ちくたびれてこの街を破壊するまで、あと23分だ。すぐに投降しろ。お前ら全員と寝る前に、俺の視界から消えろ！」。通信が終わる。</text>
                     <choice hidden="true">
-                        <text>エンジニア船を取り出します。</text>
+                        <text>エンジニアの器を取り出す。</text>
                         <event>
-                            <text>あなたはエンジニア船を攻撃するために移動します。残念ながら、艦隊も遠くからあなたに向かって発砲しています。</text>
+                            <text>あなたはエンジニア船を攻撃するために移動する。不運なことに、艦隊も遠くからあなたに向かって発砲している。</text>
                             <ship load="SHIP_ENGINEER_EGGMAN" hostile="true" />
 							<environment type="PDS" target="player" />
                             <choice hidden="true">
-                                <text>継続する...</text>
+                                <text>次へ...</text>
                                 <event load="COMBAT_CHECK" />
                             </choice>
                         </event>
                     </choice>
                     <choice hidden="true">
-                        <text>ヘッジを追い詰めて、彼に降伏を強制します。</text>
+                        <text>ヘッジを追い詰め、降伏させる。</text>
                         <event>
-                            <text>群衆の中の多くの人があなたと同じ考えを持っていたようで、人々はヘッジの船の周りに集まり始めました、しかし彼はあなたが到着するまでにすでに大気圏に登り始めています。あなたにとって幸いなことに、あなたは彼を追跡する船を持っており、あなたは彼の方向にロケットを発射します。遠くでは、艦隊があなたの両方に発砲しているようです！</text>
+                            <text>群衆の多くもあなたと同じ考えを持っていたようで、人々はヘッジの船の周りに集まり始めたが、あなたが到着したときにはすでに彼は大気圏への上昇を始めていた。幸いなことに、あなたには彼の後を追える船がある。遠くで、艦隊があなたたち2人に向けて発砲しているようだ！</text>
                             <ship load="SHIP_FED_EGGMAN" hostile="true" />
 							<environment type="PDS" target="all" />
                             <choice hidden="true">
-                                <text>継続する...</text>
+                                <text>次へ...</text>
                                 <event load="COMBAT_CHECK" />
                             </choice>
                         </event>
                     </choice>
                     <choice hidden="true">
-                        <text>あなたが寝る前に去ってください。</text>
+                        <text>寝取られる前に帰れ。</text>
                         <event />
                     </choice>
                 </event>
@@ -1657,11 +1655,11 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
         </event>
     </choice>
     <choice hidden="true">
-        <text>艦隊を無視します。</text>
+        <text>艦隊を無視する。</text>
         <event>
-            <text>下の群衆を待つことができる良いものはありませんが、今それについてあなたができることは何もありません。</text>
+            <text>下界の観衆を待ち受けているのは何もいいことはないが、今さらどうすることもできない。</text>
             <choice>
-                <text>船に乗って何かする。</text>
+                <text>船内で何かをする。</text>
                 <event load="STORAGE_CHECK" />
             </choice>
             <choice>
@@ -1673,49 +1671,49 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 </event>
 
 <event name="NODE17_FLEETSHIP_ARGUE" unique="true">
-	<text>このビーコンは、反乱軍の艦隊船の戦隊によって攻撃されています！彼らはいくつかの大都市がある人口の多い惑星をターゲットにしています。</text>
+	<text>このビーコンは反乱軍の艦隊に攻撃されている！大きな都市のある惑星を狙っています</text>
 	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
 	<img planet="PLANET_POPULATED" />
 	<ship load="SHIP_REBEL_MV_FIGHT" hostile="false" />
 	<choice hidden="true">
-		<text>反乱軍を歓迎し、民間人への発砲をやめるよう要求する。</text>
+		<text>反体制派を称賛し、民間人への発砲をやめるよう要求する。</text>
 		<event>
-			<text>反乱軍飛行隊の指導者は答え、にやにや笑いであなたをにらみつけます。「あなたは私たちに攻撃を止めてほしいですか？あなたは私たちが敵の反逆船から命令を受けると思っていますか？</text>
+			<text>反乱軍中隊のリーダーは、にやにやと笑みを浮かべてあなたを睨みながら答える。「攻撃を止めろというのか？敵のレネゲイド船から命令を受けるとでも？ましてや宇宙0からの反感を買うような船から命令を受けるとでも思っているのか？"</text>
 			<choice hidden="true">
-				<text>その惑星での人間の生活の数を考えてください！あなたの攻撃は、あなたがこの銀河を取り除こうとするエイリアンだけでなく、彼らを殺します！</text>
+				<text>その惑星にどれだけの人間の命があるか考えてみろ！あなたの攻撃は、あなたがこの銀河系から排除しようとしているエイリアンだけでなく、彼らも殺すことになる！</text>
 				<event>
-					<text>「あなたはエレガントに話しますが、私たちはすでにこの犠牲を計算しています。少数の生活は多くの利益と交換されます。それは単純な算術です。」</text>
+					<text>「あなたは上品に話すが、我々はすでにこの犠牲を計算している。少数の命が多数の利益と引き換えになる。簡単な算数だ</text>
 					<choice hidden="true">
-						<text>スケールを傾けることができたらどうなりますか？</text>
+						<text>もし私たちが天秤を傾けることができるとしたら？</text>
 						<event>
-							<text>反乱軍のキャプテンはゆっくりとうなずきます。「うーん...あなたがどこに向かっているのかわかります。しかし、今日このチャンスをあきらめる価値があると思うことは何でしょうか？」</text>
+							<text>反乱軍のキャプテンはゆっくりとうなずく。「言いたいことはわかった。しかし、今日このチャンスをあきらめるに値するようなものを、我々に与えてくれる可能性はあるのか？"</text>
 							<choice>
-								<text>小さな賄briを提供します。</text>
+								<text>少額の賄賂を提供する。</text>
 								<event>
-									<text>あなたは彼らのより良い側面を手に入れることを望んで、あなたの申し出を反乱軍に提示します。</text>
+									<text>あなたはリーベルにオファーを提示し、相手の良い面を引き出そうとする。</text>
 									<disableScrapAugments />
 									<item_modify>
 										<item type="scrap" min="-45" max="-45" />
 									</item_modify>
 									<choice>
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event>
-											<text>「これは何かをするだろうと思いますか？ビジネス投資から1時間でこれを作ります。」反乱軍はあなたから吐き出して背を向けます。</text>
+											<text>"これで何かできると思う？ビジネス投資から1時間でこれを作る"リーベルは唾を吐いて、あなたから顔を背ける。</text>
 											<choice hidden="true">
-												<text>反乱軍を攻撃せよ！</text>
+												<text>反乱軍を攻撃せよ</text>
 												<event>
-													<text>inして、武器を上げて反乱軍の船を攻撃します。</text>
+													<text>憤慨して武器を構え、反乱軍の船を攻撃する。</text>
 													<environment type="PDS" target="player" />
 													<noASBPlanet />
 													<ship hostile="true" />
 													<choice hidden="true">
-														<text>継続する...</text>
+														<text>次へ...</text>
 														<event load="COMBAT_CHECK" />
 													</choice>
 												</event>
 											</choice>
 											<choice>
-												<text>申し出を撤回して去ります。</text>
+												<text>申し出を撤回し、去る。</text>
 												<event>
 													<disableScrapAugments />
 													<item_modify>
@@ -1724,23 +1722,23 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 												</event>
 											</choice>
 											<choice>
-												<text>あなたの賄beを2倍にします。</text>
+												<text>賄賂は2倍だ。</text>
 												<event>
-													<text>あなたは賄briを2倍にし、反乱軍が去ることを期待してスクラップを増やします。反乱軍のキャプテンはしばらくの間これを熟考します...</text>
+													<text>あなたは賄賂を倍増させ、反乱軍を退去させようとスクラップを増やした。反乱軍キャプテンはしばし考え込む...。</text>
 													<disableScrapAugments />
 													<item_modify>
 														<item type="scrap" min="-45" max="-45" />
 													</item_modify>
 													<choice hidden="true">
-														<text>継続する...</text>
+														<text>次へ...</text>
 														<event name="FLEETSHIP_ARGUE_BRIBE">
-															<text>「あなたは興味深い申し出をします。それはまだすべてのことを考慮しているわけではありませんが、それは私を再考するのに十分です。とにかく他の場所。」</text>
+															<text>「興味深い申し出だ。だが、考え直すには十分だ。君のような肉屋が、なぜ民間人の命をそんなに気にするのかわからないが、とにかく我々の艦隊は他で必要とされている。"</text>
 															<instantEscape />
 															<clearCustomFleet />
 															<choice hidden="true">
-																<text>継続する...</text>
+																<text>次へ...</text>
 																<event>
-																	<text>反政府勢力が飛び降りたら、下の民間人はあなたを応援します。「私たちは最初から宇宙1が私たちに何をするかを知っていましたが、私たちは彼らの残酷な方法に決して与えることは決してありません！連邦はそれができるすべての助けを必要とします！</text>
+																	<text>反乱軍が飛び去ると、下界の市民が声援を送る。"ユニバース1 "が我々に何をするかは最初からわかっていた。しかし、彼らの残忍なやり方には決して屈しない！連邦はあらゆる援助を必要としている我々が提供できるすべてを手に入れろ！そしてフラッグシップを止めろ！"</text>
 																	<autoReward level="HIGH">item</autoReward>
 																	<crewMember amount="1" all_skills="2" />
 																</event>
@@ -1754,41 +1752,41 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 								</event>
 							</choice>
 							<choice>
-								<text>大きな賄beを提供します。</text>
+								<text>多額の賄賂を提供する。</text>
 								<event>
-									<text>あなたは、反乱軍が再考して去ることを期待して、大量のスクラップを提案します。反乱軍のキャプテンはしばらくの間これを熟考します...</text>
+									<text>あなたは、反乱軍が考え直して立ち去ることを期待して、多額のスクラップを提案した。反乱軍のキャプテンはしばし考え込む...。</text>
 									<disableScrapAugments />
 									<item_modify>
 										<item type="scrap" min="-90" max="-90" />
 									</item_modify>
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event load="FLEETSHIP_ARGUE_BRIBE" />
 									</choice>
 								</event>
 							</choice>
 							<choice>
-								<text>ああ、何もありません。私はただ仮説を立てていました。</text>
+								<text>ああ、何でもない。ただ仮説を立てただけだよ。</text>
 								<event>
-									<text>「どれほど残念ですが、予想外ではありません。これは時間の無駄に過ぎないようです。今、私の邪魔にならないように、反逆者のスカム」</text>
+									<text>「残念だが、予想外ではなかった。時間の無駄だったようだ。邪魔をするな、レネゲイドのクズども"</text>
 									<environment type="PDS" target="player" />
 									<noASBPlanet />
 									<ship hostile="true" />
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event load="COMBAT_CHECK" />
 									</choice>
 								</event>
 							</choice>
 							<choice hidden="true" req="unique_nights">
-								<text>（夜）夜は魅惑的に彼の目をくねらせます。</text>
+								<text>(ナイツ）ナイツは魅惑的に眼帯をくねらせる。</text>
 								<event>
-									<text>反乱軍のキャプテンは静かに一時的に向きを変え、あなたをじっと見つめます。次に知っていることは、船の武器が熱く、彼らはあなたに発砲しています！</text>
+									<text>反乱軍の艦長は一瞬、無言のまま振り返り、あなたを無表情で見つめる。次の瞬間、船の武器が熱くなり、あなたに向かって発砲してきた！</text>
 									<environment type="PDS" target="player" />
 									<noASBPlanet />
 									<ship hostile="true" />
 									<choice hidden="true">
-										<text>継続する...</text>
+										<text>次へ...</text>
 										<event load="COMBAT_CHECK" />
 									</choice>
 								</event>
@@ -1798,13 +1796,13 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>反乱には、罪のない民間人を攻撃するよりも、やるべきことがあります。</text>
+				<text>反乱軍は罪のない民間人を攻撃するよりも、もっとやるべきことがあるはずだ。</text>
 				<event>
-					<text>反乱軍のキャプテンスニッカーズ。「もちろん、もちろん！あなたの主張は明らかです。なぜ、取り扱いを必要とする反逆者がいるのに、民間人を攻撃する時間を無駄にする理由！」</text>
+					<text>反乱軍のキャプテンは鼻で笑う。「もちろんだ！言いたいことははっきりしている。レネゲイドを処理する必要があるのに、なぜ民間人を攻撃して時間を無駄にするんだ！"</text>
 					<environment type="PDS" target="player" />
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
@@ -1812,11 +1810,11 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>私たちが助けることができる方法はありません。</text>
+		<text>どうしようもない。</text>
 		<event>
-			<text>悲劇的な運命がその惑星の無実の生活を待っていますが、あなたにできることは何もありません。</text>
+			<text>悲劇的な運命がその星の罪のない命を待ち受けているが、あなたにはどうすることもできない。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1838,121 +1836,121 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 	<distressBeacon />
 	<text load="TEXT_NODE17_RESCUE" />
 	<choice>
-		<text>反乱軍の船と戦う準備をしてください！</text>
+		<text>反乱軍の船と戦う準備をしろ！</text>
 		<event>
-			<text>あなたは傍受するために移動します。</text>
+			<text>迎撃に入る。</text>
 			<ship load="SHIP_NODE17_RESCUE" hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>時間がない、ジャンプする準備をしなさい。</text>
+		<text>時間がない、ジャンプの準備をしろ。</text>
 		<event>
-			<text>あなたは戦争の恐怖を阻止し、あなたの使命に集中しようとします。</text>
+			<text>あなたは戦争の恐怖を遮断し、自分の使命に集中しようとする。</text>
 		</event>
 	</choice>
 </event>
 <textList name="TEXT_NODE17_RESCUE">
-	<text>ショットはポートウィンドウのそばを飛んでいき、続いて反乱軍のスカウトが損傷した巡洋艦を追跡します。私たちは戦闘するために移動する必要がありますか？</text>
-	<text>反乱軍の前方偵察隊による攻撃を受けている小さな連邦植民地があるようです。それらを保護しますか？</text>
-	<text>多くの大型輸送機が反乱軍の爆撃部隊によって追跡されています。ある爆撃機は何とか防御的な火をすり抜け、巨大でありながら脆弱な輸送機に大混乱をもたらす準備ができています。あなたが前進してそれを取り出す時間がある！</text>
-	<text>近くで小さな戦闘機の間で戦いが激化しています。どうやら宇宙ステーションをめぐって争っている。連邦は船を急速に失っているようです。彼らを助けましょうか。</text>
-	<text>民間船が安全な連邦チャネルで支援要請を放送しています。彼らは反乱軍のスカウトから嫌がらせを受けています。返答してくれませんか？</text>
+	<text>左舷窓から発砲があり、反乱軍の偵察機が損傷した巡洋艦を追跡しています。交戦に移るべきか？</text>
+	<text>連邦の小さなコロニーが反乱軍の偵察機の攻撃を受けているようだ。彼らを守ってくれるか？</text>
+	<text>数隻の大型輸送船が反乱軍の爆撃隊に追われている。1機の爆撃機が防御砲火をかいくぐり、巨大だが脆弱な輸送船に大混乱をもたらそうとしている。今なら前進して撃破できる！</text>
+	<text>近くで小型戦闘機同士の戦闘が繰り広げられている。どうやら宇宙ステーションをめぐって争っているようだ。連邦は急速に船を失っているようだ。支援するか？</text>
+	<text>民間船が連邦の安全なチャンネルで 援助を求めている反乱軍のスカウトに 苦しめられています応答してくれるか？</text>
 	
 </textList>
 <eventList name="NODE17_RESCUE_LIST">
 	<event>
-		<text>あなたが救助した人々は、主に紛争から逃げる難民でした。彼らはあなたに誠実な感謝を提供しますが、それ以上何も拡張することはできません。</text>
+		<text>あなたが救出した人々は、主に紛争から逃れてきた難民でした。彼らはあなたに心から感謝しているが、それ以上のことはできない。</text>
 	</event>
 	<event>
-		<text>あなたは「ありがとう！それほど多くはありませんが、戦争に飛び込む前に少しのダメージを修復することができます。頑張ってください！」と歓迎されます。</text>
+		<text>ありがとう！大したものではないが、戦争に飛び込む前に少しは修復できる。幸運を祈る。</text>
 		<damage amount="-8" />
 	</event>
 	<event>
-		<text>生存者は、「支援に感謝します。どれだけ長く持ちこたえることができたかわかりません。いくつかの物資を持っていってください。おそらくこの時点では必要ないでしょう」とメッセージを送ります。</text>
+		<text>生存者たちはメッセージを送る。「支援に感謝する。物資を持って行ってくれ、この時点ではおそらく必要ないだろう"</text>
 		<autoReward level="MED">stuff</autoReward>
 	</event>
 </eventList>
 
 <event name="DISTRESS_NODE17_DECAYING_ORBIT" unique="true">
 	<distressBeacon />
-    <text>戦闘の残骸はこのビーコンです。近くの惑星の表面は、現在軌道から脱落している難破した防衛衛星についての苦痛の呼びかけを必死に送り出しています。それはおそらく短期的および長期的な害を引き起こすでしょう。残念ながら、攻撃的な反乱軍の船があなたに向かって飛んでいます。反乱軍が攻撃を開始する前に、状況に対処するのに短い時間しかありません！</text>
+    <text>戦闘の残骸が散乱するビーコン。近くの惑星の地表では、現在軌道から外れて落下中の大破した防衛衛星について、必死に救難信号を発信している。この衛星は短期的にも長期的にも被害をもたらすだろう。不運なことに、攻撃的な反乱軍の船があなたに向かって飛んできている。反乱軍が攻撃を開始するまでの短い時間しかない！</text>
     <img planet="PLANET_POPULATED" />
     <choice req="engines" lvl="6">
-		<text>（Adv。Engines）衛星をすばやく軌道に戻します。</text>
+		<text>(アドバンス・エンジン）衛星を素早く軌道に曳航する。</text>
 		<event>
-			<text>船の強力なエンジンを使用して、船を衛星に取り付けて軌道に戻します。反乱軍はあなたが終わると同じように到着します。</text>
+			<text>船の強力なエンジンを使って衛星に船を取り付け、軌道に戻す。そして、衛星を軌道に乗せる。</text>
 			<ship load="SHIP_REBEL_NODE17_SATELLITE_SAVED" hostile="true" />
 			<choice>
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
     </choice>
     <choice req="cloaking" lvl="3">
-		<text>（adv。cloaking）衛星をけん引しながら船を覆います。</text>
+		<text>(アドバンスクローキング)衛星を曳航する際に船を遮蔽する。</text>
 		<event>
-			<text>船舶の腐敗した軌道を修正するのに十分な時間を自分で購入するために船を覆い隠します。ただし、マントが消えると、反乱軍はすぐに攻撃します。</text>
+			<text>衛星の軌道を修正するのに十分な時間を稼ぐため、あなたは船を遮蔽する。しかし、遮蔽が切れると、反乱軍はすぐに攻撃を仕掛けてくる。</text>
 			<ship load="SHIP_REBEL_NODE17_SATELLITE_SAVED" hostile="true" />
 			<choice>
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
     </choice>
     <choice req="COMBAT_PILOT_JAMMER">
-		<text>（パイロットジャマー）新たな反乱軍のパイロットをオフにして、衛星を牽引するのに十分な時間を自分で購入します。</text>
+		<text>(パイロットジャマー）衛星を曳航する時間を稼ぐために、向かってくる反乱軍の操縦をオフにする。</text>
 		<event>
-			<text>反乱軍の船は、船が制御を失うと漂流し始めます。これにより、戦いが始まる前に衛星の軌道を修正する時間が与えられます！</text>
+			<text>反乱軍の船がコントロールを失い、漂流し始める。そのため、戦闘が始まる前に衛星の軌道を修正する時間ができる！</text>
 			<ship load="SHIP_REBEL_NODE17_SATELLITE_SAVED" hostile="true" />
 			<choice>
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
     </choice>
     <choice req="COMBAT_ENGINE_JAMMER">
-		<text>（エンジンジャマー）入ってくる反乱軍のエンジンをジャムして、衛星を牽引するのに十分な時間を自分で購入します。</text>
+		<text>(エンジン・ジャマー）向かってくる反乱軍のエンジンを妨害し、衛星を牽引する時間を稼ぐ。</text>
 		<event>
-			<text>反乱軍は、エンジンがゆるんでいるときにスパッタを船します。これにより、戦いが始まる前に衛星の軌道を修正する時間が与えられます！</text>
+			<text>反乱軍の船はエンジンが停止している。これで戦闘が始まる前に衛星の軌道を修正する時間ができた！</text>
 			<ship load="SHIP_REBEL_NODE17_SATELLITE_SAVED" hostile="true" />
 			<choice>
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
     </choice>
 	<choice>
-		<text>衛星を元に戻してください。</text>
+		<text>衛星を所定の位置に戻そうとする。</text>
 		<event>
-			<text>衛星の軌道を修正する時間がありません。あなたが進歩する前に反乱軍の船が到着します。</text>
+			<text>衛星の軌道を修正する時間がない。前進する前に反乱軍の船が到着する。</text>
 			<ship load="SHIP_REBEL_NODE17_SATELLITE_UNSAVED" hostile="true" />
 			<choice>
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
     </choice>
 </event>
 <event name="NODE17_SATELLITE_SAVED">
-    <text>衛星軌道が適切に修正された状態で、惑星は感謝の気持ちを表現します。あなたはブートするために多量のスクラップと武器を与えられます！</text>
+    <text>衛星軌道が正しく修正され、惑星は感謝の意を表す。大量のスクラップと武器が与えられる！</text>
     <autoReward level="HIGH">weapon</autoReward>
 </event>
 
 <event name="DISTRESS_NODE17_FLAMINGFED" unique="true">
 	<distressBeacon />
-	<text>このビーコンの遭難信号は近くの組合給油ステーションから来ていますが、自分でステーションを呼び起こす前に、あなたは乗船している連邦官からあられを受け取ります。</text>
+	<text>このビーコンの遭難信号は、近くにある連邦の給油ステーションから発信されているが、自分でステーションに呼びかける前に、船内にいる連邦の士官から呼びかけを受ける。</text>
 	<choice>
-		<text>応答。</text>
+		<text>対応する。</text>
 		<event>
-			<text>「誰かが時間内に到着したことを神に感謝します。私たちの船はクラスMドワーフスターの近くで大きな損傷を負いました。私たちはこの駅にテレポートすることができましたが、炎を通してエンジンコントロールに到達することはできませんでした...そして私たちの今は空いている船は駅との衝突コースで。私たちを助けてください。私たち全員を助けてください。」</text>
+			<text>「間に合ってよかった。我々の船はM級矮星の近くで大きなダメージを受けた。なんとかこのステーションにテレポートしたが、炎の中でエンジンコントロールにたどり着くことができなかった...そして今、我々の空っぽの船はステーションとの衝突コース上にある。どうか助けてください。私たち全員を助けてください。"</text>
 			<choice>
-				<text>船を攻撃します。</text>
+				<text>船を攻撃しろ。</text>
 				<event>
-					<text>制御不能な船を傍受するために移動します。</text>
+					<text>制御不能になった船を迎撃するために移動する。</text>
 					<ship load="SHIP_FED_CRASHING" hostile="true" />
 					<enemyDamage amount="0" system="pilot" effect="fire" damageHull="false" />
 					<enemyDamage amount="0" system="engines" effect="fire" damageHull="false" />
@@ -1966,69 +1964,69 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 					<triggeredEvent event="SHIP_CRASH_INTO_STATION" time="30" thisFight="true" clearOnJump="true">
 						<triggeredEventBox load="DEFAULT_TIMER" pos="combat">
 							<warning time="15.0" flash="true" />
-							<tooltip>ステーションの近接アラームは、通信中に鳴り始めます - この船を止めるつもりなら、あなたは速く働かなければなりません！</tooltip>
+							<tooltip>ステーションの近接アラームが鳴り響き始める！</tooltip>
 						</triggeredEventBox>
 						<timerSounds load="DEFAULT_TIMER_SOUNDS" />
 					</triggeredEvent> 
 					<choice>
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="false" req="DRONE_CONTROL_SYSTEM_CREW">
-				<text>（マニングドローン）船をリモートで操縦しようとします。</text>
+				<text>(マニング・ドローン）遠隔操縦を試みる。</text>
 				<event>
-					<text>ドローンを連邦船に向けて送り、コックピットに向けます。火災は、ドローンがコントロールに到達する前に溶かすと脅しますが、衝撃の前に船を駅から遠ざけることができます。</text>
+					<text>ドローンを連邦船に向け、コックピットへ向ける。火はドローンを溶かしかねない勢いだが、衝突前にステーションから離脱させることに成功した。</text>
 					<item_modify>
 						<item type="drones" min="-1" max="-1" />
 					</item_modify>
 					<choice hidden="true">
-						<text>ステーションに連絡してください。</text>
+						<text>同局に問い合わせる。</text>
 						<event>
-							<text>駅の所有者は、あなたが戻ってくるときにあなたのailを返します。「駅に乗ったあなたのカウンターパートは、あなたが私たちのためにしたことを私に説明してくれました。どうぞ、私たちは大きな駅ではありませんが、あなたが必要とするものは何でも助けてください。到着した。"</text>
+							<text>あなたが戻ると、ステーションのオーナーが応対する。「ステーションのカウンターパートが、あなたがしてくれたことを説明してくれた。どうか、我々は大きなステーションではないが、必要なものは何でもご自由に。あなたが来てくれなかったら、私たちは誰もまだここでこうして会話していなかったでしょう。"</text>
 							<autoReward level="MED">standard</autoReward>
 						</event>
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="false" req="hacking" lvl="2">
-				<text>（Upg。Hacking）船の停止を強制します。</text>
+				<text>(ハッキング）船を強制的に停止させる。</text>
 				<event>
-					<text>連邦船に向かってハッキングプローブを起動すると、船舶コンピューターはすぐにコースの軌跡の変更を登録します。満足して、あなたはユニオンステーションに戻り、問題が解決されたことを彼らに知らせます。</text>
+					<text>連邦の船に向かってハッキング・プローブを発射すると、船のコンピュータがすぐにコースの軌道変更を記録する。満足したあなたは連邦ステーションに戻り、問題が解決したことを伝える。</text>
 					<item_modify>
 						<item type="drones" min="-1" max="-1" />
 					</item_modify>
 					<choice hidden="true">
-						<text>ステーションに連絡してください。</text>
+						<text>同局に問い合わせる。</text>
 						<event>
-							<text>駅の所有者は、あなたが戻ってくるときにあなたのailを返します。「駅に乗ったあなたのカウンターパートは、あなたが私たちのためにしたことを私に説明してくれました。どうぞ、私たちは大きな駅ではありませんが、あなたが必要とするものは何でも助けてください。到着した。"</text>
+							<text>あなたが戻ると、ステーションのオーナーが応対する。「ステーションのカウンターパートが、あなたがしてくれたことを説明してくれた。どうか、我々は大きなステーションではないが、必要なものは何でもご自由に。あなたが来てくれなかったら、私たちは誰もまだここでこうして会話していなかったでしょう。"</text>
 							<autoReward level="MED">standard</autoReward>
 						</event>
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" req="BLUELIST_ARMOR">
-				<text>（ロックメッキ）邪魔にならないように船を襲います。</text>
+				<text>(ロック・メッキ) ラムで船をどけろ。</text>
 				<event>
-					<text>船体が制御不能な連邦船に影響を与えると、損傷した船の構造が衝突の純粋な力の下で屈すると脅していることがわかります。ただし、船のコンピューターはすぐに船舶の修正された飛行経路を示し、駅に戻って報酬を集めます。</text>
+					<text>船体が制御不能に陥った連邦船に衝突すると、破損した船の構造が衝突の衝撃でたわみそうになるのが見える。しかし、コンピュータはすぐに船の飛行経路を修正し、ステーションに戻って報酬を受け取る。</text>
 					<autoReward level="MED">standard</autoReward>
 				</event>
 			</choice>
 			<choice>
-				<text>離れる。</text>
+				<text>出て行け。</text>
 				<event>
-					<text>FTLドライブをスプールアップすると、遠くに近づいている連邦船に焦点を合わせないようにします。フラッグシップを止めない場合、これは問題ではありません。</text>
+					<text>FTLドライブを回転させながら、遠くから急接近してくる連邦の船に集中しないようにする。フラッグシップを止めなければ、どうにもならない。</text>
 				</event>
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>彼らのを無視してください。</text>
+		<text>彼らのあられもない姿は無視する。</text>
 		<event>
-			<text>この苦痛の呼びかけが何であれ、反政府勢力が戦いに勝つかどうかは関係ありません。飛び去る準備をすると、別の連邦船が遠くに近づいているのを見ることができます - うまくいけば、彼らは問題を解決できるでしょう。</text>
+			<text>この救難信号が何であれ、反乱軍が戦闘に勝てば問題にはならない。ジャンプの準備をしていると、遠くに連邦の別の船が近づいてくるのが見える。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -2043,7 +2041,7 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 	<enemyDamage amount="0" system="0" effect="fire" damageHull="false" />
 </event>
 <event name="SHIP_CRASH_INTO_STATION">
-	<text>連盟の船が駅に向かって走ると、あなたとあなたの乗組員はそれを止めるのに無力です。衝突からの断片は、2つのコンストラクトが衝撃時に金属霧に変わります。</text>
+	<text>連邦の船がステーションに向かって突進する中、あなたとクルーはそれを止めることができなかった。衝突の破片が船体を破砕し、2つの構造物は衝突と同時に金属の霧と化した。</text>
 	<damage amount="2" system="random" effect="breach" damageHull="true" />
 	<damage amount="2" system="random" effect="breach" damageHull="true" />
 	<damage amount="2" system="random" effect="breach" damageHull="true" />
@@ -2067,14 +2065,14 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 </eventList>
 
 <event name="NODE17_SPECTATOR" unique="true">
-	<text>スラッグの船がこのビーコンにいます。彼らの船長は、異星人バージョンのポップコーンを食べているようです。 「ああ、みんなが探していたsssshipでなければ、ここであなたにsssseeするかどうか疑問に思いました。これは本当にsssssuchの興味深い体験です。ここでプレイする役割はありませんが、ssssometimesssだけでしたい良いssshowを見てくださいね」</text>
+	<text>スラッグ船がこのビーコンにいる。船長はエイリアンのポップコーンを食べているようだ。"ああ、もしみんなが探していた船じゃなかったら。ここで会うとは思わなかったよ。実に興味深い体験だ。私たちは何の役にも立たないけど、いいショーを見たくなるときってあるでしょ？</text>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>「すごい！-」スラッグは、通りかかった反乱軍の船によって切断されました。ショットがスラッグの船体を突き刺し、反乱軍があなたをロックします。</text>
+			<text>「スラッグは反乱軍の艦船に遮られる。一発の銃弾がスラッグの船体を貫き、反乱軍はあなたをロックオンする。</text>
 			<ship load="SHIP_REBEL_SLUG_SPECTATOR" hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
@@ -2082,11 +2080,11 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 </event>
 <eventList name="NODE17_SPECTATOR_WIN">
 	<event>
-		<text>スラッグの船長はまだ生きているようですが、彼の船とクルーはかろうじて一緒にいます。スラッグは彼の船の差し迫った破壊に慌てているようには見えません。 「ハァッ！あなたはその反乱軍が何のためにあるのかを示した。それは私がエンターテインメントと呼んでいるものだ。しかし、私のssshipは長くは続かないだろうし、私のクルーは運命づけられている。最後までssspectacle。」</text>
-		<crewMember amount="1" class="slug_saboteur">リゲル</crewMember> 
+		<text>スラッグの船長はまだ生きているようだが、彼の船とクルーはかろうじて持ちこたえている。スラッグは船が破壊されても動じない様子だ。"反乱軍 "に見せ付けたんだ。これぞエンターテイメントだ。私の船は長くはもたないし、乗組員も絶望的だ。おそらく、私はお前と一緒にいる。だから、このスペクタクルを最後まで見ることができる。"</text>
+		<crewMember amount="1" class="slug_saboteur">ライジェル</crewMember> 
 	</event>
 	<event>
-		<text>スラッグはどれも生き残っていないようです。がっかりして、あなたは彼らの船から残っているものを取ります。</text>
+		<text>スラッグたちは誰も生き残っていないようだ。失望したあなたは、彼らの船から残骸を持ち去った。</text>
 		<autoReward level="MED">standard</autoReward>
 	</event>
 </eventList>
@@ -2105,18 +2103,18 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 	<text load="TEXT_NODE17_ENCOUNTER_REBEL" />
 	<ship load="SHIP_REBEL_NODE17" hostile="true" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <textList name="TEXT_NODE17_ENCOUNTER_REBEL">
-    <text>反乱軍の船があなたの後を飛び越え、到着するとすぐに武器を暖めます。「レネゲード！あなたは艦隊をあまりにも長く回避しました！あなたはここで死ぬ！」</text>
-    <text>「それで、艦隊は再交渉をさせたのですか？どれほど迷惑です。私が生きている限り、あなたは決して旗艦に行くことはありません！」反乱軍は戦いに変わります。</text>
-    <text>反乱軍の船は、あなたがこのビーコンに到着するときにあなたを傍受するために動きます。今はためらうことはありません。戦いは避けられません。</text>
-    <text>反乱軍はあなたと向き合うために戦いから離れます。「別の連携した船...？この戦争は終わるのでしょうか？」このすべての黙想を通してさえ、彼らはあなたと戦うことを意図しています。</text>
-    <text>反乱軍はあなたを歓迎します、彼の顔に狂った表情。「なぜあなたは続くのですか？反乱が成功する運命にあるとは思えませんか？」彼は自信を持って武器システムを準備しています。</text>
-    <text>このセクターでは戦争が終わりません。反乱軍はこのビーコンであなたを待っています、そして、彼らはあなたを破壊することを意図しています！</text>
-    <text>「あきらめて！あなたのintingid連合が落ちようとしている！あなたも今、私たちの慈悲に身を投げて自分を投げかけるかもしれない！」</text>
+    <text>反乱軍の船があなたを追ってジャンプし、到着するやいなや武器を温める。「レネゲイド！お前は長い間、艦隊から逃れてきた！今ここで死ね！"</text>
+    <text>「艦隊がレネゲイドを通したのか？迷惑な話だ。俺が生きている限り、フラッグシップにはたどり着けないぞ！"反乱軍が戦いに転じる。</text>
+    <text>このビーコンに到着すると、反乱軍の船が迎撃に動く。もうためらうことはない、戦いは避けられない。</text>
+    <text>反乱軍が戦闘から離れ、あなたに向かってきた。「また連邦軍の船か？この戦争は終わるのか？"そんなことを考えながらも、彼らはあなたと戦おうとしている。</text>
+    <text>反乱軍が狂ったような表情で声をかけてくる。「なぜ固執する？反乱軍が成功する運命にあるのがわからないのか？"彼は自信たっぷりに武器システムを構える。</text>
+    <text>このセクターでは戦火が絶えない。このビーコンで反乱軍が待ち構えており、あなたを滅ぼそうとしている！</text>
+    <text>「あきらめろ！お前たちのような弱腰の連盟はもうすぐ崩壊する！今すぐ降伏し、我々の慈悲に身を委ねるがいい！"</text>
 </textList>
 
 <event name="NODE17_ENCOUNTER_MV">
@@ -2125,17 +2123,17 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 	<text load="TEXT_NODE17_ENCOUNTER_MV" />
 	<ship load="SHIP_REBEL_MV_FIGHT" hostile="true" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <textList name="TEXT_NODE17_ENCOUNTER_MV">
-    <text>MV反乱軍は、このビーコンで連邦船を終えています。あなたが到着した瞬間、彼らは代わりにあなたの船に注意をシフトします！</text>
-    <text>「この時間と努力はこの「詩...なんて無駄だ！ここで終わる！」反乱軍は、コミュニケーションを閉鎖した後にあなたを攻撃します。</text>
-    <text>反乱軍はあなたと同時に到着します。「この宇宙は反乱軍の勝利を達成します！私はあなたに干渉させません！」彼らは戦いの準備をしています！</text>
-    <text>ここでは、あなただけが多額の好戦的ではありません - 別の宇宙からの反逆者が、このビーコンを連邦船から守っています！</text>
-    <text>このセクターでさえ、多党の反政府勢力はあなたに続きます。彼らはあなたを攻撃するために無言で準備します！</text>
-    <text>「別の宇宙は反乱軍に落ちます！私たちの勝利の時間は手元にあります！」彼らはオープニング攻撃を準備しています！</text>
+    <text>MV反乱軍がこのビーコンで連邦船を仕留めている。あなたが到着した瞬間、彼らはあなたの船に注意を移します！</text>
+    <text>「せっかく時間と労力をかけてこのヴァースに来たのに......。もったいない！ここで終わりだ！"反乱軍は通信を切った後、あなたを攻撃する。</text>
+    <text>あなたと同時に反乱軍が到着。「この宇宙は反乱軍の勝利となる！邪魔はさせない！"彼らは戦いの準備をしている！</text>
+    <text>多宇宙の好戦者はあなただけではない。別の宇宙から来た反乱軍が、連邦の船からこのビーコンを守っている！</text>
+    <text>このセクターでも、マルチバーサルの反乱軍があなたを追ってくる。彼らは言葉もなく、あなたを攻撃する準備をしている！</text>
+    <text>"別の宇宙が反乱軍に落ちるだろう！勝利の時は近い！"攻撃を準備している</text>
 </textList>
 
 <ship name="SHIP_AUTO_NODE17" auto_blueprint="LIST_SHIPS_ESTATE_AUTO"> 
@@ -2147,25 +2145,25 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 	<text load="TEXT_NODE17_ENCOUNTER_AUTO" />
 	<ship load="SHIP_AUTO_NODE17" hostile="true" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <textList name="TEXT_NODE17_ENCOUNTER_AUTO">
-	<text>反乱は今パンチを引いていないようです - ウェントワースイノベーションの真新しい自動車モデルがエンジニア艦隊から展開され、エンゲージメントの大部分が遠くに続きます。</text>
-	<text>あなたは最初は確信がありませんが、あなたの目はあなたを欺いていません。高度な高度なオートシップが船にロックされており、その完全な武器を発射しています！</text>
-	<text>ウェントワースの革新は、ここでの反乱の努力に向けて得たものすべてを与えているようです。イノベーション船は、検出されるとすぐに艦隊から遠くに配備されます。</text>
-	<text>「品質保証モードのアクティブ化。ブートアッププロトコルを実行します。戦闘テストが関与しています。戦闘評価や診断を中断しないでください。」この自動船は真新しいようです - そのため、その最初のテストはあなたに反対しています！</text>
-	<text>反乱軍の自動船があなたを通り過ぎて、あなたの船体とほとんど衝突し、停止して戻ってあなたを引き付けます。あなたは目に見えて、以前のターゲットよりも優先度が高いです！</text>
+	<text>ウェントワース・イノベーションズの新型オートモデルがエンジニア艦隊から配備され、遠方で交戦が行われている間、あなたの相手をしてくれる。</text>
+	<text>最初は確信が持てなかったが、その目は間違っていなかった。高度に発達したオートシップがあなたの船をロックオンし、全弾を発射しているのだ！</text>
+	<text>ウェントワース・イノベーションズは、反乱軍に全力を尽くしているようだ。あなたが発見されるやいなや、遠くの艦隊からイノベーションの船が配備されます。</text>
+	<text>「品質保証モードの起動"起動プロトコルを実行"戦闘テスト開始"戦闘評価と診断を中断しないで下さい"このオートシップは新しいようだ - 最初のテストは君に対してだ</text>
+	<text>反乱軍のオートシップがあなたの横を通り過ぎ、あなたの船体に衝突しそうになりました。先ほどの標的より、明らかに優先順位が高い！</text>
 </textList>
 
 <event name="NODE17_ENCOUNTER_PIRATE" unique="true">
 	<customFleet right="true" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
 	<customFleet right="false" firing="false" autoDarkening="false">CUSTOM_FLEET_FED</customFleet>
-	<text>海賊船があなたに向かって気を配っています。 「神はそれを酷評し、神はそれを酷評し、神はそれを酷評します！私たちはこの血なまぐさいセクターから逃げる必要があります！私たちの邪魔にならないでください！」</text> 
+	<text>海賊船が向かってくる。「ちくしょう、ちくしょう、ちくしょう！この血まみれのセクターから逃げるんだ！邪魔だ！"</text> 
 	<ship load="SHIP_PIRATE_ALL" hostile="true" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
@@ -2173,54 +2171,54 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 <event name="NODE17_ENCOUNTER_ENGINEER" unique="true">
 	<customFleet right="true" firing="true" autoDarkening="false">CUSTOM_FLEET_ENGINEER</customFleet>
 	<customFleet right="false" firing="false" autoDarkening="false">CUSTOM_FLEET_FED</customFleet>
-	<text>反乱軍のエンジニア艦隊は、大胆な直接的な行動の瞬間を奪い、近くの連邦艦隊に従事しました！おそらく必要ではありませんが、エンジニアの船はあなたを扱うために壊れます。</text>
+	<text>反乱軍エンジニア艦隊が大胆な直接行動をとり、近くの連邦艦隊と交戦した！必要に迫られたのだろうが、1隻のエンジニア船が離脱し、君たちを処理する。</text>
 	<ship load="SHIP_ENGINEER" hostile="true" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 
 <event name="NODE17_ENCOUNTER_REBEL_STATION" unique="true">
 	<customFleet right="true" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
-	<text>残念ながら、反政府勢力はこのビーコンを制御しているようです！急いで反乱軍の前post基地があなたを守るために守る準備ができています。</text>
+	<text>残念なことに、反乱軍がこのビーコンを掌握しているようだ！急ごしらえの反乱軍の前哨基地が防衛態勢を整えている。</text>
 	<ship load="SHIP_REBEL_STATION" hostile="true" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 
 
 <event name="NODE17_PANDORAS_BOX" unique="true">
-	<text>非常に奇妙な色の海賊船がすでにここにあります。彼らはあなたを歓迎します。 「私たちは箱の番人です。本当に価値のある人だけが箱の力を行使することができます。」</text>
+	<text>とても奇妙な色の海賊船がすでに来ている。彼らはあなたを呼んでいる。"我々は箱の番人だ。真にふさわしい者だけが、箱の力を振るうことができる。"</text>
 	<ship load="SHIP_PANDORAS_BOX" hostile="false" />
 	<choice hidden="true">
-		<text>私たちは価値がありますか？</text>
+		<text>私たちはふさわしいのか？</text>
 		<event>
-			<text>海賊は画面に近づき、1、2分の間あなたの目を深く見つめます。 「ええ、確かに、なぜ地獄ではないのですか。楽しんでください。」</text>
+			<text>海賊はスクリーンに近づき、1、2分あなたの目をじっと見つめた。「ああ、そうだな。楽しめよ"</text>
 			<choice>
-				<text>後で使用するために拡張機能を救出します。</text>
+				<text>後で使うためにオーグメントを保管する。</text>
 				<event>
 					<augment name="PANDORA_BOX" />
 				</event>
 			</choice>
 			<choice hidden="true" blue="false" req="LIST_CHECK_ANY_CREW" lvl="1">
-				<text>今すぐ開いてください！</text>
+				<text>今すぐ開けろ</text>
 				<event load="STORAGE_CHECK_AUG_PANDORA_OPEN" />
 			</choice>
 			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0">
-				<text>「警告: 未知の異常なアーティファクトが検出されました。[検疫] が予定されています。」</text>
+				<text>"警告：未知の異常アーティファクトが検出されました。QUARANTINE]を予定。</text>
 				<event load="OPTION_INVALID" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>ええと、わかりました...</text>
+		<text>あー、わかった...。</text>
 		<event>
-			<text>海賊はそれ以上何も言わない。あなたはそれらを見ることができなくなるまで飛び去ります。</text>
+			<text>海賊はそれ以上何も言わない。あなたは彼らが見えなくなるまで飛び去る。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -2234,34 +2232,34 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 
 
 <event name="NODE17_REPAIR_STATION">  
-	<text>近くの修理ステーション信号に気づき、システムに飛び込みます。</text>
+	<text>あなたはシステムに飛び込み、近くにある修理ステーションのシグナルに気づいた。</text>
 	<repair />
 	<choice hidden="true" blue="false" req="challenge_level" lvl="0" max_group="1">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="NODE17_REPAIR_STATION_NORMAL" />
 	</choice>
 	<choice hidden="true" blue="false" req="challenge_level" lvl="1" max_group="1">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="NODE17_REPAIR_STATION_NORMAL" />
 	</choice>
 	<choice hidden="true" blue="false" req="challenge_level" lvl="2" max_group="1">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>まるで反乱軍のエリートが修理ステーションで発砲しているように見えます！支援を受ける前に、まずこれらの人を片付ける必要があります。</text>
+			<text>反乱軍のエリートが修理ステーションに発砲しているようだ！支援を受ける前に、まずこいつらを一掃する必要がある。</text>
 			<ship load="SHIP_LAST_STAND_REPAIR_ELITE" hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true" blue="false" req="challenge_level" lvl="3" max_group="1">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>MFKエースが修理ステーションで発砲しているように見えます！支援を受ける前に、まずこれらの人を片付ける必要があります。</text>
+			<text>MFKエースが修理ステーションに発砲しているようだ！まずはこいつらを一掃しないと、支援は得られない。</text>
 			<ship load="SHIP_LAST_STAND_REPAIR_ACE" hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
@@ -2284,7 +2282,7 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 	</crew>
 </ship>
 <event name="BOSS_REPAIR_STATION_FIGHT">
-	<text>幸いなことに、反乱軍が邪魔にならないので、ステーションにアクセスできます。彼らは殴られていますが、それでもあなたが必要なものをあなたに供給することができます。</text>
+	<text>幸いなことに、反乱軍が去ったことで、ステーションにアクセスできるようになった。彼らはボロボロだが、それでも必要なものを供給してくれる。</text>
 	<damage amount="-7" />
 	<item_modify>
 		<item type="missiles" min="2" max="2" />
@@ -2293,7 +2291,7 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 		<item type="scrap" min="15" max="30" />
 	</item_modify>
 	<choice>
-		<text>船に乗って何かする。</text>
+		<text>船内で何かをする。</text>
 		<event load="STORAGE_CHECK" />
 	</choice>
 	<choice>
@@ -2311,7 +2309,7 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 		<item type="scrap" min="22" max="44" />
 	</item_modify>
 	<choice>
-		<text>船に乗って何かする。</text>
+		<text>船内で何かをする。</text>
 		<event load="STORAGE_CHECK" />
 	</choice>
 	<choice>
@@ -2320,10 +2318,10 @@ Rebelの脅威レベル：！批判的に高い！反乱による包囲の下で
 	</choice>
 </event>
 <textList name="NODE17_REPAIR_STATION">
-	<text>このビーコンに駐留しているモバイル船建設プラットフォームがあります。短い交換の後、彼らはあなたに緊急修理や軍事供給を受け取るためのクリアランスを与えます。</text>
-	<text>エンギの民間造船所は、軍の給油所に改造されました。彼らはあなたにあなたの船にパッチを当てていくつかの物資をリフレッシュする機会を提供します。</text>
-	<text>コミュニケーションに関するおしゃべりは、近くの連邦基地に修理ステーションが装備されていることを示唆しています。あなたがあなたの任務の優先順位を転送するとき、彼らはあなたの船を修理してあなたにいくつかの物資を与えるのをすぐに助けます。</text>
-	<text>前方建設ステーションは、損傷した軍艦を修理中です。あなたのコマンドコードは彼らにあなたの船でクイックパッチジョブをするように説得します。</text>
-	<text>近くにトレードステーションが放棄されました。一部の連邦エンジニアは、造船所を再利用して軍の修理を行いました。彼らはあなたの船を修理するのを手伝うことを申し出ます。</text>
+	<text>このビーコンには移動式艦船建造プラットフォームが駐留している。簡単なやりとりの後、彼らは緊急修理と軍事物資を受け取る許可をくれる。</text>
+	<text>エンギの民間造船所が軍の給油ステーションに改造された。船を修理し、物資を補給するチャンスだ。</text>
+	<text>通信機によると、近くの連邦基地には修理ステーションがあるようだ。任務の優先順位を伝えると、彼らはすぐに船を修理し、物資をくれる。</text>
+	<text>前方の建設ステーションは損傷した軍艦の修理中である。あなたのコマンドコードで、あなたの船を手早く修理するよう説得してください。</text>
+	<text>近くには貿易ステーションが放置されていた。連邦のエンジニアが、軍の修理のために造船所を再利用している。彼らはあなたの船の修理を手伝うと言っている。</text>
 </textList>
 </FTL>

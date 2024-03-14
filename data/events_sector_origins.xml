@@ -3,106 +3,106 @@
 
 	
 <event name="START_ORIGINS">
-	<text>元の Crystal Homeworlds に到着し、すでに観光客と「開拓者」の残忍な侵略の余波を見ることができます。結晶構造の骨格が惑星の表面に点在しており、その進入ビーコンは非常に接近しています...</text>
+	<text>クリスタル・ホームワールドに到着したあなたは、すでに観光客や "開拓者 "たちの残忍な侵略の余波を目の当たりにしている。惑星表面にはクリスタル建造物の骸骨が点在し、入口のビーコンが間近に迫っている。</text>
 	<ship load="SHIP_GUARD_CULTIST" hostile="false" />
 	<changeBackground>BACK_SECTOR_CRYSTAL_HOME</changeBackground>
 	<playSound>lightspeed</playSound>
 	<choice hidden="true" req="loc_crystalhome" lvl="0" blue="false" max_group="0">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="GUARD_CULTIST" />
 	</choice>
 	<choice hidden="true" req="loc_crystalhome" lvl="1" blue="false" max_group="0">
-		<text>私たちは前にここにいました...</text>
+		<text>前にも来たことがある...。</text>
 		<event load="GUARD_CULTIST_REVISIT" />
 	</choice>
 </event>
 
 	
 <event name="START_ORIGINS_RUWEN">
-	<text>あなたは元のCrystalHomeworldsに到着しました、そしてすでにあなたは観光客と「開拓者」の残忍な侵入の余波を見ることができます。クリスタル構造の骨格は、侵入ビーコンが懸念される惑星の表面に点在しています...
+	<text>クリスタル・ホームワールドに到着したあなたは、すでに観光客や "開拓者 "たちの残忍な侵略の余波を目の当たりにしている。惑星の表面にはクリスタルの建造物の骨格が点在しており、入口のビーコンが間近に迫っています...
 
-開発者からのメモ：
-このセクター/クエストラインは過渡期にあります。特定の要素/ダイアログは意味をなさない場合があります。後の（できればすぐに）アップデートでやり直されます。ただし、現在のクエストライン/ロック解除は、少なくとも当面は以前と同じように機能するはずです。</text>
+DEVS:
+このセクター／クエストラインは過渡期にあります。ある要素／対話は意味をなさないかもしれません。後日（できれば近いうちに）アップデートでやり直す予定です。しかし、現在のクエストライン／アンロックは、少なくとも当分の間は以前のように機能するはずです。</text>
 	<ship load="SHIP_GUARD_CULTIST" hostile="false" />
 	<changeBackground>BACK_SECTOR_CRYSTAL_HOME</changeBackground>
 	<playSound>lightspeed</playSound>
 	<modifyPursuit amount="-2" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="START_ORIGINS_RUWEN_2" />
 	</choice>
 </event>
 
 <event name="START_ORIGINS_RUWEN_2"> 
-	<text>ルーウェンはあなたに状況を説明します。探しているアイテムは、古いウェイストーンをアクティブ化またはシャットダウンするために使用されるデバイスであるウェイストーンキーです。クリスタルは、構築している新しいウェイストーンをアクティブ化できるように、それを元に戻す必要があります。彼は座標をあなたの船に転送します。</text>
+	<text>ルウェンが状況を説明する。あなたが探しているのは "ウェイストーンの鍵"。クリスタルたちが建設中の新しいウェイストーンを作動させるために、これを取り戻す必要がある。彼はあなたの船に座標を転送する。</text>
 	<quest event="CULTIST_CHURCH_RUWEN" />
 	<choice hidden="true" req="loc_crystalhome" lvl="0" blue="false" max_group="0">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="GUARD_CULTIST" />
 	</choice>
 	<choice hidden="true" req="loc_crystalhome" lvl="1" blue="false" max_group="0">
-		<text>私たちは前にここにいました...</text>
+		<text>前にも来たことがある...。</text>
 		<event load="GUARD_CULTIST_REVISIT" />
 	</choice>
 </event>
 
 	
 <event name="GUARD_CULTIST">
-	<text>クリスタルラインと堂々としたゴールドカラーの奇妙な船がビーコンを守っています。それは...ロックデザインのようですか？このような船は今まで見たことがありません...</text>
+	<text>水晶色と金色の奇妙な船がビーコンを守っている。どうやら...ロック・デザインのようだが？こんな船、見たことないだろう？</text>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>船が近づくと、船体に燃えているクリスタルのロゴがわかります。フードと袖に金色のデカールが並ぶスタイリッシュな青いローブで飾られたたくましいロックマンから連絡を受け取ります。彼の顔は、彼の領土で別の船を見るのを喜ばない男の眉をひそめています。</text>
+			<text>船体が燃え盛るクリスタルのロゴを確認できるほど、船は近づいてくる。フードや袖に金色のステッカーが貼られたスタイリッシュな青いローブを身にまとった屈強なロックマンから呼びかけを受ける。彼の顔には、自分のテリトリーに他の船が入ってきたことを快く思っていない男のしかめ面が浮かんでいる。</text>
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>「あなた！部外者？あなたは富のために来ましたか？名声？ここパラダイスでの素敵なリラックスした休暇？まあ迷子になります、あなたはそのどれも得られません！このセクターは今永遠の炎のカルトに属しています！あなたはあなたが残り火の印を付けない限り、ここで歓迎しないでください！」</text>
+					<text>「よそ者か？金持ちになりに来たのか？名声か？楽園でのんびりバカンス？失せろ、そんなものは手に入らない！この区域は今、永遠の炎のカルトのものだ！琥珀の印がない限り、お前たちは歓迎されない！"</text>
 					<choice hidden="true">
-						<text>WHO？</text>
+						<text>誰？</text>
 						<event>
-							<text>教団は不平を言う。 「気にしないでください、あなたは長く生きることはありません。」</text>
+							<text>教団員は不平を言う。"気にするな、長くは生きられないだろう"</text>
 							<ship hostile="true" />
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="COMBAT_CHECK" />
 							</choice>
 						</event>
 					</choice>
 					<choice hidden="true" req="unique_vortigon">
-						<text>（ヴォルティゴン）この船は、大祭司からここへの旅行を許可されています。</text>
+						<text>(ヴォーティゴン）この船はグランドプリーストの許可を得ています。</text>
 						<event>
-							<text>カルティストは一時停止し、すぐに謝罪します。ヴォルティゴンの怒りを恐れて、彼らはいくつかの物資を手渡し、許しを請う。</text>
+							<text>教団員たちは立ち止まり、すぐに謝罪する。ヴォーティゴンの怒りに怯えた彼らは、物資を渡して許しを請う。</text>
 							<autoReward level="HIGH">item</autoReward>
 						</event>
 					</choice>
 					<choice hidden="true" req="rock_cultist">
-						<text>（カルティストクルー）あなたの忠誠心の証拠を彼らに見せてください。</text>
+						<text>(カルチスト・クルー）忠誠の証を見せてやれ。</text>
 						<event>
-							<text>教団は大笑いします。 「ハァッ！お兄さん、お会いできてうれしいです。お元気ですか？お会いしてから久しぶりです。亡くなったと思います。こんなに長い間この分野を離れた人はほとんどいません...たぶん私はあなたと一緒に来て、あなたの旅の話を聞くことができるでしょう。」</text>
+							<text>教団員は大きく、心の底から笑った。「兄弟、会えて嬉しいよ。お元気でしたか？久しぶりだから、死んだかと思ったよ。長い間、このセクターを離れた者はほとんどいなかったから......君の旅の話を聞けるよう、私も一緒に行こうかな"</text>
 							<crewMember amount="1" class="rock_cultist">ハドリッチ</crewMember>
 						</event>
 					</choice>
 					<choice hidden="true" req="LIST_CREW_CRYSTAL">
-						<text>（クリスタルクルー）カルト信者との理由。</text>
+						<text>(クリスタル・クルー）カルト教団を説得する。</text>
 						<event>
-							<text>「ガスプ！エンバー、あなたはこのセクターが構築されたインフラストラクチャーを舗装した人の1人です！あなたはこの領土からの脱出に私たちに死すべき者を残したと思いました。 。」</text>
+							<text>"息をのむ！琥珀よ、お前はこの区域が建設された基盤そのものを切り開いた者の一人だ！私たち人間を置き去りにして、この領域から脱出したのかと思ったわ。ああ、天よ、どうかあなたの船に乗せてください」。</text>
 							<crewMember amount="1" class="rock_cultist">ハドリッチ</crewMember>
 						</event>
 					</choice>
 					<choice hidden="true" req="mind">
-						<text>（マインドコントロール）警備員にあなたを放っておくように説得します。</text>
+						<text>(マインド・コントロール）警備員にあなたを一人にするよう説得する。</text>
 						<event load="GUARD_MIND" />
 					</choice>
 					<choice hidden="true" req="cloaking">
-						<text>（クローク）クロークを着て脱出してみてください。</text>
+						<text>(遮蔽）遮蔽して逃げようとする。</text>
 						<event load="GUARD_CLOAK" />
 					</choice>
 					<choice hidden="true" req="engines" lvl="5">
-						<text>（Adv. エンジン）警備員から逃げ出してみてください。</text>
+						<text>(アドバンス・エンジン）ガードから逃れようとする。</text>
 						<event load="GUARD_ESCAPE" />
 					</choice>
 					<choice hidden="true" req="pilot" lvl="3">
-						<text>（Adv. Autopilot）自動操縦をアクティブにして脱出を試みます。</text>
+						<text>(アドバンス・オートパイロット）オートパイロットを作動させ、脱出を試みる。</text>
 						<event load="GUARD_ESCAPE" />
 					</choice>
 				</event>
@@ -111,57 +111,57 @@
 	</choice>
 </event>
 <event name="GUARD_CULTIST_REVISIT">
-	<text>前回の訪問から警備員を交代させたようですが、モデルは同じです。カルティストはあなたを歓迎し、前回と同様の独白を開始します。</text>
+	<text>前回訪問したときの警備員とは入れ替わったようだが、モデルは同じだ。カルト教団員はあなたに声をかけ、前回と同じような独白を始める。</text>
 	<choice>
-		<text>ええええええ、私たちはこれをすべて前に聞いたことがあります。</text>
+		<text>そうだ、そうだ、前にも聞いたことがある。</text>
 		<event>
-			<text>「あなたは……なに？そうすれば、ここを生きたままにしておきたいのなら、残り火の印を付ける必要があることをすでに知っているでしょう！」</text>
+			<text>"あなたは...何？それなら、生きてここを出たいなら、琥珀の印を持つ必要があることは、もうおわかりでしょう！"</text>
 			<choice hidden="true">
-				<text>いや、私たちはただ通り抜けるつもりです。</text>
+				<text>いや、ただ吹っ飛ばすだけさ。</text>
 				<event>
-					<text>あなたはカルティストの船をミュートして攻撃します。</text>
+					<text>あなたはカルト教団の船をミュートし、攻撃する。</text>
 					<ship hostile="true" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" req="unique_vortigon">
-				<text>（ヴォルティゴン）この船は、大祭司からここへの旅行を許可されています。</text>
+				<text>(ヴォーティゴン）この船はグランドプリーストの許可を得ています。</text>
 				<event>
-					<text>カルティストは一時停止し、すぐに謝罪します。ヴォルティゴンの怒りを恐れて、彼らはいくつかの物資を手渡し、許しを請う。</text>
+					<text>教団員たちは立ち止まり、すぐに謝罪する。ヴォーティゴンの怒りに怯えた彼らは、物資を渡して許しを請う。</text>
 					<autoReward level="HIGH">item</autoReward>
 				</event>
 			</choice>
 			<choice hidden="true" req="rock_cultist">
-				<text>（カルティストクルー）あなたの忠誠心の証拠を彼らに見せてください。</text>
+				<text>(カルチスト・クルー）忠誠の証を見せてやれ。</text>
 				<event>
-					<text>教団は大笑いします。 「ハァッ！お兄さん、お会いできてうれしいです。お元気ですか？お会いしてから久しぶりです。亡くなったと思います。こんなに長い間この分野を離れた人はほとんどいません...たぶん私はあなたと一緒に来て、あなたの旅の話を聞くことができるでしょう。」</text>
+					<text>教団員は大きく、心の底から笑った。「兄弟、会えて嬉しいよ。お元気でしたか？久しぶりだから、死んだかと思ったよ。長い間、このセクターを離れた者はほとんどいなかったから......君の旅の話を聞けるよう、私も一緒に行こうかな"</text>
 					<crewMember amount="1" class="rock_cultist">ハドリッチ</crewMember>
 				</event>
 			</choice>
 			<choice hidden="true" req="LIST_CREW_CRYSTAL">
-				<text>（クリスタルクルー）カルト信者との理由。</text>
+				<text>(クリスタル・クルー）カルト教団を説得する。</text>
 				<event>
-					<text>「ガスプ！エンバー、あなたはこのセクターが構築されたインフラストラクチャーを舗装した人の1人です！あなたはこの領土からの脱出に私たちに死すべき者を残したと思いました。 。」</text>
+					<text>"息をのむ！琥珀よ、お前はこの区域が建設された基盤そのものを切り開いた者の一人だ！私たち人間を置き去りにして、この領域から脱出したのかと思ったわ。ああ、天よ、どうかあなたの船に乗せてください」。</text>
 					<crewMember amount="1" class="rock_cultist">ハドリッチ</crewMember>
 				</event>
 			</choice>
 			<choice hidden="true" req="mind">
-				<text>（マインドコントロール）警備員にあなたを放っておくように説得します。</text>
+				<text>(マインド・コントロール）警備員にあなたを一人にするよう説得する。</text>
 				<event load="GUARD_MIND" />
 			</choice>
 			<choice hidden="true" req="cloaking">
-				<text>（クローク）クロークを着て脱出してみてください。</text>
+				<text>(遮蔽）遮蔽して逃げようとする。</text>
 				<event load="GUARD_CLOAK" />
 			</choice>
 			<choice hidden="true" req="engines" lvl="5">
-				<text>（Adv. エンジン）警備員から逃げ出してみてください。</text>
+				<text>(アドバンス・エンジン）ガードから逃れようとする。</text>
 				<event load="GUARD_ESCAPE" />
 			</choice>
 			<choice hidden="true" req="pilot" lvl="3">
-				<text>（Adv. Autopilot）自動操縦をアクティブにして脱出を試みます。</text>
+				<text>(アドバンス・オートパイロット）オートパイロットを作動させ、脱出を試みる。</text>
 				<event load="GUARD_ESCAPE" />
 			</choice>
 		</event>
@@ -175,30 +175,30 @@
 </ship>
 
 <event name="GUARD_CULTIST_BOARDERS">
-	<text>教団の警備員が飛び散るとき、あなたは彼らの船から来る遭難信号を検出します。ただし、惑星の表面にどれだけ近いかにより、ASBは表示されません。代わりに、何人かのカルト信者が船に乗り込みます！</text>
+	<text>カルト教団の警備隊が吃驚していると、彼らの船から救難信号が届いているのを察知する。しかし、惑星の地表に接近しているため、ASBは現れない。代わりに、数人の教団員が転送されてきた！</text>
 	<boarders min="2" max="3" class="rock_cultist" />
 </event>
 
 <event name="GUARD_CULTIST_DESTROY">
-	<text>カルティストガードは排除されましたが、このセクターにはまだまだたくさんのことがあると確信しています。</text>
+	<text>カルト教団の警備隊は一掃されたが、このセクターにはさらに多くの警備隊が控えているはずだ。</text>
 	<autoReward level="HIGH">standard</autoReward>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="GUARD_CULTIST_FOLLOWUP" />
 	</choice>
 </event>
 <event name="GUARD_CULTIST_DEADCREW">
-	<text>カルティストガードは排除されましたが、このセクターにはまだまだたくさんのことがあると確信しています。幸いなことに、彼らの貨物は戦いを生き延びたようです。</text>
+	<text>カルト教団の警備隊は排除されたが、このセクターにはまだ多くの警備隊がいるはずだ。幸いなことに、彼らの積荷は戦闘を生き延びたようだ。</text>
 	<autoReward level="HIGH">standard</autoReward>
 	<weapon name="GIFTLIST_CRYSTAL_ELITE" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="GUARD_CULTIST_FOLLOWUP" />
 	</choice>
 </event>
 <event name="GUARD_CULTIST_FOLLOWUP">
 	<noQuestText />
-	<text>気づかれずにセクターを通過する希望があった場合、あなたはそれを失敗させました。彼らは間違いなくあなたを追い詰めるために援軍を送るでしょう。</text>
+	<text>気づかれずにこのセクターを通過する望みがあったとしても、あなたはそれをしくじった。彼らは間違いなく増援部隊を送り込んでくるだろう。</text>
 	<quest event="REINFORCEMENTS_CULTIST" />
 </event>
 <event name="REINFORCEMENTS_CULTIST">
@@ -206,23 +206,23 @@
 	<beaconType id="map_icon_reinforcements" global="true" req="LOOT_COMPASS">
 		<color r="200" g="55" b="82" a="1" />
 		<unvisitedTooltip>未訪問の場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。興味のあるものは何も残っていません。</visitedTooltip>
+		<visitedTooltip>場所を探索。興味のあるものは何も残っていない。</visitedTooltip>
 		<undiscoveredTooltip>An unvisited location.</undiscoveredTooltip>
 	</beaconType>
-	<text>ご想像のとおり、カルティストの船は、武器を武装させ、船長を非常に不快にさせながら、死んだ警備員に復讐するために近づいています。</text>
+	<text>予想通り、死んだ警備員の仇を討つためにカルト教団の船が近づいてきた。</text>
 	<ship load="SHIP_CULTIST_REINFORCEMENTS" hostile="true" />
 	<environment type="PDS" target="player" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 
 <event name="FINISH_BEACON_ORIGINS">
-	<text>出口ビーコンに到着しました。私たちが飛び去ると、装置はあなたをランダムなセクターに預けるようです。</text>
+	<text>出口ビーコンに到着した。この装置は、我々がジャンプすれば、ランダムなセクターにあなたを預けるようだ。</text>
 	<variable name="loc_crystalhome" op="set" val="1" />
 	<choice hidden="true">
-		<text>船に乗って何かする。</text>
+		<text>船内で何かをする。</text>
 		<event load="STORAGE_CHECK" />
 	</choice>
 	<choice hidden="true">
@@ -232,27 +232,27 @@
 </event>
 
 <event name="FINISH_BEACON_ORIGINS_RUWEN">
-	<text>出口ビーコンに到着しました。私たちが飛び去ると、装置はあなたをランダムなセクターに預けるようです。</text>
+	<text>出口ビーコンに到着した。この装置は、我々がジャンプすれば、ランダムなセクターにあなたを預けるようだ。</text>
 	<variable name="loc_crystalhome" op="set" val="1" />
 	<variable name="loc_origins_exit" op="set" val="1" />
 	<choice req="loc_origins_exit" lvl="1" max_group="0" hidden="true" blue="false"> 
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>反乱軍艦隊はビーコンを支配しました！あなたはあなたの道と戦わなければなりません！</text>
+			<text>反乱軍艦隊がビーコンを制圧しました戦って脱出するんだ</text>
 			<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
 			<environment type="PDS" target="player" />
 			<noASBPlanet />
 			<ship load="SHIP_REBEL_FLEET_S" hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 			<choice hidden="true" req="engines" lvl="6">
-				<text>（Adv. エンジン）エリートから脱出してみてください。</text>
+				<text>(アドバンスエンジン）エリートから逃れようとする。</text>
 				<event load="FLEET_ESCAPE" />
 			</choice>
 			<choice hidden="true" req="LIST_CREW_JERRY">
-				<text>（ジェリー）「こんにちは！」</text>
+				<text>(ジェリー）"ハロー！"</text>
 				<event>
 					<text load="TEXT_ENCOUNTER_REBEL_JERRY_HELLO" />
 					<ship hostile="false" /> 
@@ -261,44 +261,44 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="loc_waystone" lvl="1" max_group="0" blue="false">
-		<text>ウェイストーンを調べます。</text>
+		<text>ウェイストーンを検査する。</text>
 		<event>
-			<text>デバイスを構成するクリスタル技術は、完全に異質ではないにしても、魅力的です。</text>
+			<text>デバイスを構成する結晶技術は、あなたにとってまったく異質なものではないにせよ、魅力的だ。</text>
 			<choice hidden="true" req="unique_ruwen" lvl="1" max_group="0" blue="false">
-				<text>ルーウェンと話してください。</text>
+				<text>ルウェンと話す。</text>
 				<event>
-					<text>ルーウェンは喜んでおり、この結果に非常に満足しています。 「いい、いい！これが一番いい」</text>
+					<text>ルウェンはこの結果に大喜びだ。「よかった、よかった！これは最高だ"</text>
 					<choice hidden="true" req="unique_vortigon" lvl="1" max_group="0" blue="false">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
-							<text>ルーウェンは近くの船の隅でいびきをかくことをしているヴォルティゴンをちらっと見ます。突然、ルーウェンは鍵を持ち上げて船の地面にぶつけました。 「私は……これを私の民に返さないのが最善だと判断しました。あなたは、いかなる立場でも必要はありませんが、この男に慈悲を示し、彼にあなたの仲間入りを説得することさえ決心しました。元の任務が廃止されたとしても、この報酬はあなたにふさわしいと思います。」</text>
+							<text>ルウェンは船の隅でいびきをかいているヴォーティゴンを一瞥する。突然、ルウェンは鍵を持ち上げ、船の地面に叩きつけた。「私は...これを仲間に返さない方がいいと判断した。あなたは、その必要がないにもかかわらず、この男に慈悲を与え、あなたの仲間に加わるよう説得した。私があなたに対して抱いていた疑念は、すべて解消されました。あなたの指揮下で仕え続けることは名誉なことだ。たとえ当初の任務が廃止されたとしても、この報酬はあなたにふさわしいものでしょう"</text>
 							<autoReward level="HIGH">scrap_only</autoReward>
 							<weapon name="GIFTLIST_CRYSTAL_ELITE" /> 
 							<damage amount="-15" />
 						</event>
 					</choice>
 					<choice hidden="true" req="unique_vortigon" lvl="0" max_group="0" blue="false">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event>
-							<text>「キャプテン、ありがとうございます。私は今、この技術で私の人々に戻らなければならないのではないかと思います。しかし、あなたの助けにお金を払うことを忘れないでください！」</text>
+							<text>「感謝するよ、船長。残念ながら、私はこの技術を持って仲間のもとに帰らなければならない。だが、君の助けに対する報酬を支払うことを忘れるな！"</text>
 							<autoReward level="HIGH">scrap_only</autoReward>
 							<weapon name="GIFTLIST_CRYSTAL_ELITE" /> 
 							<damage amount="-15" />
 							<removeCrew class="unique_ruwen">
 								<clone>false</clone>
-								<text>ルーウェンは死んでいないので、クローンを作成することはできません。彼もおそらくそれをあまり喜ばないでしょう。</text>
+								<text>ルウェンは死んでいないので、クローンを作ることはできない。彼もおそらく、あまり喜ばないだろう。</text>
 							</removeCrew>
 						</event>
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" req="unique_ruwen" lvl="0" max_group="0" blue="false">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>残念ながら、ルーウェンはもうあなたと一緒にいません。現在、デバイスをCrystalの人々に戻す適切な方法がないため、デバイスをスクラップに分解します。</text>
+					<text>残念なことに、ルウェンはもうあなたの手元にはいない。クリスタルの人々に装置を返す適切な方法がない今、あなたは装置をスクラップに分解した。</text>
 					<autoReward level="HIGH">scrap_only</autoReward>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -310,31 +310,31 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="loc_waystone" lvl="0" max_group="0" blue="false">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>残念ながら、ウェイストーンキーを入手できなかったようです...それがあなたがここに来た理由ですよね？</text>
+			<text>残念だが、ウェイストーンの鍵は手に入らなかったようだ......それがここに来た理由だったのだろう？</text>
 			<choice hidden="true" req="unique_ruwen" lvl="1" max_group="0" blue="false">
-				<text>ルーウェンと話してください。</text>
+				<text>ルウェンと話す。</text>
 				<event>
-					<text>ルーウェンはとてもがっかりしているように見えます。 「あなたには1つのタスクがありました...私は...新しいものを再構築する必要があると思います。その技術は古く、それを再現するのは難しいでしょう。私はもうあなたと一緒にいることができないのではないかと思います。私は今、私の人々に戻って、彼らに悪い知らせを伝えなければなりません。それは皮肉かもしれませんが、私はあなたに尋ねる最後の恩恵があります...」</text>
+					<text>ルウェンはとても残念そうだ。"あなたには一つの仕事があった...I...新しいものを再構築しなければならないでしょうね。あの技術は古く、再現するのは難しい。残念ながら、私はもうあなたと一緒にいることはできません。今すぐ仲間のもとに戻り、悪い知らせを伝えなければならない。皮肉かもしれないが、最後の頼みがある......」。</text>
 					<choice hidden="true">
-						<text>はい？それは何ですか？</text>
+						<text>はい？何ですか？</text>
 						<event>
-							<text>「二度と私たちのセクターに戻らないでください。」それで、ルーウェンは彼の物を詰めて、あなたがセクターを去ると出発するために動きます。</text>
+							<text>「二度とこのセクターに戻るなそう言ってルウェンは荷物をまとめ、あなたがセクターを出たら出発しようと動き出した。</text>
 							<removeCrew class="unique_ruwen">
 								<clone>false</clone>
-								<text>ルーウェンは死んでいないので、クローンを作成することはできません。彼もおそらくそれをあまり喜ばないでしょう。</text>
+								<text>ルウェンは死んでいないので、クローンを作ることはできない。彼もおそらく、あまり喜ばないだろう。</text>
 							</removeCrew>
 						</event>
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" req="unique_ruwen" lvl="0" max_group="0" blue="false">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>いずれにせよ、ルーウェンはもはや私たちと一緒ではありません。このミッションは完全な失敗と考えることができますが、少なくともいくつかの新しい光景を見ることができました。</text>
+					<text>いずれにせよ、ルウェンはもういない。このミッションは大失敗だったと思ってくれて構わないが、少なくとも新しい景色を見ることはできた。</text>
 					<choice hidden="true">
-						<text>船に乗って何かする。</text>
+						<text>船内で何かをする。</text>
 						<event load="STORAGE_CHECK" />
 					</choice>
 					<choice hidden="true">
@@ -357,49 +357,49 @@
 </eventList>
 
 <event name="ORIGINS_FREECREW" unique="true">
-	<text>焼けた民間船が近くを漂流しているのを見て驚いています。彼らはカルティストに襲われた観光客であり、生き残った人はほとんどいなかったようです。残りのクルーの1人を歓迎します。</text>
+	<text>焼けただれた民間船が近くを漂っているのを見つけて驚く。彼らは観光客で、カルト教団に襲われたようだ。あなたは残った乗組員の一人を乗船させる。</text>
 	<crewMember amount="1" class="zoltan" />
 </event>
 
 <event name="CULTIST_MOURNING" unique="true">
-	<text>地味な船のグループが近くの惑星の表面に集まった。まるで葬式の真っ最中のようです。</text>
+	<text>近くの惑星の地表に物々しい船の一団が集まっている。まるで葬式の最中のようだ。</text>
 	<img planet="PLANET_POPULATED_SMALL" />
 	<choice hidden="true">
-		<text>群衆に忍び込み、何かを盗んでみることができるかどうかを確認してください。</text>
+		<text>人ごみに忍び込んで、何か盗めないか試してみよう。</text>
 		<event>
-			<text>あなたは惑星に着陸し、カルティストの群衆の中をこっそり通り抜けます。しかし、一人の個人があなたを見つけて指摘します。 「ねえ、あなたのローブはどこにありますか？あなたはここにいることになっていますか？」</text>
+			<text>あなたは惑星に降り立ち、カルト信者の群れの中をこっそりと通り抜ける。しかし、一人の人物があなたを見つけ、指差す。「ローブはどこだ？ここにいるはずだろう？"</text>
 			<choice hidden="true">
-				<text>はい、間違いなく。</text>
+				<text>ああ、間違いない。</text>
 				<event>
-					<text>「そうですか？私たちがここに集まった友人の名前は何ですか？」</text>
+					<text>「そうですか。私たちが敬意を表するためにここに集まった友人の名前は何ですか？"</text>
 					<choice hidden="true">
-						<text>アナスタシア。</text>
+						<text>アナスタシア</text>
 						<event load="CULTIST_MOURNING_GUESS" />
 					</choice>
 					<choice hidden="true">
-						<text>レジナルド。</text>
+						<text>レジナルド</text>
 						<event load="CULTIST_MOURNING_GUESS" />
 					</choice>
 					<choice hidden="true">
-						<text>スティーブ。</text>
+						<text>スティーブ</text>
 						<event load="CULTIST_MOURNING_GUESS" />
 					</choice>
 					<choice hidden="true" req="LIST_CREW_SLUG">
-						<text>（スラッグのクルー）あなたのスラッグの答えを持っています。</text>
+						<text>(スラッグ・クルー）スラッグに答えてもらう。</text>
 						<event>
-							<text>あなたのスラッグはテレパシーであり、近くの他のカルト信者の心からそれを読むことによって答えを知っています。</text>
+							<text>あなたのナメクジはテレパシーが使えるので、近くにいる他のカルト信者の心を読んで答えを知っている。</text>
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="CULTIST_MOURNING_CORRECT" />
 							</choice>
 						</event>
 					</choice>
 					<choice hidden="true" req="BLUELIST_CREW_SNAIL">
-						<text>(テレパシー シェル) シェルに答えてもらいます。</text>
+						<text>(テレパシー・シェル）シェルに答えてもらう。</text>
 						<event>
-							<text>テレパシーの才能に恵まれたあなたのシェルは、近くにいる他のカルト信者の心から答えを読み取ることで答えを知っています。</text>
+							<text>テレパシーの才能に恵まれたあなたのシェルは、近くにいる他のカルト信者の心を読み取ることで、その答えを知る。</text>
 							<choice hidden="true">
-								<text>継続する...</text>
+								<text>次へ...</text>
 								<event load="CULTIST_MOURNING_CORRECT" />
 							</choice>
 						</event>
@@ -407,34 +407,34 @@
 				</event>
 			</choice>
 			<choice hidden="true" req="rock_cultist">
-				<text>（カルティストクルー）「はい！」</text>
+				<text>(カルト教団クルー）"イエス！"</text>
 				<event>
-					<text>「ああ、兄弟、私の間違い！あなたの奇妙な友達の中であなたを認識していませんでした。良い一日を！」続けて、保護されていないカルティスト船がいくつかある場所を見つけます。これらの船は、船に戻る前に物資を求めて襲撃します。</text>
+					<text>「ああ、弟よ、私の間違いだ！見知らぬ友人たちの中であなたが誰だか分かりませんでした。良い一日を！"そのまま進み、無防備なカルト教団の船がいくつかある場所を見つけると、船に戻る前に物資を強奪する。</text>
 					<autoReward level="HIGH">standard</autoReward>
 				</event>
 			</choice>
 			<choice hidden="true" req="unique_vortigon">
-				<text>（ヴォルティゴン）「はい、あなたはtroglodyteです。」</text>
+				<text>(ヴォルティゴン）"そうだ、このごろつきめ"</text>
 				<event>
-					<text>「ああ、天国、ヴォルティゴン！私の-私の謝罪！」近くのカルト信者全員が一歩後退し、彼らのリーダーがあなたと一緒にいるのを見てショックを受けました。彼らがあなたに贈り物を浴びせて間もなく、ヴォルティゴンと彼の「友達」を称賛しました。</text>
+					<text>「ヴォーティゴン！申し訳ありません！"近くにいた教団員たちは皆、自分たちのリーダーがあなたと一緒にいるのを見てショックを受け、一歩後ずさった。ほどなくして、彼らはヴォーティゴンと彼の「友人」を賞賛しながら、あなたに贈り物を浴びせた。</text>
 					<autoReward level="HIGH">stuff</autoReward>
 					<weapon name="GIFTLIST_CRYSTAL" />
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>クラップ、走れ！</text>
+				<text>くそっ、逃げろ！</text>
 				<event>
-					<text>混乱したカルト信者が何かをする前に、あなたは船に戻って飛び去ります。</text>
+					<text>混乱したカルト信者たちが何かする前に、あなたは船に駆け戻り、飛び去る。</text>
 				</event>
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>惑星を避けてください。</text>
+		<text>地球を避ける。</text>
 		<event>
-			<text>非常に多くのカルティストが群がっている惑星の奥深くに飛び込むのはやめましょう。</text>
+			<text>多くのカルト教団が群がる惑星の深部には潜らない方がいい。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -453,35 +453,35 @@
 	<event load="CULTIST_MOURNING_INCORRECT" />
 </eventList>
 <event name="CULTIST_MOURNING_INCORRECT">
-	<text>「それは彼の名前ではありません！あなたはなりすましです！」あなたは何人かの怒っているカルト信者と敵対的な船を追いかけて船に戻ります。</text>
+	<text>"それは彼の名前ではない！お前は偽者だ！"怒った教団員数名と敵対する船の追跡を受けながら、あなたは船に逃げ帰る。</text>
 	<ship load="SHIP_CULTIST_FIGHT" hostile="true" />
 	<boarders min="2" max="2" class="rock_cultist" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <event name="CULTIST_MOURNING_CORRECT">
-	<text>「ああ……そうだね、そうだね。お詫びします。」続けて、保護されていないカルティスト船がいくつかある場所を見つけます。これらの船は、船に戻る前に物資を求めて襲撃します。</text>
+	<text>"ああ...そうです。失礼しました"そのまま進み、無防備なカルト教団の船が何隻かある場所を見つけて、船に戻る前に物資を強奪する。</text>
 	<autoReward level="HIGH">standard</autoReward>
 </event>
 
 <event name="CULTIST_BLESSED_WEAPON" unique="true">
-	<text>近くの小さな市場がカルティストによって運営されています。彼らは「祝福された」武器を販売していると主張していますが、あなたには通常のクリスタル武器のように見えます。</text>
+	<text>近くの小さな市場では、カルト信者たちが商売をしている。彼らは "祝福された "武器を売っていると言っているが、あなたには普通のクリスタルの武器にしか見えない。</text>
 	<choice>
-		<text>武器を購入します。</text>
+		<text>武器を買う。</text>
 		<event load="CULTIST_BLESSED_WEAPON_PURCHASE" />
 	</choice>
 	<choice>
-		<text>武器を購入します。</text>
+		<text>武器を買う。</text>
 		<event load="CULTIST_BLESSED_WEAPON_PURCHASE" />
 	</choice>
 	<choice>
-		<text>カルティストを無視します。</text>
+		<text>カルト信者は無視する。</text>
 		<event>
-			<text>祝福されているかどうかにかかわらず、あなたはこれらの武器があなたの任務に役立たないと判断します。</text>
+			<text>祝福されようとされまいと、あなたはこれらの武器があなたのミッションに役立たないと判断する。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -537,34 +537,34 @@
 </eventList>
 
 <event name="CULTIST_GASPLANET" unique="true">
-	<text>あなたはガス惑星を取り巻くいくつかのカルト主義の船に気づきます。あなたはそれらの間でおしゃべりをキャッチします。 「ええ、上司はここのどこかに寺院を建てると言いました。しかし、ええと...どうやって？」</text>
+	<text>ガス惑星を取り囲む数隻のカルト教団の船に気づく。その中のおしゃべりを耳にする。"ああ、ボスがこの辺に神殿を建てろって言ってた。でも...どうやって？"</text>
 	<img planet="PLANET_GAS" />
 	<choice hidden="true">
-		<text>彼らがやろうとしていることは不可能であることを彼らに説明しなさい。</text>
+		<text>彼らがやろうとしていることは不可能だと説明するんだ。</text>
 		<event>
-			<text>あなたは説明しようとしますが、カルティストはあなたの知性を侮辱するだけです。 「いや、あなたはあなたが何について話しているのか分かりません！この種のものは私たちのような賢いものに任せてください、いいですか？」</text>
+			<text>あなたは説明しようとするが、カルト信者たちはあなたの知性を侮辱するだけだ。"いや、君は自分が何を言っているのかわかっていない！こういうことは俺たちのような賢いやつに任せておけばいいんだ、いいか？"</text>
 		</event>
 	</choice>
 	<choice hidden="true" req="LIST_CREW_ENGINEER">
-		<text>(エンジニア クルー) エンジニアに手伝ってもらいます。</text>
+		<text>(エンジニアクルー) エンジニアに手伝ってもらう。</text>
 		<event>
-			<text>あなたのエンジニアは不平を言います、xenosで働くことに満足していません。それでも、彼らは同意し、カルト信者に援助を提供します。しばらくして、彼らは浮かぶ寺院のアイデアのデザインを描きました。教団は喜んでいるようで、感謝の気持ちであなたに支払います。</text>
+			<text>君のエンジニアは不機嫌で、異星人と仕事をするのは嬉しくないようだ。それでも彼らは同意し、カルト教団に援助を提供する。しばらくして、彼らは浮遊神殿の設計図を描いた。カルト教団員たちは満足そうで、あなたにお礼を言う。</text>
 			<autoReward level="MED">fuel</autoReward>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>あなたからいくつかのがらくたを買うように彼らを騙します。</text>
+		<text>詐欺でガラクタを買わせる。</text>
 		<event>
-			<text>あなたはカメラの前でジャンクを振って、それが惑星の上に浮かぶ特別な軽量の素材だと主張します。それは完全な嘘ですが、ばかげたロックマンはそれを信じているようです。彼らは「奇跡の金属」のためにあなたによく支払います。</text>
+			<text>あなたはカメラの前でガラクタを振り回し、それが地球上に浮かぶ特殊な軽量素材だと主張する。まったくの嘘だが、バカなロックマンたちはそれを信じているようだ。彼らは "奇跡の金属 "のためにあなたに高い報酬を支払う。</text>
 			<autoReward level="LOW">scrap_only</autoReward>
 		</event>
 	</choice>
 	<choice>
-		<text>カルティストを無視します。</text>
+		<text>カルト信者は無視する。</text>
 		<event>
-			<text>あなたは彼らが彼らの使命が最終的に不可能であることを理解するだろうという信念を持っています。</text>
+			<text>あなたは、彼らがいずれ自分たちの使命が不可能であることを理解すると信じている。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -576,54 +576,54 @@
 </event>
 
 <event name="CULTIST_ARGUMENT" unique="true">
-	<text>何がわからないのに、2隻のカルティスト船が近くで論争中のようです。</text>
+	<text>カルト教団の船2隻が近くで口論しているようだが、何の口論かはわからない。</text>
 	<choice hidden="true">
-		<text>彼らの会話を盗聴します。</text>
+		<text>彼らの会話を盗み聞きする。</text>
 		<event>
-			<text>あなたは近づいて耳を傾けます。 「私はあなたに言っています、それは琥珀ではなく琥珀を言います！ここを見てください、再生15：6で！」 「いいえ、それはタイプミスです。もしそれが実際に琥珀であることが意図されていたら、私たち自身を「永遠の琥珀のカルト」と名付けるためにそのような問題を経験したと思いますか？」</text>
+			<text>あなたは近づいて耳を傾ける。「琥珀ではなく琥珀と書いてある！ここを見てください、『再生』15章6節です！"「いや、それは誤字だ！琥珀のつもりなら、わざわざ "永遠の琥珀教団 "と名乗ったと思うか？</text>
 			<choice>
-				<text>聞き続ける。</text>
+				<text>聴き続けてください。</text>
 				<event>
-					<text>「ハァッ、あなたが言うタイプミス？それが琥珀であることを意図していたことは明らかです。私たちの大祭司の船を見てください;それは琥珀の色です！」 「あなたはばかです！琥珀は赤ではありません、琥珀はオレンジです！あなたは色盲でなければなりません、あなたはばかです！」</text>
+					<text>「誤字だと？琥珀色であることは明らかです。私たちの大神官の船を見てください。琥珀色です！"「愚か者め！琥珀は赤ではない、琥珀はオレンジだ！色盲なんだろう、このバカ！"</text>
 					<choice hidden="true">
-						<text>聞き続ける。</text>
+						<text>聴き続けてください。</text>
 						<event>
-							<text>あなたはカルティストが彼らの会話に魅了されて、しばらくの間前後に議論するのを聞きます。しかし、ついに彼らはあなたに気づきます。 「ああ、あなたはどれくらい聞いていますか？ああ、気にしないでください。確かにあなたは私たちの両方のポイントを聞いたので、あなたが正しいと思うことを教えてください！」</text>
+							<text>あなたは、カルト信者たちの会話に魅了されながら、しばらくの間、口論を聞いていた。しかし、ついに彼らはあなたに気づいた。「いつから聞いていたんだ？気にするな。どっちの言い分も聞いただろうから、どっちが正しいと思うか言ってみろ！"</text>
 							<modifyPursuit amount="1" />
 							<choice hidden="true">
-								<text>永遠の「燃えさし」は正しいです。</text>
+								<text>永遠の「琥珀」が正しい。</text>
 								<event>
-									<text>2番目のカルティストは、あなたの声は問題に何の発言権もないと不平を言いますが、他の船は気にしません。彼らは彼らの側を取り、あなたにいくつかの物資を与えるのを手伝ってくれてありがとう。</text>
+									<text>二人目のカルト教団員は、あなたの声には何の影響もないと文句を言いながら喘ぐが、もう一隻の船は気にも留めない。彼らは自分たちの味方をしてくれたことに感謝し、物資をくれる。</text>
 									<autoReward level="MED">stuff</autoReward>
 								</event>
 							</choice>
 							<choice hidden="true">
-								<text>カルトは永遠の「琥珀」にちなんで名付けられることを意図していた。</text>
+								<text>カルトは永遠の「琥珀」にちなんで名づけられた。</text>
 								<event>
-									<text>最初のカルティストは、あなたの声には何の意味もないと不平を言いますが、2番目の船は気にしません。彼らは彼らの側を取り、あなたにいくつかの物資を与えるのを手伝ってくれてありがとう。</text>
+									<text>一隻目のカルト教団員は、あなたの声など関係ないと不満を漏らすが、二隻目は意に介さない。彼らは自分たちの味方をしてくれたことに感謝し、物資をくれる。</text>
 									<autoReward level="MED">stuff</autoReward>
 								</event>
 							</choice>
 						</event>
 					</choice>
 					<choice>
-						<text>これには時間がかかりすぎます。離れる。</text>
+						<text>時間がかかりすぎる。帰れ。</text>
 						<event />
 					</choice>
 				</event>
 			</choice>
 			<choice>
-				<text>これは私たちには関係ありません、去ってください。</text>
+				<text>私たちには関係ないことだ。</text>
 				<event />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>彼らを彼らの罵倒に任せなさい。</text>
+		<text>口げんかは放っておけ。</text>
 		<event>
-			<text>あなたは2隻の船を無視します。</text>
+			<text>あなたは2隻の船を無視する。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -644,35 +644,35 @@
 </eventList>
 
 <event name="ORIGINS_REBEL_CHASE" unique="true">
-	<text>近くに反乱軍の船があることに気づきましたが、カルティストの船がほんの数秒後にジャンプして追い払うまで、彼らは長く立ち往生しません！</text>
+	<text>反乱軍の船が近くにいることに気づくが、長くはとどまらず、ほんの数秒後にカルト教団の船が飛び込んできて彼らを追い払う！</text>
 	<choice hidden="true">
-		<text>反乱軍を助けてください！</text>
+		<text>反乱軍を助けよう</text>
 		<event>
-			<text>あなたはカルティストの船を追いかけます。</text>
+			<text>あなたはカルト教団の船を追いかける。</text>
 			<ship load="SHIP_ORIGINS_CHASE_CULTIST" hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>カルティストを助けてください！</text>
+		<text>カルト信者を助けよう！</text>
 		<event>
-			<text>あなたは反乱軍の船を追いかけます。</text>
+			<text>あなたは反乱軍の船を追いかける。</text>
 			<ship load="SHIP_ORIGINS_CHASE_REBEL" hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>船を無視します。</text>
+		<text>船は無視する。</text>
 		<event>
-			<text>船が視界から消えてから間もなく。</text>
+			<text>ほどなくして、船は視界から消える。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -684,51 +684,51 @@
 </event>
 <eventList name="ORIGINS_REBEL_CHASE_HELP_REBEL">
 	<event>
-		<text>すぐに、反乱軍の船が飛び去ります。臆病者...</text>
+		<text>その直後、反乱軍の船が飛び去る。臆病者め...</text>
 	</event>
 	<event>
-		<text>反乱軍の船長、ありがとう。 「私はこれらのオレンジ色の制服を着た嫌な奴に加わるべきではなかった。私が最後に期待したのは、カルティストが出没するがらくた穴で奇抜なマルチバースのレネゲートを探して私を送るように命令することだった。</text>
+		<text>反乱軍のキャプテンが礼を言う。"オレンジの制服のバカどもに 加わるべきじゃなかったカルト教団がはびこるゴミのような場所で、マルチバース・レネゲイドの捜索に駆り出されるとはな。一緒に行っても？</text>
 		<crewMember amount="1" class="human" />
 	</event>
 	<event>
-		<text>反乱軍の船長、ありがとう。 「さて、これは私があなたを好きだからだとは思わないが、恩恵は恩恵であり、私はあなたに借りがある。私があなたの場所について間違った情報を彼らに与えたとしても、コマンドは気付かない...」</text>
+		<text>反乱軍のキャプテンはあなたに感謝する。「君のことが好きだからとは思わないでほしいが、好意は好意だ。万が一、君の居場所について間違った情報を伝えても、司令部は気づかないだろう......"</text>
 		<modifyPursuit amount="-2" />
 	</event>
 </eventList>
 <eventList name="ORIGINS_REBEL_CHASE_HELP_CULTIST">
 	<event>
-		<text>カルティストの船長があなたを睨みつけます。 「あなた自身のビジネスに気をつけてください、Feds！これは私たちのセクターであり、私たちはあなたの助けを望んでいません。」</text>
+		<text>カルト教団の隊長があなたを睨む。「余計なお世話だ！ここは我々のセクターだ。</text>
 	</event>
 	<event>
-		<text>カルティストはあなたに不機嫌に感謝します。 「うーん、大丈夫。このスクラップを持って行って迷子になる」</text>
+		<text>カルト信者は不機嫌そうに礼を言う。"ああ、わかった。このスクラップを持って消えろ。"</text>
 		<autoReward level="RANDOM">scrap_only</autoReward>
 	</event>
 	<event>
-		<text>カルティストはあなたに不機嫌に感謝します。 「うーん、大丈夫。このスクラップを持って行って迷子になる」</text>
+		<text>カルト信者は不機嫌そうに礼を言う。"ああ、わかった。このスクラップを持って消えろ。"</text>
 		<autoReward level="RANDOM">scrap_only</autoReward>
 	</event>
 </eventList>
 
 <event name="ORIGINS_PIRATE_RAIDERS" unique="true">
-	<text>クリスタルの集落の残骸を襲撃している海賊を何人か見つけます。</text>
+	<text>クリスタルの集落跡を襲撃している海賊数名を発見。</text>
 	<ship load="SHIP_PIRATE_ORIGIN_RAIDER" hostile="false" />
 	<choice hidden="true">
-		<text>攻撃！</text>
+		<text>攻撃だ！</text>
 		<event>
-			<text>海賊船と交戦します。</text>
+			<text>海賊船と交戦する。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>それらを無視します。</text>
+		<text>無視するんだ。</text>
 		<event>
-			<text>少なくとも彼らはカルティストではありませんが、あなたは彼らと戦うことに興味がありません。</text>
+			<text>少なくとも彼らはカルト信者ではないが、あなたは彼らと戦うことに興味はない。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -740,35 +740,35 @@
 </event>
 
 <event name="ORIGINS_DUEL_CHOICE" unique="true">
-	<text>あなたは近くで2隻の船が戦っているのを見つけます。最初は、攻撃されるだけでクリスタルセンチネルを熱心に追跡した何人かのカルティストであるようです！</text>
+	<text>近くで2隻の船が対峙しているのを見つけた。最初の船はカルト教団のようだが、彼らは熱心にクリスタルの歩哨を追跡していた！</text>
 	<choice hidden="true">
-		<text>クリスタルをアシストします。</text>
+		<text>クリスタルをアシストする</text>
 		<event>
-			<text>カルティスト船と交戦します。</text>
+			<text>カルト教団の船と交戦する。</text>
 			<ship load="SHIP_DUEL_CULTIST" hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>カルティストを支援します。</text>
+		<text>カルト教団を援助せよ。</text>
 		<event>
-			<text>クリスタル船と交戦します。</text>
+			<text>クリスタルの船と交戦する。</text>
 			<ship load="SHIP_DUEL_SENTINEL" hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>すぐに去りなさい。</text>
+		<text>早く出て行け。</text>
 		<event>
-			<text>戦いに巻き込まれる前に、できるだけ早く飛び立つ準備をします。</text>
+			<text>戦闘に巻き込まれる前に、一刻も早く飛び立つ準備をするのだ。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -780,19 +780,19 @@
 </event>
 
 <event name="CULTIST_BOUNTY" unique="true">
-	<text>近くのカルティスト船から連絡を受け取りました。彼らはあなたのためにある種の仕事をしているようです。</text>
+	<text>近くのカルト教団の船から呼びかけを受ける。彼らはあなたに何らかの仕事を依頼しているようだ。</text>
 	<choice hidden="true">
-		<text>返事。</text>
+		<text>返信</text>
 		<event>
-			<text>「こんにちは、旅人。お願いがあります。エンバースピリットを探している最中です。近くに隠れているのではないかと思われます。しかし、私たちの船は彼らを捕まえるのに十分な武装がありません。助けてくれませんか？我ら？"</text>
+			<text>「こんにちは、見知らぬ人。あなたにお願いがあります。我々は今、琥珀の精霊を探している最中で、近くに隠れているのではないかと疑っている。しかし、我々の船は彼らを捕獲できるほど武装していません。協力していただけないでしょうか？"</text>
 			<choice hidden="true">
-				<text>同意。</text>
+				<text>同意する。</text>
 				<event>
-					<text>あなたはCultistsによって与えられた座標に従い、Crystalline Sentinelが中に隠れている小さな小惑星フィールドにあなたを導きます！</text>
+					<text>カルト教団から与えられた座標をたどっていくと、小さな小惑星地帯にたどり着く！</text>
 					<ship load="SHIP_SENTINEL_BOUNTY" hostile="true" />
 					<environment type="asteroid" />
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="COMBAT_CHECK" />
 					</choice>
 				</event>
@@ -804,15 +804,15 @@
 		</event>
 	</choice>
 	<choice>
-		<text>彼らのを無視してください。</text>
+		<text>彼らのあられもない姿は無視する。</text>
 		<event load="CULTIST_BOUNTY_IGNORE" />
 	</choice>
 </event>
 <eventList name="CULTIST_BOUNTY_IGNORE">
 	<event>
-		<text>あなたはカルト主義者を無視します。</text>
+		<text>あなたはカルト信者を無視する。</text>
 		<choice>
-			<text>船に乗って何かする。</text>
+			<text>船内で何かをする。</text>
 			<event load="STORAGE_CHECK" />
 		</choice>
 		<choice>
@@ -821,35 +821,35 @@
 		</choice>
 	</event>
 	<event>
-		<text>カルティスト船は無視されて攻撃するのをやさしく受け止めません！</text>
+		<text>カルト教団の船は無視されることを良しとせず、攻撃を仕掛けてくる！</text>
 		<ship load="SHIP_CULTIST_FIGHT" hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 </eventList>
 
 <event name="CULTIST_FAKE" unique="true">
-	<text>修正されたロゴを備えた奇妙な緑のカルト主義者の船は、他のいくつかのカルト主義者の船に説教しています。「兄弟に来て、大祭司のヴォルティゴンの嘘を信じないで！</text>
+	<text>ロゴを改造した奇妙な緑色の教団船が、他の教団船数隻に説教している。「兄弟たちよ、ヴォーティゴン大神官の嘘を信じるな！私と一緒に、儀式用の、そして絶対に毒入りではない宇宙ジュースを飲もう！"</text>
 	<ship load="SHIP_CULTIST_FAKE" hostile="false" />
 	<choice hidden="true">
-		<text>これらの貧しい魂は、彼らが何に夢中になっているのか見当がつかない。それらを救出してください！</text>
+		<text>このかわいそうな人たちは、自分たちが何に巻き込まれているのかわかっていない。彼らを救え！</text>
 		<event>
-			<text>あなたは武器の電源を入れ、狂ったカルティスト船を攻撃します。</text>
+			<text>あなたは武器をパワーアップし、狂ったカルト教団の船を攻撃する。</text>
 			<ship hostile="true" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event load="COMBAT_CHECK" />
 			</choice>
 		</event>
 	</choice>
 	<choice>
-		<text>これらの人々は彼らがやりたいことを何でもすることができます、それは彼らの人生です。</text>
+		<text>この人たちは好きなことをすればいい。</text>
 		<event>
-			<text>あなたは非常識なカルト主義者から距離を置きます。</text>
+			<text>非常識なカルト信者とは距離を置く。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -860,13 +860,13 @@
 	</choice>
 </event>
 <event name="CULTIST_FAKE_WIN">
-	<text>あなたはカルティストを打ち負かし、他の船を救った。あなたは残骸をスクラップします。</text>
+	<text>あなたはカルト教団を倒し、他の船を救った。あなたは残骸をスクラップにした。</text>
 	<autoReward level="HIGH">standard_no_item</autoReward>
 	<drone name="DIVREPAIR" />
 	<choice hidden="true">
-		<text>他のカルティストに連絡してください。</text>
+		<text>他の教団員と連絡を取る。</text>
 		<event>
-			<text>他のカルト信者は混乱して恐れています。状況を理解しているように見える一人の個人、ありがとう。 「彼の説得力のある嘘を見抜いたことを本当に悟らなければなりません！私はあなたと一緒に来たいです。」</text>
+			<text>他の教団員たちは混乱し、恐れている。状況を理解していると思われる一人が、あなたに感謝する。"彼の説得力のある嘘を見破ったということは、あなたは本当に悟りを開いたに違いない！ご一緒させてください"</text>
 			<crewMember amount="1" class="rock_cultist">ジョーンズ</crewMember>
 		</event>
 	</choice>
@@ -878,23 +878,23 @@
 </eventList>
 
 <textList name="TEXT_ORIGINS_ATTACKERS">
-	<text planet="PLANET_POPULATED_SMALL">まだ数人のクリスタルラインの人々をホストしている近くの惑星が攻撃を受けているようです！</text>
-	<text>クリスタルの船が、この救難信号の源です。彼らは攻撃を受けているようです！</text>
-	<text>クリスタルの船があなたを歓迎し、彼らを追いかけている敵対的な船から彼らを守るように要求します。</text>
+	<text planet="PLANET_POPULATED_SMALL">近くの惑星が攻撃を受けているようだ！</text>
+	<text>救難信号の発信源はクリスタルの船だ。攻撃を受けているようだ！</text>
+	<text>クリスタル船から連絡があり、後を追ってきた敵対船から守ってほしいと要請される。</text>
 </textList>
 <event name="ORIGINS_ATTACKERS">
 	<distressBeacon />
 	<text load="TEXT_ORIGINS_ATTACKERS" />
 	<choice hidden="true">
-		<text>クリスタルを救え！</text>
+		<text>クリスタルを救え</text>
 		<event load="ORIGINS_ATTACKERS_LIST" />
 	</choice>
 	<choice>
-		<text>遭難ビーコンを無視します。</text>
+		<text>遭難信号を無視する。</text>
 		<event>
-			<text>あなたは救難信号の源から自分自身を遠ざけます。</text>
+			<text>遭難信号の発信源から距離をとる。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -906,45 +906,45 @@
 </event>
 <eventList name="ORIGINS_ATTACKERS_LIST">
 	<event>
-		<text>攻撃者はカルト船のようです。あなたは攻撃する準備をします。</text>
+		<text>どうやら相手はカルト教団の船のようだ。あなたは攻撃の準備をする。</text>
 		<ship load="SHIP_ORIGINS_ATTACKERS_CULTIST" hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 	<event>
-		<text>攻撃者は海賊船のようです。あなたは攻撃する準備をします。</text>
+		<text>相手は海賊船のようだ。攻撃の準備をしろ</text>
 		<ship load="SHIP_ORIGINS_ATTACKERS_PIRATE" hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 	<event>
-		<text>攻撃者は反乱軍の船のようです。あなたは攻撃する準備をします。</text>
+		<text>攻撃者は反乱軍の艦船のようだ。攻撃の準備をしろ</text>
 		<ship load="SHIP_ORIGINS_ATTACKERS_REBEL" hostile="true" />
 		<choice hidden="true">
-			<text>継続する...</text>
+			<text>次へ...</text>
 			<event load="COMBAT_CHECK" />
 		</choice>
 	</event>
 </eventList>
 <event name="ORIGINS_ATTACKERS_WIN">
-	<text>船は敗北しました。あなたは戦いから残された資材を回収します。</text>
+	<text>船は倒された。戦いに残されたサルベージをスクラップにする。</text>
 	<autoReward level="MED">standard</autoReward>
 	<choice hidden="true">
-		<text>クリスタルにお問い合わせください。</text>
+		<text>クリスタルにコンタクトを取る。</text>
 		<event load="ORIGINS_ATTACKERS_REWARDS" />
 	</choice>
 </event>
 <eventList name="ORIGINS_ATTACKERS_REWARDS">
 	<event>
-		<text>クリスタルはあなたに感謝し、あなたにいくらかのスクラップを支払います。</text>
+		<text>クリスタルはあなたに感謝し、スクラップを支払う。</text>
 		<autoReward level="MED">scrap_only</autoReward>
 	</event>
 	<event>
-		<text>クリスタル船はひどく損傷しています。数少ない生存者の1人があなたのクルーに加わることを要求します。</text>
+		<text>クリスタルの船がひどく損傷している。数少ない生存者の一人が、あなたのクルーに加わりたいと申し出る。</text>
 		<crewMember amount="1" class="crystal" />
 	</event>
 </eventList>
@@ -971,39 +971,39 @@
 	<text load="TEXT_ENCOUNTER_CULTIST" />
 	<ship load="SHIP_CULTIST_FIGHT" hostile="true" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 	<choice hidden="true" req="unique_vortigon">
-		<text>（ヴォルティゴン）やめろ！この船は、大祭司からここを航行する許可を得ています。</text>
+		<text>(ヴォーティゴン)止まれ！ この船は大神官の許可を得ている。</text>
 		<event>
-			<text>カルティストは一時停止し、すぐに謝罪します。ヴォルティゴンの怒りを恐れて、彼らはいくつかの物資を手渡し、許しを請う。</text>
+			<text>教団員たちは立ち止まり、すぐに謝罪する。ヴォーティゴンの怒りに怯えた彼らは、物資を渡して許しを請う。</text>
 			<ship hostile="false" />
 			<autoReward level="MED">stuff</autoReward>
 		</event>
 	</choice>
 </event>
 <textList name="TEXT_ENCOUNTER_CULTIST">
-	<text>教団からの温かい歓迎を期待していたわけではありませんが、ここの船は特に攻撃的です。おそらく彼らの宗教は彼らが失礼であることを要求しています...</text>
-	<text>「あなたは真の信者ではありません。ここでのあなたの存在はエンバースピリッツを侮辱します！死ぬ死ぬ！」</text>
-	<text>敵対的なカルティスト船がここにあり、彼らの狂気の船長はあなたを殺す可能性を見てよだれを垂らしています。これらの人は本当にフリークです。</text>
-	<text>燃えさしの船がいくつかの貧しい観光船の骨格の近くを漂っています。まさにその瞬間、彼らはあなたに気づき、次にあなたを破壊しようとしているようです！</text>
-	<text>カルティストの船が攻撃のために移動するので、戦いは避けられないようです。</text>
-	<text>これらのカルト信者が何隻の船を予備として持っているかを推測することはできませんでした。まあ、少なくともそれは、取るためのスクラップの不足がないことを意味します。</text>
-	<text>「大祭司はここであなたの存在を認可していません！あなたはエンバースピリッツの前にいる価値がありません！」</text>
+	<text>カルト信者からの温かい歓迎を期待していたわけではないが、ここの船は特に攻撃的に見える。おそらく、彼らの宗教は無礼であることを要求しているのだろう...。</text>
+	<text>「あなた方は真の信者ではない、ここにいるあなた方は琥珀の精霊を侮辱している！死ね死ね死ね！"</text>
+	<text>敵対するカルト教団の船がここにいる。狂気の船長は、あなたを殺すという見込みに涎を垂らしている。あいつらは本当に異常者だ。</text>
+	<text>琥珀の船が、哀れな観光船の骸骨の近くを漂っている。彼らがあなたに気づいた瞬間、次はあなたを破壊するつもりらしい！</text>
+	<text>カルト教団の船が攻撃を仕掛けてくるので、戦いは避けられないようだ。</text>
+	<text>カルト教団の連中がどれだけの船を用意しているか、想像もつかなかっただろう。まあ、少なくともスクラップには事欠かないということだ。</text>
+	<text>「大司祭は、あなたがここにいることを認めていません！お前は琥珀の精霊の前にふさわしくない！"</text>
 </textList>
 <event name="ENCOUNTER_CULTIST_SUN" unique="true">
-	<text>「暖かさ、あなたはそれを感じることができますか？あなたの死の前の太陽のそれよりも見るべきより良い光景はありませんか？」あなたは彼らのメッセージの最後の部分を処理するまでうなずき始めます、しかしそれはすでに手遅れです。カルティスト船が急降下して攻撃します。</text>
+	<text>"暖かさ、感じられるか？終焉を迎える前の太陽ほど素晴らしい光景はないだろう？"あなたは彼らのメッセージの最後の部分を理解するまでうなずき始めたが、時すでに遅し。教団の船が急降下して攻撃してきたのだ。</text>
 	<ship load="SHIP_CULTIST_FIGHT" hostile="true" />
 	<environment type="sun" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 	<choice hidden="true" req="unique_vortigon">
-		<text>（ヴォルティゴン）やめろ！この船は、大祭司からここを航行する許可を得ています。</text>
+		<text>(ヴォーティゴン)止まれ！ この船は大神官の許可を得ている。</text>
 		<event>
-			<text>カルティストは一時停止し、すぐに謝罪します。ヴォルティゴンの怒りを恐れて、彼らはいくつかの物資を手渡し、許しを請う。</text>
+			<text>教団員たちは立ち止まり、すぐに謝罪する。ヴォーティゴンの怒りに怯えた彼らは、物資を渡して許しを請う。</text>
 			<ship hostile="false" />
 			<autoReward level="MED">stuff</autoReward>
 		</event>
@@ -1020,64 +1020,64 @@
 	<text load="TEXT_ENCOUNTER_ORIGINS_CRYSTAL" />
 	<ship load="SHIP_CRYSTAL_FIGHT" hostile="true" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <textList name="TEXT_ENCOUNTER_ORIGINS_CRYSTAL">
-	<text>クリスタル船がこのビーコンの周りを移動しています。クリスタルの領土であるはずのクリスタルよりも多くのカルトを見ると問題があることは知っていますが、クリスタルの船が攻撃的になるまで、それについて考える時間はありません。</text>
-	<text>このセクターのクリスタルの人々の元々の人口は、カルト主義者の侵入以来、端を発しているようです。ここの船が一目であなたを攻撃するほど、何も考えずにあなたを攻撃します！</text>
-	<text>「あなたは私たちのセクター、連邦に侵入しています！私たちには対処するのに十分なカルトがいます、あなたはここにいることはできません！」あなたはクリスタル船で推論しようとしますが、彼らは聞くことを超えています。</text>
-	<text>クリスタルの船が近づき、武器が引き抜かれます。あなたは彼らを怒らせるためにあなたが何をしたのか分かりませんが、あなたは戦わなければならないように見えます。</text>
+	<text>クリスタル船がこのビーコンを移動している。クリスタルのテリトリーであるはずの場所で、クリスタルを上回る数のカルト教団員を見ている時点で、問題があることはわかるが、クリスタルの船が攻撃的になるまで、それ以上考える時間はない。</text>
+	<text>このセクターに元々住んでいたクリスタルの人々は、カルト教団の侵略以来、イライラしているようだ。だから、ここの船は見境なく攻撃してくる！</text>
+	<text>「我々のセクターに侵入している！カルト集団はもうたくさんだ。クリスタルの船を説得しようとするが、聞く耳を持たない。</text>
+	<text>クリスタルの船が武器を構えて近づいてくる。何をしたのかわからないが、戦うしかないようだ。</text>
 </textList>
 <event name="ENCOUNTER_ORIGINS_CRYSTAL_ASTEROID" unique="true">
-	<text>おそらく狂気のカルト信者から隠れようとしているクリスタルの船が、ここの小惑星のフィールドに避難しました。彼らはあなたが彼らを狩っていると思っているようです、なぜなら彼らはあなたにチャンスを与えず、あなたが飛び込むとすぐに攻撃するからです！</text>
+	<text>狂気のカルト信者から身を隠そうとしているのか、クリスタルの船がここの小惑星フィールドに避難している。彼らはあなたが自分たちを追っていると思っているようで、あなたが飛び込むとすぐに攻撃してくる！</text>
 	<ship load="SHIP_CRYSTAL_FIGHT" hostile="true" />
 	<environment type="asteroid" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 
 <event name="CULTIST_PIRATE_BURN" unique="true">
-	<text>カルティスト船が近くの海賊船を炎上させました。船が遠くで燃えている間、彼らは同じことをするつもりであなたに近づきます。</text>
+	<text>カルト教団の船が近くの海賊船に火をつけた。船が遠くで燃えている間、彼らは同じことをするつもりであなたに近づいてきた。</text>
 	<ship load="SHIP_CULTIST_PIRATE_BURN" hostile="true" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="COMBAT_CHECK" />
 	</choice>
 </event>
 <event name="CULTIST_PIRATE_BURN_SHIP">
-	<text>スキャンは、海賊船の非常にかすかな生命の痕跡を拾います。それらを保存するのに遅すぎることはないかもしれませんが、それは危険です。</text>
+	<text>スキャンの結果、海賊船から微弱な生命反応が検出された。まだ間に合うかもしれないが、危険だ。</text>
 	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
-		<text>支援する乗組員がいないため、ドッキングはオプションではありません。</text>
+		<text>クルーがいないため、ドッキングはできない。</text>
 		<event load="OPTION_INVALID" />
 	</choice>
 	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
-		<text>海賊に乗り込み、救助します。</text>
+		<text>乗船して海賊を救出する。</text>
 		<event load="CULTIST_PIRATE_BURN_RESCUE" />
 	</choice>
 	<choice hidden="true">
-		<text>燃えている船は無視してください。</text>
+		<text>燃えている船は無視する。</text>
 		<event />
 	</choice>
 </event>
 <eventList name="CULTIST_PIRATE_BURN_RESCUE">
 	<event>
-		<text>あなたのクルーは海賊を救おうと急いで乗り込みます。幸いなことに、生存者の1人を含め、誰もがそれを生き返らせています。</text>
+		<text>あなたの乗組員は、海賊を救おうと急いで乗船する。幸いなことに、生存者の一人を含め、全員が生きて戻ることができた。</text>
 		<crewMember amount="1" />
 	</event>
 	<event>
-		<text>あなたのクルーは海賊を救おうと急いで乗り込みます。チームは生存者の1人と一緒に戻りますが、クルーの1人が行方不明です。チームは、彼らが炎に巻き込まれ、それを生き生きとさせなかったと報告しています。</text>
+		<text>乗組員は海賊を救おうと急いで乗船する。チームは生存者の1人を連れて戻ってきたが、乗組員の1人が行方不明になっている。チームは、彼らが炎に巻き込まれ、生きて帰れなかったと報告している。</text>
 		<crewMember amount="1" />
 		<removeCrew>
 			<clone>true</clone>
-			<text>幸いなことに、クローンベイがクルーを戻さないようにするには、炎がいくらかかかるでしょう。</text>
+			<text>幸いなことに、クローン・ベイが乗組員を連れ戻さないためには、炎以上のものが必要だ。</text>
 		</removeCrew>
 	</event>
 	<event>
-		<text>海賊はそれをしなかったようです。あなたのクルーは手ぶらで戻ります。</text>
+		<text>海賊は間に合わなかったようだ。乗組員は手ぶらで戻る。</text>
 	</event>
 </eventList>
 
@@ -1086,15 +1086,15 @@
 
 
 <event name="CULTIST_CHURCH_FAKE"> 
-	<text>あなたはこのビーコンで巨大な教会に出くわしました。</text>
+	<text>あなたはこのビーコンで巨大な教会に出くわした。</text>
 	<img back="BACK_EVENT_EMBERCHURCH" planet="PLANET_INVISIBLE" />
 	<variable name="loc_emberchurch_noruwen" op="set" val="1" />
 	<choice hidden="true" req="loc_emberchurch_ruwen" lvl="1" max_group="0" blue="false">
-		<text>継続する...</text> 
+		<text>次へ...</text> 
 		<event>
-			<text>あなたが最後にここにいた時から、教会のほとんどが放棄されたようです。それ以来、彼らはおそらく別の場所に移転しました...</text>
+			<text>あなたが最後にここに来たときから、教会の大部分は放棄されたようだ。おそらくその後、別の場所に移転したのだろう......。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1104,11 +1104,11 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="loc_emberchurch_ruwen" lvl="0" max_group="0" blue="false">
-		<text>継続する...</text> 
+		<text>次へ...</text> 
 		<event>
-			<text>それはかなりの光景ですが、ここで行うことはほとんどありません。</text>
+			<text>壮観ではあるが、ここですることはほとんどない。</text>
 			<choice>
-				<text>船に乗って何かする。</text>
+				<text>船内で何かをする。</text>
 				<event load="STORAGE_CHECK" />
 			</choice>
 			<choice>
@@ -1123,16 +1123,16 @@
 	<preventQuest />
 	<beaconType id="map_icon_key" global="true">
 		<color r="0" g="210" b="255" a="1.0" />
-		<unvisitedTooltip>ウェイストーンキーの場所。</unvisitedTooltip>
-		<visitedTooltip>探索された場所。</visitedTooltip>
+		<unvisitedTooltip>ウェイストーン・キーの場所。</unvisitedTooltip>
+		<visitedTooltip>探検された場所</visitedTooltip>
 	</beaconType>
-	<text>ルーウェンによって指定された座標に到着しました。</text>
+	<text>ルウェンが指定した座標に到着した。</text>
 	<img back="BACK_EVENT_EMBERCHURCH" planet="NONE" />
 	<variable name="loc_emberchurch_ruwen" op="set" val="1" />
 	<choice hidden="true" req="loc_emberchurch_noruwen" lvl="1" max_group="0" blue="false">
-		<text>継続する...</text> 
+		<text>次へ...</text> 
 		<event>
-			<text>以前と同じ教会だと驚いています。ルーウェンは、なぜ座標があなたをここに導いたのかについてあなたと同じように混乱していますが、彼は私たちが入って調査することを提案しています。</text>
+			<text>以前と同じ教会であることに驚く。ルウェンは、なぜ座標があなたをここに導いたのか、あなたと同じように混乱していたが、彼は中に入って調査することを提案した。</text>
 			<choice>
 				<text>入る...</text>
 				<event load="CULTIST_CHURCH_BEGIN" />
@@ -1140,9 +1140,9 @@
 		</event>
 	</choice>
 	<choice hidden="true" req="loc_emberchurch_noruwen" lvl="0" max_group="0" blue="false">
-		<text>継続する...</text> 
+		<text>次へ...</text> 
 		<event>
-			<text>その場所には巨大な教会があるようです。ルーウェンは、なぜ座標があなたをここに導いたのかについてあなたと同じように混乱していますが、彼は私たちが入って調査することを提案しています。</text>
+			<text>その場所には巨大な教会があるようだ。ルウェンは、なぜ座標があなたをここに導いたのか、あなたと同じように混乱しているが、彼は中に入って調査することを提案する。</text>
 			<choice>
 				<text>入る...</text>
 				<event load="CULTIST_CHURCH_BEGIN" />
@@ -1152,63 +1152,63 @@
 </event>
 
 <event name="CULTIST_CHURCH_BEGIN">
-	<text>あなたは教会に入って、カルティストの群衆に説教している赤いローブを着たロックマンを見つけます。彼らは説教の真っ最中です、そして彼らはおそらく中断を認めないでしょう。しかし、見た目からすると、すぐに解消されるとは思えません。</text>
+	<text>教会に入ると、赤いローブをまとったロックマンが大勢のカルト信者に説教をしている。彼らは説教の真っ最中で、おそらく中断を喜ばないだろう。しかし、その様子からすると、すぐに説教が終わることはなさそうだ。</text>
 	<choice hidden="true">
-		<text>これは重要;説教を中断します。</text>
+		<text>これは重要なことで、説教を中断する。</text>
 		<event>
-			<text>あなたは立ち上がって説教者に近づきます。彼は満足していないようだ。</text>
+			<text>あなたは立ち上がり、説教者に近づく。彼は嬉しそうではない。</text>
 			<choice hidden="true" req="unique_ruwen" lvl="1" max_group="0" blue="false">
-				<text>ルーウェンに彼と話してもらいます。</text>
+				<text>ルウェンに彼と話してもらう。</text>
 				<event>
-					<text>ルーウェンは手を伸ばしますが、ロックマンはそれを振りません。 「私は大祭司ヴォルティゴンです。これが私の教会です。どういうわけか、荷船で私の説教を中断する必要があると思いましたか？」</text>
+					<text>ルウェンは手を伸ばしたが、ロックマンは握手しようとしない。「私は大神官ヴォーティゴン、ここは私の教会だ。私の説教の邪魔をするとはどういうことだ？"</text>
 					<choice hidden="true" blue="false">
-						<text>ウェイストーンキーのために来ました。</text>
+						<text>ウェイストーンの鍵を取りに来たんだ。</text>
 						<event load="CULTIST_CHURCH_QUESTION" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" req="unique_ruwen" lvl="0" max_group="0" blue="false">
-				<text>ただそこに立って見つめてください。</text>
+				<text>ただそこに立って見つめるだけだ。</text>
 				<event>
-					<text>ルーウェンがいなければ、何を言うべきかわかりません。ロックマンが疲れて3人の警備員に来てあなたを連れて行くように命じるまで、あなたはそこに立って少し厄介な瞬間を見つめます。あなたは、追求しているカルト信者と一緒に教会を使い果たします。</text>
+					<text>ルウェンがいなければ、何を話せばいいのかわからない。ロックマンが疲れ果てて、3人の衛兵にあなたを運び出すよう命じるまで、気まずい雰囲気の中、あなたはじっと立ち尽くしていた。あなたはカルト信者たちに追われながら教会を飛び出した。</text>
 					<boarders min="3" max="3" class="rock_cultist" />
 				</event>
 			</choice>
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>忍び寄って鍵を探してみてください。</text>
+		<text>こそこそと鍵を探そうとする。</text>
 		<event>
-			<text>あなたは教会を出て、ループバックします。あなたは2つのドアに気づきましたが、それがどこにあるのかわかりません。</text>
+			<text>あなたは教会を出て、裏手に回った。ドアが2つあることに気づくが、どこにあるのか見当がつかない。</text>
 			<choice hidden="true">
-				<text>「神社」と記されたドアに入る。</text>
+				<text>神社』と書かれたドアに入る。</text>
 				<event>
-					<text>あなたはランダムに推測して神社を選びます。ご想像のとおり、ルーウェンは小さなガラスの箱で保護された台座に鍵がかかっているのを見つけました。</text>
+					<text>あなたは適当に推測し、神社を選んだ。思ったとおり、ルウェンは小さなガラスの箱に守られた台座の上に鍵が置かれているのを見つけた。</text>
 					<choice hidden="true">
-						<text>ケースを壊して開きます。</text>
+						<text>ケースを開ける。</text>
 						<event>
-							<text>台座が床に急速に後退し、警報が鳴るだけで、ケースを壊します。あなたは他の部屋からの叫び声を聞いて、怒り狂った何人かのカルト信者によって追いかけられて、尽きます。</text>
+							<text>あなたはケースを壊したが、台座は急速に床に沈み、警報が鳴り響いた。別の部屋から叫び声が聞こえ、激怒した数人のカルト教団員に追われて外に飛び出す。</text>
 							<boarders min="1" max="1" class="rock_cultist" />
 							<choice hidden="true">
-								<text>急いで船に戻ってください！</text>
+								<text>急いで船に戻るんだ！</text>
 								<event>
-									<text>船に戻ると、ヴォルティゴンと他の数人のカルト信者のグループが巨大な巡洋艦に向かって走っているのを見つけます。ヴォルティゴンが鍵を持っているようです！</text>
+									<text>船に戻ろうとすると、ヴォーティゴンと数人のカルト集団が巨大な巡洋艦に向かって走っているのを発見する。ヴォーティゴンは鍵を持っているようだ！</text>
 									<ship load="SHIP_CULTIST_BOSS" hostile="false" />
 									<choice hidden="true">
-										<text>攻撃、その鍵が必要です！</text>
+										<text>アタック、その鍵が必要なんだ！</text>
 										<event>
-											<text>あなたは巨大な巡洋艦に向かってスピードを上げ、武器を充電します。</text>
+											<text>武器を構え、巨大な巡洋艦に向かってスピードを上げる。</text>
 											<ship hostile="true" />
 											<choice hidden="true">
-												<text>継続する...</text>
+												<text>次へ...</text>
 												<event load="COMBAT_CHECK" />
 											</choice>
 										</event>
 									</choice>
 									<choice hidden="true">
-										<text>私たちはそれを危険にさらすことはできません、走ってください！</text>
+										<text>危険は冒せない！</text>
 										<event>
-											<text>船を攻撃するために群がるカルティストの大群のように、対処するのに十分な問題があります。</text>
+											<text>あなたの船を攻撃しようと群がるカルト信者の大群など、対処すべき問題は十分にある。</text>
 											<boarders min="2" max="2" class="rock_cultist" />
 										</event>
 									</choice>
@@ -1219,9 +1219,9 @@
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>「ストレージ」とマークされたドアに入ります。</text>
+				<text>倉庫』と書かれたドアに入る。</text>
 				<event>
-					<text>あなたは保管室に入り、ジャンクを通して盗み始めます。あなたはたくさんのジャンクを見つけますが、鍵ではありません。何人かの耕作者が部屋に入って、あなたが彼らのジャンクを略奪しているのを見つけたら、あなたはループして神社をチェックすることを検討し始めます。あなたが彼らのジャンクを略奪することでかなり不快になり、彼らはあなたを船に追いかけます！</text>
+					<text>倉庫に入り、ガラクタを漁り始める。ガラクタはたくさん見つかったが、鍵は見つからなかった。あなたは戻って祠を調べようとしたが、数人のカルト教団員が部屋に入ってきて、あなたがガラクタを略奪しているのを発見した。ガラクタを略奪されたことに業を煮やした彼らは、あなたを船まで追いかける！</text>
 					<autoReward level="MED">stuff</autoReward>
 					<boarders min="3" max="3" class="rock_cultist" />
 				</event>
@@ -1230,47 +1230,47 @@
 	</choice>
 </event>
 <event name="CULTIST_CHURCH_QUESTION">
-	<text>「……なに？」 ヴォルティゴンは混乱しているように見えるので、ルーウェンは再び介入して、デバイスについて説明します。 「あなたは永遠の燃えさしについて言及していますか？これは私たちの最も神聖な所有物です！もちろんあなたはそれを持っていないかもしれません！今私の教会から出てください。」</text>
+	<text>"その...何？"ヴォーティゴンが混乱した様子なので、ルウェンが再び入って装置の説明をする。"永遠の琥珀 "のことですか？私たちの最も神聖な財産です！もちろん、あなたは持っていないかもしれません！私の教会から出て行きなさい"</text>
 	<choice hidden="true">
-		<text>力を入れてください！</text>
+		<text>力ずくで取る！</text>
 		<event>
-			<text>あなたはヴォルティゴンを押しのけて、気付く前に鍵を取るために行進する準備をします...あなたはそれがどこにあるのか全くわかりません。ヴォルティゴンは咳をし、警備員にあなたを追い払うように命じます。クラップ、ミッション中止！</text>
+			<text>ヴォルティゴンの横を通り過ぎ、鍵を奪おうと進軍の準備を始める。ヴォーティゴンは咳き込み、護衛兵にあなたを追い払うよう命じる。くそっ、作戦中止だ！</text>
 			<boarders min="3" max="3" class="rock_cultist" />
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>離れて、後ろに忍び寄って鍵を探します。</text>
+		<text>その場を離れ、こっそり裏に回って鍵を探す。</text>
 		<event>
-			<text>あなたは教会を出て、ループバックします。あなたはそれがあり得る2つのドアに気づきます。</text>
+			<text>あなたは教会を出て、裏手に回った。ドアが2つあることに気づく。</text>
 			<choice hidden="true">
-				<text>「神社」と記されたドアに入る。</text>
+				<text>神社』と書かれたドアに入る。</text>
 				<event>
-					<text>あなたはヴォルティゴンが「鍵」が彼らのカルト全体の基礎であると言ったことを思い出します、それであなたは神社が見るのに良い場所であると思います。ご想像のとおり、ルーウェンは小さなガラスの箱で保護された台座に鍵がかかっているのを見つけました。</text>
+					<text>ヴォルティゴンが "鍵 "は彼らのカルトの根幹だと言っていたのを思い出し、祠を探すにはいい場所だと思った。思ったとおり、ルウェンは小さなガラスの箱に守られた台座の上に鍵が置かれているのを見つけた。</text>
 					<choice hidden="true">
-						<text>ケースを壊して開きます。</text>
+						<text>ケースを開ける。</text>
 						<event>
-							<text>台座が床に急速に後退し、警報が鳴るだけで、ケースを壊します。あなたは他の部屋からの叫び声を聞いて、怒り狂った何人かのカルト信者によって追いかけられて、尽きます。</text>
+							<text>あなたはケースを壊したが、台座は急速に床に沈み、警報が鳴り響いた。別の部屋から叫び声が聞こえ、激怒した数人のカルト教団員に追われて外に飛び出す。</text>
 							<boarders min="1" max="1" class="rock_cultist" />
 							<choice hidden="true">
-								<text>急いで船に戻ってください！</text>
+								<text>急いで船に戻るんだ！</text>
 								<event>
-									<text>船に戻ると、ヴォルティゴンと他の数人のカルト信者のグループが巨大な巡洋艦に向かって走っているのを見つけます。ヴォルティゴンが鍵を持っているようです！</text>
+									<text>船に戻ろうとすると、ヴォーティゴンと数人のカルト集団が巨大な巡洋艦に向かって走っているのを発見する。ヴォーティゴンは鍵を持っているようだ！</text>
 									<ship load="SHIP_CULTIST_BOSS" hostile="false" />
 									<choice hidden="true">
-										<text>攻撃、その鍵が必要です！</text>
+										<text>アタック、その鍵が必要なんだ！</text>
 										<event>
-											<text>あなたは巨大な巡洋艦に向かってスピードを上げ、武器を充電します。</text>
+											<text>武器を構え、巨大な巡洋艦に向かってスピードを上げる。</text>
 											<ship hostile="true" />
 											<choice hidden="true">
-												<text>継続する...</text>
+												<text>次へ...</text>
 												<event load="COMBAT_CHECK" />
 											</choice>
 										</event>
 									</choice>
 									<choice hidden="true">
-										<text>私たちはそれを危険にさらすことはできません、走ってください！</text>
+										<text>危険は冒せない！</text>
 										<event>
-											<text>船を攻撃するために群がるカルティストの大群のように、対処するのに十分な問題があります。</text>
+											<text>あなたの船を攻撃しようと群がるカルト信者の大群など、対処すべき問題は十分にある。</text>
 											<boarders min="2" max="2" class="rock_cultist" />
 										</event>
 									</choice>
@@ -1281,9 +1281,9 @@
 				</event>
 			</choice>
 			<choice hidden="true">
-				<text>「ストレージ」とマークされたドアに入ります。</text>
+				<text>倉庫』と書かれたドアに入る。</text>
 				<event>
-					<text>あなたは保管室に入り、ジャンクを通して盗み始めます。あなたはたくさんのジャンクを見つけますが、鍵ではありません。何人かの耕作者が部屋に入って、あなたが彼らのジャンクを略奪しているのを見つけたら、あなたはループして神社をチェックすることを検討し始めます。あなたが彼らのジャンクを略奪することでかなり不快になり、彼らはあなたを船に追いかけます！</text>
+					<text>倉庫に入り、ガラクタを漁り始める。ガラクタはたくさん見つかったが、鍵は見つからなかった。あなたは戻って祠を調べようとしたが、数人のカルト教団員が部屋に入ってきて、あなたがガラクタを略奪しているのを発見した。ガラクタを略奪されたことに業を煮やした彼らは、あなたを船まで追いかける！</text>
 					<autoReward level="MED">stuff</autoReward>
 					<boarders min="3" max="3" class="rock_cultist" />
 				</event>
@@ -1294,31 +1294,31 @@
 <ship name="SHIP_CULTIST_BOSS" auto_blueprint="MU_CULTIST_BOSS">
 	<escape timer="100" min="99" max="99" />
 	<gotaway>
-		<text>ヴォルティゴンの巡洋艦が飛び去り、ほこりの中にあなたを置き去りにします。くそ！今すぐキーを取得する方法はありません...</text>
+		<text>ヴォーティゴンの巡洋艦が飛び去り、あなたは埃の中に取り残された。くそっ！もう鍵を手に入れることはできない...。</text>
 	</gotaway>
 	<surrender load="VORTIGON_SURRENDER" min="2" max="3" />
 	<destroyed load="VORTIGON_DESTROY" />
 	<deadCrew load="VORTIGON_DEADCREW" />
 </ship>
 <event name="VORTIGON_DESTROY">
-	<text>ヴォルティゴンの船が爆発し、破片が教会に散乱します。あなたは急降下して出発する前にいくつかの資料を収集しました-キーが巡洋艦と一緒に破壊されたことに失望しました。</text>
+	<text>ヴォーティゴンの船が爆発し、破片が教会に降り注ぐ。クルーザーと一緒にキーも破壊されたことに落胆しながらも、その場を去る前に、あなたは急降下して資料を集める。</text>
 	<variable name="ach_boss_vortigon" op="set" val="1" />
 	<autoReward level="HIGH">standard</autoReward>
 </event>
 <event name="VORTIGON_SURRENDER">
-	<text>ヴォルティゴンの巡洋艦は吃音を発し、ほとんど軌道に乗ることができませんでした。彼らは長く生き残ることはありません。</text>
+	<text>ヴォーティゴンの巡洋艦は蹌踉めいている。長くは生きられないだろう。</text>
 	
 	<choice hidden="true">
-		<text>単に発砲を停止します。</text>
+		<text>単に発射を止めるだけだ。</text>
 		<event>
-			<text>武器の電源を切り、監視します。大爆発は巡洋艦のエンジンを破壊し、船は地面に急降下します。あなたはその近くを操縦し、残骸を調査します。</text>
+			<text>あなたは武器をパワーダウンして見る。大爆発が巡洋艦のエンジンを破壊し、船は地面に激突する。あなたはその近くに降り、残骸を調査する。</text>
 			<ship hostile="false" />
 			<choice hidden="true">
-				<text>継続する...</text>
+				<text>次へ...</text>
 				<event>
-					<text>割れたガラスや死体を踏まないように注意しながら、残骸に入ります。船の隅に、ほとんど損傷のない鍵を見つけます。</text>
+					<text>割れたガラスや死体を踏まないように注意しながら、残骸の中に入っていく。船の片隅に、ほとんど損傷のない「鍵」を見つける。</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="VORTIGON_KEY" />
 					</choice>
 				</event>
@@ -1326,49 +1326,49 @@
 		</event>
 	</choice>
 	<choice hidden="true">
-		<text>戦い続ける。</text>
+		<text>戦い続けるんだ。</text>
 		<event />
 	</choice>
 </event>
 <event name="VORTIGON_DEADCREW">
-	<text>ヴォルティゴンのクルーの巡洋艦を空にしました。船の残りは簡単に拾うことができます。</text>
+	<text>ヴォーティゴンのクルーザーの乗組員を空にした。船の残骸は簡単な獲物だ。</text>
 	<autoReward level="HIGH">standard</autoReward>
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event load="VORTIGON_KEY" />
 	</choice>
 </event>
 <event name="VORTIGON_KEY">
-	<text>あなたは船の床から鍵をすくい上げます。ついに、あなたはあなたが来たものを手に入れました。</text>
+	<text>船の床から鍵をすくい上げる。ついに手に入れた。</text>
 	<unlockCustomShip silent="false">PLAYER_SHIP_CULTIST</unlockCustomShip>
 	<variable name="ach_boss_vortigon" op="set" val="1" />
 	<variable name="loc_waystone" op="set" val="1" />
 	<choice hidden="true">
-		<text>継続する...</text>
+		<text>次へ...</text>
 		<event>
-			<text>あなたが去るとき、あなたは空気をあえぎながら男の音に気づきます。あなたはヴォルティゴンがかろうじて生命に執着し、恐れてあなたから這い去るのを見るために向きを変えます。</text>
+			<text>その場を立ち去ろうとしたとき、息絶え絶えの男の物音に気づく。振り向くと、ヴォーティゴンがかろうじて命からがら、恐怖のあまり這って逃げていくのが見えた。</text>
 			<choice hidden="true">
-				<text>彼を終わらせる。</text>
+				<text>彼を仕留める。</text>
 				<event>
-					<text>ブーツを持ち上げて、ヴォルティゴンに叩きつけます。一瞬にして、彼は去りました。そのろくでなしは彼が値するものを手に入れました。</text>
+					<text>あなたはブーツを持ち上げ、ヴォーティゴンに叩きつける。一瞬にして彼は消えた。あの野郎は自業自得だ。</text>
 				</event>
 			</choice>
 			<choice hidden="true" req="medbay" lvl="2">
-				<text>（Upg. Medbay）急いでメドベイに行き、彼を癒してください。</text>
+				<text>(メドベイへ急ぎ、彼を治療してください。</text>
 				<event>
-					<text>あなたはヴォルティゴンを持ち上げ、メドベイに向かって彼を運びます。あなたは彼を救うのに十分な速さです。</text>
+					<text>ヴォーティゴンを抱え上げ、医療室に運ぶ。彼を救うには十分な速さだ。</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="VORTIGON_SAVED" />
 					</choice>
 				</event>
 			</choice>
 			<choice hidden="true" req="clonebay" lvl="1">
-				<text>（クローンベイ）ヴォルティゴンのデータをクローンベイに入力します。</text>
+				<text>(クローンベイ）ヴォーティゴンのデータをクローンベイに入れる。</text>
 				<event>
-					<text>あなたはヴォルティゴンのDNAの綿棒を取り、それをCloneBayレジストリにエンコードします...</text>
+					<text>ヴォーティゴンのDNAを採取し、クローンベイに登録する。</text>
 					<choice hidden="true">
-						<text>継続する...</text>
+						<text>次へ...</text>
 						<event load="VORTIGON_SAVED" />
 					</choice>
 				</event>
@@ -1377,8 +1377,8 @@
 	</choice>
 </event>
 <event name="VORTIGON_SAVED">
-	<text>しばらくすると、ヴォルティゴンが目を覚ます。 「あなたは...あなたは私を救ったのですか？あなたは精神的に病気ですか？あなたは私の教会を攻撃して神聖な永遠の燃えさしを盗もうとしました、そしてあなたは私の命を救う大胆さを持っていますか？私-ありがとう？」</text>
+	<text>しばらくしてヴォーティゴンが目を覚ました。「俺を助けたのか？お前は精神病か？神聖な "永遠の琥珀 "を盗もうとして私の教会を攻撃したくせに、私の命を助けようという厚かましさがあるのか？感謝する?"</text>
 	<variable name="ach_crew_vortigon" op="set" val="1" />
-	<crewMember amount="1" combat="1" class="unique_vortigon">ヴォルティゴン</crewMember>
+	<crewMember amount="1" combat="1" class="unique_vortigon">ヴォーティゴン</crewMember>
 </event>
 </FTL>
